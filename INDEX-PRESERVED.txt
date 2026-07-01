@@ -1,0 +1,7 @@
+Your uploaded sorted_index-3.html was copied directly to index.html.
+
+SHA256 of preserved index.html:
+8b7afcd6e5cab639a844ec5cdbcfb8f168137b4a91bf77213c89cb20259f11bd
+
+No CSS or JavaScript was extracted from it.
+No layout or text was changed.
