@@ -961,6 +961,42 @@ url("background.png") !important;
         font-size:2rem;
     }
 }
+.side-tabs{
+position:fixed;
+left:18px;
+top:50%;
+transform:translateY(-50%);
+z-index:9998;
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+.side-tabs a{
+background:rgba(255,250,243,.94);
+border:1px solid rgba(202,167,106,.35);
+box-shadow:0 12px 30px rgba(23,38,27,.12);
+backdrop-filter:blur(12px);
+color:#17261b;
+font-weight:800;
+font-size:.82rem;
+padding:10px 14px;
+border-radius:999px;
+text-decoration:none;
+transition:.25s ease;
+}
+
+.side-tabs a:hover{
+background:#17261b;
+color:white;
+transform:translateX(4px);
+}
+
+@media(max-width:900px){
+.side-tabs{
+display:none;
+}
+}
 .floating-contact{
     position:fixed;
     right:24px;
@@ -1332,7 +1368,7 @@ url("background.png") !important;
 </button>
 <nav>
 
-<a href="login.html">Client Login</a>
+<a href="portal/index.html">Client Login</a>
 
 <a href="#services">Services</a>
 
@@ -2131,6 +2167,15 @@ Bank Transfer • Debit &amp; Credit Card • Standing Order (Memberships)
 </div>
 
 </section>
+<div class="side-tabs">
+  <a href="#services">Services</a>
+  <a href="#ad-hoc">Flexible</a>
+  <a href="#memberships">Plans</a>
+  <a href="#about">About</a>
+  <a href="#perfect-for">Who</a>
+  <a href="#faq">FAQ</a>
+  <a href="#contact">Contact</a>
+</div>
 <div class="floating-contact">
 
   <a href="tel:+441323396610" class="floating-btn phone" aria-label="Call">
