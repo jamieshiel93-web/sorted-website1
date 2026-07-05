@@ -391,6 +391,9 @@ data.status;
 document.getElementById("nextVisitText").textContent =
 data.nextVisit;
 
+document.getElementById("hoursText").textContent =
+data.hoursRemaining || "Hours coming soon";
+
 }
 
 document.getElementById("loading").style.display="none";
