@@ -323,6 +323,15 @@ Loading invoices...
 
 </div>
 
+<div class="card">
+<small>Documents</small>
+
+<div id="documentsList">
+Loading documents...
+</div>
+
+</div>
+
 </div>
 <div class="actions">
 
@@ -439,6 +448,30 @@ Status: ${i.status}
 });
 
 document.getElementById("invoiceList").innerHTML = invoicesHTML || "No invoices yet.";
+const documentsSnapshot = await getDocs(
+collection(db,"clients","jamie","documents")
+);
+
+let documentsHTML = "";
+
+documentsSnapshot.forEach((documentItem)=>{
+
+const d = documentItem.data();
+
+documentsHTML += `
+<p style="margin-top:14px;">
+<strong>${d.name}</strong><br>
+${d.type}<br>
+<a href="${d.url}" target="_blank" style="color:#314632;font-weight:800;">
+Open Document
+</a>
+</p>
+`;
+
+});
+
+document.getElementById("documentsList").innerHTML =
+documentsHTML || "No documents yet.";
 }
 
 document.getElementById("loading").style.display="none";
