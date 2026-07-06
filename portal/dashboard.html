@@ -448,30 +448,17 @@ Status: ${i.status}
 });
 
 document.getElementById("invoiceList").innerHTML = invoicesHTML || "No invoices yet.";
-const documentsSnapshot = await getDocs(
-collection(db,"clients","jamie","documents")
-);
+document.getElementById("documentsList").innerHTML = `
+<div style="margin-top:14px;">
+<strong>Welcome Pack</strong><br>
+10 documents included.<br><br>
 
-let documentsHTML = "";
-
-documentsSnapshot.forEach((documentItem)=>{
-
-const d = documentItem.data();
-
-documentsHTML += `
-<p style="margin-top:14px;">
-<strong>${d.name}</strong><br>
-${d.type}<br>
-<a href="${d.url}" target="_blank" style="color:#314632;font-weight:800;">
-Open Document
+<a href="welcome-pack.html"
+style="color:#314632;font-weight:800;">
+Open Welcome Pack
 </a>
-</p>
+</div>
 `;
-
-});
-
-document.getElementById("documentsList").innerHTML =
-documentsHTML || "No documents yet.";
 }
 
 document.getElementById("loading").style.display="none";
