@@ -961,41 +961,61 @@ url("background.png") !important;
         font-size:2rem;
     }
 }
-.side-tabs{
+.section-menu{
 position:fixed;
-left:18px;
-top:50%;
-transform:translateY(-50%);
-z-index:9998;
+top:102px;
+right:18px;
+z-index:10001;
+}
+
+.section-menu button{
+    width:50px;
+    height:50px;
+    background:rgba(23,38,27,.95);
+    color:#fff;
+    border:none;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:28px;
+    cursor:pointer;
+    box-shadow:0 12px 30px rgba(23,38,27,.18);
+    transition:.3s;
+}
+
+.section-menu button:hover{
+    transform:scale(1.08);
+    background:#314632;
+}
+
+.section-menu-links{
+display:none;
+position:absolute;
+top:56px;
+right:0;
+background:#fff;
+border-radius:20px;
+padding:12px;
+box-shadow:0 18px 45px rgba(23,38,27,.18);
+min-width:190px;
+}
+
+.section-menu.open .section-menu-links{
 display:flex;
 flex-direction:column;
-gap:10px;
+gap:8px;
 }
 
-.side-tabs a{
-background:rgba(255,250,243,.94);
-border:1px solid rgba(202,167,106,.35);
-box-shadow:0 12px 30px rgba(23,38,27,.12);
-backdrop-filter:blur(12px);
-color:#17261b;
-font-weight:800;
-font-size:.82rem;
+.section-menu-links a{
 padding:10px 14px;
 border-radius:999px;
-text-decoration:none;
-transition:.25s ease;
+font-weight:700;
 }
 
-.side-tabs a:hover{
+.section-menu-links a:hover{
 background:#17261b;
-color:white;
-transform:translateX(4px);
-}
-
-@media(max-width:900px){
-.side-tabs{
-display:none;
-}
+color:#fff;
 }
 .floating-contact{
     position:fixed;
@@ -2167,14 +2187,23 @@ Bank Transfer • Debit &amp; Credit Card • Standing Order (Memberships)
 </div>
 
 </section>
-<div class="side-tabs">
-  <a href="#services">Services</a>
-  <a href="#ad-hoc">Flexible</a>
-  <a href="#memberships">Plans</a>
-  <a href="#about">About</a>
-  <a href="#perfect-for">Who</a>
-  <a href="#faq">FAQ</a>
-  <a href="#contact">Contact</a>
+<div class="section-menu" id="sectionMenu">
+
+<button onclick="toggleSectionMenu()" aria-label="Open sections menu">
+☰
+</button>
+
+<div class="section-menu-links">
+<a href="#services">Services</a>
+<a href="#ad-hoc">Flexible Support</a>
+<a href="#memberships">Memberships</a>
+<a href="#about">About</a>
+<a href="#reviews">Reviews</a>
+<a href="#perfect-for">Who We Help</a>
+<a href="#faq">FAQ</a>
+<a href="#contact">Contact</a>
+</div>
+
 </div>
 <div class="floating-contact">
 
@@ -2335,6 +2364,15 @@ window.addEventListener("scroll", () => {
         header.style.background = "rgba(255,255,255,.72)";
         header.style.boxShadow = "0 10px 40px rgba(23,38,27,.08)";
     }
+});
+function toggleSectionMenu(){
+document.getElementById("sectionMenu").classList.toggle("open");
+}
+
+document.querySelectorAll(".section-menu-links a").forEach(link=>{
+link.addEventListener("click",()=>{
+document.getElementById("sectionMenu").classList.remove("open");
+});
 });
 lucide.createIcons();
 </script>
