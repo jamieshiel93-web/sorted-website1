@@ -316,8 +316,11 @@ Loading visits...
 
 <div class="card">
 <small>Invoices</small>
-<h2>Receipts & Payments</h2>
-<p>Your invoices and receipts will appear here soon.</p>
+
+<div id="invoiceList">
+Loading invoices...
+</div>
+
 </div>
 
 </div>
@@ -414,6 +417,28 @@ Status: ${v.status}
 });
 
 document.getElementById("visitsList").innerHTML = visitsHTML;
+const invoicesSnapshot = await getDocs(
+collection(db,"clients","jamie","invoices")
+);
+
+let invoicesHTML = "";
+
+invoicesSnapshot.forEach((invoice)=>{
+
+const i = invoice.data();
+
+invoicesHTML += `
+<p style="margin-top:14px;">
+<strong>${i.description}</strong><br>
+${i.date}<br>
+${i.amount}<br>
+Status: ${i.status}
+</p>
+`;
+
+});
+
+document.getElementById("invoiceList").innerHTML = invoicesHTML || "No invoices yet.";
 }
 
 document.getElementById("loading").style.display="none";
