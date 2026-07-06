@@ -303,9 +303,9 @@ Loading your Sorted. dashboard...
 
 <div class="card">
 <small>Upcoming Visits</small>
-<h2 id="nextVisitText">—</h2>
-<p>Your next scheduled Sorted. visit.</p>
-<div id="visitsList"></div>
+<div id="visitsList">
+Loading visits...
+</div>
 </div>
 
 <div class="card">
@@ -390,9 +390,6 @@ data.package;
 
 document.getElementById("statusText").textContent =
 data.status;
-
-document.getElementById("nextVisitText").textContent =
-data.nextVisit;
 
 document.getElementById("hoursText").textContent =
 data.hoursRemaining || "Hours coming soon";
