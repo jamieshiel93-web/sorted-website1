@@ -302,9 +302,10 @@ Loading your Sorted. dashboard...
 </div>
 
 <div class="card">
-<small>Next Visit</small>
+<small>Upcoming Visits</small>
 <h2 id="nextVisitText">—</h2>
 <p>Your next scheduled Sorted. visit.</p>
+<div id="visitsList"></div>
 </div>
 
 <div class="card">
@@ -395,6 +396,27 @@ data.nextVisit;
 
 document.getElementById("hoursText").textContent =
 data.hoursRemaining || "Hours coming soon";
+const visitsSnapshot = await getDocs(
+collection(db,"clients","jamie","visits")
+);
+
+let visitsHTML = "";
+
+visitsSnapshot.forEach((visit)=>{
+
+const v = visit.data();
+
+visitsHTML += `
+<p style="margin-top:14px;">
+<strong>${v.date}</strong><br>
+${v.time}<br>
+Status: ${v.status}
+</p>
+`;
+
+});
+
+document.getElementById("visitsList").innerHTML = visitsHTML;
 }
 
 document.getElementById("loading").style.display="none";
