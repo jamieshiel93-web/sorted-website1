@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sorted. Studio</title>
+<link rel="icon" href="../favicon.png">
+
+<style>
+:root{
+--cream:#f8f1e7;
+--forest:#17261b;
+--sage:#314632;
+--gold:#caa76a;
+--white:#ffffff;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+background:#f8f1e7;
+color:#17261b;
+}
+
+.login-screen{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:20px;
+background:linear-gradient(135deg,#f8f1e7,#efe0cc);
+}
+
+.login-card{
+width:100%;
+max-width:460px;
+background:white;
+border-radius:30px;
+padding:40px;
+box-shadow:0 25px 60px rgba(0,0,0,.12);
+text-align:center;
+}
+
+.logo{
+font-size:46px;
+font-weight:800;
+margin-bottom:10px;
+}
+
+.logo span{color:#caa76a;}
+
+h1{
+font-size:30px;
+margin-bottom:10px;
+}
+
+p{
+color:#666;
+line-height:1.6;
+}
+
+input,select{
+width:100%;
+padding:16px;
+margin-top:14px;
+border-radius:14px;
+border:1px solid #ddd;
+font-size:16px;
+}
+
+button{
+width:100%;
+padding:17px;
+margin-top:18px;
+border:none;
+border-radius:14px;
+background:#17261b;
+color:white;
+font-size:16px;
+font-weight:800;
+cursor:pointer;
+}
+
+button:hover{background:#314632;}
+
+#error{
+display:none;
+margin-top:16px;
+color:#b00020;
+font-weight:700;
+}
+
+#studio{
+display:none;
+}
+
+header{
+background:#17261b;
+color:white;
+padding:24px 36px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+header .brand{
+font-size:32px;
+font-weight:800;
+}
+
+header .brand span{color:#caa76a;}
+
+.logout{
+background:#caa76a;
+color:#17261b;
+padding:12px 22px;
+border-radius:999px;
+width:auto;
+margin:0;
+}
+
+.container{
+max-width:1300px;
+margin:auto;
+padding:36px 20px;
+}
+
+.hero{
+background:linear-gradient(135deg,#17261b,#314632);
+color:white;
+border-radius:28px;
+padding:36px;
+margin-bottom:28px;
+}
+
+.hero h2{
+font-size:40px;
+margin-bottom:8px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:22px;
+}
+
+.card{
+background:white;
+border-radius:24px;
+padding:26px;
+box-shadow:0 18px 40px rgba(23,38,27,.10);
+border:1px solid rgba(202,167,106,.25);
+}
+
+.card small{
+color:#caa76a;
+font-weight:900;
+letter-spacing:2px;
+text-transform:uppercase;
+}
+
+.card h3{
+font-size:26px;
+margin:12px 0;
+}
+
+.client-box{
+margin-top:14px;
+padding:14px;
+border-radius:14px;
+background:#f8f1e7;
+}
+
+@media(max-width:700px){
+header{padding:20px;}
+.hero h2{font-size:32px;}
+}
+</style>
+</head>
+
+<body>
+
+<div id="loginScreen" class="login-screen">
+<div class="login-card">
+<div class="logo">Sorted<span>.</span></div>
+<h1>Administrator Login</h1>
+<p>Private admin area for Sorted.</p>
+
+<input type="email" id="email" placeholder="Admin email">
+<input type="password" id="password" placeholder="Password">
+
+<button onclick="adminLogin()">Sign In</button>
+
+<div id="error">Access denied. Please check your login details.</div>
+</div>
+</div>
+
+<div id="studio">
+
+<header>
+<div class="brand">Sorted<span>.</span> Studio</div>
+<button class="logout" onclick="logout()">Logout</button>
+</header>
+
+<div class="container">
+
+<section class="hero">
+<h2>Welcome to Sorted. Studio</h2>
+<p>Your private control centre for clients, visits, invoices and documents.</p>
+</section>
+
+<div class="grid">
+
+<div class="card">
+<small>Clients</small>
+<h3>Client Management</h3>
+<p>Add, view and manage Sorted. clients.</p>
+<button onclick="alert('Client creation is the next step.')">Add Client</button>
+</div>
+
+<div class="card">
+<small>Visits</small>
+<h3>Upcoming Visits</h3>
+<p>Manage bookings and support sessions.</p>
+</div>
+
+<div class="card">
+<small>Invoices</small>
+<h3>Invoices</h3>
+<p>Create and track client invoices.</p>
+</div>
+
+<div class="card">
+<small>Documents</small>
+<h3>Documents</h3>
+<p>Manage welcome packs, agreements and policies.</p>
+</div>
+
+<div class="card">
+<small>Forms</small>
+<h3>Client Forms</h3>
+<p>View submitted client forms.</p>
+</div>
+
+<div class="card">
+<small>Status</small>
+<h3>System Ready</h3>
+<p>Your admin login is now connected.</p>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<script type="module">
+
+import { auth } from "../firebase.js";
+
+import {
+signInWithEmailAndPassword,
+onAuthStateChanged,
+signOut
+} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
+
+const ADMIN_EMAIL = "contact@sortedlife.org.uk";
+
+window.adminLogin = function(){
+
+const email = document.getElementById("email").value.trim();
+const password = document.getElementById("password").value;
+const error = document.getElementById("error");
+
+error.style.display = "none";
+
+signInWithEmailAndPassword(auth,email,password)
+.then((userCredential)=>{
+
+if(userCredential.user.email !== ADMIN_EMAIL){
+signOut(auth);
+error.style.display = "block";
+return;
+}
+
+showStudio();
+
+})
+.catch(()=>{
+error.style.display = "block";
+});
+
+};
+
+onAuthStateChanged(auth,(user)=>{
+
+if(user && user.email === ADMIN_EMAIL){
+showStudio();
+}else{
+showLogin();
+}
+
+});
+
+function showStudio(){
+document.getElementById("loginScreen").style.display = "none";
+document.getElementById("studio").style.display = "block";
+}
+
+function showLogin(){
+document.getElementById("loginScreen").style.display = "flex";
+document.getElementById("studio").style.display = "none";
+}
+
+window.logout = function(){
+signOut(auth);
+};
+
+</script>
+
+</body>
+</html>
