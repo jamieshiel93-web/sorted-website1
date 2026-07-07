@@ -23,7 +23,7 @@
 <meta name="theme-color" content="#17261b">
 <link rel="canonical" href="https://sortedlife.org.uk/">
 
-<meta name="keywords" content="home help Eastbourne, home support Eastbourne, household management Eastbourne, lifestyle assistance Eastbourne, home organisation Eastbourne, errands Eastbourne, companionship Eastbourne, personal assistant Eastbourne, property management Eastbourne, concierge Eastbourne">
+<meta name="keywords" content="home help Eastbourne, home support Eastbourne, home management Eastbourne, lifestyle assistance Eastbourne, home organisation Eastbourne, errands Eastbourne, companionship Eastbourne, personal assistant Eastbourne, property management Eastbourne, concierge Eastbourne">
 
   <style>
     :root {
@@ -618,7 +618,7 @@ gap:14px;
     font-size:1.22rem;
     line-height:1.9;
     max-width:640px;
-    color:#505050;
+    color:var(--forest);
 }
 
 .hero .btn{
@@ -714,7 +714,6 @@ gap:14px;
     url("https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1800&q=80");
     background-size:cover;
     background-position:center;
-    background-attachment:fixed;
     padding:100px 0;
 }
 
@@ -776,7 +775,6 @@ url("background.png") !important;
     background-repeat:no-repeat !important;
     animation:kenburns 30s ease-in-out infinite alternate;
     overflow:hidden;
-    background-attachment:fixed;
 }
 @keyframes kenburns{
     from{
@@ -1360,17 +1358,20 @@ color:#fff;
     "addressRegion": "East Sussex",
     "addressCountry": "GB"
   },
-  "serviceType": [
-    "Household management",
+"serviceType": [
+    "Home management",
     "Lifestyle assistance",
     "Home organisation",
     "Administrative support",
-    "Companionship and local trips"
+    "Companionship and local trips",
+    "Home management while away",
+    "Property checks",
+    "Key holding"
   ]
 }
 </script>
 
-<script src="https://unpkg.com/lucide@latest" defer></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 
 </head>
 
@@ -1393,6 +1394,8 @@ color:#fff;
 <a href="#services">Services</a>
 
 <a href="#ad-hoc">Flexible Support</a>
+
+<a href="#away-from-home">Away From Home</a>
 
 <a href="#memberships">Memberships</a>
 
@@ -1418,7 +1421,7 @@ color:#fff;
 <div>
 
 <p class="eyebrow">
-PREMIUM HOUSEHOLD & LIFESTYLE SUPPORT
+PREMIUM HOME & LIFESTYLE SUPPORT
 </p>
 
 <h1>
@@ -1428,12 +1431,12 @@ Handled.
 
 <p>
 <strong>Trusted. Discreet. Dependable.</strong><br>
-We'll handle it.
+From managing your home to simplifying everyday life, we'll quietly take care of it all.
 </p>
 
 <p>
-Reliable, discreet and dependable household support for busy professionals,
-older adults, independent living, families and second-home owners across Eastbourne and surrounding areas.
+Reliable, discreet and dependable home and lifestyle support for busy professionals,
+older adults, families, people living independently and second-home owners across Eastbourne and surrounding areas.
 </p>
 
 <div class="buttons">
@@ -1463,11 +1466,10 @@ How We Can Help
 
 <p class="eyebrow">A CALMER WAY TO GET THINGS DONE</p>
 
-<h2>Practical support with a warm, personal touch.</h2>
+<h2>Home and lifestyle support, thoughtfully delivered.</h2>
 
 <p>
-Sorted. is for the moments when life feels too busy, too cluttered, too stressful,
-or when someone simply needs a trusted extra pair of hands.
+Sorted. helps busy people, families, older adults and second-home owners enjoy a calmer, more organised life through trusted home and lifestyle support, tailored around the way you live.
 </p>
 
 </div>
@@ -1510,7 +1512,7 @@ Professional support delivered with care, discretion and attention to detail.
 <h2>Support, tailored around you.</h2>
 
 <p>
-Thoughtful household and lifestyle support, designed to bring calm, confidence and more time back into everyday life.
+Thoughtful home and lifestyle support, designed to bring calm, confidence and more time back into everyday life.
 </p>
 
 </div>
@@ -1518,18 +1520,17 @@ Thoughtful household and lifestyle support, designed to bring calm, confidence a
 
 <div class="editorial-service">
 
-<img src="management.png" alt="Household Management" loading="lazy">
+<img src="management.png" alt="Home Management" loading="lazy">
 
 <div>
 
-<p class="eyebrow">HOUSEHOLD</p>
+<p class="eyebrow">HOME</p>
 
 <div class="service-icon"><i data-lucide="home"></i></div>
-<h3>Household Management</h3>
+<h3>Home Management</h3>
 
 <p>
-Keeping your home beautifully organised with practical day-to-day support,
-coordination and thoughtful assistance tailored to your lifestyle.
+Keeping your home running smoothly through thoughtful day-to-day support, organisation and practical assistance tailored to your lifestyle.
 </p>
 
 </div>
@@ -1589,7 +1590,7 @@ beautiful home organisation.
 <h3>Administrative Support</h3>
 
 <p>
-Appointments, paperwork, forms, filing, online tasks and household
+Appointments, paperwork, forms, filing, online tasks and home
 administration managed professionally.
 </p>
 
@@ -1653,9 +1654,9 @@ providing flexible support exactly when you need it.
 <div class="cards">
 
 <div class="card">
-<h3>Household & Lifestyle Support</h3>
+<h3>Home & Lifestyle Support</h3>
 <p><strong>£32 per hour</strong></p>
-<p>Errands, shopping, prescription collection, returns, appointments, household tasks and general practical support.</p>
+<p>Errands, shopping, prescription collection, returns, appointments, everyday tasks and general practical support.</p>
 <p><strong>2-hour minimum.</strong></p>
 </div>
 
@@ -1680,7 +1681,7 @@ providing flexible support exactly when you need it.
 </div>
 
 <div class="card">
-<h3>Property & Household Management</h3>
+<h3>Property & Home Management</h3>
 <p><strong>Property checks: £35–£60 per visit</strong></p>
 <p>Contractor access, key holding, holiday home oversight, home readiness and wait-in services.</p>
 <p><strong>Wait-in service: £38 per hour.</strong></p>
@@ -1690,7 +1691,71 @@ providing flexible support exactly when you need it.
 <div class="card">
 <h3>Home Administration & Coordination</h3>
 <p><strong>£42 per hour</strong></p>
-<p>Household administration, appointment scheduling, contractor coordination, lifestyle organisation and paperwork assistance.</p>
+<p>Home administration, appointment scheduling, contractor coordination, lifestyle organisation and paperwork assistance.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+<section class="fade" id="away-from-home">
+
+<div class="container">
+
+<div class="section-title">
+<p class="eyebrow">AWAY FROM HOME</p>
+
+<h2>Home Management While You're Away.</h2>
+
+<p>
+Whether you're away for a weekend, a holiday or an extended stay, we'll make sure your home, pets and everyday responsibilities are quietly taken care of, giving you complete peace of mind.
+</p>
+
+</div>
+
+<div class="editorial-service reverse">
+
+<img src="awayfromhome.png" alt="Home Management While You're Away" loading="lazy">
+
+<div>
+
+<p class="eyebrow">HOME & LIFESTYLE CARE WHILE AWAY</p>
+
+<div class="service-icon">
+<i data-lucide="key-round"></i>
+</div>
+
+<h3>Return home to everything beautifully Sorted.</h3>
+
+<p>
+Whether you're travelling for business, enjoying a holiday or spending time at your second home, we'll quietly take care of your home, pets and everyday responsibilities, so you can relax knowing everything is being looked after until you return.
+</p>
+
+<ul>
+<li>✓ Home security checks</li>
+<li>✓ Key holding</li>
+<li>✓ Mail & parcel collection</li>
+<li>✓ Plant care</li>
+<li>✓ Grocery shopping before your return</li>
+<li>✓ Laundry & light housekeeping</li>
+<li>✓ Contractor access & supervision</li>
+<li>✓ Pet visits or overnight pet sitting by arrangement</li>
+<li>✓ Home prepared for your arrival home</li>
+</ul>
+
+<p style="margin-top:22px;">
+<strong>From £95 per night</strong><br>
+Bespoke quotations available depending on the level of support required.
+</p>
+
+<a href="https://calendly.com/d/dzzd-qmh-mcm/one-off-meeting"
+target="_blank"
+class="btn primary"
+style="margin-top:25px;display:inline-block;">
+Book a Consultation
+</a>
+
 </div>
 
 </div>
@@ -1704,8 +1769,8 @@ providing flexible support exactly when you need it.
 
 <div class="membership-intro">
 <p class="eyebrow">MEMBERSHIPS</p>
-<h2>Ongoing household support.</h2>
-<p>Regular help for homes, routines, errands, admin, organisation and everyday practical support.</p>
+<h2>Ongoing home and lifestyle support.</h2>
+<p>Regular home and lifestyle support for routines, errands, admin, organisation and everyday practical tasks.</p>
 </div>
 
 <div class="pricing-grid">
@@ -1720,7 +1785,7 @@ providing flexible support exactly when you need it.
 <li>Prescription collection</li>
 <li>Returns and collections</li>
 <li>Appointment assistance</li>
-<li>Household tasks</li>
+<li>Everyday tasks</li>
 <li>General practical support</li>
 </ul>
 <a href="https://calendly.com/d/dzzd-qmh-mcm/one-off-meeting" target="_blank" class="plan-button">Enquire</a>
@@ -1729,13 +1794,13 @@ providing flexible support exactly when you need it.
 <div class="plan featured">
 <div class="badge">MOST POPULAR</div>
 <h3>Complete Support</h3>
-<p class="plan-subtitle">Regular weekly household and lifestyle support.</p>
+<p class="plan-subtitle">Regular weekly home and lifestyle support.</p>
 <div class="price">£450–£850 <span style="font-size:18px;">/month</span></div>
 <p class="price-note">Approx. 10–20 support hours.</p>
 <ul>
 <li>Shopping and errands</li>
 <li>Home organisation</li>
-<li>Household admin</li>
+<li>Home administration</li>
 <li>Appointment scheduling</li>
 <li>Contractor coordination</li>
 <li>Lifestyle organisation</li>
@@ -1746,7 +1811,7 @@ providing flexible support exactly when you need it.
 
 <div class="plan">
 <h3>Signature Support</h3>
-<p class="plan-subtitle">More complete support for busy households and second-home owners.</p>
+<p class="plan-subtitle">More complete support for busy homes and second-home owners.</p>
 <div class="price">£850–£1500 <span style="font-size:18px;">/month</span></div>
 <p class="price-note">Approx. 20–30 support hours.</p>
 <ul>
@@ -1754,8 +1819,8 @@ providing flexible support exactly when you need it.
 <li>Property checks</li>
 <li>Key holding support</li>
 <li>Home readiness</li>
-<li>Holiday home oversight</li>
-<li>Tailored household management</li>
+<li>Second-home oversight</li>
+<li>Tailored home management</li>
 <li>Priority availability</li>
 </ul>
 <a href="https://calendly.com/d/dzzd-qmh-mcm/one-off-meeting" target="_blank" class="plan-button">Enquire</a>
@@ -1764,11 +1829,11 @@ providing flexible support exactly when you need it.
 
 <div class="plan">
 <h3>Private Client Support</h3>
-<p class="plan-subtitle">Tailored household management and lifestyle support with complete flexibility.</p>
+<p class="plan-subtitle">Tailored home management and lifestyle support with complete flexibility.</p>
 <div class="price">From £1500+ <span style="font-size:18px;">/month</span></div>
-<p class="price-note">For households requiring higher-level ongoing support.</p>
+<p class="price-note">For homes requiring higher-level ongoing support.</p>
 <ul>
-<li>Complete household management</li>
+<li>Complete home management</li>
 <li>Priority availability</li>
 <li>Second-home support</li>
 <li>Property oversight</li>
@@ -1791,7 +1856,7 @@ providing flexible support exactly when you need it.
 <h2>Thoughtful support for a calmer life.</h2>
 <p>
 Life gets busy. Homes need running. Appointments need organising.
-Sometimes you simply need another pair of capable hands.
+Sometimes you simply need someone dependable who takes care of the details.
 </p>
 </div>
 
@@ -1803,10 +1868,10 @@ Sometimes you simply need another pair of capable hands.
 
 <p class="eyebrow">OUR PHILOSOPHY</p>
 
-<h3>Luxury isn't about spending more.</h3>
+<h3>Luxury is having one less thing to think about.</h3>
 
 <p>
-It's about having the time to enjoy what matters while everything else is quietly taken care of.
+It's the peace of mind that comes from knowing your home and everyday life are in safe hands.
 </p>
 
 <p>
@@ -1871,7 +1936,7 @@ We know inviting someone into your home is personal. That's why every visit is b
 
 <div class="card">
 <h3>Tailored Around You</h3>
-<p>No two households are the same. Every service is adapted to your lifestyle and priorities.</p>
+<p>No two homes are the same. Every service is adapted to your lifestyle and priorities.</p>
 </div>
 
 <div class="card">
@@ -1886,7 +1951,7 @@ We know inviting someone into your home is personal. That's why every visit is b
 
 <div class="card">
 <h3>Local & Independent</h3>
-<p>Proudly supporting households across Eastbourne and the surrounding areas.</p>
+<p>Proudly supporting homes across Eastbourne and the surrounding areas.</p>
 </div>
 
 </div>
@@ -1926,7 +1991,7 @@ Whether life is busy, you're supporting a loved one or simply need an extra pair
 
 <div class="card">
 <h3>Families</h3>
-<p>Extra help when life becomes busy, from shopping and organisation to everyday household support.</p>
+<p>Extra help when life becomes busy, from shopping and organisation to everyday home support.</p>
 </div>
 
 <div class="card">
@@ -1975,9 +2040,23 @@ Absolutely. You can choose one-off visits or regular monthly memberships dependi
 </div>
 
 <div class="card faq-item">
+<h3>Can you collect prescriptions?</h3>
+<p class="faq-answer">
+Yes, we can collect prescriptions, but we do not administer medication or provide medical care.
+</p>
+</div>
+
+<div class="card faq-item">
+<h3>Do you charge for mileage?</h3>
+<p class="faq-answer">
+Mileage may apply for journeys, errands or appointments outside our core service area. This will always be discussed clearly before booking.
+</p>
+</div>
+
+<div class="card faq-item">
 <h3>Are you insured?</h3>
 <p class="faq-answer">
-Yes. Sorted. operates with appropriate business insurance, giving clients confidence and peace of mind.
+Yes. Sorted. is fully insured, giving clients confidence and peace of mind every time we visit.
 </p>
 </div>
 
@@ -2011,7 +2090,7 @@ Our standard rates apply to regular weekday hours. For out-of-hours support, sta
 We aim to respond to all enquiries within 24 hours, often much sooner.
 </p>
 <p style="margin-bottom:30px;">
-Whether you're looking for ongoing household support, home organisation, lifestyle assistance, property management or simply an extra pair of trusted hands, <strong>Sorted.</strong> provides discreet, dependable support tailored around you, your home and the way you live. We'll take care of the details, so you can spend more time enjoying what matters most.
+Whether you're looking for ongoing home support, home organisation, lifestyle assistance, property management or simply an extra pair of trusted hands, <strong>Sorted.</strong> provides discreet, dependable support tailored around you, your home and the way you live. We'll quietly take care of the details of your home and everyday life, so you have more time for the things that matter most.
 </p>
 
 <div style="display:grid;gap:22px;">
@@ -2196,6 +2275,7 @@ Bank Transfer • Debit &amp; Credit Card • Standing Order (Memberships)
 <div class="section-menu-links">
 <a href="#services">Services</a>
 <a href="#ad-hoc">Flexible Support</a>
+<a href="#away-from-home">Away From Home</a>
 <a href="#memberships">Memberships</a>
 <a href="#about">About</a>
 <a href="#reviews">Reviews</a>
@@ -2239,7 +2319,7 @@ Bank Transfer • Debit &amp; Credit Card • Standing Order (Memberships)
 
 <p style="margin-top:18px;">
 Your Home. Handled.<br><br>
-Premium household & lifestyle support across Eastbourne and surrounding areas.
+Premium home and lifestyle support across Eastbourne and surrounding areas.
 </p>
 
 </div>
@@ -2248,10 +2328,11 @@ Premium household & lifestyle support across Eastbourne and surrounding areas.
 
 <h3>Services</h3>
 
-<p>Household Management</p>
+<p>Home Management</p>
 <p>Lifestyle Assistance</p>
 <p>Home Organisation</p>
 <p>Administrative Support</p>
+<p>Home & Lifestyle Care While Away</p>
 
 </div>
 
@@ -2343,9 +2424,10 @@ window.addEventListener("load", showFadeElements);
 window.addEventListener("load", function () {
     const loader = document.querySelector(".loader");
     if (loader) {
+        loader.style.pointerEvents = "none";
         setTimeout(function () {
-            loader.style.display = "none";
-        }, 2600);
+            loader.remove();
+        }, 1200);
     }
 });
 document.querySelectorAll(".faq-item").forEach(item => {
@@ -2361,6 +2443,7 @@ window.addEventListener("scroll", () => {
         header.style.background = "rgba(255,255,255,0.92)";
         header.style.boxShadow = "0 14px 35px rgba(23,38,27,.12)";
     } else {
+   header.style.padding = ""; 
         header.style.background = "rgba(255,255,255,.72)";
         header.style.boxShadow = "0 10px 40px rgba(23,38,27,.08)";
     }
@@ -2374,10 +2457,14 @@ link.addEventListener("click",()=>{
 document.getElementById("sectionMenu").classList.remove("open");
 });
 });
-lucide.createIcons();
+window.addEventListener("load", () => {
+    if (window.lucide) {
+        lucide.createIcons();
+    }
+});
 </script>
 
-<div id="cookie-banner" style="position:fixed;bottom:16px;left:50%;transform:translateX(-50%);width:min(82%,460px);background:rgba(23,38,27,.94);color:white;padding:14px 18px;z-index:99999;text-align:center;border-radius:18px;box-shadow:0 16px 40px rgba(23,38,27,.25);font-size:.9rem;">
+<div id="cookie-banner" style="display:none;position:fixed;bottom:16px;left:50%;transform:translateX(-50%);width:min(82%,460px);background:rgba(23,38,27,.94);color:white;padding:14px 18px;z-index:99999;text-align:center;border-radius:18px;box-shadow:0 16px 40px rgba(23,38,27,.25);font-size:.9rem;">
   This website uses essential cookies to improve your experience.
   <button onclick="acceptCookies()" style="margin-left:15px;padding:10px 18px;border-radius:999px;border:0;font-weight:bold;">Accept</button>
 </div>
@@ -2387,11 +2474,14 @@ function acceptCookies(){
   localStorage.setItem("cookiesAccepted","yes");
   document.getElementById("cookie-banner").style.display="none";
 }
-if(localStorage.getItem("cookiesAccepted")==="yes"){
-  document.addEventListener("DOMContentLoaded",function(){
-    document.getElementById("cookie-banner").style.display="none";
-  });
-}
+
+document.addEventListener("DOMContentLoaded",function(){
+  const banner = document.getElementById("cookie-banner");
+
+  if(localStorage.getItem("cookiesAccepted") !== "yes"){
+    banner.style.display = "block";
+  }
+});
 </script>
 
 </body>
