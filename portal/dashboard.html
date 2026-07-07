@@ -406,7 +406,7 @@ return;
 
 }
 
-const snapshot = await getDoc(doc(db,"clients","jamie"));
+const snapshot = await getDoc(doc(db,"clients",user.uid));
 
 if(snapshot.exists()){
 
@@ -424,7 +424,7 @@ data.status;
 document.getElementById("hoursText").textContent =
 data.hoursRemaining || "Hours coming soon";
 const visitsSnapshot = await getDocs(
-collection(db,"clients","jamie","visits")
+collection(db,"clients",user.uid,"visits")
 );
 
 let visitsHTML = "";
@@ -445,7 +445,7 @@ Status: ${v.status}
 
 document.getElementById("visitsList").innerHTML = visitsHTML;
 const invoicesSnapshot = await getDocs(
-collection(db,"clients","jamie","invoices")
+collection(db,"clients",user.uid,"invoices")
 );
 
 let invoicesHTML = "";
