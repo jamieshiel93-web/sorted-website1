@@ -2064,6 +2064,101 @@ transform:translateY(-50%);
     }
 }
 
+/* ==================================================
+   ABOUT SECTION MOBILE LIST FIX
+================================================== */
+
+@media (max-width: 768px) {
+
+    #about .editorial-service {
+        padding: 24px;
+        gap: 26px;
+    }
+
+    #about .editorial-service > div {
+        width: 100%;
+    }
+
+    #about .editorial-service h3 {
+        font-size: 1.85rem;
+        line-height: 1.22;
+        margin-bottom: 22px;
+    }
+
+    #about .editorial-service p {
+        font-size: 1rem;
+        line-height: 1.75;
+        margin-bottom: 18px;
+    }
+
+    #about .editorial-service ul {
+        list-style: none;
+        padding: 0;
+        margin: 26px 0 0;
+        display: grid;
+        gap: 12px;
+    }
+
+    #about .editorial-service li {
+        position: relative;
+        padding: 14px 16px 14px 48px;
+        margin: 0;
+        background: rgba(113, 140, 103, 0.08);
+        border: 1px solid rgba(113, 140, 103, 0.15);
+        border-radius: 16px;
+        font-size: 0;
+        line-height: 1.45;
+    }
+
+    #about .editorial-service li::before {
+        content: "✓";
+        position: absolute;
+        left: 17px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--sage);
+        color: white;
+        font-size: 0.8rem;
+        font-weight: 900;
+    }
+
+    #about .editorial-service li {
+        color: transparent;
+    }
+
+    #about .editorial-service li::after {
+        color: var(--forest);
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    #about .editorial-service li:nth-child(1)::after {
+        content: "Enhanced DBS checked";
+    }
+
+    #about .editorial-service li:nth-child(2)::after {
+        content: "Fully insured";
+    }
+
+    #about .editorial-service li:nth-child(3)::after {
+        content: "Confidential and trustworthy";
+    }
+
+    #about .editorial-service li:nth-child(4)::after {
+        content: "Flexible one-off or ongoing support";
+    }
+
+    #about .editorial-service li:nth-child(5)::after {
+        content: "Tailored entirely around you";
+    }
+}
+
 </style>
 
 <script type="application/ld+json">
