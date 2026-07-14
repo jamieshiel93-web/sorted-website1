@@ -18,7 +18,7 @@
 <meta name="twitter:description" content="Calm, trusted home and lifestyle support across Eastbourne, Meads, Old Town, Upperton, Sovereign Harbour, Hampden Park, Willingdon, Langney, Polegate, Pevensey, Seaford and surrounding areas.">
 <meta name="twitter:image" content="https://sortedlife.org.uk/background.png">
 
-<meta name="description" content="Sorted. offers calm, trusted home and lifestyle support across Eastbourne, Meads, Old Town, Upperton, Sovereign Harbour, Hampden Park, Willingdon, Langney, Polegate, Pevensey, Seaford and surrounding areas." />
+<meta name="description" content="Sorted. provides calm, trusted home and lifestyle support across Eastbourne, Meads, Old Town, Upperton, Sovereign Harbour, Hampden Park, Willingdon, Langney, Polegate, Pevensey, Seaford and surrounding areas.">
 
 <meta name="theme-color" content="#17261b">
 <link rel="canonical" href="https://sortedlife.org.uk/">
@@ -247,33 +247,6 @@ transition:all .3s ease;
   box-shadow:0 18px 45px rgba(23,38,27,.18);
 }
 
-    .hero-card{
-      background:white;
-      border-radius:var(--radius-lg);
-      padding:40px;
-      box-shadow:var(--shadow);
-    }
-
-    .hero-card h2{
-      margin-bottom:20px;
-      font-size:2rem;
-    }
-
-    .hero-card ul{
-      list-style:none;
-    }
-
-    .hero-card li{
-      padding:14px 0;
-      border-bottom:1px solid rgba(0,0,0,.08);
-    }
-
-    .hero-card li::before{
-      content:"✓ ";
-      color:var(--sage);
-      font-weight:bold;
-    }
-
     section{
       padding:90px 0;
     }
@@ -393,32 +366,6 @@ margin-bottom:22px;
       font-weight:bold;
     }
 
-    .about-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:60px;
-      align-items:center;
-    }
-
-    .about-box{
-      background:white;
-      padding:40px;
-      border-radius:32px;
-      box-shadow:var(--soft-shadow);
-    }
-
-    .about-box li{
-      list-style:none;
-      padding:14px 0;
-      border-bottom:1px solid rgba(0,0,0,.08);
-    }
-
-    .about-box li::before{
-      content:"✓ ";
-      color:var(--gold);
-      font-weight:bold;
-    }
-
     .areas{
       background:var(--forest);
       color:white;
@@ -428,30 +375,6 @@ margin-bottom:22px;
     .areas p{
       color:rgba(255,255,255,.8);
       margin-top:20px;
-    }
-
-    .testimonial-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:30px;
-    }
-
-    .testimonial{
-      background:white;
-      border-radius:28px;
-      padding:35px;
-      box-shadow:var(--soft-shadow);
-    }
-
-    .stars{
-      color:#f3b63d;
-      font-size:1.2rem;
-      margin-bottom:20px;
-    }
-
-    .testimonial h4{
-      margin-top:25px;
-      color:var(--forest);
     }
 
     .contact{
@@ -573,17 +496,15 @@ gap:14px;
       }
 
       .hero-grid,
-      .about-grid,
-      .contact-grid,
-      .footer-grid{
-        grid-template-columns:1fr;
-      }
+.contact-grid,
+.footer-grid{
+    grid-template-columns:1fr;
+}
 
       .cards,
-      .pricing-grid,
-      .testimonial-grid{
-        grid-template-columns:1fr;
-      }
+.pricing-grid{
+  grid-template-columns:1fr;
+}
 
       h1{
         font-size:3.5rem;
@@ -644,73 +565,8 @@ gap:14px;
     background:rgba(202,167,106,.08);
     border-radius:50%;
 }
-.luxury-service-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:28px;
-}
 
-.luxury-service-card{
-  background:#fffaf3;
-  border:1px solid rgba(202,167,106,.35);
-  border-radius:28px;
-  overflow:hidden;
-  box-shadow:0 18px 45px rgba(23,38,27,.10);
-}
 
-.luxury-service-card img{
-  width:100%;
-  height:210px;
-  object-fit:cover;
-}
-
-.luxury-service-content{
-  padding:28px;
-  text-align:center;
-}
-
-.luxury-service-content h3{
-  color:#17261b;
-  font-size:1.45rem;
-  margin-bottom:10px;
-}
-
-.luxury-service-content h3::after{
-  content:"♡";
-  display:block;
-  color:#caa76a;
-  font-size:.95rem;
-  margin:8px 0;
-}
-
-.luxury-service-content p{
-  color:#5f665e;
-  line-height:1.65;
-}
-
-@media(max-width:900px){
-  .luxury-service-grid{
-    grid-template-columns:1fr;
-  }
-
-  .luxury-service-card img{
-    height:220px;
-  }
-}
-
-.services-banner{
-    margin:40px 0 50px;
-    border-radius:28px;
-    overflow:hidden;
-    box-shadow:0 18px 45px rgba(23,38,27,.12);
-}
-
-.services-banner img{
-    display:block;
-    width:100%;
-    height:420px;
-    object-fit:cover;
-}
 
 #services{
     background:
@@ -963,68 +819,7 @@ url("background.png") !important;
         font-size:2rem;
     }
 }
-.section-menu{
-position:fixed;
-top:102px;
-right:18px;
-z-index:10001;
-}
 
-@media (max-width:768px){
-    .section-menu{
-        display:none;
-    }
-}
-
-.section-menu button{
-    width:50px;
-    height:50px;
-    background:rgba(23,38,27,.95);
-    color:#fff;
-    border:none;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:28px;
-    cursor:pointer;
-    box-shadow:0 12px 30px rgba(23,38,27,.18);
-    transition:.3s;
-}
-
-.section-menu button:hover{
-    transform:scale(1.08);
-    background:#314632;
-}
-
-.section-menu-links{
-display:none;
-position:absolute;
-top:56px;
-right:0;
-background:#fff;
-border-radius:20px;
-padding:12px;
-box-shadow:0 18px 45px rgba(23,38,27,.18);
-min-width:190px;
-}
-
-.section-menu.open .section-menu-links{
-display:flex;
-flex-direction:column;
-gap:8px;
-}
-
-.section-menu-links a{
-padding:10px 14px;
-border-radius:999px;
-font-weight:700;
-}
-
-.section-menu-links a:hover{
-background:#17261b;
-color:#fff;
-}
 .floating-contact{
     position:fixed;
     right:24px;
@@ -1033,6 +828,7 @@ color:#fff;
     flex-direction:column;
     gap:14px;
     z-index:9999;
+    transition:opacity .3s ease;
 }
 
 .floating-btn{
@@ -1207,35 +1003,7 @@ transform:translateY(-50%);
         border-radius:26px;
     }
 }
-.loader{
-    position:fixed;
-    inset:0;
-    background:var(--cream);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    z-index:99999;
-    animation:loaderFade 1.6s ease forwards;
-    animation-delay:1s;
-}
 
-.loader-logo{
-    font-size:3rem;
-    font-weight:800;
-    letter-spacing:-2px;
-    color:var(--forest);
-}
-
-.loader-logo span{
-    color:var(--gold);
-}
-
-@keyframes loaderFade{
-    to{
-        opacity:0;
-        visibility:hidden;
-    }
-}
 .fade{
     opacity:1;
     transform:none;
@@ -1473,11 +1241,6 @@ transform:translateY(-50%);
         display: none;
     }
 
-    /* Full navigation already exists, so hide floating menu */
-    .section-menu {
-        display: none;
-    }
-
     /* HERO */
 
     .hero-photo {
@@ -1700,10 +1463,6 @@ transform:translateY(-50%);
     nav a:hover {
         background: var(--cream-2);
         transform: none;
-    }
-
-    .section-menu {
-        display: none;
     }
 
     /* HERO */
@@ -2155,7 +1914,2271 @@ transform:translateY(-50%);
     }
 
     #about .editorial-service li:nth-child(5)::after {
-        content: "Tailored entirely around you";
+    content: "Tailored entirely around you";
+}
+}
+
+/* ==================================================
+   WHY CHOOSE SORTED, WHO WE HELP AND FAQ
+================================================== */
+
+.trust-section{
+    position:relative;
+    overflow:hidden;
+    background:
+        radial-gradient(circle at 10% 15%, rgba(202,167,106,.16), transparent 28%),
+        radial-gradient(circle at 90% 85%, rgba(113,140,103,.15), transparent 30%),
+        linear-gradient(180deg,#f7efe3,#fffaf3);
+}
+
+.trust-section::before{
+    content:"";
+    position:absolute;
+    top:-120px;
+    right:-120px;
+    width:320px;
+    height:320px;
+    border-radius:50%;
+    border:1px solid rgba(202,167,106,.22);
+    pointer-events:none;
+}
+
+.trust-section .container{
+    position:relative;
+    z-index:1;
+}
+
+.trust-section .cards{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:24px;
+}
+
+.trust-section .card{
+    position:relative;
+    min-height:270px;
+    padding:34px;
+    overflow:hidden;
+    background:rgba(255,255,255,.9);
+    border:1px solid rgba(202,167,106,.28);
+    box-shadow:0 20px 50px rgba(23,38,27,.1);
+}
+
+.trust-section .card::after{
+    content:"";
+    position:absolute;
+    right:-45px;
+    bottom:-45px;
+    width:130px;
+    height:130px;
+    border-radius:50%;
+    background:rgba(113,140,103,.07);
+}
+
+.feature-icon{
+    width:58px;
+    height:58px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:24px;
+    border-radius:18px;
+    background:linear-gradient(135deg,#17261b,#314632);
+    color:white;
+    box-shadow:0 12px 28px rgba(23,38,27,.18);
+}
+
+.feature-icon svg{
+    width:27px;
+    height:27px;
+    stroke-width:1.8;
+}
+
+.trust-section .card h3{
+    font-size:1.45rem;
+    line-height:1.25;
+    margin-bottom:13px;
+}
+
+.trust-section .card p{
+    font-size:.98rem;
+    line-height:1.7;
+}
+
+/* WHO WE HELP */
+
+.audience-section{
+    position:relative;
+    overflow:hidden;
+    background:var(--forest);
+    color:white;
+}
+
+.audience-section::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        radial-gradient(circle at 12% 20%, rgba(202,167,106,.17), transparent 28%),
+        radial-gradient(circle at 88% 80%, rgba(113,140,103,.22), transparent 32%);
+    pointer-events:none;
+}
+
+.audience-section .container{
+    position:relative;
+    z-index:1;
+}
+
+.audience-section .section-title h2{
+    color:white;
+}
+
+.audience-section .section-title p{
+    color:rgba(255,255,255,.75);
+}
+
+.audience-section .cards{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:24px;
+}
+
+.audience-section .card{
+    min-height:260px;
+    padding:34px;
+    background:rgba(255,255,255,.96);
+    border:1px solid rgba(202,167,106,.32);
+    box-shadow:0 22px 55px rgba(0,0,0,.18);
+}
+
+.audience-section .card:nth-child(even){
+    background:linear-gradient(145deg,#fffaf3,#f1e6d7);
+}
+
+.audience-section .card h3{
+    font-size:1.45rem;
+    line-height:1.25;
+    margin-bottom:13px;
+}
+
+.audience-section .card p{
+    line-height:1.7;
+}
+
+.audience-section .feature-icon{
+    background:linear-gradient(135deg,var(--gold),#dfc18d);
+    color:var(--forest);
+}
+
+/* FAQ */
+
+.faq-section{
+    position:relative;
+    background:
+        linear-gradient(rgba(255,250,243,.92),rgba(255,250,243,.92)),
+        radial-gradient(circle at top left,rgba(202,167,106,.16),transparent 35%);
+}
+
+.faq-section .narrow{
+    max-width:860px;
+}
+
+.faq-section .faq-item{
+    margin-bottom:16px;
+    padding:0;
+    border:1px solid rgba(202,167,106,.25);
+    border-radius:22px;
+    overflow:hidden;
+    background:white;
+    box-shadow:0 14px 36px rgba(23,38,27,.08);
+}
+
+.faq-section .faq-item h3{
+    position:relative;
+    margin:0;
+    padding:25px 76px 25px 28px;
+    font-size:1.2rem;
+    line-height:1.4;
+    text-align:left;
+}
+
+.faq-section .faq-item h3::after{
+    right:24px;
+    top:50%;
+    transform:translateY(-50%);
+    width:34px;
+    height:34px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:rgba(202,167,106,.14);
+}
+
+.faq-section .faq-answer{
+    margin:0;
+    padding:0 28px 25px;
+    line-height:1.75;
+    text-align:left;
+    color:var(--muted);
+}
+
+/* TABLET */
+
+@media(max-width:950px){
+
+    .trust-section .cards,
+    .audience-section .cards{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    .trust-section,
+    .audience-section,
+    .faq-section{
+        padding:68px 0;
+    }
+
+    .trust-section .section-title,
+    .audience-section .section-title,
+    .faq-section .section-title{
+        margin-bottom:34px;
+    }
+
+    .trust-section .cards,
+    .audience-section .cards{
+        grid-template-columns:1fr;
+        gap:18px;
+    }
+
+    .trust-section .card,
+    .audience-section .card{
+        min-height:0;
+        padding:26px;
+        border-radius:24px;
+    }
+
+    .feature-icon{
+        width:52px;
+        height:52px;
+        margin-bottom:20px;
+        border-radius:16px;
+    }
+
+    .feature-icon svg{
+        width:24px;
+        height:24px;
+    }
+
+    .trust-section .card h3,
+    .audience-section .card h3{
+        font-size:1.3rem;
+    }
+
+    .trust-section .card p,
+    .audience-section .card p{
+        font-size:.96rem;
+        line-height:1.65;
+    }
+
+    .faq-section .faq-item{
+        min-height:0;
+        margin-bottom:13px;
+    }
+
+    .faq-section .faq-item h3{
+        padding:21px 64px 21px 22px;
+        font-size:1.05rem;
+    }
+
+    .faq-section .faq-item h3::after{
+        right:18px;
+        width:32px;
+        height:32px;
+    }
+
+    .faq-section .faq-answer{
+        padding:0 22px 22px;
+        font-size:.95rem;
+    }
+}
+
+/* ==================================================
+   PREMIUM CONTACT SECTION
+================================================== */
+
+.contact-premium{
+    position:relative;
+    overflow:hidden;
+    padding:100px 0;
+    background:
+        radial-gradient(circle at 8% 12%, rgba(202,167,106,.18), transparent 28%),
+        radial-gradient(circle at 92% 82%, rgba(113,140,103,.16), transparent 30%),
+        linear-gradient(145deg,#f8f1e7,#fffaf3 48%,#efe0cc);
+}
+
+.contact-premium::before{
+    content:"";
+    position:absolute;
+    top:-130px;
+    right:-130px;
+    width:360px;
+    height:360px;
+    border-radius:50%;
+    border:1px solid rgba(202,167,106,.25);
+    pointer-events:none;
+}
+
+.contact-premium::after{
+    content:"";
+    position:absolute;
+    left:-100px;
+    bottom:-130px;
+    width:300px;
+    height:300px;
+    border-radius:50%;
+    background:rgba(113,140,103,.06);
+    pointer-events:none;
+}
+
+.contact-premium .container{
+    position:relative;
+    z-index:1;
+}
+
+.contact-heading{
+    max-width:790px;
+    margin:0 auto 58px;
+    text-align:center;
+}
+
+.contact-heading h2{
+    margin-bottom:22px;
+    color:var(--forest);
+    font-size:clamp(3rem,6vw,5rem);
+    line-height:.98;
+    letter-spacing:-3px;
+}
+
+.contact-intro{
+    max-width:680px;
+    margin:0 auto;
+    color:#596259;
+    font-size:1.1rem;
+    line-height:1.8;
+}
+
+.contact-response{
+    width:max-content;
+    max-width:100%;
+    margin:26px auto 0;
+    padding:13px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    border-radius:999px;
+    background:rgba(255,255,255,.72);
+    border:1px solid rgba(202,167,106,.3);
+    box-shadow:0 12px 30px rgba(23,38,27,.08);
+    color:var(--sage-dark);
+    font-weight:700;
+}
+
+.contact-response svg{
+    width:19px;
+    height:19px;
+    color:var(--gold);
+    flex-shrink:0;
+}
+
+.contact-premium-grid{
+    display:grid;
+    grid-template-columns:minmax(0,.86fr) minmax(500px,1.14fr);
+    gap:42px;
+    align-items:start;
+    max-width:1100px;
+    margin:0 auto;
+}
+
+.contact-details-panel{
+    display:grid;
+    gap:17px;
+}
+
+.contact-detail-card{
+    display:grid;
+    grid-template-columns:58px minmax(0,1fr);
+    gap:18px;
+    align-items:start;
+    padding:23px 24px;
+    border-radius:22px;
+    background:rgba(255,255,255,.82);
+    border:1px solid rgba(202,167,106,.22);
+    box-shadow:0 16px 42px rgba(23,38,27,.09);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+}
+
+.contact-detail-icon{
+    width:52px;
+    height:52px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:17px;
+    color:white;
+    background:linear-gradient(135deg,var(--forest),var(--sage-dark));
+    box-shadow:0 12px 26px rgba(23,38,27,.17);
+}
+
+.contact-detail-icon svg{
+    width:24px;
+    height:24px;
+    stroke-width:1.8;
+}
+
+.contact-detail-label{
+    margin-bottom:4px;
+    color:var(--gold) !important;
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+    font-size:.72rem !important;
+    font-weight:800;
+}
+
+.contact-detail-card a,
+.contact-detail-card > div > p:not(.contact-detail-label){
+    color:var(--forest);
+    font-size:1rem;
+    line-height:1.65;
+    overflow-wrap:anywhere;
+}
+
+.contact-detail-card a{
+    font-weight:750;
+}
+
+.contact-promise{
+    display:grid;
+    grid-template-columns:58px minmax(0,1fr);
+    gap:18px;
+    padding:28px 25px;
+    margin-top:4px;
+    border-radius:26px;
+    color:white;
+    background:
+        radial-gradient(circle at top right,rgba(202,167,106,.2),transparent 36%),
+        linear-gradient(145deg,var(--forest),var(--sage-dark));
+    box-shadow:0 24px 55px rgba(23,38,27,.2);
+}
+
+.contact-promise-icon{
+    width:52px;
+    height:52px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:17px;
+    color:var(--forest);
+    background:linear-gradient(135deg,var(--gold),#dfc28f);
+}
+
+.contact-promise-icon svg{
+    width:25px;
+    height:25px;
+    stroke-width:1.8;
+}
+
+.contact-promise-label{
+    margin-bottom:7px;
+    color:var(--gold) !important;
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+    font-size:.72rem !important;
+    font-weight:800;
+}
+
+.contact-promise h3{
+    margin-bottom:10px;
+    color:white;
+    font-size:1.35rem;
+    line-height:1.3;
+}
+
+.contact-promise p:last-child{
+    color:rgba(255,255,255,.78);
+    font-size:.96rem;
+    line-height:1.7;
+}
+
+.contact-form-wrap{
+    overflow:hidden;
+    border-radius:34px;
+    background:white;
+    border:1px solid rgba(202,167,106,.28);
+    box-shadow:0 30px 75px rgba(23,38,27,.15);
+}
+
+.contact-form-heading{
+    padding:38px 42px 28px;
+    background:
+        radial-gradient(circle at top right,rgba(202,167,106,.16),transparent 42%),
+        linear-gradient(145deg,#fffdf9,#f7efe3);
+    border-bottom:1px solid rgba(202,167,106,.2);
+}
+
+.contact-form-heading .eyebrow{
+    margin-bottom:9px;
+}
+
+.contact-form-heading h3{
+    margin-bottom:10px;
+    color:var(--forest);
+    font-size:2rem;
+    line-height:1.15;
+}
+
+.contact-form-heading p:last-child{
+    color:var(--muted);
+    line-height:1.7;
+}
+
+.contact-premium .contact-form{
+    width:100%;
+    padding:36px 42px 42px;
+    border:0;
+    border-radius:0;
+    box-shadow:none;
+    background:white;
+}
+
+.contact-premium .contact-form:hover{
+    transform:none;
+    box-shadow:none;
+}
+
+.contact-form-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+.contact-premium .contact-form label{
+    margin-bottom:20px;
+    color:var(--forest);
+    font-size:.93rem;
+    font-weight:750;
+}
+
+.contact-premium .contact-form input,
+.contact-premium .contact-form textarea{
+    margin-top:8px;
+    border:1px solid #e3d7c5;
+    background:#fdfaf6;
+}
+
+.contact-premium .contact-form textarea{
+    min-height:170px;
+}
+
+.contact-submit{
+    width:100%;
+    margin-top:2px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:11px;
+    border:0;
+    cursor:pointer;
+    font-family:inherit;
+    font-size:1rem;
+}
+
+.contact-submit svg{
+    position:relative;
+    z-index:2;
+    width:19px;
+    height:19px;
+}
+
+.contact-payment{
+    display:flex;
+    align-items:flex-start;
+    gap:13px;
+    margin-top:23px;
+    padding:17px 18px;
+    border-radius:17px;
+    background:rgba(113,140,103,.08);
+    border:1px solid rgba(113,140,103,.16);
+}
+
+.contact-payment svg{
+    width:23px;
+    height:23px;
+    color:var(--sage-dark);
+    flex-shrink:0;
+    margin-top:2px;
+}
+
+.contact-payment p{
+    color:#5f665e;
+    font-size:.9rem;
+    line-height:1.55;
+}
+
+/* CONTACT TABLET */
+
+@media(max-width:950px){
+
+    .contact-premium-grid{
+        grid-template-columns:1fr;
+        max-width:760px;
+    }
+
+    .contact-details-panel{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .contact-promise{
+        grid-column:1 / -1;
+    }
+}
+
+/* CONTACT MOBILE */
+
+@media(max-width:600px){
+
+    .contact-premium{
+        padding:70px 0 78px;
+    }
+
+    .contact-premium .container{
+        width:90%;
+    }
+
+    .contact-heading{
+        margin-bottom:38px;
+        text-align:left;
+    }
+
+    .contact-heading h2{
+        margin-bottom:18px;
+        font-size:2.75rem;
+        line-height:1.02;
+        letter-spacing:-2px;
+    }
+
+    .contact-intro{
+        font-size:1rem;
+        line-height:1.72;
+    }
+
+    .contact-response{
+        width:100%;
+        margin-top:22px;
+        padding:13px 15px;
+        justify-content:flex-start;
+        border-radius:17px;
+        font-size:.9rem;
+        line-height:1.45;
+    }
+
+    .contact-premium-grid{
+        gap:28px;
+    }
+
+    .contact-details-panel{
+        grid-template-columns:1fr;
+        gap:13px;
+    }
+
+    .contact-detail-card{
+        grid-template-columns:48px minmax(0,1fr);
+        gap:15px;
+        padding:19px;
+        border-radius:20px;
+    }
+
+    .contact-detail-icon{
+        width:46px;
+        height:46px;
+        border-radius:15px;
+    }
+
+    .contact-detail-icon svg{
+        width:21px;
+        height:21px;
+    }
+
+    .contact-detail-card a,
+    .contact-detail-card > div > p:not(.contact-detail-label){
+        font-size:.94rem;
+        line-height:1.6;
+    }
+
+    .contact-promise{
+        grid-template-columns:46px minmax(0,1fr);
+        gap:15px;
+        padding:23px 20px;
+        border-radius:23px;
+    }
+
+    .contact-promise-icon{
+        width:46px;
+        height:46px;
+        border-radius:15px;
+    }
+
+    .contact-promise h3{
+        font-size:1.2rem;
+    }
+
+    .contact-form-wrap{
+        border-radius:27px;
+    }
+
+    .contact-form-heading{
+        padding:29px 23px 23px;
+    }
+
+    .contact-form-heading h3{
+        font-size:1.65rem;
+    }
+
+    .contact-premium .contact-form{
+        padding:27px 22px 30px;
+    }
+
+    .contact-form-row{
+        grid-template-columns:1fr;
+        gap:0;
+    }
+
+    .contact-premium .contact-form label{
+        margin-bottom:17px;
+    }
+
+    .contact-premium .contact-form input,
+    .contact-premium .contact-form textarea{
+        padding:15px 16px;
+    }
+
+    .contact-premium .contact-form textarea{
+        min-height:150px;
+    }
+
+    .contact-submit{
+        padding:16px 20px;
+    }
+
+    .contact-payment{
+        margin-top:20px;
+        padding:15px;
+    }
+
+    /* Prevent floating buttons covering the form */
+
+    .contact-premium{
+        padding-right:0;
+    }
+
+    .floating-contact{
+        right:7px;
+        bottom:10px;
+    }
+}
+
+/* ==================================================
+   FINAL SORTED. PREMIUM DESIGN IMPROVEMENTS
+================================================== */
+
+/* --------------------------------
+   PREMIUM MEMBERSHIP CARDS
+-------------------------------- */
+
+.pricing{
+    position:relative;
+    overflow:hidden;
+}
+
+.pricing::before{
+    content:"";
+    position:absolute;
+    top:-180px;
+    right:-160px;
+    width:420px;
+    height:420px;
+    border-radius:50%;
+    border:1px solid rgba(202,167,106,.2);
+    pointer-events:none;
+}
+
+.pricing .container{
+    position:relative;
+    z-index:1;
+}
+
+.plan{
+    padding:46px;
+    border:1px solid rgba(202,167,106,.3);
+    background:
+        radial-gradient(circle at top right,rgba(202,167,106,.08),transparent 34%),
+        #fff;
+}
+
+.plan h3{
+    font-size:2.05rem;
+    letter-spacing:-1px;
+}
+
+.plan .price{
+    font-size:2.75rem;
+    letter-spacing:-1.5px;
+}
+
+.plan .price span{
+    display:inline-block;
+    font-weight:650;
+    letter-spacing:0;
+}
+
+.plan li{
+    position:relative;
+    padding:13px 0 13px 27px;
+}
+
+.plan li::before{
+    position:absolute;
+    left:0;
+    top:13px;
+    content:"✓";
+    width:19px;
+    height:19px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    color:white;
+    background:var(--sage);
+    font-size:.7rem;
+}
+
+.plan .plan-button{
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:15px 22px;
+    text-align:center;
+}
+
+.plan .plan-button::after{
+    content:"→";
+    margin-left:9px;
+    transition:transform .3s ease;
+}
+
+.plan .plan-button:hover::after{
+    transform:translateX(4px);
+}
+
+.featured .badge{
+    position:absolute;
+    top:25px;
+    right:25px;
+    margin:0;
+    box-shadow:0 10px 25px rgba(202,167,106,.25);
+}
+
+@media(max-width:600px){
+
+    .plan{
+        padding:31px 26px;
+    }
+
+    .featured .badge{
+        top:24px;
+        right:22px;
+        padding:8px 14px;
+        font-size:.68rem;
+    }
+
+    .plan .price{
+        font-size:2.15rem;
+    }
+}
+
+
+/* --------------------------------
+   SUBTLE SECTION SEPARATORS
+-------------------------------- */
+
+#services,
+#ad-hoc,
+#away-from-home,
+#memberships,
+#about,
+#reviews,
+#perfect-for,
+#faq,
+#contact{
+    position:relative;
+}
+
+#services::after,
+#ad-hoc::after,
+#away-from-home::after,
+#memberships::after,
+#about::after,
+#reviews::after,
+#perfect-for::after,
+#faq::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    bottom:0;
+    width:min(900px,75%);
+    height:1px;
+    transform:translateX(-50%);
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(202,167,106,.38),
+        transparent
+    );
+}
+
+.audience-section::after{
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.25),
+        transparent
+    ) !important;
+}
+
+
+/* --------------------------------
+   REFINED IMAGE MOVEMENT
+-------------------------------- */
+
+.editorial-service{
+    overflow:hidden;
+}
+
+.editorial-service img{
+    transform-origin:center;
+}
+
+@media(hover:hover){
+
+    .editorial-service:hover img{
+        transform:scale(1.035);
+    }
+
+    .service-icon,
+    .feature-icon,
+    .contact-detail-icon,
+    .contact-promise-icon{
+        transition:
+            transform .35s ease,
+            box-shadow .35s ease;
+    }
+
+    .editorial-service:hover .service-icon,
+    .card:hover .feature-icon,
+    .contact-detail-card:hover .contact-detail-icon,
+    .contact-promise:hover .contact-promise-icon{
+        transform:translateY(-3px) rotate(-2deg);
+        box-shadow:0 17px 34px rgba(23,38,27,.2);
+    }
+}
+
+
+/* --------------------------------
+   WHY CHOOSE SORTED HIERARCHY
+-------------------------------- */
+
+@media(min-width:951px){
+
+    .trust-section .cards{
+        grid-template-columns:repeat(4,minmax(0,1fr));
+    }
+
+    .trust-section .card:first-child{
+        grid-column:span 2;
+        grid-row:span 2;
+        min-height:100%;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        padding:48px;
+        color:white;
+        background:
+            radial-gradient(circle at top right,rgba(202,167,106,.25),transparent 38%),
+            linear-gradient(145deg,var(--forest),var(--sage-dark));
+        border-color:rgba(202,167,106,.5);
+    }
+
+    .trust-section .card:first-child .feature-icon{
+        width:72px;
+        height:72px;
+        color:var(--forest);
+        background:linear-gradient(135deg,var(--gold),#e1c795);
+    }
+
+    .trust-section .card:first-child .feature-icon svg{
+        width:33px;
+        height:33px;
+    }
+
+    .trust-section .card:first-child h3{
+        max-width:370px;
+        color:white;
+        font-size:2.3rem;
+        letter-spacing:-1.5px;
+    }
+
+    .trust-section .card:first-child p{
+        max-width:430px;
+        color:rgba(255,255,255,.78);
+        font-size:1.05rem;
+    }
+}
+
+
+/* --------------------------------
+   FINAL CTA
+-------------------------------- */
+
+.final-cta{
+    position:relative;
+    overflow:hidden;
+    padding:90px 0;
+    text-align:center;
+    color:white;
+    background:
+        radial-gradient(circle at 12% 20%,rgba(202,167,106,.2),transparent 30%),
+        radial-gradient(circle at 88% 80%,rgba(113,140,103,.2),transparent 32%),
+        linear-gradient(145deg,#17261b,#263b2b);
+}
+
+.final-cta::before{
+    content:"";
+    position:absolute;
+    top:-130px;
+    right:-100px;
+    width:330px;
+    height:330px;
+    border-radius:50%;
+    border:1px solid rgba(202,167,106,.25);
+}
+
+.final-cta .container{
+    position:relative;
+    z-index:1;
+}
+
+.final-cta .eyebrow{
+    margin-bottom:16px;
+}
+
+.final-cta h2{
+    max-width:760px;
+    margin:0 auto 20px;
+    color:white;
+    font-size:clamp(2.7rem,6vw,4.8rem);
+    line-height:1;
+    letter-spacing:-3px;
+}
+
+.final-cta p{
+    max-width:620px;
+    margin:0 auto 31px;
+    color:rgba(255,255,255,.76);
+    font-size:1.08rem;
+    line-height:1.75;
+}
+
+.final-cta .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--forest);
+    background:linear-gradient(135deg,var(--gold),#e2c894);
+    box-shadow:0 20px 45px rgba(0,0,0,.2);
+}
+
+.final-cta .btn::before{
+    display:none;
+}
+
+.final-cta .btn:hover{
+    color:var(--forest);
+    background:#fffaf3;
+}
+
+@media(max-width:600px){
+
+    .final-cta{
+        padding:70px 0;
+    }
+
+    .final-cta h2{
+        font-size:2.65rem;
+        letter-spacing:-2px;
+    }
+
+    .final-cta .btn{
+        width:100%;
+    }
+}
+
+
+/* --------------------------------
+   PREMIUM FOOTER
+-------------------------------- */
+
+footer{
+    padding-top:78px;
+}
+
+.footer-grid h3{
+    margin-bottom:18px;
+    color:var(--gold);
+    font-size:.78rem;
+    text-transform:uppercase;
+    letter-spacing:2px;
+}
+
+.footer-grid p{
+    margin-bottom:9px;
+    line-height:1.65;
+}
+
+.footer-grid a{
+    transition:color .25s ease;
+}
+
+.footer-grid a:hover{
+    color:var(--gold);
+}
+
+.footer-assurances{
+    display:flex;
+    flex-wrap:wrap;
+    gap:9px;
+    margin-top:25px;
+}
+
+.footer-assurances span{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    padding:8px 11px;
+    border-radius:999px;
+    color:rgba(255,255,255,.82);
+    background:rgba(255,255,255,.055);
+    border:1px solid rgba(202,167,106,.2);
+    font-size:.76rem;
+    font-weight:700;
+}
+
+.footer-assurances span::before{
+    content:"✓";
+    color:var(--gold);
+}
+
+.footer-bottom{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:25px;
+    padding-top:26px;
+    border-top:1px solid rgba(255,255,255,.1);
+}
+
+.footer-legal{
+    display:flex;
+    flex-wrap:wrap;
+    gap:18px;
+    color:rgba(255,255,255,.7);
+    font-size:.9rem;
+}
+
+.footer-legal a:hover{
+    color:var(--gold);
+}
+
+.footer-bottom .copyright{
+    text-align:right;
+}
+
+@media(max-width:768px){
+
+    .footer-grid{
+        gap:35px;
+    }
+
+    .footer-bottom{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .footer-bottom .copyright{
+        text-align:left;
+    }
+}
+
+
+/* --------------------------------
+   PREMIUM COOKIE NOTICE
+-------------------------------- */
+
+#cookie-banner{
+    width:min(92%,550px) !important;
+    bottom:22px !important;
+    padding:0 !important;
+    overflow:hidden;
+    color:var(--forest) !important;
+    text-align:left !important;
+    border-radius:24px !important;
+    background:rgba(255,250,243,.97) !important;
+    border:1px solid rgba(202,167,106,.38);
+    box-shadow:0 24px 65px rgba(23,38,27,.22) !important;
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+}
+
+.cookie-inner{
+    display:grid;
+    grid-template-columns:48px minmax(0,1fr) auto;
+    gap:16px;
+    align-items:center;
+    padding:17px 18px;
+}
+
+.cookie-icon{
+    width:48px;
+    height:48px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:16px;
+    color:white;
+    background:linear-gradient(135deg,var(--forest),var(--sage-dark));
+}
+
+.cookie-icon svg{
+    width:23px;
+    height:23px;
+}
+
+.cookie-copy strong{
+    display:block;
+    margin-bottom:2px;
+    color:var(--forest);
+    font-size:.95rem;
+}
+
+.cookie-copy span{
+    display:block;
+    color:var(--muted);
+    font-size:.82rem;
+    line-height:1.45;
+}
+
+.cookie-accept{
+    min-width:92px;
+    padding:11px 18px;
+    border:0;
+    border-radius:999px;
+    cursor:pointer;
+    color:var(--forest);
+    background:var(--gold);
+    font-family:inherit;
+    font-weight:800;
+    transition:.3s ease;
+}
+
+.cookie-accept:hover{
+    transform:translateY(-2px);
+    background:#dfc28e;
+}
+
+@media(max-width:600px){
+
+    #cookie-banner{
+        bottom:10px !important;
+    }
+
+    .cookie-inner{
+        grid-template-columns:42px minmax(0,1fr);
+        gap:12px;
+        padding:15px;
+    }
+
+    .cookie-icon{
+        width:42px;
+        height:42px;
+        border-radius:14px;
+    }
+
+    .cookie-accept{
+        grid-column:1 / -1;
+        width:100%;
+    }
+}
+
+
+/* --------------------------------
+   ACCESSIBILITY AND MOTION
+-------------------------------- */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible{
+    outline:3px solid rgba(202,167,106,.75);
+    outline-offset:4px;
+}
+
+@media(prefers-reduced-motion:reduce){
+
+    html{
+        scroll-behavior:auto;
+    }
+
+    *,
+    *::before,
+    *::after{
+        animation-duration:.01ms !important;
+        animation-iteration-count:1 !important;
+        transition-duration:.01ms !important;
+    }
+
+    .js .fade{
+        opacity:1;
+        transform:none;
+    }
+}
+
+/* ==================================================
+   SORTED. FINAL PREMIUM MOBILE REFINEMENTS
+================================================== */
+
+/* --------------------------------
+   MEMBERSHIP CARDS WITHOUT NUMBERS
+-------------------------------- */
+
+.plan{
+    padding-top:42px;
+}
+
+.plan h3{
+    margin-top:0;
+}
+
+@media(max-width:600px){
+
+    .pricing{
+        padding-top:72px;
+        padding-bottom:72px;
+    }
+
+    .membership-intro{
+        margin-bottom:34px;
+    }
+
+    .membership-intro h2{
+        font-size:2.55rem;
+        line-height:1.04;
+    }
+
+    .pricing-grid{
+        gap:22px;
+    }
+
+    .plan{
+        padding:31px 25px 29px;
+        border-radius:25px;
+        box-shadow:0 15px 38px rgba(23,38,27,.1);
+    }
+
+    .plan h3{
+        padding-right:0;
+        font-size:1.75rem;
+        line-height:1.15;
+    }
+
+    .plan .plan-subtitle{
+        margin-top:12px;
+        margin-bottom:20px;
+        font-size:.98rem;
+        line-height:1.65;
+    }
+
+    .plan .price{
+        margin:18px 0 8px;
+        font-size:2.05rem;
+        line-height:1.12;
+        letter-spacing:-1px;
+    }
+
+    .plan .price span{
+        font-size:.95rem !important;
+    }
+
+    .plan li{
+        padding:13px 0 13px 29px;
+        font-size:.95rem;
+    }
+
+    .featured .badge{
+        position:static;
+        width:max-content;
+        margin-bottom:18px;
+    }
+}
+
+
+/* --------------------------------
+   WHY CHOOSE SORTED
+-------------------------------- */
+
+.trust-section{
+    background:
+        radial-gradient(circle at 8% 8%,rgba(202,167,106,.13),transparent 30%),
+        linear-gradient(180deg,#fbf7f0,#f4eadc);
+}
+
+.trust-section .cards{
+    gap:18px;
+}
+
+.trust-section .card{
+    min-height:0;
+    padding:29px;
+    border-radius:24px;
+    background:rgba(255,255,255,.94);
+    border:1px solid rgba(202,167,106,.2);
+    box-shadow:0 12px 30px rgba(23,38,27,.08);
+}
+
+.trust-section .card::after{
+    display:none;
+}
+
+.trust-section .feature-icon{
+    width:50px;
+    height:50px;
+    margin-bottom:19px;
+    border-radius:15px;
+    box-shadow:none;
+}
+
+.trust-section .card h3{
+    font-size:1.3rem;
+    margin-bottom:9px;
+}
+
+.trust-section .card p{
+    font-size:.95rem;
+    line-height:1.65;
+}
+
+@media(min-width:951px){
+
+    .trust-section .cards{
+        grid-template-columns:repeat(3,minmax(0,1fr));
+    }
+
+    .trust-section .card:first-child{
+        grid-column:auto;
+        grid-row:auto;
+        min-height:0;
+        display:block;
+        padding:29px;
+        color:var(--ink);
+        background:rgba(255,255,255,.94);
+        border-color:rgba(202,167,106,.2);
+    }
+
+    .trust-section .card:first-child .feature-icon{
+        width:50px;
+        height:50px;
+        color:white;
+        background:linear-gradient(135deg,var(--forest),var(--sage-dark));
+    }
+
+    .trust-section .card:first-child .feature-icon svg{
+        width:25px;
+        height:25px;
+    }
+
+    .trust-section .card:first-child h3{
+        color:var(--forest);
+        font-size:1.3rem;
+        letter-spacing:0;
+    }
+
+    .trust-section .card:first-child p{
+        color:var(--muted);
+        font-size:.95rem;
+    }
+}
+
+@media(max-width:600px){
+
+    .trust-section{
+        padding:70px 0;
+    }
+
+    .trust-section .section-title{
+        margin-bottom:30px;
+    }
+
+    .trust-section .cards{
+        gap:14px;
+    }
+
+    .trust-section .card{
+        display:grid;
+        grid-template-columns:46px minmax(0,1fr);
+        column-gap:16px;
+        align-items:start;
+        padding:22px;
+        border-radius:21px;
+    }
+
+    .trust-section .feature-icon{
+        grid-row:1 / 3;
+        width:46px;
+        height:46px;
+        margin:0;
+        border-radius:14px;
+    }
+
+    .trust-section .card h3{
+        margin:2px 0 7px;
+        font-size:1.15rem;
+    }
+
+    .trust-section .card p{
+        font-size:.91rem;
+        line-height:1.55;
+    }
+}
+
+
+/* --------------------------------
+   WHO WE HELP
+-------------------------------- */
+
+.audience-section{
+    background:
+        radial-gradient(circle at 15% 10%,rgba(202,167,106,.13),transparent 30%),
+        linear-gradient(165deg,#17261b,#203326);
+}
+
+.audience-section .cards{
+    gap:18px;
+}
+
+.audience-section .card,
+.audience-section .card:nth-child(even){
+    min-height:0;
+    padding:29px;
+    border-radius:24px;
+    background:rgba(255,252,247,.97);
+    border:1px solid rgba(202,167,106,.2);
+    box-shadow:0 14px 34px rgba(0,0,0,.16);
+}
+
+.audience-section .feature-icon{
+    width:50px;
+    height:50px;
+    margin-bottom:19px;
+    border-radius:15px;
+    box-shadow:none;
+}
+
+.audience-section .card h3{
+    font-size:1.3rem;
+    margin-bottom:9px;
+}
+
+.audience-section .card p{
+    font-size:.95rem;
+    line-height:1.65;
+}
+
+@media(max-width:600px){
+
+    .audience-section{
+        padding:70px 0;
+    }
+
+    .audience-section .section-title{
+        margin-bottom:31px;
+    }
+
+    .audience-section .cards{
+        gap:14px;
+    }
+
+    .audience-section .card,
+    .audience-section .card:nth-child(even){
+        display:grid;
+        grid-template-columns:46px minmax(0,1fr);
+        column-gap:16px;
+        align-items:start;
+        padding:22px;
+        border-radius:21px;
+    }
+
+    .audience-section .feature-icon{
+        grid-row:1 / 3;
+        width:46px;
+        height:46px;
+        margin:0;
+        border-radius:14px;
+    }
+
+    .audience-section .card h3{
+        margin:2px 0 7px;
+        font-size:1.15rem;
+    }
+
+    .audience-section .card p{
+        font-size:.91rem;
+        line-height:1.55;
+    }
+}
+
+
+/* --------------------------------
+   PREMIUM FAQ
+-------------------------------- */
+
+.faq-section{
+    background:
+        radial-gradient(circle at 90% 5%,rgba(202,167,106,.1),transparent 28%),
+        linear-gradient(180deg,#fffaf3,#f5ecdf);
+}
+
+.faq-section .faq-item{
+    margin-bottom:12px;
+    border-radius:18px;
+    border:1px solid rgba(202,167,106,.18);
+    box-shadow:0 9px 24px rgba(23,38,27,.065);
+    transition:
+        border-color .3s ease,
+        box-shadow .3s ease,
+        transform .3s ease;
+}
+
+.faq-section .faq-item:hover{
+    transform:translateY(-2px);
+    border-color:rgba(202,167,106,.42);
+    box-shadow:0 14px 30px rgba(23,38,27,.1);
+}
+
+.faq-section .faq-item.active{
+    border-color:rgba(202,167,106,.48);
+    box-shadow:0 16px 36px rgba(23,38,27,.11);
+}
+
+.faq-section .faq-item h3{
+    padding:22px 70px 22px 25px;
+    font-size:1.08rem;
+    font-weight:750;
+}
+
+.faq-section .faq-item h3::after{
+    right:20px;
+    width:31px;
+    height:31px;
+    font-size:1.25rem;
+    color:var(--forest);
+    background:rgba(202,167,106,.16);
+}
+
+.faq-section .faq-item.active h3::after{
+    color:white;
+    background:var(--forest);
+}
+
+.faq-section .faq-answer{
+    padding:0 25px 23px;
+    font-size:.95rem;
+    line-height:1.7;
+}
+
+@media(max-width:600px){
+
+    .faq-section{
+        padding:70px 0;
+    }
+
+    .faq-section .section-title{
+        margin-bottom:30px;
+    }
+
+    .faq-section .section-title h2{
+        max-width:310px;
+        margin-left:auto;
+        margin-right:auto;
+        font-size:2.15rem;
+        line-height:1.08;
+    }
+
+    .faq-section .faq-item{
+        margin-bottom:11px;
+        border-radius:18px;
+    }
+
+    .faq-section .faq-item h3{
+        padding:20px 62px 20px 21px;
+        font-size:1rem;
+        line-height:1.35;
+    }
+
+    .faq-section .faq-item h3::after{
+        right:17px;
+        width:30px;
+        height:30px;
+    }
+
+    .faq-section .faq-answer{
+        padding:0 21px 21px;
+        font-size:.92rem;
+        line-height:1.65;
+    }
+}
+
+
+/* --------------------------------
+   MOBILE HEADER
+-------------------------------- */
+
+@media(max-width:600px){
+
+    .site-header{
+        background:rgba(255,255,255,.96);
+        box-shadow:0 6px 24px rgba(23,38,27,.08);
+    }
+
+    .nav-wrap{
+        min-height:72px;
+        padding:12px 0;
+    }
+
+    .logo{
+        font-size:1.75rem;
+    }
+
+    .menu-toggle{
+        width:44px;
+        height:44px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        font-size:0;
+        border-radius:50%;
+        background:rgba(23,38,27,.055);
+    }
+
+    .menu-toggle svg{
+        width:23px;
+        height:23px;
+    }
+}
+
+/* ==================================================
+   FLEXIBLE SUPPORT PREMIUM ICON CARDS
+================================================== */
+
+#ad-hoc{
+    background:
+        radial-gradient(circle at 8% 10%,rgba(202,167,106,.11),transparent 30%),
+        radial-gradient(circle at 92% 90%,rgba(113,140,103,.1),transparent 30%),
+        linear-gradient(180deg,#fffaf3,#f6ede1);
+}
+
+#ad-hoc .cards{
+    align-items:stretch;
+}
+
+#ad-hoc .card{
+    position:relative;
+    overflow:hidden;
+    height:100%;
+    border:1px solid rgba(202,167,106,.22);
+    background:
+        radial-gradient(circle at top right,rgba(202,167,106,.09),transparent 36%),
+        rgba(255,255,255,.96);
+}
+
+#ad-hoc .card::after{
+    content:"";
+    position:absolute;
+    right:-45px;
+    bottom:-45px;
+    width:125px;
+    height:125px;
+    border-radius:50%;
+    background:rgba(113,140,103,.055);
+    pointer-events:none;
+}
+
+#ad-hoc .card h3,
+#ad-hoc .card p,
+#ad-hoc .flexible-icon{
+    position:relative;
+    z-index:1;
+}
+
+#ad-hoc .card p{
+    margin-bottom:12px;
+    line-height:1.7;
+}
+
+#ad-hoc .card p:last-child{
+    margin-bottom:0;
+}
+
+#ad-hoc .card p strong{
+    color:var(--forest);
+}
+
+.flexible-icon{
+    width:52px;
+    height:52px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:21px;
+    border-radius:16px;
+    color:white;
+    background:linear-gradient(135deg,var(--forest),var(--sage-dark));
+    box-shadow:0 12px 27px rgba(23,38,27,.16);
+}
+
+.flexible-icon svg{
+    width:25px;
+    height:25px;
+    stroke-width:1.8;
+}
+
+@media(hover:hover){
+    #ad-hoc .card:hover .flexible-icon{
+        transform:translateY(-3px) rotate(-2deg);
+        box-shadow:0 17px 34px rgba(23,38,27,.2);
+    }
+
+    .flexible-icon{
+        transition:transform .35s ease,box-shadow .35s ease;
+    }
+}
+
+@media(max-width:600px){
+
+    #ad-hoc{
+        padding-top:70px;
+        padding-bottom:70px;
+    }
+
+    #ad-hoc .cards{
+        gap:16px;
+    }
+
+    #ad-hoc .card{
+        padding:25px;
+        border-radius:22px;
+    }
+
+    .flexible-icon{
+        width:47px;
+        height:47px;
+        margin-bottom:18px;
+        border-radius:14px;
+    }
+
+    .flexible-icon svg{
+        width:22px;
+        height:22px;
+    }
+
+    #ad-hoc .card h3{
+        font-size:1.3rem;
+        line-height:1.25;
+    }
+}
+
+/* ==================================================
+   AREAS COVERED IMAGE BACKGROUND
+================================================== */
+
+.areas{
+    position:relative;
+    overflow:hidden;
+    min-height:420px;
+    display:flex;
+    align-items:center;
+    color:white;
+    text-align:center;
+
+    background-image:
+        linear-gradient(
+            rgba(23,38,27,.48),
+            rgba(23,38,27,.66)
+        ),
+        url("./eastbourne-area.jpg");
+
+    background-size:cover;
+    background-position:center 48%;
+    background-repeat:no-repeat;
+}
+
+.areas::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        radial-gradient(circle at 15% 20%,rgba(202,167,106,.1),transparent 34%),
+        radial-gradient(circle at 85% 80%,rgba(113,140,103,.1),transparent 36%);
+    pointer-events:none;
+}
+
+.areas .container{
+    position:relative;
+    z-index:1;
+}
+
+.areas h2{
+    color:white;
+}
+
+@media(max-width:600px){
+    .areas{
+        background-position:center;
+    }
+}
+
+/* ==================================================
+   WHO WE HELP — EDITORIAL PREMIUM LAYOUT
+================================================== */
+
+.audience-section{
+    position:relative;
+    overflow:hidden;
+    padding:100px 0;
+    background:
+        radial-gradient(circle at 10% 10%,rgba(202,167,106,.17),transparent 28%),
+        radial-gradient(circle at 90% 88%,rgba(113,140,103,.2),transparent 34%),
+        linear-gradient(150deg,#101b13,#17261b 48%,#213526);
+}
+
+.audience-section::before{
+    content:"";
+    position:absolute;
+    top:-180px;
+    right:-160px;
+    width:430px;
+    height:430px;
+    border-radius:50%;
+    border:1px solid rgba(202,167,106,.18);
+    pointer-events:none;
+}
+
+.audience-section .container{
+    position:relative;
+    z-index:2;
+}
+
+.audience-section .section-title{
+    max-width:760px;
+    margin:0 auto 54px;
+}
+
+.audience-section .section-title h2{
+    color:white;
+    font-size:clamp(3rem,5vw,4.4rem);
+    line-height:1;
+    letter-spacing:-2.5px;
+}
+
+.audience-section .section-title p{
+    max-width:650px;
+    color:rgba(255,255,255,.72);
+    font-size:1.05rem;
+    line-height:1.75;
+}
+
+.audience-grid{
+    display:grid;
+    grid-template-columns:repeat(6,minmax(0,1fr));
+    gap:20px;
+}
+
+/* Large top cards */
+
+.audience-card-large{
+    grid-column:span 2;
+    min-height:300px;
+    padding:34px;
+    display:flex;
+    flex-direction:column;
+    border-radius:28px;
+    background:
+        radial-gradient(circle at top right,rgba(202,167,106,.12),transparent 36%),
+        linear-gradient(145deg,#fffdf8,#f5eadc);
+    border:1px solid rgba(202,167,106,.28);
+    box-shadow:0 22px 55px rgba(0,0,0,.2);
+}
+
+/* Slight variation between large cards */
+
+.audience-card-large:nth-child(2){
+    background:
+        radial-gradient(circle at top right,rgba(113,140,103,.16),transparent 38%),
+        linear-gradient(145deg,#f7f8f1,#e8eee4);
+}
+
+.audience-card-large:nth-child(3){
+    background:
+        radial-gradient(circle at top right,rgba(234,212,197,.2),transparent 38%),
+        linear-gradient(145deg,#fffaf5,#f1e1d4);
+}
+
+.audience-card-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:18px;
+    margin-bottom:28px;
+}
+
+.audience-label{
+    margin:0;
+    color:#a17c3d !important;
+    font-size:.68rem !important;
+    font-weight:850;
+    letter-spacing:1.7px;
+    line-height:1.35 !important;
+}
+
+.audience-card h3{
+    margin-bottom:13px;
+    color:var(--forest);
+    font-size:1.55rem;
+    line-height:1.2;
+    letter-spacing:-.5px;
+}
+
+.audience-card p:not(.audience-label){
+    color:#626b62;
+    font-size:.97rem;
+    line-height:1.72;
+}
+
+/* Icons */
+
+.audience-section .audience-card .feature-icon{
+    width:58px;
+    height:58px;
+    flex-shrink:0;
+    margin:0;
+    border-radius:18px;
+    color:var(--forest);
+    background:linear-gradient(135deg,#e4cb99,#caa76a);
+    box-shadow:0 13px 28px rgba(202,167,106,.25);
+}
+
+.audience-section .audience-card .feature-icon svg{
+    width:27px;
+    height:27px;
+}
+
+.audience-card-large:nth-child(2) .feature-icon{
+    color:white;
+    background:linear-gradient(135deg,var(--sage),var(--sage-dark));
+    box-shadow:0 13px 28px rgba(49,70,50,.2);
+}
+
+/* Compact bottom cards */
+
+.audience-card-small{
+    grid-column:span 2;
+    min-height:175px;
+    display:grid;
+    grid-template-columns:54px minmax(0,1fr);
+    gap:18px;
+    align-items:start;
+    padding:27px;
+    border-radius:24px;
+    background:rgba(255,252,247,.96);
+    border:1px solid rgba(202,167,106,.24);
+    box-shadow:0 18px 44px rgba(0,0,0,.17);
+}
+
+.audience-card-small:nth-child(5){
+    background:linear-gradient(145deg,#f0f3eb,#e4eadf);
+}
+
+.audience-card-small:nth-child(6){
+    background:linear-gradient(145deg,#fff9f2,#efe0d4);
+}
+
+.audience-card-small .feature-icon{
+    width:50px !important;
+    height:50px !important;
+    border-radius:16px !important;
+}
+
+.audience-card-small .audience-label{
+    margin:2px 0 7px;
+}
+
+.audience-card-small h3{
+    margin-bottom:8px;
+    font-size:1.25rem;
+}
+
+.audience-card-small p:not(.audience-label){
+    font-size:.92rem;
+    line-height:1.6;
+}
+
+/* Hover */
+
+@media(hover:hover){
+
+    .audience-card{
+        transition:
+            transform .35s ease,
+            box-shadow .35s ease,
+            border-color .35s ease;
+    }
+
+    .audience-card:hover{
+        transform:translateY(-8px);
+        border-color:rgba(202,167,106,.52);
+        box-shadow:0 31px 68px rgba(0,0,0,.24);
+    }
+
+    .audience-card .feature-icon{
+        transition:transform .35s ease;
+    }
+
+    .audience-card:hover .feature-icon{
+        transform:translateY(-3px) rotate(-2deg);
+    }
+}
+
+/* Tablet */
+
+@media(max-width:950px){
+
+    .audience-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+
+    .audience-card-large,
+    .audience-card-small{
+        grid-column:span 1;
+    }
+
+    .audience-card-small{
+        min-height:200px;
+    }
+}
+
+/* Mobile */
+
+@media(max-width:600px){
+
+    .audience-section{
+        padding:70px 0 76px;
+    }
+
+    .audience-section .container{
+        width:92%;
+    }
+
+    .audience-section .section-title{
+        margin-bottom:34px;
+    }
+
+    .audience-section .section-title h2{
+        font-size:2.7rem;
+        letter-spacing:-2px;
+    }
+
+    .audience-section .section-title p{
+        font-size:.97rem;
+        line-height:1.65;
+    }
+
+    .audience-grid{
+        grid-template-columns:1fr;
+        gap:15px;
+    }
+
+    .audience-card-large,
+    .audience-card-small{
+        grid-column:1;
+    }
+
+    .audience-card-large{
+        min-height:0;
+        padding:25px;
+        border-radius:23px;
+    }
+
+    .audience-card-top{
+        margin-bottom:21px;
+    }
+
+    .audience-card-large h3{
+        font-size:1.37rem;
+    }
+
+    .audience-card-large p:not(.audience-label){
+        font-size:.93rem;
+        line-height:1.62;
+    }
+
+    .audience-card-small{
+        min-height:0;
+        grid-template-columns:49px minmax(0,1fr);
+        gap:16px;
+        padding:22px;
+        border-radius:21px;
+    }
+
+    .audience-section .audience-card .feature-icon{
+        width:49px;
+        height:49px;
+        border-radius:15px;
+    }
+
+    .audience-section .audience-card .feature-icon svg{
+        width:23px;
+        height:23px;
+    }
+
+    .audience-card-small h3{
+        font-size:1.14rem;
+    }
+
+    .audience-card-small p:not(.audience-label){
+        font-size:.89rem;
+        line-height:1.55;
     }
 }
 
@@ -2168,8 +4191,9 @@ transform:translateY(-50%);
   "name": "Sorted.",
   "description": "Home and lifestyle support in Eastbourne and surrounding areas.",
   "url": "https://sortedlife.org.uk/",
-"email": "contact@sortedlife.org.uk",
-"areaServed": [
+  "email": "contact@sortedlife.org.uk",
+  "telephone": "+44 1323 396610",
+  "areaServed": [
     "Eastbourne",
     "Meads",
     "Old Town",
@@ -2188,7 +4212,7 @@ transform:translateY(-50%);
     "addressRegion": "East Sussex",
     "addressCountry": "GB"
   },
-"serviceType": [
+  "serviceType": [
     "Home management",
     "Lifestyle assistance",
     "Home organisation",
@@ -2201,14 +4225,11 @@ transform:translateY(-50%);
 }
 </script>
 
-<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 
 </head>
 
 <body>
-<div class="loader">
-    <div class="loader-logo">Sorted<span>.</span></div>
-</div>
 <header class="site-header">
 
 <div class="container nav-wrap">
@@ -2236,7 +4257,7 @@ transform:translateY(-50%);
 
 <a href="#about">About</a>
 
-<a href="#reviews">Reviews</a>
+<a href="#reviews">Why Sorted?</a>
 <a href="#perfect-for">Who We Help</a>
 <a href="#faq">FAQ</a>
 <a href="#contact">Contact</a>
@@ -2478,64 +4499,249 @@ providing flexible support exactly when you need it.
 </div>
 </section>
 
-<section class="fade" id="ad-hoc">
+<section class="flexible-section fade" id="ad-hoc">
 
 <div class="container">
 
-<div class="section-title">
+<div class="flexible-heading">
+
+<div>
 <p class="eyebrow">FLEXIBLE SUPPORT</p>
-<h2>Need help without a monthly plan?</h2>
-<p>Choose one-off or ad-hoc support whenever you need an extra pair of trusted hands.</p>
+
+<h2>Support when you need it.</h2>
 </div>
 
-<div class="cards">
+<p>
+Choose one-off practical help, a focused home reset or specialist support
+without committing to a monthly membership.
+</p>
 
-<div class="card">
-<h3>Home & Lifestyle Support</h3>
-<p><strong>£32 per hour</strong></p>
-<p>Errands, shopping, prescription collection, returns, appointments, everyday tasks and general practical support.</p>
-<p><strong>2-hour minimum.</strong></p>
 </div>
 
-<div class="card">
-<h3>Home Organisation & Reset Support</h3>
-<p><strong>£38 per hour</strong></p>
-<p>Decluttering, creating calm, kitchen and pantry solutions, wardrobe refreshes and seasonal home resets.</p>
-<p><strong>2-hour minimum.</strong></p>
+
+<div class="flexible-layout">
+
+<!-- FEATURED CARD -->
+
+<article class="flexible-featured">
+
+<div class="flexible-featured-top">
+
+<div class="flexible-icon">
+<i data-lucide="shopping-bag"></i>
 </div>
 
-<div class="card">
+<span class="flexible-tag">EVERYDAY SUPPORT</span>
+
+</div>
+
+<h3>Home &amp; Lifestyle Support</h3>
+
+<p class="flexible-description">
+Reliable practical support for the everyday jobs that take up your time,
+from errands and shopping to prescription collections, returns and appointments.
+</p>
+
+<div class="flexible-price">
+<strong>£32</strong>
+<span>per hour</span>
+</div>
+
+<div class="flexible-detail-list">
+
+<span>
+<i data-lucide="check"></i>
+Errands and shopping
+</span>
+
+<span>
+<i data-lucide="check"></i>
+Collections and returns
+</span>
+
+<span>
+<i data-lucide="check"></i>
+Appointment assistance
+</span>
+
+<span>
+<i data-lucide="check"></i>
+Everyday practical tasks
+</span>
+
+</div>
+
+<p class="flexible-note">Two-hour minimum booking.</p>
+
+<a
+href="https://calendly.com/d/dzzd-qmh-mcm/one-off-meeting"
+target="_blank"
+rel="noopener noreferrer"
+class="flexible-link">
+Discuss your support
+<i data-lucide="arrow-right"></i>
+</a>
+
+</article>
+
+
+<!-- SMALLER SERVICE CARDS -->
+
+<div class="flexible-services">
+
+<article class="flexible-service-card">
+
+<div class="flexible-card-heading">
+
+<div class="flexible-icon">
+<i data-lucide="boxes"></i>
+</div>
+
+<span class="flexible-tag">CALMER SPACES</span>
+
+</div>
+
+<h3>Home Organisation &amp; Reset Support</h3>
+
+<p>
+Decluttering, storage solutions, wardrobe refreshes, kitchen organisation
+and seasonal home resets.
+</p>
+
+<div class="flexible-card-footer">
+<strong>£38 per hour</strong>
+<span>Two-hour minimum</span>
+</div>
+
+</article>
+
+
+<article class="flexible-service-card flexible-warm">
+
+<div class="flexible-card-heading">
+
+<div class="flexible-icon">
+<i data-lucide="sparkles"></i>
+</div>
+
+<span class="flexible-tag">FOCUSED SESSION</span>
+
+</div>
+
 <h3>Home Reset Session</h3>
-<p><strong>£95</strong></p>
-<p>A focused 3-hour session designed to declutter, organise and restore calm to your home.</p>
-<p><strong>Perfect first booking.</strong></p>
+
+<p>
+A focused three-hour session designed to declutter, organise and restore
+a feeling of calm to one area of your home.
+</p>
+
+<div class="flexible-card-footer">
+<strong>£95</strong>
+<span>Ideal as a first session</span>
 </div>
 
-<div class="card">
-<h3>Wellbeing & Reassurance Visits</h3>
-<p><strong>From £65 per visit</strong></p>
-<p>Friendly companionship visits, wellbeing check-ins, practical day-to-day support and family updates.</p>
+</article>
+
+
+<article class="flexible-service-card flexible-sage">
+
+<div class="flexible-card-heading">
+
+<div class="flexible-icon">
+<i data-lucide="heart-handshake"></i>
 </div>
 
-<div class="card">
-<h3>Property & Home Management</h3>
-<p><strong>Property checks: £35–£60 per visit</strong></p>
-<p>Contractor access, key holding, holiday home oversight, home readiness and wait-in services.</p>
-<p><strong>Wait-in service: £38 per hour.</strong></p>
-<p><strong>Key holding from £25 per month.</strong></p>
-</div>
-
-<div class="card">
-<h3>Home Administration & Coordination</h3>
-<p><strong>£42 per hour</strong></p>
-<p>Home administration, appointment scheduling, contractor coordination, lifestyle organisation and paperwork assistance.</p>
-</div>
-
-</div>
+<span class="flexible-tag">FRIENDLY SUPPORT</span>
 
 </div>
 
-</section>
+<h3>Wellbeing &amp; Reassurance Visits</h3>
+
+<p>
+Friendly companionship, wellbeing check-ins, practical support and,
+where agreed, reassuring updates for family members.
+</p>
+
+<div class="flexible-card-footer">
+<strong>From £65 per visit</strong>
+<span>Tailored around the individual</span>
+</div>
+
+</article>
+
+
+<article class="flexible-service-card">
+
+<div class="flexible-card-heading">
+
+<div class="flexible-icon">
+<i data-lucide="key-round"></i>
+</div>
+
+<span class="flexible-tag">PROPERTY CARE</span>
+
+</div>
+
+<h3>Property &amp; Home Management</h3>
+
+<p>
+Property checks, contractor access, key holding, holiday-home oversight,
+home readiness and wait-in services.
+</p>
+
+<div class="flexible-rates">
+
+<span>
+<strong>£35–£60</strong>
+Property checks
+</span>
+
+<span>
+<strong>£38 per hour</strong>
+Wait-in service
+</span>
+
+<span>
+<strong>From £25 monthly</strong>
+Key holding
+</span>
+
+</div>
+
+</article>
+
+
+<article class="flexible-service-card flexible-dark">
+
+<div class="flexible-card-heading">
+
+<div class="flexible-icon">
+<i data-lucide="clipboard-list"></i>
+</div>
+
+<span class="flexible-tag">HOME ADMIN</span>
+
+</div>
+
+<h3>Administration &amp; Coordination</h3>
+
+<p>
+Appointment scheduling, contractor coordination, paperwork assistance
+and thoughtful organisation of household responsibilities.
+</p>
+
+<div class="flexible-card-footer">
+<strong>£42 per hour</strong>
+<span>Professional and discreet</span>
+</div>
+
+</article>
+
+</div>
+
+</div>
+
+</div
 <section class="fade" id="away-from-home">
 
 <div class="container">
@@ -2601,109 +4807,248 @@ style="margin-top:25px;display:inline-block;">
 </div>
 
 </section>
-<section class="pricing fade" id="memberships">
+<section class="pricing membership-premium fade" id="memberships">
 
 <div class="container">
 
-<div class="membership-intro">
+<div class="membership-heading">
+
+<div>
 <p class="eyebrow">MEMBERSHIPS</p>
-<h2>Ongoing home and lifestyle support.</h2>
-<p>Regular home and lifestyle support for routines, errands, admin, organisation and everyday practical tasks.</p>
+
+<h2>Ongoing support, beautifully organised.</h2>
 </div>
 
-<div class="pricing-grid">
+<div class="membership-heading-copy">
 
-<div class="plan">
+<p>
+Regular, dependable support shaped around your home, routine and priorities.
+Every membership begins with a complimentary consultation.
+</p>
+
+<div class="membership-assurance">
+<i data-lucide="sliders-horizontal"></i>
+<span>Flexible support that can evolve as your needs change.</span>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="membership-grid">
+
+<article class="membership-card">
+
+<div class="membership-card-header">
+
+<div class="membership-symbol">
+<i data-lucide="shopping-bag"></i>
+</div>
+
+<p class="membership-type">LIGHT ONGOING SUPPORT</p>
+
+</div>
+
 <h3>Essential Support</h3>
-<p class="plan-subtitle">Light ongoing support for practical tasks and everyday help.</p>
-<div class="price">£250–£450 <span style="font-size:18px;">/month</span></div>
-<p class="price-note">Approx. 4–10 support hours.</p>
+
+<p class="membership-summary">
+Practical assistance with the everyday tasks that are difficult to fit in.
+</p>
+
+<div class="membership-price">
+<strong>£250–£450</strong>
+<span>per month</span>
+</div>
+
+<p class="membership-hours">Approximately 4–10 support hours</p>
+
 <ul>
 <li>Errands and shopping</li>
 <li>Prescription collection</li>
 <li>Returns and collections</li>
 <li>Appointment assistance</li>
-<li>Everyday tasks</li>
-<li>General practical support</li>
+<li>Everyday practical support</li>
 </ul>
-<a href="https://calendly.com/d/dzzd-qmh-mcm/one-off-meeting"
-   target="_blank"
-   rel="noopener noreferrer"
-   class="plan-button">
-   Enquire
+
+<a
+href="https://calendly.com/d/dzzd-qmh-mcm/one-off-meeting"
+target="_blank"
+rel="noopener noreferrer"
+class="membership-button">
+Enquire about Essential
+<i data-lucide="arrow-right"></i>
 </a>
+
+</article>
+
+
+<article class="membership-card membership-featured">
+
+<div class="membership-ribbon">MOST POPULAR</div>
+
+<div class="membership-card-header">
+
+<div class="membership-symbol">
+<i data-lucide="sparkles"></i>
 </div>
 
-<div class="plan featured">
-<div class="badge">MOST POPULAR</div>
+<p class="membership-type">REGULAR WEEKLY SUPPORT</p>
+
+</div>
+
 <h3>Complete Support</h3>
-<p class="plan-subtitle">Regular weekly home and lifestyle support.</p>
-<div class="price">£450–£850 <span style="font-size:18px;">/month</span></div>
-<p class="price-note">Approx. 10–20 support hours.</p>
+
+<p class="membership-summary">
+Dependable weekly help across your home, lifestyle and household administration.
+</p>
+
+<div class="membership-price">
+<strong>£450–£850</strong>
+<span>per month</span>
+</div>
+
+<p class="membership-hours">Approximately 10–20 support hours</p>
+
 <ul>
 <li>Shopping and errands</li>
 <li>Home organisation</li>
 <li>Home administration</li>
 <li>Appointment scheduling</li>
 <li>Contractor coordination</li>
-<li>Lifestyle organisation</li>
 <li>Paperwork assistance</li>
 </ul>
-<a href="https://calendly.com/d/dzzd-qmh-mcm/one-off-meeting"
-   target="_blank"
-   rel="noopener noreferrer"
-   class="plan-button">
-   Enquire
+
+<a
+href="https://calendly.com/d/dzzd-qmh-mcm/one-off-meeting"
+target="_blank"
+rel="noopener noreferrer"
+class="membership-button">
+Enquire about Complete
+<i data-lucide="arrow-right"></i>
 </a>
+
+</article>
+
+
+<article class="membership-card membership-signature">
+
+<div class="membership-card-header">
+
+<div class="membership-symbol">
+<i data-lucide="house-key"></i>
 </div>
 
-<div class="plan">
+<p class="membership-type">MORE COMPLETE MANAGEMENT</p>
+
+</div>
+
 <h3>Signature Support</h3>
-<p class="plan-subtitle">More complete support for busy homes and second-home owners.</p>
-<div class="price">£850–£1500 <span style="font-size:18px;">/month</span></div>
-<p class="price-note">Approx. 20–30 support hours.</p>
+
+<p class="membership-summary">
+More comprehensive support for busy households and second-home owners.
+</p>
+
+<div class="membership-price">
+<strong>£850–£1,500</strong>
+<span>per month</span>
+</div>
+
+<p class="membership-hours">Approximately 20–30 support hours</p>
+
 <ul>
 <li>Multiple support visits</li>
 <li>Property checks</li>
 <li>Key holding support</li>
 <li>Home readiness</li>
 <li>Second-home oversight</li>
-<li>Tailored home management</li>
 <li>Priority availability</li>
 </ul>
-<a href="https://calendly.com/d/dzzd-qmh-mcm/one-off-meeting"
-   target="_blank"
-   rel="noopener noreferrer"
-   class="plan-button">
-   Enquire
+
+<a
+href="https://calendly.com/d/dzzd-qmh-mcm/one-off-meeting"
+target="_blank"
+rel="noopener noreferrer"
+class="membership-button">
+Enquire about Signature
+<i data-lucide="arrow-right"></i>
 </a>
+
+</article>
+
+
+<article class="membership-card membership-private">
+
+<div class="membership-card-header">
+
+<div class="membership-symbol">
+<i data-lucide="gem"></i>
 </div>
 
+<p class="membership-type">BESPOKE PRIVATE SUPPORT</p>
 
-<div class="plan">
+</div>
+
 <h3>Private Client Support</h3>
-<p class="plan-subtitle">Tailored home management and lifestyle support with complete flexibility.</p>
-<div class="price">From £1500+ <span style="font-size:18px;">/month</span></div>
-<p class="price-note">For homes requiring higher-level ongoing support.</p>
+
+<p class="membership-summary">
+A completely tailored home-management service offering greater flexibility,
+continuity and priority support.
+</p>
+
+<div class="membership-price">
+<strong>From £1,500</strong>
+<span>per month</span>
+</div>
+
+<p class="membership-hours">Designed around higher-level ongoing requirements</p>
+
 <ul>
 <li>Complete home management</li>
 <li>Priority availability</li>
-<li>Second-home support</li>
 <li>Property oversight</li>
+<li>Second-home support</li>
 <li>Contractor coordination</li>
 <li>Tailored lifestyle assistance</li>
-<li>Flexible private client support</li>
 </ul>
-<a href="https://calendly.com/d/dzzd-qmh-mcm/one-off-meeting"
-   target="_blank"
-   rel="noopener noreferrer"
-   class="plan-button">
-   Enquire
+
+<a
+href="https://calendly.com/d/dzzd-qmh-mcm/one-off-meeting"
+target="_blank"
+rel="noopener noreferrer"
+class="membership-button">
+Discuss private support
+<i data-lucide="arrow-right"></i>
 </a>
+
+</article>
+
 </div>
+
+
+<div class="membership-bottom-note">
+
+<div>
+<i data-lucide="message-circle"></i>
+</div>
+
+<p>
+<strong>Not sure which level is right?</strong>
+Your complimentary consultation will help us understand your priorities and
+recommend the most suitable level of support.
+</p>
+
+<a
+href="https://calendly.com/d/dzzd-qmh-mcm/one-off-meeting"
+target="_blank"
+rel="noopener noreferrer">
+Book a consultation
+</a>
+
 </div>
 
 </div>
+
 </section>
 
 <section id="about" class="fade">
@@ -2768,7 +5113,7 @@ Langney, Polegate, Pevensey, Seaford and nearby villages.
 </div>
 
 </section>
-<section id="reviews">
+<section id="reviews" class="trust-section fade">
 
 <div class="container">
 
@@ -2783,32 +5128,50 @@ We know inviting someone into your home is personal. That's why every visit is b
 <div class="cards">
 
 <div class="card">
+<div class="feature-icon">
+<i data-lucide="shield-check"></i>
+</div>
 <h3>Enhanced DBS Checked</h3>
 <p>Every visit is carried out with professionalism, integrity and complete respect for your home.</p>
 </div>
 
 <div class="card">
+<div class="feature-icon">
+<i data-lucide="umbrella"></i>
+</div>
 <h3>Fully Insured</h3>
 <p>Comprehensive public liability insurance provides reassurance every time we visit.</p>
 </div>
 
 <div class="card">
+<div class="feature-icon">
+<i data-lucide="sparkles"></i>
+</div>
 <h3>Tailored Around You</h3>
 <p>No two homes are the same. Every service is adapted to your lifestyle and priorities.</p>
 </div>
 
 <div class="card">
-<h3>Reliable & Consistent</h3>
+<div class="feature-icon">
+<i data-lucide="badge-check"></i>
+</div>
+<h3>Reliable &amp; Consistent</h3>
 <p>Enjoy a familiar face who understands your home, routine and preferences.</p>
 </div>
 
 <div class="card">
+<div class="feature-icon">
+<i data-lucide="calendar-clock"></i>
+</div>
 <h3>Flexible Scheduling</h3>
 <p>Choose regular weekly visits or occasional support whenever you need an extra helping hand.</p>
 </div>
 
 <div class="card">
-<h3>Local & Independent</h3>
+<div class="feature-icon">
+<i data-lucide="map-pin-house"></i>
+</div>
+<h3>Local &amp; Independent</h3>
 <p>Proudly supporting homes across Eastbourne and the surrounding areas.</p>
 </div>
 
@@ -2820,52 +5183,210 @@ We know inviting someone into your home is personal. That's why every visit is b
 
 <!-- PERFECT FOR -->
 
-<section class="fade" id="perfect-for">
+<section class="fade audience-section" id="perfect-for">
+
 <div class="container">
 
-<div class="section-title">
+<div class="audience-heading">
 
-<p class="eyebrow">PERFECT FOR</p>
+<div>
+<p class="eyebrow">WHO WE HELP</p>
 
-<h2>Who we help</h2>
+<h2>Support shaped around real life.</h2>
+</div>
 
 <p>
-Whether life is busy, you're supporting a loved one or simply need an extra pair of trusted hands, Sorted. is here to help.
+Different homes need different kinds of support. Sorted. quietly steps in
+wherever practical, dependable help would make life feel easier.
 </p>
 
 </div>
 
-<div class="cards">
 
-<div class="card">
+<div class="audience-showcase">
+
+<article class="audience-primary audience-professionals">
+
+<div class="audience-primary-content">
+
+<div class="audience-icon">
+<i data-lucide="briefcase-business"></i>
+</div>
+
+<p class="audience-kicker">MORE TIME FOR WHAT MATTERS</p>
+
 <h3>Busy Professionals</h3>
-<p>Spend less time on errands and more time on work, family and enjoying life.</p>
+
+<p>
+We take care of errands, household administration, appointments and practical
+tasks so your limited free time is no longer consumed by your to-do list.
+</p>
+
+<div class="audience-benefits">
+<span>Errands handled</span>
+<span>Home admin organised</span>
+<span>Time given back</span>
 </div>
 
-<div class="card">
+</div>
+
+<div class="audience-decoration">
+<i data-lucide="clock-3"></i>
+</div>
+
+</article>
+
+
+<article class="audience-primary audience-older">
+
+<div class="audience-primary-content">
+
+<div class="audience-icon">
+<i data-lucide="heart-handshake"></i>
+</div>
+
+<p class="audience-kicker">CONFIDENCE AT HOME</p>
+
 <h3>Older Adults</h3>
-<p>Helping people stay independent with practical support and friendly companionship.</p>
+
+<p>
+Friendly, respectful support with everyday tasks, appointments, outings and
+companionship, helping you remain confident and independent at home.
+</p>
+
+<div class="audience-benefits">
+<span>Familiar support</span>
+<span>Friendly company</span>
+<span>Greater independence</span>
 </div>
 
-<div class="card">
+</div>
+
+<div class="audience-decoration">
+<i data-lucide="home"></i>
+</div>
+
+</article>
+
+
+<div class="audience-secondary-grid">
+
+<article class="audience-secondary audience-family">
+
+<div class="audience-icon">
+<i data-lucide="users"></i>
+</div>
+
+<div>
+
+<p class="audience-kicker">EVERYDAY BREATHING SPACE</p>
+
 <h3>Families</h3>
-<p>Extra help when life becomes busy, from shopping and organisation to everyday home support.</p>
+
+<p>
+Practical support during busy weeks, changing circumstances or periods when
+there simply is not enough time to manage everything.
+</p>
+
 </div>
 
-<div class="card">
-<h3>Second Home Owners</h3>
-<p>Property checks, key holding and home readiness while you're away.</p>
+</article>
+
+
+<article class="audience-secondary audience-property">
+
+<div class="audience-icon">
+<i data-lucide="key-round"></i>
 </div>
 
-<div class="card">
+<div>
+
+<p class="audience-kicker">PEACE OF MIND WHILE AWAY</p>
+
+<h3>Second-Home Owners</h3>
+
+<p>
+Property checks, key holding, contractor access and thoughtful preparation
+before you return.
+</p>
+
+</div>
+
+</article>
+
+
+<article class="audience-secondary audience-landlord">
+
+<div class="audience-icon">
+<i data-lucide="building-2"></i>
+</div>
+
+<div>
+
+<p class="audience-kicker">DEPENDABLE PROPERTY SUPPORT</p>
+
 <h3>Landlords</h3>
-<p>Meet contractors, property visits and practical support between tenancies.</p>
+
+<p>
+Reliable property visits, access for contractors and practical help between
+tenancies.
+</p>
+
 </div>
 
-<div class="card">
-<h3>Anyone Needing a Hand</h3>
-<p>Whether you're recovering from illness, short on time or simply need an extra pair of trusted hands, we're here to help.</p>
+</article>
+
+
+<article class="audience-secondary audience-flexible">
+
+<div class="audience-icon">
+<i data-lucide="hand-helping"></i>
 </div>
+
+<div>
+
+<p class="audience-kicker">HELP WITHOUT THE LABELS</p>
+
+<h3>Anyone Needing a Hand</h3>
+
+<p>
+Short-term or ongoing support during busy, difficult, unexpected or changing
+periods of life.
+</p>
+
+</div>
+
+</article>
+
+</div>
+
+</div>
+
+
+<div class="audience-closing">
+
+<div class="audience-closing-icon">
+<i data-lucide="sparkles"></i>
+</div>
+
+<div>
+<p class="audience-kicker">YOUR SUPPORT, YOUR WAY</p>
+
+<h3>You do not need to fit into a particular category.</h3>
+
+<p>
+Tell us what would make life easier and we will create thoughtful support
+around your home, routine and priorities.
+</p>
+</div>
+
+<a
+href="https://calendly.com/d/dzzd-qmh-mcm/one-off-meeting"
+target="_blank"
+rel="noopener noreferrer">
+Start a conversation
+<i data-lucide="arrow-right"></i>
+</a>
 
 </div>
 
@@ -2873,7 +5394,7 @@ Whether life is busy, you're supporting a loved one or simply need an extra pair
 
 </section>
 
-<section id="faq">
+<section id="faq" class="faq-section fade">
 
 <div class="container narrow">
 
@@ -2935,212 +5456,235 @@ Our standard rates apply to regular weekday hours. For out-of-hours support, sta
 </div>
 
 </section>
-<section class="contact" id="contact">
+<section class="contact contact-premium fade" id="contact">
 
-<div class="container contact-grid">
+<div class="container">
 
-<div>
+<div class="contact-heading">
 
 <p class="eyebrow">LET'S START WITH A CONVERSATION</p>
 
 <h2>Life. Beautifully Sorted.</h2>
-<p style="font-weight:600;color:#314632;margin-bottom:12px;">
-We aim to respond to all enquiries within 24 hours, often much sooner.
-</p>
-<p style="margin-bottom:30px;">
-Whether you're looking for ongoing home support, home organisation, lifestyle assistance, property management or simply an extra pair of trusted hands, <strong>Sorted.</strong> provides discreet, dependable support tailored around you, your home and the way you live. We'll quietly take care of the details of your home and everyday life, so you have more time for the things that matter most.
+
+<p class="contact-intro">
+Tell us what would make everyday life feel calmer, easier or more organised.
+We'll listen carefully and explain how Sorted. can support you.
 </p>
 
-<div style="display:grid;gap:22px;">
+<div class="contact-response">
+<i data-lucide="clock-3"></i>
+<span>We aim to respond within 24 hours, often much sooner.</span>
+</div>
+
+</div>
+
+<div class="contact-premium-grid">
+
+<div class="contact-details-panel">
+
+<div class="contact-detail-card">
+
+<div class="contact-detail-icon">
+<i data-lucide="mail"></i>
+</div>
 
 <div>
-
-<h3>Email</h3>
-
-<p>
+<p class="contact-detail-label">Email us</p>
 <a href="mailto:contact@sortedlife.org.uk">
 contact@sortedlife.org.uk
 </a>
-</p>
+</div>
 
 </div>
 
+<div class="contact-detail-card">
+
+<div class="contact-detail-icon">
+<i data-lucide="phone"></i>
+</div>
+
 <div>
-
-<h3>Phone</h3>
-
-<p>
+<p class="contact-detail-label">Call us</p>
 <a href="tel:+441323396610">
 01323 396610
 </a>
-</p>
+</div>
 
 </div>
+
+<div class="contact-detail-card">
+
+<div class="contact-detail-icon">
+<i data-lucide="calendar-days"></i>
+</div>
+
 <div>
-
-<h3>Opening Hours</h3>
-
+<p class="contact-detail-label">Opening hours</p>
 <p>
 Monday – Friday: 8:00am – 6:00pm<br>
 Saturday: By appointment<br>
 Sunday: By arrangement
 </p>
+</div>
 
 </div>
-<div>
 
-<h3>Areas Covered</h3>
+<div class="contact-detail-card">
+
+<div class="contact-detail-icon">
+<i data-lucide="map-pinned"></i>
+</div>
+
+<div>
+<p class="contact-detail-label">Areas covered</p>
+<p>
+Eastbourne, Meads, Old Town, Upperton, Sovereign Harbour,
+Hampden Park, Willingdon, Langney, Polegate, Pevensey,
+Seaford and nearby villages.
+</p>
+</div>
+
+</div>
+
+<div class="contact-promise">
+
+<div class="contact-promise-icon">
+<i data-lucide="heart-handshake"></i>
+</div>
+
+<div>
+<p class="contact-promise-label">Our promise</p>
+
+<h3>Thoughtful support, delivered with genuine care.</h3>
 
 <p>
-Eastbourne • Meads • Old Town • Upperton • Sovereign Harbour • Hampden Park • Willingdon • Langney • Polegate • Pevensey • Seaford
+Every visit is carried out with professionalism, discretion and respect.
+Your home, preferences and privacy will always be treated with care.
+</p>
+</div>
+
+</div>
+
+</div>
+
+<div class="contact-form-wrap">
+
+<div class="contact-form-heading">
+
+<p class="eyebrow">ENQUIRE TODAY</p>
+
+<h3>How can we help?</h3>
+
+<p>
+No obligation. No pressure. Just a friendly conversation about the support you need.
 </p>
 
 </div>
 
-</div>
-
-</div>
-
-<div>
-
-<div class="card" style="margin-bottom:35px;">
-
-<h3>Our Promise</h3>
-
-<p>
-Every visit is carried out with professionalism, discretion and genuine care. We treat your home with the same respect and attention to detail as if it were our own, always striving to provide a dependable service you can trust.
-</p>
-
-</div>
 <form class="contact-form" action="https://formsubmit.co/contact@sortedlife.org.uk" method="POST">
 
-<p style="margin-bottom:22px;font-weight:600;color:#314632;">
-No obligation. No pressure. Just a friendly conversation about how we can help.
-</p>
 <input type="hidden" name="_subject" value="New Sorted. Website Enquiry">
 <input type="hidden" name="_captcha" value="false">
 <input type="hidden" name="_template" value="table">
 <input type="hidden" name="_next" value="https://sortedlife.org.uk/thank-you.html">
+
+<div class="contact-form-row">
+
 <label>
-
-Your Name
-
+Your name
 <input
 type="text"
 name="name"
 placeholder="John Smith"
+autocomplete="name"
 required>
-
 </label>
 
 <label>
+Telephone
+<input
+type="tel"
+name="phone"
+placeholder="Optional"
+autocomplete="tel">
+</label>
 
-Email Address
+</div>
 
+<label>
+Email address
 <input
 type="email"
 name="email"
 placeholder="john@email.com"
+autocomplete="email"
 required>
-
 </label>
 
 <label>
-
-Telephone
-
-<input
-type="tel"
-name="phone"
-placeholder="Optional">
-
-</label>
-
-<label>
-
-How can we help?
-
+What would you like help with?
 <textarea
 name="message"
-placeholder="Tell us a little about what you need..."
+placeholder="Tell us a little about the support you need..."
 required></textarea>
-
 </label>
 
 <label style="display:none !important;">
-  Spam check
-  <input type="text" name="_honey">
+Spam check
+<input type="text" name="_honey">
 </label>
-<button type="submit" class="btn primary">
-<span>Send Enquiry</span>
+
+<button type="submit" class="btn primary contact-submit">
+<span>Send My Enquiry</span>
+<i data-lucide="arrow-right"></i>
 </button>
 
-<p style="margin-top:18px;color:var(--muted);font-size:.9rem;">
+<div class="contact-payment">
 
-We'll aim to reply as soon as possible.
+<i data-lucide="credit-card"></i>
 
-</p>
-<p style="margin-top:25px;color:var(--muted);font-size:.95rem;line-height:1.7;">
+<p>
 <strong>Payment options</strong><br>
-Bank Transfer • Debit &amp; Credit Card • Standing Order (Memberships)
+Bank transfer, debit or credit card and standing order for memberships.
 </p>
+
+</div>
+
 </form>
 
 </div>
 
 </div>
 
+</div>
+
 </section>
 
-<section style="background:#fdf8f1;padding:45px 0;border-top:1px solid rgba(202,167,106,.2);">
-<div class="container">
+<section class="final-cta fade">
 
-<div class="section-title" style="margin-bottom:35px;">
+<div class="container narrow">
 
-<p class="eyebrow">WHY CHOOSE SORTED?</p>
+<p class="eyebrow">READY WHEN YOU ARE</p>
 
-<h2>Trusted support you can rely on.</h2>
+<h2>Ready to make everyday life feel easier?</h2>
 
-</div>
+<p>
+Start with a complimentary, no-obligation conversation about your home,
+routine and the support that would make the greatest difference.
+</p>
 
-<div class="hero-trust-strip" style="justify-content:center;max-width:none;">
-
-<span>Enhanced DBS Checked</span>
-
-<span>Fully Insured</span>
-
-<span>Confidential &amp; Discreet</span>
-
-<span>Local Independent Business</span>
-
-<span>Flexible One-off &amp; Ongoing Support</span>
-
-<span>Tailored Around You</span>
-
-</div>
+<a
+href="https://calendly.com/d/dzzd-qmh-mcm/one-off-meeting"
+target="_blank"
+rel="noopener noreferrer"
+class="btn">
+Book Your Complimentary Consultation
+</a>
 
 </div>
 
 </section>
-<div class="section-menu" id="sectionMenu">
 
-<button onclick="toggleSectionMenu()" aria-label="Open sections menu">
-☰
-</button>
-
-<div class="section-menu-links">
-<a href="#services">Services</a>
-<a href="#ad-hoc">Flexible Support</a>
-<a href="#away-from-home">Away From Home</a>
-<a href="#memberships">Memberships</a>
-<a href="#about">About</a>
-<a href="#reviews">Reviews</a>
-<a href="#perfect-for">Who We Help</a>
-<a href="#faq">FAQ</a>
-<a href="#contact">Contact</a>
-</div>
-
-</div>
 <div class="floating-contact">
 
   <a href="tel:+441323396610" class="floating-btn phone" aria-label="Call">
@@ -3178,9 +5722,18 @@ Bank Transfer • Debit &amp; Credit Card • Standing Order (Memberships)
 <a class="logo" href="index.html" style="color:white;">Sorted<span>.</span></a>
 
 <p style="margin-top:18px;">
-Your Home. Handled.<br><br>
-Premium home and lifestyle support across Eastbourne and surrounding areas.
+Your Home. Handled.
 </p>
+
+<p style="margin-top:12px;">
+Premium home and lifestyle support delivered with care, discretion and complete reliability across Eastbourne and surrounding areas.
+</p>
+
+<div class="footer-assurances">
+<span>Enhanced DBS</span>
+<span>Fully Insured</span>
+<span>Local Business</span>
+</div>
 
 </div>
 
@@ -3227,14 +5780,20 @@ Sun: By arrangement
 
 </div>
 
-<p style="text-align:center;margin:40px 0 18px;">
-<a href="privacy.html">Privacy Policy</a> ·
-<a href="terms.html">Terms & Conditions</a>
-</p>
+<div class="footer-bottom">
+
+<div class="footer-legal">
+<a href="privacy.html">Privacy Policy</a>
+<a href="terms.html">Terms &amp; Conditions</a>
+<a href="#contact">Contact</a>
+<a href="portal/index.html">Client Login</a>
+</div>
 
 <p class="copyright">
 © 2026 Sorted. All rights reserved.
 </p>
+
+</div>
 
 </div>
 
@@ -3282,15 +5841,7 @@ function showFadeElements() {
 
 window.addEventListener("scroll", showFadeElements);
 window.addEventListener("load", showFadeElements);
-window.addEventListener("load", function () {
-    const loader = document.querySelector(".loader");
-    if (loader) {
-        loader.style.pointerEvents = "none";
-        setTimeout(function () {
-            loader.remove();
-        }, 1200);
-    }
-});
+
 document.querySelectorAll(".faq-item").forEach(item => {
     item.addEventListener("click", () => {
         item.classList.toggle("active");
@@ -3309,25 +5860,66 @@ window.addEventListener("scroll", () => {
         header.style.boxShadow = "0 10px 40px rgba(23,38,27,.08)";
     }
 });
-function toggleSectionMenu(){
-document.getElementById("sectionMenu").classList.toggle("open");
-}
 
-document.querySelectorAll(".section-menu-links a").forEach(link=>{
-link.addEventListener("click",()=>{
-document.getElementById("sectionMenu").classList.remove("open");
-});
-});
-window.addEventListener("load", () => {
+document.addEventListener("DOMContentLoaded", () => {
     if (window.lucide) {
         lucide.createIcons();
     }
 });
+
+const contactSection = document.querySelector("#contact");
+const floatingContact = document.querySelector(".floating-contact");
+
+if (contactSection && floatingContact) {
+    const contactObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (window.innerWidth <= 600) {
+                floatingContact.style.opacity = entry.isIntersecting ? "0" : "1";
+                floatingContact.style.pointerEvents = entry.isIntersecting ? "none" : "auto";
+            } else {
+                floatingContact.style.opacity = "1";
+                floatingContact.style.pointerEvents = "auto";
+            }
+        });
+    }, {
+        threshold: 0.08
+    });
+
+    contactObserver.observe(contactSection);
+}
+
+window.addEventListener("resize", () => {
+    if (window.innerWidth > 600 && floatingContact) {
+        floatingContact.style.opacity = "1";
+        floatingContact.style.pointerEvents = "auto";
+    }
+});
 </script>
 
-<div id="cookie-banner" style="display:none;position:fixed;bottom:16px;left:50%;transform:translateX(-50%);width:min(82%,460px);background:rgba(23,38,27,.94);color:white;padding:14px 18px;z-index:99999;text-align:center;border-radius:18px;box-shadow:0 16px 40px rgba(23,38,27,.25);font-size:.9rem;">
-  This website uses essential cookies to improve your experience.
-  <button onclick="acceptCookies()" style="margin-left:15px;padding:10px 18px;border-radius:999px;border:0;font-weight:bold;">Accept</button>
+<div id="cookie-banner" style="display:none;position:fixed;left:50%;transform:translateX(-50%);z-index:99999;">
+
+<div class="cookie-inner">
+
+<div class="cookie-icon">
+<i data-lucide="cookie"></i>
+</div>
+
+<div class="cookie-copy">
+<strong>Essential website storage</strong>
+<span>
+We only use essential browser storage to remember that you have dismissed this notice.
+</span>
+</div>
+
+<button
+type="button"
+class="cookie-accept"
+onclick="acceptCookies()">
+Accept
+</button>
+
+</div>
+
 </div>
 
 <script>
