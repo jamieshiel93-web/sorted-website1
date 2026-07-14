@@ -378,110 +378,189 @@ Back to Website
 import { auth, db } from "../firebase.js";
 
 import {
-onAuthStateChanged,
-signOut
+    onAuthStateChanged,
+    signOut
 } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
 
 import {
-doc,
-getDoc,
-collection,
-getDocs
+    doc,
+    getDoc,
+    collection,
+    getDocs
 } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
 
-window.logout = function(){
 
-signOut(auth).then(()=>{
-window.location.href="index.html";
-});
-
+window.logout = async function () {
+    try {
+        await signOut(auth);
+        window.location.href = "index.html";
+    } catch (error) {
+        console.error("Logout error:", error);
+    }
 };
 
-onAuthStateChanged(auth, async(user)=>{
 
-if(!user){
-
-window.location.href="index.html";
-return;
-
+function showDashboard() {
+    document.getElementById("loading").style.display = "none";
+    document.getElementById("dashboardContent").style.display = "block";
 }
 
-const snapshot = await getDoc(doc(db,"clients",user.uid));
 
-if(snapshot.exists()){
+function loadDocumentsCard() {
+    document.getElementById("documentsList").innerHTML = `
+        <div style="margin-top:14px;">
+            <strong>Welcome Pack</strong><br>
+            10 documents included.<br><br>
 
-const data = snapshot.data();
-
-document.getElementById("welcomeText").textContent =
-"Welcome back, " + data.name + ".";
-
-document.getElementById("packageText").textContent =
-data.package;
-
-document.getElementById("statusText").textContent =
-data.status;
-
-document.getElementById("hoursText").textContent =
-data.hoursRemaining || "Hours coming soon";
-const visitsSnapshot = await getDocs(
-collection(db,"clients",user.uid,"visits")
-);
-
-let visitsHTML = "";
-
-visitsSnapshot.forEach((visit)=>{
-
-const v = visit.data();
-
-visitsHTML += `
-<p style="margin-top:14px;">
-<strong>${v.date}</strong><br>
-${v.time}<br>
-Status: ${v.status}
-</p>
-`;
-
-});
-
-document.getElementById("visitsList").innerHTML = visitsHTML;
-const invoicesSnapshot = await getDocs(
-collection(db,"clients",user.uid,"invoices")
-);
-
-let invoicesHTML = "";
-
-invoicesSnapshot.forEach((invoice)=>{
-
-const i = invoice.data();
-
-invoicesHTML += `
-<p style="margin-top:14px;">
-<strong>${i.description}</strong><br>
-${i.date}<br>
-${i.amount}<br>
-Status: ${i.status}
-</p>
-`;
-
-});
-
-document.getElementById("invoiceList").innerHTML = invoicesHTML || "No invoices yet.";
-document.getElementById("documentsList").innerHTML = `
-<div style="margin-top:14px;">
-<strong>Welcome Pack</strong><br>
-10 documents included.<br><br>
-
-<a href="welcome-pack.html"
-style="color:#314632;font-weight:800;">
-Open Welcome Pack
-</a>
-</div>
-`;
+            <a href="welcome-pack.html"
+               style="color:#314632;font-weight:800;">
+                Open Welcome Pack
+            </a>
+        </div>
+    `;
 }
 
-document.getElementById("loading").style.display="none";
 
-document.getElementById("dashboardContent").style.display="block";
+onAuthStateChanged(auth, async (user) => {
+
+    if (!user) {
+        window.location.href = "index.html";
+        return;
+    }
+
+    /*
+      Load this immediately because it does not depend
+      on Firestore visits or invoices.
+    */
+    loadDocumentsCard();
+
+    try {
+
+        const clientReference = doc(db, "clients", user.uid);
+        const clientSnapshot = await getDoc(clientReference);
+
+        if (clientSnapshot.exists()) {
+
+            const data = clientSnapshot.data();
+
+            document.getElementById("welcomeText").textContent =
+                data.name
+                    ? `Welcome back, ${data.name}.`
+                    : "Welcome back.";
+
+            document.getElementById("packageText").textContent =
+                data.package || "Not assigned";
+
+            document.getElementById("statusText").textContent =
+                data.status || "Active";
+
+            document.getElementById("hoursText").textContent =
+                data.hoursRemaining ?? "Hours coming soon";
+
+        } else {
+
+            console.warn("No client record exists for:", user.uid);
+
+            document.getElementById("packageText").textContent =
+                "Not assigned";
+
+            document.getElementById("statusText").textContent =
+                "Pending";
+
+        }
+
+    } catch (error) {
+
+        console.error("Client record error:", error);
+
+        document.getElementById("packageText").textContent =
+            "Unavailable";
+
+        document.getElementById("statusText").textContent =
+            "Please contact Sorted.";
+
+    }
+
+
+    /*
+      Load visits separately so a visits error
+      cannot stop invoices or documents.
+    */
+    try {
+
+        const visitsSnapshot = await getDocs(
+            collection(db, "clients", user.uid, "visits")
+        );
+
+        let visitsHTML = "";
+
+        visitsSnapshot.forEach((visitDocument) => {
+
+            const visit = visitDocument.data();
+
+            visitsHTML += `
+                <p style="margin-top:14px;">
+                    <strong>${visit.date || "Date to be confirmed"}</strong><br>
+                    ${visit.time || ""}<br>
+                    Status: ${visit.status || "Scheduled"}
+                </p>
+            `;
+
+        });
+
+        document.getElementById("visitsList").innerHTML =
+            visitsHTML || "No upcoming visits.";
+
+    } catch (error) {
+
+        console.error("Visits error:", error);
+
+        document.getElementById("visitsList").innerHTML =
+            "No upcoming visits are currently available.";
+
+    }
+
+
+    /*
+      Load invoices separately.
+    */
+    try {
+
+        const invoicesSnapshot = await getDocs(
+            collection(db, "clients", user.uid, "invoices")
+        );
+
+        let invoicesHTML = "";
+
+        invoicesSnapshot.forEach((invoiceDocument) => {
+
+            const invoice = invoiceDocument.data();
+
+            invoicesHTML += `
+                <p style="margin-top:14px;">
+                    <strong>${invoice.description || "Invoice"}</strong><br>
+                    ${invoice.date || ""}<br>
+                    ${invoice.amount || ""}<br>
+                    Status: ${invoice.status || "Pending"}
+                </p>
+            `;
+
+        });
+
+        document.getElementById("invoiceList").innerHTML =
+            invoicesHTML || "No invoices yet.";
+
+    } catch (error) {
+
+        console.error("Invoices error:", error);
+
+        document.getElementById("invoiceList").innerHTML =
+            "No invoices are currently available.";
+
+    }
+
+
+    showDashboard();
 
 });
 
