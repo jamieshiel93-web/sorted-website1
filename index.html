@@ -2496,6 +2496,18 @@ transform:translateY(-50%);
     font-family:inherit;
     font-size:1rem;
 }
+
+.contact-submit:disabled{
+    cursor:wait;
+    opacity:.72;
+    transform:none;
+}
+
+#contact-form-status{
+    padding:14px 16px;
+    border-radius:15px;
+    background:rgba(113,140,103,.08);
+}
 
 .contact-submit svg{
     position:relative;
@@ -6920,7 +6932,12 @@ No obligation. No pressure. Just a friendly conversation about the support you n
 
 </div>
 
-<form class="contact-form" action="https://formsubmit.co/contact@sortedlife.org.uk" method="POST">
+<form
+    id="sorted-contact-form"
+    class="contact-form"
+    action="https://formsubmit.co/ajax/contact@sortedlife.org.uk"
+    method="POST"
+>
 
 <input type="hidden" name="_subject" value="New Sorted. Website Enquiry">
 <input type="hidden" name="_captcha" value="false">
@@ -6977,6 +6994,13 @@ Spam check
 <span>Send My Enquiry</span>
 <i data-lucide="arrow-right"></i>
 </button>
+
+<p
+    id="contact-form-status"
+    role="status"
+    aria-live="polite"
+    style="display:none;margin-top:18px;text-align:center;font-weight:700;"
+></p>
 
 <div class="contact-payment">
 
@@ -7232,7 +7256,75 @@ window.addEventListener("resize", () => {
         floatingContact.style.opacity = "1";
         floatingContact.style.pointerEvents = "auto";
     }
-});
+});
+
+const sortedContactForm = document.getElementById("sorted-contact-form");
+const contactFormStatus = document.getElementById("contact-form-status");
+
+if (sortedContactForm && contactFormStatus) {
+    sortedContactForm.addEventListener("submit", async event => {
+        event.preventDefault();
+
+        if (!sortedContactForm.checkValidity()) {
+            sortedContactForm.reportValidity();
+            return;
+        }
+
+        const submitButton = sortedContactForm.querySelector(
+            "button[type='submit']"
+        );
+
+        const submitText = submitButton.querySelector("span");
+        const originalText = submitText.textContent;
+
+        submitButton.disabled = true;
+        submitText.textContent = "Sending...";
+        contactFormStatus.style.display = "none";
+
+        try {
+            const response = await fetch(sortedContactForm.action, {
+                method: "POST",
+                body: new FormData(sortedContactForm),
+                headers: {
+                    Accept: "application/json"
+                }
+            });
+
+            const result = await response.json();
+
+            if (!response.ok || result.success === false) {
+                throw new Error(
+                    result.message || "The enquiry could not be sent."
+                );
+            }
+
+            contactFormStatus.textContent =
+                "Thank you. Your enquiry has been sent successfully.";
+
+            contactFormStatus.style.color = "#314632";
+            contactFormStatus.style.display = "block";
+
+            sortedContactForm.reset();
+
+            window.setTimeout(() => {
+                window.location.href =
+                    "https://sortedlife.org.uk/thank-you.html";
+            }, 1200);
+        } catch (error) {
+            console.error("Contact form error:", error);
+
+            contactFormStatus.textContent =
+                "Sorry, your enquiry could not be sent. Please email contact@sortedlife.org.uk or call 01323 396610.";
+
+            contactFormStatus.style.color = "#8b2f2f";
+            contactFormStatus.style.display = "block";
+        } finally {
+            submitButton.disabled = false;
+            submitText.textContent = originalText;
+        }
+    });
+}
+
 </script>
 
 <div id="cookie-banner" style="display:none;position:fixed;left:50%;transform:translateX(-50%);z-index:99999;">
