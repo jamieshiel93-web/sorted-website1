@@ -1,47 +1,118 @@
 <!DOCTYPE html>
 <html lang="en-GB">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>Sorted. Services | Home & Lifestyle Support in Eastbourne</title>
-<link rel="icon" href="favicon.png" type="image/png">
-<link rel="apple-touch-icon" href="favicon.png">
-<meta property="og:title" content="Sorted. Services | Home & Lifestyle Support in Eastbourne">
-<meta property="og:description" content="Calm, trusted home and lifestyle support across Eastbourne, Meads, Old Town, Upperton, Sovereign Harbour, Hampden Park, Willingdon, Langney, Polegate, Pevensey, Seaford and surrounding areas.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://sortedlife.org.uk/services.html">
-<meta property="og:image" content="https://sortedlife.org.uk/background.png">
 
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Sorted. Services | Home & Lifestyle Support in Eastbourne">
-<meta name="twitter:description" content="Calm, trusted home and lifestyle support across Eastbourne, Meads, Old Town, Upperton, Sovereign Harbour, Hampden Park, Willingdon, Langney, Polegate, Pevensey, Seaford and surrounding areas.">
-<meta name="twitter:image" content="https://sortedlife.org.uk/background.png">
+  <link
+    rel="icon"
+    href="favicon.png"
+    type="image/png"
+  >
 
-<meta name="description" content="Explore Sorted. home and lifestyle services including errands, home management, organisation, companionship, administration and property support across Eastbourne and surrounding areas." />
+  <link
+    rel="apple-touch-icon"
+    href="favicon.png"
+  >
 
-<meta name="theme-color" content="#17261b">
-<link rel="canonical" href="https://sortedlife.org.uk/services.html">
+  <meta
+    name="description"
+    content="Explore Sorted. home and lifestyle services, including home management, errands, organisation, administration, companionship and tailored practical support across Eastbourne and surrounding areas."
+  >
 
-<meta name="keywords" content="home help Eastbourne, home support Eastbourne, home management Eastbourne, lifestyle assistance Eastbourne, home organisation Eastbourne, errands Eastbourne, companionship Eastbourne, personal assistant Eastbourne, property management Eastbourne, concierge Eastbourne">
+  <meta
+    name="theme-color"
+    content="#17261b"
+  >
+
+  <link
+    rel="canonical"
+    href="https://sortedlife.org.uk/services.html"
+  >
+
+  <meta
+    property="og:title"
+    content="Sorted. Services | Home & Lifestyle Support in Eastbourne"
+  >
+
+  <meta
+    property="og:description"
+    content="Trusted, discreet home and lifestyle support tailored around your home, routine and priorities."
+  >
+
+  <meta
+    property="og:type"
+    content="website"
+  >
+
+  <meta
+    property="og:url"
+    content="https://sortedlife.org.uk/services.html"
+  >
+
+  <meta
+    property="og:image"
+    content="https://sortedlife.org.uk/background.png"
+  >
+
+  <meta
+    name="twitter:card"
+    content="summary_large_image"
+  >
+
+  <meta
+    name="twitter:title"
+    content="Sorted. Services | Home & Lifestyle Support in Eastbourne"
+  >
+
+  <meta
+    name="twitter:description"
+    content="Trusted, discreet home and lifestyle support tailored around your home, routine and priorities."
+  >
+
+  <meta
+    name="twitter:image"
+    content="https://sortedlife.org.uk/background.png"
+  >
 
   <style>
+
+    /* ==================================================
+       GLOBAL VARIABLES
+    ================================================== */
+
     :root {
       --cream: #f8f1e7;
-      --cream-2: #efe0cc;
+      --cream-light: #fffaf3;
+      --cream-dark: #efe0cc;
+      --forest: #17261b;
+      --forest-light: #263b2b;
       --sage: #718c67;
       --sage-dark: #314632;
-      --forest: #17261b;
-      --ink: #1d241f;
-      --muted: #6f746e;
-      --white: #ffffff;
       --gold: #caa76a;
-      --blush: #ead4c5;
-      --shadow: 0 24px 70px rgba(23, 38, 27, 0.14);
-      --soft-shadow: 0 14px 38px rgba(23, 38, 27, 0.1);
+      --gold-light: #dfc28f;
+      --ink: #1d241f;
+      --muted: #626b63;
+      --white: #ffffff;
+      --border: rgba(202, 167, 106, 0.3);
+      --shadow: 0 28px 70px rgba(23, 38, 27, 0.15);
+      --soft-shadow: 0 16px 42px rgba(23, 38, 27, 0.1);
       --radius: 28px;
-      --radius-lg: 42px;
+      --radius-large: 40px;
     }
+
+
+    /* ==================================================
+       RESET
+    ================================================== */
 
     * {
       box-sizing: border-box;
@@ -49,41 +120,52 @@
       padding: 0;
     }
 
-section[id] {
-  scroll-margin-top: 88px;
-}
-
     html {
       scroll-behavior: smooth;
     }
-   ::selection{
-    background:#caa76a;
-    color:white;
-}
-
-::-moz-selection{
-    background:#caa76a;
-    color:white;
-} 
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      overflow-x: hidden;
       background: var(--cream);
       color: var(--ink);
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
       line-height: 1.6;
-      overflow-x: hidden;
     }
 
     body::before {
       content: "";
       position: fixed;
       inset: 0;
+      z-index: -10;
       pointer-events: none;
       background:
-        radial-gradient(circle at 10% 10%, rgba(202, 167, 106, 0.18), transparent 30%),
-        radial-gradient(circle at 90% 20%, rgba(113, 140, 103, 0.16), transparent 28%),
-        radial-gradient(circle at 50% 100%, rgba(234, 212, 197, 0.2), transparent 35%);
-      z-index: -2;
+        radial-gradient(
+          circle at 8% 12%,
+          rgba(202, 167, 106, 0.13),
+          transparent 29%
+        ),
+        radial-gradient(
+          circle at 92% 20%,
+          rgba(113, 140, 103, 0.12),
+          transparent 30%
+        );
+    }
+
+    ::selection {
+      background: var(--gold);
+      color: var(--white);
+    }
+
+    ::-moz-selection {
+      background: var(--gold);
+      color: var(--white);
     }
 
     a {
@@ -92,2562 +174,4398 @@ section[id] {
     }
 
     img {
-      max-width: 100%;
       display: block;
+      max-width: 100%;
     }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    section[id] {
+      scroll-margin-top: 90px;
+    }
+
+
+    /* ==================================================
+       SHARED LAYOUT
+    ================================================== */
 
     .container {
       width: min(1180px, 92%);
-      margin: 0 auto;
+      margin-inline: auto;
     }
 
     .narrow {
-      max-width: 820px;
-      margin: 0 auto;
+      width: min(820px, 100%);
+      margin-inline: auto;
       text-align: center;
     }
+
+    section {
+      position: relative;
+      padding: 92px 0;
+    }
+
+    .eyebrow {
+      margin-bottom: 14px;
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 850;
+      letter-spacing: 2.8px;
+      line-height: 1.5;
+      text-transform: uppercase;
+    }
+
+    .section-heading {
+      max-width: 820px;
+      margin: 0 auto 56px;
+      text-align: center;
+    }
+
+    .section-heading h2 {
+      margin-bottom: 21px;
+      color: var(--forest);
+      font-size: clamp(2.6rem, 5vw, 4.3rem);
+      line-height: 1.03;
+      letter-spacing: -2.5px;
+    }
+
+    .section-heading p {
+      max-width: 720px;
+      margin-inline: auto;
+      color: var(--muted);
+      font-size: 1.07rem;
+      line-height: 1.82;
+    }
+
+    .btn {
+      position: relative;
+      isolation: isolate;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 54px;
+      padding: 15px 28px;
+      overflow: hidden;
+      border: 0;
+      border-radius: 999px;
+      font-weight: 800;
+      line-height: 1.3;
+      text-align: center;
+      transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        color 0.3s ease,
+        box-shadow 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 42px rgba(23, 38, 27, 0.18);
+    }
+
+    .btn-primary {
+      background:
+        linear-gradient(
+          135deg,
+          var(--forest),
+          var(--sage-dark)
+        );
+      color: var(--white);
+    }
+
+    .btn-primary::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -130%;
+      z-index: -1;
+      width: 70%;
+      height: 100%;
+      pointer-events: none;
+      background:
+        linear-gradient(
+          120deg,
+          transparent,
+          rgba(255, 255, 255, 0.26),
+          transparent
+        );
+      animation: button-shine 5s infinite;
+    }
+
+    .btn-secondary {
+      border: 2px solid var(--forest);
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--forest);
+    }
+
+    .btn-secondary:hover {
+      background: var(--forest);
+      color: var(--white);
+    }
+
+    .btn-light {
+      background: var(--white);
+      color: var(--forest);
+    }
+
+
+    /* ==================================================
+       LOADER
+    ================================================== */
+
+    .loader {
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--cream);
+      animation: loader-fade 1.5s ease forwards;
+      animation-delay: 0.8s;
+    }
+
+    .loader-logo {
+      color: var(--forest);
+      font-size: 3rem;
+      font-weight: 900;
+      letter-spacing: -2px;
+    }
+
+    .loader-logo span {
+      color: var(--gold);
+    }
+
+
+    /* ==================================================
+       HEADER
+    ================================================== */
 
     .site-header {
       position: sticky;
       top: 0;
       z-index: 1000;
-background:rgba(255,255,255,.72);
+      border-bottom: 1px solid rgba(202, 167, 106, 0.22);
+      background: rgba(255, 253, 249, 0.95);
+      box-shadow: 0 12px 38px rgba(23, 38, 27, 0.1);
       backdrop-filter: blur(18px);
-      -webkit-backdrop-filter:blur(18px);
-      border-bottom:1px solid rgba(255,255,255,.35);
-      box-shadow:0 10px 40px rgba(23,38,27,.08);
-transition:.35s ease;
+      -webkit-backdrop-filter: blur(18px);
+      transition:
+        background 0.3s ease,
+        box-shadow 0.3s ease;
     }
 
     .nav-wrap {
-      min-height: 78px;
+      position: relative;
+      min-height: 80px;
       display: flex;
-            align-items: center;
-            
+      align-items: center;
       justify-content: space-between;
-      padding:18px 0;
-transition:padding .35s ease;
+      gap: 25px;
     }
 
     .logo {
-      font-size: 2rem;
-      font-weight: 800;
-      letter-spacing: -1px;
+      flex-shrink: 0;
       color: var(--forest);
+      font-size: 2rem;
+      font-weight: 900;
+      letter-spacing: -1.5px;
     }
 
     .logo span {
       color: var(--gold);
     }
 
-nav{
-    display:flex;
-    gap:30px;
-}
+    .main-nav {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 19px;
+    }
 
-.menu-toggle{
-    display:none;
-    background:none;
-    border:none;
-    font-size:2rem;
-    color:var(--forest);
-    cursor:pointer;
-}
-
-    nav a {
-      font-weight: 700;
+    .main-nav a {
+      position: relative;
       color: var(--sage-dark);
-transition:all .3s ease;
+      font-size: 0.89rem;
+      font-weight: 800;
+      white-space: nowrap;
+      transition:
+        color 0.3s ease,
+        transform 0.3s ease;
     }
 
-    nav a:hover {
-      color: var(--gold);
-    transform:translateY(-2px);  
+    .main-nav a:not(.login-link)::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: -7px;
+      left: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.3s ease;
     }
+
+    .main-nav a:not(.login-link):hover::after,
+    .main-nav a[aria-current="page"]::after {
+      transform: scaleX(1);
+    }
+
+    .main-nav a:hover,
+    .main-nav a[aria-current="page"] {
+      color: var(--gold);
+    }
+
+    .main-nav .login-link {
+      padding: 10px 17px;
+      border-radius: 999px;
+      background:
+        linear-gradient(
+          135deg,
+          var(--forest),
+          var(--sage-dark)
+        );
+      color: var(--white);
+      box-shadow: 0 10px 24px rgba(23, 38, 27, 0.15);
+    }
+
+    .main-nav .login-link:hover {
+      background: var(--gold);
+      color: var(--forest);
+    }
+
+    .menu-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 46px;
+      height: 46px;
+      border: 1px solid rgba(202, 167, 106, 0.25);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.7);
+      color: var(--forest);
+      box-shadow: 0 8px 20px rgba(23, 38, 27, 0.08);
+    }
+
+    .menu-toggle svg {
+      width: 27px;
+      height: 27px;
+    }
+
+
+    /* ==================================================
+       HERO
+    ================================================== */
 
     .hero {
-      padding: 90px 0;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 60px;
+      position: relative;
+      min-height: calc(100vh - 80px);
+      display: flex;
       align-items: center;
+      overflow: hidden;
+      padding: 76px 0;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(248, 241, 231, 0.96) 0%,
+          rgba(248, 241, 231, 0.78) 46%,
+          rgba(248, 241, 231, 0.26) 100%
+        ),
+        url("background.png");
+      background-position: center;
+      background-size: cover;
+      animation: hero-zoom 28s ease-in-out infinite alternate;
     }
 
-    .eyebrow {
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(
+          circle at 10% 25%,
+          rgba(255, 255, 255, 0.28),
+          transparent 34%
+        ),
+        radial-gradient(
+          circle at 88% 72%,
+          rgba(202, 167, 106, 0.08),
+          transparent 34%
+        );
+    }
+
+    .hero .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-content {
+      width: min(680px, 100%);
+      padding: 46px 48px 40px;
+      border: 1px solid rgba(202, 167, 106, 0.46);
+      border-radius: 36px;
+      background: rgba(255, 250, 243, 0.94);
+      box-shadow: 0 26px 64px rgba(23, 38, 27, 0.18);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .hero h1 {
+      max-width: 620px;
+      margin-bottom: 24px;
+      color: var(--forest);
+      font-size: clamp(4rem, 7vw, 6rem);
+      line-height: 0.94;
+      letter-spacing: -4px;
+    }
+
+    .hero-lead {
+      max-width: 590px;
+      margin-bottom: 29px;
+      color: #3e473f;
+      font-size: 1.12rem;
+      line-height: 1.78;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .hero-trust {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      margin-top: 26px;
+      padding-top: 21px;
+      border-top: 1px solid rgba(202, 167, 106, 0.25);
+      color: var(--sage-dark);
+      font-size: 0.84rem;
+      font-weight: 800;
+    }
+
+    .hero-trust span {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .hero-trust span::before {
+      content: "✓";
+      color: var(--sage);
+      font-weight: 900;
+    }
+
+
+    /* ==================================================
+       INTRODUCTION
+    ================================================== */
+
+    .services-intro {
+      overflow: hidden;
+      background:
+        radial-gradient(
+          circle at 8% 18%,
+          rgba(202, 167, 106, 0.14),
+          transparent 28%
+        ),
+        linear-gradient(
+          180deg,
+          var(--cream-light),
+          var(--cream)
+        );
+    }
+
+    .intro-panel {
+      max-width: 980px;
+      margin-inline: auto;
+      padding: 56px;
+      border: 1px solid var(--border);
+      border-radius: 38px;
+      background: rgba(255, 255, 255, 0.88);
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .intro-panel h2 {
+      margin-bottom: 24px;
+      color: var(--forest);
+      font-size: clamp(2.7rem, 5vw, 4.5rem);
+      line-height: 1.02;
+      letter-spacing: -2.8px;
+    }
+
+    .intro-panel p:not(.eyebrow) {
+      max-width: 780px;
+      margin: 0 auto 18px;
+      color: var(--muted);
+      font-size: 1.07rem;
+      line-height: 1.83;
+    }
+
+    .intro-panel p:last-child {
+      margin-bottom: 0;
+    }
+
+
+    /* ==================================================
+       SERVICE DIRECTORY
+    ================================================== */
+
+    .services-directory {
+      overflow: hidden;
+      background:
+        radial-gradient(
+          circle at 92% 12%,
+          rgba(113, 140, 103, 0.13),
+          transparent 30%
+        ),
+        #fffaf3;
+    }
+
+    .services-list {
+      display: grid;
+      gap: 30px;
+    }
+
+    .service-item {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 32px;
+      background: var(--white);
+      box-shadow: var(--soft-shadow);
+      transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+    }
+
+    .service-item:hover {
+      transform: translateY(-5px);
+      border-color: rgba(202, 167, 106, 0.5);
+      box-shadow: var(--shadow);
+    }
+
+    .service-item[open] {
+      border-color: rgba(202, 167, 106, 0.56);
+      box-shadow: var(--shadow);
+    }
+
+    .service-summary {
+      position: relative;
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 0;
+      align-items: stretch;
+      list-style: none;
+      cursor: pointer;
+    }
+
+    .service-summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .service-image-wrap {
+      min-height: 310px;
+      overflow: hidden;
+    }
+
+    .service-image-wrap img {
+      width: 100%;
+      height: 100%;
+      min-height: 310px;
+      object-fit: cover;
+      transition:
+        transform 0.7s ease,
+        filter 0.7s ease;
+    }
+
+    .service-item:hover .service-image-wrap img,
+    .service-item[open] .service-image-wrap img {
+      transform: scale(1.04);
+      filter: saturate(1.03);
+    }
+
+    .service-summary-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 42px 80px 42px 43px;
+    }
+
+    .service-icon {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      border-radius: 16px;
+      background:
+        linear-gradient(
+          135deg,
+          var(--forest),
+          var(--sage-dark)
+        );
+      color: var(--white);
+      box-shadow: 0 12px 25px rgba(23, 38, 27, 0.16);
+    }
+
+    .service-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke-width: 1.8;
+    }
+
+    .service-summary-copy h3 {
+      margin-bottom: 14px;
+      color: var(--forest);
+      font-size: clamp(2rem, 3.3vw, 2.8rem);
+      line-height: 1.05;
+      letter-spacing: -1.4px;
+    }
+
+    .service-summary-copy > p:not(.eyebrow) {
+      max-width: 660px;
+      color: var(--muted);
+      font-size: 1.02rem;
+      line-height: 1.78;
+    }
+
+    .expand-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 22px;
+      color: var(--forest);
+      font-size: 0.94rem;
+      font-weight: 850;
+    }
+
+    .expand-label::after {
+      content: "↓";
+      transition: transform 0.3s ease;
+    }
+
+    .service-item[open] .expand-label::after {
+      transform: rotate(180deg);
+    }
+
+    .summary-toggle {
+      position: absolute;
+      top: 50%;
+      right: 34px;
+      width: 46px;
+      height: 46px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      background: var(--cream-light);
+      color: var(--forest);
+      font-size: 1.7rem;
+      font-weight: 300;
+      line-height: 1;
+      transform: translateY(-50%);
+      transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        color 0.3s ease;
+    }
+
+    .summary-toggle::before {
+      content: "+";
+    }
+
+    .service-item[open] .summary-toggle {
+      background: var(--forest);
+      color: var(--white);
+      transform: translateY(-50%) rotate(45deg);
+    }
+
+    .service-details {
+      padding: 0 44px 48px;
+      border-top: 1px solid rgba(202, 167, 106, 0.24);
+      background:
+        linear-gradient(
+          180deg,
+          rgba(248, 241, 231, 0.36),
+          rgba(255, 255, 255, 0.96)
+        );
+    }
+
+    .service-details-intro {
+      max-width: 900px;
+      padding: 37px 0 31px;
+      color: var(--muted);
+      font-size: 1.03rem;
+      line-height: 1.82;
+    }
+
+    .service-detail-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .detail-box {
+      padding: 29px;
+      border: 1px solid rgba(202, 167, 106, 0.24);
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .detail-box.full-width {
+      grid-column: 1 / -1;
+    }
+
+    .detail-box h4 {
+      margin-bottom: 17px;
+      color: var(--forest);
+      font-size: 1.35rem;
+      line-height: 1.3;
+    }
+
+    .detail-box p {
+      color: var(--muted);
+      font-size: 0.97rem;
+      line-height: 1.75;
+    }
+
+    .detail-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 11px 20px;
+      list-style: none;
+    }
+
+    .detail-list li {
+      position: relative;
+      padding-left: 26px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .detail-list li::before {
+      content: "✓";
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: var(--sage);
+      font-weight: 900;
+    }
+
+    .service-cta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+      margin-top: 26px;
+      padding: 28px;
+      border-radius: 24px;
+      background:
+        linear-gradient(
+          135deg,
+          var(--forest),
+          var(--forest-light)
+        );
+      color: var(--white);
+    }
+
+    .service-cta h4 {
+      margin-bottom: 5px;
+      color: var(--white);
+      font-size: 1.3rem;
+    }
+
+    .service-cta p {
+      max-width: 650px;
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 0.94rem;
+      line-height: 1.65;
+    }
+
+
+    /* ==================================================
+       SERVICE FINDER
+    ================================================== */
+
+    .service-finder {
+      overflow: hidden;
+      background:
+        radial-gradient(
+          circle at 10% 18%,
+          rgba(202, 167, 106, 0.14),
+          transparent 30%
+        ),
+        linear-gradient(
+          180deg,
+          var(--cream),
+          var(--cream-dark)
+        );
+    }
+
+    .finder-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      max-width: 980px;
+      margin-inline: auto;
+    }
+
+    .finder-card {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 25px;
+      border: 1px solid var(--border);
+      border-radius: 23px;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: var(--soft-shadow);
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+    }
+
+    .finder-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+
+    .finder-icon {
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 16px;
+      background: rgba(113, 140, 103, 0.12);
+      color: var(--sage-dark);
+    }
+
+    .finder-icon svg {
+      width: 23px;
+      height: 23px;
+      stroke-width: 1.8;
+    }
+
+    .finder-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    .finder-card strong {
+      display: block;
+      margin-top: 3px;
+      color: var(--forest);
+      font-size: 1.08rem;
+    }
+
+
+    /* ==================================================
+       FAQ
+    ================================================== */
+
+    .faq-section {
+      overflow: hidden;
+      background:
+        radial-gradient(
+          circle at 90% 15%,
+          rgba(113, 140, 103, 0.12),
+          transparent 30%
+        ),
+        var(--cream-light);
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 15px;
+      max-width: 920px;
+      margin-inline: auto;
+    }
+
+    .faq-item {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      background: var(--white);
+      box-shadow: 0 10px 28px rgba(23, 38, 27, 0.08);
+    }
+
+    .faq-item summary {
+      position: relative;
+      padding: 25px 72px 25px 26px;
+      list-style: none;
+      color: var(--forest);
+      font-size: 1.08rem;
+      font-weight: 800;
+      line-height: 1.4;
+      cursor: pointer;
+    }
+
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-item summary::after {
+      content: "+";
+      position: absolute;
+      top: 50%;
+      right: 25px;
+      width: 35px;
+      height: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: var(--cream);
       color: var(--gold);
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      font-size: .8rem;
-      font-weight: bold;
-      margin-bottom: 15px;
+      font-size: 1.45rem;
+      font-weight: 400;
+      transform: translateY(-50%);
+      transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        color 0.3s ease;
+    }
+
+    .faq-item[open] summary::after {
+      background: var(--forest);
+      color: var(--white);
+      transform: translateY(-50%) rotate(45deg);
+    }
+
+    .faq-answer {
+      padding: 0 26px 26px;
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 1.75;
+    }
+
+
+    /* ==================================================
+       FINAL CTA
+    ================================================== */
+
+    .final-cta {
+      overflow: hidden;
+      text-align: center;
+      background:
+        radial-gradient(
+          circle at 10% 12%,
+          rgba(202, 167, 106, 0.17),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 90% 88%,
+          rgba(113, 140, 103, 0.13),
+          transparent 30%
+        ),
+        linear-gradient(
+          145deg,
+          #f8f1e7,
+          #fffaf3
+        );
+    }
+
+    .final-cta-inner {
+      max-width: 930px;
+      margin-inline: auto;
+      padding: 60px;
+      border: 1px solid var(--border);
+      border-radius: 40px;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: var(--shadow);
+    }
+
+    .final-cta h2 {
+      max-width: 770px;
+      margin: 0 auto 21px;
+      color: var(--forest);
+      font-size: clamp(2.8rem, 5.8vw, 4.8rem);
+      line-height: 0.99;
+      letter-spacing: -3px;
+    }
+
+    .final-cta p:not(.eyebrow) {
+      max-width: 680px;
+      margin: 0 auto 29px;
+      color: var(--muted);
+      font-size: 1.06rem;
+      line-height: 1.79;
+    }
+
+    .final-cta-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+    }
+
+
+    /* ==================================================
+       FLOATING CONTACT
+    ================================================== */
+
+    .floating-contact {
+      position: fixed;
+      right: 22px;
+      bottom: 26px;
+      z-index: 9998;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateY(18px);
+      transition:
+        opacity 0.35s ease,
+        visibility 0.35s ease,
+        transform 0.35s ease;
     }
 
-    h1 {
-      font-size: clamp(3.2rem,7vw,6rem);
-      line-height: .95;
-      margin-bottom: 25px;
-      letter-spacing:-3px;
+    .floating-contact.visible {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(0);
     }
 
-    .hero p {
-      font-size:1.2rem;
-      color:var(--muted);
-      margin-bottom:35px;
+    .floating-btn {
+      width: 58px;
+      height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(202, 167, 106, 0.44);
+      border-radius: 50%;
+      background: rgba(255, 250, 243, 0.96);
+      color: var(--forest);
+      box-shadow: 0 14px 34px rgba(23, 38, 27, 0.17);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        color 0.3s ease;
     }
 
-    .buttons{
-      display:flex;
-      gap:15px;
-      flex-wrap:wrap;
-      margin-bottom:35px;
+    .floating-btn:hover {
+      transform: translateY(-4px) scale(1.05);
+      background: var(--forest);
+      color: var(--white);
     }
 
-    .btn{
-      padding:16px 28px;
-      border-radius:999px;
-      font-weight:bold;
-      transition:.3s;
+    .floating-btn svg {
+      width: 23px;
+      height: 23px;
     }
 
-.primary{
-    background:linear-gradient(135deg,#17261b,#314632);
-    color:white;
-    position:relative;
-    overflow:hidden;
-    isolation:isolate;
-}
-.primary::before{
-    content:"";
-    position:absolute;
-    top:0;
-    left:-120%;
-    width:70%;
-    height:100%;
-    z-index:0;
-    background:linear-gradient(
-        120deg,
-        transparent,
-        rgba(255,255,255,.28),
-        transparent
-    );
-    animation:buttonShine 5s infinite;
-}
-
-    .secondary{
-      background:white;
-      color:var(--forest);
-      border:2px solid var(--forest);
-    }
-
-    .btn:hover{
-  transform:translateY(-4px) scale(1.02);
-  box-shadow:0 18px 45px rgba(23,38,27,.18);
-}
-
-    .hero-card{
-      background:white;
-      border-radius:var(--radius-lg);
-      padding:40px;
-      box-shadow:var(--shadow);
-    }
-
-    .hero-card h2{
-      margin-bottom:20px;
-      font-size:2rem;
-    }
-
-    .hero-card ul{
-      list-style:none;
-    }
-
-    .hero-card li{
-      padding:14px 0;
-      border-bottom:1px solid rgba(0,0,0,.08);
-    }
-
-    .hero-card li::before{
-      content:"✓ ";
-      color:var(--sage);
-      font-weight:bold;
-    }
-
-    section{
-      padding:90px 0;
-    }
-
-    .section-title{
-      text-align:center;
-      margin-bottom:60px;
-    }
-
-    .section-title h2{
-      font-size:3rem;
-      margin-bottom:15px;
-    }
-
-    .section-title p{
-      color:var(--muted);
-      max-width:700px;
-      margin:auto;
-    }
-
-    .cards{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:30px;
-    }
-
-    .card{
-      background:white;
-      padding:35px;
-      border-radius:28px;
-      box-shadow:var(--soft-shadow);
-      transition:.3s;
-    }
-        .card:hover{
-      transform:translateY(-10px);
-      box-shadow:var(--shadow);
-    }
-
-    .card h3{
-      margin-bottom:15px;
-      font-size:1.5rem;
-      color:var(--forest);
-    }
-
-    .card p{
-      color:var(--muted);
-    }
-
-    .pricing{
-      background:linear-gradient(180deg,var(--cream),var(--cream-2));
-    }
-
-.pricing-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(270px, 1fr));
-  gap:30px;
-}
-
- .plan{
-background:white;
-border-radius:32px;
-padding:45px;
-text-align:left;
-box-shadow:var(--soft-shadow);
-transition:.35s;
-position:relative;
-overflow:visible;
-border:1px solid rgba(202,167,106,.25);
-}
-
-.plan:hover{
-transform:translateY(-12px);
-}
-
-.featured{
-    border:3px solid var(--gold);
-    background:linear-gradient(180deg,#fffdf9,#fdf7ef);
-    transform:scale(1.04);
-    box-shadow:0 35px 80px rgba(23,38,27,.20);
-    overflow:visible;
-    padding-top:55px;
-    z-index:2;
-}
-
-.badge{
-display:inline-block;
-background:var(--gold);
-color:white;
-padding:9px 22px;
-border-radius:999px;
-font-size:.75rem;
-font-weight:bold;
-margin-bottom:22px;
-}
-
-    .price{
-      font-size:2.4rem;
-      color:var(--forest);
-      margin:20px 0;
-      font-weight:bold;
-    }
-
-    .plan ul{
-      list-style:none;
-      text-align:left;
-      margin-top:25px;
-    }
-
-    .plan li{
-      padding:12px 0;
-      border-bottom:1px solid rgba(0,0,0,.08);
-    }
-
-    .plan li::before{
-      content:"✓ ";
-      color:var(--sage);
-      font-weight:bold;
-    }
-
-    .about-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:60px;
-      align-items:center;
-    }
-
-    .about-box{
-      background:white;
-      padding:40px;
-      border-radius:32px;
-      box-shadow:var(--soft-shadow);
+    .floating-btn.phone {
+      border-left: 4px solid var(--gold);
     }
 
-    .about-box li{
-      list-style:none;
-      padding:14px 0;
-      border-bottom:1px solid rgba(0,0,0,.08);
+    .floating-btn.whatsapp {
+      border-left: 4px solid var(--sage);
     }
 
-    .about-box li::before{
-      content:"✓ ";
-      color:var(--gold);
-      font-weight:bold;
+    .floating-btn.email {
+      border-left: 4px solid var(--gold-light);
     }
 
-    .areas{
-      background:var(--forest);
-      color:white;
-      text-align:center;
-    }
 
-    .areas p{
-      color:rgba(255,255,255,.8);
-      margin-top:20px;
-    }
+    /* ==================================================
+       FOOTER
+    ================================================== */
 
-    .testimonial-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:30px;
+    footer {
+      position: relative;
+      padding: 82px 0 30px;
+      background:
+        linear-gradient(
+          180deg,
+          var(--forest),
+          #101a13
+        );
+      color: var(--white);
     }
 
-    .testimonial{
-      background:white;
-      border-radius:28px;
-      padding:35px;
-      box-shadow:var(--soft-shadow);
+    footer::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(202, 167, 106, 0.65),
+          transparent
+        );
     }
 
-    .stars{
-      color:#f3b63d;
-      font-size:1.2rem;
-      margin-bottom:20px;
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr 1fr 1fr;
+      gap: 50px;
+      margin-bottom: 48px;
     }
 
-    .testimonial h4{
-      margin-top:25px;
-      color:var(--forest);
+    footer .logo {
+      color: var(--white);
     }
 
-    .contact{
-background:
-linear-gradient(rgba(255,250,243,.92), rgba(255,250,243,.92)),
-radial-gradient(circle at top left, rgba(202,167,106,.18), transparent 35%),
-radial-gradient(circle at bottom right, rgba(113,140,103,.14), transparent 35%);
+    .footer-description {
+      max-width: 320px;
+      margin-top: 18px;
+      color: rgba(255, 255, 255, 0.72);
+      line-height: 1.75;
     }
 
-    .contact-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:60px;
-      align-items:start;
+    footer h3 {
+      margin-bottom: 17px;
+      color: var(--white);
+      font-size: 1.12rem;
     }
-.contact-form{
-    background:#ffffff;
-    padding:50px;
-    border-radius:32px;
-    box-shadow:0 30px 80px rgba(23,38,27,.12);
-    border:1px solid rgba(202,167,106,.25);
-}
-
-.contact-form label{
-    display:block;
-    margin-bottom:18px;
-    font-weight:600;
-    color:#314632;
-}
-
-.contact-form input,
-.contact-form textarea{
-    width:100%;
-    padding:18px 20px;
-    border:1px solid #e6dccd;
-    border-radius:16px;
-    background:#fcfaf7;
-    font-size:1rem;
-    transition:.3s ease;
-    font-family:inherit;
-    margin-top:8px;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus{
-    outline:none;
-    border-color:#caa76a;
-    box-shadow:0 0 0 5px rgba(202,167,106,.18);
-}
-
-.contact-form textarea{
-    min-height:180px;
-    resize:vertical;
-}
-
-footer{
-    background:
-    linear-gradient(180deg,#17261b,#101a13);
-    color:white;
-    padding:90px 0 35px;
-    border-top:1px solid rgba(202,167,106,.25);
-    position:relative;
-}
 
-footer::before{
-    content:"";
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:1px;
-    background:linear-gradient(
-        90deg,
-        transparent,
-        rgba(202,167,106,.65),
-        transparent
-    );
-}
-
-    .footer-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:40px;
-  margin-bottom:50px;
-}
-
-    footer p{
-      color:rgba(255,255,255,.75);
+    .footer-links {
+      display: grid;
+      gap: 10px;
     }
 
-    .copyright{
-      text-align:center;
-      opacity:.7;
-      font-size:.9rem;
+    .footer-links a,
+    .footer-links p {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.95rem;
+      line-height: 1.55;
+      transition: color 0.3s ease;
     }
-
-    @media(max-width:950px){
-
-  .menu-toggle{
-    display:block;
-    font-size:1.8rem;
-    padding:6px;
-  }
-
-  nav{
-    display:none;
-    position:absolute;
-    top:100%;
-    right:0;
-    width:260px;
-    background:#fffdf9;
-    padding:12px;
-    flex-direction:column;
-    gap:2px;
-    text-align:left;
-    border-radius:0 0 20px 20px;
-    box-shadow:0 20px 45px rgba(23,38,27,.16);
-    border:1px solid rgba(202,167,106,.22);
-  }
-
-  nav.active{
-    display:flex;
-  }
-
-  nav a{
-    display:block;
-    padding:11px 14px;
-    font-size:1rem;
-    line-height:1.3;
-    border-radius:12px;
-  }
-
-  nav a:hover{
-    background:var(--cream);
-    transform:none;
-  }
-
-  .site-header{
-    position:sticky;
-  }
-
-  .nav-wrap{
-    position:relative;
-    padding:8px 0;
-    min-height:60px;
-  }
-
-  .logo{
-    font-size:1.8rem;
-  }
-
-  .hero-grid,
-  .about-grid,
-  .contact-grid,
-  .footer-grid{
-    grid-template-columns:1fr;
-  }
-
-  .cards,
-  .pricing-grid,
-  .testimonial-grid{
-    grid-template-columns:1fr;
-  }
-
-  h1{
-    font-size:3.5rem;
-  }
-
-}
-
-.hero{
-    position:relative;
-    overflow:hidden;
-}
-
-.hero::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:
-        radial-gradient(circle at 15% 20%, rgba(202,167,106,.18), transparent 35%),
-        radial-gradient(circle at 85% 70%, rgba(113,140,103,.12), transparent 40%),
-        linear-gradient(135deg,#faf8f3,#f6f1e6,#fbfaf7);
-    z-index:0;
-}
-
-.hero .container{
-    position:relative;
-    z-index:2;
-}
-
-.hero h1{
-    font-size:clamp(3.8rem,7vw,6rem);
-    line-height:.95;
-    letter-spacing:-2px;
-    max-width:700px;
-}
-
-.hero p{
-    font-size:1.22rem;
-    line-height:1.9;
-    max-width:640px;
-    color:var(--forest);
-}
-
-.hero .btn{
-    box-shadow:0 18px 45px rgba(23,38,27,.18);
-    transition:.35s;
-}
-
-.hero .btn:hover{
-    transform:translateY(-4px);
-}
-
-.hero::after{
-    content:"";
-    position:absolute;
-    right:-140px;
-    top:-140px;
-    width:420px;
-    height:420px;
-    background:rgba(202,167,106,.08);
-    border-radius:50%;
-}
-.luxury-service-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:28px;
-}
-
-.luxury-service-card{
-  background:#fffaf3;
-  border:1px solid rgba(202,167,106,.35);
-  border-radius:28px;
-  overflow:hidden;
-  box-shadow:0 18px 45px rgba(23,38,27,.10);
-}
-
-.luxury-service-card img{
-  width:100%;
-  height:210px;
-  object-fit:cover;
-}
-
-.luxury-service-content{
-  padding:28px;
-  text-align:center;
-}
-
-.luxury-service-content h3{
-  color:#17261b;
-  font-size:1.45rem;
-  margin-bottom:10px;
-}
-
-.luxury-service-content h3::after{
-  content:"♡";
-  display:block;
-  color:#caa76a;
-  font-size:.95rem;
-  margin:8px 0;
-}
-
-.luxury-service-content p{
-  color:#5f665e;
-  line-height:1.65;
-}
-
-@media(max-width:900px){
-  .luxury-service-grid{
-    grid-template-columns:1fr;
-  }
-
-  .luxury-service-card img{
-    height:220px;
-  }
-}
-
-.services-banner{
-    margin:40px 0 50px;
-    border-radius:28px;
-    overflow:hidden;
-    box-shadow:0 18px 45px rgba(23,38,27,.12);
-}
-
-.services-banner img{
-    display:block;
-    width:100%;
-    height:420px;
-    object-fit:cover;
-}
-
-#services{
-    background:
-    linear-gradient(rgba(255,250,243,0.88), rgba(255,250,243,0.88)),
-    url("https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1800&q=80");
-    background-size:cover;
-    background-position:center;
-    padding:100px 0;
-}
 
-.hero-photo{
-    position:relative;
-    min-height:90vh;
-
-background:
-linear-gradient(rgba(250,246,238,0.45), rgba(250,246,238,0.55)),
-url("https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1800&q=80");
-
-background-size:cover;
-background-position:center;
-background-repeat:no-repeat;
-
-    display:flex;
-    align-items:center;
-}
-
-.hero-overlay{
-    width:100%;
-    padding:80px 0;
-}
-
-.hero-photo h1{
-    font-size:clamp(3rem,7vw,5.5rem);
-    max-width:650px;
-}
-
-.hero-photo p{
-    max-width:600px;
-}
-
-.hero-photo .hero-grid{
-    grid-template-columns:1fr;
-}
-.hero-photo::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:
-        radial-gradient(circle at 20% 30%, rgba(255,255,255,.22), transparent 35%),
-        radial-gradient(circle at 80% 70%, rgba(255,255,255,.12), transparent 40%);
-    animation:heroGlow 16s ease-in-out infinite alternate;
-    pointer-events:none;
-}
-
-.hero-photo{
-    background:
-linear-gradient(
-90deg,
-rgba(250,246,238,0.92) 0%,
-rgba(250,246,238,0.65) 45%,
-rgba(250,246,238,0.28) 100%
-),
-url("background.png") !important;
-    background-size:cover !important;
-    background-position:center !important;
-    background-repeat:no-repeat !important;
-    animation:kenburns 30s ease-in-out infinite alternate;
-    overflow:hidden;
-}
-@keyframes kenburns{
-    from{
-        background-size:100%;
-        background-position:center;
-    }
-    to{
-        background-size:112%;
-        background-position:center;
-    }
-}
-@keyframes buttonShine{
-    0%{
-        left:-120%;
+    .footer-links a:hover {
+      color: var(--gold);
     }
-    100%{
-        left:150%;
-    }
-}
-@keyframes heroGlow{
-    from{
-        transform:translateX(-30px) translateY(-10px);
-        opacity:.45;
-    }
 
-    to{
-        transform:translateX(30px) translateY(10px);
-        opacity:.75;
+    .footer-bottom {
+      padding-top: 27px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      text-align: center;
     }
-}
-.editorial-services{
-    display:grid;
-    gap:70px;
-}
-
-.editorial-service{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:50px;
-    align-items:center;
-    background:#fffaf3;
-    padding:35px;
-    border-radius:30px;
-    box-shadow:0 20px 50px rgba(23,38,27,.10);
-    margin-bottom:20px;
-}
-
-.editorial-service.reverse img{
-    order:2;
-}
-
-.editorial-service img{
-    width:100%;
-    height:420px;
-    object-fit:cover;
-    border-radius:24px;
-    transition:transform .8s ease, filter .8s ease;
-    filter:saturate(.92) contrast(1.04) brightness(.98);
-}
-.editorial-service:hover img{
-    transform:scale(1.06);
-    filter:saturate(1) contrast(1.08) brightness(1.02);
-}
-
-.editorial-service h3{
-    font-size:2.2rem;
-    color:#17261b;
-    margin-bottom:18px;
-}
-
-.editorial-service p{
-    color:#5f665e;
-    line-height:1.8;
-    font-size:1.05rem;
-}
-
-@media(max-width:900px){
-
-.editorial-service{
-    grid-template-columns:1fr;
-    gap:25px;
-    padding:22px;
-}
-
-.editorial-service.reverse img{
-    order:0;
-}
-
-.editorial-service img{
-    height:280px;
-}
-
-.editorial-service h3{
-    font-size:1.8rem;
-}
-
-}
-.membership-intro{
-    max-width:760px;
-    margin:0 auto 55px;
-    text-align:center;
-}
-
-.membership-intro h2{
-    font-size:clamp(2.5rem,6vw,4.5rem);
-    line-height:1;
-    color:var(--forest);
-    margin-bottom:20px;
-    letter-spacing:-2px;
-}
-
-.membership-intro p{
-    color:#5f665e;
-    font-size:1.1rem;
-    line-height:1.8;
-}
-
-.pricing-grid{
-    align-items:stretch;
-}
-
-.plan{
-    text-align:left;
-    overflow:hidden;
-    border:1px solid rgba(202,167,106,.28);
-}
-
-.plan h3{
-    font-size:2rem;
-    color:var(--forest);
-    margin-bottom:10px;
-}
-
-.plan .plan-subtitle{
-    color:#5f665e;
-    line-height:1.7;
-    margin-bottom:22px;
-}
-
-.plan .price{
-    font-size:2.35rem;
-    line-height:1.05;
-    margin:22px 0 8px;
-}
-
-.plan .price-note{
-    color:#777;
-    font-size:.9rem;
-    margin-bottom:25px;
-}
-
-.plan ul{
-    margin-top:25px;
-}
 
-.plan li{
-    font-size:.98rem;
-    line-height:1.5;
-}
-
-.plan .plan-button{
-    display:inline-block;
-    margin-top:28px;
-    background:var(--forest);
-    color:#fff;
-    padding:14px 26px;
-    border-radius:999px;
-    font-weight:700;
-    transition:.3s;
-}
-
-.plan .plan-button:hover{
-    background:var(--gold);
-    color:var(--forest);
-}
-@media(max-width:900px){
-    .plan{
-        padding:34px 28px;
+    .legal-links {
+      margin-bottom: 14px;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.93rem;
     }
 
-    .plan .price{
-        font-size:2rem;
+    .legal-links a:hover {
+      color: var(--gold);
     }
-}
-.section-menu{
-position:fixed;
-top:102px;
-right:18px;
-z-index:10001;
-}
 
-@media (max-width:768px){
-    .section-menu{
-        display:none;
+    .copyright {
+      color: rgba(255, 255, 255, 0.55);
+      font-size: 0.87rem;
     }
-}
-
-.section-menu button{
-    width:50px;
-    height:50px;
-    background:rgba(23,38,27,.95);
-    color:#fff;
-    border:none;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:28px;
-    cursor:pointer;
-    box-shadow:0 12px 30px rgba(23,38,27,.18);
-    transition:.3s;
-}
-
-.section-menu button:hover{
-    transform:scale(1.08);
-    background:#314632;
-}
-
-.section-menu-links{
-display:none;
-position:absolute;
-top:56px;
-right:0;
-background:#fff;
-border-radius:20px;
-padding:12px;
-box-shadow:0 18px 45px rgba(23,38,27,.18);
-min-width:190px;
-}
-
-.section-menu.open .section-menu-links{
-display:flex;
-flex-direction:column;
-gap:8px;
-}
-
-.section-menu-links a{
-padding:10px 14px;
-border-radius:999px;
-font-weight:700;
-}
-
-.section-menu-links a:hover{
-background:#17261b;
-color:#fff;
-}
-.floating-contact{
-    position:fixed;
-    right:24px;
-    bottom:28px;
-    display:flex;
-    flex-direction:column;
-    gap:14px;
-    z-index:9999;
-}
 
-.floating-btn{
-    width:62px;
-    height:62px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:50%;
-    text-decoration:none;
-    font-size:1.45rem;
-    color:var(--forest);
-    background:rgba(255,250,243,.96);
-    border:1px solid rgba(202,167,106,.45);
-    box-shadow:0 14px 35px rgba(23,38,27,.18);
-    backdrop-filter:blur(14px);
-    transition:.3s;
-}
-
-.floating-btn:hover{
-    background:var(--forest);
-    color:#fff;
-    transform:translateY(-4px) scale(1.06);
-    border-color:var(--gold);
-}
-
-.phone{
-    border-left:4px solid #caa76a;
-}
-
-.whatsapp{
-    border-left:4px solid #718c67;
-}
 
-.email{
-    border-left:4px solid #d6b27a;
-}
+    /* ==================================================
+       FADE ANIMATION
+    ================================================== */
 
-@media(max-width:768px){
-    .floating-contact{
-        right:10px;
-        bottom:12px;
-        gap:7px;
+    .fade {
+      opacity: 1;
+      transform: none;
     }
 
-    .floating-btn{
-        width:38px;
-        height:38px;
-        font-size:.9rem;
-        opacity:.9;
-        box-shadow:0 8px 22px rgba(23,38,27,.14);
+    .js .fade {
+      opacity: 0;
+      transform: translateY(42px);
+      transition:
+        opacity 0.75s ease,
+        transform 0.75s ease;
     }
 
-    .floating-btn svg{
-        width:17px;
-        height:17px;
+    .js .fade.show {
+      opacity: 1;
+      transform: translateY(0);
     }
-}
-    @media(max-width:768px){
-
-.hero-photo{
-    min-height:70vh;
-}
-
-.hero-overlay{
-    padding:70px 0 70px;
-}
 
-.hero-photo h1{
-    font-size:3.3rem;
-    line-height:.92;
-}
-
-.hero-photo p{
-    font-size:1rem;
-    line-height:1.9;
-    max-width:320px;
-    margin-bottom:32px;
-}
-
-.buttons{
-    flex-direction:column;
-}
-
-.buttons .btn{
-    width:100%;
-    text-align:center;
-}
 
-}
-@media (max-width:768px){
+    /* ==================================================
+       KEYFRAMES
+    ================================================== */
 
-    section{
-        padding:54px 0;
-    }
+    @keyframes button-shine {
+      0% {
+        left: -130%;
+      }
 
-    .section-title{
-        margin-bottom:28px;
+      100% {
+        left: 160%;
+      }
     }
 
-    .section-title h2{
-        font-size:2.35rem;
-        line-height:1.12;
-        letter-spacing:-1px;
+    @keyframes loader-fade {
+      to {
+        opacity: 0;
+        visibility: hidden;
+      }
     }
 
-    #faq{
-        padding-top:50px;
-    }
+    @keyframes hero-zoom {
+      from {
+        background-size: 100%;
+      }
 
-    #faq .section-title h2{
-        font-size:2.45rem;
-        line-height:1.18;
+      to {
+        background-size: 111%;
+      }
     }
 
-    #faq .card{
-        padding:24px 26px;
-        border-radius:22px;
-        text-align:left;
-        margin-bottom:14px;
-    }
 
-    #faq .card h3{
-    font-size:1.22rem;
-    line-height:1.35;
-    padding-right:30px;
-    margin-bottom:0;
-    position:relative;
-}
+    /* ==================================================
+       RESPONSIVE
+    ================================================== */
 
-    #faq .faq-answer{
-        margin-top:14px;
-        line-height:1.65;
-        font-size:.96rem;
-        text-align:left;
-    }
+    @media (max-width: 1180px) {
 
-    #faq .faq-item h3::after{
-        right:0;
-top:50%;
-transform:translateY(-50%);
-    }
+      .menu-toggle {
+        display: flex;
+      }
 
-    .contact{
-        padding-top:58px;
-    }
+      .main-nav {
+        position: absolute;
+        top: calc(100% + 9px);
+        right: 0;
+        width: min(320px, 94vw);
+        max-height: calc(100vh - 105px);
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 3px;
+        padding: 13px;
+        overflow-y: auto;
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        background: #fffdf9;
+        box-shadow: 0 22px 52px rgba(23, 38, 27, 0.2);
+      }
 
-    .contact-grid{
-        gap:28px;
-    }
+      .main-nav.active {
+        display: flex;
+      }
 
-    .contact h2{
-        font-size:2.15rem;
-        line-height:1.15;
-        margin-bottom:14px;
-    }
+      .main-nav a {
+        width: 100%;
+        padding: 11px 14px;
+        border-radius: 12px;
+        font-size: 0.98rem;
+        text-align: left;
+      }
 
-    .contact p{
-        font-size:1rem;
-        line-height:1.65;
-    }
+      .main-nav a:hover {
+        background: var(--cream);
+        color: var(--forest);
+      }
 
-    .contact h3{
-        font-size:1.25rem;
-        margin-bottom:4px;
-    }
+      .main-nav .login-link {
+        margin-top: 4px;
+        text-align: center;
+      }
 
-    .contact [style*="display:grid"]{
-        gap:16px !important;
-    }
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
 
-    .contact-form{
-        padding:30px 24px;
-        border-radius:26px;
     }
-}
-.loader{
-    position:fixed;
-    inset:0;
-    background:var(--cream);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    z-index:99999;
-    animation:loaderFade 1.6s ease forwards;
-    animation-delay:1s;
-}
-
-.loader-logo{
-    font-size:3rem;
-    font-weight:800;
-    letter-spacing:-2px;
-    color:var(--forest);
-}
 
-.loader-logo span{
-    color:var(--gold);
-}
+    @media (max-width: 900px) {
 
-@keyframes loaderFade{
-    to{
-        opacity:0;
-        visibility:hidden;
-    }
-}
-.fade{
-    opacity:1;
-    transform:none;
-}
+      section {
+        padding: 74px 0;
+      }
 
-.js .fade{
-    opacity:0;
-    transform:translateY(50px);
-    transition:opacity .8s ease, transform .8s ease;
-}
+      .hero {
+        min-height: calc(100vh - 80px);
+        align-items: flex-end;
+        padding: 120px 0 42px;
+        animation: none;
+        background-size: cover;
+      }
 
-.js .fade.show{
-    opacity:1;
-    transform:translateY(0);
-}
+      .hero-content {
+        width: min(650px, 100%);
+        padding: 40px 38px 34px;
+      }
 
-.card,
-.editorial-service,
-.plan,
-.contact-form{
-    transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;
-}
+      .service-summary {
+        grid-template-columns: 1fr;
+      }
 
-.card:hover,
-.editorial-service:hover,
-.plan:hover,
-.contact-form:hover{
-    transform:translateY(-10px) scale(1.015);
-    box-shadow:0 32px 70px rgba(23,38,27,.18);
-    border-color:rgba(202,167,106,.45);
-}
-.hero-trust-strip{
-    display:flex;
-    flex-wrap:wrap;
-    gap:12px;
-    margin-top:22px;
-    max-width:650px;
-}
+      .service-image-wrap,
+      .service-image-wrap img {
+        min-height: 330px;
+      }
 
-.hero-trust-strip span{
-    display:flex;
-    align-items:center;
-    gap:8px;
-    padding:12px 18px;
-    background:rgba(255,250,243,.88);
-    border:1px solid rgba(202,167,106,.35);
-    border-radius:999px;
-    color:#17261b;
-    font-weight:700;
-    font-size:.95rem;
-    backdrop-filter:blur(10px);
-    -webkit-backdrop-filter:blur(10px);
-    box-shadow:0 12px 30px rgba(23,38,27,.10);
-}
+      .service-summary-copy {
+        padding: 35px 75px 35px 35px;
+      }
 
-.hero-trust-strip span::before{
-    content:"✓";
-    color:#718c67;
-    font-weight:900;
-}
+      .service-detail-grid {
+        grid-template-columns: 1fr;
+      }
 
-@media(max-width:768px){
-    .hero-trust-strip{
-        gap:8px;
-        margin-top:18px;
-    }
+      .detail-box.full-width {
+        grid-column: auto;
+      }
 
-    .hero-trust-strip span{
-        font-size:.82rem;
-        padding:9px 14px;
-    }
-}
-.floating-btn svg{
-    width:24px;
-    height:24px;
-}
+      .finder-grid {
+        grid-template-columns: 1fr;
+      }
 
-@media(max-width:768px){
-    .floating-btn svg{
-        width:17px;
-        height:17px;
     }
-}
-
-.service-icon{
-    width:46px;
-    height:46px;
-    border-radius:50%;
-    background:rgba(113,140,103,.10);
-    color:#314632;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    margin-bottom:18px;
-}
-
-.service-icon svg{
-    width:24px;
-    height:24px;
-    stroke-width:1.8;
-}
-
-.faq-answer{
-    display:none;
-    margin-top:14px;
-}
-
-.faq-item.active .faq-answer{
-    display:block;
-}
-
-.faq-item{
-    cursor:pointer;
-    position:relative;
-}
-
-.faq-item h3::after{
-    content:"+";
-    position:absolute;
-    right:28px;
-    font-size:1.6rem;
-    color:var(--gold);
-}
-
-.faq-item.active h3::after{
-    content:"–";
-}
-
-.welcome-video{
-    background:white;
-    border-radius:32px;
-    padding:35px;
-    box-shadow:var(--soft-shadow);
-    text-align:center;
-    margin-top:40px;
-}
-
-.video-placeholder{
-    margin-top:20px;
-    height:220px;
-    border-radius:24px;
-    background:linear-gradient(135deg,#17261b,#314632);
-    color:white;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-weight:800;
-    font-size:1.2rem;
-}
-
-.video-frame{
-    margin-top:24px;
-    border-radius:28px;
-    overflow:hidden;
-    box-shadow:0 24px 60px rgba(23,38,27,.18);
-    border:1px solid rgba(202,167,106,.28);
-    background:#000;
-}
-
-.video-frame video{
-    display:block;
-    width:100%;
-    height:auto;
-}
-
-.video-frame:hover{
-    transform:translateY(-3px);
-    transition:.35s ease;
-    box-shadow:0 30px 70px rgba(23,38,27,.22);
-}
-.welcome-section{
-    padding-top:10px;
-}
-
-.welcome-section .eyebrow{
-    margin-bottom:10px;
-}
-
-.welcome-section h2{
-    margin-bottom:18px;
-}
-
-.welcome-section p{
-    margin-bottom:0;
-}
-
-@media(max-width:768px){
-
-  #services{
-    padding:70px 0;
-  }
-
-  #services .section-title{
-    margin-bottom:42px;
-  }
-
-  #services .section-title .eyebrow{
-    margin-bottom:16px;
-  }
-
-  #services .section-title h2{
-    margin-bottom:20px;
-    line-height:1.08;
-  }
-
-  #services .section-title p{
-    line-height:1.75;
-    padding:0 10px;
-  }
-
-  .editorial-services{
-    gap:36px;
-  }
-
-  .editorial-service{
-    margin-bottom:0;
-  }
-}
-/* FINAL MOBILE FIXES */
-@media screen and (max-width:950px){
-
-  /* Compact dropdown menu */
-  .site-header .nav-wrap{
-    position:relative !important;
-  }
-
-  .site-header nav{
-    display:none !important;
-    position:absolute !important;
-    top:calc(100% + 8px) !important;
-    left:auto !important;
-    right:0 !important;
-    width:260px !important;
-    height:auto !important;
-    min-height:0 !important;
-    max-height:calc(100vh - 100px) !important;
-    overflow-y:auto !important;
-
-    padding:12px !important;
-    margin:0 !important;
-    gap:2px !important;
-
-    background:#fffdf9 !important;
-    border:1px solid rgba(202,167,106,.35) !important;
-    border-radius:20px !important;
-    box-shadow:0 20px 50px rgba(23,38,27,.22) !important;
-
-    flex-direction:column !important;
-    align-items:stretch !important;
-    justify-content:flex-start !important;
-    text-align:left !important;
-  }
-
-  .site-header nav.active{
-    display:flex !important;
-  }
-
-  .site-header nav a{
-    display:block !important;
-    width:100% !important;
-    padding:11px 14px !important;
-    margin:0 !important;
-    border-radius:12px !important;
-    font-size:1rem !important;
-    line-height:1.3 !important;
-    text-align:left !important;
-  }
-
-  .site-header nav a:hover,
-  .site-header nav a:active{
-    background:var(--cream) !important;
-    color:var(--forest) !important;
-    transform:none !important;
-  }
-
-  /* More breathing room in the services introduction */
-  #services{
-    padding-top:85px !important;
-    padding-bottom:70px !important;
-  }
 
-  #services .section-title{
-    margin-bottom:52px !important;
-    padding:0 12px !important;
-  }
-
-  #services .section-title .eyebrow{
-    margin-bottom:22px !important;
-    line-height:1.5 !important;
-  }
-
-  #services .section-title h2{
-    font-size:2.45rem !important;
-    line-height:1.18 !important;
-    letter-spacing:-1px !important;
-    margin-bottom:26px !important;
-  }
-
-  #services .section-title p{
-    font-size:1.03rem !important;
-    line-height:1.85 !important;
-    padding:0 8px !important;
-  }
-
-  #services .editorial-services{
-    gap:42px !important;
-  }
-}
-/* HERO MOBILE */
-@media (max-width:768px){
-
-  .hero-photo{
-    min-height:78vh;
-    display:flex;
-    align-items:flex-end;
-  }
-
-  .hero-overlay{
-    padding:90px 0 70px;
-  }
-
-  .hero-photo h1{
-    font-size:2.65rem;
-    line-height:1.12;
-    letter-spacing:-1px;
-    margin-bottom:22px;
-    max-width:100%;
-  }
-
-  .hero-photo p{
-    font-size:1.05rem;
-    line-height:1.8;
-    max-width:100%;
-    margin-bottom:28px;
-  }
-
-  .buttons{
-    display:flex;
-    flex-direction:column;
-    gap:14px;
-  }
-
-  .buttons .btn{
-    width:100%;
-    text-align:center;
-  }
-
-}
-/* MOBILE CARD IMPROVEMENTS */
-@media (max-width:768px){
-
-  .card,
-  .plan,
-  .editorial-service,
-  .contact-form{
-    padding:24px !important;
-    border-radius:22px !important;
-  }
-
-  .card h3,
-  .plan h3{
-    font-size:1.45rem !important;
-    line-height:1.3;
-    margin-bottom:12px;
-  }
-
-  .card p,
-  .plan p,
-  .editorial-service p{
-    font-size:.98rem;
-    line-height:1.7;
-  }
-
-  .editorial-service img{
-    border-radius:18px;
-    margin-bottom:10px;
-  }
-
-  .service-icon{
-    width:42px;
-    height:42px;
-    margin-bottom:14px;
-  }
-
-}
-/* MOBILE CONTACT AND FOOTER */
-@media (max-width:768px){
-
-  .contact{
-    padding:68px 0 58px !important;
-  }
-
-  .contact-grid{
-    gap:34px !important;
-  }
-
-  .contact .eyebrow{
-    margin-bottom:16px;
-    line-height:1.5;
-  }
-
-  .contact h2{
-    font-size:2.35rem !important;
-    line-height:1.12 !important;
-    letter-spacing:-1px;
-    margin-bottom:20px !important;
-  }
-
-  .contact > .container > div:first-child > p{
-    line-height:1.75;
-  }
-
-  .contact-form{
-    padding:28px 22px !important;
-    border-radius:24px !important;
-  }
-
-  .contact-form input,
-  .contact-form textarea{
-    padding:15px 16px;
-    border-radius:14px;
-  }
-
-  .contact-form textarea{
-    min-height:150px;
-  }
-
-  .contact-form .btn{
-    width:100%;
-    text-align:center;
-    border:none;
-    font-size:1rem;
-  }
-
-  footer{
-    padding:60px 0 28px;
-  }
-
-  .footer-grid{
-    gap:34px !important;
-    margin-bottom:36px;
-  }
+    @media (max-width: 650px) {
 
-  .footer-grid > div{
-    padding-bottom:26px;
-    border-bottom:1px solid rgba(255,255,255,.12);
-  }
-
-  .footer-grid > div:last-child{
-    border-bottom:none;
-    padding-bottom:0;
-  }
-
-  footer h3{
-    font-size:1.15rem;
-    margin-bottom:12px;
-    color:#ffffff;
-  }
-
-  footer p{
-    font-size:.95rem;
-    line-height:1.75;
-  }
-
-  footer .logo{
-    font-size:2rem;
-  }
-
-  .copyright{
-    margin-top:22px;
-    line-height:1.6;
-  }
-
-}
-/* MOBILE FLEXIBLE SUPPORT */
-@media (max-width:768px){
-
-  #ad-hoc{
-    padding:70px 0 !important;
-  }
-
-  #ad-hoc .section-title{
-    margin-bottom:38px !important;
-    padding:0 10px;
-  }
-
-  #ad-hoc .section-title .eyebrow{
-    margin-bottom:16px;
-  }
-
-  #ad-hoc .section-title h2{
-    font-size:2.3rem !important;
-    line-height:1.14 !important;
-    margin-bottom:18px;
-  }
-
-  #ad-hoc .section-title p{
-    font-size:1rem;
-    line-height:1.75;
-  }
-
-  #ad-hoc .cards{
-    gap:20px !important;
-  }
-
-  #ad-hoc .card{
-    padding:27px 24px !important;
-  }
-
-  #ad-hoc .card h3{
-    font-size:1.4rem !important;
-    line-height:1.3;
-    margin-bottom:16px;
-  }
+      .container {
+        width: 90%;
+      }
 
-  #ad-hoc .card p{
-    margin-bottom:12px;
-    line-height:1.7;
-  }
-
-  #ad-hoc .card p:last-child{
-    margin-bottom:0;
-  }
-
-  #ad-hoc .card p:first-of-type strong{
-    display:inline-block;
-    color:var(--forest);
-    font-size:1.18rem;
-    margin-bottom:4px;
-  }
-
-}
-/* MOBILE AWAY FROM HOME FIX */
-@media (max-width:768px){
-
-  #away-from-home{
-    padding:72px 0 !important;
-  }
-
-  #away-from-home .section-title{
-    margin-bottom:40px !important;
-    padding:0 10px;
-  }
-
-  #away-from-home .section-title h2{
-    font-size:2.3rem !important;
-    line-height:1.16 !important;
-    margin-bottom:20px !important;
-  }
-
-  #away-from-home .section-title p{
-    font-size:1rem !important;
-    line-height:1.8 !important;
-  }
+      section {
+        padding: 62px 0;
+      }
 
-  #away-from-home .editorial-service{
-    padding:24px !important;
-    gap:26px !important;
-    border-radius:24px !important;
-  }
-
-  #away-from-home .editorial-service img{
-    height:240px !important;
-    margin-bottom:4px !important;
-  }
-
-  #away-from-home .editorial-service h3{
-    font-size:1.85rem !important;
-    line-height:1.22 !important;
-    margin-bottom:20px !important;
-  }
-
-  #away-from-home .editorial-service p{
-    font-size:1rem !important;
-    line-height:1.8 !important;
-    margin-bottom:22px !important;
-  }
+      .nav-wrap {
+        min-height: 64px;
+      }
 
-  #away-from-home ul{
-    list-style:none !important;
-    margin:26px 0 !important;
-    padding:0 !important;
-    display:grid;
-    gap:14px;
-  }
+      .logo {
+        font-size: 1.8rem;
+      }
 
-  #away-from-home li{
-    position:relative;
-    padding-left:30px;
-    font-size:1rem;
-    line-height:1.55;
-  }
+      .menu-toggle {
+        width: 42px;
+        height: 42px;
+      }
 
-  #away-from-home li::before{
-    content:"✓";
-    position:absolute;
-    left:0;
-    top:0;
-    color:var(--sage-dark);
-    font-weight:900;
-    font-size:1.1rem;
-  }
+      .hero {
+        min-height: calc(100svh - 64px);
+        padding: 205px 0 24px;
+        background:
+          linear-gradient(
+            180deg,
+            rgba(248, 241, 231, 0.08) 0%,
+            rgba(248, 241, 231, 0.22) 34%,
+            rgba(248, 241, 231, 0.78) 72%,
+            rgba(248, 241, 231, 0.96) 100%
+          ),
+          url("background.png");
+        background-position: 58% center;
+        background-size: cover;
+      }
 
+      .hero-content {
+  width: calc(100% - 10px);
+  margin: 0 auto;
+  padding: 38px 30px 36px;
+  border-radius: 32px;
+  background: rgba(255, 250, 243, 0.97);
 }
-.away-price{
-    margin-top:32px;
-    padding:22px;
-    background:#f8f1e7;
-    border:1px solid rgba(202,167,106,.28);
-    border-radius:18px;
-}
 
-.away-price strong{
-    display:block;
-    color:var(--forest);
-    font-size:1.45rem;
-    line-height:1.25;
-    margin-bottom:8px;
+.hero h1 {
+  margin-bottom: 24px;
+  font-size: clamp(3.2rem, 14vw, 4.1rem);
+  line-height: 1.02;
+  letter-spacing: -2px;
 }
 
-.away-price p{
-    margin:0 !important;
-    font-size:.98rem !important;
-    line-height:1.65 !important;
-}
+      .hero-lead {
+        margin-bottom: 22px;
+        font-size: 0.97rem;
+        line-height: 1.67;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 11px;
+      }
 
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-textarea:focus-visible,
-select:focus-visible {
-  outline: 3px solid #caa76a;
-  outline-offset: 4px;
-}
+      .hero-buttons .btn {
+        width: 100%;
+      }
 
-</style>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "Sorted.",
-  "description": "Home and lifestyle support in Eastbourne and surrounding areas.",
-  "url": "https://sortedlife.org.uk/services.html",
-  "telephone": "+441323396610",
-  "email": "contact@sortedlife.org.uk",
-  "areaServed": [
-    "Eastbourne",
-    "Meads",
-    "Old Town",
-    "Upperton",
-    "Sovereign Harbour",
-    "Hampden Park",
-    "Willingdon",
-    "Langney",
-    "Polegate",
-    "Pevensey",
-    "Seaford"
-  ],
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Eastbourne",
-    "addressRegion": "East Sussex",
-    "addressCountry": "GB"
-  },
-  "serviceType": [
-    "Home management",
-    "Lifestyle assistance",
-    "Home organisation",
-    "Administrative support",
-    "Companionship and local trips",
-    "Home management while away",
-    "Property checks",
-    "Key holding"
-  ]
-}
-</script>
+      .hero-trust {
+        gap: 8px 14px;
+        margin-top: 19px;
+        padding-top: 17px;
+        font-size: 0.75rem;
+      }
+
+      .section-heading {
+        margin-bottom: 36px;
+      }
+
+      .section-heading h2 {
+        font-size: 2.4rem;
+        line-height: 1.08;
+        letter-spacing: -1.6px;
+      }
+
+      .section-heading p {
+        font-size: 0.99rem;
+        line-height: 1.73;
+      }
+
+      .intro-panel {
+        padding: 37px 24px;
+        border-radius: 28px;
+      }
+
+      .intro-panel h2 {
+        font-size: 2.5rem;
+        letter-spacing: -1.8px;
+      }
+
+      .intro-panel p:not(.eyebrow) {
+        font-size: 0.98rem;
+        line-height: 1.74;
+      }
+
+      .services-list {
+        gap: 22px;
+      }
+
+      .service-item {
+        border-radius: 25px;
+      }
+
+      .service-item:hover {
+        transform: none;
+      }
+
+      .service-image-wrap,
+      .service-image-wrap img {
+        min-height: 225px;
+        height: 225px;
+      }
+
+      .service-summary-copy {
+        padding: 27px 63px 29px 24px;
+      }
+
+      .service-icon {
+        width: 44px;
+        height: 44px;
+        margin-bottom: 15px;
+      }
+
+      .service-summary-copy h3 {
+        font-size: 1.8rem;
+        letter-spacing: -0.8px;
+      }
+
+      .service-summary-copy > p:not(.eyebrow) {
+        font-size: 0.95rem;
+        line-height: 1.69;
+      }
+
+      .expand-label {
+        margin-top: 17px;
+        font-size: 0.89rem;
+      }
+
+      .summary-toggle {
+        top: auto;
+        right: 19px;
+        bottom: 23px;
+        width: 38px;
+        height: 38px;
+        font-size: 1.45rem;
+        transform: none;
+      }
+
+      .service-item[open] .summary-toggle {
+        transform: rotate(45deg);
+      }
+
+      .service-details {
+        padding: 0 20px 25px;
+      }
+
+      .service-details-intro {
+        padding: 26px 3px 23px;
+        font-size: 0.96rem;
+        line-height: 1.72;
+      }
+
+      .service-detail-grid {
+        gap: 15px;
+      }
+
+      .detail-box {
+        padding: 22px 20px;
+        border-radius: 20px;
+      }
+
+      .detail-box h4 {
+        font-size: 1.2rem;
+      }
+
+      .detail-list {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .service-cta {
+        align-items: stretch;
+        padding: 23px 20px;
+      }
+
+      .service-cta .btn {
+        width: 100%;
+      }
+
+      .finder-card {
+        padding: 21px;
+      }
+
+      .faq-item summary {
+        padding: 22px 61px 22px 21px;
+        font-size: 1rem;
+      }
+
+      .faq-item summary::after {
+        right: 18px;
+      }
 
-<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+      .faq-answer {
+        padding: 0 21px 22px;
+        font-size: 0.94rem;
+      }
+
+      .final-cta-inner {
+        padding: 39px 24px;
+        border-radius: 28px;
+      }
+
+      .final-cta h2 {
+        font-size: 2.65rem;
+        letter-spacing: -2px;
+      }
+
+      .final-cta p:not(.eyebrow) {
+        font-size: 0.98rem;
+      }
+
+      .final-cta-buttons {
+        flex-direction: column;
+      }
+
+      .final-cta-buttons .btn {
+        width: 100%;
+      }
+
+      .floating-contact {
+        right: 8px;
+        bottom: 10px;
+        gap: 7px;
+      }
+
+      .floating-btn {
+        width: 39px;
+        height: 39px;
+        opacity: 0.92;
+      }
+
+      .floating-btn svg {
+        width: 17px;
+        height: 17px;
+      }
+
+      footer {
+        padding: 62px 0 27px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .footer-grid > div {
+        padding: 26px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.11);
+      }
+
+      .footer-grid > div:first-child {
+        padding-top: 0;
+      }
+
+      .footer-grid > div:last-child {
+        border-bottom: 0;
+      }
+
+    }
+
+
+    /* ==================================================
+       ACCESSIBILITY
+    ================================================== */
+
+    a:focus-visible,
+    button:focus-visible,
+    summary:focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: 4px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+
+    }
+
+  </style>
+
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Sorted.",
+    "description": "Home and lifestyle support in Eastbourne and surrounding areas.",
+    "url": "https://sortedlife.org.uk/services.html",
+    "telephone": "+441323396610",
+    "email": "contact@sortedlife.org.uk",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Eastbourne",
+      "addressRegion": "East Sussex",
+      "addressCountry": "GB"
+    },
+    "areaServed": [
+      "Eastbourne",
+      "Meads",
+      "Old Town",
+      "Upperton",
+      "Sovereign Harbour",
+      "Hampden Park",
+      "Willingdon",
+      "Langney",
+      "Polegate",
+      "Pevensey",
+      "Seaford"
+    ],
+    "serviceType": [
+      "Home management",
+      "Lifestyle assistance",
+      "Home organisation",
+      "Administrative support",
+      "Companionship and local trips",
+      "Tailored home and lifestyle support"
+    ]
+  }
+  </script>
+
+  <script
+    src="https://unpkg.com/lucide@0.542.0/dist/umd/lucide.js"
+    defer
+  ></script>
 
 </head>
 
+
 <body>
-<div class="loader">
-    <div class="loader-logo">Sorted<span>.</span></div>
-</div>
-<header class="site-header">
 
-<div class="container nav-wrap">
+  <div class="loader">
 
-<a class="logo" href="index.html">Sorted<span>.</span></a>
-<button
-  class="menu-toggle"
-  type="button"
-  aria-label="Open navigation menu"
-  aria-expanded="false"
-  aria-controls="main-navigation"
->
-  <i data-lucide="menu"></i>
-</button>
-<nav id="main-navigation">
+    <div class="loader-logo">
+      Sorted<span>.</span>
+    </div>
 
-<a href="index.html">Home</a>
+  </div>
 
-<a href="services.html">Services</a>
 
-<a href="flexible-support.html">Flexible Support</a>
+  <!-- ==================================================
+       HEADER
+  ================================================== -->
 
-<a href="away-from-home.html">Away From Home</a>
+  <header class="site-header">
 
-<a href="memberships.html">Memberships</a>
+    <div class="container nav-wrap">
 
-<a href="about.html">About</a>
+      <a
+        href="index.html"
+        class="logo"
+        aria-label="Sorted home"
+      >
+        Sorted<span>.</span>
+      </a>
 
-<a href="contact.html">Contact</a>
+      <button
+        type="button"
+        class="menu-toggle"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="main-navigation"
+      >
+        <i data-lucide="menu"></i>
+      </button>
 
-<a href="login.html">Client Login</a>
+      <nav
+        id="main-navigation"
+        class="main-nav"
+        aria-label="Main navigation"
+      >
 
-</nav>
+        <a href="index.html">
+          Home
+        </a>
 
-</div>
+        <a
+          href="services.html"
+          aria-current="page"
+        >
+          Services
+        </a>
 
-</header>
+        <a href="flexible-support.html">
+          Flexible Support
+        </a>
 
-<section class="hero hero-photo fade">
+        <a href="away-from-home.html">
+          Away From Home
+        </a>
 
-<div class="hero-overlay">
+        <a href="memberships.html">
+          Memberships
+        </a>
 
-<div class="container">
+        <a href="about.html">
+          About
+        </a>
 
-<p class="eyebrow">
-OUR SERVICES
-</p>
+        <a href="contact.html">
+          Contact
+        </a>
 
-<h1>
+        <a
+          href="login.html"
+          class="login-link"
+        >
+          Client Login
+        </a>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+
+  <main>
+
+
+    <!-- ==================================================
+         HERO
+    ================================================== -->
+
+    <section class="hero fade">
+
+      <div class="container">
+
+        <div class="hero-content">
+
+          <p class="eyebrow">
+            Our Services
+          </p>
+
+          <h1>
 Support.<br>
-Tailored Around You.
+Tailored<br>
+Around You.
 </h1>
 
-<p>
-From everyday errands to complete home management, every service is delivered professionally, discreetly and entirely around your lifestyle.
-</p>
+          <p class="hero-lead">
+            From everyday errands and household organisation to
+            administration, companionship and complete home management,
+            every service is delivered professionally, discreetly and
+            entirely around your lifestyle.
+          </p>
 
-<div class="buttons">
+          <div class="hero-buttons">
 
-<a href="contact.html" class="btn primary">
-Book Your Complimentary Consultation
-</a>
+            <a
+              href="https://calendly.com/d/dzzd-qmh-mcm/one-off-meeting"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-primary"
+            >
+              Book Your Complimentary Consultation
+            </a>
 
-<a href="#services" class="btn secondary">
-Explore Our Services
-</a>
+            <a
+              href="#services"
+              class="btn btn-secondary"
+            >
+              Explore Our Services
+            </a>
 
-</div>
+          </div>
 
-</div>
+          <div
+            class="hero-trust"
+            aria-label="Sorted service assurances"
+          >
 
-</div>
+            <span>
+              DBS checked
+            </span>
 
-</section>
-<section id="services" class="premium-services fade">
+            <span>
+              Fully insured
+            </span>
 
-<div class="container">
+            <span>
+              Discreet and confidential
+            </span>
 
-<div class="section-title">
+          </div>
 
-<p class="eyebrow">OUR SERVICES</p>
+        </div>
 
-<h2>Support, tailored around you.</h2>
+      </div>
 
-<p>
-Thoughtful home and lifestyle support, designed to bring calm, confidence and more time back into everyday life.
-</p>
+    </section>
 
-</div>
 
-<div class="editorial-services">
+    <!-- ==================================================
+         INTRODUCTION
+    ================================================== -->
 
-<div class="editorial-service">
+    <section class="services-intro fade">
 
-<img src="management.png" alt="Home Management" loading="lazy">
+      <div class="container">
 
-<div>
+        <div class="intro-panel">
 
-<p class="eyebrow">HOME</p>
+          <p class="eyebrow">
+            Thoughtful Support for Everyday Life
+          </p>
 
-<div class="service-icon">
-<i data-lucide="home"></i>
-</div>
+          <h2>
+            Support designed around your home, lifestyle and priorities.
+          </h2>
 
-<h3>Home Management</h3>
+          <p>
+            Every client is different. Some people need someone to help
+            manage their home, while others simply need an extra pair of
+            trusted hands from time to time.
+          </p>
 
-<p>
-Keeping your home running smoothly through thoughtful day-to-day support, organisation and practical assistance tailored to your lifestyle.
-</p>
+          <p>
+            You may want regular support that quietly keeps life running
+            smoothly, or help with one particular task that has become
+            difficult to manage. Sorted. gives you the freedom to choose
+            the support that works for you.
+          </p>
 
-</div>
+          <p>
+            Explore each service below and select
+            <strong>View full details</strong> to discover exactly what can
+            be included.
+          </p>
 
-</div>
+        </div>
 
-<div class="editorial-service reverse">
+      </div>
 
-<img src="assistance.png" alt="Shopping, errands and lifestyle assistance" loading="lazy">
+    </section>
 
-<div>
 
-<p class="eyebrow">LIFESTYLE</p>
+    <!-- ==================================================
+         DETAILED SERVICES
+    ================================================== -->
 
-<div class="service-icon"><i data-lucide="shopping-bag"></i></div>
+    <section
+      id="services"
+      class="services-directory fade"
+    >
 
-<h3>Lifestyle Assistance</h3>
+      <div class="container">
 
-<p>
-Shopping, errands, collections, returns and everyday tasks handled
-efficiently, discreetly and with complete reliability.
-</p>
+        <div class="section-heading">
 
-</div>
+          <p class="eyebrow">
+            Explore Our Services
+          </p>
 
-</div>
+          <h2>
+            Everything you need, beautifully handled.
+          </h2>
 
-<div class="editorial-service">
+          <p>
+            Each service can be arranged independently or combined with
+            others to create support shaped entirely around your home,
+            routine and circumstances.
+          </p>
 
-<img src="organisation.png" alt="Beautifully organised living room" loading="lazy">
+        </div>
 
-<div>
 
-<p class="eyebrow">HOME</p>
+        <div class="services-list">
 
-<div class="service-icon"><i data-lucide="boxes"></i></div>
-<h3>Home Organisation</h3>
 
-<p>
-Creating calm, organised spaces through decluttering, storage solutions and
-beautiful home organisation.
-</p>
+          <!-- HOME MANAGEMENT -->
 
-</div>
+          <details
+            class="service-item"
+            id="home-management"
+          >
 
-</div>
+            <summary class="service-summary">
 
-<div class="editorial-service reverse">
+              <div class="service-image-wrap">
 
-<img src="administration.png" alt="Administrative Support" loading="lazy">
+                <img
+                  src="management.png"
+                  alt="Beautifully managed and organised home"
+                  loading="lazy"
+                >
 
-<div>
+              </div>
 
-<p class="eyebrow">ADMIN</p>
+              <div class="service-summary-copy">
 
-<div class="service-icon"><i data-lucide="clipboard-list"></i></div>
-<h3>Administrative Support</h3>
+                <p class="eyebrow">
+                  Home
+                </p>
 
-<p>
-Appointments, paperwork, forms, filing, online tasks and home
-administration managed professionally.
-</p>
+                <div class="service-icon">
+                  <i data-lucide="house"></i>
+                </div>
 
-</div>
+                <h3>
+                  Home Management
+                </h3>
 
-</div>
+                <p>
+                  Practical, dependable support that helps your home remain
+                  organised, prepared and running smoothly.
+                </p>
 
-<div class="editorial-service">
+                <span class="expand-label">
+                  View full details
+                </span>
 
-<img src="companionship.png" alt="Companionship & Local Trips" loading="lazy">
+              </div>
 
-<div>
+              <span
+                class="summary-toggle"
+                aria-hidden="true"
+              ></span>
 
-<p class="eyebrow">COMPANIONSHIP</p>
+            </summary>
 
-<div class="service-icon"><i data-lucide="heart-handshake"></i></div>
-<h3>Companionship & Local Trips</h3>
 
-<p>
-Friendly company, appointments, local outings, cafés and support to help
-every day feel a little easier.
-</p>
+            <div class="service-details">
 
-</div>
+              <p class="service-details-intro">
+                Home Management is designed for clients who want the
+                reassurance of knowing that important household tasks are
+                being handled. Support can be used regularly or arranged
+                around particularly busy periods, holidays, family visits
+                or changing circumstances.
+              </p>
 
-</div>
+              <div class="service-detail-grid">
 
-<div class="editorial-service reverse">
 
-<img src="supportaroundyou.png" alt="Beautiful organised bedroom" loading="lazy">
+                <div class="detail-box">
 
-<div>
+                  <h4>
+                    What can be included
+                  </h4>
 
-<p class="eyebrow">TAILORED</p>
+                  <ul class="detail-list">
 
-<div class="service-icon"><i data-lucide="sparkles"></i></div>
-<h3>Support Around You</h3>
+                    <li>
+                      Changing bedding and preparing bedrooms
+                    </li>
 
-<p>
-Every service is personalised to fit your home, routine and preferences,
-providing flexible support exactly when you need it.
-</p>
+                    <li>
+                      Laundry and ironing arrangements
+                    </li>
 
-</div>
+                    <li>
+                      Receiving household deliveries
+                    </li>
 
-</div>
+                    <li>
+                      Waiting in for tradespeople
+                    </li>
 
-</div>
-</div>
-</section>
+                    <li>
+                      Coordinating repair appointments
+                    </li>
 
+                    <li>
+                      Restocking household essentials
+                    </li>
 
-<section class="areas">
+                    <li>
+                      Putting bins out and bringing them in
+                    </li>
 
-<div class="container narrow">
+                    <li>
+                      Watering indoor and outdoor plants
+                    </li>
 
-<p class="eyebrow">AREAS COVERED</p>
+                    <li>
+                      Preparing your home for visitors
+                    </li>
 
-<h2>Eastbourne & surrounding areas</h2>
+                    <li>
+                      Seasonal household tasks
+                    </li>
 
-<p>
-Eastbourne, Meads, Old Town, Upperton, Sovereign Harbour, Hampden Park, Willingdon,
-Langney, Polegate, Pevensey, Seaford and nearby villages.
-</p>
+                    <li>
+                      General home checks
+                    </li>
 
-</div>
+                    <li>
+                      Light practical household assistance
+                    </li>
 
-</section>
+                  </ul>
 
-<section class="contact" id="contact">
+                </div>
 
-<div class="container contact-grid">
 
-<div>
+                <div class="detail-box">
 
-<p class="eyebrow">LET'S START WITH A CONVERSATION</p>
+                  <h4>
+                    Ideal for
+                  </h4>
 
-<h2>Life. Beautifully Sorted.</h2>
-<p style="font-weight:600;color:#314632;margin-bottom:12px;">
-We aim to respond to all enquiries within 24 hours, often much sooner.
-</p>
-<p style="margin-bottom:30px;">
-Whether you're looking for ongoing home support, home organisation, lifestyle assistance, property management or simply an extra pair of trusted hands, <strong>Sorted.</strong> provides discreet, dependable support tailored around you, your home and the way you live. We'll quietly take care of the details of your home and everyday life, so you have more time for the things that matter most.
-</p>
+                  <ul class="detail-list">
 
-<div style="display:grid;gap:22px;">
+                    <li>
+                      Busy professionals
+                    </li>
 
-<div>
+                    <li>
+                      Families with demanding routines
+                    </li>
 
-<h3>Email</h3>
+                    <li>
+                      Older adults living independently
+                    </li>
 
-<p>
-<a href="mailto:contact@sortedlife.org.uk">
-contact@sortedlife.org.uk
-</a>
-</p>
+                    <li>
+                      People recovering from illness
+                    </li>
 
-</div>
+                    <li>
+                      Second-home owners
+                    </li>
 
-<div>
+                    <li>
+                      Clients preparing for guests or events
+                    </li>
 
-<h3>Phone</h3>
+                  </ul>
 
-<p>
-<a href="tel:+441323396610">
-01323 396610
-</a>
-</p>
+                </div>
 
-</div>
-<div>
 
-<h3>Opening Hours</h3>
+                <div class="detail-box">
 
-<p>
-Monday – Friday: 8:00am – 6:00pm<br>
-Saturday: By appointment<br>
-Sunday: By arrangement
-</p>
+                  <h4>
+                    Typical examples
+                  </h4>
 
-</div>
-<div>
+                  <p>
+                    You might ask Sorted. to meet a plumber while you are at
+                    work, change and prepare bedding before family arrive,
+                    receive a furniture delivery, restock essential
+                    household items or check that heating and appliances are
+                    working properly.
+                  </p>
 
-<h3>Areas Covered</h3>
+                </div>
 
-<p>
-Eastbourne • Meads • Old Town • Upperton • Sovereign Harbour • Hampden Park • Willingdon • Langney • Polegate • Pevensey • Seaford
-</p>
 
-</div>
+                <div class="detail-box">
 
-</div>
+                  <h4>
+                    How it works
+                  </h4>
 
-</div>
+                  <p>
+                    Before support begins, we agree your priorities and any
+                    instructions relating to your home. Tasks can then be
+                    completed during scheduled visits, with clear updates
+                    provided where required.
+                  </p>
 
-<div>
+                </div>
 
-<div class="card" style="margin-bottom:35px;">
 
-<h3>Our Promise</h3>
+                <div class="detail-box full-width">
 
-<p>
-Every visit is carried out with professionalism, discretion and genuine care. We treat your home with the same respect and attention to detail as if it were our own, always striving to provide a dependable service you can trust.
-</p>
+                  <h4>
+                    Why clients value Home Management
+                  </h4>
 
-</div>
-<form class="contact-form" action="https://formsubmit.co/contact@sortedlife.org.uk" method="POST">
+                  <p>
+                    Small household tasks often create a surprising amount
+                    of pressure when they begin to build up. Home Management
+                    gives you one dependable point of contact who
+                    understands your preferences and quietly ensures that
+                    the details are taken care of.
+                  </p>
 
-<p style="margin-bottom:22px;font-weight:600;color:#314632;">
-No obligation. No pressure. Just a friendly conversation about how we can help.
-</p>
-<input type="hidden" name="_subject" value="New Sorted. Website Enquiry">
-<input type="hidden" name="_captcha" value="false">
-<input type="hidden" name="_template" value="table">
-<input type="hidden" name="_next" value="https://sortedlife.org.uk/thank-you.html">
+                </div>
 
-<input
-  type="hidden"
-  name="_autoresponse"
-  value="Thank you for contacting Sorted. We have received your enquiry and will respond within one working day. If your enquiry is urgent, please call us on 01323 396610."
->
+              </div>
 
-<label>
 
-Your Name
+              <div class="service-cta">
 
-<input
-type="text"
-name="name"
-placeholder="John Smith"
-required>
+                <div>
 
-</label>
+                  <h4>
+                    Need help managing your home?
+                  </h4>
 
-<label>
+                  <p>
+                    Tell us which household tasks would make the greatest
+                    difference to your week.
+                  </p>
 
-Email Address
+                </div>
 
-<input
-type="email"
-name="email"
-placeholder="john@email.com"
-required>
+                <a
+                  href="contact.html"
+                  class="btn btn-light"
+                >
+                  Discuss Home Management
+                </a>
 
-</label>
+              </div>
 
-<label>
+            </div>
 
-Telephone
+          </details>
 
-<input
-type="tel"
-name="phone"
-placeholder="Optional">
 
-</label>
+          <!-- LIFESTYLE ASSISTANCE -->
 
-<label>
+          <details
+            class="service-item"
+            id="lifestyle-assistance"
+          >
 
-How can we help?
+            <summary class="service-summary">
 
-<textarea
-name="message"
-placeholder="Tell us a little about what you need..."
-required></textarea>
+              <div class="service-image-wrap">
 
-</label>
+                <img
+                  src="assistance.png"
+                  alt="Shopping bags and dependable lifestyle assistance"
+                  loading="lazy"
+                >
 
-<label style="display:none !important;">
-  Spam check
-  <input type="text" name="_honey">
-</label>
-<button type="submit" class="btn primary">
+              </div>
 
-Send Enquiry
+              <div class="service-summary-copy">
 
-</button>
+                <p class="eyebrow">
+                  Lifestyle
+                </p>
 
-<p style="margin-top:18px;color:var(--muted);font-size:.9rem;">
+                <div class="service-icon">
+                  <i data-lucide="shopping-bag"></i>
+                </div>
 
-We'll aim to reply as soon as possible.
+                <h3>
+                  Lifestyle Assistance
+                </h3>
 
-</p>
-<p style="margin-top:25px;color:var(--muted);font-size:.95rem;line-height:1.7;">
-<strong>Payment options</strong><br>
-Bank Transfer • Debit &amp; Credit Card • Standing Order (Memberships)
-</p>
-</form>
+                <p>
+                  Shopping, errands, collections and practical everyday
+                  tasks completed reliably on your behalf.
+                </p>
 
-</div>
+                <span class="expand-label">
+                  View full details
+                </span>
 
-</div>
+              </div>
 
-</section>
+              <span
+                class="summary-toggle"
+                aria-hidden="true"
+              ></span>
 
-<section style="background:#fdf8f1;padding:45px 0;border-top:1px solid rgba(202,167,106,.2);">
-<div class="container">
+            </summary>
 
-<div class="section-title" style="margin-bottom:35px;">
 
-<p class="eyebrow">WHY CHOOSE SORTED?</p>
+            <div class="service-details">
 
-<h2>Trusted support you can rely on.</h2>
+              <p class="service-details-intro">
+                Lifestyle Assistance takes care of the practical jobs that
+                are easy to postpone but difficult to ignore. It is ideal
+                when work, family commitments, mobility or simply a busy
+                week make it harder to complete everyday errands.
+              </p>
 
-</div>
+              <div class="service-detail-grid">
 
-<div class="hero-trust-strip" style="justify-content:center;max-width:none;">
 
-<span>Enhanced DBS Checked</span>
+                <div class="detail-box">
 
-<span>Fully Insured</span>
+                  <h4>
+                    What can be included
+                  </h4>
 
-<span>Confidential &amp; Discreet</span>
+                  <ul class="detail-list">
 
-<span>Local Independent Business</span>
+                    <li>
+                      Grocery shopping
+                    </li>
 
-<span>Flexible One-off &amp; Ongoing Support</span>
+                    <li>
+                      Prescription collection
+                    </li>
 
-<span>Tailored Around You</span>
+                    <li>
+                      Post Office visits
+                    </li>
 
-</div>
+                    <li>
+                      Parcel collections and returns
+                    </li>
 
-</div>
+                    <li>
+                      Click-and-collect orders
+                    </li>
 
-</section>
+                    <li>
+                      Dry-cleaning collection
+                    </li>
 
-<div class="floating-contact">
+                    <li>
+                      Gift shopping and wrapping
+                    </li>
 
-  <a href="tel:+441323396610" class="floating-btn phone" aria-label="Call">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-    </svg>
-  </a>
+                    <li>
+                      Collecting household supplies
+                    </li>
 
-  <a href="https://wa.me/447460934371" target="_blank" class="floating-btn whatsapp" aria-label="WhatsApp">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-    </svg>
-  </a>
+                    <li>
+                      Delivering items locally
+                    </li>
 
-  <a href="mailto:contact@sortedlife.org.uk" class="floating-btn email" aria-label="Email">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-      <polyline points="22,6 12,13 2,6"/>
-    </svg>
-  </a>
+                    <li>
+                      Returning unwanted purchases
+                    </li>
 
-</div>
-<footer>
+                    <li>
+                      Collecting flowers or cakes
+                    </li>
 
-<div class="container">
+                    <li>
+                      General local errands
+                    </li>
 
-<div class="footer-grid">
+                  </ul>
 
-<div>
+                </div>
 
-<a class="logo" href="index.html" style="color:white;">Sorted<span>.</span></a>
 
-<p style="margin-top:18px;">
-Your Home. Handled.<br><br>
-Premium home and lifestyle support across Eastbourne and surrounding areas.
-</p>
+                <div class="detail-box">
 
-</div>
+                  <h4>
+                    Ideal for
+                  </h4>
 
-<div>
+                  <ul class="detail-list">
 
-<h3>Services</h3>
+                    <li>
+                      Professionals with limited free time
+                    </li>
 
-<p>Home Management</p>
-<p>Lifestyle Assistance</p>
-<p>Home Organisation</p>
-<p>Administrative Support</p>
-<p>Home & Lifestyle Care While Away</p>
+                    <li>
+                      Older adults
+                    </li>
 
-</div>
+                    <li>
+                      Families
+                    </li>
 
-<div>
+                    <li>
+                      People without regular transport
+                    </li>
 
-<h3>Areas Covered</h3>
+                    <li>
+                      Clients recovering from illness
+                    </li>
 
-<p>Eastbourne</p>
-<p>Meads</p>
-<p>Old Town</p>
-<p>Polegate</p>
-<p>Pevensey</p>
-<p>Seaford</p>
+                    <li>
+                      Anyone needing occasional practical help
+                    </li>
 
-</div>
+                  </ul>
 
-<div>
+                </div>
 
-<h3>Contact</h3>
 
-<p><a href="tel:+441323396610">01323 396610</a></p>
+                <div class="detail-box">
 
-<p><a href="mailto:contact@sortedlife.org.uk">contact@sortedlife.org.uk</a></p>
+                  <h4>
+                    Typical examples
+                  </h4>
 
-<p style="margin-top:16px;">
-Mon–Fri: 8am–6pm<br>
-Sat: By appointment<br>
-Sun: By arrangement
-</p>
+                  <p>
+                    Sorted. could collect a prescription, complete your
+                    weekly food shop, return a parcel, collect a birthday
+                    cake, pick up dry cleaning or purchase and deliver a
+                    thoughtful gift on your behalf.
+                  </p>
 
-</div>
+                </div>
 
-</div>
 
-<p style="text-align:center;margin:40px 0 18px;">
-<a href="privacy.html">Privacy Policy</a> ·
-<a href="terms.html">Terms & Conditions</a>
-</p>
+                <div class="detail-box">
 
-<p class="copyright">
-© 2026 Sorted. All rights reserved.
-</p>
+                  <h4>
+                    How it works
+                  </h4>
 
-</div>
+                  <p>
+                    Provide a clear list or instructions before the visit.
+                    Where purchases are required, spending limits and
+                    preferred products can be agreed in advance, with
+                    receipts retained for complete clarity.
+                  </p>
 
-</footer>
+                </div>
 
-<script>
-document.documentElement.classList.add("js");
-const menuToggle = document.querySelector(".menu-toggle");
-const nav = document.getElementById("main-navigation");
 
-function setMenuState(isOpen, returnFocus = false) {
-    if (!menuToggle || !nav) {
+                <div class="detail-box full-width">
+
+                  <h4>
+                    Why clients value Lifestyle Assistance
+                  </h4>
+
+                  <p>
+                    Everyday errands can take several hours once travel,
+                    queues and organisation are included. Handing them to
+                    someone dependable gives you back valuable time while
+                    ensuring nothing important is forgotten.
+                  </p>
+
+                </div>
+
+              </div>
+
+
+              <div class="service-cta">
+
+                <div>
+
+                  <h4>
+                    Too many errands and not enough time?
+                  </h4>
+
+                  <p>
+                    Let Sorted. take care of the practical jobs on your list.
+                  </p>
+
+                </div>
+
+                <a
+                  href="contact.html"
+                  class="btn btn-light"
+                >
+                  Discuss Lifestyle Assistance
+                </a>
+
+              </div>
+
+            </div>
+
+          </details>
+
+
+          <!-- HOME ORGANISATION -->
+
+          <details
+            class="service-item"
+            id="home-organisation"
+          >
+
+            <summary class="service-summary">
+
+              <div class="service-image-wrap">
+
+                <img
+                  src="organisation.png"
+                  alt="Calm and beautifully organised home storage"
+                  loading="lazy"
+                >
+
+              </div>
+
+              <div class="service-summary-copy">
+
+                <p class="eyebrow">
+                  Organisation
+                </p>
+
+                <div class="service-icon">
+                  <i data-lucide="boxes"></i>
+                </div>
+
+                <h3>
+                  Home Organisation
+                </h3>
+
+                <p>
+                  Calm, practical organisation that makes your home easier
+                  to use, maintain and enjoy.
+                </p>
+
+                <span class="expand-label">
+                  View full details
+                </span>
+
+              </div>
+
+              <span
+                class="summary-toggle"
+                aria-hidden="true"
+              ></span>
+
+            </summary>
+
+
+            <div class="service-details">
+
+              <p class="service-details-intro">
+                Home Organisation is not about creating an unrealistic
+                show home. It is about developing sensible systems that
+                work for the way you live, making belongings easier to
+                find and everyday routines simpler to manage.
+              </p>
+
+              <div class="service-detail-grid">
+
+
+                <div class="detail-box">
+
+                  <h4>
+                    Areas we can organise
+                  </h4>
+
+                  <ul class="detail-list">
+
+                    <li>
+                      Kitchens and food storage
+                    </li>
+
+                    <li>
+                      Wardrobes and clothing
+                    </li>
+
+                    <li>
+                      Bedrooms
+                    </li>
+
+                    <li>
+                      Utility rooms
+                    </li>
+
+                    <li>
+                      Cupboards and storage spaces
+                    </li>
+
+                    <li>
+                      Garages and sheds
+                    </li>
+
+                    <li>
+                      Home offices
+                    </li>
+
+                    <li>
+                      Children’s belongings
+                    </li>
+
+                    <li>
+                      Paperwork and household documents
+                    </li>
+
+                    <li>
+                      Seasonal decorations
+                    </li>
+
+                    <li>
+                      Moving and unpacking
+                    </li>
+
+                    <li>
+                      Digital files and photographs
+                    </li>
+
+                  </ul>
+
+                </div>
+
+
+                <div class="detail-box">
+
+                  <h4>
+                    What support can include
+                  </h4>
+
+                  <ul class="detail-list">
+
+                    <li>
+                      Sorting items into clear categories
+                    </li>
+
+                    <li>
+                      Decluttering at your pace
+                    </li>
+
+                    <li>
+                      Creating simple storage systems
+                    </li>
+
+                    <li>
+                      Labelling cupboards and containers
+                    </li>
+
+                    <li>
+                      Preparing donations
+                    </li>
+
+                    <li>
+                      Arranging recycling or disposal
+                    </li>
+
+                    <li>
+                      Organising items by frequency of use
+                    </li>
+
+                    <li>
+                      Planning suitable storage purchases
+                    </li>
+
+                  </ul>
+
+                </div>
+
+
+                <div class="detail-box">
+
+                  <h4>
+                    Typical examples
+                  </h4>
+
+                  <p>
+                    You may want help organising a wardrobe, sorting a
+                    kitchen after moving, creating a filing system,
+                    preparing belongings for donation or bringing order to
+                    a room that has gradually become difficult to use.
+                  </p>
+
+                </div>
+
+
+                <div class="detail-box">
+
+                  <h4>
+                    A respectful approach
+                  </h4>
+
+                  <p>
+                    Nothing is removed or discarded without your agreement.
+                    Organisation is completed calmly and without judgement,
+                    with your comfort, preferences and decision-making at
+                    the centre of the process.
+                  </p>
+
+                </div>
+
+
+                <div class="detail-box full-width">
+
+                  <h4>
+                    Why clients value Home Organisation
+                  </h4>
+
+                  <p>
+                    A well-organised home can reduce daily frustration and
+                    make routines feel significantly easier. The aim is not
+                    simply to make a room look better, but to create a
+                    system that remains practical after the session ends.
+                  </p>
+
+                </div>
+
+              </div>
+
+
+              <div class="service-cta">
+
+                <div>
+
+                  <h4>
+                    Ready for a calmer, more organised home?
+                  </h4>
+
+                  <p>
+                    Start with one room, one cupboard or one area that feels
+                    difficult to manage.
+                  </p>
+
+                </div>
+
+                <a
+                  href="contact.html"
+                  class="btn btn-light"
+                >
+                  Discuss Home Organisation
+                </a>
+
+              </div>
+
+            </div>
+
+          </details>
+
+
+          <!-- ADMINISTRATIVE SUPPORT -->
+
+          <details
+            class="service-item"
+            id="administrative-support"
+          >
+
+            <summary class="service-summary">
+
+              <div class="service-image-wrap">
+
+                <img
+                  src="administration.png"
+                  alt="Organised paperwork and administrative support"
+                  loading="lazy"
+                >
+
+              </div>
+
+              <div class="service-summary-copy">
+
+                <p class="eyebrow">
+                  Administration
+                </p>
+
+                <div class="service-icon">
+                  <i data-lucide="clipboard-list"></i>
+                </div>
+
+                <h3>
+                  Administrative Support
+                </h3>
+
+                <p>
+                  Professional help with household paperwork, appointments,
+                  online tasks and everyday organisation.
+                </p>
+
+                <span class="expand-label">
+                  View full details
+                </span>
+
+              </div>
+
+              <span
+                class="summary-toggle"
+                aria-hidden="true"
+              ></span>
+
+            </summary>
+
+
+            <div class="service-details">
+
+              <p class="service-details-intro">
+                Administrative Support helps you stay on top of the
+                paperwork, appointments and digital tasks involved in
+                managing everyday life. It is practical assistance, not
+                legal, financial or regulated professional advice.
+              </p>
+
+              <div class="service-detail-grid">
+
+
+                <div class="detail-box">
+
+                  <h4>
+                    What can be included
+                  </h4>
+
+                  <ul class="detail-list">
+
+                    <li>
+                      Sorting household post
+                    </li>
+
+                    <li>
+                      Creating simple filing systems
+                    </li>
+
+                    <li>
+                      Scanning and printing documents
+                    </li>
+
+                    <li>
+                      Completing straightforward forms
+                    </li>
+
+                    <li>
+                      Booking appointments
+                    </li>
+
+                    <li>
+                      Calendar organisation
+                    </li>
+
+                    <li>
+                      Email assistance
+                    </li>
+
+                    <li>
+                      Online account support
+                    </li>
+
+                    <li>
+                      Renewal reminders
+                    </li>
+
+                    <li>
+                      Contacting service providers
+                    </li>
+
+                    <li>
+                      Preparing documents for appointments
+                    </li>
+
+                    <li>
+                      Basic spreadsheet organisation
+                    </li>
+
+                  </ul>
+
+                </div>
+
+
+                <div class="detail-box">
+
+                  <h4>
+                    Common areas of support
+                  </h4>
+
+                  <ul class="detail-list">
+
+                    <li>
+                      Utility accounts
+                    </li>
+
+                    <li>
+                      Insurance administration
+                    </li>
+
+                    <li>
+                      Council correspondence
+                    </li>
+
+                    <li>
+                      Household subscriptions
+                    </li>
+
+                    <li>
+                      Appointment letters
+                    </li>
+
+                    <li>
+                      Contractor paperwork
+                    </li>
+
+                    <li>
+                      Personal document storage
+                    </li>
+
+                    <li>
+                      Everyday technology assistance
+                    </li>
+
+                  </ul>
+
+                </div>
+
+
+                <div class="detail-box">
+
+                  <h4>
+                    Typical examples
+                  </h4>
+
+                  <p>
+                    Sorted. could organise a pile of household post, help
+                    prepare documents for an appointment, book a routine
+                    service, scan important paperwork, set reminders for
+                    renewals or help you navigate a straightforward online
+                    account.
+                  </p>
+
+                </div>
+
+
+                <div class="detail-box">
+
+                  <h4>
+                    Confidentiality
+                  </h4>
+
+                  <p>
+                    Personal information and documents are handled
+                    carefully and discreetly. Only the information needed
+                    to complete the agreed task is used, and instructions
+                    are confirmed before action is taken.
+                  </p>
+
+                </div>
+
+
+                <div class="detail-box full-width">
+
+                  <h4>
+                    Important boundaries
+                  </h4>
+
+                  <p>
+                    Sorted. can provide practical administrative assistance
+                    but does not provide legal advice, regulated financial
+                    advice, benefits advice, medical advice or make
+                    decisions on your behalf. Where specialist advice is
+                    needed, you will be encouraged to contact an
+                    appropriately qualified professional.
+                  </p>
+
+                </div>
+
+              </div>
+
+
+              <div class="service-cta">
+
+                <div>
+
+                  <h4>
+                    Is paperwork becoming difficult to manage?
+                  </h4>
+
+                  <p>
+                    We can help create order and work through practical
+                    administrative tasks with you.
+                  </p>
+
+                </div>
+
+                <a
+                  href="contact.html"
+                  class="btn btn-light"
+                >
+                  Discuss Administrative Support
+                </a>
+
+              </div>
+
+            </div>
+
+          </details>
+
+
+          <!-- COMPANIONSHIP -->
+
+          <details
+            class="service-item"
+            id="companionship"
+          >
+
+            <summary class="service-summary">
+
+              <div class="service-image-wrap">
+
+                <img
+                  src="companionship.png"
+                  alt="Friendly companionship and local outings"
+                  loading="lazy"
+                >
+
+              </div>
+
+              <div class="service-summary-copy">
+
+                <p class="eyebrow">
+                  Companionship
+                </p>
+
+                <div class="service-icon">
+                  <i data-lucide="heart-handshake"></i>
+                </div>
+
+                <h3>
+                  Companionship &amp; Local Trips
+                </h3>
+
+                <p>
+                  Friendly company at home or support enjoying appointments,
+                  errands and local outings.
+                </p>
+
+                <span class="expand-label">
+                  View full details
+                </span>
+
+              </div>
+
+              <span
+                class="summary-toggle"
+                aria-hidden="true"
+              ></span>
+
+            </summary>
+
+
+            <div class="service-details">
+
+              <p class="service-details-intro">
+                Companionship &amp; Local Trips provides friendly,
+                non-clinical support for people who would enjoy company,
+                reassurance or assistance getting out and about. It is not
+                a personal care or medical service.
+              </p>
+
+              <div class="service-detail-grid">
+
+
+                <div class="detail-box">
+
+                  <h4>
+                    At-home companionship
+                  </h4>
+
+                  <ul class="detail-list">
+
+                    <li>
+                      Friendly conversation
+                    </li>
+
+                    <li>
+                      Tea or coffee together
+                    </li>
+
+                    <li>
+                      Reading
+                    </li>
+
+                    <li>
+                      Board games and puzzles
+                    </li>
+
+                    <li>
+                      Looking through photographs
+                    </li>
+
+                    <li>
+                      Help using a phone or tablet
+                    </li>
+
+                    <li>
+                      Planning future outings
+                    </li>
+
+                    <li>
+                      Light practical tasks together
+                    </li>
+
+                  </ul>
+
+                </div>
+
+
+                <div class="detail-box">
+
+                  <h4>
+                    Local trips
+                  </h4>
+
+                  <ul class="detail-list">
+
+                    <li>
+                      Cafés and lunches
+                    </li>
+
+                    <li>
+                      Garden centres
+                    </li>
+
+                    <li>
+                      Seafront visits
+                    </li>
+
+                    <li>
+                      Local parks and gardens
+                    </li>
+
+                    <li>
+                      Shopping trips
+                    </li>
+
+                    <li>
+                      Hairdresser appointments
+                    </li>
+
+                    <li>
+                      Routine appointments
+                    </li>
+
+                    <li>
+                      Museums and local attractions
+                    </li>
+
+                  </ul>
+
+                </div>
+
+
+                <div class="detail-box">
+
+                  <h4>
+                    Typical examples
+                  </h4>
+
+                  <p>
+                    A visit might include coffee and conversation at home,
+                    a trip to a garden centre, support attending a routine
+                    appointment, help completing a small shopping trip or
+                    simply spending time somewhere enjoyable locally.
+                  </p>
+
+                </div>
+
+
+                <div class="detail-box">
+
+                  <h4>
+                    A flexible approach
+                  </h4>
+
+                  <p>
+                    Visits are shaped around the client’s interests,
+                    comfort and energy levels. Plans can remain simple or
+                    change from one visit to the next depending on what
+                    feels right.
+                  </p>
+
+                </div>
+
+
+                <div class="detail-box full-width">
+
+                  <h4>
+                    What this service does not include
+                  </h4>
+
+                  <p>
+                    Sorted. does not provide personal care, medical care,
+                    medication administration, lifting, mobility
+                    assistance requiring specialist training or emergency
+                    support. Any accompanied travel is subject to prior
+                    agreement and suitable arrangements.
+                  </p>
+
+                </div>
+
+              </div>
+
+
+              <div class="service-cta">
+
+                <div>
+
+                  <h4>
+                    Looking for friendly, dependable company?
+                  </h4>
+
+                  <p>
+                    Tell us about the type of visit or local outing that
+                    would be most enjoyable.
+                  </p>
+
+                </div>
+
+                <a
+                  href="contact.html"
+                  class="btn btn-light"
+                >
+                  Discuss Companionship
+                </a>
+
+              </div>
+
+            </div>
+
+          </details>
+
+
+          <!-- TAILORED SUPPORT -->
+
+          <details
+            class="service-item"
+            id="tailored-support"
+          >
+
+            <summary class="service-summary">
+
+              <div class="service-image-wrap">
+
+                <img
+                  src="supportaroundyou.png"
+                  alt="Personalised support arranged around the client"
+                  loading="lazy"
+                >
+
+              </div>
+
+              <div class="service-summary-copy">
+
+                <p class="eyebrow">
+                  Tailored
+                </p>
+
+                <div class="service-icon">
+                  <i data-lucide="sparkles"></i>
+                </div>
+
+                <h3>
+                  Support Around You
+                </h3>
+
+                <p>
+                  Personalised practical support for situations that do not
+                  fit neatly into one standard service.
+                </p>
+
+                <span class="expand-label">
+                  View full details
+                </span>
+
+              </div>
+
+              <span
+                class="summary-toggle"
+                aria-hidden="true"
+              ></span>
+
+            </summary>
+
+
+            <div class="service-details">
+
+              <p class="service-details-intro">
+                Life does not always fit into a set category. Support Around
+                You allows different services to be combined into one
+                practical plan, or arranged around a particular event,
+                change or period of additional pressure.
+              </p>
+
+              <div class="service-detail-grid">
+
+
+                <div class="detail-box">
+
+                  <h4>
+                    Examples of tailored support
+                  </h4>
+
+                  <ul class="detail-list">
+
+                    <li>
+                      Moving-home preparation
+                    </li>
+
+                    <li>
+                      Unpacking and settling in
+                    </li>
+
+                    <li>
+                      Preparing for a new baby
+                    </li>
+
+                    <li>
+                      Christmas organisation
+                    </li>
+
+                    <li>
+                      Event preparation
+                    </li>
+
+                    <li>
+                      Guest-room preparation
+                    </li>
+
+                    <li>
+                      Back-to-school organisation
+                    </li>
+
+                    <li>
+                      Support following an illness
+                    </li>
+
+                    <li>
+                      Preparing a home before travel
+                    </li>
+
+                    <li>
+                      Welcome-home preparation
+                    </li>
+
+                    <li>
+                      Seasonal household projects
+                    </li>
+
+                    <li>
+                      Coordinating several practical tasks
+                    </li>
+
+                  </ul>
+
+                </div>
+
+
+                <div class="detail-box">
+
+                  <h4>
+                    Services can be combined
+                  </h4>
+
+                  <ul class="detail-list">
+
+                    <li>
+                      Home Management
+                    </li>
+
+                    <li>
+                      Lifestyle Assistance
+                    </li>
+
+                    <li>
+                      Home Organisation
+                    </li>
+
+                    <li>
+                      Administrative Support
+                    </li>
+
+                    <li>
+                      Companionship
+                    </li>
+
+                    <li>
+                      Away From Home support
+                    </li>
+
+                  </ul>
+
+                </div>
+
+
+                <div class="detail-box">
+
+                  <h4>
+                    Typical example
+                  </h4>
+
+                  <p>
+                    Before a family celebration, Sorted. might collect
+                    supplies, prepare guest rooms, coordinate a delivery,
+                    organise paperwork, complete local errands and make
+                    sure the home is ready before everyone arrives.
+                  </p>
+
+                </div>
+
+
+                <div class="detail-box">
+
+                  <h4>
+                    How we plan it
+                  </h4>
+
+                  <p>
+                    We begin with the outcome you want rather than a fixed
+                    list of tasks. The work is then broken into clear,
+                    realistic steps so that you know what will be completed
+                    and when.
+                  </p>
+
+                </div>
+
+
+                <div class="detail-box full-width">
+
+                  <h4>
+                    Requests we cannot accept
+                  </h4>
+
+                  <p>
+                    Support must be lawful, safe and within the scope of a
+                    non-medical home and lifestyle service. Sorted. does
+                    not provide personal care, childcare, medical care,
+                    regulated professional advice, heavy specialist
+                    cleaning or tasks requiring qualified tradespeople.
+                  </p>
+
+                </div>
+
+              </div>
+
+
+              <div class="service-cta">
+
+                <div>
+
+                  <h4>
+                    Need something more individual?
+                  </h4>
+
+                  <p>
+                    Explain what is happening and the outcome you would like
+                    to achieve.
+                  </p>
+
+                </div>
+
+                <a
+                  href="contact.html"
+                  class="btn btn-light"
+                >
+                  Discuss Tailored Support
+                </a>
+
+              </div>
+
+            </div>
+
+          </details>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         SERVICE FINDER
+    ================================================== -->
+
+    <section class="service-finder fade">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <p class="eyebrow">
+            Which Service Is Right for You?
+          </p>
+
+          <h2>
+            Start with what would make life easier.
+          </h2>
+
+          <p>
+            You do not need to know the name of the service before getting
+            in touch. Tell us what you need help with and we will guide you
+            towards the most suitable option.
+          </p>
+
+        </div>
+
+
+        <div class="finder-grid">
+
+
+          <a
+            href="#home-management"
+            class="finder-card"
+          >
+
+            <div class="finder-icon">
+              <i data-lucide="house"></i>
+            </div>
+
+            <p>
+              I need help keeping my home running smoothly.
+              <strong>
+                Home Management
+              </strong>
+            </p>
+
+          </a>
+
+
+          <a
+            href="#lifestyle-assistance"
+            class="finder-card"
+          >
+
+            <div class="finder-icon">
+              <i data-lucide="shopping-bag"></i>
+            </div>
+
+            <p>
+              I need help with shopping, collections or errands.
+              <strong>
+                Lifestyle Assistance
+              </strong>
+            </p>
+
+          </a>
+
+
+          <a
+            href="#home-organisation"
+            class="finder-card"
+          >
+
+            <div class="finder-icon">
+              <i data-lucide="boxes"></i>
+            </div>
+
+            <p>
+              I want a calmer and more organised home.
+              <strong>
+                Home Organisation
+              </strong>
+            </p>
+
+          </a>
+
+
+          <a
+            href="#administrative-support"
+            class="finder-card"
+          >
+
+            <div class="finder-icon">
+              <i data-lucide="clipboard-list"></i>
+            </div>
+
+            <p>
+              I need help with paperwork and appointments.
+              <strong>
+                Administrative Support
+              </strong>
+            </p>
+
+          </a>
+
+
+          <a
+            href="#companionship"
+            class="finder-card"
+          >
+
+            <div class="finder-icon">
+              <i data-lucide="heart-handshake"></i>
+            </div>
+
+            <p>
+              I would enjoy company or support with local outings.
+              <strong>
+                Companionship &amp; Local Trips
+              </strong>
+            </p>
+
+          </a>
+
+
+          <a
+            href="#tailored-support"
+            class="finder-card"
+          >
+
+            <div class="finder-icon">
+              <i data-lucide="sparkles"></i>
+            </div>
+
+            <p>
+              My situation needs several different kinds of help.
+              <strong>
+                Support Around You
+              </strong>
+            </p>
+
+          </a>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         FAQ
+    ================================================== -->
+
+    <section class="faq-section fade">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <p class="eyebrow">
+            Service Questions
+          </p>
+
+          <h2>
+            Frequently asked questions.
+          </h2>
+
+          <p>
+            Clear answers to some of the most common questions about using
+            Sorted. services.
+          </p>
+
+        </div>
+
+
+        <div class="faq-list">
+
+
+          <details class="faq-item">
+
+            <summary>
+              Can I combine more than one service?
+            </summary>
+
+            <div class="faq-answer">
+              Yes. Many clients use a combination of services. For example,
+              a visit could include errands, paperwork and household
+              organisation. Your support can be planned around the outcome
+              you need rather than being restricted to one category.
+            </div>
+
+          </details>
+
+
+          <details class="faq-item">
+
+            <summary>
+              Do I need to book regular support?
+            </summary>
+
+            <div class="faq-answer">
+              No. Services can be booked as one-off or occasional support.
+              Clients who want regular scheduled help can also explore the
+              Sorted. membership options.
+            </div>
+
+          </details>
+
+
+          <details class="faq-item">
+
+            <summary>
+              How long is a typical visit?
+            </summary>
+
+            <div class="faq-answer">
+              Visit length depends on the work being completed. The expected
+              time will be discussed before the booking so that the task,
+              priorities and likely cost are clear.
+            </div>
+
+          </details>
+
+
+          <details class="faq-item">
+
+            <summary>
+              Can my support change over time?
+            </summary>
+
+            <div class="faq-answer">
+              Yes. Support can be adjusted as your routine, circumstances or
+              priorities change. You are not expected to keep the same list
+              of tasks indefinitely.
+            </div>
+
+          </details>
+
+
+          <details class="faq-item">
+
+            <summary>
+              Can you help a relative who lives independently?
+            </summary>
+
+            <div class="faq-answer">
+              Yes, with the relative’s agreement. Sorted. can provide
+              practical household assistance, errands, administrative help
+              and companionship. We do not provide personal care, medical
+              care or medication administration.
+            </div>
+
+          </details>
+
+
+          <details class="faq-item">
+
+            <summary>
+              Can you accompany me to an appointment?
+            </summary>
+
+            <div class="faq-answer">
+              Accompanied appointments may be available by prior agreement.
+              The arrangement, transport, timings and type of support needed
+              should be discussed when booking.
+            </div>
+
+          </details>
+
+
+          <details class="faq-item">
+
+            <summary>
+              Do you bring cleaning or specialist equipment?
+            </summary>
+
+            <div class="faq-answer">
+              Sorted. is not a specialist cleaning or trades service.
+              Where ordinary household products or equipment are needed,
+              arrangements will be agreed beforehand. Specialist work
+              should be completed by a suitably qualified provider.
+            </div>
+
+          </details>
+
+
+          <details class="faq-item">
+
+            <summary>
+              What happens during the complimentary consultation?
+            </summary>
+
+            <div class="faq-answer">
+              The consultation is a relaxed conversation about what you need,
+              how often you may need support and any important preferences or
+              practical considerations. There is no obligation to proceed.
+            </div>
+
+          </details>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         FINAL CTA
+    ================================================== -->
+
+    <section class="final-cta fade">
+
+      <div class="container">
+
+        <div class="final-cta-inner">
+
+          <p class="eyebrow">
+            Let’s Start With a Conversation
+          </p>
+
+          <h2>
+            Ready to make life easier?
+          </h2>
+
+          <p>
+            Whether you already know exactly what support you need or would
+            simply like to discuss the possibilities, we would be pleased
+            to learn more about your home, routine and priorities.
+          </p>
+
+          <div class="final-cta-buttons">
+
+            <a
+              href="https://calendly.com/d/dzzd-qmh-mcm/one-off-meeting"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-primary"
+            >
+              Book Your Complimentary Consultation
+            </a>
+
+            <a
+              href="contact.html"
+              class="btn btn-secondary"
+            >
+              Contact Sorted.
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+  <!-- ==================================================
+       FLOATING CONTACT BUTTONS
+  ================================================== -->
+
+  <div class="floating-contact">
+
+    <a
+      href="tel:+441323396610"
+      class="floating-btn phone"
+      aria-label="Call Sorted"
+    >
+
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.4"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+      </svg>
+
+    </a>
+
+    <a
+      href="https://wa.me/447460934371"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="floating-btn whatsapp"
+      aria-label="Message Sorted on WhatsApp"
+    >
+
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.4"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+      </svg>
+
+    </a>
+
+    <a
+      href="mailto:contact@sortedlife.org.uk"
+      class="floating-btn email"
+      aria-label="Email Sorted"
+    >
+
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.4"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+        <polyline points="22,6 12,13 2,6"></polyline>
+      </svg>
+
+    </a>
+
+  </div>
+
+
+  <!-- ==================================================
+       FOOTER
+  ================================================== -->
+
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-grid">
+
+
+        <div>
+
+          <a
+            href="index.html"
+            class="logo"
+          >
+            Sorted<span>.</span>
+          </a>
+
+          <p class="footer-description">
+            Your Home. Handled.<br><br>
+            Premium home and lifestyle support across Eastbourne and
+            surrounding areas.
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <h3>
+            Explore
+          </h3>
+
+          <div class="footer-links">
+
+            <a href="services.html">
+              Services
+            </a>
+
+            <a href="flexible-support.html">
+              Flexible Support
+            </a>
+
+            <a href="away-from-home.html">
+              Away From Home
+            </a>
+
+            <a href="memberships.html">
+              Memberships
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <div>
+
+          <h3>
+            Sorted.
+          </h3>
+
+          <div class="footer-links">
+
+            <a href="about.html">
+              About
+            </a>
+
+            <a href="contact.html">
+              Contact
+            </a>
+
+            <a href="login.html">
+              Client Login
+            </a>
+
+            <a href="privacy.html">
+              Privacy Policy
+            </a>
+
+            <a href="terms.html">
+              Terms &amp; Conditions
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <div>
+
+          <h3>
+            Contact
+          </h3>
+
+          <div class="footer-links">
+
+            <a href="tel:+441323396610">
+              01323 396610
+            </a>
+
+            <a href="mailto:contact@sortedlife.org.uk">
+              contact@sortedlife.org.uk
+            </a>
+
+            <p>
+              Monday–Friday: 8am–6pm
+            </p>
+
+            <p>
+              Saturday: By appointment
+            </p>
+
+            <p>
+              Sunday: By arrangement
+            </p>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+      <div class="footer-bottom">
+
+        <p class="legal-links">
+
+          <a href="privacy.html">
+            Privacy Policy
+          </a>
+
+          &nbsp;·&nbsp;
+
+          <a href="terms.html">
+            Terms &amp; Conditions
+          </a>
+
+        </p>
+
+        <p class="copyright">
+          © 2026 Sorted. All rights reserved.
+        </p>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- ==================================================
+       COOKIE NOTICE
+  ================================================== -->
+
+  <div
+    id="cookie-banner"
+    style="
+      display:none;
+      position:fixed;
+      left:50%;
+      bottom:16px;
+      z-index:99999;
+      width:min(82%,460px);
+      padding:14px 18px;
+      border-radius:18px;
+      background:rgba(23,38,27,.96);
+      color:white;
+      box-shadow:0 16px 40px rgba(23,38,27,.25);
+      font-size:.9rem;
+      text-align:center;
+      transform:translateX(-50%);
+    "
+  >
+
+    This website uses essential cookies to improve your experience.
+
+    <button
+      type="button"
+      onclick="acceptCookies()"
+      style="
+        margin-left:12px;
+        padding:9px 16px;
+        border:0;
+        border-radius:999px;
+        background:#ffffff;
+        color:#17261b;
+        font-weight:800;
+      "
+    >
+      Accept
+    </button>
+
+  </div>
+
+
+  <!-- ==================================================
+       SCRIPTS
+  ================================================== -->
+
+  <script>
+
+    document.documentElement.classList.add("js");
+
+
+    /* Mobile navigation */
+
+    const menuToggle =
+      document.querySelector(".menu-toggle");
+
+    const mainNav =
+      document.querySelector(".main-nav");
+
+
+    function closeMenu(returnFocus = false) {
+
+      if (!menuToggle || !mainNav) {
         return;
+      }
+
+      mainNav.classList.remove("active");
+
+      menuToggle.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+      menuToggle.setAttribute(
+        "aria-label",
+        "Open navigation menu"
+      );
+
+      const icon =
+        menuToggle.querySelector("[data-lucide]");
+
+      if (icon) {
+        icon.setAttribute("data-lucide", "menu");
+      }
+
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+
+      if (returnFocus) {
+        menuToggle.focus();
+      }
+
     }
 
-    nav.classList.toggle("active", isOpen);
 
-    menuToggle.setAttribute(
-        "aria-expanded",
-        isOpen ? "true" : "false"
-    );
+    if (menuToggle && mainNav) {
 
-    menuToggle.setAttribute(
-        "aria-label",
-        isOpen ? "Close navigation menu" : "Open navigation menu"
-    );
+      menuToggle.addEventListener(
+        "click",
+        function () {
 
-    const menuIcon = menuToggle.querySelector("[data-lucide]");
+          const isOpen =
+            mainNav.classList.toggle("active");
 
-    if (menuIcon) {
-        menuIcon.setAttribute(
-            "data-lucide",
-            isOpen ? "x" : "menu"
+          menuToggle.setAttribute(
+            "aria-expanded",
+            String(isOpen)
+          );
+
+          menuToggle.setAttribute(
+            "aria-label",
+            isOpen
+              ? "Close navigation menu"
+              : "Open navigation menu"
+          );
+
+          const icon =
+            menuToggle.querySelector("[data-lucide]");
+
+          if (icon) {
+
+            icon.setAttribute(
+              "data-lucide",
+              isOpen ? "x" : "menu"
+            );
+
+          }
+
+          if (window.lucide) {
+            lucide.createIcons();
+          }
+
+        }
+      );
+
+
+      mainNav
+        .querySelectorAll("a")
+        .forEach(function (link) {
+
+          link.addEventListener(
+            "click",
+            function () {
+              closeMenu();
+            }
+          );
+
+        });
+
+
+      document.addEventListener(
+        "click",
+        function (event) {
+
+          if (
+            !mainNav.contains(event.target) &&
+            !menuToggle.contains(event.target)
+          ) {
+            closeMenu();
+          }
+
+        }
+      );
+
+
+      document.addEventListener(
+        "keydown",
+        function (event) {
+
+          if (
+            event.key === "Escape" &&
+            mainNav.classList.contains("active")
+          ) {
+            closeMenu(true);
+          }
+
+        }
+      );
+
+
+      window.addEventListener(
+        "resize",
+        function () {
+
+          if (window.innerWidth > 1180) {
+            closeMenu();
+          }
+
+        }
+      );
+
+    }
+
+
+    /* Smooth internal links */
+
+    document
+      .querySelectorAll("a[href^='#']")
+      .forEach(function (link) {
+
+        link.addEventListener(
+          "click",
+          function (event) {
+
+            const targetSelector =
+              link.getAttribute("href");
+
+            if (
+              !targetSelector ||
+              targetSelector === "#"
+            ) {
+              return;
+            }
+
+            const target =
+              document.querySelector(targetSelector);
+
+            if (!target) {
+              return;
+            }
+
+            event.preventDefault();
+
+            if (
+              target.tagName.toLowerCase() === "details"
+            ) {
+              target.open = true;
+            }
+
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start"
+            });
+
+          }
         );
 
-        if (window.lucide) {
-            lucide.createIcons();
-        }
-    }
+      });
 
-    if (returnFocus) {
-        menuToggle.focus();
-    }
-}
 
-if (menuToggle && nav) {
-    menuToggle.addEventListener("click", function () {
-        const isOpen =
-            menuToggle.getAttribute("aria-expanded") === "true";
+    /* Only keep one main service open at a time */
 
-        setMenuState(!isOpen);
-    });
+    const serviceItems =
+      document.querySelectorAll(".service-item");
 
-    nav.querySelectorAll("a").forEach(function (link) {
-        link.addEventListener("click", function () {
-            setMenuState(false);
-        });
-    });
+    serviceItems.forEach(function (item) {
 
-    document.addEventListener("click", function (event) {
-        const clickedInsideNav = nav.contains(event.target);
-        const clickedMenuButton = menuToggle.contains(event.target);
+      item.addEventListener(
+        "toggle",
+        function () {
 
-        if (!clickedInsideNav && !clickedMenuButton) {
-            setMenuState(false);
-        }
-    });
+          if (!item.open) {
+            return;
+          }
 
-    document.addEventListener("keydown", function (event) {
-        if (
-            event.key === "Escape" &&
-            menuToggle.getAttribute("aria-expanded") === "true"
-        ) {
-            setMenuState(false, true);
-        }
-    });
-}
+          serviceItems.forEach(function (otherItem) {
 
-  document.querySelectorAll("a[href^='#']").forEach(link => {
-link.addEventListener("click", function(e) {
-    const target = document.querySelector(this.getAttribute("href"));
+            if (otherItem !== item) {
+              otherItem.open = false;
+            }
 
-    if (target) {
-        e.preventDefault();
+          });
 
-        nav.classList.remove("active");
+          setTimeout(function () {
 
-        target.scrollIntoView({
-            behavior: "smooth"
-        });
-    }
-});
-  });
-  const fadeElements = document.querySelectorAll(".fade");
-
-if ("IntersectionObserver" in window) {
-    const fadeObserver = new IntersectionObserver(
-        entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("show");
-                    fadeObserver.unobserve(entry.target);
-                }
+            item.scrollIntoView({
+              behavior: "smooth",
+              block: "start"
             });
-        },
-        {
-            threshold: 0.1,
-            rootMargin: "0px 0px -40px 0px"
+
+          }, 100);
+
         }
+      );
+
+    });
+
+
+    /* Fade-in sections */
+
+    const fadeElements =
+      document.querySelectorAll(".fade");
+
+    if ("IntersectionObserver" in window) {
+
+      const fadeObserver =
+        new IntersectionObserver(
+
+          function (entries, observer) {
+
+            entries.forEach(function (entry) {
+
+              if (entry.isIntersecting) {
+
+                entry.target.classList.add("show");
+
+                observer.unobserve(entry.target);
+
+              }
+
+            });
+
+          },
+
+          {
+            threshold: 0.08,
+            rootMargin: "0px 0px -35px 0px"
+          }
+
+        );
+
+      fadeElements.forEach(function (element) {
+        fadeObserver.observe(element);
+      });
+
+    } else {
+
+      fadeElements.forEach(function (element) {
+        element.classList.add("show");
+      });
+
+    }
+
+
+    /* Floating contact controls */
+
+    const floatingContact =
+      document.querySelector(".floating-contact");
+
+    function updateFloatingContact() {
+
+      if (!floatingContact) {
+        return;
+      }
+
+      floatingContact.classList.toggle(
+        "visible",
+        window.scrollY > 300
+      );
+
+    }
+
+    window.addEventListener(
+      "scroll",
+      updateFloatingContact,
+      {
+        passive: true
+      }
     );
 
-    fadeElements.forEach(element => {
-        fadeObserver.observe(element);
-    });
-} else {
-    fadeElements.forEach(element => {
-        element.classList.add("show");
-    });
-}
-window.addEventListener("load", function () {
-    const loader = document.querySelector(".loader");
-    if (loader) {
-        loader.style.pointerEvents = "none";
-        setTimeout(function () {
+    updateFloatingContact();
+
+
+    /* Header scroll style */
+
+    const siteHeader =
+      document.querySelector(".site-header");
+
+    function updateHeader() {
+
+      if (!siteHeader) {
+        return;
+      }
+
+      if (window.scrollY > 35) {
+
+        siteHeader.style.background =
+          "rgba(255,255,255,0.96)";
+
+        siteHeader.style.boxShadow =
+          "0 14px 36px rgba(23,38,27,0.12)";
+
+      } else {
+
+        siteHeader.style.background =
+          "rgba(255,253,249,0.95)";
+
+        siteHeader.style.boxShadow =
+          "0 12px 38px rgba(23,38,27,0.10)";
+
+      }
+
+    }
+
+    window.addEventListener(
+      "scroll",
+      updateHeader,
+      {
+        passive: true
+      }
+    );
+
+    updateHeader();
+
+
+    /* Cookie banner */
+
+    function acceptCookies() {
+
+      localStorage.setItem(
+        "cookiesAccepted",
+        "yes"
+      );
+
+      const cookieBanner =
+        document.getElementById("cookie-banner");
+
+      if (cookieBanner) {
+        cookieBanner.style.display = "none";
+      }
+
+    }
+
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      function () {
+
+        const cookieBanner =
+          document.getElementById("cookie-banner");
+
+        if (
+          cookieBanner &&
+          localStorage.getItem("cookiesAccepted") !== "yes"
+        ) {
+          cookieBanner.style.display = "block";
+        }
+
+      }
+    );
+
+
+    /* Loader and Lucide icons */
+
+    window.addEventListener(
+      "load",
+      function () {
+
+        const loader =
+          document.querySelector(".loader");
+
+        if (loader) {
+
+          loader.style.pointerEvents = "none";
+
+          setTimeout(function () {
             loader.remove();
-        }, 1200);
-    }
-});
-document.querySelectorAll(".faq-item").forEach(item => {
-    item.addEventListener("click", () => {
-        item.classList.toggle("active");
-    });
-});
-const header = document.querySelector(".site-header");
+          }, 1200);
 
-window.addEventListener("scroll", () => {
-    if (window.scrollY > 40) {
-        header.style.padding = "0";
-        header.style.background = "rgba(255,255,255,0.92)";
-        header.style.boxShadow = "0 14px 35px rgba(23,38,27,.12)";
-    } else {
-   header.style.padding = ""; 
-        header.style.background = "rgba(255,255,255,.72)";
-        header.style.boxShadow = "0 10px 40px rgba(23,38,27,.08)";
-    }
-});
+        }
 
-</script>
+        if (window.lucide) {
+          lucide.createIcons();
+        }
 
-<div id="cookie-banner" style="display:none;position:fixed;bottom:16px;left:50%;transform:translateX(-50%);width:min(82%,460px);background:rgba(23,38,27,.94);color:white;padding:14px 18px;z-index:99999;text-align:center;border-radius:18px;box-shadow:0 16px 40px rgba(23,38,27,.25);font-size:.9rem;">
-  This website uses essential cookies to improve your experience.
-  <button onclick="acceptCookies()" style="margin-left:15px;padding:10px 18px;border-radius:999px;border:0;font-weight:bold;">Accept</button>
-</div>
+      }
+    );
 
-<script>
-function acceptCookies(){
-  localStorage.setItem("cookiesAccepted","yes");
-  document.getElementById("cookie-banner").style.display="none";
-}
-
-document.addEventListener("DOMContentLoaded",function(){
-  const banner = document.getElementById("cookie-banner");
-
-  if(localStorage.getItem("cookiesAccepted") !== "yes"){
-    banner.style.display = "block";
-  }
-});
-</script>
+  </script>
 
 </body>
+
 </html>
