@@ -1,291 +1,1722 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
+
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
 
-<title>Thank You | Sorted.</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-<link rel="icon" href="images/favicon.png" type="image/png">
-<link rel="apple-touch-icon" href="images/favicon.png">
+  <title>Thank You | Sorted.</title>
 
-<style>
+ <meta
+  name="description"
+  content="Thank you for contacting Sorted. Your enquiry has been received successfully."
+>
 
-:root{
---cream:#f8f1e7;
---forest:#17261b;
---sage:#314632;
---gold:#caa76a;
---white:#ffffff;
+  <meta
+    name="theme-color"
+    content="#17261b"
+  >
+
+  <meta
+    name="robots"
+    content="noindex, follow"
+  >
+
+  <link
+    rel="icon"
+    href="favicon.png"
+    type="image/png"
+  >
+
+  <link
+    rel="apple-touch-icon"
+    href="favicon.png"
+  >
+
+  <script defer src="https://unpkg.com/lucide@0.542.0/dist/umd/lucide.js"></script>
+
+
+  <style>
+
+    /* ==================================================
+       COLOURS
+    ================================================== */
+
+    :root {
+      --cream: #f8f1e7;
+      --cream-light: #fffaf3;
+      --cream-dark: #eadbc7;
+      --forest: #17261b;
+      --forest-light: #263b2b;
+      --sage: #718c67;
+      --sage-dark: #314632;
+      --gold: #caa76a;
+      --gold-light: #dfc28f;
+      --white: #ffffff;
+      --ink: #1f2922;
+      --muted: #626b63;
+      --border: rgba(202, 167, 106, 0.28);
+      --shadow: 0 28px 75px rgba(23, 38, 27, 0.15);
+      --soft-shadow: 0 15px 38px rgba(23, 38, 27, 0.09);
+    }
+
+
+    /* ==================================================
+       RESET
+    ================================================== */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      overflow-x: hidden;
+      background: var(--cream);
+      color: var(--ink);
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    ::selection {
+      background: var(--gold);
+      color: var(--white);
+    }
+
+    .container {
+      width: min(1180px, 92%);
+      margin-inline: auto;
+    }
+
+
+    /* ==================================================
+       HEADER
+    ================================================== */
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(202, 167, 106, 0.22);
+      background: rgba(255, 253, 249, 0.96);
+      box-shadow: 0 10px 35px rgba(23, 38, 27, 0.07);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .header-inner {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      color: var(--forest);
+      font-size: 2rem;
+      font-weight: 900;
+      letter-spacing: -1.5px;
+    }
+
+    .logo span {
+      color: var(--gold);
+    }
+
+    .home-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 11px 18px;
+      border: 1px solid rgba(202, 167, 106, 0.34);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.8);
+      color: var(--forest);
+      font-size: 0.9rem;
+      font-weight: 800;
+      transition:
+        color 0.25s ease,
+        background 0.25s ease,
+        transform 0.25s ease;
+    }
+
+    .home-link:hover {
+      background: var(--forest);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    .home-link svg {
+      width: 18px;
+      height: 18px;
+    }
+
+
+    /* ==================================================
+   HERO
+================================================== */
+
+.thank-you-hero {
+  position: relative;
+  min-height: 760px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 88px 0;
+  background-image: url("thank-you-home.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  isolation: isolate;
 }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+.thank-you-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(248, 241, 231, 0.99) 0%,
+      rgba(248, 241, 231, 0.97) 29%,
+      rgba(248, 241, 231, 0.84) 48%,
+      rgba(248, 241, 231, 0.24) 72%,
+      rgba(23, 38, 27, 0.08) 100%
+    );
 }
 
-body{
-font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-background:
-linear-gradient(rgba(248,241,231,.94),rgba(248,241,231,.94)),
-url("images/background.png");
-background-size:cover;
-background-position:center;
-min-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-padding:30px;
-color:var(--forest);
+.thank-you-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.12),
+      transparent 34%,
+      rgba(23, 38, 27, 0.05)
+    );
 }
 
-.card{
-background:rgba(255,255,255,.96);
-backdrop-filter:blur(16px);
--webkit-backdrop-filter:blur(16px);
-max-width:760px;
-width:100%;
-padding:55px;
-border-radius:34px;
-box-shadow:0 35px 90px rgba(23,38,27,.16);
-text-align:center;
-border:1px solid rgba(202,167,106,.25);
-animation:fadeUp .8s ease forwards;
+.hero-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 610px) 1fr;
+  align-items: center;
+  min-height: 580px;
 }
 
-.logo{
-font-size:2rem;
-font-weight:800;
-letter-spacing:-1px;
-margin-bottom:24px;
-color:var(--forest);
+.hero-copy {
+  position: relative;
+  padding: 46px 48px;
+  border: 1px solid rgba(202, 167, 106, 0.32);
+  border-radius: 34px;
+  background: rgba(255, 250, 243, 0.87);
+  box-shadow:
+    0 30px 80px rgba(23, 38, 27, 0.17),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 
-.logo span{
-color:var(--gold);
+.hero-copy::before {
+  content: "";
+  position: absolute;
+  top: 24px;
+  right: 26px;
+  width: 76px;
+  height: 76px;
+  border: 1px solid rgba(202, 167, 106, 0.18);
+  border-radius: 50%;
+  pointer-events: none;
 }
 
-.tick{
-width:90px;
-height:90px;
-margin:0 auto 30px;
-background:linear-gradient(135deg,#718c67,#314632);
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:46px;
-color:white;
-box-shadow:0 20px 45px rgba(49,70,50,.25);
+.success-mark {
+  position: relative;
+  width: 98px;
+  height: 98px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 27px;
+  border: 1px solid rgba(255, 255, 255, 0.58);
+  border-radius: 50%;
+  background:
+    linear-gradient(
+      135deg,
+      var(--sage),
+      var(--sage-dark)
+    );
+  color: var(--white);
+  box-shadow:
+    0 22px 48px rgba(49, 70, 50, 0.27),
+    inset 0 0 0 8px rgba(255, 255, 255, 0.08);
+  animation:
+    successAppear 0.75s ease both,
+    gentleFloat 4s ease-in-out 0.75s infinite;
 }
 
-h1{
-font-size:3rem;
-margin-bottom:18px;
-letter-spacing:-1px;
+.success-mark::before {
+  content: "";
+  position: absolute;
+  inset: -10px;
+  border: 1px solid rgba(202, 167, 106, 0.42);
+  border-radius: 50%;
+  animation: successRing 2.8s ease-in-out infinite;
 }
 
-.lead{
-font-size:1.2rem;
-color:#555;
-margin-bottom:35px;
-line-height:1.8;
+.success-mark svg {
+  width: 47px;
+  height: 47px;
+  stroke-width: 2.5;
 }
 
-.info{
-background:#fdfaf5;
-padding:32px;
-border-radius:24px;
-border:1px solid rgba(202,167,106,.2);
-margin-bottom:35px;
-text-align:left;
+.eyebrow {
+  margin-bottom: 13px;
+  color: var(--gold);
+  font-size: 0.79rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
 
-.info h2{
-font-size:1.45rem;
-margin-bottom:18px;
-color:var(--forest);
+.hero-copy h1 {
+  max-width: 540px;
+  margin-bottom: 22px;
+  color: var(--forest);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3rem, 5vw, 4.65rem);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -2.4px;
 }
 
-.info ul{
-padding-left:28px;
-line-height:1.8;
-color:#555;
+.hero-copy h1 span {
+  display: block;
+  color: var(--sage-dark);
 }
 
-.info li{
-margin-bottom:16px;
+.gold-line {
+  width: 180px;
+  height: 1px;
+  margin-bottom: 24px;
+  background:
+    linear-gradient(
+      90deg,
+      var(--gold),
+      transparent
+    );
 }
 
-.closing{
-margin-top:28px;
-text-align:center;
-font-weight:600;
-color:#314632;
-line-height:1.7;
+.hero-copy .lead {
+  max-width: 525px;
+  margin-bottom: 14px;
+  color: var(--muted);
+  font-size: 1.04rem;
+  line-height: 1.8;
 }
 
-.buttons{
-display:flex;
-justify-content:center;
-gap:18px;
-flex-wrap:wrap;
-margin-top:10px;
+.hero-copy .lead strong {
+  color: var(--forest);
 }
 
-.btn{
-padding:16px 30px;
-border-radius:999px;
-font-weight:700;
-text-decoration:none;
-transition:.3s;
+.reassurance {
+  max-width: 525px;
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  margin-top: 23px;
+  padding: 16px 18px;
+  border: 1px solid rgba(202, 167, 106, 0.25);
+  border-radius: 17px;
+  background: rgba(255, 255, 255, 0.58);
+  color: var(--sage-dark);
+  box-shadow: 0 10px 28px rgba(23, 38, 27, 0.06);
+  font-size: 0.91rem;
+  font-weight: 700;
+  line-height: 1.55;
 }
 
-.primary{
-background:linear-gradient(135deg,#17261b,#314632);
-color:white;
+.reassurance svg {
+  width: 21px;
+  height: 21px;
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: var(--gold);
 }
 
-.secondary{
-background:white;
-color:#17261b;
-border:2px solid #17261b;
+.hero-status {
+  position: absolute;
+  right: max(4%, calc((100vw - 1180px) / 2));
+  bottom: 44px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 18px;
+  border: 1px solid rgba(202, 167, 106, 0.38);
+  border-radius: 999px;
+  background: rgba(255, 250, 243, 0.9);
+  color: var(--forest);
+  box-shadow: 0 14px 36px rgba(23, 38, 27, 0.16);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  font-size: 0.88rem;
+  font-weight: 850;
 }
 
-.btn:hover{
-transform:translateY(-3px);
-box-shadow:0 18px 40px rgba(23,38,27,.18);
+.hero-status svg {
+  width: 19px;
+  height: 19px;
+  color: var(--sage-dark);
 }
 
-.footer{
-margin-top:40px;
-font-size:.95rem;
-color:#777;
-line-height:1.5;
+
+    /* ==================================================
+       TIMELINE SECTION
+    ================================================== */
+
+    .next-section {
+      position: relative;
+      padding: 92px 0 96px;
+      background:
+        radial-gradient(
+          circle at 4% 80%,
+          rgba(113, 140, 103, 0.12),
+          transparent 27%
+        ),
+        linear-gradient(
+          180deg,
+          var(--cream),
+          var(--cream-light)
+        );
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin: 0 auto 50px;
+      text-align: center;
+    }
+
+    .section-heading .eyebrow {
+      margin-bottom: 12px;
+    }
+
+    .section-heading h2 {
+      margin-bottom: 14px;
+      color: var(--forest);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.6rem, 5vw, 4rem);
+      font-weight: 500;
+      line-height: 1.06;
+      letter-spacing: -1.8px;
+    }
+
+    .section-heading p {
+      max-width: 650px;
+      margin-inline: auto;
+      color: var(--muted);
+      font-size: 1.03rem;
+      line-height: 1.75;
+    }
+
+    .timeline-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 21px;
+    }
+
+    .timeline-card {
+      position: relative;
+      min-height: 290px;
+      display: flex;
+      flex-direction: column;
+      padding: 29px 25px 26px;
+      overflow: hidden;
+      border: 1px solid rgba(202, 167, 106, 0.25);
+      border-radius: 25px;
+      background:
+        radial-gradient(
+          circle at top right,
+          rgba(202, 167, 106, 0.11),
+          transparent 35%
+        ),
+        rgba(255, 255, 255, 0.78);
+      box-shadow: var(--soft-shadow);
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+    }
+
+    .timeline-card:hover {
+      transform: translateY(-7px);
+      box-shadow: var(--shadow);
+    }
+
+    .timeline-card::after {
+      content: "";
+      position: absolute;
+      right: -45px;
+      bottom: -55px;
+      width: 130px;
+      height: 130px;
+      border: 1px solid rgba(113, 140, 103, 0.1);
+      border-radius: 50%;
+    }
+
+    .step-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      margin-bottom: 24px;
+    }
+
+    .step-number {
+      color: rgba(202, 167, 106, 0.85);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2.25rem;
+      line-height: 1;
+    }
+
+    .step-icon {
+      width: 54px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background:
+        linear-gradient(
+          135deg,
+          var(--cream-dark),
+          var(--cream-light)
+        );
+      color: var(--sage-dark);
+      box-shadow: inset 0 0 0 1px rgba(202, 167, 106, 0.2);
+    }
+
+    .step-icon svg {
+      width: 26px;
+      height: 26px;
+      stroke-width: 1.8;
+    }
+
+    .timeline-card h3 {
+      margin-bottom: 12px;
+      color: var(--forest);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.42rem;
+      line-height: 1.2;
+    }
+
+    .timeline-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.68;
+    }
+
+    .timeline-card .step-line {
+      width: 42px;
+      height: 2px;
+      margin-top: auto;
+      padding-top: 22px;
+      border-bottom: 2px solid var(--gold);
+    }
+
+
+    /* ==================================================
+       CONTACT PANEL
+    ================================================== */
+
+    .contact-section {
+      padding: 0 0 96px;
+      background: var(--cream-light);
+    }
+
+    .contact-panel {
+      position: relative;
+      overflow: hidden;
+      padding: 48px;
+      border: 1px solid rgba(202, 167, 106, 0.32);
+      border-radius: 32px;
+      background:
+        radial-gradient(
+          circle at 92% 15%,
+          rgba(202, 167, 106, 0.12),
+          transparent 28%
+        ),
+        linear-gradient(
+          135deg,
+          var(--forest),
+          var(--sage-dark)
+        );
+      color: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-panel::before {
+      content: "";
+      position: absolute;
+      top: -120px;
+      right: -100px;
+      width: 290px;
+      height: 290px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+    }
+
+    .contact-panel-inner {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      align-items: center;
+      gap: 48px;
+    }
+
+    .contact-copy .eyebrow {
+      color: var(--gold-light);
+    }
+
+    .contact-copy h2 {
+      margin-bottom: 13px;
+      color: var(--white);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.2rem, 4vw, 3.25rem);
+      font-weight: 500;
+      line-height: 1.08;
+    }
+
+    .contact-copy p {
+      max-width: 520px;
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 1rem;
+      line-height: 1.72;
+    }
+
+    .contact-options {
+      display: grid;
+      gap: 14px;
+    }
+
+    .contact-option {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 20px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.08);
+      transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+    }
+
+    .contact-option:hover {
+      background: rgba(255, 255, 255, 0.13);
+      transform: translateX(4px);
+    }
+
+    .contact-option-icon {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: rgba(202, 167, 106, 0.17);
+      color: var(--gold-light);
+    }
+
+    .contact-option-icon svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .contact-option small {
+      display: block;
+      margin-bottom: 2px;
+      color: rgba(255, 255, 255, 0.62);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .contact-option strong {
+      display: block;
+      color: var(--white);
+      font-size: 1.05rem;
+      line-height: 1.35;
+      overflow-wrap: anywhere;
+    }
+
+
+    /* ==================================================
+       BUTTONS
+    ================================================== */
+
+    .actions-section {
+      padding: 0 0 94px;
+      background: var(--cream-light);
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      min-height: 58px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 25px;
+      border: 2px solid transparent;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 850;
+      text-align: center;
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease;
+    }
+
+    .btn svg {
+      width: 19px;
+      height: 19px;
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 17px 36px rgba(23, 38, 27, 0.15);
+    }
+
+    .btn-primary {
+      background:
+        linear-gradient(
+          135deg,
+          var(--forest),
+          var(--sage-dark)
+        );
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background:
+        linear-gradient(
+          135deg,
+          var(--sage-dark),
+          var(--forest-light)
+        );
+    }
+
+    .btn-secondary {
+      border-color: var(--forest);
+      background: var(--white);
+      color: var(--forest);
+    }
+
+    .btn-secondary:hover {
+      background: var(--forest);
+      color: var(--white);
+    }
+
+    .btn-gold {
+      border-color: rgba(202, 167, 106, 0.42);
+      background: rgba(202, 167, 106, 0.14);
+      color: var(--forest);
+    }
+
+    .btn-gold:hover {
+      border-color: var(--gold);
+      background: var(--gold);
+      color: var(--forest);
+    }
+
+
+    /* ==================================================
+       CLOSING MESSAGE
+    ================================================== */
+
+    .closing-message {
+      padding: 52px 0 58px;
+      border-top: 1px solid rgba(202, 167, 106, 0.2);
+      background:
+        linear-gradient(
+          180deg,
+          var(--cream),
+          var(--cream-light)
+        );
+      text-align: center;
+    }
+
+    .closing-message p {
+      color: var(--forest);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.35rem, 3vw, 1.8rem);
+      line-height: 1.45;
+    }
+
+    .closing-message span {
+      color: var(--gold);
+      font-style: italic;
+    }
+
+
+    /* ==================================================
+       FOOTER
+    ================================================== */
+
+    footer {
+      padding: 34px 20px;
+      background: var(--forest);
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.88rem;
+      line-height: 1.8;
+      text-align: center;
+    }
+
+    .footer-brand {
+      margin-bottom: 7px;
+      color: var(--white);
+      font-size: 1rem;
+      font-weight: 850;
+    }
+
+    .footer-brand span {
+      color: var(--gold);
+    }
+
+    .footer-tagline {
+      margin-bottom: 10px;
+      color: rgba(255, 255, 255, 0.62);
+      font-family: Georgia, "Times New Roman", serif;
+      font-style: italic;
+    }
+
+    footer a {
+      color: rgba(255, 255, 255, 0.88);
+      font-weight: 700;
+    }
+
+    footer a:hover {
+      color: var(--gold);
+    }
+
+
+    /* ==================================================
+       ANIMATIONS
+    ================================================== */
+
+    @keyframes successAppear {
+
+      from {
+        opacity: 0;
+        transform: scale(0.65) rotate(-8deg);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+      }
+
+    }
+
+    @keyframes successRing {
+
+      0%,
+      100% {
+        opacity: 0.35;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0;
+        transform: scale(1.16);
+      }
+
+    }
+
+    @keyframes gentleFloat {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-5px);
+      }
+
+    }
+
+
+    /* ==================================================
+       TABLET
+    ================================================== */
+
+    @media (max-width: 980px) {
+
+      .thank-you-hero {
+  min-height: 720px;
+  padding: 70px 0 115px;
+  background-position: 62% center;
 }
 
-@keyframes fadeUp{
-from{
-opacity:0;
-transform:translateY(30px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-
-@media(max-width:768px){
-
-body{
-padding:12px;
-align-items:flex-start;
+.thank-you-hero::before {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(248, 241, 231, 0.98) 0%,
+      rgba(248, 241, 231, 0.93) 45%,
+      rgba(248, 241, 231, 0.48) 75%,
+      rgba(23, 38, 27, 0.08) 100%
+    );
 }
 
-.card{
-padding:30px 24px;
-border-radius:28px;
-margin-top:20px;
+.hero-layout {
+  grid-template-columns: minmax(0, 590px) 1fr;
 }
 
-.logo{
-font-size:1.8rem;
+.hero-copy {
+  padding: 42px;
 }
 
-.tick{
-width:76px;
-height:76px;
-font-size:38px;
-margin-bottom:24px;
+.hero-status {
+  right: 5%;
+  bottom: 34px;
 }
 
-h1{
-font-size:2.25rem;
+      .timeline-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .contact-panel-inner {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+    }
+
+
+    /* ==================================================
+       MOBILE
+    ================================================== */
+
+    @media (max-width: 650px) {
+
+      .container {
+        width: 90%;
+      }
+
+
+      /* HEADER */
+
+      .header-inner {
+        min-height: 64px;
+      }
+
+      .logo {
+        font-size: 1.68rem;
+      }
+
+      .home-link {
+        min-height: 42px;
+        padding: 9px 13px;
+        font-size: 0.78rem;
+      }
+
+      .home-link svg {
+        width: 16px;
+        height: 16px;
+      }
+
+
+      /* HERO */
+
+.thank-you-hero {
+  min-height: 0;
+  display: block;
+  padding: 330px 0 38px;
+  background-position: 64% top;
+  background-size: auto 390px;
+  background-color: var(--cream);
 }
 
-.lead{
-font-size:1.05rem;
-line-height:1.7;
+.thank-you-hero::before {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(248, 241, 231, 0.02) 0%,
+      rgba(248, 241, 231, 0.08) 45%,
+      rgba(248, 241, 231, 0.8) 75%,
+      var(--cream) 100%
+    );
 }
 
-.info{
-padding:26px 24px;
+.thank-you-hero::after {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(23, 38, 27, 0.03),
+      transparent 35%,
+      rgba(248, 241, 231, 0.22) 65%,
+      var(--cream) 100%
+    );
 }
 
-.info h2{
-font-size:1.35rem;
+.hero-layout {
+  display: block;
+  min-height: 0;
 }
 
-.buttons{
-flex-direction:column;
+.hero-copy {
+  padding: 30px 22px 26px;
+  border-radius: 25px;
+  background: rgba(255, 250, 243, 0.94);
+  box-shadow: 0 22px 55px rgba(23, 38, 27, 0.14);
+  text-align: center;
 }
 
-.btn{
-width:100%;
+.hero-copy::before {
+  top: 15px;
+  right: 15px;
+  width: 50px;
+  height: 50px;
 }
+
+.success-mark {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 22px;
+}
+
+.success-mark svg {
+  width: 39px;
+  height: 39px;
+}
+
+.eyebrow {
+  margin-bottom: 10px;
+  font-size: 0.68rem;
+}
+
+.hero-copy h1 {
+  max-width: 320px;
+  margin: 0 auto 18px;
+  font-size: clamp(2.35rem, 11vw, 3rem);
+  line-height: 1.02;
+  letter-spacing: -1.5px;
+}
+
+.gold-line {
+  width: 125px;
+  margin: 0 auto 20px;
+}
+
+.hero-copy .lead {
+  max-width: 320px;
+  margin: 0 auto 11px;
+  font-size: 0.91rem;
+  line-height: 1.65;
+}
+
+.reassurance {
+  max-width: 320px;
+  margin: 20px auto 0;
+  padding: 14px 15px;
+  border-radius: 15px;
+  font-size: 0.81rem;
+  text-align: left;
+}
+
+.hero-status {
+  position: relative;
+  right: auto;
+  bottom: auto;
+  width: fit-content;
+  max-width: 88%;
+  justify-content: center;
+  margin: 18px auto 0;
+  padding: 11px 15px;
+  font-size: 0.78rem;
+}
+
+      .next-section {
+        padding: 62px 0 66px;
+      }
+
+      .section-heading {
+        margin-bottom: 32px;
+      }
+
+      .section-heading h2 {
+        margin-bottom: 11px;
+        font-size: 2.45rem;
+        line-height: 1.02;
+      }
+
+      .section-heading p {
+        max-width: 330px;
+        font-size: 0.91rem;
+        line-height: 1.65;
+      }
+
+      .timeline-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .timeline-card {
+        min-height: 0;
+        padding: 24px 21px 22px;
+        border-radius: 21px;
+      }
+
+      .step-top {
+        margin-bottom: 19px;
+      }
+
+      .step-number {
+        font-size: 1.95rem;
+      }
+
+      .step-icon {
+        width: 49px;
+        height: 49px;
+      }
+
+      .step-icon svg {
+        width: 23px;
+        height: 23px;
+      }
+
+      .timeline-card h3 {
+        margin-bottom: 9px;
+        font-size: 1.3rem;
+      }
+
+      .timeline-card p {
+        font-size: 0.89rem;
+        line-height: 1.62;
+      }
+
+
+      /* CONTACT */
+
+      .contact-section {
+        padding-bottom: 60px;
+      }
+
+      .contact-panel {
+        padding: 30px 22px;
+        border-radius: 25px;
+      }
+
+      .contact-panel-inner {
+        gap: 25px;
+      }
+
+      .contact-copy {
+        text-align: center;
+      }
+
+      .contact-copy h2 {
+        font-size: 2.25rem;
+      }
+
+      .contact-copy p {
+        font-size: 0.9rem;
+        line-height: 1.65;
+      }
+
+      .contact-option {
+        padding: 15px;
+        border-radius: 16px;
+      }
+
+      .contact-option-icon {
+        width: 44px;
+        height: 44px;
+      }
+
+      .contact-option strong {
+        font-size: 0.91rem;
+      }
+
+
+      /* BUTTONS */
+
+      .actions-section {
+        padding-bottom: 65px;
+      }
+
+      .actions {
+        flex-direction: column;
+        gap: 11px;
+      }
+
+      .btn {
+        width: 100%;
+        min-height: 58px;
+        padding: 15px 19px;
+        font-size: 0.88rem;
+      }
+
+
+      /* CLOSING */
+
+      .closing-message {
+        padding: 42px 20px 46px;
+      }
+
+      .closing-message p {
+        font-size: 1.25rem;
+      }
+
+
+      /* FOOTER */
+
+      footer {
+        padding: 29px 20px;
+        font-size: 0.78rem;
+      }
+
+    }
+
+
+    /* ==================================================
+       REDUCED MOTION
+    ================================================== */
+
+    @media (prefers-reduced-motion: reduce) {
+
+  html {
+
+    scroll-behavior: auto;
+
+  }
+
+  *,
+
+  *::before,
+
+  *::after {
+
+    animation-duration: 0.01ms !important;
+
+    animation-iteration-count: 1 !important;
+
+    transition-duration: 0.01ms !important;
+
+    scroll-behavior: auto !important;
+
+  }
 
 }
 
-</style>
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid #caa76a;
+  outline-offset: 4px;
+}
+
+  </style>
 
 </head>
 
+
 <body>
 
-<div class="card">
 
-<div class="logo">Sorted<span>.</span></div>
+  <!-- ==================================================
+       HEADER
+  ================================================== -->
 
-<div class="tick">✓</div>
+  <header class="site-header">
 
-<h1>Thank You</h1>
+    <div class="container header-inner">
 
-<p class="lead">
-We've received your enquiry and truly appreciate you getting in touch.
-<br><br>
-A member of <strong>Sorted.</strong> will review your message and respond within <strong>24 hours</strong>, although we often reply much sooner.
+      <a
+        href="index.html"
+        class="logo"
+        aria-label="Sorted homepage"
+      >
+        Sorted<span>.</span>
+      </a>
+
+      <a
+        href="index.html"
+        class="home-link"
+      >
+        <i data-lucide="house"></i>
+        <span>Return Home</span>
+      </a>
+
+    </div>
+
+  </header>
+
+
+  <main>
+
+
+    <!-- ==================================================
+         HERO
+    ================================================== -->
+
+    <section class="thank-you-hero">
+
+  <div class="container hero-layout">
+
+    <div class="hero-copy">
+
+      <div
+        class="success-mark"
+        aria-hidden="true"
+      >
+        <i data-lucide="check"></i>
+      </div>
+
+      <p class="eyebrow">
+        Enquiry received
+      </p>
+
+      <h1>
+        Thank you — your enquiry is
+        <span>safely with us.</span>
+      </h1>
+
+      <div class="gold-line"></div>
+
+      <p class="lead">
+        We truly appreciate you getting in touch with
+        <strong>Sorted.</strong>
+      </p>
+
+      <p class="lead">
+  A member of our team will carefully review your message and
+  respond within <strong>one working day</strong>. If your enquiry is
+  urgent, please call <strong>01323&nbsp;396610</strong>.
 </p>
 
-<div class="info">
+      <div class="reassurance">
 
-<h2>What happens next?</h2>
+        <i data-lucide="shield-check"></i>
 
-<ul>
-<li>We'll carefully review your enquiry.</li>
-<li>We'll contact you to discuss exactly how we can help.</li>
-<li>If appropriate, we'll arrange your complimentary consultation.</li>
-<li>You'll receive a tailored plan designed around your home and lifestyle.</li>
-</ul>
+        <span>
+          Your details have been received securely and will only be used
+          to respond to your enquiry.
+        </span>
 
-<p class="closing">
-Thank you for choosing <strong>Sorted.</strong><br>
-We look forward to helping make life that little bit easier.
-</p>
+      </div>
 
-</div>
+    </div>
 
-<div class="buttons">
+  </div>
 
-<a href="index.html" class="btn primary">Return Home</a>
+  <div class="hero-status">
 
-<a href="tel:07460934371" class="btn secondary">Call Us</a>
+    <i data-lucide="circle-check-big"></i>
 
-</div>
+    <span>
+      Everything is in hand
+    </span>
 
-<div class="footer">
-<strong>Sorted.</strong><br>
-Your Home. Handled.
-</div>
+  </div>
 
-</div>
+</section>
 
-<script>
-setTimeout(function(){
-  window.location.href = "index.html";
-}, 15000);
-</script>
+
+    <!-- ==================================================
+         WHAT HAPPENS NEXT
+    ================================================== -->
+
+    <section class="next-section">
+
+      <div class="container">
+
+
+        <div class="section-heading">
+
+          <p class="eyebrow">
+            The next steps
+          </p>
+
+          <h2>
+            What happens next?
+          </h2>
+
+          <p>
+            We’ll take the time to understand what you need and make the
+            process feel simple, clear and completely personal.
+          </p>
+
+        </div>
+
+
+        <div class="timeline-grid">
+
+
+          <article class="timeline-card">
+
+            <div class="step-top">
+
+              <span class="step-number">
+                01
+              </span>
+
+              <div class="step-icon">
+                <i data-lucide="file-search"></i>
+              </div>
+
+            </div>
+
+            <h3>
+              We review your enquiry
+            </h3>
+
+            <p>
+              We’ll carefully read through your message and consider how
+              Sorted. can best support you.
+            </p>
+
+            <div class="step-line"></div>
+
+          </article>
+
+
+          <article class="timeline-card">
+
+            <div class="step-top">
+
+              <span class="step-number">
+                02
+              </span>
+
+              <div class="step-icon">
+                <i data-lucide="messages-square"></i>
+              </div>
+
+            </div>
+
+            <h3>
+              We get in touch
+            </h3>
+
+            <p>
+              We’ll contact you to discuss your priorities, answer any
+              questions and understand exactly what would make life easier.
+            </p>
+
+            <div class="step-line"></div>
+
+          </article>
+
+
+          <article class="timeline-card">
+
+            <div class="step-top">
+
+              <span class="step-number">
+                03
+              </span>
+
+              <div class="step-icon">
+                <i data-lucide="calendar-check"></i>
+              </div>
+
+            </div>
+
+            <h3>
+              We arrange your consultation
+            </h3>
+
+            <p>
+              Where appropriate, we’ll arrange a complimentary consultation
+              at a convenient time for you.
+            </p>
+
+            <div class="step-line"></div>
+
+          </article>
+
+
+          <article class="timeline-card">
+
+            <div class="step-top">
+
+              <span class="step-number">
+                04
+              </span>
+
+              <div class="step-icon">
+                <i data-lucide="clipboard-check"></i>
+              </div>
+
+            </div>
+
+            <h3>
+              We create your tailored plan
+            </h3>
+
+            <p>
+              You’ll receive a clear, personalised support plan shaped around
+              your home, lifestyle and priorities.
+            </p>
+
+            <div class="step-line"></div>
+
+          </article>
+
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         NEED HELP SOONER
+    ================================================== -->
+
+    <section class="contact-section">
+
+      <div class="container">
+
+        <div class="contact-panel">
+
+          <div class="contact-panel-inner">
+
+
+            <div class="contact-copy">
+
+              <p class="eyebrow">
+                Need help sooner?
+              </p>
+
+              <h2>
+                We’re only a call or email away.
+              </h2>
+
+              <p>
+                For anything urgent or time-sensitive, please contact us
+                directly and we’ll do our best to help.
+              </p>
+
+            </div>
+
+
+            <div class="contact-options">
+
+
+              <a
+                href="tel:01323396610"
+                class="contact-option"
+              >
+
+                <div class="contact-option-icon">
+                  <i data-lucide="phone"></i>
+                </div>
+
+                <div>
+                  <small>Call Sorted.</small>
+                  <strong>01323 396610</strong>
+                </div>
+
+              </a>
+
+
+              <a
+                href="mailto:contact@sortedlife.org.uk"
+                class="contact-option"
+              >
+
+                <div class="contact-option-icon">
+                  <i data-lucide="mail"></i>
+                </div>
+
+                <div>
+                  <small>Email Sorted.</small>
+                  <strong>contact@sortedlife.org.uk</strong>
+                </div>
+
+              </a>
+
+
+            </div>
+
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         BUTTONS
+    ================================================== -->
+
+    <section class="actions-section">
+
+      <div class="container">
+
+        <div class="actions">
+
+          <a
+            href="index.html"
+            class="btn btn-primary"
+          >
+            <i data-lucide="house"></i>
+            <span>Return Home</span>
+          </a>
+
+          <a
+            href="services.html"
+            class="btn btn-secondary"
+          >
+            <i data-lucide="briefcase-business"></i>
+            <span>Explore Our Services</span>
+          </a>
+
+          <a
+            href="contact.html"
+            class="btn btn-gold"
+          >
+            <i data-lucide="message-circle"></i>
+            <span>Contact Sorted.</span>
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         CLOSING MESSAGE
+    ================================================== -->
+
+    <section class="closing-message">
+
+      <div class="container">
+
+        <p>
+          Thank you for choosing Sorted.
+          <span>We look forward to helping.</span>
+        </p>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+  <!-- ==================================================
+       FOOTER
+  ================================================== -->
+
+  <footer>
+
+    <div class="footer-brand">
+      Sorted<span>.</span>
+    </div>
+
+    <div class="footer-tagline">
+      Your Home. Handled.
+    </div>
+
+    <div>
+      © 2026 Sorted. All rights reserved.
+
+      &nbsp;·&nbsp;
+
+      <a href="privacy.html">
+        Privacy Policy
+      </a>
+
+      &nbsp;·&nbsp;
+
+      <a href="terms.html">
+        Terms &amp; Conditions
+      </a>
+    </div>
+
+  </footer>
+
+
+  <!-- ==================================================
+       ICON SCRIPT
+  ================================================== -->
+
+  <script>
+
+    window.addEventListener("load", function () {
+
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+
+    });
+
+  </script>
+
 
 </body>
+
 </html>
