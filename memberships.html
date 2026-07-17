@@ -300,12 +300,15 @@ transition:all .3s ease;
     }
 
     .card{
-      background:white;
-      padding:35px;
-      border-radius:28px;
-      box-shadow:var(--soft-shadow);
-      transition:.3s;
-    }
+    background:white;
+    padding:35px;
+    border-radius:28px;
+    box-shadow:var(--soft-shadow);
+    transition:.35s;
+    display:flex;
+    flex-direction:column;
+    min-height:360px;
+}
         .card:hover{
       transform:translateY(-10px);
       box-shadow:var(--shadow);
@@ -320,6 +323,32 @@ transition:all .3s ease;
     .card p{
       color:var(--muted);
     }
+
+.card ul{
+    list-style:none;
+    padding:0;
+    margin-top:18px;
+}
+
+.card ul li{
+    position:relative;
+    padding:10px 0 10px 28px;
+    border-bottom:1px solid rgba(0,0,0,.08);
+    color:var(--muted);
+    line-height:1.6;
+}
+
+.card ul li:last-child{
+    border-bottom:none;
+}
+
+.card ul li::before{
+    content:"✓";
+    position:absolute;
+    left:0;
+    color:var(--sage);
+    font-weight:700;
+}
 
     .pricing{
       background:linear-gradient(180deg,var(--cream),var(--cream-2));
@@ -785,6 +814,77 @@ background-repeat:no-repeat;
 .hero-photo .hero-grid{
     grid-template-columns:1fr;
 }
+
+/* ==================================================
+   MEMBERSHIP HERO CONTENT
+================================================== */
+
+.membership-hero-content {
+  width: min(760px, 100%);
+  padding: 48px 50px;
+  border: 1px solid rgba(202, 167, 106, 0.38);
+  border-radius: 38px;
+  background: rgba(255, 250, 243, 0.91);
+  box-shadow: 0 30px 80px rgba(23, 38, 27, 0.18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.membership-hero-content h1 {
+  max-width: 720px;
+  margin-bottom: 25px;
+  color: var(--forest);
+  font-size: clamp(3.5rem, 6.5vw, 5.8rem);
+  line-height: 0.97;
+  letter-spacing: -3px;
+}
+
+.membership-hero-lead {
+  max-width: 680px;
+  margin-bottom: 17px !important;
+  color: var(--forest) !important;
+  font-size: 1.18rem !important;
+  font-weight: 650;
+  line-height: 1.75 !important;
+}
+
+.membership-hero-description {
+  max-width: 680px;
+  margin-bottom: 30px !important;
+  color: var(--muted) !important;
+  font-size: 1.03rem !important;
+  line-height: 1.78 !important;
+}
+
+.membership-hero-trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 27px;
+  padding-top: 23px;
+  border-top: 1px solid rgba(202, 167, 106, 0.28);
+}
+
+.membership-hero-trust span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 13px;
+  border: 1px solid rgba(113, 140, 103, 0.2);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--sage-dark);
+  font-size: 0.82rem;
+  font-weight: 750;
+  line-height: 1.35;
+}
+
+.membership-hero-trust span::before {
+  content: "✓";
+  color: var(--sage);
+  font-weight: 900;
+}
+
 .hero-photo::before{
     content:"";
     position:absolute;
@@ -1616,6 +1716,44 @@ transform:translateY(-50%);
     text-align:center;
   }
 
+  .membership-hero-content {
+    width: 100%;
+    padding: 32px 25px 28px;
+    border-radius: 28px;
+    background: rgba(255, 250, 243, 0.96);
+  }
+
+  .membership-hero-content h1 {
+    max-width: 100%;
+    margin-bottom: 21px;
+    font-size: 2.75rem;
+    line-height: 1.04;
+    letter-spacing: -1.8px;
+  }
+
+  .membership-hero-lead {
+    margin-bottom: 15px !important;
+    font-size: 1.03rem !important;
+    line-height: 1.7 !important;
+  }
+
+  .membership-hero-description {
+    margin-bottom: 25px !important;
+    font-size: 0.96rem !important;
+    line-height: 1.72 !important;
+  }
+
+  .membership-hero-trust {
+    gap: 8px;
+    margin-top: 23px;
+    padding-top: 20px;
+  }
+
+  .membership-hero-trust span {
+    padding: 8px 11px;
+    font-size: 0.76rem;
+  }
+
 }
 /* MOBILE CARD IMPROVEMENTS */
 @media (max-width:768px){
@@ -1908,6 +2046,117 @@ transform:translateY(-50%);
 
 }
 
+/* ==================================================
+   EQUAL EXPANDABLE MEMBERSHIP PRICING CARDS
+================================================== */
+
+.pricing-grid{
+    align-items:start;
+}
+
+.pricing-grid .plan{
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+    width:100%;
+    min-height:650px;
+    padding:45px;
+    transform:none;
+}
+
+.pricing-grid .plan:hover{
+    transform:translateY(-8px);
+}
+
+.pricing-grid .featured{
+    min-height:650px;
+    padding:45px;
+    transform:none;
+}
+
+.pricing-grid .featured:hover{
+    transform:translateY(-8px);
+}
+
+.badge-placeholder{
+    visibility:hidden;
+}
+
+.plan-details{
+    display:none;
+}
+
+.plan.expanded{
+    height:auto;
+    overflow:visible;
+}
+
+.plan.expanded .plan-details{
+    display:block;
+    margin-top:22px;
+}
+
+.plan-actions{
+    display:grid;
+    gap:12px;
+    margin-top:auto;
+}
+
+.plan.expanded .plan-actions{
+    margin-top:28px;
+}
+
+.plan-toggle{
+    width:100%;
+    padding:14px 22px;
+    border:1px solid rgba(202,167,106,.55);
+    border-radius:999px;
+    background:#fffaf3;
+    color:var(--forest);
+    font-family:inherit;
+    font-size:.95rem;
+    font-weight:750;
+    cursor:pointer;
+    transition:.3s ease;
+}
+
+.plan-toggle:hover{
+    background:var(--gold);
+    color:var(--forest);
+    transform:translateY(-2px);
+}
+
+.plan-toggle::after{
+    content:"↓";
+    display:inline-block;
+    margin-left:9px;
+    transition:transform .3s ease;
+}
+
+.plan.expanded .plan-toggle::after{
+    transform:rotate(180deg);
+}
+
+.pricing-grid .plan-button{
+    width:100%;
+    margin-top:0;
+    text-align:center;
+}
+
+@media(max-width:900px){
+
+    .pricing-grid .plan,
+    .pricing-grid .featured{
+        height:560px;
+        padding:30px 26px;
+    }
+
+    .pricing-grid .plan.expanded{
+        height:auto;
+    }
+
+}
+
 @media (prefers-reduced-motion: reduce) {
 
   html {
@@ -2027,35 +2276,165 @@ select:focus-visible {
 
 <section class="hero hero-photo fade">
 
-<div class="hero-overlay">
+  <div class="hero-overlay">
+
+    <div class="container">
+
+      <div class="membership-hero-content">
+
+        <p class="eyebrow">
+          SORTED. MEMBERSHIPS
+        </p>
+
+        <h1>
+          Ongoing Support.<br>
+          One Less Thing to Think About.
+        </h1>
+
+        <p class="membership-hero-lead">
+          A Sorted. Membership gives you regular, dependable home and
+          lifestyle support shaped entirely around your home, routine and
+          priorities.
+        </p>
+
+        <p class="membership-hero-description">
+          From shopping, errands and household paperwork to home organisation,
+          contractor coordination, property checks and preparing your home
+          before you travel, we quietly take care of the details that would
+          otherwise take up your time and attention.
+        </p>
+
+        <div class="buttons">
+
+          <a
+            href="https://calendly.com/d/dzzd-qmh-mcm/one-off-meeting"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn primary"
+          >
+            Book Your Complimentary Consultation
+          </a>
+
+          <a
+            href="#membership-overview"
+            class="btn secondary"
+          >
+            Discover How Memberships Work
+          </a>
+
+        </div>
+
+        <div class="membership-hero-trust">
+
+          <span>
+            Complimentary consultation
+          </span>
+
+          <span>
+            Personally tailored support
+          </span>
+
+          <span>
+            Regular scheduled visits
+          </span>
+
+          <span>
+            Enhanced DBS checked
+          </span>
+
+          <span>
+            Fully insured
+          </span>
+
+          <span>
+            Flexible as your needs change
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section id="membership-overview" class="fade">
 
 <div class="container">
 
-<p class="eyebrow">SORTED. MEMBERSHIPS</p>
+<div class="section-title">
 
-<h1>
-Ongoing Support.<br>
-Beautifully Organised.
-</h1>
+<p class="eyebrow">HOW MEMBERSHIPS WORK</p>
+
+<h2>Simple, personal and completely tailored.</h2>
 
 <p>
-Regular, dependable home and lifestyle support shaped around your home,
-routine and priorities. Every membership begins with a complimentary consultation.
+Every Sorted. membership begins with a complimentary consultation and is built around you, your home and the way you live. There are no standard packages or one-size-fits-all solutions. Instead, we create an ongoing support plan that evolves with your needs.
 </p>
 
-<div class="buttons">
+</div>
 
-<a
-href="https://calendly.com/d/dzzd-qmh-mcm/one-off-meeting"
-target="_blank"
-rel="noopener noreferrer"
-class="btn primary">
-Book Your Complimentary Consultation
-</a>
+<div class="cards">
 
-<a href="#memberships" class="btn secondary">
-Explore Memberships
-</a>
+<div class="card">
+
+<h3>1. Complimentary Consultation</h3>
+
+<p>
+Everything begins with a relaxed conversation. We'll take the time to understand your home, your routine, your priorities and the areas where regular support would make the biggest difference. This can take place in your home, by telephone or via video call.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>2. Personal Recommendation</h3>
+
+<p>
+Following your consultation we'll recommend the most suitable membership based on the amount of support you need, how often you'd like visits and the type of assistance you're looking for. Because every client is different, recommendations are always personal.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>3. Your Support Plan</h3>
+
+<p>
+Together we'll agree exactly what you'd like us to look after. That may include shopping, home organisation, household administration, appointments, contractor management, preparing your home before you travel or anything else within our services.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>4. Regular Scheduled Visits</h3>
+
+<p>
+Once everything is in place we'll begin your regular visits. Because we become familiar with your home and your preferences, each visit becomes more efficient, more personalised and far more valuable over time.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>5. Ongoing Reviews</h3>
+
+<p>
+Life changes and so do your priorities. Your membership can easily be adjusted as your circumstances change. Whether you need more support, less support or something completely different, we'll adapt with you.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>6. One Trusted Point of Contact</h3>
+
+<p>
+Instead of juggling multiple companies and appointments, you'll have one trusted local business coordinating everything. It's a simpler, calmer way to stay on top of everyday life.
+</p>
 
 </div>
 
@@ -2084,112 +2463,233 @@ Memberships can evolve as your needs change, with every plan tailored personally
 
 <div class="pricing-grid">
 
+<!-- ESSENTIAL SUPPORT -->
 <article class="plan">
+
+<span class="badge badge-placeholder" aria-hidden="true">
+MOST POPULAR
+</span>
 
 <p class="eyebrow">LIGHT ONGOING SUPPORT</p>
 
 <h3>Essential Support</h3>
 
 <p class="plan-subtitle">
-Practical assistance with the everyday tasks that are difficult to fit in.
+Perfect for people who would benefit from dependable regular help with everyday life without needing extensive ongoing support.
 </p>
 
-<div class="price">From £250</div>
+<div class="price">
+From £250
+</div>
 
-<p class="price-note">per month</p>
+<p class="price-note">
+Typically suited to lighter monthly support. Your personalised quotation will depend on the frequency of visits and the support you need.
+</p>
+
+<div class="plan-details">
 
 <ul>
-<li>Regular scheduled support</li>
-<li>Shopping, errands and collections</li>
-<li>Home administration assistance</li>
-<li>Appointment and diary support</li>
+
+<li>Regular scheduled visits</li>
+
+<li>Shopping and everyday errands</li>
+
+<li>Prescription collections</li>
+
+<li>Returns, parcels and dry cleaning</li>
+
+<li>Household paperwork and administration</li>
+
+<li>Diary reminders and appointment organisation</li>
+
 <li>Light home organisation</li>
-<li>Priority booking</li>
+
+<li>Priority booking for additional visits</li>
+
+<li>Regular contact with someone who knows your home and routine</li>
+
+<li>Flexible reviews as your needs change</li>
+
 </ul>
+
+</div>
+
+<div class="plan-actions">
+
+<button
+type="button"
+class="plan-toggle"
+aria-expanded="false">
+View full membership
+</button>
 
 <a
 href="https://calendly.com/d/dzzd-qmh-mcm/one-off-meeting"
 target="_blank"
 rel="noopener noreferrer"
 class="plan-button">
-Arrange a Consultation
+Arrange Your Consultation
 </a>
+
+</div>
 
 </article>
 
+
+<!-- PREMIUM SUPPORT -->
 <article class="plan featured">
 
-<span class="badge">MOST POPULAR</span>
+<span class="badge">
+MOST POPULAR
+</span>
 
-<p class="eyebrow">REGULAR HOME &amp; LIFESTYLE SUPPORT</p>
+<p class="eyebrow">COMPLETE HOME &amp; LIFESTYLE SUPPORT</p>
 
 <h3>Premium Support</h3>
 
 <p class="plan-subtitle">
-Dependable, ongoing support designed to keep your home and everyday life beautifully organised.
+Ideal for busy professionals, older adults, families and anyone who wants the reassurance of having a trusted person regularly looking after both their home and everyday life.
 </p>
 
-<div class="price">From £450</div>
+<div class="price">
+From £450
+</div>
 
-<p class="price-note">per month</p>
+<p class="price-note">
+Designed for clients who want ongoing support that goes beyond errands, providing proactive home management and lifestyle assistance.
+</p>
+
+<div class="plan-details">
 
 <ul>
-<li>Everything included in Essential</li>
-<li>More regular scheduled support</li>
-<li>Home management and organisation</li>
-<li>Lifestyle assistance and coordination</li>
-<li>Contractor and appointment management</li>
-<li>Priority and flexible booking</li>
-<li>Regular service reviews</li>
+
+<li>Everything included in Essential Support</li>
+
+<li>A proactive approach to managing your home</li>
+
+<li>Comprehensive home organisation</li>
+
+<li>We'll remember the things you don't have time to</li>
+
+<li>Contractor access and supervision</li>
+
+<li>Appointment planning and diary management</li>
+
+<li>Travel preparation before holidays</li>
+
+<li>Regular home checks between visits if required</li>
+
+<li>Lifestyle support tailored around your routine</li>
+
+<li>Higher priority booking for additional support</li>
+
+<li>Regular membership reviews to keep support up to date</li>
+
+<li>One trusted point of contact for your home</li>
+
 </ul>
+
+</div>
+
+<div class="plan-actions">
+
+<button
+type="button"
+class="plan-toggle"
+aria-expanded="false">
+View full membership
+</button>
 
 <a
 href="https://calendly.com/d/dzzd-qmh-mcm/one-off-meeting"
 target="_blank"
 rel="noopener noreferrer"
 class="plan-button">
-Arrange a Consultation
+Arrange Your Consultation
 </a>
+
+</div>
 
 </article>
 
+
+<!-- EXECUTIVE SUPPORT -->
 <article class="plan">
 
-<p class="eyebrow">COMPREHENSIVE SUPPORT</p>
+<span class="badge badge-placeholder" aria-hidden="true">
+MOST POPULAR
+</span>
+
+<p class="eyebrow">CONCIERGE-LEVEL SUPPORT</p>
 
 <h3>Executive Support</h3>
 
 <p class="plan-subtitle">
-A higher level of personalised home and lifestyle management for clients who want everything handled.
+Our highest level of membership for clients who want comprehensive, proactive home and lifestyle management with maximum flexibility and complete peace of mind.
 </p>
 
-<div class="price">From £750</div>
+<div class="price">
+From £750
+</div>
 
-<p class="price-note">per month</p>
+<p class="price-note">
+Ideal for larger homes, second homes, demanding schedules and clients who simply want everything taken care of.
+</p>
+
+<div class="plan-details">
 
 <ul>
-<li>Everything included in Premium</li>
+
+<li>Everything included in Premium Support</li>
+
 <li>Comprehensive home management</li>
-<li>Dedicated lifestyle coordination</li>
-<li>Property and contractor oversight</li>
-<li>Travel and away-from-home preparation</li>
-<li>Highest priority booking</li>
+
+<li>Second home and holiday home support</li>
+
+<li>Property checks and key holding</li>
+
+<li>Travel preparation before you leave and when you return</li>
+
+<li>Contractor coordination and supervision</li>
+
+<li>Seasonal home preparation</li>
+
+<li>Higher flexibility for changing priorities</li>
+
 <li>Bespoke monthly support schedule</li>
+
+<li>Highest priority booking</li>
+
+<li>Dedicated long-term relationship with your home and routine</li>
+
+<li>Completely tailored support as your lifestyle evolves</li>
+
 </ul>
+
+</div>
+
+<div class="plan-actions">
+
+<button
+type="button"
+class="plan-toggle"
+aria-expanded="false">
+View full membership
+</button>
 
 <a
 href="https://calendly.com/d/dzzd-qmh-mcm/one-off-meeting"
 target="_blank"
 rel="noopener noreferrer"
 class="plan-button">
-Arrange a Consultation
+Arrange Your Consultation
 </a>
+
+</div>
 
 </article>
 
 </div>
-
-<div class="card" style="max-width:850px;margin:55px auto 0;text-align:center;">
 
 <h3>Every membership is tailored.</h3>
 
@@ -2203,8 +2703,214 @@ There are no rigid packages and your membership can be reviewed as your circumst
 href="contact.html"
 class="btn primary"
 style="display:inline-block;margin-top:25px;">
-Discuss Your Membership
+Arrange Your Complimentary Consultation
 </a>
+
+</div>
+
+<div class="section-title" style="margin-top:90px;">
+
+<p class="eyebrow">EVERY MEMBERSHIP INCLUDES</p>
+
+<h2>More than regular visits.</h2>
+
+<p>
+A Sorted. Membership isn't simply paying for hours. It's having a trusted person who understands your home, your routine and your priorities, providing consistent support that saves time, reduces stress and keeps everyday life running smoothly.
+</p>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>Support tailored to you</h3>
+
+<p>
+Every membership is built around your home, your routine and your priorities rather than a fixed list of tasks.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Regular scheduled visits</h3>
+
+<p>
+Consistent visits from someone who becomes familiar with your home, preferences and the way you like things done.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Priority booking</h3>
+
+<p>
+Need something extra? Members receive priority access whenever additional support is required.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>A familiar face</h3>
+
+<p>
+Instead of different people each visit, you'll have someone who knows your home and notices the little things.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Flexible support</h3>
+
+<p>
+Your membership evolves with you, making it easy to increase, reduce or change the support you receive.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Professional &amp; Discreet</h3>
+
+<p>
+Fully insured, Enhanced DBS checked and committed to treating every home with professionalism and complete confidentiality.
+</p>
+
+</div>
+
+</div>
+
+<div class="section-title" style="margin-top:90px;">
+
+<p class="eyebrow">EVERYDAY EXAMPLES</p>
+
+<h2>What can I actually ask Sorted. to do?</h2>
+
+<p>
+One of the questions we're asked most often is “What exactly can you help with?”
+The answer is usually much more than people expect. Here are just a few examples
+of the ways we can support your home and everyday life.
+</p>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>Shopping &amp; Errands</h3>
+
+<ul>
+  <li>Weekly food shopping</li>
+  <li>Collect prescriptions</li>
+  <li>Return parcels</li>
+  <li>Post letters</li>
+  <li>Collect dry cleaning</li>
+  <li>Buy and collect gifts</li>
+  <li>Collect online orders</li>
+  <li>Visit local shops</li>
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>Home Organisation</h3>
+
+<ul>
+
+<li>Organise cupboards</li>
+<li>Declutter rooms</li>
+<li>Organise wardrobes</li>
+<li>Seasonal clothing changeovers</li>
+<li>Organise kitchens and pantries</li>
+<li>Sort household paperwork</li>
+<li>Create practical storage systems</li>
+<li>Prepare spaces for guests</li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>Home Management</h3>
+
+<ul>
+
+<li>Wait in for deliveries</li>
+<li>Meet contractors</li>
+<li>Provide access for tradespeople</li>
+<li>Check completed work</li>
+<li>Water indoor and outdoor plants</li>
+<li>Complete home checks while you're away</li>
+<li>Check heating, windows and alarms</li>
+<li>Bring bins in and out</li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>Administration</h3>
+
+<ul>
+
+<li>Organise household paperwork</li>
+<li>Assist with forms</li>
+<li>Book appointments</li>
+<li>Manage reminders</li>
+<li>Scan and file documents</li>
+<li>Help with online services</li>
+<li>Keep important information organised</li>
+<li>Arrange household bookings</li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>Travel &amp; Holidays</h3>
+
+<ul>
+
+<li>Prepare your home before departure</li>
+<li>Empty or organise the fridge</li>
+<li>Arrange shopping for your return</li>
+<li>Complete property checks</li>
+<li>Collect and organise post</li>
+<li>Check windows and doors</li>
+<li>Coordinate contractors while you're away</li>
+<li>Prepare your home for your return</li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>Everyday Lifestyle Support</h3>
+
+<ul>
+
+<li>Dog walking and pet visits</li>
+<li>Support with local appointments</li>
+<li>Collect household essentials</li>
+<li>Arrange fresh flowers</li>
+<li>Assist with seasonal decorating</li>
+<li>Help prepare for visitors</li>
+<li>Coordinate practical household jobs</li>
+<li>Provide support within the scope of our services</li>
+
+</ul>
+
+</div>
 
 </div>
 
@@ -2604,6 +3310,27 @@ window.addEventListener("load", () => {
         lucide.createIcons();
     }
 });
+
+document.querySelectorAll(".plan-toggle").forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const plan = button.closest(".plan");
+        const isExpanded = plan.classList.toggle("expanded");
+
+        button.textContent = isExpanded
+            ? "Show less"
+            : "View full membership";
+
+        button.setAttribute(
+            "aria-expanded",
+            isExpanded ? "true" : "false"
+        );
+
+    });
+
+});
+
 </script>
 
 <div id="cookie-banner" style="display:none;position:fixed;bottom:16px;left:50%;transform:translateX(-50%);width:min(82%,460px);background:rgba(23,38,27,.94);color:white;padding:14px 18px;z-index:99999;text-align:center;border-radius:18px;box-shadow:0 16px 40px rgba(23,38,27,.25);font-size:.9rem;">
