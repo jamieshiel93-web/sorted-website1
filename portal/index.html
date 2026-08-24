@@ -1,215 +1,1145 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Client Login | Sorted.</title>
-
-<link rel="icon" href="../favicon.png">
-
-<style>
-
-:root{
---cream:#f8f1e7;
---cream2:#efe0cc;
---forest:#17261b;
---sage:#314632;
---soft:#718c67;
---gold:#caa76a;
---white:#ffffff;
-}
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-body{
-font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-background:linear-gradient(135deg,#f8f1e7,#efe0cc);
-display:flex;
-justify-content:center;
-align-items:center;
-min-height:100vh;
-padding:20px;
-}
-
-.login-card{
-
-width:100%;
-max-width:460px;
-
-background:white;
-
-border-radius:30px;
-
-padding:40px;
-
-box-shadow:0 25px 60px rgba(0,0,0,.12);
-
-text-align:center;
-
-}
-
-.logo{
-
-font-size:46px;
-
-font-weight:800;
-
-color:var(--forest);
-
-margin-bottom:10px;
-
-}
-
-.logo span{
-
-color:var(--gold);
-
-}
-
-h1{
-
-font-size:30px;
-
-margin-bottom:10px;
-
-color:var(--forest);
-
-}
-
-.subtitle{
-
-color:#666;
-
-margin-bottom:35px;
-
-line-height:1.6;
-
-}
-
-input{
-
-width:100%;
-
-padding:18px;
-
-margin-bottom:18px;
-
-border-radius:14px;
-
-border:1px solid #ddd;
-
-font-size:16px;
-
-}
-button{
-
-width:100%;
-
-padding:18px;
-
-border:none;
-
-border-radius:14px;
-
-background:#17261b;
-
-color:white;
-
-font-size:17px;
-
-font-weight:700;
-
-cursor:pointer;
-
-transition:.3s;
-
-}
-
-button:hover{
-
-background:#314632;
-
-}
-
-#error{
-
-margin-top:18px;
-
-color:#b00020;
-
-font-weight:600;
-
-display:none;
-
-}
-
-.small{
-
-margin-top:30px;
-
-font-size:14px;
-
-color:#888;
-
-}
-
-</style>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Client Login | Sorted.</title>
+
+  <link
+    rel="icon"
+    href="../favicon.png"
+    type="image/png"
+  >
+
+  <link
+    rel="apple-touch-icon"
+    href="../favicon.png"
+  >
+
+  <meta
+    name="description"
+    content="Sign in securely to your Sorted. client portal."
+  >
+
+  <meta
+    name="theme-color"
+    content="#17261b"
+  >
+
+  <style>
+
+    :root {
+      --cream: #f8f1e7;
+      --cream-light: #fffaf3;
+      --cream-dark: #efe0cc;
+      --forest: #17261b;
+      --forest-light: #263b2b;
+      --sage: #718c67;
+      --sage-dark: #314632;
+      --gold: #caa76a;
+      --gold-light: #dfc28f;
+      --muted: #686f68;
+      --white: #ffffff;
+      --border: rgba(202, 167, 106, 0.30);
+      --shadow: 0 28px 70px rgba(23, 38, 27, 0.16);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      min-height: 100%;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 35px 20px;
+      background:
+        radial-gradient(
+          circle at 10% 10%,
+          rgba(202, 167, 106, 0.20),
+          transparent 32%
+        ),
+        radial-gradient(
+          circle at 90% 85%,
+          rgba(113, 140, 103, 0.17),
+          transparent 34%
+        ),
+        linear-gradient(
+          135deg,
+          var(--cream),
+          var(--cream-dark)
+        );
+      color: var(--forest);
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    .page-wrap {
+      width: min(1080px, 100%);
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.58);
+      border-radius: 36px;
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    /* LEFT PANEL */
+
+    .welcome-panel {
+      position: relative;
+      min-height: 680px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 55px;
+      overflow: hidden;
+      background:
+        radial-gradient(
+          circle at top right,
+          rgba(202, 167, 106, 0.24),
+          transparent 35%
+        ),
+        linear-gradient(
+          150deg,
+          var(--forest),
+          var(--forest-light)
+        );
+      color: var(--white);
+    }
+
+    .welcome-panel::before {
+      content: "";
+      position: absolute;
+      top: 90px;
+      left: -130px;
+      width: 280px;
+      height: 280px;
+      border: 1px solid rgba(202, 167, 106, 0.16);
+      border-radius: 50%;
+    }
+
+    .welcome-panel::after {
+      content: "";
+      position: absolute;
+      right: -110px;
+      bottom: -110px;
+      width: 300px;
+      height: 300px;
+      border: 1px solid rgba(202, 167, 106, 0.25);
+      border-radius: 50%;
+    }
+
+    .logo {
+      position: relative;
+      z-index: 2;
+      color: var(--white);
+      font-size: 2.25rem;
+      font-weight: 900;
+      letter-spacing: -1.5px;
+    }
+
+    .logo span {
+      color: var(--gold);
+    }
+
+    .welcome-copy {
+      position: relative;
+      z-index: 2;
+    }
+
+    .eyebrow {
+      margin-bottom: 16px;
+      color: var(--gold);
+      font-size: 0.76rem;
+      font-weight: 900;
+      letter-spacing: 2.5px;
+      line-height: 1.5;
+      text-transform: uppercase;
+    }
+
+    .welcome-copy h1 {
+      margin-bottom: 22px;
+      color: var(--white);
+      font-size: clamp(2.7rem, 5vw, 4.2rem);
+      line-height: 0.98;
+      letter-spacing: -3px;
+    }
+
+    .welcome-copy > p:not(.eyebrow) {
+      max-width: 430px;
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 1.02rem;
+      line-height: 1.8;
+    }
+
+    .welcome-points {
+      display: grid;
+      gap: 13px;
+      margin-top: 34px;
+    }
+
+    .welcome-point {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 0.94rem;
+      font-weight: 700;
+    }
+
+    .welcome-point::before {
+      content: "✓";
+      flex-shrink: 0;
+      width: 25px;
+      height: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: var(--gold);
+      color: var(--forest);
+      font-size: 0.75rem;
+      font-weight: 900;
+    }
+
+    .home-link {
+      position: relative;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255, 255, 255, 0.82);
+      font-weight: 700;
+      transition: color 0.25s ease;
+    }
+
+    .home-link:hover {
+      color: var(--gold);
+    }
+
+    /* FORM PANEL */
+
+    .form-panel {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 55px;
+      background: rgba(255, 253, 249, 0.94);
+    }
+
+    .form-heading {
+      margin-bottom: 31px;
+    }
+
+    .form-heading h2 {
+      margin-bottom: 11px;
+      color: var(--forest);
+      font-size: 2.4rem;
+      line-height: 1.08;
+      letter-spacing: -1.7px;
+    }
+
+    .form-heading > p:not(.eyebrow) {
+      max-width: 520px;
+      color: var(--muted);
+      line-height: 1.72;
+    }
+
+    .login-form {
+      display: grid;
+      gap: 19px;
+    }
+
+    label {
+      display: block;
+      color: var(--sage-dark);
+      font-size: 0.93rem;
+      font-weight: 800;
+    }
+
+    input {
+      width: 100%;
+      margin-top: 8px;
+      padding: 16px 17px;
+      border: 1px solid #e2d8c9;
+      border-radius: 14px;
+      outline: none;
+      background: #fcfaf7;
+      color: var(--forest);
+      transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+    }
+
+    input::placeholder {
+      color: #999c98;
+    }
+
+    input:focus {
+      border-color: var(--gold);
+      background: var(--white);
+      box-shadow: 0 0 0 5px rgba(202, 167, 106, 0.16);
+    }
+
+    .password-field {
+      position: relative;
+    }
+
+    .password-field input {
+      padding-right: 82px;
+    }
+
+    .show-password {
+      position: absolute;
+      right: 13px;
+      bottom: 12px;
+      padding: 5px 7px;
+      border: 0;
+      background: transparent;
+      color: var(--sage-dark);
+      font-size: 0.79rem;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .show-password:hover {
+      color: var(--gold);
+    }
+
+    .form-options {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: -2px;
+    }
+
+    .remember-row {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--muted);
+      font-size: 0.86rem;
+      font-weight: 600;
+    }
+
+    .remember-row input {
+      width: 18px;
+      height: 18px;
+      margin: 0;
+      accent-color: var(--forest);
+    }
+
+    .forgot-button {
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: var(--forest);
+      font-size: 0.86rem;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .forgot-button:hover {
+      color: var(--gold);
+    }
+
+    .submit-button {
+      position: relative;
+      min-height: 56px;
+      margin-top: 4px;
+      padding: 15px 25px;
+      overflow: hidden;
+      border: 0;
+      border-radius: 999px;
+      background:
+        linear-gradient(
+          135deg,
+          var(--forest),
+          var(--sage-dark)
+        );
+      color: var(--white);
+      font-weight: 900;
+      cursor: pointer;
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        opacity 0.3s ease;
+    }
+
+    .submit-button::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -120%;
+      width: 70%;
+      height: 100%;
+      background:
+        linear-gradient(
+          120deg,
+          transparent,
+          rgba(255, 255, 255, 0.25),
+          transparent
+        );
+      animation: button-shine 5s infinite;
+    }
+
+    .submit-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 17px 38px rgba(23, 38, 27, 0.20);
+    }
+
+    .submit-button:disabled {
+      cursor: not-allowed;
+      opacity: 0.65;
+      transform: none;
+    }
+
+    .message {
+      display: none;
+      padding: 13px 15px;
+      border-radius: 13px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      line-height: 1.55;
+    }
+
+    .message.error {
+      display: block;
+      border: 1px solid rgba(164, 49, 49, 0.24);
+      background: rgba(164, 49, 49, 0.08);
+      color: #8b2929;
+    }
+
+    .message.success {
+      display: block;
+      border: 1px solid rgba(49, 105, 65, 0.25);
+      background: rgba(49, 105, 65, 0.09);
+      color: #285c36;
+    }
+
+    .register-area {
+      margin-top: 28px;
+      padding-top: 26px;
+      border-top: 1px solid rgba(23, 38, 27, 0.10);
+      text-align: center;
+    }
+
+    .register-area p {
+      margin-bottom: 15px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .register-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 53px;
+      padding: 14px 24px;
+      border: 2px solid var(--gold);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.65);
+      color: var(--forest);
+      font-weight: 900;
+      transition:
+        background 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+    .register-link:hover {
+      transform: translateY(-3px);
+      background: var(--gold);
+      box-shadow: 0 14px 30px rgba(23, 38, 27, 0.12);
+    }
+
+    .security-note {
+      margin-top: 24px;
+      color: #898d89;
+      font-size: 0.78rem;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    @keyframes button-shine {
+
+      from {
+        left: -120%;
+      }
+
+      to {
+        left: 150%;
+      }
+
+    }
+
+    @media (max-width: 850px) {
+
+      body {
+        padding: 0;
+      }
+
+      .page-wrap {
+        min-height: 100vh;
+        grid-template-columns: 1fr;
+        border: 0;
+        border-radius: 0;
+      }
+
+      .welcome-panel {
+        min-height: auto;
+        padding: 40px 30px;
+      }
+
+      .welcome-copy {
+        margin: 58px 0 30px;
+      }
+
+      .home-link {
+        margin-top: 38px;
+      }
+
+      .form-panel {
+        padding: 48px 30px;
+      }
+
+    }
+
+    @media (max-width: 540px) {
+
+      .welcome-panel,
+      .form-panel {
+        padding-left: 23px;
+        padding-right: 23px;
+      }
+
+      .welcome-copy h1 {
+        font-size: 2.7rem;
+      }
+
+      .form-heading h2 {
+        font-size: 2.05rem;
+      }
+
+      .form-options {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 13px;
+      }
+
+      .submit-button,
+      .register-link {
+        width: 100%;
+      }
+
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+
+    }
+
+  </style>
 
 </head>
 
 <body>
 
-<div class="login-card">
+  <main class="page-wrap">
 
-<div class="logo">Sorted<span>.</span></div>
+    <section class="welcome-panel">
 
-<h1>Client Portal</h1>
+      <a
+        href="../index.html"
+        class="logo"
+        aria-label="Return to the Sorted website"
+      >
+        Sorted<span>.</span>
+      </a>
 
-<p class="subtitle">
+      <div class="welcome-copy">
 
-Sign in to view your upcoming visits, invoices, documents and membership details.
+        <p class="eyebrow">
+          Client Portal
+        </p>
 
-</p>
+        <h1>
+          Welcome back<br>
+          to Sorted.
+        </h1>
 
-<input
-type="email"
-id="email"
-placeholder="Email address">
+        <p>
+          Sign in securely to access your personal client portal and keep
+          your Sorted. services, information and requests together in one
+          convenient place.
+        </p>
 
-<input
-type="password"
-id="password"
-placeholder="Password">
+        <div class="welcome-points">
 
-<button onclick="login()">
+          <div class="welcome-point">
+            View your upcoming visits
+          </div>
 
-Sign In
+          <div class="welcome-point">
+            Access invoices and documents
+          </div>
 
-</button>
+          <div class="welcome-point">
+            Manage your account details
+          </div>
 
-<div id="error">
+          <div class="welcome-point">
+            Keep track of your support
+          </div>
 
-Incorrect email or password.
+        </div>
 
-</div>
+      </div>
 
-<p class="small">
+      <a
+        href="../index.html"
+        class="home-link"
+      >
+        ← Return to the Sorted. website
+      </a>
 
-© Sorted.
+    </section>
 
-</p>
+    <section class="form-panel">
 
-</div>
+      <div class="form-heading">
 
-<script type="module" src="../firebase.js"></script>
+        <p class="eyebrow">
+          Secure Sign In
+        </p>
 
-<script type="module" src="portal.js"></script>
+        <h2>
+          Access your account
+        </h2>
+
+        <p>
+          Enter the email address and password connected to your Sorted.
+          client account.
+        </p>
+
+      </div>
+
+      <form
+        id="login-form"
+        class="login-form"
+      >
+
+        <label for="email">
+
+          Email address
+
+          <input
+            type="email"
+            id="email"
+            placeholder="you@example.com"
+            autocomplete="email"
+            required
+          >
+
+        </label>
+
+        <label
+          for="password"
+          class="password-field"
+        >
+
+          Password
+
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter your password"
+            autocomplete="current-password"
+            required
+          >
+
+          <button
+            type="button"
+            id="show-password"
+            class="show-password"
+          >
+            Show
+          </button>
+
+        </label>
+
+        <div class="form-options">
+
+          <label class="remember-row">
+
+            <input
+              type="checkbox"
+              id="remember-me"
+              checked
+            >
+
+            Keep me signed in
+
+          </label>
+
+          <button
+            type="button"
+            id="forgot-password"
+            class="forgot-button"
+          >
+            Forgotten password?
+          </button>
+
+        </div>
+
+        <div
+          id="form-message"
+          class="message"
+          role="alert"
+          aria-live="polite"
+        ></div>
+
+        <button
+          type="submit"
+          id="login-button"
+          class="submit-button"
+        >
+          Sign In Securely
+        </button>
+
+      </form>
+
+      <div class="register-area">
+
+        <p>
+          New to the Sorted. client portal?
+        </p>
+
+        <a
+          href="register.html"
+          class="register-link"
+        >
+          Create Your Account
+        </a>
+
+      </div>
+
+      <p class="security-note">
+        Your login is protected using secure Firebase Authentication.
+        Never share your password or verification email.
+      </p>
+
+    </section>
+
+  </main>
+
+  <script type="module">
+
+    import {
+  auth,
+  db
+} from "../firebase.js";
+
+    import {
+      signInWithEmailAndPassword,
+      sendPasswordResetEmail,
+      setPersistence,
+      browserLocalPersistence,
+      browserSessionPersistence,
+      signOut
+    } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
+
+import {
+  doc,
+  getDoc
+} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
+
+    const loginForm =
+      document.getElementById("login-form");
+
+    const loginButton =
+      document.getElementById("login-button");
+
+    const formMessage =
+      document.getElementById("form-message");
+
+    const emailInput =
+      document.getElementById("email");
+
+    const passwordInput =
+      document.getElementById("password");
+
+    const rememberMe =
+      document.getElementById("remember-me");
+
+    const showPasswordButton =
+      document.getElementById("show-password");
+
+    const forgotPasswordButton =
+      document.getElementById("forgot-password");
+
+
+    function showMessage(message, type) {
+
+      formMessage.textContent = message;
+
+      formMessage.className = "message " + type;
+
+    }
+
+
+    function clearMessage() {
+
+      formMessage.textContent = "";
+
+      formMessage.className = "message";
+
+    }
+
+
+    function getFriendlyLoginError(errorCode) {
+
+      const messages = {
+
+        "auth/invalid-email":
+          "Please enter a valid email address.",
+
+        "auth/invalid-credential":
+          "The email address or password entered is incorrect.",
+
+        "auth/user-disabled":
+          "This account has been disabled. Please contact Sorted.",
+
+        "auth/user-not-found":
+          "The email address or password entered is incorrect.",
+
+        "auth/wrong-password":
+          "The email address or password entered is incorrect.",
+
+        "auth/too-many-requests":
+          "Too many unsuccessful attempts have been made. Please wait before trying again.",
+
+        "auth/network-request-failed":
+          "There was a connection problem. Please check your internet connection and try again.",
+
+        "auth/operation-not-allowed":
+          "Email and password sign-in has not been enabled. Please contact Sorted."
+
+      };
+
+      return messages[errorCode] ||
+        "We could not sign you in. Please check your details and try again.";
+
+    }
+
+
+    showPasswordButton.addEventListener(
+      "click",
+      function () {
+
+        const passwordIsHidden =
+          passwordInput.type === "password";
+
+        passwordInput.type =
+          passwordIsHidden ? "text" : "password";
+
+        showPasswordButton.textContent =
+          passwordIsHidden ? "Hide" : "Show";
+
+      }
+    );
+
+
+    forgotPasswordButton.addEventListener(
+      "click",
+      async function () {
+
+        clearMessage();
+
+        const email =
+          emailInput.value.trim();
+
+
+        if (!email) {
+
+          showMessage(
+            "Enter your email address above, then select “Forgotten password?” again.",
+            "error"
+          );
+
+          emailInput.focus();
+
+          return;
+
+        }
+
+
+        forgotPasswordButton.disabled = true;
+
+        forgotPasswordButton.textContent =
+          "Sending reset email…";
+
+
+        try {
+
+          await sendPasswordResetEmail(
+            auth,
+            email
+          );
+
+
+          showMessage(
+            "A password reset email has been sent. Please check your inbox and junk folder.",
+            "success"
+          );
+
+
+        } catch (error) {
+
+          console.error(
+            "Password reset error:",
+            error
+          );
+
+
+          if (error.code === "auth/invalid-email") {
+
+            showMessage(
+              "Please enter a valid email address.",
+              "error"
+            );
+
+          } else if (
+            error.code === "auth/network-request-failed"
+          ) {
+
+            showMessage(
+              "There was a connection problem. Please check your internet connection and try again.",
+              "error"
+            );
+
+          } else {
+
+            showMessage(
+              "If an account exists for this email address, a reset email will be sent.",
+              "success"
+            );
+
+          }
+
+        } finally {
+
+          forgotPasswordButton.disabled = false;
+
+          forgotPasswordButton.textContent =
+            "Forgotten password?";
+
+        }
+
+      }
+    );
+
+
+    loginForm.addEventListener(
+      "submit",
+      async function (event) {
+
+        event.preventDefault();
+
+        clearMessage();
+
+
+        const email =
+          emailInput.value.trim();
+
+        const password =
+          passwordInput.value;
+
+
+        loginButton.disabled = true;
+
+        loginButton.textContent =
+          "Signing You In…";
+
+
+        try {
+
+          await setPersistence(
+            auth,
+            rememberMe.checked
+              ? browserLocalPersistence
+              : browserSessionPersistence
+          );
+
+
+          const userCredential =
+            await signInWithEmailAndPassword(
+              auth,
+              email,
+              password
+            );
+
+
+          const user =
+            userCredential.user;
+
+
+          if (!user.emailVerified) {
+
+            await signOut(auth);
+
+
+            showMessage(
+              "Please verify your email address before signing in. Check the verification email sent when you registered.",
+              "error"
+            );
+
+
+            loginButton.disabled = false;
+
+            loginButton.textContent =
+              "Sign In Securely";
+
+            return;
+
+          }
+
+const userDoc =
+  await getDoc(
+    doc(
+      db,
+      "users",
+      user.uid
+    )
+  );
+
+if (!userDoc.exists()) {
+
+  await signOut(auth);
+
+  showMessage(
+    "We could not find your portal registration. Please contact Sorted.",
+    "error"
+  );
+
+  loginButton.disabled = false;
+
+  loginButton.textContent =
+    "Sign In Securely";
+
+  return;
+
+}
+
+const userData =
+  userDoc.data();
+
+if (userData.status !== "approved") {
+
+  await signOut(auth);
+
+  showMessage(
+    "Your account is still awaiting approval from Sorted. You will be able to sign in once your account has been approved.",
+    "error"
+  );
+
+  loginButton.disabled = false;
+
+  loginButton.textContent =
+    "Sign In Securely";
+
+  return;
+
+}
+
+          showMessage(
+            "Sign-in successful. Opening your client portal…",
+            "success"
+          );
+
+
+          loginButton.textContent =
+            "Opening Your Portal…";
+
+
+          setTimeout(function () {
+
+            window.location.href =
+              "dashboard.html";
+
+          }, 900);
+
+
+        } catch (error) {
+
+          console.error(
+            "Login error:",
+            error
+          );
+
+
+          showMessage(
+            getFriendlyLoginError(error.code),
+            "error"
+          );
+
+
+          loginButton.disabled = false;
+
+          loginButton.textContent =
+            "Sign In Securely";
+
+        }
+
+      }
+    );
+
+  </script>
 
 </body>
 
