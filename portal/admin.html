@@ -3,2993 +3,2501 @@
 
 <head>
 
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
 
-  <title>Sorted. Studio | Administration</title>
+<title>Sorted. Studio | Administration</title>
 
-  <meta
-    name="robots"
-    content="noindex,nofollow"
-  >
+<meta
+  name="robots"
+  content="noindex,nofollow"
+>
 
-  <meta
-    name="theme-color"
-    content="#17261b"
-  >
+<meta
+  name="theme-color"
+  content="#17261b"
+>
 
-  <link
-    rel="icon"
-    href="../favicon.png"
-    type="image/png"
-  >
+<link
+  rel="icon"
+  href="../favicon.png"
+  type="image/png"
+>
 
-  <link
-    rel="apple-touch-icon"
-    href="../favicon.png"
-  >
+<link
+  rel="apple-touch-icon"
+  href="../favicon.png"
+>
 
-  <script
-    src="https://unpkg.com/lucide@0.542.0/dist/umd/lucide.js"
-  ></script>
+<script>
+  document.documentElement.classList.add("js");
+</script>
 
+<script
+  defer
+  src="https://unpkg.com/lucide@0.542.0/dist/umd/lucide.js"
+></script>
 
-  <style>
 
-    /* ==================================================
-       ROOT
-    ================================================== */
+<style>
 
-    :root {
+:root{
 
-      --cream:#f8f1e7;
-      --cream-soft:#fffaf4;
-      --cream-deep:#efe0cc;
+  --cream:#f8f1e7;
+  --cream-soft:#fffaf4;
+  --cream-deep:#efe0cc;
 
-      --forest:#17261b;
-      --forest-soft:#223228;
+  --forest:#17261b;
+  --forest-soft:#223228;
 
-      --sage:#314632;
-      --sage-mid:#718c67;
-      --sage-pale:#e6eadf;
+  --sage:#314632;
+  --sage-mid:#718c67;
+  --sage-pale:#e6eadf;
 
-      --gold:#caa76a;
-      --gold-soft:#dec28d;
+  --gold:#caa76a;
+  --gold-soft:#dec28d;
 
-      --white:#ffffff;
+  --white:#ffffff;
 
-      --ink:#1d241f;
-      --muted:#6f746e;
+  --ink:#1d241f;
+  --muted:#6f746e;
 
-      --red:#934242;
-      --red-soft:#fff0ed;
+  --red:#934242;
+  --red-soft:#fff0ed;
 
-      --green:#47704d;
-      --green-soft:#edf5ec;
+  --green:#47704d;
+  --green-soft:#edf5ec;
 
-      --orange:#8a6828;
-      --orange-soft:#fff5df;
+  --orange:#8a6828;
+  --orange-soft:#fff6e5;
 
-      --blue:#465f82;
-      --blue-soft:#edf1f8;
+  --blue:#465f82;
+  --blue-soft:#edf1f8;
 
-      --border:rgba(202,167,106,.25);
-      --soft-border:rgba(23,38,27,.09);
+  --border:rgba(202,167,106,.25);
+  --soft-border:rgba(23,38,27,.09);
 
-      --shadow:
-        0 28px 80px rgba(23,38,27,.14);
+  --shadow:
+    0 28px 80px rgba(23,38,27,.14);
 
-      --soft-shadow:
-        0 14px 36px rgba(23,38,27,.08);
+  --soft-shadow:
+    0 14px 36px rgba(23,38,27,.08);
 
-    }
+}
 
 
-    /* ==================================================
-       RESET
-    ================================================== */
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
-    * {
 
-      box-sizing:border-box;
-      margin:0;
-      padding:0;
+html{
+  scroll-behavior:smooth;
+}
 
-    }
 
+body{
 
-    html {
+  min-height:100vh;
 
-      scroll-behavior:smooth;
+  overflow-x:hidden;
 
-    }
+  background:
 
+    radial-gradient(
+      circle at 4% 4%,
+      rgba(202,167,106,.12),
+      transparent 27%
+    ),
 
-    body {
+    radial-gradient(
+      circle at 96% 7%,
+      rgba(113,140,103,.12),
+      transparent 29%
+    ),
 
-      min-height:100vh;
+    linear-gradient(
+      180deg,
+      var(--cream-soft),
+      var(--cream)
+    );
 
-      overflow-x:hidden;
+  color:var(--ink);
 
-      background:
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
 
-        radial-gradient(
-          circle at 4% 4%,
-          rgba(202,167,106,.12),
-          transparent 27%
-        ),
+  line-height:1.6;
 
-        radial-gradient(
-          circle at 96% 7%,
-          rgba(113,140,103,.12),
-          transparent 29%
-        ),
+}
 
-        linear-gradient(
-          180deg,
-          var(--cream-soft),
-          var(--cream)
-        );
 
-      color:var(--ink);
+body.modal-open{
+  overflow:hidden;
+}
 
-      font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
-        Helvetica,
-        Arial,
-        sans-serif;
 
-      line-height:1.6;
+a{
+  color:inherit;
+  text-decoration:none;
+}
 
-    }
 
+button,
+input,
+select,
+textarea{
+  font:inherit;
+}
 
-    body.modal-open {
 
-      overflow:hidden;
+button{
+  border:0;
+  cursor:pointer;
+}
 
-    }
 
+button,
+a{
+  -webkit-tap-highlight-color:transparent;
+}
 
-    ::selection {
 
-      background:var(--gold);
-      color:white;
+::selection{
+  background:var(--gold);
+  color:white;
+}
 
-    }
 
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible{
 
-    a {
+  outline:3px solid var(--gold);
+  outline-offset:4px;
 
-      color:inherit;
-      text-decoration:none;
+}
 
-    }
 
+.container{
 
-    button,
-    input,
-    select,
-    textarea {
+  width:min(1320px,94%);
+  margin:0 auto;
 
-      font:inherit;
+}
 
-    }
 
+/* ==================================================
+   LOGIN
+================================================== */
 
-    button {
+.login-screen{
 
-      border:0;
-      cursor:pointer;
+  min-height:100vh;
 
-    }
+  display:flex;
+  align-items:center;
+  justify-content:center;
 
+  padding:40px 20px;
 
-    button,
-    a {
+  background:
 
-      -webkit-tap-highlight-color:transparent;
+    linear-gradient(
+      90deg,
+      rgba(248,241,231,.96) 0%,
+      rgba(248,241,231,.89) 46%,
+      rgba(248,241,231,.62) 100%
+    ),
 
-    }
+    url("../background.png");
 
+  background-size:cover;
+  background-position:center;
 
-    a:focus-visible,
-    button:focus-visible,
-    input:focus-visible,
-    select:focus-visible,
-    textarea:focus-visible {
+}
 
-      outline:3px solid var(--gold);
-      outline-offset:4px;
 
-    }
+.login-shell{
 
+  width:min(1000px,100%);
 
-    .container {
+  display:grid;
 
-      width:min(1320px,94%);
-      margin:0 auto;
+  grid-template-columns:
+    minmax(0,.9fr)
+    minmax(380px,1.1fr);
 
-    }
+  overflow:hidden;
 
+  border:
+    1px solid rgba(202,167,106,.28);
 
-    .eyebrow {
+  border-radius:34px;
 
-      color:var(--gold);
+  background:
+    rgba(255,250,244,.96);
 
-      font-size:.68rem;
-      font-weight:900;
+  box-shadow:
+    0 34px 90px rgba(23,38,27,.20);
 
-      letter-spacing:2.1px;
+}
 
-      text-transform:uppercase;
 
-    }
+.login-brand-panel{
 
+  position:relative;
 
-    /* ==================================================
-       LOGIN
-    ================================================== */
+  overflow:hidden;
 
-    .login-screen {
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
 
-      min-height:100vh;
+  min-height:610px;
 
-      display:flex;
-      align-items:center;
-      justify-content:center;
+  padding:48px;
 
-      padding:40px 20px;
+  color:white;
 
-      background:
+  background:
 
-        linear-gradient(
-          90deg,
-          rgba(248,241,231,.96) 0%,
-          rgba(248,241,231,.89) 46%,
-          rgba(248,241,231,.62) 100%
-        ),
+    radial-gradient(
+      circle at 92% 8%,
+      rgba(202,167,106,.20),
+      transparent 32%
+    ),
 
-        url("../background.png");
+    linear-gradient(
+      145deg,
+      var(--forest),
+      var(--forest-soft)
+    );
 
-      background-size:cover;
-      background-position:center;
+}
 
-    }
 
+.login-brand-panel::before{
 
-    .login-shell {
+  content:"";
 
-      width:min(1000px,100%);
+  position:absolute;
 
-      display:grid;
+  top:-130px;
+  right:-120px;
 
-      grid-template-columns:
-        minmax(0,.9fr)
-        minmax(380px,1.1fr);
+  width:330px;
+  height:330px;
 
-      overflow:hidden;
+  border:
+    1px solid rgba(222,194,141,.14);
 
-      border:
-        1px solid rgba(202,167,106,.28);
+  border-radius:50%;
 
-      border-radius:34px;
+}
 
-      background:
-        rgba(255,250,244,.96);
 
-      box-shadow:
-        0 34px 90px rgba(23,38,27,.20);
+.login-brand-content,
+.login-brand-footer{
 
-      backdrop-filter:blur(18px);
-      -webkit-backdrop-filter:blur(18px);
+  position:relative;
+  z-index:2;
 
-    }
+}
 
 
-    .login-brand-panel {
+.login-logo{
 
-      position:relative;
+  margin-bottom:38px;
 
-      overflow:hidden;
+  color:white;
 
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
+  font-size:2.15rem;
+  font-weight:850;
 
-      min-height:610px;
+  letter-spacing:-1px;
 
-      padding:48px;
+}
 
-      color:white;
 
-      background:
+.login-logo span{
+  color:var(--gold);
+}
 
-        radial-gradient(
-          circle at 92% 8%,
-          rgba(202,167,106,.20),
-          transparent 32%
-        ),
 
-        radial-gradient(
-          circle at 4% 93%,
-          rgba(113,140,103,.20),
-          transparent 34%
-        ),
+.studio-label{
 
-        linear-gradient(
-          145deg,
-          var(--forest),
-          var(--forest-soft)
-        );
+  display:inline-flex;
+  align-items:center;
 
-    }
+  gap:9px;
 
+  margin-bottom:17px;
 
-    .login-brand-panel::before {
+  color:var(--gold-soft);
 
-      content:"";
+  font-size:.67rem;
+  font-weight:900;
 
-      position:absolute;
+  letter-spacing:2px;
 
-      top:-130px;
-      right:-120px;
+  text-transform:uppercase;
 
-      width:330px;
-      height:330px;
+}
 
-      border:
-        1px solid rgba(222,194,141,.14);
 
-      border-radius:50%;
+.studio-label svg{
 
-    }
+  width:17px;
+  height:17px;
 
+}
 
-    .login-brand-panel::after {
 
-      content:"";
+.login-brand-panel h1{
 
-      position:absolute;
+  max-width:440px;
 
-      left:-120px;
-      bottom:-120px;
+  margin-bottom:21px;
 
-      width:280px;
-      height:280px;
+  color:white;
 
-      border:
-        1px solid rgba(255,255,255,.07);
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
 
-      border-radius:50%;
+  font-size:
+    clamp(3rem,5vw,4.7rem);
 
-    }
+  font-weight:500;
 
+  line-height:.98;
 
-    .login-brand-content,
-    .login-brand-footer {
+  letter-spacing:-2.7px;
 
-      position:relative;
-      z-index:2;
+}
 
-    }
 
+.login-brand-panel h1 em{
 
-    .login-logo {
+  display:block;
 
-      margin-bottom:38px;
+  color:var(--gold-soft);
 
-      color:white;
+  font-weight:500;
 
-      font-size:2.15rem;
-      font-weight:850;
+}
 
-      letter-spacing:-1px;
 
-    }
+.login-brand-panel p{
 
+  max-width:470px;
 
-    .login-logo span {
+  color:rgba(255,255,255,.72);
 
-      color:var(--gold);
+  font-size:.95rem;
+  line-height:1.75;
 
-    }
+}
 
 
-    .studio-label {
+.login-brand-footer{
 
-      display:inline-flex;
-      align-items:center;
+  display:flex;
+  align-items:center;
 
-      gap:9px;
+  gap:10px;
 
-      margin-bottom:17px;
+  color:rgba(255,255,255,.58);
 
-      color:var(--gold-soft);
+  font-size:.73rem;
 
-      font-size:.67rem;
-      font-weight:900;
+}
 
-      letter-spacing:2px;
 
-      text-transform:uppercase;
+.login-brand-footer svg{
 
-    }
+  width:17px;
+  height:17px;
 
+  color:var(--gold-soft);
 
-    .studio-label svg {
+}
 
-      width:17px;
-      height:17px;
 
-    }
+.login-card{
 
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
 
-    .login-brand-panel h1 {
+  padding:54px;
 
-      max-width:440px;
+  background:
+    rgba(255,253,249,.98);
 
-      margin-bottom:21px;
+}
 
-      color:white;
 
-      font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
+.eyebrow{
 
-      font-size:
-        clamp(3rem,5vw,4.7rem);
+  margin-bottom:10px;
 
-      font-weight:500;
+  color:var(--gold);
 
-      line-height:.98;
+  font-size:.67rem;
+  font-weight:900;
 
-      letter-spacing:-2.7px;
+  letter-spacing:1.9px;
 
-    }
+  text-transform:uppercase;
 
+}
 
-    .login-brand-panel h1 em {
 
-      display:block;
+.login-card h2{
 
-      color:var(--gold-soft);
+  margin-bottom:11px;
 
-      font-weight:500;
+  color:var(--forest);
 
-    }
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
 
+  font-size:
+    clamp(2.2rem,4vw,3.2rem);
 
-    .login-brand-panel p {
+  font-weight:500;
 
-      max-width:470px;
+  line-height:1.05;
 
-      color:rgba(255,255,255,.72);
+}
 
-      font-size:.95rem;
-      line-height:1.75;
 
-    }
+.login-intro{
 
+  margin-bottom:30px;
 
-    .login-brand-footer {
+  color:var(--muted);
 
-      display:flex;
-      align-items:center;
+  font-size:.88rem;
 
-      gap:10px;
+}
 
-      color:rgba(255,255,255,.58);
 
-      font-size:.73rem;
+.login-field{
 
-    }
+  margin-bottom:17px;
 
+}
 
-    .login-brand-footer svg {
 
-      width:17px;
-      height:17px;
+.login-field label{
 
-      color:var(--gold-soft);
+  display:block;
 
-    }
+  margin-bottom:7px;
 
+  color:var(--sage);
 
-    .login-card {
+  font-size:.76rem;
+  font-weight:850;
 
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
+}
 
-      padding:54px;
 
-      background:
-        rgba(255,253,249,.98);
+.login-input-wrap{
+  position:relative;
+}
 
-    }
 
+.login-input-wrap svg{
 
-    .login-card .eyebrow {
+  position:absolute;
 
-      margin-bottom:12px;
+  top:50%;
+  left:15px;
 
-    }
+  width:18px;
+  height:18px;
 
+  color:var(--sage-mid);
 
-    .login-card h2 {
+  transform:translateY(-50%);
 
-      margin-bottom:11px;
+}
 
-      color:var(--forest);
 
-      font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
+.login-card input{
 
-      font-size:
-        clamp(2.2rem,4vw,3.2rem);
+  width:100%;
+  min-height:54px;
 
-      font-weight:500;
+  padding:
+    14px 15px
+    14px 45px;
 
-      line-height:1.05;
+  border:
+    1px solid #e4d8c9;
 
-      letter-spacing:-1.7px;
+  border-radius:14px;
 
-    }
+  background:#fcfaf7;
 
+  color:var(--ink);
 
-    .login-intro {
+  outline:none;
 
-      margin-bottom:30px;
+}
 
-      color:var(--muted);
 
-      font-size:.88rem;
-      line-height:1.7;
+.login-card input:focus{
 
-    }
+  border-color:var(--gold);
 
+  background:white;
 
-    .login-field {
+  box-shadow:
+    0 0 0 5px rgba(202,167,106,.14);
 
-      margin-bottom:17px;
+}
 
-    }
 
+.login-button{
 
-    .login-field label {
+  width:100%;
+  min-height:56px;
 
-      display:block;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 
-      margin-bottom:7px;
+  gap:9px;
 
-      color:var(--sage);
+  margin-top:4px;
 
-      font-size:.76rem;
-      font-weight:850;
+  padding:15px 22px;
 
-    }
+  border-radius:999px;
 
+  background:
 
-    .login-input-wrap {
+    linear-gradient(
+      135deg,
+      var(--forest),
+      var(--sage)
+    );
 
-      position:relative;
+  color:white;
 
-    }
+  font-size:.84rem;
+  font-weight:900;
 
+}
 
-    .login-input-wrap svg {
 
-      position:absolute;
+.login-button svg{
 
-      top:50%;
-      left:15px;
+  width:18px;
+  height:18px;
 
-      width:18px;
-      height:18px;
+}
 
-      color:var(--sage-mid);
 
-      transform:translateY(-50%);
+#error{
 
-      pointer-events:none;
+  display:none;
 
-    }
+  margin-top:17px;
+  padding:14px 15px;
 
+  border:
+    1px solid rgba(147,66,66,.16);
 
-    .login-card input {
+  border-radius:14px;
 
-      width:100%;
-      min-height:54px;
+  background:var(--red-soft);
 
-      padding:
-        14px 15px
-        14px 45px;
+  color:var(--red);
 
-      border:
-        1px solid #e4d8c9;
+  font-size:.79rem;
+  font-weight:750;
 
-      border-radius:14px;
+}
 
-      background:#fcfaf7;
 
-      color:var(--ink);
+/* ==================================================
+   STUDIO HEADER
+================================================== */
 
-      outline:none;
+#studio{
+  display:none;
+}
 
-      transition:
-        border-color .25s ease,
-        box-shadow .25s ease,
-        background .25s ease;
 
-    }
+.studio-header{
 
+  position:sticky;
 
-    .login-card input:focus {
+  top:0;
 
-      border-color:var(--gold);
+  z-index:1000;
 
-      background:white;
+  border-bottom:
+    1px solid rgba(202,167,106,.19);
 
-      box-shadow:
-        0 0 0 5px rgba(202,167,106,.14);
+  background:
+    rgba(255,253,249,.96);
 
-    }
+  box-shadow:
+    0 10px 35px rgba(23,38,27,.07);
 
+  backdrop-filter:blur(18px);
 
-    .login-button {
+}
 
-      position:relative;
 
-      width:100%;
-      min-height:56px;
+.studio-header-inner{
 
-      display:flex;
-      align-items:center;
-      justify-content:center;
+  min-height:74px;
 
-      gap:9px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 
-      overflow:hidden;
+  gap:24px;
 
-      margin-top:4px;
+}
 
-      padding:15px 22px;
 
-      border-radius:999px;
+.brand-group{
 
-      background:
+  display:flex;
+  align-items:center;
 
-        linear-gradient(
-          135deg,
-          var(--forest),
-          var(--sage)
-        );
+  gap:17px;
 
-      color:white;
+}
 
-      font-size:.84rem;
-      font-weight:900;
 
-      box-shadow:
-        0 15px 34px rgba(23,38,27,.17);
+.brand{
 
-      transition:
-        transform .25s ease,
-        box-shadow .25s ease;
+  color:var(--forest);
 
-    }
+  font-size:2rem;
+  font-weight:850;
 
+}
 
-    .login-button::before {
 
-      content:"";
+.brand span{
+  color:var(--gold);
+}
 
-      position:absolute;
 
-      top:0;
-      left:-130%;
+.studio-name{
 
-      width:60%;
-      height:100%;
+  padding-left:17px;
 
-      background:
+  border-left:
+    1px solid rgba(23,38,27,.13);
 
-        linear-gradient(
-          120deg,
-          transparent,
-          rgba(255,255,255,.25),
-          transparent
-        );
+  color:var(--sage-mid);
 
-      animation:buttonShine 5.5s infinite;
+  font-size:.71rem;
+  font-weight:900;
 
-    }
+  letter-spacing:2px;
 
+  text-transform:uppercase;
 
-    .login-button:hover {
+}
 
-      transform:translateY(-3px);
 
-      box-shadow:
-        0 20px 42px rgba(23,38,27,.22);
+.header-actions{
 
-    }
+  display:flex;
+  align-items:center;
 
+  gap:10px;
 
-    .login-button svg {
+}
 
-      width:18px;
-      height:18px;
 
-    }
+.header-button,
+.logout{
 
+  min-height:43px;
 
-    #error {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
 
-      display:none;
+  gap:8px;
 
-      margin-top:17px;
-      padding:14px 15px;
+  padding:9px 15px;
 
-      border:
-        1px solid rgba(147,66,66,.16);
+  border-radius:999px;
 
-      border-radius:14px;
+  font-size:.76rem;
+  font-weight:850;
 
-      background:var(--red-soft);
+}
 
-      color:var(--red);
 
-      font-size:.79rem;
-      font-weight:750;
+.header-button{
 
-      line-height:1.5;
+  border:
+    1px solid rgba(202,167,106,.28);
 
-    }
+  background:var(--cream-soft);
 
+  color:var(--forest);
 
-    .login-security {
+}
 
-      display:flex;
-      align-items:flex-start;
 
-      gap:9px;
+.logout{
 
-      margin-top:22px;
+  background:
+    linear-gradient(
+      135deg,
+      var(--forest),
+      var(--sage)
+    );
 
-      padding-top:20px;
+  color:white;
 
-      border-top:
-        1px solid var(--soft-border);
+}
 
-      color:var(--muted);
 
-      font-size:.7rem;
-      line-height:1.55;
+.header-button svg,
+.logout svg{
 
-    }
+  width:17px;
+  height:17px;
 
+}
 
-    .login-security svg {
 
-      width:17px;
-      height:17px;
+.studio-main{
 
-      flex-shrink:0;
+  padding:30px 0 70px;
 
-      margin-top:1px;
+}
 
-      color:var(--gold);
 
-    }
+/* ==================================================
+   HERO
+================================================== */
 
+.hero{
 
-    /* ==================================================
-       STUDIO
-    ================================================== */
+  position:relative;
 
-    #studio {
+  overflow:hidden;
 
-      display:none;
+  display:grid;
 
-    }
+  grid-template-columns:
+    minmax(0,1.25fr)
+    minmax(280px,.75fr);
 
+  gap:32px;
 
-    .studio-header {
+  align-items:center;
 
-      position:sticky;
+  margin-bottom:22px;
 
-      top:0;
+  padding:39px 42px;
 
-      z-index:1000;
+  border:
+    1px solid rgba(202,167,106,.23);
 
-      border-bottom:
-        1px solid rgba(202,167,106,.19);
+  border-radius:32px;
 
-      background:
-        rgba(255,253,249,.96);
+  background:
 
-      box-shadow:
-        0 10px 35px rgba(23,38,27,.07);
+    radial-gradient(
+      circle at 93% 7%,
+      rgba(202,167,106,.18),
+      transparent 31%
+    ),
 
-      backdrop-filter:blur(18px);
-      -webkit-backdrop-filter:blur(18px);
+    linear-gradient(
+      140deg,
+      var(--forest),
+      var(--forest-soft)
+    );
 
-    }
+  color:white;
 
+  box-shadow:var(--shadow);
 
-    .studio-header-inner {
+}
 
-      min-height:74px;
 
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
+.hero h1{
 
-      gap:24px;
+  margin-bottom:15px;
 
-    }
+  color:white;
 
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
 
-    .brand-group {
+  font-size:
+    clamp(2.8rem,5vw,4.55rem);
 
-      min-width:0;
+  font-weight:500;
 
-      display:flex;
-      align-items:center;
+  line-height:1;
 
-      gap:17px;
+}
 
-    }
 
+.hero h1 em{
 
-    .brand {
+  color:var(--gold-soft);
+  font-weight:500;
 
-      flex-shrink:0;
+}
 
-      color:var(--forest);
 
-      font-size:2rem;
-      font-weight:850;
+.hero p{
 
-      letter-spacing:-1px;
+  max-width:690px;
 
-    }
+  color:rgba(255,255,255,.72);
 
+  font-size:.93rem;
 
-    .brand span {
+}
 
-      color:var(--gold);
 
-    }
+.hero-system{
 
+  padding:23px;
 
-    .studio-name {
+  border:
+    1px solid rgba(255,255,255,.12);
 
-      padding-left:17px;
+  border-radius:23px;
 
-      border-left:
-        1px solid rgba(23,38,27,.13);
+  background:
+    rgba(255,255,255,.07);
 
-      color:var(--sage-mid);
+}
 
-      font-size:.71rem;
-      font-weight:900;
 
-      letter-spacing:2px;
+.hero-system-label{
 
-      text-transform:uppercase;
+  margin-bottom:15px;
 
-    }
+  color:var(--gold-soft);
 
+  font-size:.64rem;
+  font-weight:900;
 
-    .header-actions {
+  letter-spacing:1.8px;
 
-      display:flex;
-      align-items:center;
+  text-transform:uppercase;
 
-      gap:10px;
+}
 
-    }
 
+.system-status{
 
-    .header-button {
+  display:flex;
+  align-items:center;
 
-      min-height:43px;
+  gap:11px;
 
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
+  margin-bottom:8px;
 
-      gap:8px;
+  color:white;
 
-      padding:9px 15px;
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
 
-      border:
-        1px solid rgba(202,167,106,.28);
+  font-size:1.55rem;
 
-      border-radius:999px;
+}
 
-      background:
-        rgba(255,250,244,.9);
 
-      color:var(--forest);
+.system-status-dot{
 
-      font-size:.76rem;
-      font-weight:850;
+  width:10px;
+  height:10px;
 
-      transition:
-        background .25s ease,
-        color .25s ease,
-        transform .25s ease;
+  border-radius:50%;
 
-    }
+  background:#9fc79b;
 
+  box-shadow:
+    0 0 0 5px rgba(159,199,155,.12);
 
-    .header-button:hover {
+}
 
-      background:var(--forest);
-      color:white;
 
-      transform:translateY(-2px);
+/* ==================================================
+   STATS
+================================================== */
 
-    }
+.stats{
 
+  display:grid;
 
-    .header-button svg {
+  grid-template-columns:
+    repeat(3,minmax(0,1fr));
 
-      width:17px;
-      height:17px;
+  gap:15px;
 
-    }
+  margin-bottom:23px;
 
+}
 
-    .logout {
 
-      min-height:43px;
+.stat{
 
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
+  position:relative;
 
-      gap:8px;
+  min-height:145px;
 
-      padding:9px 16px;
+  padding:20px;
 
-      border-radius:999px;
+  border:
+    1px solid var(--border);
 
-      background:
-        linear-gradient(
-          135deg,
-          var(--forest),
-          var(--sage)
-        );
+  border-radius:22px;
 
-      color:white;
+  background:
+    rgba(255,255,255,.85);
 
-      font-size:.76rem;
-      font-weight:850;
+  box-shadow:var(--soft-shadow);
 
-      transition:
-        transform .25s ease,
-        box-shadow .25s ease;
+}
 
-    }
 
+.stat-top{
 
-    .logout:hover {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 
-      transform:translateY(-2px);
+  gap:12px;
 
-      box-shadow:
-        0 12px 28px rgba(23,38,27,.16);
+  margin-bottom:17px;
 
-    }
+}
 
 
-    .logout svg {
+.stat small{
 
-      width:17px;
-      height:17px;
+  color:var(--gold);
 
-    }
+  font-size:.62rem;
+  font-weight:900;
 
+  letter-spacing:1.35px;
 
-    .studio-main {
+  text-transform:uppercase;
 
-      padding:30px 0 70px;
+}
 
-    }
 
+.stat-icon{
 
-    /* ==================================================
-       HERO
-    ================================================== */
+  width:39px;
+  height:39px;
 
-    .hero {
+  display:flex;
+  align-items:center;
+  justify-content:center;
 
-      position:relative;
+  border-radius:13px;
 
-      overflow:hidden;
+  background:
+    linear-gradient(
+      135deg,
+      var(--forest),
+      var(--sage)
+    );
 
-      display:grid;
+  color:white;
 
-      grid-template-columns:
-        minmax(0,1.25fr)
-        minmax(280px,.75fr);
+}
 
-      gap:32px;
 
-      align-items:center;
+.stat-icon svg{
 
-      margin-bottom:22px;
+  width:19px;
+  height:19px;
 
-      padding:39px 42px;
+}
 
-      border:
-        1px solid rgba(202,167,106,.23);
 
-      border-radius:32px;
+.stat strong{
 
-      background:
+  display:block;
 
-        radial-gradient(
-          circle at 93% 7%,
-          rgba(202,167,106,.18),
-          transparent 31%
-        ),
+  color:var(--forest);
 
-        radial-gradient(
-          circle at 4% 95%,
-          rgba(113,140,103,.16),
-          transparent 34%
-        ),
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
 
-        linear-gradient(
-          140deg,
-          var(--forest),
-          var(--forest-soft)
-        );
+  font-size:2.1rem;
+  font-weight:500;
 
-      color:white;
+  line-height:1;
 
-      box-shadow:var(--shadow);
+}
 
-    }
 
+.stat-description{
 
-    .hero::before {
+  margin-top:7px;
 
-      content:"";
+  color:var(--muted);
 
-      position:absolute;
+  font-size:.71rem;
 
-      top:-145px;
-      right:-110px;
+}
 
-      width:340px;
-      height:340px;
 
-      border:
-        1px solid rgba(222,194,141,.12);
+/* ==================================================
+   CARDS
+================================================== */
 
-      border-radius:50%;
+.grid{
 
-    }
+  display:grid;
 
+  grid-template-columns:
+    repeat(2,minmax(0,1fr));
 
-    .hero-copy {
+  gap:21px;
 
-      position:relative;
-      z-index:2;
+}
 
-    }
 
+.card{
 
-    .hero-copy .studio-label {
+  overflow:hidden;
 
-      margin-bottom:13px;
+  border:
+    1px solid var(--border);
 
-    }
+  border-radius:26px;
 
+  background:
+    rgba(255,255,255,.87);
 
-    .hero h1 {
+  box-shadow:var(--soft-shadow);
 
-      max-width:760px;
+}
 
-      margin-bottom:15px;
 
-      color:white;
+.card.wide{
+  grid-column:1 / -1;
+}
 
-      font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
 
-      font-size:
-        clamp(2.8rem,5vw,4.55rem);
+.card-header{
 
-      font-weight:500;
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
 
-      line-height:1;
+  gap:20px;
 
-      letter-spacing:-2.5px;
+  padding:24px 26px 20px;
 
-    }
+  border-bottom:
+    1px solid var(--soft-border);
 
+}
 
-    .hero h1 em {
 
-      color:var(--gold-soft);
-      font-weight:500;
+.section-label{
 
-    }
+  display:block;
 
+  margin-bottom:7px;
 
-    .hero p {
+  color:var(--gold);
 
-      max-width:690px;
+  font-size:.63rem;
+  font-weight:900;
 
-      color:rgba(255,255,255,.72);
+  letter-spacing:1.7px;
 
-      font-size:.93rem;
-      line-height:1.7;
+  text-transform:uppercase;
 
-    }
+}
 
 
-    .hero-system {
+.card h2,
+.card h3{
 
-      position:relative;
-      z-index:2;
+  color:var(--forest);
 
-      padding:23px;
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
 
-      border:
-        1px solid rgba(255,255,255,.12);
+  font-weight:500;
 
-      border-radius:23px;
+}
 
-      background:
-        rgba(255,255,255,.07);
 
-      backdrop-filter:blur(12px);
-      -webkit-backdrop-filter:blur(12px);
+.card h2{
 
-    }
+  margin-bottom:5px;
 
+  font-size:1.75rem;
 
-    .hero-system-label {
+}
 
-      margin-bottom:15px;
 
-      color:var(--gold-soft);
+.card h3{
 
-      font-size:.64rem;
-      font-weight:900;
+  font-size:1.55rem;
 
-      letter-spacing:1.8px;
+}
 
-      text-transform:uppercase;
 
-    }
+.card-header p{
 
+  color:var(--muted);
 
-    .system-status {
+  font-size:.81rem;
 
-      display:flex;
-      align-items:center;
+}
 
-      gap:11px;
 
-      margin-bottom:8px;
+.card-body{
 
-      color:white;
+  padding:22px 26px 26px;
 
-      font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
+}
 
-      font-size:1.55rem;
 
-    }
+/* ==================================================
+   TOOLBAR
+================================================== */
 
+.toolbar-actions{
 
-    .system-status-dot {
+  display:flex;
+  gap:8px;
 
-      width:10px;
-      height:10px;
+  flex-wrap:wrap;
 
-      border-radius:50%;
+}
 
-      background:#9fc79b;
 
-      box-shadow:
-        0 0 0 5px rgba(159,199,155,.12);
+.refresh-button,
+.add-button{
 
-    }
+  min-height:41px;
 
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
 
-    .hero-system p {
+  gap:7px;
 
-      font-size:.77rem;
-      line-height:1.55;
+  padding:9px 14px;
 
-    }
+  border-radius:999px;
 
+  font-size:.73rem;
+  font-weight:850;
 
-    /* ==================================================
-       STATS
-    ================================================== */
+}
 
-    .stats {
 
-      display:grid;
+.refresh-button{
 
-      grid-template-columns:
-        repeat(4,minmax(0,1fr));
+  border:
+    1px solid rgba(202,167,106,.24);
 
-      gap:15px;
+  background:var(--cream);
 
-      margin-bottom:23px;
+  color:var(--forest);
 
-    }
+}
 
 
-    .stat {
+.add-button{
 
-      position:relative;
+  background:var(--forest);
+  color:white;
 
-      overflow:hidden;
+}
 
-      min-height:145px;
 
-      padding:20px;
+.refresh-button svg,
+.add-button svg{
 
-      border:
-        1px solid var(--border);
+  width:15px;
+  height:15px;
 
-      border-radius:22px;
+}
 
-      background:
-        rgba(255,255,255,.85);
 
-      box-shadow:var(--soft-shadow);
+/* ==================================================
+   LISTS
+================================================== */
 
-    }
+.registration-list,
+.client-list,
+.visit-list,
+.form-list,
+.invoice-list{
 
+  display:grid;
+  gap:12px;
 
-    .stat::after {
+}
 
-      content:"";
 
-      position:absolute;
+.registration-item,
+.client-item,
+.visit-item,
+.form-item{
 
-      right:-45px;
-      bottom:-55px;
+  display:grid;
 
-      width:130px;
-      height:130px;
+  grid-template-columns:
+    minmax(0,1fr)
+    auto;
 
-      border:
-        1px solid rgba(113,140,103,.09);
+  gap:18px;
 
-      border-radius:50%;
+  align-items:center;
 
-    }
+  padding:17px;
 
+  border:
+    1px solid rgba(23,38,27,.08);
 
-    .stat-top {
+  border-radius:18px;
 
-      position:relative;
-      z-index:2;
+  background:
+    rgba(248,241,231,.43);
 
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
+}
 
-      gap:12px;
 
-      margin-bottom:17px;
+.person-name,
+.visit-title,
+.form-title{
 
-    }
+  margin-bottom:4px;
 
+  color:var(--forest);
 
-    .stat small {
+  font-size:.95rem;
+  font-weight:850;
 
-      color:var(--gold);
+}
 
-      font-size:.62rem;
-      font-weight:900;
 
-      letter-spacing:1.35px;
+.person-details,
+.visit-meta,
+.form-meta{
 
-      text-transform:uppercase;
+  color:var(--muted);
 
-    }
+  font-size:.77rem;
+  line-height:1.6;
 
+}
 
-    .stat-icon {
 
-      width:39px;
-      height:39px;
+.visit-client,
+.form-client{
 
-      display:flex;
-      align-items:center;
-      justify-content:center;
+  margin-top:2px;
 
-      border-radius:13px;
+  color:var(--sage);
 
-      background:
-        linear-gradient(
-          135deg,
-          var(--forest),
-          var(--sage)
-        );
+  font-size:.76rem;
+  font-weight:850;
 
-      color:white;
+}
 
-    }
 
+.message-note{
 
-    .stat-icon svg {
+  margin-top:9px;
+  padding:10px 12px;
 
-      width:19px;
-      height:19px;
+  border-radius:11px;
 
-    }
+  background:
+    rgba(113,140,103,.07);
 
+  color:var(--sage);
 
-    .stat strong {
+  font-size:.76rem;
 
-      position:relative;
-      z-index:2;
+}
 
-      display:block;
 
-      color:var(--forest);
+/* ==================================================
+   INVOICES
+================================================== */
 
-      font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
+.invoice-item{
 
-      font-size:2.1rem;
-      font-weight:500;
+  display:grid;
 
-      line-height:1;
+  grid-template-columns:
+    minmax(110px,.7fr)
+    minmax(150px,1fr)
+    minmax(220px,1.5fr)
+    minmax(90px,.6fr)
+    minmax(90px,.6fr)
+    auto;
 
-    }
+  align-items:center;
 
+  gap:14px;
 
-    .stat-description {
+  padding:17px;
 
-      position:relative;
-      z-index:2;
+  border:
+    1px solid rgba(23,38,27,.08);
 
-      margin-top:7px;
+  border-radius:18px;
 
-      color:var(--muted);
+  background:
+    rgba(248,241,231,.43);
 
-      font-size:.71rem;
+}
 
-    }
 
+.invoice-reference strong,
+.invoice-client strong,
+.invoice-description strong{
 
-    /* ==================================================
-       GRID
-    ================================================== */
+  display:block;
 
-    .grid {
+  color:var(--forest);
 
-      display:grid;
+  font-size:.8rem;
 
-      grid-template-columns:
-        repeat(2,minmax(0,1fr));
+  line-height:1.4;
 
-      gap:21px;
+}
 
-    }
 
+.invoice-reference span,
+.invoice-client span,
+.invoice-description span,
+.invoice-date span{
 
-    .card {
+  display:block;
 
-      overflow:hidden;
+  margin-top:2px;
 
-      border:
-        1px solid var(--border);
+  color:var(--muted);
 
-      border-radius:26px;
+  font-size:.67rem;
 
-      background:
-        rgba(255,255,255,.87);
+  line-height:1.45;
 
-      box-shadow:var(--soft-shadow);
+}
 
-    }
 
+.invoice-amount{
 
-    .card.wide {
+  color:var(--forest);
 
-      grid-column:1 / -1;
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
 
-    }
+  font-size:1.1rem;
 
+}
 
-    .card-header {
 
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
+.invoice-actions{
 
-      gap:20px;
+  display:flex;
 
-      padding:24px 26px 20px;
+  gap:7px;
 
-      border-bottom:
-        1px solid var(--soft-border);
+  justify-content:flex-end;
 
-    }
+  flex-wrap:wrap;
 
+}
 
-    .card-heading {
 
-      min-width:0;
+.invoice-action{
 
-    }
+  min-height:36px;
 
+  padding:7px 11px;
 
-    .section-label {
+  border-radius:999px;
 
-      display:block;
+  font-size:.66rem;
+  font-weight:850;
 
-      margin-bottom:7px;
+}
 
-      color:var(--gold);
 
-      font-size:.63rem;
-      font-weight:900;
+.invoice-edit{
 
-      letter-spacing:1.7px;
+  background:var(--forest);
+  color:white;
 
-      text-transform:uppercase;
+}
 
-    }
 
+.invoice-paid{
 
-    .card h2,
-    .card h3 {
+  background:var(--green-soft);
+  color:var(--green);
 
-      color:var(--forest);
+}
 
-      font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
 
-      font-weight:500;
+.invoice-status{
 
-    }
+  width:max-content;
 
+  display:inline-flex;
+  align-items:center;
 
-    .card h2 {
+  gap:6px;
 
-      margin-bottom:5px;
+  padding:6px 9px;
 
-      font-size:1.75rem;
+  border-radius:999px;
 
-      line-height:1.15;
+  font-size:.64rem;
+  font-weight:850;
 
-    }
+}
 
 
-    .card h3 {
+.invoice-status::before{
 
-      font-size:1.55rem;
+  content:"";
 
-    }
+  width:6px;
+  height:6px;
 
+  border-radius:50%;
 
-    .card-header p {
+  background:currentColor;
 
-      color:var(--muted);
+}
 
-      font-size:.81rem;
-      line-height:1.55;
 
-    }
+.invoice-status.draft{
 
+  background:#f1eee7;
+  color:#656058;
 
-    .card-body {
+}
 
-      padding:22px 26px 26px;
 
-    }
+.invoice-status.sent{
 
+  background:var(--blue-soft);
+  color:var(--blue);
 
-    /* ==================================================
-       TOOLBAR BUTTONS
-    ================================================== */
+}
 
-    .toolbar-actions {
 
-      display:flex;
-      align-items:center;
+.invoice-status.paid{
 
-      gap:8px;
+  background:var(--green-soft);
+  color:var(--green);
 
-      flex-wrap:wrap;
+}
 
-    }
 
+.invoice-status.overdue{
 
-    .refresh-button,
-    .add-button {
+  background:var(--red-soft);
+  color:var(--red);
 
-      min-height:41px;
+}
 
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
 
-      gap:7px;
+.invoice-status.cancelled{
 
-      padding:9px 14px;
+  background:#f1eee7;
+  color:#7a716a;
 
-      border-radius:999px;
+}
 
-      font-size:.73rem;
-      font-weight:850;
 
-      transition:
-        background .22s ease,
-        color .22s ease,
-        transform .22s ease;
+/* ==================================================
+   ACTIONS
+================================================== */
 
-    }
+.actions{
 
+  display:flex;
 
-    .refresh-button {
+  gap:7px;
 
-      border:
-        1px solid rgba(202,167,106,.24);
+  flex-wrap:wrap;
 
-      background:var(--cream);
+}
 
-      color:var(--forest);
 
-    }
+.action-button{
 
+  min-height:38px;
 
-    .refresh-button:hover {
+  padding:8px 13px;
 
-      background:var(--gold);
+  border-radius:999px;
 
-      transform:translateY(-2px);
+  font-size:.7rem;
+  font-weight:850;
 
-    }
+}
 
 
-    .add-button {
+.approve-button,
+.view-button,
+.edit-button{
 
-      background:var(--forest);
-      color:white;
+  background:var(--forest);
+  color:white;
 
-    }
+}
 
 
-    .add-button:hover {
+.reject-button{
 
-      background:var(--sage);
+  background:var(--red-soft);
+  color:var(--red);
 
-      transform:translateY(-2px);
+}
 
-    }
 
+.action-button:disabled{
 
-    .refresh-button svg,
-    .add-button svg {
+  opacity:.52;
+  cursor:not-allowed;
 
-      width:15px;
-      height:15px;
+}
 
-    }
 
+/* ==================================================
+   STATUS
+================================================== */
 
-    /* ==================================================
-       LISTS
-    ================================================== */
+.status-pill{
 
-    .registration-list,
-    .client-list,
-    .form-list,
-    .visit-list {
+  display:inline-flex;
+  align-items:center;
 
-      display:grid;
-      gap:12px;
+  gap:6px;
 
-    }
+  margin-top:7px;
 
+  padding:5px 9px;
 
-    .registration-item,
-    .client-item,
-    .form-item,
-    .visit-item {
+  border-radius:999px;
 
-      display:grid;
+  font-size:.65rem;
+  font-weight:850;
 
-      grid-template-columns:
-        minmax(0,1fr)
-        auto;
+}
 
-      gap:18px;
 
-      align-items:center;
+.status-pill::before{
 
-      padding:17px;
+  content:"";
 
-      border:
-        1px solid rgba(23,38,27,.08);
+  width:6px;
+  height:6px;
 
-      border-radius:18px;
+  border-radius:50%;
 
-      background:
-        rgba(248,241,231,.43);
+  background:currentColor;
 
-      transition:
-        background .22s ease,
-        border-color .22s ease,
-        transform .22s ease;
+}
 
-    }
 
+.status-pending{
 
-    .registration-item:hover,
-    .client-item:hover,
-    .form-item:hover,
-    .visit-item:hover {
+  background:var(--orange-soft);
+  color:var(--orange);
 
-      border-color:
-        rgba(202,167,106,.35);
+}
 
-      background:
-        rgba(255,250,244,.94);
 
-      transform:translateY(-2px);
+.status-approved,
+.status-submitted,
+.status-scheduled{
 
-    }
+  background:var(--green-soft);
+  color:var(--green);
 
+}
 
-    .person-name,
-    .form-title,
-    .visit-title {
 
-      margin-bottom:4px;
+.status-completed{
 
-      color:var(--forest);
+  background:var(--blue-soft);
+  color:var(--blue);
 
-      font-size:.95rem;
-      font-weight:850;
+}
 
-      line-height:1.35;
 
-    }
+.status-cancelled{
 
+  background:var(--red-soft);
+  color:var(--red);
 
-    .person-details,
-    .form-meta,
-    .visit-meta {
+}
 
-      color:var(--muted);
 
-      font-size:.77rem;
-      line-height:1.6;
+.empty-state{
 
-    }
+  padding:31px 22px;
 
+  border:
+    1px dashed rgba(23,38,27,.15);
 
-    .form-client,
-    .visit-client {
+  border-radius:18px;
 
-      margin-top:2px;
+  color:var(--muted);
 
-      color:var(--sage);
+  font-size:.8rem;
 
-      font-size:.76rem;
-      font-weight:850;
+  text-align:center;
 
-    }
+}
 
 
-    .message-note {
+.loading-state{
 
-      max-width:850px;
+  padding:25px;
 
-      margin-top:9px;
-      padding:10px 12px;
+  color:var(--muted);
 
-      border:
-        1px solid rgba(113,140,103,.12);
+  font-size:.78rem;
 
-      border-radius:11px;
+  text-align:center;
 
-      background:
-        rgba(113,140,103,.07);
+}
 
-      color:var(--sage);
 
-      font-size:.76rem;
-      line-height:1.55;
+/* ==================================================
+   FEATURE
+================================================== */
 
-    }
+.feature-card .card-body{
 
+  min-height:210px;
 
-    /* ==================================================
-       ACTION BUTTONS
-    ================================================== */
+  display:flex;
+  flex-direction:column;
 
-    .actions {
+}
 
-      display:flex;
 
-      gap:7px;
+.feature-icon{
 
-      flex-wrap:wrap;
+  width:44px;
+  height:44px;
 
-    }
+  display:flex;
+  align-items:center;
+  justify-content:center;
 
+  margin-bottom:18px;
 
-    .action-button {
+  border-radius:14px;
 
-      min-height:38px;
+  background:
+    linear-gradient(
+      135deg,
+      var(--forest),
+      var(--sage)
+    );
 
-      padding:8px 13px;
+  color:white;
 
-      border-radius:999px;
+}
 
-      font-size:.7rem;
-      font-weight:850;
 
-      transition:
-        background .22s ease,
-        color .22s ease,
-        transform .22s ease;
+.feature-icon svg{
 
-    }
+  width:21px;
+  height:21px;
 
+}
 
-    .approve-button,
-    .view-button,
-    .edit-button {
 
-      background:var(--forest);
-      color:white;
+.feature-card h3{
 
-    }
+  margin-bottom:8px;
 
+}
 
-    .approve-button:hover,
-    .view-button:hover,
-    .edit-button:hover {
 
-      background:var(--sage);
+.feature-card p{
 
-      transform:translateY(-2px);
+  color:var(--muted);
 
-    }
+  font-size:.82rem;
 
+}
 
-    .reject-button {
 
-      border:
-        1px solid rgba(147,66,66,.12);
+.coming-soon{
 
-      background:var(--red-soft);
-      color:var(--red);
+  width:max-content;
 
-    }
+  margin-top:auto;
 
+  padding:7px 10px;
 
-    .reject-button:hover {
+  border-radius:999px;
 
-      background:#f6ddda;
+  background:var(--cream);
 
-    }
+  color:var(--sage);
 
+  font-size:.66rem;
+  font-weight:850;
 
-    .action-button:disabled {
+}
 
-      opacity:.52;
 
-      cursor:not-allowed;
+/* ==================================================
+   MODALS
+================================================== */
 
-      transform:none;
+.modal-overlay{
 
-    }
+  position:fixed;
 
+  inset:0;
 
-    /* ==================================================
-       STATUS
-    ================================================== */
+  z-index:20000;
 
-    .status-pill {
+  display:none;
 
-      display:inline-flex;
-      align-items:center;
+  align-items:center;
+  justify-content:center;
 
-      gap:6px;
+  padding:20px;
 
-      margin-top:7px;
+  background:
+    rgba(10,17,12,.72);
 
-      padding:5px 9px;
+  backdrop-filter:blur(8px);
 
-      border-radius:999px;
+}
 
-      font-size:.65rem;
-      font-weight:850;
 
-    }
+.modal-overlay.is-open{
+  display:flex;
+}
 
 
-    .status-pill::before {
+.modal{
 
-      content:"";
+  width:min(760px,100%);
+  max-height:88vh;
 
-      width:6px;
-      height:6px;
+  overflow:auto;
 
-      border-radius:50%;
+  border:
+    1px solid rgba(202,167,106,.27);
 
-      background:currentColor;
+  border-radius:28px;
 
-      opacity:.82;
+  background:var(--cream-soft);
 
-    }
+  box-shadow:
+    0 35px 100px rgba(0,0,0,.34);
 
+}
 
-    .status-pending {
 
-      background:var(--orange-soft);
-      color:var(--orange);
+.modal-header{
 
-    }
+  position:sticky;
+  top:0;
 
+  z-index:3;
 
-    .status-approved,
-    .status-submitted,
-    .status-scheduled {
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
 
-      background:var(--green-soft);
-      color:var(--green);
+  gap:18px;
 
-    }
+  padding:23px 25px;
 
+  background:
 
-    .status-completed {
+    linear-gradient(
+      135deg,
+      var(--forest),
+      var(--forest-soft)
+    );
 
-      background:var(--blue-soft);
-      color:var(--blue);
+  color:white;
 
-    }
+}
 
 
-    .status-cancelled {
+.modal-header small{
 
-      background:var(--red-soft);
-      color:var(--red);
+  display:block;
 
-    }
+  margin-bottom:4px;
 
+  color:var(--gold-soft);
 
-    .empty-state {
+  font-size:.62rem;
+  font-weight:900;
 
-      padding:31px 22px;
+  letter-spacing:1.7px;
 
-      border:
-        1px dashed rgba(23,38,27,.15);
+  text-transform:uppercase;
 
-      border-radius:18px;
+}
 
-      background:
-        rgba(248,241,231,.28);
 
-      color:var(--muted);
+.modal-header h2{
 
-      font-size:.8rem;
+  color:white;
 
-      text-align:center;
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
 
-    }
+  font-size:1.65rem;
+  font-weight:500;
 
+}
 
-    .loading-state {
 
-      padding:25px;
+.modal-close{
 
-      color:var(--muted);
+  width:40px;
+  height:40px;
 
-      font-size:.78rem;
+  flex-shrink:0;
 
-      text-align:center;
+  border-radius:50%;
 
-    }
+  background:
+    rgba(255,255,255,.09);
 
+  color:white;
 
-    /* ==================================================
-       FEATURE CARDS
-    ================================================== */
+  font-size:1.45rem;
 
-    .feature-card {
+}
 
-      position:relative;
 
-      min-height:210px;
+.modal-body{
+  padding:25px;
+}
 
-    }
 
+.edit-note,
+.sensitive-warning{
 
-    .feature-card .card-body {
+  margin-bottom:20px;
 
-      display:flex;
-      flex-direction:column;
+  padding:14px 15px;
 
-      min-height:185px;
+  border:
+    1px solid rgba(202,167,106,.23);
 
-    }
+  border-radius:14px;
 
+  background:#fff8ed;
 
-    .feature-icon {
+  color:var(--sage);
 
-      width:44px;
-      height:44px;
+  font-size:.77rem;
 
-      display:flex;
-      align-items:center;
-      justify-content:center;
+}
 
-      margin-bottom:18px;
 
-      border-radius:14px;
+/* ==================================================
+   EDIT FORM FIELDS
+================================================== */
 
-      background:
-        linear-gradient(
-          135deg,
-          var(--forest),
-          var(--sage)
-        );
+.edit-grid{
 
-      color:white;
+  display:grid;
 
-    }
+  grid-template-columns:
+    1fr 1fr;
 
+  gap:17px;
 
-    .feature-icon svg {
+}
 
-      width:21px;
-      height:21px;
 
-    }
+.edit-field{
 
+  display:flex;
+  flex-direction:column;
 
-    .feature-card h3 {
+  gap:7px;
 
-      margin-bottom:8px;
+}
 
-    }
 
+.edit-field.full{
+  grid-column:1 / -1;
+}
 
-    .feature-card p {
 
-      color:var(--muted);
+.edit-field label{
 
-      font-size:.82rem;
-      line-height:1.6;
+  color:var(--sage);
 
-    }
+  font-size:.73rem;
+  font-weight:850;
 
+}
 
-    .coming-soon {
 
-      width:max-content;
+.edit-field input,
+.edit-field select,
+.edit-field textarea{
 
-      display:inline-flex;
-      align-items:center;
+  width:100%;
 
-      gap:6px;
+  min-height:48px;
 
-      margin-top:auto;
-      padding:7px 10px;
+  padding:12px 14px;
 
-      border-radius:999px;
+  border:
+    1px solid #e1d6c7;
 
-      background:var(--cream);
+  border-radius:13px;
 
-      color:var(--sage);
+  background:white;
 
-      font-size:.66rem;
-      font-weight:850;
+  color:var(--ink);
 
-    }
+  outline:none;
 
+}
 
-    .coming-soon::before {
 
-      content:"";
+.edit-field textarea{
 
-      width:6px;
-      height:6px;
+  min-height:115px;
+  resize:vertical;
 
-      border-radius:50%;
+}
 
-      background:var(--gold);
 
-    }
+.edit-field input:focus,
+.edit-field select:focus,
+.edit-field textarea:focus{
 
+  border-color:var(--gold);
 
-    /* ==================================================
-       MODALS
-    ================================================== */
+  box-shadow:
+    0 0 0 4px rgba(202,167,106,.13);
 
-    .modal-overlay {
+}
 
-      position:fixed;
-      inset:0;
 
-      z-index:20000;
+.field-help{
 
-      display:none;
+  color:var(--muted);
 
-      align-items:center;
-      justify-content:center;
+  font-size:.67rem;
 
-      padding:20px;
+}
 
-      background:
-        rgba(10,17,12,.72);
 
-      backdrop-filter:blur(8px);
-      -webkit-backdrop-filter:blur(8px);
+.save-button{
 
-    }
+  width:100%;
+  min-height:53px;
 
+  margin-top:21px;
 
-    .modal-overlay.is-open {
+  padding:14px 20px;
 
-      display:flex;
+  border-radius:999px;
 
-    }
+  background:
 
+    linear-gradient(
+      135deg,
+      var(--forest),
+      var(--sage)
+    );
 
-    .modal {
+  color:white;
 
-      width:min(760px,100%);
-      max-height:88vh;
+  font-size:.78rem;
+  font-weight:900;
 
-      overflow:auto;
+}
 
-      border:
-        1px solid rgba(202,167,106,.27);
 
-      border-radius:28px;
+.save-button:disabled{
 
-      background:var(--cream-soft);
+  opacity:.52;
+  cursor:not-allowed;
 
-      box-shadow:
-        0 35px 100px rgba(0,0,0,.34);
+}
 
-    }
 
+/* ==================================================
+   FORM VIEWER
+================================================== */
 
-    .modal-header {
+.form-detail-grid{
 
-      position:sticky;
+  display:grid;
+  gap:11px;
 
-      top:0;
+}
 
-      z-index:3;
 
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
+.form-detail{
 
-      gap:18px;
+  padding:15px;
 
-      padding:23px 25px;
+  border:
+    1px solid var(--border);
 
-      background:
+  border-radius:15px;
 
-        radial-gradient(
-          circle at 94% 5%,
-          rgba(202,167,106,.16),
-          transparent 30%
-        ),
+  background:white;
 
-        linear-gradient(
-          135deg,
-          var(--forest),
-          var(--forest-soft)
-        );
+}
 
-      color:white;
 
-    }
+.form-detail-label{
 
+  display:block;
 
-    .modal-header small {
+  margin-bottom:5px;
 
-      display:block;
+  color:var(--gold);
 
-      margin-bottom:4px;
+  font-size:.61rem;
+  font-weight:900;
 
-      color:var(--gold-soft);
+  text-transform:uppercase;
 
-      font-size:.62rem;
-      font-weight:900;
+}
 
-      letter-spacing:1.7px;
 
-      text-transform:uppercase;
+.form-detail-value{
 
-    }
+  color:var(--ink);
 
+  font-size:.84rem;
 
-    .modal-header h2 {
+  white-space:pre-wrap;
+  overflow-wrap:anywhere;
 
-      color:white;
+}
 
-      font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
 
-      font-size:1.65rem;
-      font-weight:500;
+/* ==================================================
+   TOAST
+================================================== */
 
-    }
+#studio-message{
 
+  position:fixed;
 
-    .modal-close {
+  left:50%;
+  bottom:24px;
 
-      width:40px;
-      height:40px;
+  z-index:30000;
 
-      flex-shrink:0;
+  display:none;
 
-      display:flex;
-      align-items:center;
-      justify-content:center;
+  width:min(92%,520px);
 
-      border-radius:50%;
+  padding:14px 17px;
 
-      background:
-        rgba(255,255,255,.09);
+  border-radius:15px;
 
-      color:white;
+  transform:translateX(-50%);
 
-      font-size:1.45rem;
+  box-shadow:
+    0 20px 45px rgba(0,0,0,.18);
 
-      transition:background .2s ease;
+  font-size:.78rem;
+  font-weight:750;
 
-    }
+}
 
 
-    .modal-close:hover {
+#studio-message.success{
 
-      background:
-        rgba(255,255,255,.16);
+  display:block;
 
-    }
+  background:var(--green-soft);
+  color:var(--green);
 
+}
 
-    .modal-body {
 
-      padding:25px;
+#studio-message.error{
 
-    }
+  display:block;
 
+  background:var(--red-soft);
+  color:var(--red);
 
-    .sensitive-warning,
-    .edit-note {
+}
 
-      margin-bottom:20px;
-      padding:14px 15px;
 
-      border:
-        1px solid rgba(202,167,106,.23);
+/* ==================================================
+   FOOTER
+================================================== */
 
-      border-radius:14px;
+.studio-footer{
 
-      background:#fff8ed;
+  margin-top:31px;
 
-      color:var(--sage);
+  padding:24px 0 4px;
 
-      font-size:.77rem;
-      line-height:1.6;
+  border-top:
+    1px solid var(--soft-border);
 
-    }
+  color:var(--muted);
 
+  font-size:.69rem;
 
-    /* ==================================================
-       EDIT FIELDS
-    ================================================== */
+  text-align:center;
 
-    .edit-grid {
+}
 
-      display:grid;
 
-      grid-template-columns:
-        1fr 1fr;
+.studio-footer a{
 
-      gap:17px;
+  color:var(--forest);
+  font-weight:850;
 
-    }
+}
 
 
-    .edit-field {
+/* ==================================================
+   RESPONSIVE
+================================================== */
 
-      display:flex;
-      flex-direction:column;
+@media(max-width:1050px){
 
-      gap:7px;
+  .invoice-item{
 
-    }
+    grid-template-columns:
+      1fr 1fr 1.5fr;
 
+  }
 
-    .edit-field.full {
 
-      grid-column:1 / -1;
+  .invoice-actions{
 
-    }
+    justify-content:flex-start;
 
+  }
 
-    .edit-field label {
+}
 
-      color:var(--sage);
 
-      font-size:.73rem;
-      font-weight:850;
+@media(max-width:1000px){
 
-    }
+  .login-shell{
+    grid-template-columns:1fr;
+  }
 
 
-    .edit-field input,
-    .edit-field select,
-    .edit-field textarea {
+  .login-brand-panel{
+    min-height:0;
+  }
 
-      width:100%;
 
-      min-height:48px;
+  .hero{
+    grid-template-columns:1fr;
+  }
 
-      padding:12px 14px;
 
-      border:
-        1px solid #e1d6c7;
+  .stats{
+    grid-template-columns:repeat(2,1fr);
+  }
 
-      border-radius:13px;
+}
 
-      background:white;
 
-      color:var(--ink);
+@media(max-width:700px){
 
-      outline:none;
+  .container{
+    width:90%;
+  }
 
-      transition:
-        border-color .22s ease,
-        box-shadow .22s ease;
 
-    }
+  .login-screen{
+    padding:18px 13px;
+  }
 
 
-    .edit-field textarea {
+  .login-brand-panel{
+    padding:33px 25px;
+  }
 
-      min-height:115px;
 
-      resize:vertical;
+  .login-card{
+    padding:34px 23px;
+  }
 
-    }
 
+  .studio-header-inner{
+    min-height:64px;
+  }
 
-    .edit-field input:focus,
-    .edit-field select:focus,
-    .edit-field textarea:focus {
 
-      border-color:var(--gold);
+  .brand{
+    font-size:1.72rem;
+  }
 
-      box-shadow:
-        0 0 0 4px rgba(202,167,106,.13);
 
-    }
+  .studio-name,
+  .header-button{
+    display:none;
+  }
 
 
-    .field-help {
+  .logout span{
+    display:none;
+  }
 
-      color:var(--muted);
 
-      font-size:.67rem;
-      line-height:1.45;
+  .studio-main{
+    padding-top:18px;
+  }
 
-    }
 
+  .hero{
 
-    .save-button {
+    padding:27px 23px;
 
-      width:100%;
-      min-height:53px;
+    border-radius:26px;
 
-      margin-top:21px;
-      padding:14px 20px;
+  }
 
-      border-radius:999px;
 
-      background:
+  .hero h1{
 
-        linear-gradient(
-          135deg,
-          var(--forest),
-          var(--sage)
-        );
+    font-size:
+      clamp(2.65rem,12vw,3.5rem);
 
-      color:white;
+  }
 
-      font-size:.78rem;
-      font-weight:900;
 
-      box-shadow:
-        0 13px 30px rgba(23,38,27,.15);
+  .stats{
 
-      transition:
-        transform .22s ease,
-        box-shadow .22s ease;
+    gap:11px;
 
-    }
+  }
 
 
-    .save-button:hover {
+  .stat{
 
-      transform:translateY(-2px);
+    min-height:130px;
 
-      box-shadow:
-        0 18px 36px rgba(23,38,27,.20);
+    padding:17px;
 
-    }
+  }
 
 
-    .save-button:disabled {
+  .grid{
+    grid-template-columns:1fr;
+  }
 
-      opacity:.52;
 
-      cursor:not-allowed;
+  .card.wide{
+    grid-column:auto;
+  }
 
-      transform:none;
 
-    }
+  .card{
+    border-radius:23px;
+  }
 
 
-    /* ==================================================
-       FORM VIEWER
-    ================================================== */
+  .card-header{
 
-    .form-detail-grid {
+    flex-direction:column;
 
-      display:grid;
-      gap:11px;
+    padding:20px;
 
-    }
+  }
 
 
-    .form-detail {
+  .card-body{
+    padding:18px 20px 21px;
+  }
 
-      padding:15px;
 
-      border:
-        1px solid var(--border);
+  .toolbar-actions{
+    width:100%;
+  }
 
-      border-radius:15px;
 
-      background:white;
+  .refresh-button,
+  .add-button{
+    flex:1;
+  }
 
-    }
 
+  .registration-item,
+  .client-item,
+  .visit-item,
+  .form-item{
 
-    .form-detail-label {
+    grid-template-columns:1fr;
 
-      display:block;
+  }
 
-      margin-bottom:5px;
 
-      color:var(--gold);
+  .invoice-item{
 
-      font-size:.61rem;
-      font-weight:900;
+    grid-template-columns:
+      1fr 1fr;
 
-      letter-spacing:1px;
+  }
 
-      text-transform:uppercase;
 
-    }
+  .invoice-description{
 
+    grid-column:1 / -1;
 
-    .form-detail-value {
+  }
 
-      color:var(--ink);
 
-      font-size:.84rem;
-      line-height:1.6;
+  .invoice-actions{
 
-      white-space:pre-wrap;
-      overflow-wrap:anywhere;
+    grid-column:1 / -1;
 
-    }
+  }
 
 
-    /* ==================================================
-       TOAST
-    ================================================== */
+  .actions{
+    width:100%;
+  }
 
-    #studio-message {
 
-      position:fixed;
+  .actions button{
+    flex:1;
+  }
 
-      left:50%;
-      bottom:24px;
 
-      z-index:30000;
+  .edit-grid{
+    grid-template-columns:1fr;
+  }
 
-      display:none;
 
-      width:min(92%,520px);
+  .edit-field.full{
+    grid-column:auto;
+  }
 
-      padding:14px 17px;
+}
 
-      border-radius:15px;
 
-      transform:translateX(-50%);
+@media(max-width:390px){
 
-      box-shadow:
-        0 20px 45px rgba(0,0,0,.18);
+  .stats{
+    grid-template-columns:1fr;
+  }
 
-      font-size:.78rem;
-      font-weight:750;
 
-      line-height:1.5;
+  .invoice-item{
+    grid-template-columns:1fr;
+  }
 
-    }
 
+  .invoice-description,
+  .invoice-actions{
+    grid-column:auto;
+  }
 
-    #studio-message.success {
+}
 
-      display:block;
 
-      border:
-        1px solid rgba(71,112,77,.20);
+@media(prefers-reduced-motion:reduce){
 
-      background:var(--green-soft);
-      color:var(--green);
+  html{
+    scroll-behavior:auto;
+  }
 
-    }
 
+  *,
+  *::before,
+  *::after{
 
-    #studio-message.error {
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.01ms !important;
 
-      display:block;
+  }
 
-      border:
-        1px solid rgba(147,66,66,.18);
+}
 
-      background:var(--red-soft);
-      color:var(--red);
+</style>
 
-    }
 
-
-    /* ==================================================
-       FOOTER
-    ================================================== */
-
-    .studio-footer {
-
-      margin-top:31px;
-
-      padding:24px 0 4px;
-
-      border-top:
-        1px solid var(--soft-border);
-
-      color:var(--muted);
-
-      font-size:.69rem;
-
-      text-align:center;
-
-    }
-
-
-    .studio-footer a {
-
-      color:var(--forest);
-      font-weight:850;
-
-    }
-
-
-    /* ==================================================
-       TABLET
-    ================================================== */
-
-    @media(max-width:1000px) {
-
-      .login-shell {
-
-        grid-template-columns:1fr;
-
-        max-width:700px;
-
-      }
-
-
-      .login-brand-panel {
-
-        min-height:0;
-
-      }
-
-
-      .login-brand-footer {
-
-        margin-top:40px;
-
-      }
-
-
-      .hero {
-
-        grid-template-columns:1fr;
-
-      }
-
-
-      .stats {
-
-        grid-template-columns:
-          repeat(2,1fr);
-
-      }
-
-    }
-
-
-    /* ==================================================
-       MOBILE
-    ================================================== */
-
-    @media(max-width:700px) {
-
-      .container {
-
-        width:90%;
-
-      }
-
-
-      /* LOGIN */
-
-      .login-screen {
-
-        padding:18px 13px;
-
-      }
-
-
-      .login-shell {
-
-        border-radius:27px;
-
-      }
-
-
-      .login-brand-panel {
-
-        padding:33px 25px;
-
-      }
-
-
-      .login-logo {
-
-        margin-bottom:27px;
-
-        font-size:1.8rem;
-
-      }
-
-
-      .login-brand-panel h1 {
-
-        font-size:
-          clamp(2.7rem,12vw,3.45rem);
-
-        letter-spacing:-2px;
-
-      }
-
-
-      .login-brand-panel p {
-
-        font-size:.83rem;
-
-      }
-
-
-      .login-brand-footer {
-
-        margin-top:30px;
-
-      }
-
-
-      .login-card {
-
-        padding:34px 23px;
-
-      }
-
-
-      .login-card h2 {
-
-        font-size:2.25rem;
-
-      }
-
-
-      /* HEADER */
-
-      .studio-header-inner {
-
-        min-height:64px;
-
-      }
-
-
-      .brand {
-
-        font-size:1.72rem;
-
-      }
-
-
-      .studio-name {
-
-        display:none;
-
-      }
-
-
-      .header-button {
-
-        display:none;
-
-      }
-
-
-      .logout {
-
-        min-height:39px;
-
-        padding:8px 12px;
-
-        font-size:.68rem;
-
-      }
-
-
-      .logout span {
-
-        display:none;
-
-      }
-
-
-      /* MAIN */
-
-      .studio-main {
-
-        padding-top:18px;
-        padding-bottom:45px;
-
-      }
-
-
-      .hero {
-
-        gap:22px;
-
-        padding:27px 23px;
-
-        border-radius:26px;
-
-      }
-
-
-      .hero h1 {
-
-        font-size:
-          clamp(2.65rem,12vw,3.5rem);
-
-        letter-spacing:-1.9px;
-
-      }
-
-
-      .hero p {
-
-        font-size:.82rem;
-
-      }
-
-
-      .hero-system {
-
-        padding:19px;
-
-      }
-
-
-      /* STATS */
-
-      .stats {
-
-        gap:11px;
-
-        margin-bottom:17px;
-
-      }
-
-
-      .stat {
-
-        min-height:130px;
-
-        padding:17px;
-
-        border-radius:20px;
-
-      }
-
-
-      .stat-icon {
-
-        width:35px;
-        height:35px;
-
-      }
-
-
-      .stat strong {
-
-        font-size:1.7rem;
-
-      }
-
-
-      .stat-description {
-
-        font-size:.65rem;
-
-      }
-
-
-      /* CARDS */
-
-      .grid {
-
-        grid-template-columns:1fr;
-
-        gap:16px;
-
-      }
-
-
-      .card.wide {
-
-        grid-column:auto;
-
-      }
-
-
-      .card {
-
-        border-radius:23px;
-
-      }
-
-
-      .card-header {
-
-        flex-direction:column;
-
-        padding:20px 20px 17px;
-
-      }
-
-
-      .card h2 {
-
-        font-size:1.55rem;
-
-      }
-
-
-      .card-body {
-
-        padding:18px 20px 21px;
-
-      }
-
-
-      .toolbar-actions {
-
-        width:100%;
-
-      }
-
-
-      .refresh-button,
-      .add-button {
-
-        flex:1;
-
-      }
-
-
-      /* LIST ITEMS */
-
-      .registration-item,
-      .client-item,
-      .form-item,
-      .visit-item {
-
-        grid-template-columns:1fr;
-
-        gap:13px;
-
-        padding:15px;
-
-      }
-
-
-      .actions {
-
-        width:100%;
-
-      }
-
-
-      .actions button {
-
-        flex:1;
-
-      }
-
-
-      /* MODAL */
-
-      .modal {
-
-        border-radius:23px;
-
-      }
-
-
-      .modal-header {
-
-        padding:20px;
-
-      }
-
-
-      .modal-body {
-
-        padding:20px;
-
-      }
-
-
-      .edit-grid {
-
-        grid-template-columns:1fr;
-
-      }
-
-
-      .edit-field.full {
-
-        grid-column:auto;
-
-      }
-
-
-      .studio-footer {
-
-        font-size:.64rem;
-
-      }
-
-    }
-
-
-    @media(max-width:390px) {
-
-      .stats {
-
-        grid-template-columns:1fr;
-
-      }
-
-    }
-
-
-    /* ==================================================
-       REDUCED MOTION
-    ================================================== */
-
-    @media(prefers-reduced-motion:reduce) {
-
-      html {
-
-        scroll-behavior:auto;
-
-      }
-
-
-      *,
-      *::before,
-      *::after {
-
-        animation-duration:.01ms !important;
-        animation-iteration-count:1 !important;
-        transition-duration:.01ms !important;
-
-      }
-
-    }
-
-
-    @keyframes buttonShine {
-
-      0% {
-
-        left:-130%;
-
-      }
-
-      100% {
-
-        left:160%;
-
-      }
-
-    }
-
-  </style>
-
-
-  <!-- Shared Sorted. wordmark styling -->
-  <link
-    rel="stylesheet"
-    href="../brand.css"
-  >
+<link
+  rel="stylesheet"
+  href="../brand.css"
+>
 
 </head>
 
@@ -3022,9 +2530,7 @@
 
           <i data-lucide="sparkles"></i>
 
-          <span>
-            Sorted. Studio
-          </span>
+          Sorted. Studio
 
         </div>
 
@@ -3036,9 +2542,9 @@
 
 
         <p>
-          The private control centre for managing clients,
-          registrations, visits, forms and the day-to-day
-          running of Sorted.
+          Your private control centre for clients,
+          visits, invoices, documents and the
+          day-to-day running of Sorted.
         </p>
 
       </div>
@@ -3048,9 +2554,7 @@
 
         <i data-lucide="shield-check"></i>
 
-        <span>
-          Private administrator access only.
-        </span>
+        Private administrator access only.
 
       </div>
 
@@ -3070,8 +2574,8 @@
 
 
       <p class="login-intro">
-        Sign in with your authorised Sorted. administrator
-        account to continue to Studio.
+        Sign in with your authorised Sorted.
+        administrator account.
       </p>
 
 
@@ -3127,27 +2631,13 @@
 
         <i data-lucide="log-in"></i>
 
-        <span>
-          Enter Sorted. Studio
-        </span>
+        Enter Sorted. Studio
 
       </button>
 
 
       <div id="error">
         Access denied. Please check your login details.
-      </div>
-
-
-      <div class="login-security">
-
-        <i data-lucide="shield-check"></i>
-
-        <span>
-          Access is restricted to the authorised Sorted.
-          administrator account.
-        </span>
-
       </div>
 
     </section>
@@ -3165,604 +2655,706 @@
 <div id="studio">
 
 
-  <!-- HEADER -->
+<header class="studio-header">
 
-  <header class="studio-header">
-
-    <div class="container studio-header-inner">
+  <div class="container studio-header-inner">
 
 
-      <div class="brand-group">
+    <div class="brand-group">
 
-        <div class="brand">
-          Sorted<span>.</span>
-        </div>
+      <div class="brand">
+        Sorted<span>.</span>
+      </div>
 
-        <span class="studio-name">
-          Studio
+      <span class="studio-name">
+        Studio
+      </span>
+
+    </div>
+
+
+    <div class="header-actions">
+
+      <a
+        href="../index.html"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="header-button"
+      >
+
+        <i data-lucide="external-link"></i>
+
+        View Website
+
+      </a>
+
+
+      <button
+        type="button"
+        class="logout"
+        onclick="logout()"
+      >
+
+        <i data-lucide="log-out"></i>
+
+        <span>
+          Log Out
         </span>
 
-      </div>
-
-
-      <div class="header-actions">
-
-        <a
-          href="../index.html"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="header-button"
-        >
-
-          <i data-lucide="external-link"></i>
-
-          <span>
-            View Website
-          </span>
-
-        </a>
-
-
-        <button
-          type="button"
-          class="logout"
-          onclick="logout()"
-        >
-
-          <i data-lucide="log-out"></i>
-
-          <span>
-            Log Out
-          </span>
-
-        </button>
-
-      </div>
-
+      </button>
 
     </div>
 
-  </header>
 
+  </div>
 
-  <!-- MAIN -->
+</header>
 
-  <main class="studio-main">
 
-    <div class="container">
+<main class="studio-main">
 
+<div class="container">
 
-      <!-- HERO -->
 
-      <section class="hero">
+<!-- ==================================================
+     HERO
+================================================== -->
 
-        <div class="hero-copy">
+<section class="hero">
 
-          <div class="studio-label">
+  <div>
 
-            <i data-lucide="layout-dashboard"></i>
+    <div class="studio-label">
 
-            <span>
-              Sorted. Studio
-            </span>
+      <i data-lucide="layout-dashboard"></i>
 
-          </div>
-
-
-          <h1>
-            Everything behind
-            <em>Sorted.</em>
-          </h1>
-
-
-          <p>
-            Manage clients, approve new registrations,
-            arrange visits and securely review information
-            submitted through My Sorted.
-          </p>
-
-        </div>
-
-
-        <aside class="hero-system">
-
-          <div class="hero-system-label">
-            Studio Status
-          </div>
-
-          <div class="system-status">
-
-            <span class="system-status-dot"></span>
-
-            <span>
-              Connected
-            </span>
-
-          </div>
-
-          <p>
-            Firebase services are connected and Studio is
-            ready to manage your client accounts.
-          </p>
-
-        </aside>
-
-      </section>
-
-
-      <!-- ==================================================
-           STATS
-      ================================================== -->
-
-      <section class="stats">
-
-
-        <article class="stat">
-
-          <div class="stat-top">
-
-            <small>
-              Pending
-            </small>
-
-            <div class="stat-icon">
-              <i data-lucide="user-round-plus"></i>
-            </div>
-
-          </div>
-
-          <strong id="pending-count">
-            —
-          </strong>
-
-          <div class="stat-description">
-            Registrations awaiting approval
-          </div>
-
-        </article>
-
-
-        <article class="stat">
-
-          <div class="stat-top">
-
-            <small>
-              Clients
-            </small>
-
-            <div class="stat-icon">
-              <i data-lucide="users-round"></i>
-            </div>
-
-          </div>
-
-          <strong id="client-count">
-            —
-          </strong>
-
-          <div class="stat-description">
-            Current client accounts
-          </div>
-
-        </article>
-
-
-        <article class="stat">
-
-          <div class="stat-top">
-
-            <small>
-              Forms
-            </small>
-
-            <div class="stat-icon">
-              <i data-lucide="clipboard-check"></i>
-            </div>
-
-          </div>
-
-          <strong id="form-count">
-            —
-          </strong>
-
-          <div class="stat-description">
-            Client forms in Studio
-          </div>
-
-        </article>
-
-
-        <article class="stat">
-
-          <div class="stat-top">
-
-            <small>
-              System
-            </small>
-
-            <div class="stat-icon">
-              <i data-lucide="shield-check"></i>
-            </div>
-
-          </div>
-
-          <strong style="font-size:1.55rem;">
-            Live
-          </strong>
-
-          <div class="stat-description">
-            Administration connected
-          </div>
-
-        </article>
-
-
-      </section>
-
-
-      <!-- ==================================================
-           CONTENT GRID
-      ================================================== -->
-
-      <div class="grid">
-
-
-        <!-- ==================================================
-             REGISTRATIONS
-        ================================================== -->
-
-        <section class="card wide">
-
-          <div class="card-header">
-
-            <div class="card-heading">
-
-              <span class="section-label">
-                Registrations
-              </span>
-
-              <h2>
-                Pending registrations
-              </h2>
-
-              <p>
-                Review new My Sorted. registrations and
-                approve access when appropriate.
-              </p>
-
-            </div>
-
-
-            <div class="toolbar-actions">
-
-              <button
-                type="button"
-                class="refresh-button"
-                onclick="refreshStudio()"
-              >
-
-                <i data-lucide="refresh-cw"></i>
-
-                Refresh
-
-              </button>
-
-            </div>
-
-          </div>
-
-
-          <div class="card-body">
-
-            <div
-              id="pending-list"
-              class="registration-list"
-            >
-
-              <div class="loading-state">
-                Loading registrations…
-              </div>
-
-            </div>
-
-          </div>
-
-        </section>
-
-
-        <!-- ==================================================
-             CLIENTS
-        ================================================== -->
-
-        <section class="card wide">
-
-          <div class="card-header">
-
-            <div class="card-heading">
-
-              <span class="section-label">
-                Clients
-              </span>
-
-              <h2>
-                Client management
-              </h2>
-
-              <p>
-                Manage client membership, service status
-                and remaining support hours.
-              </p>
-
-            </div>
-
-          </div>
-
-
-          <div class="card-body">
-
-            <div
-              id="client-list"
-              class="client-list"
-            >
-
-              <div class="loading-state">
-                Loading clients…
-              </div>
-
-            </div>
-
-          </div>
-
-        </section>
-
-
-        <!-- ==================================================
-             VISITS
-        ================================================== -->
-
-        <section class="card wide">
-
-          <div class="card-header">
-
-            <div class="card-heading">
-
-              <span class="section-label">
-                Visits
-              </span>
-
-              <h2>
-                Visit management
-              </h2>
-
-              <p>
-                Add and update support visits that appear
-                in each client's My Sorted. dashboard.
-              </p>
-
-            </div>
-
-
-            <div class="toolbar-actions">
-
-              <button
-                type="button"
-                class="refresh-button"
-                onclick="refreshStudio()"
-              >
-
-                <i data-lucide="refresh-cw"></i>
-
-                Refresh
-
-              </button>
-
-
-              <button
-                type="button"
-                class="add-button"
-                id="add-visit-button"
-              >
-
-                <i data-lucide="calendar-plus"></i>
-
-                Add Visit
-
-              </button>
-
-            </div>
-
-          </div>
-
-
-          <div class="card-body">
-
-            <div
-              id="visit-list"
-              class="visit-list"
-            >
-
-              <div class="loading-state">
-                Loading visits…
-              </div>
-
-            </div>
-
-          </div>
-
-        </section>
-
-
-        <!-- ==================================================
-             CLIENT FORMS
-        ================================================== -->
-
-        <section class="card wide">
-
-          <div class="card-header">
-
-            <div class="card-heading">
-
-              <span class="section-label">
-                Forms
-              </span>
-
-              <h2>
-                Client forms
-              </h2>
-
-              <p>
-                Review forms submitted securely through
-                My Sorted.
-              </p>
-
-            </div>
-
-
-            <div class="toolbar-actions">
-
-              <button
-                type="button"
-                class="refresh-button"
-                onclick="refreshStudio()"
-              >
-
-                <i data-lucide="refresh-cw"></i>
-
-                Refresh
-
-              </button>
-
-            </div>
-
-          </div>
-
-
-          <div class="card-body">
-
-            <div
-              id="form-list"
-              class="form-list"
-            >
-
-              <div class="loading-state">
-                Loading submitted forms…
-              </div>
-
-            </div>
-
-          </div>
-
-        </section>
-
-
-        <!-- ==================================================
-             INVOICES
-        ================================================== -->
-
-        <section class="card feature-card">
-
-          <div class="card-body">
-
-            <div class="feature-icon">
-              <i data-lucide="receipt-text"></i>
-            </div>
-
-            <span class="section-label">
-              Invoices
-            </span>
-
-            <h3>
-              Invoice management
-            </h3>
-
-            <p>
-              Create, issue and track client invoices and
-              payment status from Studio.
-            </p>
-
-            <span class="coming-soon">
-              Next stage
-            </span>
-
-          </div>
-
-        </section>
-
-
-        <!-- ==================================================
-             DOCUMENTS
-        ================================================== -->
-
-        <section class="card feature-card">
-
-          <div class="card-body">
-
-            <div class="feature-icon">
-              <i data-lucide="folder-lock"></i>
-            </div>
-
-            <span class="section-label">
-              Documents
-            </span>
-
-            <h3>
-              Client documents
-            </h3>
-
-            <p>
-              Manage Welcome Packs, agreements and other
-              client documents from one place.
-            </p>
-
-            <span class="coming-soon">
-              Next stage
-            </span>
-
-          </div>
-
-        </section>
-
-
-      </div>
-
-
-      <!-- ==================================================
-           FOOTER
-      ================================================== -->
-
-      <footer class="studio-footer">
-
-        Sorted. Studio
-
-        &nbsp;·&nbsp;
-
-        Private administration area
-
-        &nbsp;·&nbsp;
-
-        <a href="../privacy.html">
-          Privacy Policy
-        </a>
-
-        &nbsp;·&nbsp;
-
-        <a href="../terms.html">
-          Terms &amp; Conditions
-        </a>
-
-      </footer>
-
+      Sorted. Studio
 
     </div>
 
-  </main>
+
+    <h1>
+      Everything behind
+      <em>Sorted.</em>
+    </h1>
+
+
+    <p>
+      Manage registrations, clients, visits,
+      invoices and securely submitted client
+      information.
+    </p>
+
+  </div>
+
+
+  <aside class="hero-system">
+
+    <div class="hero-system-label">
+      Studio Status
+    </div>
+
+    <div class="system-status">
+
+      <span class="system-status-dot"></span>
+
+      Connected
+
+    </div>
+
+    <p>
+      Firebase services are connected and
+      Studio is ready.
+    </p>
+
+  </aside>
+
+</section>
+
+
+<!-- ==================================================
+     STATS
+================================================== -->
+
+<section class="stats">
+
+
+  <article class="stat">
+
+    <div class="stat-top">
+
+      <small>Pending</small>
+
+      <div class="stat-icon">
+        <i data-lucide="user-round-plus"></i>
+      </div>
+
+    </div>
+
+    <strong id="pending-count">
+      —
+    </strong>
+
+    <div class="stat-description">
+      Registrations awaiting approval
+    </div>
+
+  </article>
+
+
+  <article class="stat">
+
+    <div class="stat-top">
+
+      <small>Clients</small>
+
+      <div class="stat-icon">
+        <i data-lucide="users-round"></i>
+      </div>
+
+    </div>
+
+    <strong id="client-count">
+      —
+    </strong>
+
+    <div class="stat-description">
+      Current client accounts
+    </div>
+
+  </article>
+
+
+  <article class="stat">
+
+    <div class="stat-top">
+
+      <small>Forms</small>
+
+      <div class="stat-icon">
+        <i data-lucide="clipboard-check"></i>
+      </div>
+
+    </div>
+
+    <strong id="form-count">
+      —
+    </strong>
+
+    <div class="stat-description">
+      Submitted client forms
+    </div>
+
+  </article>
+
+
+  <article class="stat">
+
+    <div class="stat-top">
+
+      <small>Outstanding</small>
+
+      <div class="stat-icon">
+        <i data-lucide="receipt-pound-sterling"></i>
+      </div>
+
+    </div>
+
+    <strong id="outstanding-total">
+      £0.00
+    </strong>
+
+    <div class="stat-description">
+      Sent or overdue invoices
+    </div>
+
+  </article>
+
+
+  <article class="stat">
+
+    <div class="stat-top">
+
+      <small>Overdue</small>
+
+      <div class="stat-icon">
+        <i data-lucide="triangle-alert"></i>
+      </div>
+
+    </div>
+
+    <strong id="overdue-total">
+      £0.00
+    </strong>
+
+    <div class="stat-description">
+      Currently marked overdue
+    </div>
+
+  </article>
+
+
+  <article class="stat">
+
+    <div class="stat-top">
+
+      <small>Paid This Month</small>
+
+      <div class="stat-icon">
+        <i data-lucide="circle-check-big"></i>
+      </div>
+
+    </div>
+
+    <strong id="paid-month-total">
+      £0.00
+    </strong>
+
+    <div class="stat-description">
+      Payments recorded this month
+    </div>
+
+  </article>
+
+
+</section>
+
+
+<div class="grid">
+
+
+<!-- ==================================================
+     REGISTRATIONS
+================================================== -->
+
+<section class="card wide">
+
+  <div class="card-header">
+
+    <div>
+
+      <span class="section-label">
+        Registrations
+      </span>
+
+      <h2>
+        Pending registrations
+      </h2>
+
+      <p>
+        Review new My Sorted. registrations and
+        approve client access.
+      </p>
+
+    </div>
+
+
+    <div class="toolbar-actions">
+
+      <button
+        type="button"
+        class="refresh-button"
+        onclick="refreshStudio()"
+      >
+
+        <i data-lucide="refresh-cw"></i>
+
+        Refresh
+
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <div class="card-body">
+
+    <div
+      id="pending-list"
+      class="registration-list"
+    >
+
+      <div class="loading-state">
+        Loading registrations…
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==================================================
+     CLIENTS
+================================================== -->
+
+<section class="card wide">
+
+  <div class="card-header">
+
+    <div>
+
+      <span class="section-label">
+        Clients
+      </span>
+
+      <h2>
+        Client management
+      </h2>
+
+      <p>
+        Manage memberships, service status
+        and support hours.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <div class="card-body">
+
+    <div
+      id="client-list"
+      class="client-list"
+    >
+
+      <div class="loading-state">
+        Loading clients…
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==================================================
+     VISITS
+================================================== -->
+
+<section class="card wide">
+
+  <div class="card-header">
+
+    <div>
+
+      <span class="section-label">
+        Visits
+      </span>
+
+      <h2>
+        Visit management
+      </h2>
+
+      <p>
+        Add and update support visits shown
+        in My Sorted.
+      </p>
+
+    </div>
+
+
+    <div class="toolbar-actions">
+
+      <button
+        type="button"
+        class="refresh-button"
+        onclick="refreshStudio()"
+      >
+
+        <i data-lucide="refresh-cw"></i>
+
+        Refresh
+
+      </button>
+
+
+      <button
+        type="button"
+        class="add-button"
+        id="add-visit-button"
+      >
+
+        <i data-lucide="calendar-plus"></i>
+
+        Add Visit
+
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <div class="card-body">
+
+    <div
+      id="visit-list"
+      class="visit-list"
+    >
+
+      <div class="loading-state">
+        Loading visits…
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==================================================
+     INVOICES
+================================================== -->
+
+<section
+  class="card wide"
+  id="invoice-management"
+>
+
+  <div class="card-header">
+
+    <div>
+
+      <span class="section-label">
+        Invoices
+      </span>
+
+      <h2>
+        Invoice management
+      </h2>
+
+      <p>
+        Create and manage invoices that appear
+        automatically in the client's My Sorted.
+        account.
+      </p>
+
+    </div>
+
+
+    <div class="toolbar-actions">
+
+      <button
+        type="button"
+        class="refresh-button"
+        onclick="refreshStudio()"
+      >
+
+        <i data-lucide="refresh-cw"></i>
+
+        Refresh
+
+      </button>
+
+
+      <button
+        type="button"
+        class="add-button"
+        id="add-invoice-button"
+      >
+
+        <i data-lucide="receipt-text"></i>
+
+        Create Invoice
+
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <div class="card-body">
+
+    <div
+      id="invoice-list"
+      class="invoice-list"
+    >
+
+      <div class="loading-state">
+        Loading invoices…
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==================================================
+     CLIENT FORMS
+================================================== -->
+
+<section class="card wide">
+
+  <div class="card-header">
+
+    <div>
+
+      <span class="section-label">
+        Forms
+      </span>
+
+      <h2>
+        Client forms
+      </h2>
+
+      <p>
+        Review information submitted securely
+        through My Sorted.
+      </p>
+
+    </div>
+
+
+    <div class="toolbar-actions">
+
+      <button
+        type="button"
+        class="refresh-button"
+        onclick="refreshStudio()"
+      >
+
+        <i data-lucide="refresh-cw"></i>
+
+        Refresh
+
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <div class="card-body">
+
+    <div
+      id="form-list"
+      class="form-list"
+    >
+
+      <div class="loading-state">
+        Loading submitted forms…
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==================================================
+     DOCUMENTS - NEXT
+================================================== -->
+
+<section class="card feature-card">
+
+  <div class="card-body">
+
+    <div class="feature-icon">
+      <i data-lucide="folder-lock"></i>
+    </div>
+
+    <span class="section-label">
+      Documents
+    </span>
+
+    <h3>
+      Client document control
+    </h3>
+
+    <p>
+      Publish and manage agreements,
+      Welcome Packs and client-specific
+      documents.
+    </p>
+
+    <span class="coming-soon">
+      Next stage
+    </span>
+
+  </div>
+
+</section>
+
+
+<!-- ==================================================
+     AUTOMATION - LATER
+================================================== -->
+
+<section class="card feature-card">
+
+  <div class="card-body">
+
+    <div class="feature-icon">
+      <i data-lucide="workflow"></i>
+    </div>
+
+    <span class="section-label">
+      Automation
+    </span>
+
+    <h3>
+      Automated workflows
+    </h3>
+
+    <p>
+      Visit reminders, invoice notices,
+      document alerts and client follow-up.
+    </p>
+
+    <span class="coming-soon">
+      After documents
+    </span>
+
+  </div>
+
+</section>
 
 
 </div>
 
 
+<footer class="studio-footer">
+
+  Sorted. Studio
+
+  &nbsp;·&nbsp;
+
+  Private administration area
+
+  &nbsp;·&nbsp;
+
+  <a href="../privacy.html">
+    Privacy Policy
+  </a>
+
+  &nbsp;·&nbsp;
+
+  <a href="../terms.html">
+    Terms &amp; Conditions
+  </a>
+
+</footer>
+
+
+</div>
+
+</main>
+
+</div>
+
+
 <!-- ==================================================
-     EDIT CLIENT MODAL
+     CLIENT MODAL
 ================================================== -->
 
 <div
@@ -3771,180 +3363,176 @@
   aria-hidden="true"
 >
 
-  <div class="modal">
+<div class="modal">
 
+<div class="modal-header">
 
-    <div class="modal-header">
+  <div>
 
-      <div>
+    <small>
+      Client Management
+    </small>
 
-        <small>
-          Client Management
-        </small>
-
-        <h2 id="client-modal-title">
-          Edit Client
-        </h2>
-
-      </div>
-
-
-      <button
-        type="button"
-        class="modal-close"
-        id="client-modal-close"
-        aria-label="Close client editor"
-      >
-        ×
-      </button>
-
-    </div>
-
-
-    <div class="modal-body">
-
-
-      <div class="edit-note">
-        These settings control the membership and account
-        information displayed in the client's My Sorted.
-        dashboard.
-      </div>
-
-
-      <div class="edit-grid">
-
-
-        <div class="edit-field full">
-
-          <label for="edit-client-name">
-            Client
-          </label>
-
-          <input
-            id="edit-client-name"
-            type="text"
-            disabled
-          >
-
-        </div>
-
-
-        <div class="edit-field full">
-
-          <label for="edit-membership">
-            Membership
-          </label>
-
-          <input
-            id="edit-membership"
-            type="text"
-            placeholder="e.g. Essential Support"
-          >
-
-        </div>
-
-
-        <div class="edit-field">
-
-          <label for="edit-membership-status">
-            Membership Status
-          </label>
-
-          <select id="edit-membership-status">
-
-            <option value="Awaiting setup">
-              Awaiting setup
-            </option>
-
-            <option value="Active">
-              Active
-            </option>
-
-            <option value="Paused">
-              Paused
-            </option>
-
-            <option value="Ended">
-              Ended
-            </option>
-
-          </select>
-
-        </div>
-
-
-        <div class="edit-field">
-
-          <label for="edit-service-status">
-            Service Status
-          </label>
-
-          <select id="edit-service-status">
-
-            <option value="Active">
-              Active
-            </option>
-
-            <option value="Paused">
-              Paused
-            </option>
-
-            <option value="Inactive">
-              Inactive
-            </option>
-
-          </select>
-
-        </div>
-
-
-        <div class="edit-field">
-
-          <label for="edit-hours-total">
-            Allocated Hours
-          </label>
-
-          <input
-            id="edit-hours-total"
-            type="number"
-            min="0"
-            step="0.5"
-          >
-
-        </div>
-
-
-        <div class="edit-field">
-
-          <label for="edit-hours-remaining">
-            Hours Remaining
-          </label>
-
-          <input
-            id="edit-hours-remaining"
-            type="number"
-            min="0"
-            step="0.5"
-          >
-
-        </div>
-
-
-      </div>
-
-
-      <button
-        type="button"
-        id="save-client-button"
-        class="save-button"
-      >
-        Save Client Changes
-      </button>
-
-
-    </div>
+    <h2 id="client-modal-title">
+      Edit Client
+    </h2>
 
   </div>
+
+
+  <button
+    type="button"
+    class="modal-close"
+    id="client-modal-close"
+    aria-label="Close"
+  >
+    ×
+  </button>
+
+</div>
+
+
+<div class="modal-body">
+
+  <div class="edit-note">
+    These settings control the information
+    displayed in the client's My Sorted.
+    dashboard.
+  </div>
+
+
+  <div class="edit-grid">
+
+
+    <div class="edit-field full">
+
+      <label for="edit-client-name">
+        Client
+      </label>
+
+      <input
+        id="edit-client-name"
+        type="text"
+        disabled
+      >
+
+    </div>
+
+
+    <div class="edit-field full">
+
+      <label for="edit-membership">
+        Membership
+      </label>
+
+      <input
+        id="edit-membership"
+        type="text"
+      >
+
+    </div>
+
+
+    <div class="edit-field">
+
+      <label for="edit-membership-status">
+        Membership Status
+      </label>
+
+      <select id="edit-membership-status">
+
+        <option value="Awaiting setup">
+          Awaiting setup
+        </option>
+
+        <option value="Active">
+          Active
+        </option>
+
+        <option value="Paused">
+          Paused
+        </option>
+
+        <option value="Ended">
+          Ended
+        </option>
+
+      </select>
+
+    </div>
+
+
+    <div class="edit-field">
+
+      <label for="edit-service-status">
+        Service Status
+      </label>
+
+      <select id="edit-service-status">
+
+        <option value="Active">
+          Active
+        </option>
+
+        <option value="Paused">
+          Paused
+        </option>
+
+        <option value="Inactive">
+          Inactive
+        </option>
+
+      </select>
+
+    </div>
+
+
+    <div class="edit-field">
+
+      <label for="edit-hours-total">
+        Allocated Hours
+      </label>
+
+      <input
+        id="edit-hours-total"
+        type="number"
+        min="0"
+        step="0.5"
+      >
+
+    </div>
+
+
+    <div class="edit-field">
+
+      <label for="edit-hours-remaining">
+        Hours Remaining
+      </label>
+
+      <input
+        id="edit-hours-remaining"
+        type="number"
+        min="0"
+        step="0.5"
+      >
+
+    </div>
+
+
+  </div>
+
+
+  <button
+    type="button"
+    id="save-client-button"
+    class="save-button"
+  >
+    Save Client Changes
+  </button>
+
+</div>
+
+</div>
 
 </div>
 
@@ -3959,198 +3547,403 @@
   aria-hidden="true"
 >
 
-  <div class="modal">
+<div class="modal">
 
+<div class="modal-header">
 
-    <div class="modal-header">
+  <div>
 
-      <div>
+    <small>
+      Visit Management
+    </small>
 
-        <small>
-          Visit Management
-        </small>
-
-        <h2 id="visit-modal-title">
-          Add Visit
-        </h2>
-
-      </div>
-
-
-      <button
-        type="button"
-        class="modal-close"
-        id="visit-modal-close"
-        aria-label="Close visit editor"
-      >
-        ×
-      </button>
-
-    </div>
-
-
-    <div class="modal-body">
-
-
-      <div class="edit-note">
-        Visit information saved here will appear in the
-        client's My Sorted. dashboard.
-      </div>
-
-
-      <div class="edit-grid">
-
-
-        <div class="edit-field full">
-
-          <label for="visit-client">
-            Client
-          </label>
-
-          <select
-            id="visit-client"
-            required
-          ></select>
-
-        </div>
-
-
-        <div class="edit-field">
-
-          <label for="visit-date">
-            Date
-          </label>
-
-          <input
-            id="visit-date"
-            type="date"
-            required
-          >
-
-        </div>
-
-
-        <div class="edit-field">
-
-          <label for="visit-time">
-            Time
-          </label>
-
-          <input
-            id="visit-time"
-            type="time"
-            required
-          >
-
-        </div>
-
-
-        <div class="edit-field full">
-
-          <label for="visit-service">
-            Service / Visit Type
-          </label>
-
-          <input
-            id="visit-service"
-            type="text"
-            placeholder="e.g. Household & Lifestyle Support"
-            required
-          >
-
-        </div>
-
-
-        <div class="edit-field">
-
-          <label for="visit-helper">
-            Assigned Helper
-          </label>
-
-          <input
-            id="visit-helper"
-            type="text"
-            placeholder="e.g. Jamie"
-          >
-
-        </div>
-
-
-        <div class="edit-field">
-
-          <label for="visit-duration">
-            Duration in Hours
-          </label>
-
-          <input
-            id="visit-duration"
-            type="number"
-            min="0"
-            step="0.5"
-            placeholder="2"
-          >
-
-        </div>
-
-
-        <div class="edit-field full">
-
-          <label for="visit-status">
-            Visit Status
-          </label>
-
-          <select id="visit-status">
-
-            <option value="Scheduled">
-              Scheduled
-            </option>
-
-            <option value="Completed">
-              Completed
-            </option>
-
-            <option value="Cancelled">
-              Cancelled
-            </option>
-
-          </select>
-
-        </div>
-
-
-        <div class="edit-field full">
-
-          <label for="visit-notes">
-            Client-visible Notes
-          </label>
-
-          <textarea
-            id="visit-notes"
-            placeholder="Optional information the client may need about this visit."
-          ></textarea>
-
-          <div class="field-help">
-            Do not include private staff notes here.
-          </div>
-
-        </div>
-
-
-      </div>
-
-
-      <button
-        type="button"
-        id="save-visit-button"
-        class="save-button"
-      >
-        Save Visit
-      </button>
-
-
-    </div>
+    <h2 id="visit-modal-title">
+      Add Visit
+    </h2>
 
   </div>
+
+
+  <button
+    type="button"
+    class="modal-close"
+    id="visit-modal-close"
+    aria-label="Close"
+  >
+    ×
+  </button>
+
+</div>
+
+
+<div class="modal-body">
+
+  <div class="edit-note">
+    Visit information saved here will appear
+    in the client's My Sorted. dashboard.
+  </div>
+
+
+  <div class="edit-grid">
+
+
+    <div class="edit-field full">
+
+      <label for="visit-client">
+        Client
+      </label>
+
+      <select
+        id="visit-client"
+        required
+      ></select>
+
+    </div>
+
+
+    <div class="edit-field">
+
+      <label for="visit-date">
+        Date
+      </label>
+
+      <input
+        id="visit-date"
+        type="date"
+        required
+      >
+
+    </div>
+
+
+    <div class="edit-field">
+
+      <label for="visit-time">
+        Time
+      </label>
+
+      <input
+        id="visit-time"
+        type="time"
+        required
+      >
+
+    </div>
+
+
+    <div class="edit-field full">
+
+      <label for="visit-service">
+        Service / Visit Type
+      </label>
+
+      <input
+        id="visit-service"
+        type="text"
+        required
+      >
+
+    </div>
+
+
+    <div class="edit-field">
+
+      <label for="visit-helper">
+        Assigned Helper
+      </label>
+
+      <input
+        id="visit-helper"
+        type="text"
+      >
+
+    </div>
+
+
+    <div class="edit-field">
+
+      <label for="visit-duration">
+        Duration in Hours
+      </label>
+
+      <input
+        id="visit-duration"
+        type="number"
+        min="0"
+        step="0.5"
+      >
+
+    </div>
+
+
+    <div class="edit-field full">
+
+      <label for="visit-status">
+        Visit Status
+      </label>
+
+      <select id="visit-status">
+
+        <option value="Scheduled">
+          Scheduled
+        </option>
+
+        <option value="Completed">
+          Completed
+        </option>
+
+        <option value="Cancelled">
+          Cancelled
+        </option>
+
+      </select>
+
+    </div>
+
+
+    <div class="edit-field full">
+
+      <label for="visit-notes">
+        Client-visible Notes
+      </label>
+
+      <textarea
+        id="visit-notes"
+      ></textarea>
+
+      <span class="field-help">
+        Do not include private staff notes here.
+      </span>
+
+    </div>
+
+
+  </div>
+
+
+  <button
+    type="button"
+    id="save-visit-button"
+    class="save-button"
+  >
+    Save Visit
+  </button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ==================================================
+     INVOICE MODAL
+================================================== -->
+
+<div
+  id="invoice-modal"
+  class="modal-overlay"
+  aria-hidden="true"
+>
+
+<div class="modal">
+
+<div class="modal-header">
+
+  <div>
+
+    <small>
+      Invoice Management
+    </small>
+
+    <h2 id="invoice-modal-title">
+      Create Invoice
+    </h2>
+
+  </div>
+
+
+  <button
+    type="button"
+    class="modal-close"
+    id="invoice-modal-close"
+    aria-label="Close"
+  >
+    ×
+  </button>
+
+</div>
+
+
+<div class="modal-body">
+
+
+  <div class="edit-note">
+    Saving this invoice makes it available
+    inside the selected client's My Sorted.
+    dashboard. PDF invoices will be added in
+    the next invoice stage.
+  </div>
+
+
+  <div class="edit-grid">
+
+
+    <div class="edit-field full">
+
+      <label for="invoice-client">
+        Client
+      </label>
+
+      <select
+        id="invoice-client"
+        required
+      ></select>
+
+    </div>
+
+
+    <div class="edit-field">
+
+      <label for="invoice-number">
+        Invoice Number
+      </label>
+
+      <input
+        id="invoice-number"
+        type="text"
+        disabled
+      >
+
+    </div>
+
+
+    <div class="edit-field">
+
+      <label for="invoice-status">
+        Status
+      </label>
+
+      <select id="invoice-status">
+
+        <option value="Draft">
+          Draft
+        </option>
+
+        <option value="Sent">
+          Sent
+        </option>
+
+        <option value="Paid">
+          Paid
+        </option>
+
+        <option value="Overdue">
+          Overdue
+        </option>
+
+        <option value="Cancelled">
+          Cancelled
+        </option>
+
+      </select>
+
+    </div>
+
+
+    <div class="edit-field full">
+
+      <label for="invoice-description">
+        Service / Description
+      </label>
+
+      <input
+        id="invoice-description"
+        type="text"
+        placeholder="e.g. Household & Lifestyle Support"
+        required
+      >
+
+    </div>
+
+
+    <div class="edit-field">
+
+      <label for="invoice-amount">
+        Amount (£)
+      </label>
+
+      <input
+        id="invoice-amount"
+        type="number"
+        min="0"
+        step="0.01"
+        placeholder="0.00"
+        required
+      >
+
+    </div>
+
+
+    <div class="edit-field">
+
+      <label for="invoice-date">
+        Invoice Date
+      </label>
+
+      <input
+        id="invoice-date"
+        type="date"
+        required
+      >
+
+    </div>
+
+
+    <div class="edit-field full">
+
+      <label for="invoice-due-date">
+        Due Date
+      </label>
+
+      <input
+        id="invoice-due-date"
+        type="date"
+        required
+      >
+
+    </div>
+
+
+    <div class="edit-field full">
+
+      <label for="invoice-notes">
+        Client-visible Notes
+      </label>
+
+      <textarea
+        id="invoice-notes"
+        placeholder="Optional payment or invoice information."
+      ></textarea>
+
+    </div>
+
+
+  </div>
+
+
+  <button
+    type="button"
+    id="save-invoice-button"
+    class="save-button"
+  >
+    Save Invoice
+  </button>
+
+
+</div>
+
+</div>
 
 </div>
 
@@ -4165,67 +3958,59 @@
   aria-hidden="true"
 >
 
-  <div class="modal">
+<div class="modal">
 
+<div class="modal-header">
 
-    <div class="modal-header">
+  <div>
 
-      <div>
+    <small id="form-modal-client">
+      Client Form
+    </small>
 
-        <small id="form-modal-client">
-          Client Form
-        </small>
-
-        <h2 id="form-modal-title">
-          Submitted Form
-        </h2>
-
-      </div>
-
-
-      <button
-        type="button"
-        class="modal-close"
-        id="form-modal-close"
-        aria-label="Close form viewer"
-      >
-        ×
-      </button>
-
-    </div>
-
-
-    <div class="modal-body">
-
-
-      <div class="sensitive-warning">
-
-        <strong>
-          Confidential client information.
-        </strong>
-
-        Only access and use this information where necessary
-        for providing the client's Sorted. service.
-
-      </div>
-
-
-      <div
-        id="form-detail-grid"
-        class="form-detail-grid"
-      ></div>
-
-
-    </div>
+    <h2 id="form-modal-title">
+      Submitted Form
+    </h2>
 
   </div>
+
+
+  <button
+    type="button"
+    class="modal-close"
+    id="form-modal-close"
+  >
+    ×
+  </button>
 
 </div>
 
 
-<!-- ==================================================
-     TOAST
-================================================== -->
+<div class="modal-body">
+
+  <div class="sensitive-warning">
+
+    <strong>
+      Confidential client information.
+    </strong>
+
+    Only access this information where necessary
+    for providing the client's Sorted. service.
+
+  </div>
+
+
+  <div
+    id="form-detail-grid"
+    class="form-detail-grid"
+  ></div>
+
+</div>
+
+</div>
+
+</div>
+
 
 <div
   id="studio-message"
@@ -4288,6 +4073,7 @@ const studio =
 const loginError =
   document.getElementById("error");
 
+
 const pendingList =
   document.getElementById("pending-list");
 
@@ -4297,8 +4083,12 @@ const clientList =
 const visitList =
   document.getElementById("visit-list");
 
+const invoiceList =
+  document.getElementById("invoice-list");
+
 const formList =
   document.getElementById("form-list");
+
 
 const pendingCount =
   document.getElementById("pending-count");
@@ -4309,11 +4099,22 @@ const clientCount =
 const formCount =
   document.getElementById("form-count");
 
+
+const outstandingTotal =
+  document.getElementById("outstanding-total");
+
+const overdueTotal =
+  document.getElementById("overdue-total");
+
+const paidMonthTotal =
+  document.getElementById("paid-month-total");
+
+
 const studioMessage =
   document.getElementById("studio-message");
 
 
-/* CLIENT MODAL */
+/* CLIENT */
 
 const clientModal =
   document.getElementById("client-modal");
@@ -4346,7 +4147,7 @@ const saveClientButton =
   document.getElementById("save-client-button");
 
 
-/* VISIT MODAL */
+/* VISIT */
 
 const addVisitButton =
   document.getElementById("add-visit-button");
@@ -4388,7 +4189,49 @@ const saveVisitButton =
   document.getElementById("save-visit-button");
 
 
-/* FORM MODAL */
+/* INVOICE */
+
+const addInvoiceButton =
+  document.getElementById("add-invoice-button");
+
+const invoiceModal =
+  document.getElementById("invoice-modal");
+
+const invoiceModalClose =
+  document.getElementById("invoice-modal-close");
+
+const invoiceModalTitle =
+  document.getElementById("invoice-modal-title");
+
+const invoiceClient =
+  document.getElementById("invoice-client");
+
+const invoiceNumber =
+  document.getElementById("invoice-number");
+
+const invoiceStatus =
+  document.getElementById("invoice-status");
+
+const invoiceDescription =
+  document.getElementById("invoice-description");
+
+const invoiceAmount =
+  document.getElementById("invoice-amount");
+
+const invoiceDate =
+  document.getElementById("invoice-date");
+
+const invoiceDueDate =
+  document.getElementById("invoice-due-date");
+
+const invoiceNotes =
+  document.getElementById("invoice-notes");
+
+const saveInvoiceButton =
+  document.getElementById("save-invoice-button");
+
+
+/* FORM */
 
 const formModal =
   document.getElementById("form-modal");
@@ -4412,13 +4255,20 @@ let loadedClients =
 let loadedVisits =
   new Map();
 
+let loadedInvoices =
+  new Map();
+
 let loadedForms =
   new Map();
+
 
 let editingClientId =
   null;
 
 let editingVisitKey =
+  null;
+
+let editingInvoiceKey =
   null;
 
 
@@ -4624,8 +4474,10 @@ async function loadStudioData(){
 
   const results =
     await Promise.all([
+
       loadPendingRegistrations(),
       loadClients()
+
     ]);
 
 
@@ -4634,8 +4486,11 @@ async function loadStudioData(){
 
 
   await Promise.all([
+
     loadVisits(clients),
+    loadInvoices(clients),
     loadClientForms(clients)
+
   ]);
 
 
@@ -4880,7 +4735,7 @@ async function loadPendingRegistrations(){
 
 
 /* ==================================================
-   APPROVE REGISTRATION
+   APPROVE
 ================================================== */
 
 async function approveRegistration(
@@ -4894,9 +4749,7 @@ async function approveRegistration(
       "Approve this client and allow access to My Sorted.?"
     )
   ){
-
     return;
-
   }
 
 
@@ -4905,9 +4758,6 @@ async function approveRegistration(
 
   rejectButton.disabled =
     true;
-
-  approveButton.textContent =
-    "Approving…";
 
 
   try{
@@ -4957,8 +4807,7 @@ async function approveRegistration(
       ),
       {
 
-        ownerUID:
-          uid,
+        ownerUID:uid,
 
         firstName:
           registration.firstName || "",
@@ -4966,11 +4815,8 @@ async function approveRegistration(
         lastName:
           registration.lastName || "",
 
-        fullName:
-          name,
-
-        name:
-          name,
+        fullName:name,
+        name:name,
 
         email:
           registration.email || "",
@@ -4993,14 +4839,9 @@ async function approveRegistration(
         status:
           "Active",
 
-        monthlyHours:
-          0,
-
-        hoursTotal:
-          0,
-
-        hoursRemaining:
-          0,
+        monthlyHours:0,
+        hoursTotal:0,
+        hoursRemaining:0,
 
         createdAt:
           serverTimestamp(),
@@ -5058,16 +4899,13 @@ async function approveRegistration(
     rejectButton.disabled =
       false;
 
-    approveButton.textContent =
-      "Approve";
-
   }
 
 }
 
 
 /* ==================================================
-   REJECT REGISTRATION
+   REJECT
 ================================================== */
 
 async function rejectRegistration(
@@ -5081,9 +4919,7 @@ async function rejectRegistration(
       "Reject this portal registration?"
     )
   ){
-
     return;
-
   }
 
 
@@ -5092,9 +4928,6 @@ async function rejectRegistration(
 
   rejectButton.disabled =
     true;
-
-  rejectButton.textContent =
-    "Rejecting…";
 
 
   try{
@@ -5142,9 +4975,6 @@ async function rejectRegistration(
 
     rejectButton.disabled =
       false;
-
-    rejectButton.textContent =
-      "Reject";
 
   }
 
@@ -5280,18 +5110,8 @@ async function loadClients(){
               ? "Telephone: " + escapeHTML(data.phone)
               : "",
 
-            data.postcode
-              ? "Postcode: " + escapeHTML(data.postcode)
-              : "",
-
             "Membership: " +
               escapeHTML(membership),
-
-            "Membership status: " +
-              escapeHTML(
-                data.membershipStatus ||
-                "Not set"
-              ),
 
             "Hours: " +
               escapeHTML(remaining) +
@@ -5383,7 +5203,7 @@ async function loadClients(){
 
 
 /* ==================================================
-   EDIT CLIENT
+   CLIENT EDITOR
 ================================================== */
 
 function openClientEditor(clientId){
@@ -5469,7 +5289,6 @@ function closeClientEditor(){
     clientModal
   );
 
-
   editingClientId =
     null;
 
@@ -5487,7 +5306,8 @@ clientModal.addEventListener(
   function(event){
 
     if(
-      event.target === clientModal
+      event.target ===
+      clientModal
     ){
 
       closeClientEditor();
@@ -5523,41 +5343,8 @@ saveClientButton.addEventListener(
       );
 
 
-    if(
-      allocated !== "" &&
-      allocated < 0
-    ){
-
-      showStudioMessage(
-        "error",
-        "Allocated hours cannot be below zero."
-      );
-
-      return;
-
-    }
-
-
-    if(
-      remaining !== "" &&
-      remaining < 0
-    ){
-
-      showStudioMessage(
-        "error",
-        "Hours remaining cannot be below zero."
-      );
-
-      return;
-
-    }
-
-
     saveClientButton.disabled =
       true;
-
-    saveClientButton.textContent =
-      "Saving…";
 
 
     try{
@@ -5605,7 +5392,7 @@ saveClientButton.addEventListener(
 
       showStudioMessage(
         "success",
-        "Client details updated successfully."
+        "Client details updated."
       );
 
 
@@ -5627,9 +5414,6 @@ saveClientButton.addEventListener(
 
       saveClientButton.disabled =
         false;
-
-      saveClientButton.textContent =
-        "Save Client Changes";
 
     }
 
@@ -5673,7 +5457,7 @@ async function loadVisits(clients){
             return snapshot.docs.map(
               function(visitDocument){
 
-                return {
+                return{
 
                   key:
                     client.id +
@@ -5712,7 +5496,7 @@ async function loadVisits(clients){
     visits.sort(
       function(a,b){
 
-        return (
+        return(
           getVisitMilliseconds(a.data) -
           getVisitMilliseconds(b.data)
         );
@@ -5767,7 +5551,6 @@ async function loadVisits(clients){
 
         title.textContent =
           data.service ||
-          data.description ||
           "Sorted. support visit";
 
 
@@ -5788,46 +5571,37 @@ async function loadVisits(clients){
           "visit-meta";
 
 
-        const pieces =
+        meta.textContent =
           [
-            formatVisitDate(data.date),
+            formatVisitDate(
+              data.date
+            ),
 
-            data.time ||
-              "",
+            data.time,
 
             data.helper ||
-              data.assignedTo ||
-              "",
+            data.assignedTo,
 
             data.durationHours
               ? data.durationHours + " hrs"
               : ""
           ]
-          .filter(Boolean);
-
-
-        meta.textContent =
-          pieces.join(" · ");
+          .filter(Boolean)
+          .join(" · ");
 
 
         const status =
           document.createElement("span");
 
-
-        const statusText =
-          data.status ||
-          "Scheduled";
-
-
         status.className =
           "status-pill " +
           getVisitStatusClass(
-            statusText
+            data.status
           );
 
-
         status.textContent =
-          statusText;
+          data.status ||
+          "Scheduled";
 
 
         info.appendChild(title);
@@ -5893,7 +5667,7 @@ async function loadVisits(clients){
 
 
 /* ==================================================
-   ADD / EDIT VISIT
+   VISIT EDITOR
 ================================================== */
 
 addVisitButton.addEventListener(
@@ -5918,16 +5692,13 @@ function populateVisitClients(){
       const option =
         document.createElement("option");
 
-
       option.value =
         client.id;
-
 
       option.textContent =
         client.data.fullName ||
         client.data.name ||
         "Client";
-
 
       visitClient.appendChild(
         option
@@ -5965,38 +5736,29 @@ function openVisitEditor(key = null){
     visitModalTitle.textContent =
       "Add Visit";
 
-
     visitClient.disabled =
       false;
-
 
     visitDate.value =
       "";
 
-
     visitTime.value =
       "";
-
 
     visitService.value =
       "";
 
-
     visitHelper.value =
       "";
-
 
     visitDuration.value =
       "";
 
-
     visitStatus.value =
       "Scheduled";
 
-
     visitNotes.value =
       "";
-
 
   }else{
 
@@ -6043,7 +5805,6 @@ function openVisitEditor(key = null){
 
     visitService.value =
       data.service ||
-      data.description ||
       "";
 
 
@@ -6109,7 +5870,8 @@ visitModal.addEventListener(
   function(event){
 
     if(
-      event.target === visitModal
+      event.target ===
+      visitModal
     ){
 
       closeVisitEditor();
@@ -6127,32 +5889,25 @@ saveVisitButton.addEventListener(
     const clientId =
       visitClient.value;
 
-
     const date =
       visitDate.value;
-
 
     const time =
       visitTime.value;
 
-
     const service =
       visitService.value.trim();
 
-
     const helper =
       visitHelper.value.trim();
-
 
     const duration =
       parseOptionalNumber(
         visitDuration.value
       );
 
-
     const status =
       visitStatus.value;
-
 
     const publicNotes =
       visitNotes.value.trim();
@@ -6175,21 +5930,6 @@ saveVisitButton.addEventListener(
     }
 
 
-    if(
-      duration !== "" &&
-      duration < 0
-    ){
-
-      showStudioMessage(
-        "error",
-        "Visit duration cannot be below zero."
-      );
-
-      return;
-
-    }
-
-
     const startDate =
       new Date(
         date +
@@ -6199,28 +5939,8 @@ saveVisitButton.addEventListener(
       );
 
 
-    if(
-      Number.isNaN(
-        startDate.getTime()
-      )
-    ){
-
-      showStudioMessage(
-        "error",
-        "Please enter a valid visit date and time."
-      );
-
-      return;
-
-    }
-
-
     saveVisitButton.disabled =
       true;
-
-
-    saveVisitButton.textContent =
-      "Saving…";
 
 
     try{
@@ -6228,31 +5948,23 @@ saveVisitButton.addEventListener(
       const visitData =
         {
 
-          date:
-            date,
-
-          time:
-            time,
+          date:date,
+          time:time,
 
           startAt:
             Timestamp.fromDate(
               startDate
             ),
 
-          service:
-            service,
+          service:service,
 
-          helper:
-            helper,
-
-          assignedTo:
-            helper,
+          helper:helper,
+          assignedTo:helper,
 
           durationHours:
             duration,
 
-          status:
-            status,
+          status:status,
 
           publicNotes:
             publicNotes,
@@ -6271,15 +5983,6 @@ saveVisitButton.addEventListener(
           );
 
 
-        if(!existing){
-
-          throw new Error(
-            "Visit could not be found."
-          );
-
-        }
-
-
         await updateDoc(
           doc(
             db,
@@ -6289,12 +5992,6 @@ saveVisitButton.addEventListener(
             existing.visitId
           ),
           visitData
-        );
-
-
-        showStudioMessage(
-          "success",
-          "Visit updated successfully."
         );
 
 
@@ -6317,16 +6014,18 @@ saveVisitButton.addEventListener(
           }
         );
 
-
-        showStudioMessage(
-          "success",
-          "Visit added successfully."
-        );
-
       }
 
 
       closeVisitEditor();
+
+
+      showStudioMessage(
+        "success",
+        editingVisitKey
+          ? "Visit updated."
+          : "Visit added."
+      );
 
 
       await loadStudioData();
@@ -6348,14 +6047,1066 @@ saveVisitButton.addEventListener(
       saveVisitButton.disabled =
         false;
 
+    }
 
-      saveVisitButton.textContent =
-        "Save Visit";
+  }
+);
+
+
+/* ==================================================
+   INVOICES
+================================================== */
+
+async function loadInvoices(clients){
+
+  invoiceList.innerHTML =
+    '<div class="loading-state">Loading invoices…</div>';
+
+
+  loadedInvoices =
+    new Map();
+
+
+  try{
+
+    const groups =
+      await Promise.all(
+
+        clients.map(
+          async function(client){
+
+            const snapshot =
+              await getDocs(
+                collection(
+                  db,
+                  "clients",
+                  client.id,
+                  "invoices"
+                )
+              );
+
+
+            return snapshot.docs.map(
+              function(invoiceDocument){
+
+                return{
+
+                  key:
+                    client.id +
+                    "/" +
+                    invoiceDocument.id,
+
+                  clientId:
+                    client.id,
+
+                  clientName:
+                    client.data.fullName ||
+                    client.data.name ||
+                    "Client",
+
+                  invoiceId:
+                    invoiceDocument.id,
+
+                  data:
+                    invoiceDocument.data()
+
+                };
+
+              }
+            );
+
+          }
+        )
+
+      );
+
+
+    const invoices =
+      groups.flat();
+
+
+    invoices.sort(
+      function(a,b){
+
+        return(
+          invoiceSortMilliseconds(
+            b.data
+          )
+          -
+          invoiceSortMilliseconds(
+            a.data
+          )
+        );
+
+      }
+    );
+
+
+    invoiceList.innerHTML =
+      "";
+
+
+    invoices.forEach(
+      function(invoice){
+
+        loadedInvoices.set(
+          invoice.key,
+          invoice
+        );
+
+      }
+    );
+
+
+    updateInvoiceStats(
+      invoices
+    );
+
+
+    if(!invoices.length){
+
+      invoiceList.innerHTML =
+        `
+          <div class="empty-state">
+            No invoices have been created yet.
+            Use “Create Invoice” to add the first one.
+          </div>
+        `;
+
+      return;
+
+    }
+
+
+    invoices.forEach(
+      function(invoice){
+
+        const data =
+          invoice.data;
+
+
+        const statusText =
+          data.status ||
+          "Draft";
+
+
+        const item =
+          document.createElement("article");
+
+        item.className =
+          "invoice-item";
+
+
+        item.innerHTML =
+          `
+
+            <div class="invoice-reference">
+
+              <strong>
+                ${escapeHTML(
+                  data.invoiceNumber ||
+                  data.reference ||
+                  "Invoice"
+                )}
+              </strong>
+
+              <span>
+                Invoice
+              </span>
+
+            </div>
+
+
+            <div class="invoice-client">
+
+              <strong>
+                ${escapeHTML(
+                  invoice.clientName
+                )}
+              </strong>
+
+              <span>
+                Client
+              </span>
+
+            </div>
+
+
+            <div class="invoice-description">
+
+              <strong>
+                ${escapeHTML(
+                  data.description ||
+                  data.service ||
+                  "Sorted. support"
+                )}
+              </strong>
+
+              <span>
+                Issued ${escapeHTML(
+                  formatInvoiceDate(
+                    data.issueDate ||
+                    data.date
+                  )
+                )}
+                ${
+                  data.dueDate
+                    ? " · Due " +
+                      escapeHTML(
+                        formatInvoiceDate(
+                          data.dueDate
+                        )
+                      )
+                    : ""
+                }
+              </span>
+
+            </div>
+
+
+            <div class="invoice-amount">
+
+              ${escapeHTML(
+                getInvoiceAmountDisplay(
+                  data
+                )
+              )}
+
+            </div>
+
+
+            <div>
+
+              <span
+                class="invoice-status ${getInvoiceStatusClass(statusText)}"
+              >
+                ${escapeHTML(statusText)}
+              </span>
+
+            </div>
+
+
+            <div
+              class="invoice-actions"
+              data-invoice-actions="${escapeHTML(invoice.key)}"
+            ></div>
+
+          `;
+
+
+        const actionWrap =
+          item.querySelector(
+            "[data-invoice-actions]"
+          );
+
+
+        const editButton =
+          document.createElement("button");
+
+        editButton.type =
+          "button";
+
+        editButton.className =
+          "invoice-action invoice-edit";
+
+        editButton.textContent =
+          "Edit";
+
+
+        editButton.addEventListener(
+          "click",
+          function(){
+
+            openInvoiceEditor(
+              invoice.key
+            );
+
+          }
+        );
+
+
+        actionWrap.appendChild(
+          editButton
+        );
+
+
+        if(
+          statusText !== "Paid" &&
+          statusText !== "Cancelled"
+        ){
+
+          const paidButton =
+            document.createElement("button");
+
+          paidButton.type =
+            "button";
+
+          paidButton.className =
+            "invoice-action invoice-paid";
+
+          paidButton.textContent =
+            "Mark Paid";
+
+
+          paidButton.addEventListener(
+            "click",
+            function(){
+
+              markInvoicePaid(
+                invoice.key,
+                paidButton
+              );
+
+            }
+          );
+
+
+          actionWrap.appendChild(
+            paidButton
+          );
+
+        }
+
+
+        invoiceList.appendChild(
+          item
+        );
+
+      }
+    );
+
+
+  }catch(error){
+
+    console.error(
+      "Invoice loading error:",
+      error
+    );
+
+
+    outstandingTotal.textContent =
+      "—";
+
+    overdueTotal.textContent =
+      "—";
+
+    paidMonthTotal.textContent =
+      "—";
+
+
+    invoiceList.innerHTML =
+      '<div class="empty-state">Unable to load invoices.</div>';
+
+  }
+
+}
+
+
+/* ==================================================
+   INVOICE STATS
+================================================== */
+
+function updateInvoiceStats(invoices){
+
+  let outstanding =
+    0;
+
+  let overdue =
+    0;
+
+  let paidThisMonth =
+    0;
+
+
+  const now =
+    new Date();
+
+
+  invoices.forEach(
+    function(invoice){
+
+      const data =
+        invoice.data;
+
+
+      const amount =
+        getInvoiceNumericAmount(
+          data
+        );
+
+
+      const status =
+        String(
+          data.status || ""
+        );
+
+
+      if(
+        status === "Sent" ||
+        status === "Overdue"
+      ){
+
+        outstanding +=
+          amount;
+
+      }
+
+
+      if(
+        status === "Overdue"
+      ){
+
+        overdue +=
+          amount;
+
+      }
+
+
+      if(
+        status === "Paid"
+      ){
+
+        let paidDate =
+          null;
+
+
+        if(
+          data.paidAt &&
+          typeof data.paidAt.toDate ===
+          "function"
+        ){
+
+          paidDate =
+            data.paidAt.toDate();
+
+        }else if(
+          data.updatedAt &&
+          typeof data.updatedAt.toDate ===
+          "function"
+        ){
+
+          paidDate =
+            data.updatedAt.toDate();
+
+        }
+
+
+        if(
+          paidDate &&
+          paidDate.getMonth() ===
+            now.getMonth() &&
+          paidDate.getFullYear() ===
+            now.getFullYear()
+        ){
+
+          paidThisMonth +=
+            amount;
+
+        }
+
+      }
+
+    }
+  );
+
+
+  outstandingTotal.textContent =
+    formatCurrency(
+      outstanding
+    );
+
+
+  overdueTotal.textContent =
+    formatCurrency(
+      overdue
+    );
+
+
+  paidMonthTotal.textContent =
+    formatCurrency(
+      paidThisMonth
+    );
+
+}
+
+
+/* ==================================================
+   INVOICE EDITOR
+================================================== */
+
+addInvoiceButton.addEventListener(
+  "click",
+  function(){
+
+    openInvoiceEditor();
+
+  }
+);
+
+
+function populateInvoiceClients(){
+
+  invoiceClient.innerHTML =
+    "";
+
+
+  loadedClients.forEach(
+    function(client){
+
+      const option =
+        document.createElement("option");
+
+
+      option.value =
+        client.id;
+
+
+      option.textContent =
+        client.data.fullName ||
+        client.data.name ||
+        "Client";
+
+
+      invoiceClient.appendChild(
+        option
+      );
+
+    }
+  );
+
+}
+
+
+function openInvoiceEditor(key = null){
+
+  if(!loadedClients.size){
+
+    showStudioMessage(
+      "error",
+      "Create or approve a client before creating an invoice."
+    );
+
+    return;
+
+  }
+
+
+  populateInvoiceClients();
+
+
+  editingInvoiceKey =
+    key;
+
+
+  if(!key){
+
+    invoiceModalTitle.textContent =
+      "Create Invoice";
+
+
+    invoiceClient.disabled =
+      false;
+
+
+    const today =
+      getTodayInputDate();
+
+
+    invoiceDate.value =
+      today;
+
+
+    invoiceDueDate.value =
+      addDaysToInputDate(
+        today,
+        14
+      );
+
+
+    invoiceNumber.value =
+      createNextInvoiceNumber(
+        today
+      );
+
+
+    invoiceStatus.value =
+      "Draft";
+
+
+    invoiceDescription.value =
+      "";
+
+
+    invoiceAmount.value =
+      "";
+
+
+    invoiceNotes.value =
+      "";
+
+
+  }else{
+
+    const invoice =
+      loadedInvoices.get(
+        key
+      );
+
+
+    if(!invoice){
+      return;
+    }
+
+
+    const data =
+      invoice.data;
+
+
+    invoiceModalTitle.textContent =
+      "Edit Invoice";
+
+
+    invoiceClient.value =
+      invoice.clientId;
+
+
+    invoiceClient.disabled =
+      true;
+
+
+    invoiceNumber.value =
+      data.invoiceNumber ||
+      data.reference ||
+      "";
+
+
+    invoiceStatus.value =
+      validSelectValue(
+        invoiceStatus,
+        data.status,
+        "Draft"
+      );
+
+
+    invoiceDescription.value =
+      data.description ||
+      data.service ||
+      "";
+
+
+    invoiceAmount.value =
+      getInvoiceNumericAmount(
+        data
+      ) || "";
+
+
+    invoiceDate.value =
+      data.issueDate ||
+      data.date ||
+      "";
+
+
+    invoiceDueDate.value =
+      data.dueDate ||
+      "";
+
+
+    invoiceNotes.value =
+      data.notes ||
+      "";
+
+  }
+
+
+  openModal(
+    invoiceModal
+  );
+
+}
+
+
+function closeInvoiceEditor(){
+
+  closeModal(
+    invoiceModal
+  );
+
+
+  editingInvoiceKey =
+    null;
+
+
+  invoiceClient.disabled =
+    false;
+
+}
+
+
+invoiceModalClose.addEventListener(
+  "click",
+  closeInvoiceEditor
+);
+
+
+invoiceModal.addEventListener(
+  "click",
+  function(event){
+
+    if(
+      event.target ===
+      invoiceModal
+    ){
+
+      closeInvoiceEditor();
 
     }
 
   }
 );
+
+
+invoiceDate.addEventListener(
+  "change",
+  function(){
+
+    if(
+      !editingInvoiceKey
+    ){
+
+      invoiceNumber.value =
+        createNextInvoiceNumber(
+          invoiceDate.value
+        );
+
+    }
+
+  }
+);
+
+
+saveInvoiceButton.addEventListener(
+  "click",
+  async function(){
+
+    const clientId =
+      invoiceClient.value;
+
+
+    const description =
+      invoiceDescription.value.trim();
+
+
+    const amount =
+      Number(
+        invoiceAmount.value
+      );
+
+
+    const issueDate =
+      invoiceDate.value;
+
+
+    const dueDate =
+      invoiceDueDate.value;
+
+
+    const status =
+      invoiceStatus.value;
+
+
+    const notes =
+      invoiceNotes.value.trim();
+
+
+    if(
+      !clientId ||
+      !description ||
+      !issueDate ||
+      !dueDate ||
+      !Number.isFinite(amount) ||
+      amount <= 0
+    ){
+
+      showStudioMessage(
+        "error",
+        "Please complete the client, description, amount, invoice date and due date."
+      );
+
+      return;
+
+    }
+
+
+    if(
+      dueDate < issueDate
+    ){
+
+      showStudioMessage(
+        "error",
+        "The due date cannot be before the invoice date."
+      );
+
+      return;
+
+    }
+
+
+    let reference =
+      invoiceNumber.value;
+
+
+    if(
+      !editingInvoiceKey
+    ){
+
+      reference =
+        createNextInvoiceNumber(
+          issueDate
+        );
+
+    }
+
+
+    saveInvoiceButton.disabled =
+      true;
+
+
+    try{
+
+      const invoiceData =
+        {
+
+          invoiceNumber:
+            reference,
+
+          reference:
+            reference,
+
+          description:
+            description,
+
+          service:
+            description,
+
+          amount:
+            formatCurrency(
+              amount
+            ),
+
+          amountValue:
+            Number(
+              amount.toFixed(2)
+            ),
+
+          date:
+            issueDate,
+
+          issueDate:
+            issueDate,
+
+          dueDate:
+            dueDate,
+
+          status:
+            status,
+
+          notes:
+            notes,
+
+          updatedAt:
+            serverTimestamp()
+
+        };
+
+
+      if(
+        status === "Paid"
+      ){
+
+        invoiceData.paidAt =
+          serverTimestamp();
+
+      }
+
+
+      if(editingInvoiceKey){
+
+        const existing =
+          loadedInvoices.get(
+            editingInvoiceKey
+          );
+
+
+        if(!existing){
+
+          throw new Error(
+            "Invoice record could not be found."
+          );
+
+        }
+
+
+        await updateDoc(
+          doc(
+            db,
+            "clients",
+            existing.clientId,
+            "invoices",
+            existing.invoiceId
+          ),
+          invoiceData
+        );
+
+
+        showStudioMessage(
+          "success",
+          "Invoice updated successfully."
+        );
+
+
+      }else{
+
+        await addDoc(
+          collection(
+            db,
+            "clients",
+            clientId,
+            "invoices"
+          ),
+          {
+
+            ...invoiceData,
+
+            createdAt:
+              serverTimestamp()
+
+          }
+        );
+
+
+        showStudioMessage(
+          "success",
+          "Invoice created successfully."
+        );
+
+      }
+
+
+      closeInvoiceEditor();
+
+
+      await loadStudioData();
+
+
+    }catch(error){
+
+      console.error(
+        "Invoice save error:",
+        error
+      );
+
+
+      showStudioMessage(
+        "error",
+        "The invoice could not be saved."
+      );
+
+
+    }finally{
+
+      saveInvoiceButton.disabled =
+        false;
+
+    }
+
+  }
+);
+
+
+/* ==================================================
+   MARK INVOICE PAID
+================================================== */
+
+async function markInvoicePaid(
+  key,
+  button
+){
+
+  const invoice =
+    loadedInvoices.get(
+      key
+    );
+
+
+  if(!invoice){
+    return;
+  }
+
+
+  if(
+    !window.confirm(
+      "Mark this invoice as paid?"
+    )
+  ){
+    return;
+  }
+
+
+  button.disabled =
+    true;
+
+
+  try{
+
+    await updateDoc(
+      doc(
+        db,
+        "clients",
+        invoice.clientId,
+        "invoices",
+        invoice.invoiceId
+      ),
+      {
+
+        status:
+          "Paid",
+
+        paidAt:
+          serverTimestamp(),
+
+        updatedAt:
+          serverTimestamp()
+
+      }
+    );
+
+
+    showStudioMessage(
+      "success",
+      "Invoice marked as paid."
+    );
+
+
+    await loadStudioData();
+
+
+  }catch(error){
+
+    console.error(error);
+
+
+    button.disabled =
+      false;
+
+
+    showStudioMessage(
+      "error",
+      "The invoice could not be updated."
+    );
+
+  }
+
+}
 
 
 /* ==================================================
@@ -6398,7 +7149,7 @@ async function loadClientForms(clients){
             return snapshot.docs.map(
               function(formDocument){
 
-                return {
+                return{
 
                   key:
                     client.id +
@@ -6437,7 +7188,7 @@ async function loadClientForms(clients){
     forms.sort(
       function(a,b){
 
-        return (
+        return(
           getTimestampMilliseconds(
             b.data.updatedAt ||
             b.data.submittedAt
@@ -6454,7 +7205,9 @@ async function loadClientForms(clients){
 
 
     formCount.textContent =
-      String(forms.length);
+      String(
+        forms.length
+      );
 
 
     formList.innerHTML =
@@ -6722,7 +7475,8 @@ formModal.addEventListener(
   function(event){
 
     if(
-      event.target === formModal
+      event.target ===
+      formModal
     ){
 
       closeFormViewer();
@@ -6744,13 +7498,32 @@ function getFormFields(formId,data){
     "client-information"
   ){
 
-    return [
+    return[
 
-      {label:"Full name",value:data.fullName},
-      {label:"Date of birth",value:data.dateOfBirth},
-      {label:"Address",value:data.address},
-      {label:"Telephone",value:data.phone},
-      {label:"Email address",value:data.email},
+      {
+        label:"Full name",
+        value:data.fullName
+      },
+
+      {
+        label:"Date of birth",
+        value:data.dateOfBirth
+      },
+
+      {
+        label:"Address",
+        value:data.address
+      },
+
+      {
+        label:"Telephone",
+        value:data.phone
+      },
+
+      {
+        label:"Email address",
+        value:data.email
+      },
 
       {
         label:"Emergency contact name",
@@ -6795,14 +7568,6 @@ function getFormFields(formId,data){
       {
         label:"Additional notes",
         value:data.additionalNotes
-      },
-
-      {
-        label:"Last updated",
-        value:formatDateTime(
-          data.updatedAt ||
-          data.submittedAt
-        )
       }
 
     ];
@@ -6815,7 +7580,7 @@ function getFormFields(formId,data){
     "client-review"
   ){
 
-    return [
+    return[
 
       {
         label:"Client name",
@@ -6824,9 +7589,10 @@ function getFormFields(formId,data){
 
       {
         label:"Overall rating",
-        value:data.rating
-          ? data.rating + " / 5"
-          : ""
+        value:
+          data.rating
+            ? data.rating + " / 5"
+            : ""
       },
 
       {
@@ -6836,17 +7602,10 @@ function getFormFields(formId,data){
 
       {
         label:"Permission to publish",
-        value:data.permissionToPublish === true
-          ? "Yes"
-          : "No"
-      },
-
-      {
-        label:"Last updated",
-        value:formatDateTime(
-          data.updatedAt ||
-          data.submittedAt
-        )
+        value:
+          data.permissionToPublish === true
+            ? "Yes"
+            : "No"
       }
 
     ];
@@ -6859,7 +7618,7 @@ function getFormFields(formId,data){
     "change-of-circumstances"
   ){
 
-    return [
+    return[
 
       {
         label:"Client name",
@@ -6878,9 +7637,10 @@ function getFormFields(formId,data){
 
       {
         label:"Urgent",
-        value:data.urgent === true
-          ? "Yes"
-          : "No"
+        value:
+          data.urgent === true
+            ? "Yes"
+            : "No"
       },
 
       {
@@ -6891,14 +7651,6 @@ function getFormFields(formId,data){
       {
         label:"Preferred contact method",
         value:data.preferredContactMethod
-      },
-
-      {
-        label:"Last updated",
-        value:formatDateTime(
-          data.updatedAt ||
-          data.submittedAt
-        )
       }
 
     ];
@@ -6906,13 +7658,13 @@ function getFormFields(formId,data){
   }
 
 
-  return [];
+  return[];
 
 }
 
 
 /* ==================================================
-   MODAL HELPERS
+   MODALS
 ================================================== */
 
 function openModal(modal){
@@ -6963,18 +7715,22 @@ function closeModal(modal){
 }
 
 
-/* ==================================================
-   ESCAPE KEY
-================================================== */
-
 document.addEventListener(
   "keydown",
   function(event){
 
+    if(event.key !== "Escape"){
+      return;
+    }
+
+
     if(
-      event.key !==
-      "Escape"
+      invoiceModal.classList.contains(
+        "is-open"
+      )
     ){
+
+      closeInvoiceEditor();
 
       return;
 
@@ -7276,7 +8032,9 @@ function validSelectValue(
       )
       .map(
         function(option){
+
           return option.value;
+
         }
       );
 
@@ -7363,20 +8121,20 @@ function formatVisitDate(value){
   }
 
 
-  const isoMatch =
+  const parts =
     String(value)
       .match(
         /^(\d{4})-(\d{2})-(\d{2})$/
       );
 
 
-  if(isoMatch){
+  if(parts){
 
     const date =
       new Date(
-        Number(isoMatch[1]),
-        Number(isoMatch[2]) - 1,
-        Number(isoMatch[3])
+        Number(parts[1]),
+        Number(parts[2]) - 1,
+        Number(parts[3])
       );
 
 
@@ -7426,36 +8184,16 @@ function normaliseDateInput(
       startAt.toDate();
 
 
-    const year =
-      date.getFullYear();
-
-
-    const month =
+    return(
+      date.getFullYear() +
+      "-" +
       String(
         date.getMonth() + 1
-      )
-      .padStart(
-        2,
-        "0"
-      );
-
-
-    const day =
+      ).padStart(2,"0") +
+      "-" +
       String(
         date.getDate()
-      )
-      .padStart(
-        2,
-        "0"
-      );
-
-
-    return (
-      year +
-      "-" +
-      month +
-      "-" +
-      day
+      ).padStart(2,"0")
     );
 
   }
@@ -7480,10 +8218,7 @@ function normaliseTimeInput(
   ){
 
     return String(timeValue)
-      .slice(
-        0,
-        5
-      );
+      .slice(0,5);
 
   }
 
@@ -7498,24 +8233,16 @@ function normaliseTimeInput(
       startAt.toDate();
 
 
-    return (
+    return(
       String(
         date.getHours()
-      )
-      .padStart(
-        2,
-        "0"
-      )
+      ).padStart(2,"0")
       +
       ":"
       +
       String(
         date.getMinutes()
-      )
-      .padStart(
-        2,
-        "0"
-      )
+      ).padStart(2,"0")
     );
 
   }
@@ -7525,27 +8252,342 @@ function normaliseTimeInput(
 
 }
 
-</script>
+
+/* ==================================================
+   INVOICE HELPERS
+================================================== */
+
+function formatCurrency(value){
+
+  const number =
+    Number(value);
 
 
-<!-- ==================================================
-     STATIC UI
-================================================== -->
+  if(
+    !Number.isFinite(number)
+  ){
 
-<script>
+    return "£0.00";
 
-  window.addEventListener(
-    "load",
-    function(){
+  }
 
-      if(window.lucide){
 
-        window.lucide.createIcons();
+  return new Intl.NumberFormat(
+    "en-GB",
+    {
+      style:"currency",
+      currency:"GBP"
+    }
+  ).format(number);
+
+}
+
+
+function getInvoiceNumericAmount(data){
+
+  const direct =
+    Number(
+      data.amountValue
+    );
+
+
+  if(
+    Number.isFinite(direct)
+  ){
+
+    return direct;
+
+  }
+
+
+  const cleaned =
+    String(
+      data.amount || ""
+    )
+    .replace(/[£,\s]/g,"");
+
+
+  const parsed =
+    Number(cleaned);
+
+
+  return Number.isFinite(parsed)
+    ? parsed
+    : 0;
+
+}
+
+
+function getInvoiceAmountDisplay(data){
+
+  if(
+    data.amount &&
+    String(data.amount)
+      .includes("£")
+  ){
+
+    return String(
+      data.amount
+    );
+
+  }
+
+
+  return formatCurrency(
+    getInvoiceNumericAmount(
+      data
+    )
+  );
+
+}
+
+
+function getInvoiceStatusClass(status){
+
+  const value =
+    String(status || "")
+      .toLowerCase();
+
+
+  if(value === "paid"){
+    return "paid";
+  }
+
+
+  if(value === "sent"){
+    return "sent";
+  }
+
+
+  if(value === "overdue"){
+    return "overdue";
+  }
+
+
+  if(value === "cancelled"){
+    return "cancelled";
+  }
+
+
+  return "draft";
+
+}
+
+
+function formatInvoiceDate(value){
+
+  if(!value){
+    return "—";
+  }
+
+
+  const match =
+    String(value)
+      .match(
+        /^(\d{4})-(\d{2})-(\d{2})$/
+      );
+
+
+  if(!match){
+    return String(value);
+  }
+
+
+  const date =
+    new Date(
+      Number(match[1]),
+      Number(match[2]) - 1,
+      Number(match[3])
+    );
+
+
+  return new Intl.DateTimeFormat(
+    "en-GB",
+    {
+      day:"numeric",
+      month:"short",
+      year:"numeric"
+    }
+  ).format(date);
+
+}
+
+
+function invoiceSortMilliseconds(data){
+
+  const value =
+    data.issueDate ||
+    data.date;
+
+
+  if(!value){
+    return 0;
+  }
+
+
+  const date =
+    new Date(
+      value + "T12:00:00"
+    );
+
+
+  return Number.isNaN(
+    date.getTime()
+  )
+    ? 0
+    : date.getTime();
+
+}
+
+
+function getTodayInputDate(){
+
+  const date =
+    new Date();
+
+
+  return(
+    date.getFullYear()
+    +
+    "-"
+    +
+    String(
+      date.getMonth() + 1
+    ).padStart(2,"0")
+    +
+    "-"
+    +
+    String(
+      date.getDate()
+    ).padStart(2,"0")
+  );
+
+}
+
+
+function addDaysToInputDate(
+  value,
+  numberOfDays
+){
+
+  const parts =
+    String(value)
+      .split("-")
+      .map(Number);
+
+
+  const date =
+    new Date(
+      parts[0],
+      parts[1] - 1,
+      parts[2]
+    );
+
+
+  date.setDate(
+    date.getDate() +
+    numberOfDays
+  );
+
+
+  return(
+    date.getFullYear()
+    +
+    "-"
+    +
+    String(
+      date.getMonth() + 1
+    ).padStart(2,"0")
+    +
+    "-"
+    +
+    String(
+      date.getDate()
+    ).padStart(2,"0")
+  );
+
+}
+
+
+function createNextInvoiceNumber(
+  invoiceDateValue
+){
+
+  let year =
+    new Date().getFullYear();
+
+
+  if(
+    invoiceDateValue &&
+    /^\d{4}-\d{2}-\d{2}$/
+      .test(invoiceDateValue)
+  ){
+
+    year =
+      Number(
+        invoiceDateValue.slice(0,4)
+      );
+
+  }
+
+
+  let highest =
+    0;
+
+
+  loadedInvoices.forEach(
+    function(invoice){
+
+      const reference =
+        String(
+          invoice.data.invoiceNumber ||
+          invoice.data.reference ||
+          ""
+        );
+
+
+      const match =
+        reference.match(
+          new RegExp(
+            "^SORT-" +
+            year +
+            "-(\\d+)$"
+          )
+        );
+
+
+      if(match){
+
+        const number =
+          Number(match[1]);
+
+
+        if(
+          Number.isFinite(number) &&
+          number > highest
+        ){
+
+          highest =
+            number;
+
+        }
 
       }
 
     }
   );
+
+
+  return(
+    "SORT-" +
+    year +
+    "-" +
+    String(
+      highest + 1
+    ).padStart(3,"0")
+  );
+
+}
 
 </script>
 
