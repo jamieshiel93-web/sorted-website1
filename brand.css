@@ -1,0 +1,17 @@
+/* ==================================================
+   SORTED. WORDMARK
+================================================== */
+
+.logo,
+.loader-logo,
+.footer-brand {
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-weight: 500 !important;
+  letter-spacing: -1.4px !important;
+}
+
+.logo span,
+.loader-logo span,
+.footer-brand span {
+  color: #caa76a;
+}
