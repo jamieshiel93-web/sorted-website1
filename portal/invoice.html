@@ -1495,17 +1495,16 @@ a{
 @media print{
 
   @page{
-
-    size:A4;
-    margin:12mm;
-
+    margin:8mm;
   }
 
 
+  html,
   body{
-
-    background:white;
-
+    width:100%;
+    margin:0;
+    padding:0;
+    background:white !important;
   }
 
 
@@ -1513,64 +1512,220 @@ a{
   .invoice-actions-bar,
   .portal-footer,
   .loading-screen{
-
     display:none !important;
-
   }
 
 
   .page-main{
-
-    padding:0;
-
+    padding:0 !important;
+    margin:0 !important;
   }
 
 
   .container{
-
-    width:100%;
-    max-width:none;
-
+    width:100% !important;
+    max-width:none !important;
+    margin:0 !important;
   }
 
 
   .invoice-sheet{
-
+    width:100%;
+    margin:0;
     border:0;
-
     border-radius:0;
-
     box-shadow:none;
 
+    zoom:.84;
   }
 
 
   .invoice-top{
+    padding:28px 32px;
 
     -webkit-print-color-adjust:exact;
     print-color-adjust:exact;
-
   }
 
 
-  .invoice-item-head,
+  .invoice-logo{
+    margin-bottom:18px;
+    font-size:2rem;
+  }
+
+
+  .invoice-label{
+    margin-bottom:5px;
+  }
+
+
+  .invoice-top h1{
+    font-size:3.6rem;
+  }
+
+
+  .invoice-reference-box{
+    padding:16px 18px;
+  }
+
+
+  .invoice-reference{
+    margin-bottom:11px;
+    font-size:1.15rem;
+  }
+
+
+  .invoice-body{
+    padding:25px 32px 27px;
+  }
+
+
+  .details-grid{
+    gap:14px;
+    margin-bottom:20px;
+  }
+
+
+  .detail-panel{
+    padding:15px 17px;
+  }
+
+
+  .detail-panel strong{
+    font-size:1.05rem;
+  }
+
+
+  .detail-panel p{
+    font-size:.68rem;
+    line-height:1.45;
+  }
+
+
+  .date-grid{
+    gap:12px;
+    margin-bottom:18px;
+  }
+
+
+  .date-box{
+    padding:11px 14px;
+  }
+
+
+  .invoice-items{
+    margin-bottom:17px;
+  }
+
+
+  .invoice-item-head{
+    padding:9px 14px;
+  }
+
+
+  .invoice-item-row{
+    padding:16px 14px;
+  }
+
+
+  .item-description strong{
+    font-size:.82rem;
+  }
+
+
+  .item-description span{
+    font-size:.63rem;
+  }
+
+
+  .item-amount{
+    font-size:1.15rem;
+  }
+
+
+  .total-row{
+    padding:15px 18px;
+  }
+
+
+  .total-row strong{
+    font-size:1.65rem;
+  }
+
+
+  .invoice-notes{
+    margin-top:16px;
+    padding:13px 15px;
+  }
+
+
+  .payment-note{
+    margin-top:17px;
+    padding:13px 15px;
+  }
+
+
   .payment-icon{
-
-    -webkit-print-color-adjust:exact;
-    print-color-adjust:exact;
-
+    width:36px;
+    height:36px;
   }
 
 
+  .payment-copy strong{
+    font-size:.7rem;
+  }
+
+
+  .payment-copy p{
+    font-size:.61rem;
+  }
+
+
+  .invoice-bottom{
+    grid-template-columns:1fr 1fr 1fr;
+
+    gap:16px;
+
+    padding:15px 32px;
+
+    -webkit-print-color-adjust:exact;
+    print-color-adjust:exact;
+  }
+
+
+  .company-detail span{
+    font-size:.53rem;
+  }
+
+
+  .company-detail strong{
+    font-size:.63rem;
+  }
+
+
+  .invoice-top,
+  .invoice-item-head,
+  .payment-icon,
   .status-pill,
   .total-row,
   .detail-panel,
   .date-box,
   .invoice-bottom{
+    -webkit-print-color-adjust:exact !important;
+    print-color-adjust:exact !important;
+  }
 
-    -webkit-print-color-adjust:exact;
-    print-color-adjust:exact;
 
+  .invoice-top,
+  .details-grid,
+  .date-grid,
+  .invoice-items,
+  .total-row,
+  .invoice-notes,
+  .payment-note,
+  .invoice-bottom{
+    break-inside:avoid;
+    page-break-inside:avoid;
   }
 
 }
