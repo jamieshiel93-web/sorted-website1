@@ -9,6 +9,7 @@
 <title>Sorted. Studio</title>
 
 <meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#17261b">
 
 <link rel="icon" href="../favicon.png">
 
@@ -26,6 +27,7 @@
   --muted:#6f746e;
   --red:#9d3030;
   --green:#356444;
+  --orange:#8a6828;
   --shadow:0 22px 55px rgba(23,38,27,.12);
 }
 
@@ -137,9 +139,7 @@ button{
 
 .login-card input:focus{
   outline:none;
-
   border-color:var(--gold);
-
   box-shadow:0 0 0 4px rgba(202,167,106,.15);
 }
 
@@ -154,7 +154,6 @@ button{
   background:var(--forest);
   color:white;
 
-  font-size:16px;
   font-weight:800;
 }
 
@@ -213,9 +212,6 @@ header .brand span{
 }
 
 .logout{
-  width:auto;
-
-  margin:0;
   padding:11px 20px;
 
   border-radius:999px;
@@ -238,10 +234,6 @@ header .brand span{
 ================================================== */
 
 .hero{
-  position:relative;
-
-  overflow:hidden;
-
   margin-bottom:26px;
   padding:36px;
 
@@ -343,7 +335,7 @@ header .brand span{
   grid-column:1 / -1;
 }
 
-.card small.section-label{
+.section-label{
   color:var(--gold);
 
   font-size:.72rem;
@@ -353,8 +345,7 @@ header .brand span{
 }
 
 .card h3{
-  margin:8px 0 8px;
-
+  margin:8px 0;
   font-size:1.7rem;
 }
 
@@ -372,27 +363,42 @@ header .brand span{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:12px;
+  gap:14px;
 
   margin-bottom:18px;
 }
 
-.refresh-button{
-  width:auto;
+.toolbar-actions{
+  display:flex;
+  gap:9px;
+  flex-wrap:wrap;
+}
 
-  margin:0;
+.refresh-button,
+.add-button{
   padding:10px 17px;
 
   border-radius:999px;
 
+  font-weight:800;
+}
+
+.refresh-button{
   background:#f3eadc;
   color:var(--forest);
-
-  font-weight:800;
 }
 
 .refresh-button:hover{
   background:var(--gold);
+}
+
+.add-button{
+  background:var(--forest);
+  color:white;
+}
+
+.add-button:hover{
+  background:var(--sage);
 }
 
 
@@ -402,14 +408,16 @@ header .brand span{
 
 .registration-list,
 .client-list,
-.form-list{
+.form-list,
+.visit-list{
   display:grid;
   gap:14px;
 }
 
 .registration-item,
 .client-item,
-.form-item{
+.form-item,
+.visit-item{
   display:grid;
   grid-template-columns:minmax(0,1fr) auto;
   gap:18px;
@@ -423,7 +431,9 @@ header .brand span{
   border-radius:18px;
 }
 
-.person-name{
+.person-name,
+.form-title,
+.visit-title{
   margin-bottom:4px;
 
   color:var(--forest);
@@ -432,11 +442,23 @@ header .brand span{
   font-weight:850;
 }
 
-.person-details{
+.person-details,
+.form-meta,
+.visit-meta{
   color:var(--muted);
 
-  font-size:.9rem;
+  font-size:.88rem;
   line-height:1.6;
+}
+
+.form-client,
+.visit-client{
+  margin-top:3px;
+
+  color:var(--sage);
+
+  font-size:.9rem;
+  font-weight:800;
 }
 
 .message-note{
@@ -452,6 +474,11 @@ header .brand span{
   font-size:.88rem;
 }
 
+
+/* ==================================================
+   BUTTONS
+================================================== */
+
 .actions{
   display:flex;
   gap:9px;
@@ -459,9 +486,6 @@ header .brand span{
 }
 
 .action-button{
-  width:auto;
-
-  margin:0;
   padding:10px 16px;
 
   border-radius:999px;
@@ -520,9 +544,20 @@ header .brand span{
 }
 
 .status-approved,
-.status-submitted{
+.status-submitted,
+.status-scheduled{
   background:#e4f0e7;
   color:var(--green);
+}
+
+.status-completed{
+  background:#e9edf7;
+  color:#344b76;
+}
+
+.status-cancelled{
+  background:#f3e3e3;
+  color:var(--red);
 }
 
 .empty-state{
@@ -544,33 +579,7 @@ header .brand span{
 
 
 /* ==================================================
-   FORM SUBMISSIONS
-================================================== */
-
-.form-title{
-  color:var(--forest);
-  font-size:1.05rem;
-  font-weight:850;
-}
-
-.form-client{
-  margin-top:3px;
-
-  color:var(--sage);
-  font-size:.9rem;
-  font-weight:800;
-}
-
-.form-meta{
-  margin-top:4px;
-
-  color:var(--muted);
-  font-size:.82rem;
-}
-
-
-/* ==================================================
-   OTHER STUDIO CARDS
+   PLACEHOLDERS
 ================================================== */
 
 .feature-card{
@@ -684,7 +693,6 @@ header .brand span{
   color:white;
 
   font-size:24px;
-  line-height:1;
 }
 
 .modal-body{
@@ -706,6 +714,97 @@ header .brand span{
   font-size:.88rem;
   line-height:1.6;
 }
+
+
+/* ==================================================
+   EDIT FIELDS
+================================================== */
+
+.edit-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+.edit-field{
+  display:flex;
+  flex-direction:column;
+  gap:7px;
+}
+
+.edit-field.full{
+  grid-column:1 / -1;
+}
+
+.edit-field label{
+  color:var(--forest);
+
+  font-size:.85rem;
+  font-weight:850;
+}
+
+.edit-field input,
+.edit-field select,
+.edit-field textarea{
+  width:100%;
+
+  padding:14px 15px;
+
+  background:white;
+
+  border:1px solid rgba(23,38,27,.15);
+  border-radius:13px;
+
+  color:var(--ink);
+
+  outline:none;
+}
+
+.edit-field textarea{
+  min-height:120px;
+  resize:vertical;
+}
+
+.edit-field input:focus,
+.edit-field select:focus,
+.edit-field textarea:focus{
+  border-color:var(--gold);
+  box-shadow:0 0 0 4px rgba(202,167,106,.14);
+}
+
+.field-help{
+  color:var(--muted);
+  font-size:.76rem;
+  line-height:1.45;
+}
+
+.save-button{
+  width:100%;
+
+  margin-top:22px;
+  padding:16px 22px;
+
+  border-radius:999px;
+
+  background:var(--forest);
+  color:white;
+
+  font-weight:900;
+}
+
+.save-button:hover{
+  background:var(--sage);
+}
+
+.save-button:disabled{
+  opacity:.55;
+  cursor:not-allowed;
+}
+
+
+/* ==================================================
+   FORM VIEWER
+================================================== */
 
 .form-detail-grid{
   display:grid;
@@ -742,87 +841,6 @@ header .brand span{
 
   white-space:pre-wrap;
   overflow-wrap:anywhere;
-}
-
-
-/* ==================================================
-   EDIT CLIENT
-================================================== */
-
-.edit-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:18px;
-}
-
-.edit-field{
-  display:flex;
-  flex-direction:column;
-  gap:7px;
-}
-
-.edit-field.full{
-  grid-column:1 / -1;
-}
-
-.edit-field label{
-  color:var(--forest);
-
-  font-size:.85rem;
-  font-weight:850;
-}
-
-.edit-field input,
-.edit-field select{
-  width:100%;
-
-  padding:14px 15px;
-
-  background:white;
-
-  border:1px solid rgba(23,38,27,.15);
-  border-radius:13px;
-
-  color:var(--ink);
-
-  outline:none;
-}
-
-.edit-field input:focus,
-.edit-field select:focus{
-  border-color:var(--gold);
-
-  box-shadow:0 0 0 4px rgba(202,167,106,.14);
-}
-
-.field-help{
-  color:var(--muted);
-
-  font-size:.76rem;
-  line-height:1.45;
-}
-
-.save-client-button{
-  width:100%;
-
-  margin-top:22px;
-  padding:16px 22px;
-
-  border-radius:999px;
-
-  background:var(--forest);
-  color:white;
-
-  font-weight:900;
-}
-
-.save-client-button:hover{
-  background:var(--sage);
-}
-
-.save-client-button:disabled{
-  opacity:.55;
-  cursor:not-allowed;
 }
 
 
@@ -922,7 +940,8 @@ header .brand span{
 
   .registration-item,
   .client-item,
-  .form-item{
+  .form-item,
+  .visit-item{
     grid-template-columns:1fr;
   }
 
@@ -965,6 +984,7 @@ header .brand span{
 
 </head>
 
+
 <body>
 
 
@@ -972,10 +992,7 @@ header .brand span{
      LOGIN
 ================================================== -->
 
-<div
-  id="loginScreen"
-  class="login-screen"
->
+<div id="loginScreen" class="login-screen">
 
   <div class="login-card">
 
@@ -1062,57 +1079,30 @@ header .brand span{
   </section>
 
 
+  <!-- STATS -->
+
   <div class="stats">
 
     <div class="stat">
-
-      <small>
-        Pending registrations
-      </small>
-
-      <strong id="pending-count">
-        —
-      </strong>
-
+      <small>Pending registrations</small>
+      <strong id="pending-count">—</strong>
     </div>
 
-
     <div class="stat">
-
-      <small>
-        Clients
-      </small>
-
-      <strong id="client-count">
-        —
-      </strong>
-
+      <small>Clients</small>
+      <strong id="client-count">—</strong>
     </div>
 
-
     <div class="stat">
-
-      <small>
-        Submitted forms
-      </small>
-
-      <strong id="form-count">
-        —
-      </strong>
-
+      <small>Submitted forms</small>
+      <strong id="form-count">—</strong>
     </div>
 
-
     <div class="stat">
-
-      <small>
-        System
-      </small>
-
+      <small>System</small>
       <strong style="font-size:1.3rem;margin-top:13px;">
         Connected
       </strong>
-
     </div>
 
   </div>
@@ -1121,7 +1111,9 @@ header .brand span{
   <div class="grid">
 
 
-    <!-- PENDING REGISTRATIONS -->
+    <!-- ==================================================
+         REGISTRATIONS
+    ================================================== -->
 
     <section class="card wide">
 
@@ -1165,7 +1157,9 @@ header .brand span{
     </section>
 
 
-    <!-- CLIENTS -->
+    <!-- ==================================================
+         CLIENTS
+    ================================================== -->
 
     <section class="card wide">
 
@@ -1193,7 +1187,71 @@ header .brand span{
     </section>
 
 
-    <!-- CLIENT FORMS -->
+    <!-- ==================================================
+         VISITS
+    ================================================== -->
+
+    <section class="card wide">
+
+      <div class="toolbar">
+
+        <div>
+
+          <small class="section-label">
+            Visits
+          </small>
+
+          <h3>
+            Manage Visits
+          </h3>
+
+          <p style="margin-bottom:0;">
+            Add and update client support visits.
+          </p>
+
+        </div>
+
+
+        <div class="toolbar-actions">
+
+          <button
+            type="button"
+            class="refresh-button"
+            onclick="refreshStudio()"
+          >
+            Refresh
+          </button>
+
+          <button
+            type="button"
+            class="add-button"
+            id="add-visit-button"
+          >
+            + Add Visit
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div
+        id="visit-list"
+        class="visit-list"
+      >
+
+        <div class="loading-state">
+          Loading visits...
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         CLIENT FORMS
+    ================================================== -->
 
     <section class="card wide">
 
@@ -1215,6 +1273,7 @@ header .brand span{
 
         </div>
 
+
         <button
           type="button"
           class="refresh-button"
@@ -1224,6 +1283,7 @@ header .brand span{
         </button>
 
       </div>
+
 
       <div
         id="form-list"
@@ -1237,28 +1297,9 @@ header .brand span{
     </section>
 
 
-    <!-- OTHER STUDIO AREAS -->
-
-    <section class="card feature-card">
-
-      <small class="section-label">
-        Visits
-      </small>
-
-      <h3>
-        Upcoming Visits
-      </h3>
-
-      <p>
-        Manage bookings and support sessions.
-      </p>
-
-      <span class="coming-soon">
-        Next stage
-      </span>
-
-    </section>
-
+    <!-- ==================================================
+         NEXT AREAS
+    ================================================== -->
 
     <section class="card feature-card">
 
@@ -1301,6 +1342,7 @@ header .brand span{
 
     </section>
 
+
   </div>
 
 </div>
@@ -1318,12 +1360,7 @@ header .brand span{
   aria-hidden="true"
 >
 
-  <div
-    class="modal"
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="client-modal-title"
-  >
+  <div class="modal">
 
     <div class="modal-header">
 
@@ -1343,7 +1380,6 @@ header .brand span{
         type="button"
         class="modal-close"
         id="client-modal-close"
-        aria-label="Close client editor"
       >
         ×
       </button>
@@ -1354,7 +1390,7 @@ header .brand span{
     <div class="modal-body">
 
       <div class="edit-note">
-        These settings control the membership information displayed
+        These settings control the membership information shown
         in the client's My Sorted. dashboard.
       </div>
 
@@ -1388,10 +1424,6 @@ header .brand span{
             type="text"
             placeholder="e.g. Premium"
           >
-
-          <div class="field-help">
-            This is the membership name shown on the client dashboard.
-          </div>
 
         </div>
 
@@ -1447,11 +1479,6 @@ header .brand span{
 
           </select>
 
-          <div class="field-help">
-            This changes the status shown in My Sorted. It does not
-            revoke portal login access.
-          </div>
-
         </div>
 
 
@@ -1466,7 +1493,6 @@ header .brand span{
             type="number"
             min="0"
             step="0.5"
-            placeholder="0"
           >
 
         </div>
@@ -1483,8 +1509,207 @@ header .brand span{
             type="number"
             min="0"
             step="0.5"
-            placeholder="0"
           >
+
+        </div>
+
+      </div>
+
+
+      <button
+        type="button"
+        id="save-client-button"
+        class="save-button"
+      >
+        Save Client Changes
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- ==================================================
+     VISIT MODAL
+================================================== -->
+
+<div
+  id="visit-modal"
+  class="modal-overlay"
+  aria-hidden="true"
+>
+
+  <div class="modal">
+
+    <div class="modal-header">
+
+      <div>
+
+        <small>
+          Visit Management
+        </small>
+
+        <h2 id="visit-modal-title">
+          Add Visit
+        </h2>
+
+      </div>
+
+      <button
+        type="button"
+        class="modal-close"
+        id="visit-modal-close"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <div class="modal-body">
+
+      <div class="edit-note">
+        Visit information saved here will appear in the client's
+        My Sorted. dashboard.
+      </div>
+
+
+      <div class="edit-grid">
+
+
+        <div class="edit-field full">
+
+          <label for="visit-client">
+            Client
+          </label>
+
+          <select
+            id="visit-client"
+            required
+          ></select>
+
+        </div>
+
+
+        <div class="edit-field">
+
+          <label for="visit-date">
+            Date
+          </label>
+
+          <input
+            id="visit-date"
+            type="date"
+            required
+          >
+
+        </div>
+
+
+        <div class="edit-field">
+
+          <label for="visit-time">
+            Time
+          </label>
+
+          <input
+            id="visit-time"
+            type="time"
+            required
+          >
+
+        </div>
+
+
+        <div class="edit-field full">
+
+          <label for="visit-service">
+            Service / visit type
+          </label>
+
+          <input
+            id="visit-service"
+            type="text"
+            placeholder="e.g. Household & Lifestyle Support"
+            required
+          >
+
+        </div>
+
+
+        <div class="edit-field">
+
+          <label for="visit-helper">
+            Assigned helper
+          </label>
+
+          <input
+            id="visit-helper"
+            type="text"
+            placeholder="e.g. Jamie"
+          >
+
+        </div>
+
+
+        <div class="edit-field">
+
+          <label for="visit-duration">
+            Duration in hours
+          </label>
+
+          <input
+            id="visit-duration"
+            type="number"
+            min="0"
+            step="0.5"
+            placeholder="2"
+          >
+
+        </div>
+
+
+        <div class="edit-field full">
+
+          <label for="visit-status">
+            Visit status
+          </label>
+
+          <select id="visit-status">
+
+            <option value="Scheduled">
+              Scheduled
+            </option>
+
+            <option value="Completed">
+              Completed
+            </option>
+
+            <option value="Cancelled">
+              Cancelled
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="edit-field full">
+
+          <label for="visit-notes">
+            Client-visible notes
+          </label>
+
+          <textarea
+            id="visit-notes"
+            placeholder="Optional information the client may need about this visit."
+          ></textarea>
+
+          <div class="field-help">
+            Do not put private staff notes here.
+          </div>
 
         </div>
 
@@ -1494,10 +1719,10 @@ header .brand span{
 
       <button
         type="button"
-        id="save-client-button"
-        class="save-client-button"
+        id="save-visit-button"
+        class="save-button"
       >
-        Save Client Changes
+        Save Visit
       </button>
 
     </div>
@@ -1517,12 +1742,7 @@ header .brand span{
   aria-hidden="true"
 >
 
-  <div
-    class="modal"
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="form-modal-title"
-  >
+  <div class="modal">
 
     <div class="modal-header">
 
@@ -1542,7 +1762,6 @@ header .brand span{
         type="button"
         class="modal-close"
         id="form-modal-close"
-        aria-label="Close form"
       >
         ×
       </button>
@@ -1558,10 +1777,11 @@ header .brand span{
           Confidential client information.
         </strong>
 
-        Only use and access this information where necessary for providing
-        the client's Sorted. service.
+        Only use and access this information where necessary
+        for providing the client's Sorted. service.
 
       </div>
+
 
       <div
         id="form-detail-grid"
@@ -1608,8 +1828,10 @@ import {
   getDoc,
   doc,
   setDoc,
+  addDoc,
   updateDoc,
-  serverTimestamp
+  serverTimestamp,
+  Timestamp
 } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
 
 
@@ -1620,6 +1842,10 @@ const ADMIN_UID =
 const ADMIN_EMAIL =
   "contact@sortedlife.org.uk";
 
+
+/* ==================================================
+   ELEMENTS
+================================================== */
 
 const loginScreen =
   document.getElementById("loginScreen");
@@ -1636,6 +1862,9 @@ const pendingList =
 const clientList =
   document.getElementById("client-list");
 
+const visitList =
+  document.getElementById("visit-list");
+
 const formList =
   document.getElementById("form-list");
 
@@ -1651,6 +1880,8 @@ const formCount =
 const studioMessage =
   document.getElementById("studio-message");
 
+
+/* CLIENT MODAL */
 
 const clientModal =
   document.getElementById("client-modal");
@@ -1683,6 +1914,50 @@ const saveClientButton =
   document.getElementById("save-client-button");
 
 
+/* VISIT MODAL */
+
+const addVisitButton =
+  document.getElementById("add-visit-button");
+
+const visitModal =
+  document.getElementById("visit-modal");
+
+const visitModalClose =
+  document.getElementById("visit-modal-close");
+
+const visitModalTitle =
+  document.getElementById("visit-modal-title");
+
+const visitClient =
+  document.getElementById("visit-client");
+
+const visitDate =
+  document.getElementById("visit-date");
+
+const visitTime =
+  document.getElementById("visit-time");
+
+const visitService =
+  document.getElementById("visit-service");
+
+const visitHelper =
+  document.getElementById("visit-helper");
+
+const visitDuration =
+  document.getElementById("visit-duration");
+
+const visitStatus =
+  document.getElementById("visit-status");
+
+const visitNotes =
+  document.getElementById("visit-notes");
+
+const saveVisitButton =
+  document.getElementById("save-visit-button");
+
+
+/* FORM MODAL */
+
 const formModal =
   document.getElementById("form-modal");
 
@@ -1702,15 +1977,21 @@ const formDetailGrid =
 let loadedClients =
   new Map();
 
+let loadedVisits =
+  new Map();
+
 let loadedForms =
   new Map();
 
 let editingClientId =
   null;
 
+let editingVisitKey =
+  null;
+
 
 /* ==================================================
-   MESSAGES
+   MESSAGE
 ================================================== */
 
 function showStudioMessage(type,text){
@@ -1725,21 +2006,24 @@ function showStudioMessage(type,text){
     text;
 
 
-  setTimeout(function(){
+  setTimeout(
+    function(){
 
-    studioMessage.className =
-      "";
+      studioMessage.className =
+        "";
 
-    studioMessage.style.display =
-      "none";
+      studioMessage.style.display =
+        "none";
 
-  },4000);
+    },
+    4000
+  );
 
 }
 
 
 /* ==================================================
-   ADMIN LOGIN
+   LOGIN
 ================================================== */
 
 window.adminLogin =
@@ -1763,7 +2047,7 @@ window.adminLogin =
 
     try{
 
-      const userCredential =
+      const credential =
         await signInWithEmailAndPassword(
           auth,
           email,
@@ -1772,7 +2056,7 @@ window.adminLogin =
 
 
       const user =
-        userCredential.user;
+        credential.user;
 
 
       if(
@@ -1805,13 +2089,9 @@ window.adminLogin =
   };
 
 
-/* ==================================================
-   AUTH STATE
-================================================== */
-
 onAuthStateChanged(
   auth,
-  async function(user){
+  function(user){
 
     if(
       user &&
@@ -1864,7 +2144,7 @@ window.logout =
 
 
 /* ==================================================
-   LOAD STUDIO
+   LOAD EVERYTHING
 ================================================== */
 
 async function loadStudioData(){
@@ -1880,9 +2160,10 @@ async function loadStudioData(){
     results[1] || [];
 
 
-  await loadClientForms(
-    clients
-  );
+  await Promise.all([
+    loadVisits(clients),
+    loadClientForms(clients)
+  ]);
 
 }
 
@@ -1892,7 +2173,7 @@ window.refreshStudio =
 
 
 /* ==================================================
-   PENDING REGISTRATIONS
+   REGISTRATIONS
 ================================================== */
 
 async function loadPendingRegistrations(){
@@ -2095,27 +2376,13 @@ async function loadPendingRegistrations(){
         );
 
 
-        actions.appendChild(
-          approve
-        );
+        actions.appendChild(approve);
+        actions.appendChild(reject);
 
-        actions.appendChild(
-          reject
-        );
+        item.appendChild(info);
+        item.appendChild(actions);
 
-
-        item.appendChild(
-          info
-        );
-
-        item.appendChild(
-          actions
-        );
-
-
-        pendingList.appendChild(
-          item
-        );
+        pendingList.appendChild(item);
 
       }
     );
@@ -2129,7 +2396,7 @@ async function loadPendingRegistrations(){
       "—";
 
     pendingList.innerHTML =
-      '<div class="empty-state">Unable to load registrations. Check your Firebase connection and Firestore rules.</div>';
+      '<div class="empty-state">Unable to load registrations.</div>';
 
   }
 
@@ -2146,13 +2413,11 @@ async function approveRegistration(
   rejectButton
 ){
 
-  const confirmed =
-    window.confirm(
+  if(
+    !window.confirm(
       "Approve this client and allow access to My Sorted.?"
-    );
-
-
-  if(!confirmed){
+    )
+  ){
 
     return;
 
@@ -2198,6 +2463,16 @@ async function approveRegistration(
       userSnapshot.data();
 
 
+    const name =
+      registration.fullName ||
+      [
+        registration.firstName,
+        registration.lastName
+      ]
+      .filter(Boolean)
+      .join(" ");
+
+
     await setDoc(
       doc(
         db,
@@ -2216,22 +2491,10 @@ async function approveRegistration(
           registration.lastName || "",
 
         fullName:
-          registration.fullName ||
-          [
-            registration.firstName,
-            registration.lastName
-          ]
-          .filter(Boolean)
-          .join(" "),
+          name,
 
         name:
-          registration.fullName ||
-          [
-            registration.firstName,
-            registration.lastName
-          ]
-          .filter(Boolean)
-          .join(" "),
+          name,
 
         email:
           registration.email || "",
@@ -2295,7 +2558,7 @@ async function approveRegistration(
 
     showStudioMessage(
       "success",
-      "Client approved successfully. They can now sign in once their email address has been verified."
+      "Client approved successfully."
     );
 
 
@@ -2309,7 +2572,7 @@ async function approveRegistration(
 
     showStudioMessage(
       "error",
-      "The registration could not be approved. Please try again."
+      "The registration could not be approved."
     );
 
 
@@ -2328,7 +2591,7 @@ async function approveRegistration(
 
 
 /* ==================================================
-   REJECT REGISTRATION
+   REJECT
 ================================================== */
 
 async function rejectRegistration(
@@ -2337,13 +2600,11 @@ async function rejectRegistration(
   rejectButton
 ){
 
-  const confirmed =
-    window.confirm(
+  if(
+    !window.confirm(
       "Reject this portal registration?"
-    );
-
-
-  if(!confirmed){
+    )
+  ){
 
     return;
 
@@ -2470,17 +2731,12 @@ async function loadClients(){
 
         const client =
           {
-            id:
-              clientDocument.id,
-
-            data:
-              data
+            id:clientDocument.id,
+            data:data
           };
 
 
-        clients.push(
-          client
-        );
+        clients.push(client);
 
 
         loadedClients.set(
@@ -2525,13 +2781,13 @@ async function loadClients(){
           "Not assigned";
 
 
-        const hoursRemaining =
+        const remaining =
           normaliseDisplayNumber(
             data.hoursRemaining
           );
 
 
-        const allocatedHours =
+        const total =
           normaliseDisplayNumber(
             data.hoursTotal ??
             data.monthlyHours
@@ -2562,9 +2818,9 @@ async function loadClients(){
               ),
 
             "Hours: " +
-              escapeHTML(hoursRemaining) +
+              escapeHTML(remaining) +
               " remaining / " +
-              escapeHTML(allocatedHours) +
+              escapeHTML(total) +
               " allocated"
           ]
           .filter(Boolean)
@@ -2582,17 +2838,9 @@ async function loadClients(){
           "Active";
 
 
-        info.appendChild(
-          name
-        );
-
-        info.appendChild(
-          details
-        );
-
-        info.appendChild(
-          status
-        );
+        info.appendChild(name);
+        info.appendChild(details);
+        info.appendChild(status);
 
 
         const actions =
@@ -2627,23 +2875,12 @@ async function loadClients(){
         );
 
 
-        actions.appendChild(
-          edit
-        );
+        actions.appendChild(edit);
 
+        item.appendChild(info);
+        item.appendChild(actions);
 
-        item.appendChild(
-          info
-        );
-
-        item.appendChild(
-          actions
-        );
-
-
-        clientList.appendChild(
-          item
-        );
+        clientList.appendChild(item);
 
       }
     );
@@ -2656,14 +2893,11 @@ async function loadClients(){
 
     console.error(error);
 
-
     clientCount.textContent =
       "—";
 
-
     clientList.innerHTML =
       '<div class="empty-state">Unable to load clients.</div>';
-
 
     return [];
 
@@ -2685,9 +2919,7 @@ function openClientEditor(clientId){
 
 
   if(!client){
-
     return;
-
   }
 
 
@@ -2748,38 +2980,18 @@ function openClientEditor(clientId){
     );
 
 
-  clientModal.classList.add(
-    "is-open"
+  openModal(
+    clientModal
   );
-
-
-  clientModal.setAttribute(
-    "aria-hidden",
-    "false"
-  );
-
-
-  document.body.style.overflow =
-    "hidden";
 
 }
 
 
 function closeClientEditor(){
 
-  clientModal.classList.remove(
-    "is-open"
+  closeModal(
+    clientModal
   );
-
-
-  clientModal.setAttribute(
-    "aria-hidden",
-    "true"
-  );
-
-
-  document.body.style.overflow =
-    "";
 
 
   editingClientId =
@@ -2815,9 +3027,7 @@ saveClientButton.addEventListener(
   async function(){
 
     if(!editingClientId){
-
       return;
-
     }
 
 
@@ -2825,29 +3035,21 @@ saveClientButton.addEventListener(
       editMembership.value.trim();
 
 
-    const membershipStatus =
-      editMembershipStatus.value;
-
-
-    const serviceStatus =
-      editServiceStatus.value;
-
-
-    const allocatedHours =
+    const allocated =
       parseOptionalNumber(
         editHoursTotal.value
       );
 
 
-    const hoursRemaining =
+    const remaining =
       parseOptionalNumber(
         editHoursRemaining.value
       );
 
 
     if(
-      allocatedHours !== "" &&
-      allocatedHours < 0
+      allocated !== "" &&
+      allocated < 0
     ){
 
       showStudioMessage(
@@ -2861,8 +3063,8 @@ saveClientButton.addEventListener(
 
 
     if(
-      hoursRemaining !== "" &&
-      hoursRemaining < 0
+      remaining !== "" &&
+      remaining < 0
     ){
 
       showStudioMessage(
@@ -2877,7 +3079,6 @@ saveClientButton.addEventListener(
 
     saveClientButton.disabled =
       true;
-
 
     saveClientButton.textContent =
       "Saving...";
@@ -2902,19 +3103,19 @@ saveClientButton.addEventListener(
             "To be confirmed",
 
           membershipStatus:
-            membershipStatus,
+            editMembershipStatus.value,
 
           status:
-            serviceStatus,
+            editServiceStatus.value,
 
           monthlyHours:
-            allocatedHours,
+            allocated,
 
           hoursTotal:
-            allocatedHours,
+            allocated,
 
           hoursRemaining:
-            hoursRemaining,
+            remaining,
 
           updatedAt:
             serverTimestamp()
@@ -2942,7 +3143,7 @@ saveClientButton.addEventListener(
 
       showStudioMessage(
         "error",
-        "The client could not be updated. Please try again."
+        "The client could not be updated."
       );
 
 
@@ -2951,9 +3152,729 @@ saveClientButton.addEventListener(
       saveClientButton.disabled =
         false;
 
-
       saveClientButton.textContent =
         "Save Client Changes";
+
+    }
+
+  }
+);
+
+
+/* ==================================================
+   VISITS
+================================================== */
+
+async function loadVisits(clients){
+
+  visitList.innerHTML =
+    '<div class="loading-state">Loading visits...</div>';
+
+
+  loadedVisits =
+    new Map();
+
+
+  try{
+
+    const groups =
+      await Promise.all(
+
+        clients.map(
+          async function(client){
+
+            const snapshot =
+              await getDocs(
+                collection(
+                  db,
+                  "clients",
+                  client.id,
+                  "visits"
+                )
+              );
+
+
+            return snapshot.docs.map(
+              function(visitDocument){
+
+                return {
+
+                  key:
+                    client.id +
+                    "/" +
+                    visitDocument.id,
+
+                  clientId:
+                    client.id,
+
+                  clientName:
+                    client.data.fullName ||
+                    client.data.name ||
+                    "Client",
+
+                  visitId:
+                    visitDocument.id,
+
+                  data:
+                    visitDocument.data()
+
+                };
+
+              }
+            );
+
+          }
+        )
+
+      );
+
+
+    const visits =
+      groups.flat();
+
+
+    visits.sort(
+      function(a,b){
+
+        return (
+          getVisitMilliseconds(a.data) -
+          getVisitMilliseconds(b.data)
+        );
+
+      }
+    );
+
+
+    visitList.innerHTML =
+      "";
+
+
+    if(!visits.length){
+
+      visitList.innerHTML =
+        '<div class="empty-state">No visits have been added yet.</div>';
+
+      return;
+
+    }
+
+
+    visits.forEach(
+      function(visit){
+
+        loadedVisits.set(
+          visit.key,
+          visit
+        );
+
+
+        const data =
+          visit.data;
+
+
+        const item =
+          document.createElement("div");
+
+        item.className =
+          "visit-item";
+
+
+        const info =
+          document.createElement("div");
+
+
+        const title =
+          document.createElement("div");
+
+        title.className =
+          "visit-title";
+
+        title.textContent =
+          data.service ||
+          data.description ||
+          "Sorted. support visit";
+
+
+        const client =
+          document.createElement("div");
+
+        client.className =
+          "visit-client";
+
+        client.textContent =
+          visit.clientName;
+
+
+        const meta =
+          document.createElement("div");
+
+        meta.className =
+          "visit-meta";
+
+
+        const pieces =
+          [
+            formatVisitDate(data.date),
+
+            data.time ||
+              "",
+
+            data.helper ||
+              data.assignedTo ||
+              "",
+
+            data.durationHours
+              ? data.durationHours + " hrs"
+              : ""
+          ]
+          .filter(Boolean);
+
+
+        meta.textContent =
+          pieces.join(" · ");
+
+
+        const status =
+          document.createElement("span");
+
+
+        const statusText =
+          data.status ||
+          "Scheduled";
+
+
+        status.className =
+          "status-pill " +
+          getVisitStatusClass(
+            statusText
+          );
+
+
+        status.textContent =
+          statusText;
+
+
+        info.appendChild(title);
+        info.appendChild(client);
+        info.appendChild(meta);
+        info.appendChild(status);
+
+
+        const actions =
+          document.createElement("div");
+
+        actions.className =
+          "actions";
+
+
+        const edit =
+          document.createElement("button");
+
+        edit.type =
+          "button";
+
+        edit.className =
+          "action-button edit-button";
+
+        edit.textContent =
+          "Edit Visit";
+
+
+        edit.addEventListener(
+          "click",
+          function(){
+
+            openVisitEditor(
+              visit.key
+            );
+
+          }
+        );
+
+
+        actions.appendChild(edit);
+
+        item.appendChild(info);
+        item.appendChild(actions);
+
+        visitList.appendChild(item);
+
+      }
+    );
+
+
+  }catch(error){
+
+    console.error(error);
+
+
+    visitList.innerHTML =
+      '<div class="empty-state">Unable to load visits.</div>';
+
+  }
+
+}
+
+
+/* ==================================================
+   ADD / EDIT VISIT
+================================================== */
+
+addVisitButton.addEventListener(
+  "click",
+  function(){
+
+    openVisitEditor();
+
+  }
+);
+
+
+function populateVisitClients(){
+
+  visitClient.innerHTML =
+    "";
+
+
+  loadedClients.forEach(
+    function(client){
+
+      const option =
+        document.createElement("option");
+
+
+      option.value =
+        client.id;
+
+
+      option.textContent =
+        client.data.fullName ||
+        client.data.name ||
+        "Client";
+
+
+      visitClient.appendChild(
+        option
+      );
+
+    }
+  );
+
+}
+
+
+function openVisitEditor(key = null){
+
+  if(!loadedClients.size){
+
+    showStudioMessage(
+      "error",
+      "Create or approve a client before adding a visit."
+    );
+
+    return;
+
+  }
+
+
+  populateVisitClients();
+
+
+  editingVisitKey =
+    key;
+
+
+  if(!key){
+
+    visitModalTitle.textContent =
+      "Add Visit";
+
+
+    visitClient.disabled =
+      false;
+
+
+    visitDate.value =
+      "";
+
+
+    visitTime.value =
+      "";
+
+
+    visitService.value =
+      "";
+
+
+    visitHelper.value =
+      "";
+
+
+    visitDuration.value =
+      "";
+
+
+    visitStatus.value =
+      "Scheduled";
+
+
+    visitNotes.value =
+      "";
+
+
+  }else{
+
+    const visit =
+      loadedVisits.get(
+        key
+      );
+
+
+    if(!visit){
+      return;
+    }
+
+
+    const data =
+      visit.data;
+
+
+    visitModalTitle.textContent =
+      "Edit Visit";
+
+
+    visitClient.value =
+      visit.clientId;
+
+
+    visitClient.disabled =
+      true;
+
+
+    visitDate.value =
+      normaliseDateInput(
+        data.date,
+        data.startAt
+      );
+
+
+    visitTime.value =
+      normaliseTimeInput(
+        data.time,
+        data.startAt
+      );
+
+
+    visitService.value =
+      data.service ||
+      data.description ||
+      "";
+
+
+    visitHelper.value =
+      data.helper ||
+      data.assignedTo ||
+      "";
+
+
+    visitDuration.value =
+      normaliseInputNumber(
+        data.durationHours
+      );
+
+
+    visitStatus.value =
+      validSelectValue(
+        visitStatus,
+        data.status,
+        "Scheduled"
+      );
+
+
+    visitNotes.value =
+      data.publicNotes ||
+      "";
+
+  }
+
+
+  openModal(
+    visitModal
+  );
+
+}
+
+
+function closeVisitEditor(){
+
+  closeModal(
+    visitModal
+  );
+
+
+  editingVisitKey =
+    null;
+
+
+  visitClient.disabled =
+    false;
+
+}
+
+
+visitModalClose.addEventListener(
+  "click",
+  closeVisitEditor
+);
+
+
+visitModal.addEventListener(
+  "click",
+  function(event){
+
+    if(
+      event.target === visitModal
+    ){
+
+      closeVisitEditor();
+
+    }
+
+  }
+);
+
+
+saveVisitButton.addEventListener(
+  "click",
+  async function(){
+
+    const clientId =
+      visitClient.value;
+
+
+    const date =
+      visitDate.value;
+
+
+    const time =
+      visitTime.value;
+
+
+    const service =
+      visitService.value.trim();
+
+
+    const helper =
+      visitHelper.value.trim();
+
+
+    const duration =
+      parseOptionalNumber(
+        visitDuration.value
+      );
+
+
+    const status =
+      visitStatus.value;
+
+
+    const publicNotes =
+      visitNotes.value.trim();
+
+
+    if(
+      !clientId ||
+      !date ||
+      !time ||
+      !service
+    ){
+
+      showStudioMessage(
+        "error",
+        "Please choose a client, date, time and service."
+      );
+
+      return;
+
+    }
+
+
+    if(
+      duration !== "" &&
+      duration < 0
+    ){
+
+      showStudioMessage(
+        "error",
+        "Visit duration cannot be below zero."
+      );
+
+      return;
+
+    }
+
+
+    const startDate =
+      new Date(
+        date +
+        "T" +
+        time +
+        ":00"
+      );
+
+
+    if(
+      Number.isNaN(
+        startDate.getTime()
+      )
+    ){
+
+      showStudioMessage(
+        "error",
+        "Please enter a valid visit date and time."
+      );
+
+      return;
+
+    }
+
+
+    saveVisitButton.disabled =
+      true;
+
+
+    saveVisitButton.textContent =
+      "Saving...";
+
+
+    try{
+
+      const visitData =
+        {
+
+          date:
+            date,
+
+          time:
+            time,
+
+          startAt:
+            Timestamp.fromDate(
+              startDate
+            ),
+
+          service:
+            service,
+
+          helper:
+            helper,
+
+          assignedTo:
+            helper,
+
+          durationHours:
+            duration,
+
+          status:
+            status,
+
+          publicNotes:
+            publicNotes,
+
+          updatedAt:
+            serverTimestamp()
+
+        };
+
+
+      if(editingVisitKey){
+
+        const existing =
+          loadedVisits.get(
+            editingVisitKey
+          );
+
+
+        if(!existing){
+
+          throw new Error(
+            "Visit could not be found."
+          );
+
+        }
+
+
+        await updateDoc(
+          doc(
+            db,
+            "clients",
+            existing.clientId,
+            "visits",
+            existing.visitId
+          ),
+          visitData
+        );
+
+
+        showStudioMessage(
+          "success",
+          "Visit updated successfully."
+        );
+
+
+      }else{
+
+        await addDoc(
+          collection(
+            db,
+            "clients",
+            clientId,
+            "visits"
+          ),
+          {
+
+            ...visitData,
+
+            createdAt:
+              serverTimestamp()
+
+          }
+        );
+
+
+        showStudioMessage(
+          "success",
+          "Visit added successfully."
+        );
+
+      }
+
+
+      closeVisitEditor();
+
+
+      await loadStudioData();
+
+
+    }catch(error){
+
+      console.error(error);
+
+
+      showStudioMessage(
+        "error",
+        "The visit could not be saved."
+      );
+
+
+    }finally{
+
+      saveVisitButton.disabled =
+        false;
+
+
+      saveVisitButton.textContent =
+        "Save Visit";
 
     }
 
@@ -3152,21 +4073,10 @@ async function loadClientForms(clients){
             );
 
 
-        info.appendChild(
-          title
-        );
-
-        info.appendChild(
-          client
-        );
-
-        info.appendChild(
-          meta
-        );
-
-        info.appendChild(
-          status
-        );
+        info.appendChild(title);
+        info.appendChild(client);
+        info.appendChild(meta);
+        info.appendChild(status);
 
 
         const actions =
@@ -3201,23 +4111,12 @@ async function loadClientForms(clients){
         );
 
 
-        actions.appendChild(
-          view
-        );
+        actions.appendChild(view);
 
+        item.appendChild(info);
+        item.appendChild(actions);
 
-        item.appendChild(
-          info
-        );
-
-        item.appendChild(
-          actions
-        );
-
-
-        formList.appendChild(
-          item
-        );
+        formList.appendChild(item);
 
       }
     );
@@ -3253,9 +4152,7 @@ function openFormViewer(key){
 
 
   if(!form){
-
     return;
-
   }
 
 
@@ -3313,55 +4210,27 @@ function openFormViewer(key){
         );
 
 
-      detail.appendChild(
-        label
-      );
+      detail.appendChild(label);
+      detail.appendChild(value);
 
-      detail.appendChild(
-        value
-      );
-
-
-      formDetailGrid.appendChild(
-        detail
-      );
+      formDetailGrid.appendChild(detail);
 
     }
   );
 
 
-  formModal.classList.add(
-    "is-open"
+  openModal(
+    formModal
   );
-
-
-  formModal.setAttribute(
-    "aria-hidden",
-    "false"
-  );
-
-
-  document.body.style.overflow =
-    "hidden";
 
 }
 
 
 function closeFormViewer(){
 
-  formModal.classList.remove(
-    "is-open"
+  closeModal(
+    formModal
   );
-
-
-  formModal.setAttribute(
-    "aria-hidden",
-    "true"
-  );
-
-
-  document.body.style.overflow =
-    "";
 
 }
 
@@ -3389,49 +4258,7 @@ formModal.addEventListener(
 
 
 /* ==================================================
-   ESCAPE KEY
-================================================== */
-
-document.addEventListener(
-  "keydown",
-  function(event){
-
-    if(event.key !== "Escape"){
-
-      return;
-
-    }
-
-
-    if(
-      clientModal.classList.contains(
-        "is-open"
-      )
-    ){
-
-      closeClientEditor();
-
-      return;
-
-    }
-
-
-    if(
-      formModal.classList.contains(
-        "is-open"
-      )
-    ){
-
-      closeFormViewer();
-
-    }
-
-  }
-);
-
-
-/* ==================================================
-   FORM FIELD DEFINITIONS
+   FORM FIELDS
 ================================================== */
 
 function getFormFields(formId,data){
@@ -3443,30 +4270,11 @@ function getFormFields(formId,data){
 
     return [
 
-      {
-        label:"Full name",
-        value:data.fullName
-      },
-
-      {
-        label:"Date of birth",
-        value:data.dateOfBirth
-      },
-
-      {
-        label:"Address",
-        value:data.address
-      },
-
-      {
-        label:"Telephone",
-        value:data.phone
-      },
-
-      {
-        label:"Email address",
-        value:data.email
-      },
+      {label:"Full name",value:data.fullName},
+      {label:"Date of birth",value:data.dateOfBirth},
+      {label:"Address",value:data.address},
+      {label:"Telephone",value:data.phone},
+      {label:"Email address",value:data.email},
 
       {
         label:"Emergency contact name",
@@ -3488,15 +4296,8 @@ function getFormFields(formId,data){
         value:data.medicalConditions
       },
 
-      {
-        label:"Allergies",
-        value:data.allergies
-      },
-
-      {
-        label:"Pets at the property",
-        value:data.pets
-      },
+      {label:"Allergies",value:data.allergies},
+      {label:"Pets at the property",value:data.pets},
 
       {
         label:"Access instructions",
@@ -3622,38 +4423,117 @@ function getFormFields(formId,data){
   }
 
 
-  return Object
-    .entries(data)
-    .filter(
-      function(entry){
-
-        return ![
-          "submittedBy",
-          "submittedAt",
-          "updatedAt",
-          "formType",
-          "status"
-        ].includes(
-          entry[0]
-        );
-
-      }
-    )
-    .map(
-      function(entry){
-
-        return {
-          label:
-            entry[0],
-
-          value:
-            entry[1]
-        };
-
-      }
-    );
+  return [];
 
 }
+
+
+/* ==================================================
+   MODAL HELPERS
+================================================== */
+
+function openModal(modal){
+
+  modal.classList.add(
+    "is-open"
+  );
+
+
+  modal.setAttribute(
+    "aria-hidden",
+    "false"
+  );
+
+
+  document.body.style.overflow =
+    "hidden";
+
+}
+
+
+function closeModal(modal){
+
+  modal.classList.remove(
+    "is-open"
+  );
+
+
+  modal.setAttribute(
+    "aria-hidden",
+    "true"
+  );
+
+
+  if(
+    !document.querySelector(
+      ".modal-overlay.is-open"
+    )
+  ){
+
+    document.body.style.overflow =
+      "";
+
+  }
+
+}
+
+
+/* ==================================================
+   ESCAPE
+================================================== */
+
+document.addEventListener(
+  "keydown",
+  function(event){
+
+    if(
+      event.key !==
+      "Escape"
+    ){
+
+      return;
+
+    }
+
+
+    if(
+      visitModal.classList.contains(
+        "is-open"
+      )
+    ){
+
+      closeVisitEditor();
+
+      return;
+
+    }
+
+
+    if(
+      clientModal.classList.contains(
+        "is-open"
+      )
+    ){
+
+      closeClientEditor();
+
+      return;
+
+    }
+
+
+    if(
+      formModal.classList.contains(
+        "is-open"
+      )
+    ){
+
+      closeFormViewer();
+
+    }
+
+  }
+);
 
 
 /* ==================================================
@@ -3667,33 +4547,18 @@ function getFormTitle(formId,data){
     formId;
 
 
-  if(
-    type ===
-    "client-information"
-  ){
-
+  if(type === "client-information"){
     return "Client Information Form";
-
   }
 
 
-  if(
-    type ===
-    "client-review"
-  ){
-
+  if(type === "client-review"){
     return "Client Review";
-
   }
 
 
-  if(
-    type ===
-    "change-of-circumstances"
-  ){
-
+  if(type === "change-of-circumstances"){
     return "Change of Circumstances";
-
   }
 
 
@@ -3715,10 +4580,7 @@ function formatFieldValue(value){
   }
 
 
-  if(
-    typeof value ===
-    "boolean"
-  ){
+  if(typeof value === "boolean"){
 
     return value
       ? "Yes"
@@ -3826,8 +4688,7 @@ function getTimestampMilliseconds(timestamp){
       "function"
     ){
 
-      return timestamp
-        .toMillis();
+      return timestamp.toMillis();
 
     }
 
@@ -3851,9 +4712,7 @@ function parseOptionalNumber(value){
 
 
   if(clean === ""){
-
     return "";
-
   }
 
 
@@ -3910,9 +4769,7 @@ function normaliseDisplayNumber(value){
 
 
   if(Number.isFinite(number)){
-
     return String(number);
-
   }
 
 
@@ -3927,24 +4784,259 @@ function validSelectValue(
   fallback
 ){
 
-  const options =
-    Array.from(
-      selectElement.options
-    )
-    .map(
-      function(option){
+  const values =
+    Array
+      .from(
+        selectElement.options
+      )
+      .map(
+        function(option){
+          return option.value;
+        }
+      );
 
-        return option.value;
 
-      }
-    );
-
-
-  return options.includes(
+  return values.includes(
     requestedValue
   )
     ? requestedValue
     : fallback;
+
+}
+
+
+function getVisitStatusClass(status){
+
+  const value =
+    String(status || "")
+      .toLowerCase();
+
+
+  if(value === "completed"){
+    return "status-completed";
+  }
+
+
+  if(value === "cancelled"){
+    return "status-cancelled";
+  }
+
+
+  return "status-scheduled";
+
+}
+
+
+function getVisitMilliseconds(data){
+
+  if(
+    data.startAt &&
+    typeof data.startAt.toMillis ===
+    "function"
+  ){
+
+    return data.startAt.toMillis();
+
+  }
+
+
+  if(data.date){
+
+    const date =
+      new Date(
+        String(data.date) +
+        (
+          data.time
+            ? "T" + data.time
+            : ""
+        )
+      );
+
+
+    if(
+      !Number.isNaN(
+        date.getTime()
+      )
+    ){
+
+      return date.getTime();
+
+    }
+
+  }
+
+
+  return Number.MAX_SAFE_INTEGER;
+
+}
+
+
+function formatVisitDate(value){
+
+  if(!value){
+    return "";
+  }
+
+
+  const isoMatch =
+    String(value)
+      .match(
+        /^(\d{4})-(\d{2})-(\d{2})$/
+      );
+
+
+  if(isoMatch){
+
+    const date =
+      new Date(
+        Number(isoMatch[1]),
+        Number(isoMatch[2]) - 1,
+        Number(isoMatch[3])
+      );
+
+
+    return new Intl.DateTimeFormat(
+      "en-GB",
+      {
+        weekday:"short",
+        day:"numeric",
+        month:"short",
+        year:"numeric"
+      }
+    ).format(date);
+
+  }
+
+
+  return String(value);
+
+}
+
+
+function normaliseDateInput(
+  dateValue,
+  startAt
+){
+
+  if(
+    dateValue &&
+    /^\d{4}-\d{2}-\d{2}$/
+      .test(
+        String(dateValue)
+      )
+  ){
+
+    return String(dateValue);
+
+  }
+
+
+  if(
+    startAt &&
+    typeof startAt.toDate ===
+    "function"
+  ){
+
+    const date =
+      startAt.toDate();
+
+
+    const year =
+      date.getFullYear();
+
+
+    const month =
+      String(
+        date.getMonth() + 1
+      )
+      .padStart(
+        2,
+        "0"
+      );
+
+
+    const day =
+      String(
+        date.getDate()
+      )
+      .padStart(
+        2,
+        "0"
+      );
+
+
+    return (
+      year +
+      "-" +
+      month +
+      "-" +
+      day
+    );
+
+  }
+
+
+  return "";
+
+}
+
+
+function normaliseTimeInput(
+  timeValue,
+  startAt
+){
+
+  if(
+    timeValue &&
+    /^\d{2}:\d{2}/
+      .test(
+        String(timeValue)
+      )
+  ){
+
+    return String(timeValue)
+      .slice(
+        0,
+        5
+      );
+
+  }
+
+
+  if(
+    startAt &&
+    typeof startAt.toDate ===
+    "function"
+  ){
+
+    const date =
+      startAt.toDate();
+
+
+    return (
+      String(
+        date.getHours()
+      )
+      .padStart(
+        2,
+        "0"
+      )
+      +
+      ":"
+      +
+      String(
+        date.getMinutes()
+      )
+      .padStart(
+        2,
+        "0"
+      )
+    );
+
+  }
+
+
+  return "";
 
 }
 
