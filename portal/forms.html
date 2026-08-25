@@ -440,6 +440,37 @@ h1{
 
   </div>
 
+
+  <div class="card">
+
+    <h2>
+      🔄 Change of Circumstances
+    </h2>
+
+    <p>
+      Tell us about any important changes to your support needs,
+      household, contact details or arrangements.
+    </p>
+
+    <span
+      id="change-status"
+      class="status"
+    >
+      Checking…
+    </span>
+
+    <br>
+
+    <a
+      id="change-button"
+      href="change-of-circumstances.html"
+      class="button"
+    >
+      Open Form
+    </a>
+
+  </div>
+
 </main>
 
 
@@ -487,11 +518,15 @@ const clientInformationButton =
   document.getElementById("client-information-button");
 
 
-async function findClientRecord(user){
+const changeStatus =
+  document.getElementById("change-status");
 
-  /*
-    First try the newer clients/{uid} structure.
-  */
+
+const changeButton =
+  document.getElementById("change-button");
+
+
+async function findClientRecord(user){
 
   const directRef =
     doc(
@@ -514,10 +549,6 @@ async function findClientRecord(user){
 
   }
 
-
-  /*
-    Fallback for older client records.
-  */
 
   const clientQuery =
     query(
@@ -635,10 +666,6 @@ async function initialiseForms(user){
 
   try{
 
-    /*
-      Require a verified Firebase account.
-    */
-
     if(!user.emailVerified){
 
       window.location.href =
@@ -648,10 +675,6 @@ async function initialiseForms(user){
 
     }
 
-
-    /*
-      Require an approved Sorted. client account.
-    */
 
     const userRef =
       doc(
@@ -692,10 +715,6 @@ async function initialiseForms(user){
     }
 
 
-    /*
-      Find the correct client record.
-    */
-
     const clientRecord =
       await findClientRecord(user);
 
@@ -723,10 +742,6 @@ async function initialiseForms(user){
     }
 
 
-    /*
-      Check both client forms.
-    */
-
     await Promise.all([
 
       checkFormStatus(
@@ -741,6 +756,13 @@ async function initialiseForms(user){
         "client-information",
         clientInformationStatus,
         clientInformationButton
+      ),
+
+      checkFormStatus(
+        clientRecord.id,
+        "change-of-circumstances",
+        changeStatus,
+        changeButton
       )
 
     ]);
