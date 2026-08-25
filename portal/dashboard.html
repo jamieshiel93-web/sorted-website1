@@ -5059,9 +5059,13 @@ function displayInvoices(invoices){
 
 
           const link =
-            invoice.url ||
-            invoice.downloadUrl ||
-            "";
+  invoice.id
+    ? `invoice.html?id=${encodeURIComponent(invoice.id)}`
+    : (
+        invoice.url ||
+        invoice.downloadUrl ||
+        ""
+      );
 
 
           return `
@@ -5109,13 +5113,11 @@ function displayInvoices(invoices){
                   ?
                   `
                     <a
-                      href="${escapeHTML(link)}"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="invoice-open"
-                    >
-                      View
-                    </a>
+  href="${escapeHTML(link)}"
+  class="invoice-open"
+>
+  View Invoice
+</a>
                   `
                   :
                   `

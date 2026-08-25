@@ -1,0 +1,2796 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
+
+<title>Invoice | My Sorted.</title>
+
+<meta
+  name="robots"
+  content="noindex,nofollow"
+>
+
+<meta
+  name="theme-color"
+  content="#17261b"
+>
+
+<link
+  rel="icon"
+  href="../favicon.png"
+  type="image/png"
+>
+
+<link
+  rel="apple-touch-icon"
+  href="../favicon.png"
+>
+
+<script
+  defer
+  src="https://unpkg.com/lucide@0.542.0/dist/umd/lucide.js"
+></script>
+
+
+<style>
+
+:root{
+
+  --cream:#f8f1e7;
+  --cream-soft:#fffaf4;
+  --cream-deep:#efe0cc;
+
+  --forest:#17261b;
+  --forest-soft:#223228;
+
+  --sage:#314632;
+  --sage-mid:#718c67;
+  --sage-pale:#e6eadf;
+
+  --gold:#caa76a;
+  --gold-soft:#dec28d;
+
+  --white:#ffffff;
+
+  --ink:#1d241f;
+  --muted:#6f746e;
+
+  --green:#47704d;
+  --green-soft:#edf5ec;
+
+  --red:#934242;
+  --red-soft:#fff0ed;
+
+  --orange:#8a6828;
+  --orange-soft:#fff6e5;
+
+  --border:rgba(202,167,106,.26);
+
+  --shadow:
+    0 28px 75px rgba(23,38,27,.13);
+
+  --soft-shadow:
+    0 14px 36px rgba(23,38,27,.08);
+
+}
+
+
+*{
+
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+
+}
+
+
+html{
+
+  scroll-behavior:smooth;
+
+}
+
+
+body{
+
+  min-height:100vh;
+
+  overflow-x:hidden;
+
+  background:
+
+    radial-gradient(
+      circle at 5% 4%,
+      rgba(202,167,106,.13),
+      transparent 29%
+    ),
+
+    radial-gradient(
+      circle at 95% 8%,
+      rgba(113,140,103,.10),
+      transparent 28%
+    ),
+
+    linear-gradient(
+      180deg,
+      var(--cream-soft),
+      var(--cream)
+    );
+
+  color:var(--ink);
+
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  line-height:1.6;
+
+}
+
+
+a{
+
+  color:inherit;
+  text-decoration:none;
+
+}
+
+
+button{
+
+  font:inherit;
+  border:0;
+  cursor:pointer;
+
+}
+
+
+button,
+a{
+
+  -webkit-tap-highlight-color:transparent;
+
+}
+
+
+::selection{
+
+  background:var(--gold);
+  color:white;
+
+}
+
+
+.container{
+
+  width:min(1040px,92%);
+  margin:0 auto;
+
+}
+
+
+/* ==================================================
+   HEADER
+================================================== */
+
+.site-header{
+
+  position:sticky;
+  top:0;
+
+  z-index:1000;
+
+  border-bottom:
+    1px solid rgba(202,167,106,.20);
+
+  background:
+    rgba(255,253,249,.96);
+
+  box-shadow:
+    0 10px 35px rgba(23,38,27,.07);
+
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+
+}
+
+
+.header-inner{
+
+  min-height:74px;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  gap:20px;
+
+}
+
+
+.brand-group{
+
+  display:flex;
+  align-items:center;
+
+  gap:17px;
+
+}
+
+
+.logo{
+
+  color:var(--forest);
+
+  font-size:2rem;
+  font-weight:850;
+
+  letter-spacing:-1px;
+
+}
+
+
+.logo span{
+
+  color:var(--gold);
+
+}
+
+
+.portal-name{
+
+  padding-left:17px;
+
+  border-left:
+    1px solid rgba(23,38,27,.13);
+
+  color:var(--sage-mid);
+
+  font-size:.71rem;
+  font-weight:900;
+
+  letter-spacing:2px;
+
+  text-transform:uppercase;
+
+}
+
+
+.back-link{
+
+  min-height:43px;
+
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  gap:8px;
+
+  padding:9px 15px;
+
+  border:
+    1px solid rgba(202,167,106,.27);
+
+  border-radius:999px;
+
+  background:var(--cream-soft);
+
+  color:var(--forest);
+
+  font-size:.74rem;
+  font-weight:850;
+
+  transition:
+    background .22s ease,
+    color .22s ease,
+    transform .22s ease;
+
+}
+
+
+.back-link:hover{
+
+  background:var(--forest);
+  color:white;
+
+  transform:translateY(-2px);
+
+}
+
+
+.back-link svg{
+
+  width:16px;
+  height:16px;
+
+}
+
+
+/* ==================================================
+   PAGE
+================================================== */
+
+.page-main{
+
+  padding:30px 0 70px;
+
+}
+
+
+.invoice-actions-bar{
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  gap:15px;
+
+  margin-bottom:18px;
+
+}
+
+
+.invoice-actions-copy{
+
+  color:var(--muted);
+
+  font-size:.76rem;
+
+}
+
+
+.print-button{
+
+  min-height:44px;
+
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  gap:8px;
+
+  padding:10px 17px;
+
+  border-radius:999px;
+
+  background:
+
+    linear-gradient(
+      135deg,
+      var(--forest),
+      var(--sage)
+    );
+
+  color:white;
+
+  font-size:.73rem;
+  font-weight:900;
+
+  box-shadow:
+    0 12px 27px rgba(23,38,27,.14);
+
+}
+
+
+.print-button svg{
+
+  width:17px;
+  height:17px;
+
+}
+
+
+/* ==================================================
+   INVOICE
+================================================== */
+
+.invoice-sheet{
+
+  position:relative;
+
+  overflow:hidden;
+
+  border:
+    1px solid var(--border);
+
+  border-radius:30px;
+
+  background:white;
+
+  box-shadow:var(--shadow);
+
+}
+
+
+.invoice-sheet::before{
+
+  content:"";
+
+  position:absolute;
+
+  top:-150px;
+  right:-130px;
+
+  width:350px;
+  height:350px;
+
+  border:
+    1px solid rgba(202,167,106,.11);
+
+  border-radius:50%;
+
+  pointer-events:none;
+
+}
+
+
+/* ==================================================
+   TOP
+================================================== */
+
+.invoice-top{
+
+  position:relative;
+
+  display:grid;
+
+  grid-template-columns:
+    minmax(0,1fr)
+    auto;
+
+  gap:30px;
+
+  padding:42px;
+
+  background:
+
+    radial-gradient(
+      circle at 90% 8%,
+      rgba(202,167,106,.16),
+      transparent 32%
+    ),
+
+    linear-gradient(
+      140deg,
+      var(--forest),
+      var(--forest-soft)
+    );
+
+  color:white;
+
+}
+
+
+.invoice-brand{
+
+  position:relative;
+  z-index:2;
+
+}
+
+
+.invoice-logo{
+
+  margin-bottom:30px;
+
+  color:white;
+
+  font-size:2.4rem;
+  font-weight:850;
+
+  letter-spacing:-1px;
+
+}
+
+
+.invoice-logo span{
+
+  color:var(--gold);
+
+}
+
+
+.invoice-label{
+
+  margin-bottom:9px;
+
+  color:var(--gold-soft);
+
+  font-size:.65rem;
+  font-weight:900;
+
+  letter-spacing:2px;
+
+  text-transform:uppercase;
+
+}
+
+
+.invoice-top h1{
+
+  color:white;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(3rem,6vw,5rem);
+
+  font-weight:500;
+
+  line-height:.95;
+
+  letter-spacing:-2.5px;
+
+}
+
+
+.invoice-reference-box{
+
+  position:relative;
+  z-index:2;
+
+  min-width:235px;
+
+  align-self:center;
+
+  padding:22px;
+
+  border:
+    1px solid rgba(255,255,255,.13);
+
+  border-radius:20px;
+
+  background:
+    rgba(255,255,255,.07);
+
+  backdrop-filter:blur(10px);
+
+}
+
+
+.reference-label{
+
+  margin-bottom:5px;
+
+  color:rgba(255,255,255,.58);
+
+  font-size:.62rem;
+  font-weight:850;
+
+  letter-spacing:1.4px;
+
+  text-transform:uppercase;
+
+}
+
+
+.invoice-reference{
+
+  margin-bottom:17px;
+
+  color:white;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:1.35rem;
+
+}
+
+
+.status-pill{
+
+  width:max-content;
+
+  display:inline-flex;
+  align-items:center;
+
+  gap:7px;
+
+  padding:7px 11px;
+
+  border-radius:999px;
+
+  font-size:.68rem;
+  font-weight:850;
+
+}
+
+
+.status-pill::before{
+
+  content:"";
+
+  width:7px;
+  height:7px;
+
+  border-radius:50%;
+
+  background:currentColor;
+
+}
+
+
+.status-pill.draft{
+
+  background:rgba(255,255,255,.12);
+  color:rgba(255,255,255,.82);
+
+}
+
+
+.status-pill.sent{
+
+  background:rgba(222,194,141,.17);
+  color:var(--gold-soft);
+
+}
+
+
+.status-pill.paid{
+
+  background:rgba(159,199,155,.16);
+  color:#c3e0bf;
+
+}
+
+
+.status-pill.overdue{
+
+  background:rgba(240,150,150,.14);
+  color:#f0b2b2;
+
+}
+
+
+.status-pill.cancelled{
+
+  background:rgba(255,255,255,.10);
+  color:rgba(255,255,255,.62);
+
+}
+
+
+/* ==================================================
+   MAIN INFORMATION
+================================================== */
+
+.invoice-body{
+
+  padding:38px 42px 42px;
+
+}
+
+
+.details-grid{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(2,minmax(0,1fr));
+
+  gap:20px;
+
+  margin-bottom:35px;
+
+}
+
+
+.detail-panel{
+
+  padding:21px;
+
+  border:
+    1px solid rgba(23,38,27,.08);
+
+  border-radius:19px;
+
+  background:
+    rgba(248,241,231,.38);
+
+}
+
+
+.detail-label{
+
+  display:block;
+
+  margin-bottom:8px;
+
+  color:var(--gold);
+
+  font-size:.62rem;
+  font-weight:900;
+
+  letter-spacing:1.5px;
+
+  text-transform:uppercase;
+
+}
+
+
+.detail-panel strong{
+
+  display:block;
+
+  margin-bottom:4px;
+
+  color:var(--forest);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:1.25rem;
+  font-weight:500;
+
+}
+
+
+.detail-panel p{
+
+  color:var(--muted);
+
+  font-size:.77rem;
+
+  line-height:1.6;
+
+  white-space:pre-line;
+
+}
+
+
+/* ==================================================
+   DATE STRIP
+================================================== */
+
+.date-grid{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(2,minmax(0,1fr));
+
+  gap:14px;
+
+  margin-bottom:33px;
+
+}
+
+
+.date-box{
+
+  padding:16px 18px;
+
+  border:
+    1px solid rgba(202,167,106,.21);
+
+  border-radius:16px;
+
+  background:var(--cream-soft);
+
+}
+
+
+.date-box span{
+
+  display:block;
+
+  margin-bottom:4px;
+
+  color:var(--muted);
+
+  font-size:.63rem;
+  font-weight:800;
+
+  text-transform:uppercase;
+
+  letter-spacing:1px;
+
+}
+
+
+.date-box strong{
+
+  color:var(--forest);
+
+  font-size:.85rem;
+
+}
+
+
+/* ==================================================
+   INVOICE ITEM
+================================================== */
+
+.invoice-items{
+
+  overflow:hidden;
+
+  margin-bottom:30px;
+
+  border:
+    1px solid rgba(23,38,27,.09);
+
+  border-radius:19px;
+
+}
+
+
+.invoice-item-head{
+
+  display:grid;
+
+  grid-template-columns:
+    minmax(0,1fr)
+    150px;
+
+  gap:20px;
+
+  padding:13px 18px;
+
+  background:var(--forest);
+
+  color:white;
+
+  font-size:.64rem;
+  font-weight:850;
+
+  letter-spacing:1px;
+
+  text-transform:uppercase;
+
+}
+
+
+.invoice-item-row{
+
+  display:grid;
+
+  grid-template-columns:
+    minmax(0,1fr)
+    150px;
+
+  gap:20px;
+
+  align-items:center;
+
+  padding:24px 18px;
+
+}
+
+
+.item-description strong{
+
+  display:block;
+
+  margin-bottom:4px;
+
+  color:var(--forest);
+
+  font-size:.91rem;
+
+}
+
+
+.item-description span{
+
+  color:var(--muted);
+
+  font-size:.71rem;
+
+}
+
+
+.item-amount{
+
+  color:var(--forest);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:1.35rem;
+
+  text-align:right;
+
+}
+
+
+/* ==================================================
+   TOTAL
+================================================== */
+
+.total-row{
+
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+
+  gap:24px;
+
+  padding:22px;
+
+  border-radius:18px;
+
+  background:
+
+    linear-gradient(
+      135deg,
+      var(--cream),
+      var(--cream-soft)
+    );
+
+}
+
+
+.total-row span{
+
+  color:var(--muted);
+
+  font-size:.73rem;
+  font-weight:850;
+
+  letter-spacing:1px;
+
+  text-transform:uppercase;
+
+}
+
+
+.total-row strong{
+
+  min-width:150px;
+
+  color:var(--forest);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:2rem;
+  font-weight:500;
+
+  text-align:right;
+
+}
+
+
+/* ==================================================
+   NOTES
+================================================== */
+
+.invoice-notes{
+
+  display:none;
+
+  margin-top:26px;
+
+  padding:19px;
+
+  border-left:
+    3px solid var(--gold);
+
+  border-radius:0 14px 14px 0;
+
+  background:
+    rgba(248,241,231,.43);
+
+}
+
+
+.invoice-notes.is-visible{
+
+  display:block;
+
+}
+
+
+.invoice-notes strong{
+
+  display:block;
+
+  margin-bottom:5px;
+
+  color:var(--forest);
+
+  font-size:.79rem;
+
+}
+
+
+.invoice-notes p{
+
+  color:var(--muted);
+
+  font-size:.75rem;
+
+  white-space:pre-line;
+
+}
+
+
+/* ==================================================
+   PAYMENT NOTE
+================================================== */
+
+.payment-note{
+
+  display:grid;
+
+  grid-template-columns:
+    auto
+    minmax(0,1fr);
+
+  gap:14px;
+
+  align-items:flex-start;
+
+  margin-top:27px;
+
+  padding:19px;
+
+  border:
+    1px solid rgba(202,167,106,.21);
+
+  border-radius:18px;
+
+  background:var(--cream-soft);
+
+}
+
+
+.payment-icon{
+
+  width:42px;
+  height:42px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:13px;
+
+  background:
+
+    linear-gradient(
+      135deg,
+      var(--forest),
+      var(--sage)
+    );
+
+  color:white;
+
+}
+
+
+.payment-icon svg{
+
+  width:20px;
+  height:20px;
+
+}
+
+
+.payment-copy strong{
+
+  display:block;
+
+  margin-bottom:4px;
+
+  color:var(--forest);
+
+  font-size:.8rem;
+
+}
+
+
+.payment-copy p{
+
+  color:var(--muted);
+
+  font-size:.7rem;
+
+}
+
+
+/* ==================================================
+   BOTTOM
+================================================== */
+
+.invoice-bottom{
+
+  display:grid;
+
+  grid-template-columns:
+    1fr
+    1fr
+    1fr;
+
+  gap:22px;
+
+  padding:25px 42px;
+
+  border-top:
+    1px solid rgba(23,38,27,.08);
+
+  background:
+    var(--cream-soft);
+
+}
+
+
+.company-detail span{
+
+  display:block;
+
+  margin-bottom:3px;
+
+  color:var(--muted);
+
+  font-size:.61rem;
+
+  text-transform:uppercase;
+
+  letter-spacing:.9px;
+
+}
+
+
+.company-detail strong{
+
+  color:var(--forest);
+
+  font-size:.73rem;
+
+  overflow-wrap:anywhere;
+
+}
+
+
+/* ==================================================
+   FOOTER
+================================================== */
+
+.portal-footer{
+
+  margin-top:28px;
+
+  padding:23px 10px 5px;
+
+  color:var(--muted);
+
+  font-size:.68rem;
+
+  text-align:center;
+
+}
+
+
+.portal-footer a{
+
+  color:var(--forest);
+  font-weight:850;
+
+}
+
+
+/* ==================================================
+   LOADING
+================================================== */
+
+.loading-screen{
+
+  position:fixed;
+  inset:0;
+
+  z-index:99999;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:20px;
+
+  background:var(--cream);
+
+}
+
+
+.loading-card{
+
+  width:min(430px,100%);
+
+  padding:35px 30px;
+
+  border:
+    1px solid var(--border);
+
+  border-radius:26px;
+
+  background:white;
+
+  box-shadow:var(--shadow);
+
+  text-align:center;
+
+}
+
+
+.loading-spinner{
+
+  width:46px;
+  height:46px;
+
+  margin:0 auto 18px;
+
+  border:
+    4px solid rgba(113,140,103,.16);
+
+  border-top-color:var(--sage);
+
+  border-radius:50%;
+
+  animation:spin .85s linear infinite;
+
+}
+
+
+.loading-card strong{
+
+  display:block;
+
+  margin-bottom:7px;
+
+  color:var(--forest);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:1.3rem;
+  font-weight:500;
+
+}
+
+
+.loading-card p{
+
+  color:var(--muted);
+
+  font-size:.77rem;
+
+}
+
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media(max-width:700px){
+
+  .container{
+
+    width:90%;
+
+  }
+
+
+  .header-inner{
+
+    min-height:64px;
+
+  }
+
+
+  .logo{
+
+    font-size:1.72rem;
+
+  }
+
+
+  .portal-name{
+
+    display:none;
+
+  }
+
+
+  .back-link{
+
+    min-height:39px;
+
+    padding:8px 12px;
+
+    font-size:.67rem;
+
+  }
+
+
+  .page-main{
+
+    padding-top:18px;
+
+  }
+
+
+  .invoice-actions-bar{
+
+    align-items:flex-start;
+    flex-direction:column;
+
+  }
+
+
+  .print-button{
+
+    width:100%;
+
+  }
+
+
+  .invoice-sheet{
+
+    border-radius:24px;
+
+  }
+
+
+  .invoice-top{
+
+    grid-template-columns:1fr;
+
+    padding:29px 23px;
+
+  }
+
+
+  .invoice-logo{
+
+    margin-bottom:25px;
+
+    font-size:2rem;
+
+  }
+
+
+  .invoice-top h1{
+
+    font-size:3.3rem;
+
+  }
+
+
+  .invoice-reference-box{
+
+    min-width:0;
+
+  }
+
+
+  .invoice-body{
+
+    padding:25px 21px 27px;
+
+  }
+
+
+  .details-grid{
+
+    grid-template-columns:1fr;
+
+  }
+
+
+  .date-grid{
+
+    grid-template-columns:1fr 1fr;
+
+  }
+
+
+  .invoice-item-head,
+  .invoice-item-row{
+
+    grid-template-columns:
+      minmax(0,1fr)
+      100px;
+
+  }
+
+
+  .item-amount{
+
+    font-size:1.16rem;
+
+  }
+
+
+  .total-row{
+
+    justify-content:space-between;
+
+  }
+
+
+  .total-row strong{
+
+    min-width:0;
+
+  }
+
+
+  .invoice-bottom{
+
+    grid-template-columns:1fr;
+
+    gap:14px;
+
+    padding:22px;
+
+  }
+
+}
+
+
+@media(max-width:390px){
+
+  .date-grid{
+
+    grid-template-columns:1fr;
+
+  }
+
+
+  .invoice-item-head,
+  .invoice-item-row{
+
+    grid-template-columns:1fr;
+
+  }
+
+
+  .invoice-item-head div:last-child{
+
+    display:none;
+
+  }
+
+
+  .item-amount{
+
+    text-align:left;
+
+  }
+
+}
+
+
+/* ==================================================
+   PRINT / PDF
+================================================== */
+
+@media print{
+
+  @page{
+
+    size:A4;
+    margin:12mm;
+
+  }
+
+
+  body{
+
+    background:white;
+
+  }
+
+
+  .site-header,
+  .invoice-actions-bar,
+  .portal-footer,
+  .loading-screen{
+
+    display:none !important;
+
+  }
+
+
+  .page-main{
+
+    padding:0;
+
+  }
+
+
+  .container{
+
+    width:100%;
+    max-width:none;
+
+  }
+
+
+  .invoice-sheet{
+
+    border:0;
+
+    border-radius:0;
+
+    box-shadow:none;
+
+  }
+
+
+  .invoice-top{
+
+    -webkit-print-color-adjust:exact;
+    print-color-adjust:exact;
+
+  }
+
+
+  .invoice-item-head,
+  .payment-icon{
+
+    -webkit-print-color-adjust:exact;
+    print-color-adjust:exact;
+
+  }
+
+
+  .status-pill,
+  .total-row,
+  .detail-panel,
+  .date-box,
+  .invoice-bottom{
+
+    -webkit-print-color-adjust:exact;
+    print-color-adjust:exact;
+
+  }
+
+}
+
+
+@media(prefers-reduced-motion:reduce){
+
+  *{
+
+    animation-duration:.01ms !important;
+    transition-duration:.01ms !important;
+
+  }
+
+}
+
+
+@keyframes spin{
+
+  to{
+
+    transform:rotate(360deg);
+
+  }
+
+}
+
+</style>
+
+
+<link
+  rel="stylesheet"
+  href="../brand.css"
+>
+
+</head>
+
+
+<body>
+
+
+<!-- ==================================================
+     LOADING
+================================================== -->
+
+<div
+  id="loading-screen"
+  class="loading-screen"
+>
+
+  <div class="loading-card">
+
+    <div class="loading-spinner"></div>
+
+    <strong>
+      Preparing your invoice
+    </strong>
+
+    <p>
+      Please wait while we securely load your
+      Sorted. invoice.
+    </p>
+
+  </div>
+
+</div>
+
+
+<!-- ==================================================
+     HEADER
+================================================== -->
+
+<header class="site-header">
+
+  <div class="container header-inner">
+
+
+    <div class="brand-group">
+
+      <a
+        href="dashboard.html"
+        class="logo"
+      >
+        Sorted<span>.</span>
+      </a>
+
+
+      <span class="portal-name">
+        My Sorted.
+      </span>
+
+    </div>
+
+
+    <a
+      href="dashboard.html"
+      class="back-link"
+    >
+
+      <i data-lucide="arrow-left"></i>
+
+      Back to Dashboard
+
+    </a>
+
+
+  </div>
+
+</header>
+
+
+<!-- ==================================================
+     PAGE
+================================================== -->
+
+<main class="page-main">
+
+<div class="container">
+
+
+  <div class="invoice-actions-bar">
+
+    <div class="invoice-actions-copy">
+      Your secure Sorted. invoice.
+    </div>
+
+
+    <button
+      type="button"
+      class="print-button"
+      id="print-button"
+    >
+
+      <i data-lucide="printer"></i>
+
+      Print / Save PDF
+
+    </button>
+
+  </div>
+
+
+  <article
+    class="invoice-sheet"
+    id="invoice-sheet"
+  >
+
+
+    <!-- TOP -->
+
+    <section class="invoice-top">
+
+
+      <div class="invoice-brand">
+
+        <div class="invoice-logo">
+          Sorted<span>.</span>
+        </div>
+
+
+        <div class="invoice-label">
+          Client Invoice
+        </div>
+
+
+        <h1>
+          Invoice
+        </h1>
+
+      </div>
+
+
+      <aside class="invoice-reference-box">
+
+        <div class="reference-label">
+          Invoice Reference
+        </div>
+
+        <div
+          class="invoice-reference"
+          id="invoice-reference"
+        >
+          —
+        </div>
+
+
+        <div
+          class="status-pill draft"
+          id="invoice-status"
+        >
+          —
+        </div>
+
+      </aside>
+
+
+    </section>
+
+
+    <!-- BODY -->
+
+    <section class="invoice-body">
+
+
+      <div class="details-grid">
+
+
+        <div class="detail-panel">
+
+          <span class="detail-label">
+            From
+          </span>
+
+          <strong>
+            Sorted.
+          </strong>
+
+          <p>
+            Home &amp; Lifestyle Support
+            Eastbourne &amp; surrounding areas
+          </p>
+
+        </div>
+
+
+        <div class="detail-panel">
+
+          <span class="detail-label">
+            Invoice To
+          </span>
+
+          <strong id="client-name">
+            —
+          </strong>
+
+          <p id="client-details">
+            —
+          </p>
+
+        </div>
+
+
+      </div>
+
+
+      <div class="date-grid">
+
+
+        <div class="date-box">
+
+          <span>
+            Invoice Date
+          </span>
+
+          <strong id="issue-date">
+            —
+          </strong>
+
+        </div>
+
+
+        <div class="date-box">
+
+          <span>
+            Due Date
+          </span>
+
+          <strong id="due-date">
+            —
+          </strong>
+
+        </div>
+
+
+      </div>
+
+
+      <div class="invoice-items">
+
+
+        <div class="invoice-item-head">
+
+          <div>
+            Description
+          </div>
+
+          <div style="text-align:right;">
+            Amount
+          </div>
+
+        </div>
+
+
+        <div class="invoice-item-row">
+
+          <div class="item-description">
+
+            <strong id="invoice-description">
+              —
+            </strong>
+
+            <span>
+              Sorted. home &amp; lifestyle support
+            </span>
+
+          </div>
+
+
+          <div
+            class="item-amount"
+            id="invoice-amount"
+          >
+            £0.00
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+      <div class="total-row">
+
+        <span>
+          Total Due
+        </span>
+
+        <strong id="invoice-total">
+          £0.00
+        </strong>
+
+      </div>
+
+
+      <div
+        class="invoice-notes"
+        id="invoice-notes-wrap"
+      >
+
+        <strong>
+          Invoice Notes
+        </strong>
+
+        <p id="invoice-notes"></p>
+
+      </div>
+
+
+      <div class="payment-note">
+
+
+        <div class="payment-icon">
+
+          <i data-lucide="receipt-pound-sterling"></i>
+
+        </div>
+
+
+        <div class="payment-copy">
+
+          <strong>
+            Please quote your invoice reference when making payment.
+          </strong>
+
+          <p>
+            If you have any questions about this invoice,
+            contact Sorted. and we will be happy to help.
+          </p>
+
+        </div>
+
+
+      </div>
+
+
+    </section>
+
+
+    <!-- BUSINESS DETAILS -->
+
+    <section class="invoice-bottom">
+
+
+      <div class="company-detail">
+
+        <span>
+          Telephone
+        </span>
+
+        <strong>
+          01323 396610
+        </strong>
+
+      </div>
+
+
+      <div class="company-detail">
+
+        <span>
+          Email
+        </span>
+
+        <strong>
+          contact@sortedlife.org.uk
+        </strong>
+
+      </div>
+
+
+      <div class="company-detail">
+
+        <span>
+          Website
+        </span>
+
+        <strong>
+          sortedlife.org.uk
+        </strong>
+
+      </div>
+
+
+    </section>
+
+
+  </article>
+
+
+  <footer class="portal-footer">
+
+    © 2026 Sorted.
+
+    &nbsp;·&nbsp;
+
+    <a href="dashboard.html">
+      My Sorted.
+    </a>
+
+    &nbsp;·&nbsp;
+
+    <a href="../privacy.html">
+      Privacy Policy
+    </a>
+
+    &nbsp;·&nbsp;
+
+    <a href="../terms.html">
+      Terms &amp; Conditions
+    </a>
+
+  </footer>
+
+
+</div>
+
+</main>
+
+
+<script type="module">
+
+import {
+  auth,
+  db
+} from "../firebase.js";
+
+
+import {
+  onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
+
+
+import {
+  doc,
+  getDoc,
+  collection,
+  query,
+  where,
+  getDocs,
+  limit
+} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
+
+
+const loadingScreen =
+  document.getElementById(
+    "loading-screen"
+  );
+
+
+const invoiceReference =
+  document.getElementById(
+    "invoice-reference"
+  );
+
+
+const invoiceStatus =
+  document.getElementById(
+    "invoice-status"
+  );
+
+
+const clientName =
+  document.getElementById(
+    "client-name"
+  );
+
+
+const clientDetails =
+  document.getElementById(
+    "client-details"
+  );
+
+
+const issueDate =
+  document.getElementById(
+    "issue-date"
+  );
+
+
+const dueDate =
+  document.getElementById(
+    "due-date"
+  );
+
+
+const invoiceDescription =
+  document.getElementById(
+    "invoice-description"
+  );
+
+
+const invoiceAmount =
+  document.getElementById(
+    "invoice-amount"
+  );
+
+
+const invoiceTotal =
+  document.getElementById(
+    "invoice-total"
+  );
+
+
+const invoiceNotesWrap =
+  document.getElementById(
+    "invoice-notes-wrap"
+  );
+
+
+const invoiceNotes =
+  document.getElementById(
+    "invoice-notes"
+  );
+
+
+function refreshIcons(){
+
+  if(window.lucide){
+
+    window.lucide.createIcons();
+
+  }
+
+}
+
+
+function showError(
+  title,
+  message
+){
+
+  loadingScreen.innerHTML =
+    `
+      <div class="loading-card">
+
+        <div
+          style="
+            width:52px;
+            height:52px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            margin:0 auto 17px;
+            border-radius:50%;
+            background:#e6eadf;
+            color:#314632;
+          "
+        >
+          <i data-lucide="circle-alert"></i>
+        </div>
+
+        <strong>
+          ${title}
+        </strong>
+
+        <p>
+          ${message}
+        </p>
+
+      </div>
+    `;
+
+
+  refreshIcons();
+
+}
+
+
+async function findClientRecord(user){
+
+
+  const directRef =
+    doc(
+      db,
+      "clients",
+      user.uid
+    );
+
+
+  const directSnapshot =
+    await getDoc(
+      directRef
+    );
+
+
+  if(
+    directSnapshot.exists()
+  ){
+
+    return{
+
+      id:
+        directSnapshot.id,
+
+      data:
+        directSnapshot.data()
+
+    };
+
+  }
+
+
+  const clientQuery =
+    query(
+      collection(
+        db,
+        "clients"
+      ),
+      where(
+        "ownerUID",
+        "==",
+        user.uid
+      ),
+      limit(1)
+    );
+
+
+  const querySnapshot =
+    await getDocs(
+      clientQuery
+    );
+
+
+  if(
+    querySnapshot.empty
+  ){
+
+    return null;
+
+  }
+
+
+  const clientDocument =
+    querySnapshot.docs[0];
+
+
+  return{
+
+    id:
+      clientDocument.id,
+
+    data:
+      clientDocument.data()
+
+  };
+
+}
+
+
+function formatDate(value){
+
+  if(!value){
+
+    return "—";
+
+  }
+
+
+  const match =
+    String(value)
+      .match(
+        /^(\d{4})-(\d{2})-(\d{2})$/
+      );
+
+
+  if(!match){
+
+    return String(value);
+
+  }
+
+
+  const date =
+    new Date(
+      Number(match[1]),
+      Number(match[2]) - 1,
+      Number(match[3])
+    );
+
+
+  return new Intl.DateTimeFormat(
+    "en-GB",
+    {
+      day:"numeric",
+      month:"long",
+      year:"numeric"
+    }
+  ).format(date);
+
+}
+
+
+function formatCurrency(value){
+
+  const number =
+    Number(value);
+
+
+  if(
+    !Number.isFinite(number)
+  ){
+
+    return "£0.00";
+
+  }
+
+
+  return new Intl.NumberFormat(
+    "en-GB",
+    {
+      style:"currency",
+      currency:"GBP"
+    }
+  ).format(number);
+
+}
+
+
+function getAmount(data){
+
+  const direct =
+    Number(
+      data.amountValue
+    );
+
+
+  if(
+    Number.isFinite(direct)
+  ){
+
+    return direct;
+
+  }
+
+
+  const cleaned =
+    String(
+      data.amount || ""
+    )
+    .replace(/[£,\s]/g,"");
+
+
+  const parsed =
+    Number(cleaned);
+
+
+  return Number.isFinite(parsed)
+    ? parsed
+    : 0;
+
+}
+
+
+function getStatusClass(status){
+
+  const value =
+    String(status || "")
+      .trim()
+      .toLowerCase();
+
+
+  if(value === "paid"){
+    return "paid";
+  }
+
+
+  if(value === "sent"){
+    return "sent";
+  }
+
+
+  if(value === "overdue"){
+    return "overdue";
+  }
+
+
+  if(value === "cancelled"){
+    return "cancelled";
+  }
+
+
+  return "draft";
+
+}
+
+
+async function getClientAddress(
+  clientId
+){
+
+  try{
+
+    const formReference =
+      doc(
+        db,
+        "clients",
+        clientId,
+        "forms",
+        "client-information"
+      );
+
+
+    const formSnapshot =
+      await getDoc(
+        formReference
+      );
+
+
+    if(
+      formSnapshot.exists()
+    ){
+
+      return (
+        formSnapshot.data().address ||
+        ""
+      );
+
+    }
+
+  }catch(error){
+
+    console.error(
+      "Address loading error:",
+      error
+    );
+
+  }
+
+
+  return "";
+
+}
+
+
+async function initialiseInvoice(user){
+
+  try{
+
+
+    if(
+      !user.emailVerified
+    ){
+
+      window.location.href =
+        "index.html";
+
+      return;
+
+    }
+
+
+    const userRef =
+      doc(
+        db,
+        "users",
+        user.uid
+      );
+
+
+    const userSnapshot =
+      await getDoc(
+        userRef
+      );
+
+
+    if(
+      !userSnapshot.exists()
+    ){
+
+      window.location.href =
+        "index.html";
+
+      return;
+
+    }
+
+
+    const userData =
+      userSnapshot.data();
+
+
+    if(
+      userData.role !== "client" ||
+      userData.status !== "approved"
+    ){
+
+      window.location.href =
+        "index.html";
+
+      return;
+
+    }
+
+
+    const clientRecord =
+      await findClientRecord(
+        user
+      );
+
+
+    if(
+      !clientRecord
+    ){
+
+      showError(
+        "Account setup incomplete",
+        "Your Sorted. client record could not be found."
+      );
+
+      return;
+
+    }
+
+
+    const parameters =
+      new URLSearchParams(
+        window.location.search
+      );
+
+
+    const invoiceId =
+      parameters.get(
+        "id"
+      );
+
+
+    if(
+      !invoiceId
+    ){
+
+      showError(
+        "Invoice not found",
+        "No invoice was selected."
+      );
+
+      return;
+
+    }
+
+
+    const invoiceRef =
+      doc(
+        db,
+        "clients",
+        clientRecord.id,
+        "invoices",
+        invoiceId
+      );
+
+
+    const invoiceSnapshot =
+      await getDoc(
+        invoiceRef
+      );
+
+
+    if(
+      !invoiceSnapshot.exists()
+    ){
+
+      showError(
+        "Invoice not found",
+        "This invoice could not be found in your account."
+      );
+
+      return;
+
+    }
+
+
+    const invoice =
+      invoiceSnapshot.data();
+
+
+    const address =
+      await getClientAddress(
+        clientRecord.id
+      );
+
+
+    const reference =
+      invoice.invoiceNumber ||
+      invoice.reference ||
+      "Invoice";
+
+
+    const description =
+      invoice.description ||
+      invoice.service ||
+      "Sorted. support";
+
+
+    const amount =
+      getAmount(
+        invoice
+      );
+
+
+    const status =
+      invoice.status ||
+      "Invoice";
+
+
+    invoiceReference.textContent =
+      reference;
+
+
+    invoiceStatus.textContent =
+      status;
+
+
+    invoiceStatus.className =
+      "status-pill " +
+      getStatusClass(
+        status
+      );
+
+
+    clientName.textContent =
+      clientRecord.data.fullName ||
+      clientRecord.data.name ||
+      userData.fullName ||
+      "Sorted. Client";
+
+
+    const clientDetailParts =
+      [];
+
+
+    if(address){
+
+      clientDetailParts.push(
+        address
+      );
+
+    }else if(
+      clientRecord.data.postcode
+    ){
+
+      clientDetailParts.push(
+        clientRecord.data.postcode
+      );
+
+    }
+
+
+    if(
+      clientRecord.data.email
+    ){
+
+      clientDetailParts.push(
+        clientRecord.data.email
+      );
+
+    }
+
+
+    clientDetails.textContent =
+      clientDetailParts.length
+        ? clientDetailParts.join("\n")
+        : "Client account";
+
+
+    issueDate.textContent =
+      formatDate(
+        invoice.issueDate ||
+        invoice.date
+      );
+
+
+    dueDate.textContent =
+      formatDate(
+        invoice.dueDate
+      );
+
+
+    invoiceDescription.textContent =
+      description;
+
+
+    invoiceAmount.textContent =
+      formatCurrency(
+        amount
+      );
+
+
+    invoiceTotal.textContent =
+      formatCurrency(
+        amount
+      );
+
+
+    if(
+      invoice.notes &&
+      String(invoice.notes).trim()
+    ){
+
+      invoiceNotes.textContent =
+        invoice.notes;
+
+
+      invoiceNotesWrap.classList.add(
+        "is-visible"
+      );
+
+    }
+
+
+    document.title =
+      reference +
+      " | Sorted.";
+
+
+    loadingScreen.style.display =
+      "none";
+
+
+    refreshIcons();
+
+
+  }catch(error){
+
+
+    console.error(
+      "Invoice page error:",
+      error
+    );
+
+
+    showError(
+      "We couldn't open your invoice",
+      "Please return to your dashboard and try again."
+    );
+
+  }
+
+}
+
+
+onAuthStateChanged(
+  auth,
+  function(user){
+
+    if(!user){
+
+      window.location.href =
+        "index.html";
+
+      return;
+
+    }
+
+
+    initialiseInvoice(
+      user
+    );
+
+  }
+);
+
+
+document
+  .getElementById("print-button")
+  .addEventListener(
+    "click",
+    function(){
+
+      window.print();
+
+    }
+  );
+
+
+window.addEventListener(
+  "load",
+  refreshIcons
+);
+
+</script>
+
+
+</body>
+
+</html>
