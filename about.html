@@ -3,2685 +3,2514 @@
 
 <head>
 
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Sorted. | Trusted Home & Lifestyle Support</title>
 
-  <title>About Sorted. | Trusted Home & Lifestyle Support</title>
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="favicon.png">
 
-  <link rel="icon" href="favicon.png" type="image/png">
-  <link rel="apple-touch-icon" href="favicon.png">
+<meta
+  name="description"
+  content="Learn more about Sorted., providing trusted, discreet and dependable home and lifestyle support across Eastbourne and surrounding areas."
+>
 
-  <meta
-    name="description"
-    content="Learn more about Sorted., providing trusted, discreet and dependable home and lifestyle support across Eastbourne and surrounding areas."
-  >
-
-  <meta property="og:title" content="About Sorted. | Trusted Home & Lifestyle Support">
-
-  <meta
-    property="og:description"
-    content="Thoughtful, trusted home and lifestyle support designed to make everyday life calmer and easier."
-  >
-
-  <meta property="og:type" content="website">
-
-  <meta property="og:url" content="https://sortedlife.org.uk/about.html">
-
-  <meta property="og:image" content="https://sortedlife.org.uk/background.png">
-
-  <meta name="twitter:card" content="summary_large_image">
-
-  <meta name="twitter:title" content="About Sorted. | Trusted Home & Lifestyle Support">
-
-  <meta
-    name="twitter:description"
-    content="Thoughtful, trusted home and lifestyle support designed to make everyday life calmer and easier."
-  >
-
-  <meta name="twitter:image" content="https://sortedlife.org.uk/background.png">
-
-  <meta name="theme-color" content="#17261b">
-
-  <link rel="canonical" href="https://sortedlife.org.uk/about.html">
-
-  <style>
-
-    :root {
-      --cream: #f8f1e7;
-      --cream-2: #efe0cc;
-      --sage: #718c67;
-      --sage-dark: #314632;
-      --forest: #17261b;
-      --ink: #1d241f;
-      --muted: #6f746e;
-      --white: #ffffff;
-      --gold: #caa76a;
-      --blush: #ead4c5;
-
-      --shadow: 0 24px 70px rgba(23, 38, 27, 0.14);
-      --soft-shadow: 0 14px 38px rgba(23, 38, 27, 0.10);
-
-      --radius: 28px;
-      --radius-large: 42px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    ::selection {
-      background: var(--gold);
-      color: white;
-    }
-
-    ::-moz-selection {
-      background: var(--gold);
-      color: white;
-    }
-
-    body {
-      font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
-        Helvetica,
-        Arial,
-        sans-serif;
-
-      background: var(--cream);
-      color: var(--ink);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-
-      background:
-        radial-gradient(
-          circle at 10% 10%,
-          rgba(202, 167, 106, 0.17),
-          transparent 30%
-        ),
-        radial-gradient(
-          circle at 90% 20%,
-          rgba(113, 140, 103, 0.14),
-          transparent 28%
-        ),
-        radial-gradient(
-          circle at 50% 100%,
-          rgba(234, 212, 197, 0.18),
-          transparent 35%
-        );
-
-      z-index: -2;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
-    }
-
-    button,
-    input,
-    textarea {
-      font: inherit;
-    }
-
-    section {
-      padding: 90px 0;
-    }
-
-    section[id] {
-      scroll-margin-top: 90px;
-    }
-
-    .container {
-      width: min(1180px, 92%);
-      margin: 0 auto;
-    }
-
-    .narrow {
-      width: min(850px, 100%);
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .eyebrow {
-      margin-bottom: 15px;
-
-      color: var(--gold);
-
-      text-transform: uppercase;
-      letter-spacing: 3px;
-
-      font-size: 0.8rem;
-      font-weight: 800;
-    }
-
-    h1,
-    h2,
-    h3 {
-      color: var(--forest);
-    }
-
-    h1 {
-      font-size: clamp(3.3rem, 7vw, 6rem);
-      line-height: 0.96;
-      letter-spacing: -3px;
-    }
-
-    h2 {
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      line-height: 1.05;
-      letter-spacing: -2px;
-    }
-
-    h3 {
-      font-size: 1.5rem;
-      line-height: 1.25;
-    }
-
-    p {
-      color: var(--muted);
-    }
-
-    .section-title {
-      max-width: 800px;
-      margin: 0 auto 55px;
-      text-align: center;
-    }
-
-    .section-title h2 {
-      margin-bottom: 20px;
-    }
-
-    .section-title > p:last-child {
-      max-width: 700px;
-      margin: 0 auto;
-
-      font-size: 1.05rem;
-      line-height: 1.8;
-    }
-
-    /* ==================================================
-       HEADER
-    ================================================== */
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-
-      background: rgba(255, 255, 255, 0.82);
-
-      border-bottom: 1px solid rgba(255, 255, 255, 0.45);
-
-      box-shadow: 0 10px 40px rgba(23, 38, 27, 0.08);
-
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-
-      transition:
-        background 0.3s ease,
-        box-shadow 0.3s ease;
-    }
-
-    .nav-wrap {
-      min-height: 78px;
-
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      padding: 14px 0;
-    }
-
-    .logo {
-      flex-shrink: 0;
-
-      color: var(--forest);
-
-      font-size: 2rem;
-      font-weight: 800;
-      letter-spacing: -1px;
-    }
-
-    .logo span {
-      color: var(--gold);
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-
-      gap: 18px;
-    }
-
-    nav a {
-      color: var(--sage-dark);
-
-      white-space: nowrap;
+<meta name="theme-color" content="#17261b">
 
-      font-size: 0.9rem;
-      font-weight: 700;
+<link
+  rel="canonical"
+  href="https://sortedlife.org.uk/about.html"
+>
 
-      transition:
-        color 0.3s ease,
-        transform 0.3s ease;
-    }
-
-    nav a:hover,
-    nav a[aria-current="page"] {
-      color: var(--gold);
-    }
-
-    nav a:hover {
-      transform: translateY(-2px);
-    }
-
-    .menu-toggle {
-      display: none;
+<meta
+  property="og:title"
+  content="About Sorted. | Trusted Home & Lifestyle Support"
+>
 
-      padding: 7px;
-
-      color: var(--forest);
-      background: none;
-
-      border: 0;
-
-      cursor: pointer;
-    }
-
-    .menu-toggle svg {
-      width: 28px;
-      height: 28px;
-    }
-
-    /* ==================================================
-       BUTTONS
-    ================================================== */
+<meta
+  property="og:description"
+  content="Thoughtful, trusted home and lifestyle support designed to make everyday life calmer and easier."
+>
 
-    .buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
+<meta property="og:type" content="website">
 
-      margin-top: 32px;
-    }
+<meta
+  property="og:url"
+  content="https://sortedlife.org.uk/about.html"
+>
 
-    .btn {
-      position: relative;
-
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-
-      padding: 16px 27px;
-
-      border-radius: 999px;
-
-      font-weight: 750;
-      text-align: center;
-
-      transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease,
-        background 0.3s ease,
-        color 0.3s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-4px);
-
-      box-shadow: 0 18px 45px rgba(23, 38, 27, 0.18);
-    }
-
-    .btn-primary {
-      overflow: hidden;
-
-      color: white;
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--forest),
-          var(--sage-dark)
-        );
-
-      isolation: isolate;
-    }
-
-    .btn-primary::before {
-      content: "";
-
-      position: absolute;
-      top: 0;
-      left: -120%;
+<meta
+  property="og:image"
+  content="https://sortedlife.org.uk/background.png"
+>
 
-      width: 70%;
-      height: 100%;
-
-      z-index: -1;
-
-      background:
-        linear-gradient(
-          120deg,
-          transparent,
-          rgba(255, 255, 255, 0.27),
-          transparent
-        );
+<meta name="twitter:card" content="summary_large_image">
 
-      animation: buttonShine 5s infinite;
-    }
+<meta
+  name="twitter:title"
+  content="About Sorted. | Trusted Home & Lifestyle Support"
+>
 
-    .btn-secondary {
-      color: var(--forest);
-      background: rgba(255, 255, 255, 0.92);
+<meta
+  name="twitter:description"
+  content="Thoughtful, trusted home and lifestyle support designed to make everyday life calmer and easier."
+>
 
-      border: 2px solid var(--forest);
-    }
+<meta
+  name="twitter:image"
+  content="https://sortedlife.org.uk/background.png"
+>
 
-    @keyframes buttonShine {
-      from {
-        left: -120%;
-      }
-
-      to {
-        left: 150%;
-      }
-    }
-
-    /* ==================================================
-       HERO
-    ================================================== */
-
-    .about-hero {
-      position: relative;
-
-      min-height: 78vh;
-
-      display: flex;
-      align-items: center;
-
-      overflow: hidden;
-
-      background:
-        linear-gradient(
-          90deg,
-          rgba(250, 246, 238, 0.95) 0%,
-          rgba(250, 246, 238, 0.78) 47%,
-          rgba(250, 246, 238, 0.35) 100%
-        ),
-        url("sortedhome.png");
-
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-
-    .about-hero::before {
-      content: "";
-
-      position: absolute;
-      inset: 0;
-
-      background:
-        radial-gradient(
-          circle at 15% 20%,
-          rgba(255, 255, 255, 0.22),
-          transparent 36%
-        ),
-        radial-gradient(
-          circle at 85% 80%,
-          rgba(202, 167, 106, 0.13),
-          transparent 34%
-        );
-
-      pointer-events: none;
-    }
+<script
+  defer
+  src="https://unpkg.com/lucide@0.542.0/dist/umd/lucide.js"
+></script>
 
-    .about-hero .container {
-      position: relative;
-      z-index: 2;
-    }
 
-    .about-hero-content {
-      width: min(690px, 100%);
+<style>
 
-      padding: 48px 50px;
+/* ==================================================
+   ROOT
+================================================== */
 
-      background: rgba(255, 250, 243, 0.83);
+:root{
+  --cream:#f8f1e7;
+  --cream-soft:#fffaf4;
+  --cream-deep:#efe0cc;
 
-      border: 1px solid rgba(255, 255, 255, 0.7);
-      border-radius: 38px;
+  --forest:#17261b;
+  --forest-soft:#223228;
 
-      box-shadow: 0 30px 80px rgba(23, 38, 27, 0.18);
+  --sage:#314632;
+  --sage-mid:#718c67;
+  --sage-pale:#e6eadf;
 
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-    }
+  --gold:#caa76a;
+  --gold-soft:#dec28d;
 
-    .about-hero h1 {
-      margin-bottom: 25px;
-    }
+  --white:#ffffff;
 
-    .about-hero-description {
-      max-width: 610px;
+  --ink:#1d241f;
+  --muted:#6f746e;
 
-      color: var(--forest);
+  --line:rgba(23,38,27,.10);
 
-      font-size: 1.13rem;
-      line-height: 1.85;
-    }
+  --shadow:
+    0 24px 65px rgba(23,38,27,.13);
 
-    /* ==================================================
-       INTRODUCTION
-    ================================================== */
+  --soft-shadow:
+    0 14px 36px rgba(23,38,27,.09);
+}
 
-    .about-introduction {
-      background:
-        radial-gradient(
-          circle at 10% 20%,
-          rgba(202, 167, 106, 0.11),
-          transparent 27%
-        ),
-        linear-gradient(
-          180deg,
-          var(--cream),
-          #fffaf3
-        );
-    }
 
-    .about-introduction h2 {
-      margin-bottom: 24px;
-    }
+/* ==================================================
+   RESET
+================================================== */
 
-    .about-introduction p {
-      font-size: 1.08rem;
-      line-height: 1.85;
-    }
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
-    /* ==================================================
-       PHILOSOPHY
-    ================================================== */
+html{
+  scroll-behavior:smooth;
+}
 
-    .philosophy-section {
-      position: relative;
+body{
+  margin:0;
 
-      overflow: hidden;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
 
-      background: #fffaf3;
-    }
+  background:var(--cream);
 
-    .philosophy-section::before {
-      content: "";
+  color:var(--ink);
 
-      position: absolute;
-      top: -140px;
-      right: -120px;
+  line-height:1.65;
 
-      width: 360px;
-      height: 360px;
+  overflow-x:hidden;
+}
 
-      border: 1px solid rgba(202, 167, 106, 0.2);
-      border-radius: 50%;
+body::before{
+  content:"";
 
-      pointer-events: none;
-    }
+  position:fixed;
+  inset:0;
 
-    .philosophy-grid {
-      position: relative;
-      z-index: 1;
+  z-index:-10;
 
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
+  pointer-events:none;
 
-      gap: 55px;
+  background:
+    radial-gradient(
+      circle at 10% 5%,
+      rgba(202,167,106,.10),
+      transparent 31%
+    ),
+    radial-gradient(
+      circle at 92% 24%,
+      rgba(113,140,103,.09),
+      transparent 30%
+    );
+}
 
-      padding: 38px;
+::selection{
+  background:var(--gold);
+  color:white;
+}
 
-      background: white;
+::-moz-selection{
+  background:var(--gold);
+  color:white;
+}
 
-      border: 1px solid rgba(202, 167, 106, 0.25);
-      border-radius: 34px;
+a{
+  color:inherit;
+  text-decoration:none;
+}
 
-      box-shadow: var(--shadow);
-    }
+img{
+  display:block;
+  width:100%;
+}
 
-    .philosophy-image {
-      overflow: hidden;
+button,
+input,
+textarea{
+  font:inherit;
+}
 
-      border-radius: 27px;
-    }
+section{
+  padding:88px 0;
+}
 
-    .philosophy-image img {
-      width: 100%;
-      height: 540px;
+section[id]{
+  scroll-margin-top:92px;
+}
 
-      object-fit: cover;
 
-      transition:
-        transform 0.8s ease,
-        filter 0.8s ease;
+/* ==================================================
+   ACCESSIBILITY
+================================================== */
 
-      filter:
-        saturate(0.94)
-        contrast(1.03)
-        brightness(0.99);
-    }
+.skip-link{
+  position:fixed;
 
-    .philosophy-grid:hover .philosophy-image img {
-      transform: scale(1.035);
+  top:-100px;
+  left:20px;
 
-      filter:
-        saturate(1)
-        contrast(1.06)
-        brightness(1.02);
-    }
+  z-index:999999;
 
-    .philosophy-content {
-      padding: 12px 12px 12px 0;
-    }
+  padding:12px 18px;
 
-    .philosophy-content h2 {
-      margin-bottom: 24px;
+  border-radius:12px;
 
-      font-size: clamp(2.4rem, 4vw, 3.7rem);
-    }
+  background:var(--forest);
 
-    .philosophy-content > p {
-      margin-bottom: 18px;
+  color:white;
 
-      font-size: 1.04rem;
-      line-height: 1.8;
-    }
+  font-weight:800;
 
-    .philosophy-list {
-      list-style: none;
+  transition:top .2s ease;
+}
 
-      display: grid;
-      gap: 13px;
+.skip-link:focus{
+  top:18px;
+}
 
-      margin-top: 30px;
-    }
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible{
+  outline:3px solid var(--gold);
+  outline-offset:4px;
+}
 
-    .philosophy-list li {
-      position: relative;
 
-      min-height: 54px;
+/* ==================================================
+   GLOBAL
+================================================== */
 
-      display: flex;
-      align-items: center;
+.container{
+  width:min(1180px,92%);
+  margin:0 auto;
+}
 
-      padding: 14px 18px 14px 54px;
+.narrow{
+  width:min(820px,100%);
+  margin:0 auto;
+}
 
-      color: var(--forest);
-      background: rgba(113, 140, 103, 0.08);
+.eyebrow{
+  margin-bottom:13px;
 
-      border: 1px solid rgba(113, 140, 103, 0.15);
-      border-radius: 17px;
+  color:var(--gold);
 
-      font-weight: 650;
-    }
+  font-size:.74rem;
 
-    .philosophy-list li::before {
-      content: "✓";
+  font-weight:850;
 
-      position: absolute;
-      left: 18px;
-      top: 50%;
+  letter-spacing:2.8px;
 
-      width: 23px;
-      height: 23px;
+  text-transform:uppercase;
+}
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+.section-title{
+  width:min(800px,100%);
 
-      color: white;
-      background: var(--sage);
+  margin:0 auto 46px;
 
-      border-radius: 50%;
+  text-align:center;
+}
 
-      font-size: 0.78rem;
-      font-weight: 900;
+.section-title h2{
+  margin-bottom:18px;
 
-      transform: translateY(-50%);
-    }
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
 
-    /* ==================================================
-       VALUES
-    ================================================== */
+  color:var(--forest);
 
-    .values-section {
-      position: relative;
+  font-size:
+    clamp(2.45rem,5vw,4.15rem);
 
-      overflow: hidden;
+  font-weight:500;
 
-      background:
-        radial-gradient(
-          circle at 10% 15%,
-          rgba(202, 167, 106, 0.16),
-          transparent 28%
-        ),
-        radial-gradient(
-          circle at 90% 85%,
-          rgba(113, 140, 103, 0.15),
-          transparent 30%
-        ),
-        linear-gradient(
-          180deg,
-          #f7efe3,
-          #fffaf3
-        );
-    }
+  line-height:1.02;
 
-    .values-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+  letter-spacing:-2px;
+}
 
-      gap: 24px;
-    }
+.section-title > p:last-child{
+  width:min(690px,100%);
 
-    .value-card {
-      position: relative;
+  margin:0 auto;
 
-      min-height: 290px;
+  color:var(--muted);
 
-      padding: 35px;
+  font-size:1.04rem;
 
-      overflow: hidden;
+  line-height:1.8;
+}
 
-      background: rgba(255, 255, 255, 0.92);
 
-      border: 1px solid rgba(202, 167, 106, 0.27);
-      border-radius: 28px;
+/* ==================================================
+   BUTTONS
+================================================== */
 
-      box-shadow: 0 20px 50px rgba(23, 38, 27, 0.10);
+.buttons{
+  display:flex;
+  flex-wrap:wrap;
 
-      transition:
-        transform 0.35s ease,
-        box-shadow 0.35s ease;
-    }
+  gap:12px;
 
-    .value-card:hover {
-      transform: translateY(-9px);
+  margin-top:27px;
+}
 
-      box-shadow: 0 31px 68px rgba(23, 38, 27, 0.16);
-    }
+.btn{
+  min-height:53px;
 
-    .value-card::after {
-      content: "";
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
 
-      position: absolute;
-      right: -48px;
-      bottom: -48px;
+  gap:8px;
 
-      width: 140px;
-      height: 140px;
+  padding:13px 25px;
 
-      background: rgba(113, 140, 103, 0.07);
+  border-radius:999px;
 
-      border-radius: 50%;
-    }
+  font-weight:800;
 
-    .value-icon {
-      width: 58px;
-      height: 58px;
+  text-align:center;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+  transition:
+    transform .3s ease,
+    box-shadow .3s ease,
+    background .3s ease,
+    color .3s ease;
+}
 
-      margin-bottom: 24px;
+.btn:hover{
+  transform:translateY(-2px);
 
-      color: white;
+  box-shadow:
+    0 17px 36px rgba(23,38,27,.15);
+}
 
-      background:
-        linear-gradient(
-          135deg,
-          var(--forest),
-          var(--sage-dark)
-        );
+.btn-primary{
+  background:
+    linear-gradient(
+      135deg,
+      var(--forest),
+      var(--sage)
+    );
 
-      border-radius: 18px;
+  color:white;
+}
 
-      box-shadow: 0 12px 28px rgba(23, 38, 27, 0.18);
-    }
+.btn-secondary{
+  background:rgba(255,255,255,.93);
 
-    .value-icon svg {
-      width: 27px;
-      height: 27px;
+  color:var(--forest);
 
-      stroke-width: 1.8;
-    }
+  border:
+    1px solid rgba(23,38,27,.15);
+}
 
-    .value-card h3 {
-      margin-bottom: 14px;
 
-      font-size: 1.47rem;
-    }
+/* ==================================================
+   HEADER
+================================================== */
 
-    .value-card p {
-      font-size: 0.98rem;
-      line-height: 1.75;
-    }
+.site-header{
+  position:sticky;
+  top:0;
 
-    /* ==================================================
-       HOW WE WORK
-    ================================================== */
+  z-index:1000;
 
-    .process-section {
-      background: white;
-    }
+  background:
+    rgba(255,255,255,.78);
 
-    .process-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
 
-      gap: 26px;
-    }
+  border-bottom:
+    1px solid rgba(255,255,255,.45);
 
-    .process-card {
-      position: relative;
+  box-shadow:
+    0 8px 30px rgba(23,38,27,.06);
 
-      padding: 38px 32px 34px;
+  transition:
+    background .3s ease,
+    box-shadow .3s ease;
+}
 
-      background:
-        radial-gradient(
-          circle at top right,
-          rgba(202, 167, 106, 0.11),
-          transparent 38%
-        ),
-        #fffaf3;
+.site-header.scrolled{
+  background:
+    rgba(255,255,255,.96);
 
-      border: 1px solid rgba(202, 167, 106, 0.27);
-      border-radius: 28px;
+  box-shadow:
+    0 12px 35px rgba(23,38,27,.11);
+}
 
-      box-shadow: var(--soft-shadow);
-    }
+.nav-wrap{
+  min-height:74px;
 
-    .process-number {
-      width: 52px;
-      height: 52px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+  gap:22px;
 
-      margin-bottom: 25px;
+  position:relative;
+}
 
-      color: white;
+.logo{
+  flex-shrink:0;
 
-      background: var(--forest);
+  color:var(--forest);
 
-      border-radius: 50%;
+  font-size:2rem;
 
-      font-size: 1.05rem;
-      font-weight: 800;
+  font-weight:850;
 
-      box-shadow: 0 12px 28px rgba(23, 38, 27, 0.18);
-    }
+  letter-spacing:-1px;
+}
 
-    .process-card h3 {
-      margin-bottom: 14px;
+.logo span{
+  color:var(--gold);
+}
 
-      font-size: 1.48rem;
-    }
+nav{
+  display:flex;
+  align-items:center;
 
-    .process-card p {
-      font-size: 0.98rem;
-      line-height: 1.75;
-    }
+  gap:20px;
+}
+
+nav a{
+  color:var(--sage);
+
+  font-size:.91rem;
+
+  font-weight:720;
+
+  white-space:nowrap;
+
+  transition:
+    color .25s ease,
+    background .25s ease;
+}
+
+nav a:hover{
+  color:var(--gold);
+}
+
+nav a[aria-current="page"]{
+  padding:8px 14px;
+
+  border-radius:999px;
+
+  color:var(--forest);
+
+  background:
+    rgba(202,167,106,.15);
+
+  border:
+    1px solid rgba(202,167,106,.29);
+}
+
+.menu-toggle{
+  display:none;
+
+  align-items:center;
+  justify-content:center;
+
+  width:42px;
+  height:42px;
+
+  border:0;
+  border-radius:50%;
+
+  background:
+    rgba(202,167,106,.12);
+
+  color:var(--forest);
+
+  cursor:pointer;
+}
+
+.menu-toggle svg{
+  width:22px;
+  height:22px;
+}
+
+
+/* ==================================================
+   HERO
+================================================== */
+
+.about-hero{
+  min-height:82vh;
+
+  position:relative;
+
+  display:flex;
+  align-items:center;
+
+  overflow:hidden;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(248,241,231,.98) 0%,
+      rgba(248,241,231,.92) 31%,
+      rgba(248,241,231,.67) 51%,
+      rgba(248,241,231,.17) 77%,
+      rgba(248,241,231,.05) 100%
+    ),
+    url("sortedhome.png");
+
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+}
+
+.about-hero::after{
+  content:"";
+
+  position:absolute;
+  inset:0;
+
+  pointer-events:none;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.03),
+      rgba(23,38,27,.04)
+    );
+}
+
+.about-hero .container{
+  position:relative;
+
+  z-index:2;
+}
+
+.about-hero-content{
+  width:min(660px,100%);
+
+  padding:90px 0;
+}
+
+.about-page-label{
+  display:inline-flex;
+  align-items:center;
+
+  gap:9px;
+
+  margin-bottom:19px;
+
+  padding:9px 15px;
+
+  border-radius:999px;
+
+  background:var(--forest);
+
+  color:white;
+
+  border:
+    1px solid rgba(202,167,106,.45);
+
+  box-shadow:
+    0 10px 25px rgba(23,38,27,.10);
+
+  font-size:.72rem;
+
+  font-weight:850;
+
+  letter-spacing:1.8px;
+
+  text-transform:uppercase;
+}
+
+.about-page-label::before{
+  content:"";
+
+  width:7px;
+  height:7px;
+
+  border-radius:50%;
+
+  background:var(--gold);
+}
+
+.about-hero h1{
+  margin-bottom:24px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  color:var(--forest);
+
+  font-size:
+    clamp(3.5rem,6.6vw,6.25rem);
+
+  font-weight:500;
+
+  line-height:.92;
+
+  letter-spacing:-4px;
+}
+
+.about-hero-description{
+  max-width:625px;
+
+  color:var(--forest);
+
+  font-size:1.13rem;
+
+  font-weight:620;
+
+  line-height:1.75;
+}
+
+
+/* ==================================================
+   INTRODUCTION
+================================================== */
+
+.about-introduction{
+  background:var(--cream-soft);
+}
+
+.introduction-grid{
+  display:grid;
+
+  grid-template-columns:
+    .95fr 1.05fr;
+
+  gap:58px;
+
+  align-items:center;
+}
+
+.introduction-image-wrap{
+  position:relative;
+}
+
+.introduction-image-wrap::before{
+  content:"";
+
+  position:absolute;
+
+  top:-18px;
+  left:-18px;
+
+  width:115px;
+  height:115px;
+
+  border-radius:50%;
+
+  border:
+    1px solid rgba(202,167,106,.30);
+}
+
+.introduction-image{
+  position:relative;
+
+  z-index:1;
+
+  height:500px;
+
+  object-fit:cover;
+
+  border-radius:30px;
+
+  box-shadow:var(--shadow);
+}
+
+.introduction-copy h2{
+  margin-bottom:20px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  color:var(--forest);
+
+  font-size:
+    clamp(2.5rem,5vw,4rem);
+
+  font-weight:500;
+
+  line-height:1.03;
+
+  letter-spacing:-2px;
+}
+
+.introduction-copy > p:not(.eyebrow){
+  margin-bottom:17px;
+
+  color:var(--muted);
+
+  font-size:1.03rem;
+
+  line-height:1.8;
+}
+
+.introduction-copy strong{
+  color:var(--forest);
+}
+
+
+/* ==================================================
+   PHILOSOPHY
+================================================== */
+
+.philosophy-section{
+  background:white;
+}
+
+.philosophy-grid{
+  display:grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap:52px;
+
+  align-items:center;
+}
+
+.philosophy-image{
+  overflow:hidden;
+
+  border-radius:30px;
+
+  box-shadow:var(--shadow);
+}
+
+.philosophy-image img{
+  height:540px;
+
+  object-fit:cover;
+}
+
+.philosophy-content h2{
+  margin-bottom:20px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  color:var(--forest);
+
+  font-size:
+    clamp(2.45rem,4.5vw,3.85rem);
+
+  font-weight:500;
+
+  line-height:1.03;
+
+  letter-spacing:-2px;
+}
+
+.philosophy-content > p{
+  margin-bottom:16px;
+
+  color:var(--muted);
+
+  font-size:1rem;
+
+  line-height:1.77;
+}
+
+.philosophy-content strong{
+  color:var(--forest);
+}
+
+.philosophy-list{
+  display:grid;
+
+  gap:0;
+
+  margin-top:25px;
+
+  list-style:none;
+
+  border-top:
+    1px solid rgba(23,38,27,.10);
+}
+
+.philosophy-list li{
+  position:relative;
+
+  padding:
+    14px 0
+    14px 29px;
+
+  color:var(--forest);
+
+  border-bottom:
+    1px solid rgba(23,38,27,.10);
+
+  font-size:.94rem;
+
+  font-weight:650;
+}
+
+.philosophy-list li::before{
+  content:"✓";
+
+  position:absolute;
+
+  left:0;
+
+  color:var(--gold);
+
+  font-weight:900;
+}
+
+
+/* ==================================================
+   VALUES
+================================================== */
+
+.values-section{
+  background:
+    linear-gradient(
+      180deg,
+      var(--cream),
+      var(--cream-deep)
+    );
+}
+
+.values-grid{
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,minmax(0,1fr));
+
+  gap:17px;
+}
+
+.value-card{
+  min-height:260px;
+
+  padding:27px;
+
+  display:flex;
+  flex-direction:column;
+
+  border-radius:22px;
+
+  border:
+    1px solid rgba(23,38,27,.08);
+
+  background:var(--cream-soft);
+
+  transition:
+    transform .3s ease,
+    box-shadow .3s ease;
+}
+
+.value-card:nth-child(2),
+.value-card:nth-child(5){
+  background:var(--sage-pale);
+}
+
+.value-card:nth-child(3){
+  background:#ede3d5;
+}
+
+.value-card:nth-child(4){
+  background:white;
+
+  border:
+    1px solid rgba(202,167,106,.42);
+}
+
+.value-card:nth-child(6){
+  background:var(--sage);
+
+  color:white;
+}
+
+.value-card:hover{
+  transform:translateY(-4px);
+
+  box-shadow:var(--soft-shadow);
+}
+
+.value-icon{
+  width:46px;
+  height:46px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:50%;
+
+  background:
+    rgba(202,167,106,.15);
+
+  color:var(--forest);
+}
+
+.value-icon svg{
+  width:22px;
+  height:22px;
+
+  stroke-width:1.8;
+}
+
+.value-card:nth-child(6) .value-icon{
+  background:
+    rgba(255,255,255,.12);
+
+  color:var(--gold-soft);
+}
+
+.value-card h3{
+  margin:
+    20px 0 9px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  color:var(--forest);
+
+  font-size:1.4rem;
+
+  font-weight:500;
+
+  line-height:1.15;
+}
+
+.value-card:nth-child(6) h3{
+  color:white;
+}
+
+.value-card p{
+  color:var(--muted);
+
+  font-size:.92rem;
+
+  line-height:1.68;
+}
+
+.value-card:nth-child(6) p{
+  color:
+    rgba(255,255,255,.74);
+}
+
+
+/* ==================================================
+   HOW WE WORK
+================================================== */
+
+.process-section{
+  background:white;
+}
+
+.process-grid{
+  width:min(1000px,100%);
+
+  margin:0 auto;
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(2,minmax(0,1fr));
+
+  gap:22px;
+}
+
+.process-card{
+  position:relative;
+
+  padding:28px 28px 28px 86px;
+
+  min-height:180px;
+
+  border-radius:23px;
+
+  background:var(--cream-soft);
+
+  border:
+    1px solid rgba(202,167,106,.27);
+
+  box-shadow:var(--soft-shadow);
+}
+
+.process-number{
+  position:absolute;
+
+  left:27px;
+  top:29px;
+
+  width:42px;
+  height:42px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:50%;
+
+  background:var(--forest);
+
+  color:white;
+
+  font-size:.8rem;
+
+  font-weight:850;
+}
+
+.process-card h3{
+  margin-bottom:9px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  color:var(--forest);
+
+  font-size:1.38rem;
+
+  font-weight:500;
+}
+
+.process-card p{
+  color:var(--muted);
+
+  font-size:.94rem;
+
+  line-height:1.68;
+}
+
 
 /* ==================================================
    WHAT A SORTED. VISIT LOOKS LIKE
 ================================================== */
 
-.visit-section {
-  position: relative;
-  overflow: hidden;
-
+.visit-section{
   background:
-    radial-gradient(
-      circle at 8% 15%,
-      rgba(202, 167, 106, 0.15),
-      transparent 30%
-    ),
-    radial-gradient(
-      circle at 92% 85%,
-      rgba(113, 140, 103, 0.13),
-      transparent 30%
-    ),
     linear-gradient(
       180deg,
-      #f7efe3,
-      #fffaf3
+      var(--cream),
+      var(--cream-deep)
     );
 }
 
-.visit-introduction {
-  max-width: 850px;
-  margin: 0 auto 52px;
-  text-align: center;
+.visit-introduction{
+  width:min(800px,100%);
+
+  margin:0 auto 43px;
+
+  text-align:center;
 }
 
-.visit-introduction h2 {
-  margin-bottom: 20px;
+.visit-introduction h2{
+  margin-bottom:18px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  color:var(--forest);
+
+  font-size:
+    clamp(2.45rem,5vw,4.05rem);
+
+  font-weight:500;
+
+  line-height:1.03;
+
+  letter-spacing:-2px;
 }
 
-.visit-introduction > p:last-child {
-  max-width: 720px;
-  margin: 0 auto;
+.visit-introduction > p:last-child{
+  width:min(700px,100%);
 
-  color: var(--muted);
+  margin:0 auto;
 
-  font-size: 1.05rem;
-  line-height: 1.8;
+  color:var(--muted);
+
+  font-size:1.02rem;
+
+  line-height:1.78;
 }
 
-.visit-timeline {
-  position: relative;
+.visit-feature-image{
+  width:min(1040px,100%);
 
-  max-width: 980px;
+  margin:
+    0 auto 42px;
 
-  display: grid;
-  gap: 22px;
+  overflow:hidden;
 
-  margin: 0 auto;
+  border-radius:30px;
+
+  border:
+    1px solid rgba(202,167,106,.25);
+
+  background:white;
+
+  box-shadow:var(--shadow);
 }
 
-.visit-timeline::before {
-  content: "";
+.visit-feature-image img{
+  width:100%;
 
-  position: absolute;
-  top: 45px;
-  bottom: 45px;
-  left: 39px;
+  max-height:650px;
 
-  width: 2px;
+  object-fit:cover;
+}
+
+.visit-timeline{
+  width:min(920px,100%);
+
+  margin:0 auto;
+
+  position:relative;
+
+  display:grid;
+
+  gap:0;
+}
+
+.visit-timeline::before{
+  content:"";
+
+  position:absolute;
+
+  left:22px;
+  top:24px;
+  bottom:24px;
+
+  width:1px;
 
   background:
     linear-gradient(
-      180deg,
       var(--gold),
-      var(--sage)
+      rgba(202,167,106,.12)
     );
 }
 
-.visit-step {
-  position: relative;
+.visit-step{
+  position:relative;
 
-  display: grid;
-  grid-template-columns: 80px minmax(0, 1fr);
+  display:grid;
 
-  gap: 25px;
+  grid-template-columns:
+    46px 1fr;
 
-  padding: 30px 34px 30px 24px;
+  gap:20px;
 
-  background: rgba(255, 255, 255, 0.94);
-
-  border: 1px solid rgba(202, 167, 106, 0.27);
-  border-radius: 28px;
-
-  box-shadow: var(--soft-shadow);
-
-  transition:
-    transform 0.35s ease,
-    box-shadow 0.35s ease,
-    border-color 0.35s ease;
+  padding-bottom:29px;
 }
 
-.visit-step:hover {
-  transform: translateY(-6px);
-
-  border-color: rgba(202, 167, 106, 0.48);
-
-  box-shadow: var(--shadow);
+.visit-step:last-child{
+  padding-bottom:0;
 }
 
-.visit-step-number {
-  position: relative;
-  z-index: 2;
+.visit-step-number{
+  position:relative;
 
-  width: 58px;
-  height: 58px;
+  z-index:2;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width:46px;
+  height:46px;
 
-  margin: 1px auto 0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 
-  color: white;
+  border-radius:50%;
+
+  background:var(--forest);
+
+  color:white;
+
+  font-size:.77rem;
+
+  font-weight:850;
+}
+
+.visit-step-content{
+  padding:
+    1px 0 22px;
+
+  border-bottom:
+    1px solid rgba(23,38,27,.10);
+}
+
+.visit-step:last-child .visit-step-content{
+  border-bottom:0;
+}
+
+.visit-step-heading{
+  display:flex;
+  align-items:center;
+
+  gap:12px;
+
+  margin-bottom:8px;
+}
+
+.visit-step-icon{
+  width:37px;
+  height:37px;
+
+  flex-shrink:0;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:50%;
 
   background:
-    linear-gradient(
-      135deg,
-      var(--forest),
-      var(--sage-dark)
-    );
+    rgba(202,167,106,.14);
 
-  border: 5px solid #fffaf3;
-  border-radius: 50%;
-
-  box-shadow: 0 12px 28px rgba(23, 38, 27, 0.2);
-
-  font-size: 1.05rem;
-  font-weight: 850;
+  color:var(--forest);
 }
 
-.visit-step-content {
-  min-width: 0;
+.visit-step-icon svg{
+  width:19px;
+  height:19px;
+
+  stroke-width:1.8;
 }
 
-.visit-step-heading {
-  display: flex;
-  align-items: center;
+.visit-step h3{
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
 
-  gap: 14px;
+  color:var(--forest);
 
-  margin-bottom: 12px;
+  font-size:1.3rem;
+
+  font-weight:500;
 }
 
-.visit-step-icon {
-  width: 44px;
-  height: 44px;
+.visit-step p{
+  color:var(--muted);
 
-  flex-shrink: 0;
+  font-size:.93rem;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  line-height:1.7;
+}
 
-  color: var(--forest);
+.visit-note{
+  width:min(850px,100%);
+
+  margin:
+    38px auto 0;
+
+  padding:27px;
+
+  display:grid;
+
+  grid-template-columns:
+    48px 1fr;
+
+  gap:17px;
+
+  align-items:start;
+
+  border-radius:24px;
 
   background:
-    linear-gradient(
-      135deg,
-      rgba(202, 167, 106, 0.25),
-      rgba(234, 212, 197, 0.46)
-    );
-
-  border: 1px solid rgba(202, 167, 106, 0.25);
-  border-radius: 15px;
-}
-
-.visit-step-icon svg {
-  width: 22px;
-  height: 22px;
-
-  stroke-width: 1.8;
-}
-
-.visit-step h3 {
-  font-size: 1.45rem;
-}
-
-.visit-step p {
-  font-size: 0.98rem;
-  line-height: 1.76;
-}
-
-.visit-note {
-  max-width: 850px;
-
-  display: grid;
-  grid-template-columns: 54px minmax(0, 1fr);
-
-  align-items: center;
-  gap: 18px;
-
-  margin: 40px auto 0;
-  padding: 25px 28px;
-
-  color: white;
-
-  background:
-    radial-gradient(
-      circle at top right,
-      rgba(202, 167, 106, 0.2),
-      transparent 40%
-    ),
     linear-gradient(
       145deg,
       var(--forest),
-      var(--sage-dark)
+      var(--forest-soft)
     );
 
-  border-radius: 27px;
+  color:white;
 
-  box-shadow: 0 24px 55px rgba(23, 38, 27, 0.2);
+  box-shadow:
+    0 22px 52px rgba(23,38,27,.18);
 }
 
-.visit-note-icon {
-  width: 52px;
-  height: 52px;
+.visit-note-icon{
+  width:46px;
+  height:46px;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 
-  color: var(--forest);
+  border-radius:50%;
 
-  background:
-    linear-gradient(
-      135deg,
-      var(--gold),
-      #dfc28f
-    );
+  background:var(--gold);
 
-  border-radius: 17px;
+  color:var(--forest);
 }
 
-.visit-note-icon svg {
-  width: 25px;
-  height: 25px;
-
-  stroke-width: 1.8;
+.visit-note-icon svg{
+  width:21px;
+  height:21px;
 }
 
-.visit-note h3 {
-  margin-bottom: 7px;
+.visit-note h3{
+  margin-bottom:6px;
 
-  color: white;
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
 
-  font-size: 1.3rem;
+  color:white;
+
+  font-size:1.25rem;
+
+  font-weight:500;
 }
 
-.visit-note p {
-  color: rgba(255, 255, 255, 0.8);
+.visit-note p{
+  color:
+    rgba(255,255,255,.76);
 
-  font-size: 0.96rem;
-  line-height: 1.7;
+  font-size:.93rem;
+
+  line-height:1.67;
 }
 
-@media (max-width: 650px) {
-
-  .visit-section {
-    padding: 68px 0;
-  }
-
-  .visit-introduction {
-    margin-bottom: 36px;
-  }
-
-  .visit-introduction h2 {
-    font-size: 2.45rem;
-    line-height: 1.08;
-  }
-
-  .visit-introduction > p:last-child {
-    font-size: 0.98rem;
-    line-height: 1.72;
-  }
-
-  .visit-timeline {
-    gap: 16px;
-  }
-
-  .visit-timeline::before {
-    display: none;
-  }
-
-  .visit-step {
-    grid-template-columns: 1fr;
-
-    gap: 16px;
-
-    padding: 25px 23px;
-
-    border-radius: 24px;
-  }
-
-  .visit-step-number {
-    width: 48px;
-    height: 48px;
-
-    margin: 0;
-
-    border-width: 4px;
-
-    font-size: 0.92rem;
-  }
-
-  .visit-step-heading {
-    align-items: flex-start;
-
-    gap: 12px;
-  }
-
-  .visit-step-icon {
-    width: 42px;
-    height: 42px;
-
-    border-radius: 14px;
-  }
-
-  .visit-step h3 {
-    padding-top: 6px;
-
-    font-size: 1.27rem;
-    line-height: 1.3;
-  }
-
-  .visit-step p {
-    font-size: 0.96rem;
-    line-height: 1.7;
-  }
-
-  .visit-note {
-    grid-template-columns: 46px minmax(0, 1fr);
-
-    gap: 15px;
-
-    margin-top: 28px;
-    padding: 22px 20px;
-
-    border-radius: 23px;
-  }
-
-  .visit-note-icon {
-    width: 46px;
-    height: 46px;
-
-    border-radius: 15px;
-  }
-
-  .visit-note h3 {
-    font-size: 1.18rem;
-  }
-
-}
-
-    /* ==================================================
-       WHO WE HELP
-    ================================================== */
-
-    .audience-section {
-      position: relative;
-
-      overflow: hidden;
-
-      color: white;
-
-      background: var(--forest);
-    }
-
-    .audience-section::before {
-      content: "";
-
-      position: absolute;
-      inset: 0;
-
-      background:
-        radial-gradient(
-          circle at 12% 20%,
-          rgba(202, 167, 106, 0.17),
-          transparent 28%
-        ),
-        radial-gradient(
-          circle at 88% 80%,
-          rgba(113, 140, 103, 0.22),
-          transparent 32%
-        );
-
-      pointer-events: none;
-    }
-
-    .audience-section .container {
-      position: relative;
-      z-index: 1;
-    }
-
-    .audience-section .section-title h2 {
-      color: white;
-    }
-
-    .audience-section .section-title > p:last-child {
-      color: rgba(255, 255, 255, 0.76);
-    }
-
-    .audience-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-
-      gap: 24px;
-    }
-
-    .audience-card {
-      min-height: 270px;
-
-      padding: 34px;
-
-      color: var(--ink);
-      background: rgba(255, 255, 255, 0.96);
-
-      border: 1px solid rgba(202, 167, 106, 0.32);
-      border-radius: 28px;
-
-      box-shadow: 0 22px 55px rgba(0, 0, 0, 0.18);
-
-      transition:
-        transform 0.35s ease,
-        box-shadow 0.35s ease;
-    }
-
-    .audience-card:nth-child(even) {
-      background:
-        linear-gradient(
-          145deg,
-          #fffaf3,
-          #f1e6d7
-        );
-    }
-
-    .audience-card:hover {
-      transform: translateY(-8px);
-
-      box-shadow: 0 30px 66px rgba(0, 0, 0, 0.23);
-    }
-
-    .audience-card .value-icon {
-      color: var(--forest);
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--gold),
-          #dfc18d
-        );
-    }
-
-    .audience-card h3 {
-      margin-bottom: 13px;
-
-      font-size: 1.45rem;
-    }
-
-    .audience-card p {
-      line-height: 1.72;
-    }
-
-    /* ==================================================
-       AREAS
-    ================================================== */
-
-    .areas-section {
-      padding: 70px 0;
-
-      color: white;
-      text-align: center;
-
-      background:
-        radial-gradient(
-          circle at 10% 20%,
-          rgba(202, 167, 106, 0.18),
-          transparent 28%
-        ),
-        linear-gradient(
-          145deg,
-          var(--forest),
-          #263b2b
-        );
-    }
-
-    .areas-section h2 {
-      margin-bottom: 20px;
-
-      color: white;
-
-      font-size: clamp(2.4rem, 5vw, 3.6rem);
-    }
-
-    .areas-section p:last-child {
-      color: rgba(255, 255, 255, 0.8);
-
-      font-size: 1.04rem;
-      line-height: 1.85;
-    }
-
-    /* ==================================================
-       CONTACT
-    ================================================== */
-
-    .contact-section {
-      position: relative;
-
-      overflow: hidden;
-
-      padding: 100px 0;
-
-      background:
-        radial-gradient(
-          circle at 8% 12%,
-          rgba(202, 167, 106, 0.18),
-          transparent 28%
-        ),
-        radial-gradient(
-          circle at 92% 82%,
-          rgba(113, 140, 103, 0.16),
-          transparent 30%
-        ),
-        linear-gradient(
-          145deg,
-          #f8f1e7,
-          #fffaf3 48%,
-          #efe0cc
-        );
-    }
-
-    .contact-heading {
-      max-width: 790px;
-
-      margin: 0 auto 55px;
-
-      text-align: center;
-    }
-
-    .contact-heading h2 {
-      margin-bottom: 22px;
-
-      font-size: clamp(3rem, 6vw, 5rem);
-      line-height: 0.98;
-      letter-spacing: -3px;
-    }
-
-    .contact-heading > p:last-of-type {
-      max-width: 680px;
-
-      margin: 0 auto;
-
-      font-size: 1.08rem;
-      line-height: 1.8;
-    }
-
-    .response-message {
-      width: max-content;
-      max-width: 100%;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      gap: 10px;
-
-      margin: 25px auto 0;
-      padding: 13px 20px;
-
-      color: var(--sage-dark);
-      background: rgba(255, 255, 255, 0.76);
-
-      border: 1px solid rgba(202, 167, 106, 0.30);
-      border-radius: 999px;
-
-      box-shadow: 0 12px 30px rgba(23, 38, 27, 0.08);
-
-      font-weight: 700;
-    }
-
-    .response-message svg {
-      width: 19px;
-      height: 19px;
-
-      color: var(--gold);
-    }
-
-    .contact-grid {
-      max-width: 1100px;
-
-      display: grid;
-      grid-template-columns: minmax(0, 0.86fr) minmax(500px, 1.14fr);
-
-      gap: 42px;
-
-      margin: 0 auto;
-    }
-
-    .contact-details {
-      display: grid;
-      gap: 17px;
-    }
-
-    .contact-detail {
-      display: grid;
-      grid-template-columns: 56px minmax(0, 1fr);
-
-      gap: 18px;
-
-      padding: 23px 24px;
-
-      background: rgba(255, 255, 255, 0.84);
-
-      border: 1px solid rgba(202, 167, 106, 0.22);
-      border-radius: 22px;
-
-      box-shadow: 0 16px 42px rgba(23, 38, 27, 0.09);
-    }
-
-    .contact-icon {
-      width: 52px;
-      height: 52px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      color: white;
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--forest),
-          var(--sage-dark)
-        );
-
-      border-radius: 17px;
-
-      box-shadow: 0 12px 26px rgba(23, 38, 27, 0.17);
-    }
-
-    .contact-icon svg {
-      width: 24px;
-      height: 24px;
-
-      stroke-width: 1.8;
-    }
-
-    .contact-label {
-      margin-bottom: 4px;
-
-      color: var(--gold);
-
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-
-      font-size: 0.72rem;
-      font-weight: 800;
-    }
-
-    .contact-detail a,
-    .contact-detail p:last-child {
-      color: var(--forest);
-
-      font-size: 1rem;
-      line-height: 1.65;
-    }
-
-    .contact-detail a {
-      font-weight: 750;
-    }
-
-    .contact-promise {
-      display: grid;
-      grid-template-columns: 56px minmax(0, 1fr);
-
-      gap: 18px;
-
-      padding: 28px 25px;
-
-      color: white;
-
-      background:
-        radial-gradient(
-          circle at top right,
-          rgba(202, 167, 106, 0.2),
-          transparent 36%
-        ),
-        linear-gradient(
-          145deg,
-          var(--forest),
-          var(--sage-dark)
-        );
-
-      border-radius: 26px;
-
-      box-shadow: 0 24px 55px rgba(23, 38, 27, 0.2);
-    }
-
-    .contact-promise .contact-icon {
-      color: var(--forest);
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--gold),
-          #dfc28f
-        );
-    }
-
-    .contact-promise h3 {
-      margin-bottom: 10px;
-
-      color: white;
-
-      font-size: 1.35rem;
-    }
-
-    .contact-promise p:last-child {
-      color: rgba(255, 255, 255, 0.79);
-
-      font-size: 0.96rem;
-      line-height: 1.7;
-    }
-
-    .contact-form-wrap {
-      overflow: hidden;
-
-      background: white;
-
-      border: 1px solid rgba(202, 167, 106, 0.28);
-      border-radius: 34px;
-
-      box-shadow: 0 30px 75px rgba(23, 38, 27, 0.15);
-    }
-
-    .contact-form-heading {
-      padding: 38px 42px 28px;
-
-      background:
-        radial-gradient(
-          circle at top right,
-          rgba(202, 167, 106, 0.16),
-          transparent 42%
-        ),
-        linear-gradient(
-          145deg,
-          #fffdf9,
-          #f7efe3
-        );
-
-      border-bottom: 1px solid rgba(202, 167, 106, 0.2);
-    }
-
-    .contact-form-heading h3 {
-      margin-bottom: 10px;
-
-      font-size: 2rem;
-    }
-
-    .contact-form-heading p:last-child {
-      line-height: 1.7;
-    }
-
-    .contact-form {
-      padding: 36px 42px 42px;
-    }
-
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-
-      gap: 18px;
-    }
-
-    .contact-form label {
-      display: block;
-
-      margin-bottom: 20px;
-
-      color: var(--forest);
-
-      font-size: 0.93rem;
-      font-weight: 750;
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-
-      margin-top: 8px;
-      padding: 17px 18px;
-
-      color: var(--ink);
-      background: #fdfaf6;
-
-      border: 1px solid #e3d7c5;
-      border-radius: 16px;
-
-      transition:
-        border-color 0.3s ease,
-        box-shadow 0.3s ease;
-    }
-
-    .contact-form input:focus,
-    .contact-form textarea:focus {
-      outline: none;
-
-      border-color: var(--gold);
-
-      box-shadow:
-        0 0 0 5px rgba(202, 167, 106, 0.17);
-    }
-
-    .contact-form textarea {
-      min-height: 170px;
-
-      resize: vertical;
-    }
-
-    .submit-button {
-      width: 100%;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      gap: 11px;
-
-      border: 0;
-
-      cursor: pointer;
-    }
-
-    .submit-button svg {
-      width: 19px;
-      height: 19px;
-    }
-
-    .payment-note {
-      display: flex;
-      align-items: flex-start;
-
-      gap: 13px;
-
-      margin-top: 23px;
-      padding: 17px 18px;
-
-      background: rgba(113, 140, 103, 0.08);
-
-      border: 1px solid rgba(113, 140, 103, 0.16);
-      border-radius: 17px;
-    }
-
-    .payment-note svg {
-      width: 23px;
-      height: 23px;
-
-      flex-shrink: 0;
-
-      margin-top: 2px;
-
-      color: var(--sage-dark);
-    }
-
-    .payment-note p {
-      font-size: 0.9rem;
-      line-height: 1.55;
-    }
-
-    /* ==================================================
-       TRUST STRIP
-    ================================================== */
-
-    .trust-strip-section {
-      padding: 48px 0;
-
-      background: #fdf8f1;
-
-      border-top: 1px solid rgba(202, 167, 106, 0.2);
-    }
-
-    .trust-strip-section .section-title {
-      margin-bottom: 34px;
-    }
-
-    .trust-strip-section .section-title h2 {
-      font-size: clamp(2.2rem, 4vw, 3rem);
-    }
-
-    .trust-strip {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-
-      gap: 12px;
-    }
-
-    .trust-strip span {
-      display: flex;
-      align-items: center;
-
-      gap: 8px;
-
-      padding: 12px 18px;
-
-      color: var(--forest);
-      background: rgba(255, 250, 243, 0.94);
-
-      border: 1px solid rgba(202, 167, 106, 0.35);
-      border-radius: 999px;
-
-      box-shadow: 0 12px 30px rgba(23, 38, 27, 0.10);
-
-      font-size: 0.94rem;
-      font-weight: 700;
-    }
-
-    .trust-strip span::before {
-      content: "✓";
-
-      color: var(--sage);
-
-      font-weight: 900;
-    }
-
-    /* ==================================================
-       FLOATING CONTACT
-    ================================================== */
-
-    .floating-contact {
-      position: fixed;
-      right: 24px;
-      bottom: 28px;
-
-      display: flex;
-      flex-direction: column;
-
-      gap: 14px;
-
-      z-index: 9999;
-    }
-
-    .floating-button {
-      width: 60px;
-      height: 60px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      color: var(--forest);
-      background: rgba(255, 250, 243, 0.96);
-
-      border: 1px solid rgba(202, 167, 106, 0.45);
-      border-radius: 50%;
-
-      box-shadow: 0 14px 35px rgba(23, 38, 27, 0.18);
-
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-
-      transition:
-        color 0.3s ease,
-        background 0.3s ease,
-        transform 0.3s ease;
-    }
-
-    .floating-button:hover {
-      color: white;
-      background: var(--forest);
-
-      transform: translateY(-4px) scale(1.06);
-    }
-
-    .floating-button svg {
-      width: 23px;
-      height: 23px;
-    }
-
-    .floating-phone {
-      border-left: 4px solid var(--gold);
-    }
-
-    .floating-whatsapp {
-      border-left: 4px solid var(--sage);
-    }
-
-    .floating-email {
-      border-left: 4px solid #d6b27a;
-    }
 
 /* ==================================================
-   ABOUT PAGE FEATURE IMAGES
+   WHO WE HELP
 ================================================== */
 
-.about-image {
-  width: 100%;
-  display: block;
-  object-fit: cover;
-}
-
-/* Introduction */
-
-.introduction-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-  align-items: center;
-  gap: 60px;
-}
-
-.introduction-image-wrap {
-  position: relative;
-}
-
-.introduction-image-wrap::before {
-  content: "";
-  position: absolute;
-  top: -22px;
-  left: -22px;
-  width: 125px;
-  height: 125px;
-  border: 1px solid rgba(202, 167, 106, 0.35);
-  border-radius: 50%;
-}
-
-.introduction-image {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  height: 520px;
-  object-fit: cover;
-  border-radius: 34px;
-  box-shadow: var(--shadow);
-}
-
-.introduction-copy h2 {
-  margin-bottom: 24px;
-}
-
-.introduction-copy > p:not(.eyebrow) {
-  margin-bottom: 18px;
-  font-size: 1.06rem;
-  line-height: 1.82;
-}
-
-
-/* How we work */
-
-.process-feature {
-  max-width: 1080px;
-  margin: 0 auto;
-}
-
-.process-feature .process-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px;
-}
-
-.process-feature .process-card {
-  display: grid;
-  grid-template-columns: 55px minmax(0, 1fr);
-  column-gap: 18px;
-  align-items: start;
-  padding: 27px;
-}
-
-.process-feature .process-number {
-  grid-row: 1 / span 2;
-  margin: 0;
-}
-
-.process-feature .process-card h3 {
-  margin: 2px 0 8px;
-}
-
-
-/* Sorted visit image */
-
-.visit-feature-image {
-  max-width: 1040px;
-  margin: 0 auto 46px;
-  overflow: hidden;
-  border: 1px solid rgba(202, 167, 106, 0.28);
-  border-radius: 34px;
-  background: white;
-  box-shadow: var(--shadow);
-}
-
-.visit-feature-image img {
-  width: 100%;
-  height: auto;
-  max-height: 680px;
-  object-fit: cover;
-}
-
-
-/* Who we help featured image */
-
-.audience-feature {
-  display: grid;
-  grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
-  align-items: center;
-  gap: 46px;
-  margin-bottom: 48px;
-}
-
-.audience-feature-image {
-  overflow: hidden;
-  border: 1px solid rgba(202, 167, 106, 0.34);
-  border-radius: 30px;
-  box-shadow: 0 24px 58px rgba(0, 0, 0, 0.24);
-}
-
-.audience-feature-image img {
-  width: 100%;
-  height: 460px;
-  object-fit: cover;
-}
-
-.audience-feature-copy {
-  padding: 20px 0;
-}
-
-.audience-feature-copy .eyebrow {
-  color: var(--gold);
-}
-
-.audience-feature-copy h3 {
-  margin-bottom: 18px;
-  color: white;
-  font-size: clamp(2rem, 4vw, 3.2rem);
-  line-height: 1.06;
-  letter-spacing: -1.5px;
-}
-
-.audience-feature-copy p {
-  color: rgba(255, 255, 255, 0.78);
-  font-size: 1.04rem;
-  line-height: 1.8;
-}
-
-
-/* Areas image */
-
-.areas-section {
-  position: relative;
-  isolation: isolate;
-  min-height: 470px;
-  display: flex;
-  align-items: center;
-  padding: 90px 0;
+.audience-section{
   background:
     linear-gradient(
-      90deg,
-      rgba(23, 38, 27, 0.94),
-      rgba(23, 38, 27, 0.78)
-    ),
-    url("eastbourne-area.jpg");
-  background-size: cover;
-  background-position: center;
+      145deg,
+      var(--forest),
+      #1e3022
+    );
+
+  color:white;
 }
 
-.areas-section::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
+.audience-section .section-title h2{
+  color:white;
+}
+
+.audience-section .section-title > p:last-child{
+  color:
+    rgba(255,255,255,.73);
+}
+
+.audience-feature{
+  display:grid;
+
+  grid-template-columns:
+    .95fr 1.05fr;
+
+  gap:50px;
+
+  align-items:center;
+
+  margin-bottom:47px;
+}
+
+.audience-feature-image{
+  overflow:hidden;
+
+  border-radius:29px;
+
+  box-shadow:
+    0 28px 70px rgba(0,0,0,.20);
+}
+
+.audience-feature-image img{
+  height:470px;
+
+  object-fit:cover;
+}
+
+.audience-feature-copy h3{
+  margin-bottom:17px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  color:white;
+
+  font-size:
+    clamp(2.25rem,4.5vw,3.6rem);
+
+  font-weight:500;
+
+  line-height:1.03;
+
+  letter-spacing:-2px;
+}
+
+.audience-feature-copy p{
+  margin-bottom:14px;
+
+  color:
+    rgba(255,255,255,.73);
+
+  font-size:.99rem;
+
+  line-height:1.76;
+}
+
+.audience-grid{
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,minmax(0,1fr));
+
+  gap:14px;
+}
+
+.audience-card{
+  min-height:230px;
+
+  padding:24px;
+
+  border-radius:20px;
+
+  border:
+    1px solid rgba(255,255,255,.10);
+
+  background:
+    rgba(255,255,255,.045);
+
+  transition:
+    transform .3s ease,
+    background .3s ease;
+}
+
+.audience-card:hover{
+  transform:translateY(-4px);
+
+  background:
+    rgba(255,255,255,.07);
+}
+
+.audience-card .value-icon{
+  background:
+    rgba(202,167,106,.16);
+
+  color:var(--gold-soft);
+}
+
+.audience-card h3{
+  margin:
+    18px 0 8px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  color:white;
+
+  font-size:1.3rem;
+
+  font-weight:500;
+
+  line-height:1.15;
+}
+
+.audience-card p{
+  color:
+    rgba(255,255,255,.70);
+
+  font-size:.9rem;
+
+  line-height:1.64;
+}
+
+
+/* ==================================================
+   AREAS
+================================================== */
+
+.areas-section{
+  min-height:350px;
+
+  position:relative;
+
+  display:flex;
+  align-items:center;
+
+  padding:70px 0;
+
+  overflow:hidden;
+
+  color:white;
+
+  text-align:center;
+
+  background:
+    linear-gradient(
+      rgba(23,38,27,.48),
+      rgba(23,38,27,.60)
+    ),
+    url("eastbourne-area.jpg");
+
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+}
+
+.areas-section::after{
+  content:"";
+
+  position:absolute;
+  inset:0;
+
+  pointer-events:none;
+
   background:
     radial-gradient(
-      circle at 15% 20%,
-      rgba(202, 167, 106, 0.22),
-      transparent 32%
+      circle at center,
+      transparent 15%,
+      rgba(23,38,27,.18) 100%
     );
 }
 
-.areas-section .narrow {
-  max-width: 850px;
-  padding: 48px;
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  border-radius: 32px;
-  background: rgba(23, 38, 27, 0.70);
-  box-shadow: 0 28px 65px rgba(0, 0, 0, 0.24);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+.areas-section .container{
+  position:relative;
+
+  z-index:2;
 }
 
-/* Tablet */
+.areas-section .eyebrow{
+  color:var(--gold-soft);
+}
 
-@media (max-width: 1050px) {
+.areas-section h2{
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  color:white;
+
+  font-size:
+    clamp(2.15rem,4vw,3.15rem);
+
+  font-weight:500;
+
+  line-height:1.08;
+
+  text-shadow:
+    0 3px 18px rgba(0,0,0,.22);
+}
+
+.areas-section p:last-child{
+  margin-top:14px;
+
+  color:
+    rgba(255,255,255,.92);
+
+  line-height:1.72;
+
+  text-shadow:
+    0 2px 12px rgba(0,0,0,.25);
+}
+
+
+/* ==================================================
+   TRUST STRIP
+================================================== */
+
+.trust-strip-section{
+  background:var(--cream-soft);
+
+  padding:67px 0;
+}
+
+.trust-strip-section .section-title{
+  margin-bottom:31px;
+}
+
+.trust-strip-section .section-title h2{
+  font-size:
+    clamp(2.2rem,4vw,3.15rem);
+}
+
+.trust-strip{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+
+  gap:9px;
+}
+
+.trust-strip span{
+  display:inline-flex;
+  align-items:center;
+
+  gap:7px;
+
+  padding:9px 13px;
+
+  border-radius:999px;
+
+  background:white;
+
+  border:
+    1px solid rgba(202,167,106,.30);
+
+  color:var(--sage);
+
+  font-size:.79rem;
+
+  font-weight:760;
+
+  box-shadow:
+    0 7px 18px rgba(23,38,27,.04);
+}
+
+.trust-strip span::before{
+  content:"✓";
+
+  color:var(--gold);
+
+  font-weight:900;
+}
+
+
+/* ==================================================
+   FLOATING CONTACT
+================================================== */
+
+.floating-contact{
+  position:fixed;
+
+  right:20px;
+  bottom:24px;
+
+  z-index:9999;
+
+  display:flex;
+  flex-direction:column;
+
+  gap:9px;
+}
+
+.floating-button{
+  width:54px;
+  height:54px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:50%;
+
+  background:
+    rgba(255,250,244,.97);
+
+  color:var(--forest);
+
+  border:
+    1px solid rgba(202,167,106,.42);
+
+  box-shadow:
+    0 13px 30px rgba(23,38,27,.14);
+
+  transition:
+    transform .25s ease,
+    color .25s ease,
+    background .25s ease;
+}
+
+.floating-button:hover{
+  transform:translateY(-2px);
+
+  background:var(--forest);
+
+  color:white;
+}
+
+.floating-button svg{
+  width:20px;
+  height:20px;
+}
+
+
+/* ==================================================
+   FOOTER
+================================================== */
+
+footer{
+  padding:
+    70px 0 30px;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--forest),
+      #101a13
+    );
+
+  color:white;
+}
+
+.footer-grid{
+  display:grid;
+
+  grid-template-columns:
+    1.2fr 1fr 1fr 1fr;
+
+  gap:35px;
+
+  margin-bottom:40px;
+}
+
+footer .logo{
+  color:white;
+}
+
+footer h3{
+  margin-bottom:10px;
+
+  color:white;
+
+  font-size:1rem;
+}
+
+footer p{
+  color:
+    rgba(255,255,255,.68);
+
+  line-height:1.7;
+}
+
+.footer-links{
+  display:grid;
+
+  gap:5px;
+}
+
+.footer-links a,
+.footer-links span{
+  color:
+    rgba(255,255,255,.68);
+
+  font-size:.94rem;
+
+  line-height:1.65;
+}
+
+.footer-links a:hover{
+  color:var(--gold-soft);
+}
+
+.legal-links{
+  padding-top:25px;
+
+  border-top:
+    1px solid rgba(255,255,255,.09);
+
+  text-align:center;
+
+  color:
+    rgba(255,255,255,.66);
+}
+
+.legal-links a:hover{
+  color:var(--gold-soft);
+}
+
+.copyright{
+  margin-top:12px;
+
+  color:
+    rgba(255,255,255,.50);
+
+  text-align:center;
+
+  font-size:.86rem;
+}
+
+
+/* ==================================================
+   COOKIE
+================================================== */
+
+.cookie-banner{
+  display:none;
+
+  position:fixed;
+
+  left:50%;
+  bottom:16px;
+
+  transform:translateX(-50%);
+
+  z-index:100000;
+
+  width:min(90%,500px);
+
+  padding:14px 16px;
+
+  border-radius:17px;
+
+  background:
+    rgba(23,38,27,.97);
+
+  color:white;
+
+  text-align:center;
+
+  box-shadow:
+    0 16px 40px rgba(23,38,27,.24);
+
+  font-size:.86rem;
+}
+
+.cookie-banner a{
+  color:var(--gold-soft);
+
+  text-decoration:underline;
+}
+
+.cookie-banner button{
+  margin-left:9px;
+
+  padding:7px 14px;
+
+  border:0;
+
+  border-radius:999px;
+
+  background:white;
+
+  color:var(--forest);
+
+  font-weight:800;
+
+  cursor:pointer;
+}
+
+
+/* ==================================================
+   SMALL DESKTOP
+================================================== */
+
+@media(max-width:1160px){
+
+  nav{
+    gap:14px;
+  }
+
+  nav a{
+    font-size:.86rem;
+  }
+
+}
+
+
+/* ==================================================
+   TABLET / NAVIGATION
+================================================== */
+
+@media(max-width:1030px){
+
+  .menu-toggle{
+    display:flex;
+  }
+
+  nav{
+    display:none;
+
+    position:absolute;
+
+    top:calc(100% + 8px);
+    right:0;
+
+    width:min(300px,92vw);
+
+    max-height:
+      calc(100vh - 100px);
+
+    overflow-y:auto;
+
+    flex-direction:column;
+    align-items:stretch;
+
+    gap:2px;
+
+    padding:11px;
+
+    border-radius:18px;
+
+    background:#fffdf9;
+
+    border:
+      1px solid rgba(202,167,106,.30);
+
+    box-shadow:
+      0 20px 50px rgba(23,38,27,.20);
+  }
+
+  nav.active{
+    display:flex;
+  }
+
+  nav a{
+    width:100%;
+
+    padding:11px 13px;
+
+    border-radius:10px;
+
+    font-size:.93rem;
+  }
+
+  nav a:hover{
+    background:var(--cream);
+  }
+
+  nav a[aria-current="page"]{
+    padding:11px 13px;
+
+    border-radius:10px;
+  }
 
   .introduction-grid,
-  .process-feature,
-  .audience-feature {
-    grid-template-columns: 1fr;
+  .philosophy-grid,
+  .audience-feature{
+    grid-template-columns:1fr;
   }
 
   .introduction-grid,
-  .process-feature {
-    max-width: 790px;
-    margin-inline: auto;
+  .philosophy-grid,
+  .audience-feature{
+    width:min(790px,100%);
+
+    margin-inline:auto;
   }
 
-  .introduction-image {
-    height: 470px;
+  .introduction-image,
+  .philosophy-image img{
+    height:470px;
   }
 
-  .process-feature .process-grid {
-  grid-template-columns: 1fr;
-  max-width: 760px;
-  margin: 0 auto;
-}
-
-  .audience-feature {
-    max-width: 790px;
-    margin: 0 auto 45px;
+  .values-grid,
+  .audience-grid{
+    grid-template-columns:
+      repeat(2,minmax(0,1fr));
   }
 
-  .audience-feature-image img {
-    height: 440px;
-  }
-
-}
-
-
-/* Mobile */
-
-@media (max-width: 650px) {
-
-  .introduction-grid,
-  .process-feature,
-  .audience-feature {
-    gap: 30px;
-  }
-
-  .introduction-image {
-    height: auto;
-    aspect-ratio: 4 / 3;
-    border-radius: 25px;
-  }
-
-  .introduction-image-wrap::before {
-    top: -12px;
-    left: -12px;
-    width: 80px;
-    height: 80px;
-  }
-
-  .introduction-copy h2 {
-    font-size: 2.45rem;
-    line-height: 1.08;
-  }
-
-  
-
-  .process-feature .process-card {
-    grid-template-columns: 46px minmax(0, 1fr);
-    gap: 14px;
-    padding: 23px 20px;
-  }
-
-  .process-feature .process-number {
-    width: 46px;
-    height: 46px;
-  }
-
-  .visit-feature-image {
-    margin-bottom: 30px;
-    border-radius: 24px;
-  }
-
-  .visit-feature-image img {
-    height: auto;
-  }
-
-  .audience-feature-image {
-    border-radius: 24px;
-  }
-
-  .audience-feature-image img {
-    height: auto;
-    aspect-ratio: 4 / 3;
-  }
-
-  .audience-feature-copy {
-    padding: 0;
-  }
-
-  .audience-feature-copy h3 {
-    font-size: 2.15rem;
-  }
-
-  .areas-section {
-    min-height: 430px;
-    padding: 62px 0;
-    background-position: center;
-  }
-
-  .areas-section .narrow {
-    padding: 31px 22px;
-    border-radius: 25px;
+  .footer-grid{
+    grid-template-columns:
+      repeat(2,1fr);
   }
 
 }
 
-    /* ==================================================
-       FOOTER
-    ================================================== */
 
-    footer {
-      position: relative;
+/* ==================================================
+   MOBILE
+================================================== */
 
-      padding: 85px 0 35px;
+@media(max-width:720px){
 
-      color: white;
+  section{
+    padding:60px 0;
+  }
 
-      background:
-        linear-gradient(
-          180deg,
-          var(--forest),
-          #101a13
-        );
+  .container{
+    width:min(92%,1180px);
+  }
 
-      border-top: 1px solid rgba(202, 167, 106, 0.25);
-    }
+  .nav-wrap{
+    min-height:64px;
+  }
 
-    footer::before {
-      content: "";
+  .logo{
+    font-size:1.8rem;
+  }
 
-      position: absolute;
-      top: 0;
-      left: 0;
 
-      width: 100%;
-      height: 1px;
+  /* HERO */
 
-      background:
-        linear-gradient(
-          90deg,
-          transparent,
-          rgba(202, 167, 106, 0.65),
-          transparent
-        );
-    }
+  .about-hero{
+    min-height:690px;
 
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.35fr 1fr 0.8fr 1fr;
+    align-items:flex-end;
 
-      gap: 50px;
+    background:
+      linear-gradient(
+        180deg,
+        rgba(248,241,231,.08) 0%,
+        rgba(248,241,231,.17) 28%,
+        rgba(248,241,231,.88) 65%,
+        rgba(248,241,231,.98) 100%
+      ),
+      url("sortedhome.png");
 
-      margin-bottom: 48px;
-    }
+    background-size:cover;
 
-    footer h3 {
-      margin-bottom: 15px;
+    background-position:center;
+  }
 
-      color: white;
+  .about-hero-content{
+    width:100%;
 
-      font-size: 1.15rem;
-    }
+    margin-bottom:34px;
 
-    footer p {
-      color: rgba(255, 255, 255, 0.75);
+    padding:24px 20px;
 
-      font-size: 0.95rem;
-      line-height: 1.75;
-    }
+    border-radius:24px;
 
-    footer .logo {
-      color: white;
-    }
+    background:
+      rgba(255,250,244,.93);
 
-    .footer-links {
-      display: grid;
-      gap: 7px;
-    }
+    border:
+      1px solid rgba(202,167,106,.27);
 
-    .footer-links a {
-      color: rgba(255, 255, 255, 0.75);
+    box-shadow:
+      0 16px 40px rgba(23,38,27,.10);
 
-      font-size: 0.95rem;
+    backdrop-filter:blur(8px);
+  }
 
-      transition: color 0.3s ease;
-    }
+  .about-page-label{
+    margin-bottom:14px;
 
-    .footer-links a:hover {
-      color: var(--gold);
-    }
+    padding:7px 11px;
 
-    .legal-links {
-      margin: 38px 0 18px;
+    font-size:.64rem;
 
-      text-align: center;
-    }
+    letter-spacing:1.4px;
+  }
 
-    .legal-links a {
-      color: rgba(255, 255, 255, 0.76);
-    }
+  .about-hero h1{
+    margin-bottom:18px;
 
-    .legal-links a:hover {
-      color: var(--gold);
-    }
+    font-size:2.68rem;
 
-    .copyright {
-      color: rgba(255, 255, 255, 0.65);
+    line-height:.99;
 
-      text-align: center;
+    letter-spacing:-2px;
+  }
 
-      font-size: 0.9rem;
-    }
+  .about-hero-description{
+    font-size:.96rem;
 
-    /* ==================================================
-       FADE EFFECTS
-    ================================================== */
+    line-height:1.67;
+  }
 
-    .fade {
-      opacity: 1;
-      transform: none;
-    }
+  .buttons{
+    flex-direction:column;
+  }
 
-    .js .fade {
-      opacity: 0;
+  .buttons .btn{
+    width:100%;
+  }
 
-      transform: translateY(45px);
 
-      transition:
-        opacity 0.8s ease,
-        transform 0.8s ease;
-    }
+  /* GENERAL HEADINGS */
 
-    .js .fade.show {
-      opacity: 1;
+  .section-title{
+    margin-bottom:31px;
+  }
 
-      transform: translateY(0);
-    }
+  .section-title h2{
+    font-size:2.08rem;
 
-    /* ==================================================
-       TABLET
-    ================================================== */
+    line-height:1.08;
 
-    @media (max-width: 1050px) {
+    letter-spacing:-1px;
+  }
 
-      .menu-toggle {
-        display: block;
-      }
+  .section-title > p:last-child{
+    font-size:.94rem;
 
-      .nav-wrap {
-        position: relative;
-      }
+    line-height:1.7;
+  }
 
-      nav {
-        position: absolute;
-        top: calc(100% + 8px);
-        right: 0;
 
-        width: 270px;
-        max-height: calc(100vh - 100px);
+  /* INTRO */
 
-        display: none;
-        flex-direction: column;
-        align-items: stretch;
+  .introduction-grid{
+    gap:29px;
+  }
 
-        gap: 2px;
+  .introduction-image{
+    height:auto;
 
-        padding: 12px;
+    aspect-ratio:4 / 3;
 
-        overflow-y: auto;
+    border-radius:23px;
+  }
 
-        background: #fffdf9;
+  .introduction-image-wrap::before{
+    top:-11px;
+    left:-11px;
 
-        border: 1px solid rgba(202, 167, 106, 0.35);
-        border-radius: 20px;
+    width:75px;
+    height:75px;
+  }
 
-        box-shadow: 0 20px 50px rgba(23, 38, 27, 0.22);
-      }
+  .introduction-copy h2{
+    font-size:2.2rem;
 
-      nav.active {
-        display: flex;
-      }
+    letter-spacing:-1px;
+  }
 
-      nav a {
-        width: 100%;
+  .introduction-copy > p:not(.eyebrow){
+    font-size:.95rem;
 
-        padding: 11px 14px;
+    line-height:1.7;
+  }
 
-        border-radius: 12px;
 
-        font-size: 1rem;
-      }
+  /* PHILOSOPHY */
 
-      nav a:hover {
-        background: var(--cream);
+  .philosophy-grid{
+    gap:29px;
+  }
 
-        transform: none;
-      }
+  .philosophy-image{
+    border-radius:23px;
+  }
 
-      .philosophy-grid {
-        grid-template-columns: 1fr;
+  .philosophy-image img{
+    height:auto;
 
-        max-width: 790px;
+    aspect-ratio:4 / 3;
+  }
 
-        margin: 0 auto;
-      }
+  .philosophy-content h2{
+    font-size:2.2rem;
 
-      .philosophy-image img {
-        height: 440px;
-      }
+    letter-spacing:-1px;
+  }
 
-      .philosophy-content {
-        padding: 5px;
-      }
+  .philosophy-content > p{
+    font-size:.94rem;
 
-      .values-grid,
-      .process-grid,
-      .audience-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
+    line-height:1.7;
+  }
 
-      .footer-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
 
-    }
+  /* VALUES */
 
-    /* ==================================================
-       MOBILE
-    ================================================== */
+  .values-grid{
+    grid-template-columns:1fr;
+  }
 
-    @media (max-width: 650px) {
+  .value-card{
+    min-height:auto;
 
-      section {
-        padding: 66px 0;
-      }
+    padding:22px;
+  }
 
-      .container {
-        width: 90%;
-      }
 
-      .nav-wrap {
-        min-height: 64px;
-        padding: 9px 0;
-      }
+  /* PROCESS */
 
-      .logo {
-        font-size: 1.8rem;
-      }
+  .process-grid{
+    grid-template-columns:1fr;
 
-      .about-hero {
-        min-height: 76vh;
-        align-items: flex-end;
+    gap:15px;
+  }
 
-        background-position: 63% center;
-      }
+  .process-card{
+    min-height:auto;
 
-      .about-hero .container {
-        width: 92%;
-      }
+    padding:
+      23px 20px
+      23px 74px;
+  }
 
-      .about-hero-content {
-        margin: 75px 0 42px;
-        padding: 29px 24px;
+  .process-number{
+    left:20px;
+    top:24px;
+  }
 
-        border-radius: 28px;
-      }
 
-      .about-hero h1 {
-        font-size: 3rem;
-        line-height: 1.02;
-        letter-spacing: -2px;
-      }
+  /* VISIT */
 
-      .about-hero-description {
-        font-size: 1rem;
-        line-height: 1.75;
-      }
+  .visit-introduction{
+    margin-bottom:29px;
+  }
 
-      .buttons {
-        flex-direction: column;
-      }
+  .visit-introduction h2{
+    font-size:2.15rem;
 
-      .buttons .btn {
-        width: 100%;
-      }
+    line-height:1.08;
 
-      .section-title {
-        margin-bottom: 38px;
-      }
+    letter-spacing:-1px;
+  }
 
-      .section-title h2 {
-        font-size: 2.55rem;
-        line-height: 1.08;
-      }
+  .visit-introduction > p:last-child{
+    font-size:.94rem;
 
-      .section-title > p:last-child {
-        font-size: 1rem;
-        line-height: 1.75;
-      }
+    line-height:1.7;
+  }
 
-      .philosophy-grid {
-        gap: 28px;
-        padding: 22px;
+  .visit-feature-image{
+    margin-bottom:31px;
 
-        border-radius: 27px;
-      }
+    border-radius:23px;
+  }
 
-      .philosophy-image {
-        border-radius: 20px;
-      }
+  .visit-feature-image img{
+    max-height:none;
+  }
 
-      .philosophy-image img {
-        height: auto;
+  .visit-timeline::before{
+    display:none;
+  }
 
-        aspect-ratio: 4 / 3;
-      }
+  .visit-step{
+    grid-template-columns:1fr;
 
-      .philosophy-content h2 {
-        font-size: 2.35rem;
-        line-height: 1.09;
-      }
+    gap:10px;
 
-      .philosophy-content > p {
-        font-size: 1rem;
-        line-height: 1.75;
-      }
+    padding:
+      0 0 24px;
+  }
 
-      .philosophy-list {
-        gap: 11px;
-      }
+  .visit-step-number{
+    width:40px;
+    height:40px;
+  }
 
-      .philosophy-list li {
-        padding: 14px 14px 14px 50px;
+  .visit-step-content{
+    padding-bottom:19px;
+  }
 
-        font-size: 0.96rem;
-      }
+  .visit-step-heading{
+    align-items:flex-start;
+  }
 
-      .values-grid,
-      .process-grid,
-      .audience-grid {
-        grid-template-columns: 1fr;
+  .visit-step-icon{
+    width:34px;
+    height:34px;
+  }
 
-        gap: 18px;
-      }
+  .visit-step h3{
+    padding-top:3px;
 
-      .value-card,
-      .process-card,
-      .audience-card {
-        min-height: 0;
+    font-size:1.18rem;
+  }
 
-        padding: 27px;
+  .visit-step p{
+    font-size:.91rem;
+  }
 
-        border-radius: 24px;
-      }
+  .visit-note{
+    grid-template-columns:
+      42px 1fr;
 
-      .value-icon {
-        width: 52px;
-        height: 52px;
+    gap:14px;
 
-        margin-bottom: 20px;
+    margin-top:24px;
 
-        border-radius: 16px;
-      }
+    padding:21px 19px;
 
-      .value-icon svg {
-        width: 24px;
-        height: 24px;
-      }
+    border-radius:21px;
+  }
 
-      .value-card h3,
-      .process-card h3,
-      .audience-card h3 {
-        font-size: 1.3rem;
-      }
+  .visit-note-icon{
+    width:41px;
+    height:41px;
+  }
 
-      .areas-section {
-        padding: 60px 0;
-      }
 
-      .areas-section h2 {
-        font-size: 2.45rem;
-      }    
+  /* AUDIENCE */
 
-      .trust-strip {
-        gap: 8px;
-      }
+  .audience-feature{
+    gap:28px;
 
-      .trust-strip span {
-        padding: 10px 14px;
+    margin-bottom:33px;
+  }
 
-        font-size: 0.82rem;
-      }
+  .audience-feature-image{
+    border-radius:23px;
+  }
 
-      .floating-contact {
-        right: 8px;
-        bottom: 10px;
+  .audience-feature-image img{
+    height:auto;
 
-        gap: 7px;
-      }
+    aspect-ratio:4 / 3;
+  }
 
-      .floating-button {
-        width: 39px;
-        height: 39px;
+  .audience-feature-copy h3{
+    font-size:2.1rem;
 
-        opacity: 0.92;
-      }
+    letter-spacing:-1px;
+  }
 
-      .floating-button svg {
-        width: 17px;
-        height: 17px;
-      }
+  .audience-feature-copy p{
+    font-size:.93rem;
+  }
 
-      footer {
-        padding: 60px 0 28px;
-      }
+  .audience-grid{
+    grid-template-columns:1fr;
+  }
 
-      .footer-grid {
-        grid-template-columns: 1fr;
+  .audience-card{
+    min-height:auto;
 
-        gap: 32px;
-      }
+    padding:21px;
+  }
 
-      .footer-grid > div {
-        padding-bottom: 25px;
 
-        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-      }
+  /* AREAS */
 
-      .footer-grid > div:last-child {
-        padding-bottom: 0;
+  .areas-section{
+    min-height:330px;
 
-        border-bottom: 0;
-      }
+    padding:55px 0;
 
-    }
+    background-position:center;
+  }
 
-@media (prefers-reduced-motion: reduce) {
+  .areas-section h2{
+    font-size:2.1rem;
+  }
 
-  html {
+  .areas-section p:last-child{
+    font-size:.9rem;
+  }
 
-    scroll-behavior: auto;
 
+  /* TRUST */
+
+  .trust-strip-section{
+    padding:55px 0;
+  }
+
+  .trust-strip{
+    gap:6px;
+  }
+
+  .trust-strip span{
+    padding:7px 10px;
+
+    font-size:.69rem;
+  }
+
+
+  /* FLOATING CONTACT */
+
+  .floating-contact{
+    right:9px;
+    bottom:9px;
+
+    gap:6px;
+  }
+
+  .floating-button{
+    width:40px;
+    height:40px;
+  }
+
+  .floating-button svg{
+    width:16px;
+    height:16px;
+  }
+
+
+  /* FOOTER */
+
+  footer{
+    padding:
+      58px 0 27px;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr;
+
+    gap:26px;
+  }
+
+}
+
+
+/* ==================================================
+   VERY SMALL MOBILE
+================================================== */
+
+@media(max-width:390px){
+
+  .about-hero h1{
+    font-size:2.4rem;
+  }
+
+  .about-page-label{
+    font-size:.61rem;
+  }
+
+}
+
+
+/* ==================================================
+   REDUCED MOTION
+================================================== */
+
+@media(prefers-reduced-motion:reduce){
+
+  html{
+    scroll-behavior:auto;
   }
 
   *,
-
   *::before,
+  *::after{
+    scroll-behavior:auto !important;
 
-  *::after {
+    transition-duration:.01ms !important;
 
-    animation-duration: 0.01ms !important;
+    animation-duration:.01ms !important;
 
-    animation-iteration-count: 1 !important;
-
-    transition-duration: 0.01ms !important;
-
-    scroll-behavior: auto !important;
-
+    animation-iteration-count:1 !important;
   }
 
 }
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-textarea:focus-visible,
-select:focus-visible {
-  outline: 3px solid #caa76a;
-  outline-offset: 4px;
+
+</style>
+
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"LocalBusiness",
+  "name":"Sorted.",
+  "description":"Trusted home and lifestyle support in Eastbourne and surrounding areas.",
+  "url":"https://sortedlife.org.uk/about.html",
+  "email":"contact@sortedlife.org.uk",
+  "telephone":"+44 1323 396610",
+  "areaServed":[
+    "Eastbourne",
+    "Meads",
+    "Old Town",
+    "Upperton",
+    "Sovereign Harbour",
+    "Hampden Park",
+    "Willingdon",
+    "Langney",
+    "Polegate",
+    "Pevensey",
+    "Seaford"
+  ],
+  "address":{
+    "@type":"PostalAddress",
+    "addressLocality":"Eastbourne",
+    "addressRegion":"East Sussex",
+    "addressCountry":"GB"
+  },
+  "serviceType":[
+    "Home management",
+    "Lifestyle assistance",
+    "Home organisation",
+    "Administrative support",
+    "Companionship and local trips",
+    "Property checks",
+    "Key holding"
+  ]
 }
-
-
-  </style>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Sorted.",
-    "description": "Trusted home and lifestyle support in Eastbourne and surrounding areas.",
-    "url": "https://sortedlife.org.uk/about.html",
-    "email": "contact@sortedlife.org.uk",
-    "telephone": "+44 1323 396610",
-    "areaServed": [
-      "Eastbourne",
-      "Meads",
-      "Old Town",
-      "Upperton",
-      "Sovereign Harbour",
-      "Hampden Park",
-      "Willingdon",
-      "Langney",
-      "Polegate",
-      "Pevensey",
-      "Seaford"
-    ],
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Eastbourne",
-      "addressRegion": "East Sussex",
-      "addressCountry": "GB"
-    },
-    "serviceType": [
-      "Home management",
-      "Lifestyle assistance",
-      "Home organisation",
-      "Administrative support",
-      "Companionship and local trips",
-      "Property checks",
-      "Key holding"
-    ]
-  }
-  </script>
-
-  <script defer src="https://unpkg.com/lucide@0.542.0/dist/umd/lucide.js"></script>
+</script>
 
 </head>
 
+
 <body class="about-page">
+
+<a
+  href="#main-content"
+  class="skip-link"
+>
+  Skip to main content
+</a>
+
+
+<!-- ==================================================
+     HEADER
+================================================== -->
 
 <header class="site-header">
 
   <div class="container nav-wrap">
 
-    <a class="logo" href="index.html">
+    <a
+      class="logo"
+      href="index.html"
+      aria-label="Sorted home"
+    >
       Sorted<span>.</span>
     </a>
 
@@ -2690,27 +2519,47 @@ select:focus-visible {
       class="menu-toggle"
       aria-label="Open navigation menu"
       aria-expanded="false"
+      aria-controls="site-navigation"
     >
       <i data-lucide="menu"></i>
     </button>
 
-    <nav>
+    <nav id="site-navigation">
 
-      <a href="index.html">Home</a>
+      <a href="index.html">
+        Home
+      </a>
 
-      <a href="services.html">Services</a>
+      <a href="services.html">
+        Services
+      </a>
 
-      <a href="flexible-support.html">Flexible Support</a>
+      <a href="flexible-support.html">
+        Flexible Support
+      </a>
 
-      <a href="away-from-home.html">Away From Home</a>
+      <a href="away-from-home.html">
+        Away From Home
+      </a>
 
-      <a href="memberships.html">Memberships</a>
+      <a href="memberships.html">
+        Memberships
+      </a>
 
-      <a href="about.html" aria-current="page">About</a>
+      <a
+        href="about.html"
+        aria-current="page"
+      >
+        About
+      </a>
 
-      <a href="contact.html">Contact</a>
+      <a href="contact.html">
+        Contact
+      </a>
 
-      <a href="portal/index.html">Client Login</a>
+      <a href="portal/index.html">
+        Client Login
+      </a>
 
     </nav>
 
@@ -2718,55 +2567,68 @@ select:focus-visible {
 
 </header>
 
-<main>
 
-  <!-- HERO -->
+<main id="main-content">
 
-  <section class="about-hero fade">
 
-    <div class="container">
+<!-- ==================================================
+     HERO
+================================================== -->
 
-      <div class="about-hero-content">
+<section class="about-hero">
 
-        <p class="eyebrow">ABOUT SORTED.</p>
+  <div class="container">
 
-        <h1>
-          Thoughtful Support.<br>
-          A Calmer Life.
-        </h1>
+    <div class="about-hero-content">
 
-        <p class="about-hero-description">
-          Sorted. provides trusted, discreet and dependable home and lifestyle
-          support, carefully shaped around your home, your routine and the way
-          you live.
-        </p>
+      <div class="about-page-label">
+        About Sorted.
+      </div>
 
-        <div class="buttons">
+      <h1>
+        Thoughtful Support.<br>
+        A Calmer Life.
+      </h1>
 
-          <a
-            href="https://calendly.com/d/dzzd-qmh-mcm/one-off-meeting"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn-primary"
-          >
-            Book Your Complimentary Consultation
-          </a>
+      <p class="about-hero-description">
+        Sorted. provides trusted, discreet and
+        dependable home and lifestyle support,
+        carefully shaped around your home, your
+        routine and the way you live.
+      </p>
 
-          <a href="#our-philosophy" class="btn btn-secondary">
-            Discover the Sorted. Way
-          </a>
+      <div class="buttons">
 
-        </div>
+        <a
+          href="https://calendly.com/d/dzzd-qmh-mcm/one-off-meeting"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-primary"
+        >
+          Book Your Complimentary Consultation
+        </a>
+
+        <a
+          href="#our-philosophy"
+          class="btn btn-secondary"
+        >
+          Discover the Sorted. Way
+        </a>
 
       </div>
 
     </div>
 
-  </section>
+  </div>
 
-  <!-- INTRODUCTION -->
+</section>
 
-<section class="about-introduction fade">
+
+<!-- ==================================================
+     INTRODUCTION
+================================================== -->
+
+<section class="about-introduction">
 
   <div class="container introduction-grid">
 
@@ -2777,9 +2639,11 @@ select:focus-visible {
         alt="Thoughtful home and lifestyle support from Sorted."
         class="introduction-image"
         loading="lazy"
+        decoding="async"
       >
 
     </div>
+
 
     <div class="introduction-copy">
 
@@ -2792,15 +2656,17 @@ select:focus-visible {
       </h2>
 
       <p>
-        Life gets busy. Homes need running. Appointments need organising.
-        Shopping needs collecting, paperwork builds up and important everyday
-        jobs can become difficult to fit in.
+        Life gets busy. Homes need running.
+        Appointments need organising. Shopping needs
+        collecting, paperwork builds up and important
+        everyday jobs can become difficult to fit in.
       </p>
 
       <p>
-        Sometimes you simply need someone dependable who can step in,
-        understand what needs doing and take care of it properly. That is
-        where <strong>Sorted.</strong> comes in.
+        Sometimes you simply need someone dependable
+        who can step in, understand what needs doing
+        and take care of it properly. That is where
+        <strong>Sorted.</strong> comes in.
       </p>
 
     </div>
@@ -2809,258 +2675,622 @@ select:focus-visible {
 
 </section>
 
-  <!-- PHILOSOPHY -->
 
-  <section class="philosophy-section fade" id="our-philosophy">
+<!-- ==================================================
+     PHILOSOPHY
+================================================== -->
 
-    <div class="container">
-
-      <div class="philosophy-grid">
-
-        <div class="philosophy-image">
-
-          <img
-  src="our-vision.png"
-  alt="The calm, thoughtful and dependable vision behind Sorted."
-  loading="lazy"
+<section
+  class="philosophy-section"
+  id="our-philosophy"
 >
 
-        </div>
+  <div class="container">
 
-        <div class="philosophy-content">
+    <div class="philosophy-grid">
 
-          <p class="eyebrow">OUR PHILOSOPHY</p>
+      <div class="philosophy-image">
 
-          <h2>Luxury is having one less thing to think about.</h2>
-
-          <p>
-            It is the peace of mind that comes from knowing your home and
-            everyday life are in safe hands.
-          </p>
-
-          <p>
-            At <strong>Sorted.</strong>, every visit is tailored to your home,
-            your routine and your preferences. Whether you need practical
-            support, organisation, companionship or simply someone dependable,
-            we work discreetly and professionally every time.
-          </p>
-
-          <p>
-            We believe support should never feel rushed, impersonal or
-            complicated. It should feel calm, reassuring and entirely shaped
-            around you.
-          </p>
-
-          <ul class="philosophy-list">
-
-            <li>Enhanced DBS checked</li>
-
-            <li>Fully insured</li>
-
-            <li>Confidential, discreet and trustworthy</li>
-
-            <li>Flexible one-off or ongoing support</li>
-
-            <li>Tailored entirely around you</li>
-
-          </ul>
-
-        </div>
+        <img
+          src="our-vision.png"
+          alt="The calm, thoughtful and dependable vision behind Sorted."
+          loading="lazy"
+          decoding="async"
+        >
 
       </div>
 
-    </div>
 
-  </section>
+      <div class="philosophy-content">
 
-  <!-- VALUES -->
-
-  <section class="values-section fade">
-
-    <div class="container">
-
-      <div class="section-title">
-
-        <p class="eyebrow">THE SORTED. STANDARD</p>
-
-        <h2>Support built around trust.</h2>
-
-        <p>
-          Inviting someone into your home is personal. Everything we do is
-          therefore guided by professionalism, respect and genuine care.
+        <p class="eyebrow">
+          OUR PHILOSOPHY
         </p>
 
-      </div>
+        <h2>
+          Luxury is having one less thing to think about.
+        </h2>
 
-      <div class="values-grid">
+        <p>
+          It is the peace of mind that comes from
+          knowing your home and everyday life are
+          in safe hands.
+        </p>
 
-        <article class="value-card">
+        <p>
+          At <strong>Sorted.</strong>, every visit is
+          tailored to your home, your routine and
+          your preferences. Whether you need practical
+          support, organisation, companionship or
+          simply someone dependable, we work discreetly
+          and professionally every time.
+        </p>
 
-          <div class="value-icon">
-            <i data-lucide="shield-check"></i>
-          </div>
+        <p>
+          We believe support should never feel rushed,
+          impersonal or complicated. It should feel
+          calm, reassuring and entirely shaped around you.
+        </p>
 
-          <h3>Trusted & Dependable</h3>
+        <ul class="philosophy-list">
 
-          <p>
-            You can rely on us to arrive prepared, communicate clearly and
-            complete agreed tasks with care and attention.
-          </p>
+          <li>
+            Enhanced DBS checked
+          </li>
 
-        </article>
+          <li>
+            Fully insured
+          </li>
 
-        <article class="value-card">
+          <li>
+            Confidential, discreet and trustworthy
+          </li>
 
-          <div class="value-icon">
-            <i data-lucide="lock-keyhole"></i>
-          </div>
+          <li>
+            Flexible one-off or ongoing support
+          </li>
 
-          <h3>Confidential & Discreet</h3>
+          <li>
+            Tailored entirely around you
+          </li>
 
-          <p>
-            Your home, personal circumstances and information are always treated
-            with sensitivity, discretion and respect.
-          </p>
-
-        </article>
-
-        <article class="value-card">
-
-          <div class="value-icon">
-            <i data-lucide="heart-handshake"></i>
-          </div>
-
-          <h3>Thoughtfully Personal</h3>
-
-          <p>
-            No two clients are the same. Your support is carefully adapted
-            around your routines, preferences and priorities.
-          </p>
-
-        </article>
-
-        <article class="value-card">
-
-          <div class="value-icon">
-            <i data-lucide="clipboard-check"></i>
-          </div>
-
-          <h3>Professionally Organised</h3>
-
-          <p>
-            We keep communication clear, appointments organised and agreed
-            responsibilities carefully managed.
-          </p>
-
-        </article>
-
-        <article class="value-card">
-
-          <div class="value-icon">
-            <i data-lucide="sparkles"></i>
-          </div>
-
-          <h3>Calm & Uncomplicated</h3>
-
-          <p>
-            Our purpose is to reduce your mental load, not add to it. Support is
-            designed to make everyday life feel easier.
-          </p>
-
-        </article>
-
-        <article class="value-card">
-
-          <div class="value-icon">
-            <i data-lucide="refresh-cw"></i>
-          </div>
-
-          <h3>Flexible as Life Changes</h3>
-
-          <p>
-            Support can begin as a one-off booking and evolve into regular help
-            as your circumstances and requirements change.
-          </p>
-
-        </article>
+        </ul>
 
       </div>
 
     </div>
 
-  </section>
+  </div>
 
-  <!-- HOW IT WORKS -->
+</section>
 
-<section class="process-section fade">
+
+<!-- ==================================================
+     VALUES
+================================================== -->
+
+<section class="values-section">
 
   <div class="container">
 
     <div class="section-title">
 
-      <p class="eyebrow">HOW WE WORK</p>
+      <p class="eyebrow">
+        THE SORTED. STANDARD
+      </p>
 
-      <h2>Simple, personal and carefully organised.</h2>
+      <h2>
+        Support built around trust.
+      </h2>
 
       <p>
-        Every client relationship begins with a conversation so we can
-        understand exactly what would make life easier.
+        Inviting someone into your home is personal.
+        Everything we do is therefore guided by
+        professionalism, respect and genuine care.
       </p>
 
     </div>
 
 
-        <article class="process-card">
+    <div class="values-grid">
 
-          <div class="process-number">1</div>
 
-          <h3>Complimentary Consultation</h3>
+      <article class="value-card">
+
+        <div class="value-icon">
+          <i data-lucide="shield-check"></i>
+        </div>
+
+        <h3>
+          Trusted &amp; Dependable
+        </h3>
+
+        <p>
+          You can rely on us to arrive prepared,
+          communicate clearly and complete agreed
+          tasks with care and attention.
+        </p>
+
+      </article>
+
+
+      <article class="value-card">
+
+        <div class="value-icon">
+          <i data-lucide="lock-keyhole"></i>
+        </div>
+
+        <h3>
+          Confidential &amp; Discreet
+        </h3>
+
+        <p>
+          Your home, personal circumstances and
+          information are always treated with
+          sensitivity, discretion and respect.
+        </p>
+
+      </article>
+
+
+      <article class="value-card">
+
+        <div class="value-icon">
+          <i data-lucide="heart-handshake"></i>
+        </div>
+
+        <h3>
+          Thoughtfully Personal
+        </h3>
+
+        <p>
+          No two clients are the same. Your support
+          is carefully adapted around your routines,
+          preferences and priorities.
+        </p>
+
+      </article>
+
+
+      <article class="value-card">
+
+        <div class="value-icon">
+          <i data-lucide="clipboard-check"></i>
+        </div>
+
+        <h3>
+          Professionally Organised
+        </h3>
+
+        <p>
+          We keep communication clear, appointments
+          organised and agreed responsibilities
+          carefully managed.
+        </p>
+
+      </article>
+
+
+      <article class="value-card">
+
+        <div class="value-icon">
+          <i data-lucide="sparkles"></i>
+        </div>
+
+        <h3>
+          Calm &amp; Uncomplicated
+        </h3>
+
+        <p>
+          Our purpose is to reduce your mental load,
+          not add to it. Support is designed to make
+          everyday life feel easier.
+        </p>
+
+      </article>
+
+
+      <article class="value-card">
+
+        <div class="value-icon">
+          <i data-lucide="refresh-cw"></i>
+        </div>
+
+        <h3>
+          Flexible as Life Changes
+        </h3>
+
+        <p>
+          Support can begin as a one-off booking and
+          evolve into regular help as your circumstances
+          and requirements change.
+        </p>
+
+      </article>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==================================================
+     HOW WE WORK
+================================================== -->
+
+<section class="process-section">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <p class="eyebrow">
+        HOW WE WORK
+      </p>
+
+      <h2>
+        Simple, personal and carefully organised.
+      </h2>
+
+      <p>
+        Every client relationship begins with a
+        conversation so we can understand exactly
+        what would make life easier.
+      </p>
+
+    </div>
+
+
+    <div class="process-grid">
+
+
+      <article class="process-card">
+
+        <div class="process-number">
+          1
+        </div>
+
+        <h3>
+          Complimentary Consultation
+        </h3>
+
+        <p>
+          We start by discussing your home, your
+          routine, your priorities and the type of
+          support you are looking for.
+        </p>
+
+      </article>
+
+
+      <article class="process-card">
+
+        <div class="process-number">
+          2
+        </div>
+
+        <h3>
+          Your Personal Support Plan
+        </h3>
+
+        <p>
+          We recommend the most suitable one-off
+          service or ongoing arrangement and clearly
+          agree what will be handled.
+        </p>
+
+      </article>
+
+
+      <article class="process-card">
+
+        <div class="process-number">
+          3
+        </div>
+
+        <h3>
+          Your First Visit
+        </h3>
+
+        <p>
+          Your first visit is carefully organised,
+          with agreed priorities, clear timings and
+          everything prepared before we arrive.
+        </p>
+
+      </article>
+
+
+      <article class="process-card">
+
+        <div class="process-number">
+          4
+        </div>
+
+        <h3>
+          Ongoing Support
+        </h3>
+
+        <p>
+          Your support can continue regularly,
+          change as life changes or remain available
+          whenever you need an extra pair of trusted hands.
+        </p>
+
+      </article>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==================================================
+     WHAT A SORTED. VISIT LOOKS LIKE
+================================================== -->
+
+<section class="visit-section">
+
+  <div class="container">
+
+    <div class="visit-introduction">
+
+      <p class="eyebrow">
+        WHAT TO EXPECT
+      </p>
+
+      <h2>
+        What a Sorted. visit looks like.
+      </h2>
+
+      <p>
+        Every visit is calm, organised and shaped
+        around what you need. You will always know
+        what has been agreed, what will happen during
+        the visit and what has been completed before
+        we leave.
+      </p>
+
+    </div>
+
+
+    <div class="visit-feature-image">
+
+      <img
+        src="typical-sorted-visit.png"
+        alt="Examples of the calm and practical support provided during a Sorted. visit"
+        loading="lazy"
+        decoding="async"
+      >
+
+    </div>
+
+
+    <div class="visit-timeline">
+
+
+      <article class="visit-step">
+
+        <div class="visit-step-number">
+          1
+        </div>
+
+        <div class="visit-step-content">
+
+          <div class="visit-step-heading">
+
+            <div class="visit-step-icon">
+              <i data-lucide="calendar-check"></i>
+            </div>
+
+            <h3>
+              Before your visit
+            </h3>
+
+          </div>
 
           <p>
-            We start by discussing your home, your routine, your priorities
-            and the type of support you are looking for.
+            We confirm the date, arrival time and
+            agreed tasks in advance. Any access
+            arrangements, shopping lists, appointments
+            or special instructions are recorded so
+            everything is clear before we arrive.
           </p>
 
-        </article>
+        </div>
 
-        <article class="process-card">
+      </article>
 
-          <div class="process-number">2</div>
 
-          <h3>Your Personal Support Plan</h3>
+      <article class="visit-step">
+
+        <div class="visit-step-number">
+          2
+        </div>
+
+        <div class="visit-step-content">
+
+          <div class="visit-step-heading">
+
+            <div class="visit-step-icon">
+              <i data-lucide="door-open"></i>
+            </div>
+
+            <h3>
+              A calm and punctual arrival
+            </h3>
+
+          </div>
 
           <p>
-            We recommend the most suitable one-off service or ongoing
-            arrangement and clearly agree what will be handled.
+            We arrive at the agreed time, introduce
+            ourselves clearly and take a moment to
+            confirm your priorities. There is no rushing
+            and no confusion about what you would like
+            us to handle.
           </p>
 
-        </article>
+        </div>
 
-        <article class="process-card">
+      </article>
 
-          <div class="process-number">3</div>
 
-          <h3>Your First Visit</h3>
+      <article class="visit-step">
+
+        <div class="visit-step-number">
+          3
+        </div>
+
+        <div class="visit-step-content">
+
+          <div class="visit-step-heading">
+
+            <div class="visit-step-icon">
+              <i data-lucide="clipboard-check"></i>
+            </div>
+
+            <h3>
+              Your agreed tasks are completed
+            </h3>
+
+          </div>
 
           <p>
-            Your first visit is carefully organised, with agreed priorities,
-            clear timings and everything prepared before we arrive.
+            We work through the agreed tasks carefully
+            and efficiently, whether that involves errands,
+            organisation, administration, property support,
+            companionship or several smaller jobs during
+            the same visit.
           </p>
 
-        </article>
+        </div>
 
-        <article class="process-card">
+      </article>
 
-          <div class="process-number">4</div>
 
-          <h3>Ongoing Support</h3>
+      <article class="visit-step">
+
+        <div class="visit-step-number">
+          4
+        </div>
+
+        <div class="visit-step-content">
+
+          <div class="visit-step-heading">
+
+            <div class="visit-step-icon">
+              <i data-lucide="message-square-text"></i>
+            </div>
+
+            <h3>
+              Clear communication throughout
+            </h3>
+
+          </div>
 
           <p>
-            Your support can continue regularly, change as life changes or
-            remain available whenever you need an extra pair of trusted hands.
+            Where a decision, purchase or change is
+            needed, we check with you rather than making
+            assumptions. Your preferences, privacy and
+            control remain central throughout every visit.
           </p>
 
-        </article>
+        </div>
+
+      </article>
+
+
+      <article class="visit-step">
+
+        <div class="visit-step-number">
+          5
+        </div>
+
+        <div class="visit-step-content">
+
+          <div class="visit-step-heading">
+
+            <div class="visit-step-icon">
+              <i data-lucide="badge-check"></i>
+            </div>
+
+            <h3>
+              Everything is checked before we leave
+            </h3>
+
+          </div>
+
+          <p>
+            We make sure the agreed work is complete,
+            your home is left tidy and any keys, receipts,
+            paperwork or purchases are returned to the
+            correct place.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <article class="visit-step">
+
+        <div class="visit-step-number">
+          6
+        </div>
+
+        <div class="visit-step-content">
+
+          <div class="visit-step-heading">
+
+            <div class="visit-step-icon">
+              <i data-lucide="file-check-2"></i>
+            </div>
+
+            <h3>
+              A clear update afterwards
+            </h3>
+
+          </div>
+
+          <p>
+            You receive a simple summary of what was
+            completed, along with any useful updates,
+            receipts or matters requiring your attention.
+            For regular clients, future priorities can
+            also be noted for the next visit.
+          </p>
+
+        </div>
+
+      </article>
+
+
+    </div>
+
+
+    <div class="visit-note">
+
+      <div class="visit-note-icon">
+        <i data-lucide="sliders-horizontal"></i>
+      </div>
+
+      <div>
+
+        <h3>
+          Every visit is personally tailored.
+        </h3>
+
+        <p>
+          Some clients prefer to be at home while
+          we help. Others arrange secure access and
+          receive an update afterwards. Your visits
+          will always be organised around your comfort,
+          routine and preferences.
+        </p>
 
       </div>
 
@@ -3070,438 +3300,298 @@ select:focus-visible {
 
 </section>
 
-  <!-- WHAT A SORTED. VISIT LOOKS LIKE -->
 
-  <section class="visit-section fade">
+<!-- ==================================================
+     WHO WE HELP
+================================================== -->
 
-    <div class="container">
+<section class="audience-section">
 
-      <div class="visit-introduction">
+  <div class="container">
 
-        <p class="eyebrow">WHAT TO EXPECT</p>
+    <div class="section-title">
 
-        <h2>What a Sorted. visit looks like.</h2>
+      <p class="eyebrow">
+        WHO WE HELP
+      </p>
 
-        <p>
-          Every visit is calm, organised and shaped around what you need.
-          You will always know what has been agreed, what will happen during
-          the visit and what has been completed before we leave.
-        </p>
-
-            </div>
-
-      <div class="visit-feature-image">
-
-        <img
-          src="typical-sorted-visit.png"
-          alt="Examples of the calm and practical support provided during a Sorted. visit"
-          loading="lazy"
-        >
-
-      </div>
-
-      <div class="visit-timeline">
-
-        <article class="visit-step">
-
-          <div class="visit-step-number">1</div>
-
-          <div class="visit-step-content">
-
-            <div class="visit-step-heading">
-
-              <div class="visit-step-icon">
-                <i data-lucide="calendar-check"></i>
-              </div>
-
-              <h3>Before your visit</h3>
-
-            </div>
-
-            <p>
-              We confirm the date, arrival time and agreed tasks in advance.
-              Any access arrangements, shopping lists, appointments or special
-              instructions are recorded so everything is clear before we arrive.
-            </p>
-
-          </div>
-
-        </article>
-
-        <article class="visit-step">
-
-          <div class="visit-step-number">2</div>
-
-          <div class="visit-step-content">
-
-            <div class="visit-step-heading">
-
-              <div class="visit-step-icon">
-                <i data-lucide="door-open"></i>
-              </div>
-
-              <h3>A calm and punctual arrival</h3>
-
-            </div>
-
-            <p>
-              We arrive at the agreed time, introduce ourselves clearly and
-              take a moment to confirm your priorities. There is no rushing and
-              no confusion about what you would like us to handle.
-            </p>
-
-          </div>
-
-        </article>
-
-        <article class="visit-step">
-
-          <div class="visit-step-number">3</div>
-
-          <div class="visit-step-content">
-
-            <div class="visit-step-heading">
-
-              <div class="visit-step-icon">
-                <i data-lucide="clipboard-check"></i>
-              </div>
-
-              <h3>Your agreed tasks are completed</h3>
-
-            </div>
-
-            <p>
-              We work through the agreed tasks carefully and efficiently,
-              whether that involves errands, organisation, administration,
-              property support, companionship or several smaller jobs during
-              the same visit.
-            </p>
-
-          </div>
-
-        </article>
-
-        <article class="visit-step">
-
-          <div class="visit-step-number">4</div>
-
-          <div class="visit-step-content">
-
-            <div class="visit-step-heading">
-
-              <div class="visit-step-icon">
-                <i data-lucide="message-square-text"></i>
-              </div>
-
-              <h3>Clear communication throughout</h3>
-
-            </div>
-
-            <p>
-              Where a decision, purchase or change is needed, we check with you
-              rather than making assumptions. Your preferences, privacy and
-              control remain central throughout every visit.
-            </p>
-
-          </div>
-
-        </article>
-
-        <article class="visit-step">
-
-          <div class="visit-step-number">5</div>
-
-          <div class="visit-step-content">
-
-            <div class="visit-step-heading">
-
-              <div class="visit-step-icon">
-                <i data-lucide="badge-check"></i>
-              </div>
-
-              <h3>Everything is checked before we leave</h3>
-
-            </div>
-
-            <p>
-              We make sure the agreed work is complete, your home is left tidy
-              and any keys, receipts, paperwork or purchases are returned to
-              the correct place.
-            </p>
-
-          </div>
-
-        </article>
-
-        <article class="visit-step">
-
-          <div class="visit-step-number">6</div>
-
-          <div class="visit-step-content">
-
-            <div class="visit-step-heading">
-
-              <div class="visit-step-icon">
-                <i data-lucide="file-check-2"></i>
-              </div>
-
-              <h3>A clear update afterwards</h3>
-
-            </div>
-
-            <p>
-              You receive a simple summary of what was completed, along with
-              any useful updates, receipts or matters requiring your attention.
-              For regular clients, future priorities can also be noted for the
-              next visit.
-            </p>
-
-          </div>
-
-        </article>
-
-      </div>
-
-      <div class="visit-note">
-
-        <div class="visit-note-icon">
-          <i data-lucide="sliders-horizontal"></i>
-        </div>
-
-        <div>
-
-          <h3>Every visit is personally tailored.</h3>
-
-          <p>
-            Some clients prefer to be at home while we help. Others arrange
-            secure access and receive an update afterwards. Your visits will
-            always be organised around your comfort, routine and preferences.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- WHO WE HELP -->
-
-  <section class="audience-section fade">
-
-    <div class="container">
-
-      <div class="section-title">
-
-  <p class="eyebrow">WHO WE HELP</p>
-
-  <h2>Support for the way you live.</h2>
-
-  <p>
-    Sorted. supports individuals, families and property owners who want
-    dependable help and fewer everyday responsibilities to manage alone.
-  </p>
-
-</div>
-
-<div class="audience-feature">
-
-  <div class="audience-feature-image">
-
-    <img
-      src="who-we-serve.png"
-      alt="A calm home and lifestyle scene representing the different clients supported by Sorted."
-      loading="lazy"
-    >
-
-  </div>
-
-  <div class="audience-feature-copy">
-
-    <p class="eyebrow">
-      SUPPORT SHAPED AROUND REAL LIFE
-    </p>
-
-    <h3>
-      Different homes. Different routines. Personally tailored support.
-    </h3>
-
-    <p>
-      Some clients need help keeping a busy home organised. Others want
-      dependable local support, reassurance for a loved one or someone trusted
-      to look after a property while they are away.
-    </p>
-
-    <p>
-      Whatever your circumstances, Sorted. takes time to understand what would
-      genuinely make life easier and provides support shaped around you.
-    </p>
-
-  </div>
-
-</div>
-
-<div class="audience-grid">
-
-        <article class="audience-card">
-
-          <div class="value-icon">
-            <i data-lucide="briefcase-business"></i>
-          </div>
-
-          <h3>Busy Professionals</h3>
-
-          <p>
-            Practical support for people balancing demanding work, busy
-            schedules and the responsibilities of running a home.
-          </p>
-
-        </article>
-
-        <article class="audience-card">
-
-          <div class="value-icon">
-            <i data-lucide="users"></i>
-          </div>
-
-          <h3>Families</h3>
-
-          <p>
-            An extra pair of trusted hands for errands, organisation,
-            appointments, shopping and everyday household coordination.
-          </p>
-
-        </article>
-
-        <article class="audience-card">
-
-          <div class="value-icon">
-            <i data-lucide="heart"></i>
-          </div>
-
-          <h3>Older Adults</h3>
-
-          <p>
-            Respectful practical support, companionship and reassurance that
-            helps everyday life remain manageable and independent.
-          </p>
-
-        </article>
-
-        <article class="audience-card">
-
-          <div class="value-icon">
-            <i data-lucide="house"></i>
-          </div>
-
-          <h3>People Living Independently</h3>
-
-          <p>
-            Flexible assistance for people who value their independence but
-            would benefit from dependable help with certain tasks.
-          </p>
-
-        </article>
-
-        <article class="audience-card">
-
-          <div class="value-icon">
-            <i data-lucide="key-round"></i>
-          </div>
-
-          <h3>Second-Home Owners</h3>
-
-          <p>
-            Trusted local oversight, property visits, key holding and practical
-            preparation before you arrive or while you are away.
-          </p>
-
-        </article>
-
-        <article class="audience-card">
-
-          <div class="value-icon">
-            <i data-lucide="hand-heart"></i>
-          </div>
-
-          <h3>Families Supporting Loved Ones</h3>
-
-          <p>
-            Reassuring local support for relatives who want to know someone
-            dependable is available when they cannot be there themselves.
-          </p>
-
-        </article>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- AREAS -->
-
-  <section class="areas-section">
-
-    <div class="container narrow">
-
-      <p class="eyebrow">AREAS COVERED</p>
-
-      <h2>Eastbourne & surrounding areas</h2>
+      <h2>
+        Support for the way you live.
+      </h2>
 
       <p>
-        Eastbourne, Meads, Old Town, Upperton, Sovereign Harbour, Hampden Park,
-        Willingdon, Langney, Polegate, Pevensey, Seaford and nearby villages.
+        Sorted. supports individuals, families and
+        property owners who want dependable help
+        and fewer everyday responsibilities to
+        manage alone.
       </p>
 
     </div>
 
-  </section>
 
-  <!-- TRUST STRIP -->
+    <div class="audience-feature">
 
-  <section class="trust-strip-section">
+      <div class="audience-feature-image">
 
-    <div class="container">
-
-      <div class="section-title">
-
-        <p class="eyebrow">WHY CHOOSE SORTED?</p>
-
-        <h2>Trusted support you can rely on.</h2>
+        <img
+          src="who-we-serve.png"
+          alt="A calm home and lifestyle scene representing the different clients supported by Sorted."
+          loading="lazy"
+          decoding="async"
+        >
 
       </div>
 
-      <div class="trust-strip">
 
-        <span>Enhanced DBS Checked</span>
+      <div class="audience-feature-copy">
 
-        <span>Fully Insured</span>
+        <p class="eyebrow">
+          SUPPORT SHAPED AROUND REAL LIFE
+        </p>
 
-        <span>Confidential &amp; Discreet</span>
+        <h3>
+          Different homes. Different routines.
+          Personally tailored support.
+        </h3>
 
-        <span>Local Independent Business</span>
+        <p>
+          Some clients need help keeping a busy home
+          organised. Others want dependable local
+          support, reassurance for a loved one or
+          someone trusted to look after a property
+          while they are away.
+        </p>
 
-        <span>Flexible One-off &amp; Ongoing Support</span>
-
-        <span>Tailored Around You</span>
+        <p>
+          Whatever your circumstances, Sorted. takes
+          time to understand what would genuinely
+          make life easier and provides support
+          shaped around you.
+        </p>
 
       </div>
 
     </div>
 
-  </section>
+
+    <div class="audience-grid">
+
+
+      <article class="audience-card">
+
+        <div class="value-icon">
+          <i data-lucide="briefcase-business"></i>
+        </div>
+
+        <h3>
+          Busy Professionals
+        </h3>
+
+        <p>
+          Practical support for people balancing
+          demanding work, busy schedules and the
+          responsibilities of running a home.
+        </p>
+
+      </article>
+
+
+      <article class="audience-card">
+
+        <div class="value-icon">
+          <i data-lucide="users"></i>
+        </div>
+
+        <h3>
+          Families
+        </h3>
+
+        <p>
+          An extra pair of trusted hands for errands,
+          organisation, appointments, shopping and
+          everyday household coordination.
+        </p>
+
+      </article>
+
+
+      <article class="audience-card">
+
+        <div class="value-icon">
+          <i data-lucide="heart"></i>
+        </div>
+
+        <h3>
+          Older Adults
+        </h3>
+
+        <p>
+          Respectful practical support, companionship
+          and reassurance that helps everyday life
+          remain manageable and independent.
+        </p>
+
+      </article>
+
+
+      <article class="audience-card">
+
+        <div class="value-icon">
+          <i data-lucide="house"></i>
+        </div>
+
+        <h3>
+          People Living Independently
+        </h3>
+
+        <p>
+          Flexible assistance for people who value
+          their independence but would benefit from
+          dependable help with certain tasks.
+        </p>
+
+      </article>
+
+
+      <article class="audience-card">
+
+        <div class="value-icon">
+          <i data-lucide="key-round"></i>
+        </div>
+
+        <h3>
+          Second-Home Owners
+        </h3>
+
+        <p>
+          Trusted local oversight, property visits,
+          key holding and practical preparation
+          before you arrive or while you are away.
+        </p>
+
+      </article>
+
+
+      <article class="audience-card">
+
+        <div class="value-icon">
+          <i data-lucide="hand-heart"></i>
+        </div>
+
+        <h3>
+          Families Supporting Loved Ones
+        </h3>
+
+        <p>
+          Reassuring local support for relatives who
+          want to know someone dependable is available
+          when they cannot be there themselves.
+        </p>
+
+      </article>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==================================================
+     AREAS
+================================================== -->
+
+<section class="areas-section">
+
+  <div class="container narrow">
+
+    <p class="eyebrow">
+      AREAS COVERED
+    </p>
+
+    <h2>
+      Eastbourne &amp; surrounding areas
+    </h2>
+
+    <p>
+      Eastbourne, Meads, Old Town, Upperton,
+      Sovereign Harbour, Hampden Park, Willingdon,
+      Langney, Polegate, Pevensey, Seaford and
+      nearby villages.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- ==================================================
+     TRUST STRIP
+================================================== -->
+
+<section class="trust-strip-section">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <p class="eyebrow">
+        WHY CHOOSE SORTED?
+      </p>
+
+      <h2>
+        Trusted support you can rely on.
+      </h2>
+
+    </div>
+
+
+    <div class="trust-strip">
+
+      <span>
+        Enhanced DBS Checked
+      </span>
+
+      <span>
+        Fully Insured
+      </span>
+
+      <span>
+        Confidential &amp; Discreet
+      </span>
+
+      <span>
+        Local Independent Business
+      </span>
+
+      <span>
+        Flexible One-off &amp; Ongoing Support
+      </span>
+
+      <span>
+        Tailored Around You
+      </span>
+
+    </div>
+
+  </div>
+
+</section>
+
 
 </main>
 
-<!-- FLOATING CONTACT -->
+
+<!-- ==================================================
+     FLOATING CONTACT
+================================================== -->
 
 <div class="floating-contact">
 
   <a
     href="tel:+441323396610"
-    class="floating-button floating-phone"
+    class="floating-button"
     aria-label="Call Sorted."
   >
     <i data-lucide="phone"></i>
@@ -3511,7 +3601,7 @@ select:focus-visible {
     href="https://wa.me/447460934371"
     target="_blank"
     rel="noopener noreferrer"
-    class="floating-button floating-whatsapp"
+    class="floating-button"
     aria-label="Contact Sorted. on WhatsApp"
   >
     <i data-lucide="message-circle"></i>
@@ -3519,7 +3609,7 @@ select:focus-visible {
 
   <a
     href="mailto:contact@sortedlife.org.uk"
-    class="floating-button floating-email"
+    class="floating-button"
     aria-label="Email Sorted."
   >
     <i data-lucide="mail"></i>
@@ -3527,7 +3617,10 @@ select:focus-visible {
 
 </div>
 
-<!-- FOOTER -->
+
+<!-- ==================================================
+     FOOTER
+================================================== -->
 
 <footer>
 
@@ -3535,66 +3628,84 @@ select:focus-visible {
 
     <div class="footer-grid">
 
+
       <div>
 
-        <a class="logo" href="index.html">
+        <a
+          class="logo"
+          href="index.html"
+        >
           Sorted<span>.</span>
         </a>
 
-        <p style="margin-top:18px;">
+        <p style="margin-top:14px;">
           Your Home. Handled.
           <br><br>
-          Premium home and lifestyle support across Eastbourne and surrounding
-          areas.
+          Premium home and lifestyle support across
+          Eastbourne and surrounding areas.
         </p>
 
       </div>
 
+
       <div>
 
-        <h3>Services</h3>
+        <h3>
+          Services
+        </h3>
 
         <div class="footer-links">
 
-          <a href="services.html">Home Management</a>
+          <a href="services.html">
+            Home Management
+          </a>
 
-          <a href="services.html">Lifestyle Assistance</a>
+          <a href="services.html">
+            Lifestyle Assistance
+          </a>
 
-          <a href="services.html">Home Organisation</a>
+          <a href="services.html">
+            Home Organisation
+          </a>
 
-          <a href="services.html">Administrative Support</a>
+          <a href="services.html">
+            Administrative Support
+          </a>
 
-          <a href="away-from-home.html">Away From Home Support</a>
+          <a href="away-from-home.html">
+            Away From Home Support
+          </a>
 
         </div>
 
       </div>
 
+
       <div>
 
-        <h3>Areas Covered</h3>
+        <h3>
+          Areas Covered
+        </h3>
 
         <div class="footer-links">
 
           <span>Eastbourne</span>
-
           <span>Meads</span>
-
           <span>Old Town</span>
-
           <span>Polegate</span>
-
           <span>Pevensey</span>
-
           <span>Seaford</span>
 
         </div>
 
       </div>
 
+
       <div>
 
-        <h3>Contact</h3>
+        <h3>
+          Contact
+        </h3>
 
         <div class="footer-links">
 
@@ -3608,25 +3719,34 @@ select:focus-visible {
 
         </div>
 
-        <p style="margin-top:16px;">
-          Mon–Fri: 8am–6pm<br>
-          Sat: By appointment<br>
+        <p style="margin-top:13px;">
+          Mon–Fri: 8am–6pm
+          <br>
+          Sat: By appointment
+          <br>
           Sun: By arrangement
         </p>
 
       </div>
 
+
     </div>
+
 
     <p class="legal-links">
 
-      <a href="privacy.html">Privacy Policy</a>
+      <a href="privacy.html">
+        Privacy Policy
+      </a>
 
       &nbsp;·&nbsp;
 
-      <a href="terms.html">Terms &amp; Conditions</a>
+      <a href="terms.html">
+        Terms &amp; Conditions
+      </a>
 
     </p>
+
 
     <p class="copyright">
       © 2026 Sorted. All rights reserved.
@@ -3636,226 +3756,228 @@ select:focus-visible {
 
 </footer>
 
-<script>
 
-  document.documentElement.classList.add("js");
-
-  const menuToggle = document.querySelector(".menu-toggle");
-  const navigation = document.querySelector("nav");
-  const header = document.querySelector(".site-header");
-
-  if (menuToggle && navigation) {
-
-    menuToggle.addEventListener("click", function () {
-
-      const isOpen = navigation.classList.toggle("active");
-
-      menuToggle.setAttribute(
-        "aria-expanded",
-        isOpen ? "true" : "false"
-      );
-
-    });
-
-    navigation.querySelectorAll("a").forEach(function (link) {
-
-      link.addEventListener("click", function () {
-
-        navigation.classList.remove("active");
-
-        menuToggle.setAttribute("aria-expanded", "false");
-
-      });
-
-    });
-
-    document.addEventListener("click", function (event) {
-
-      if (
-        !navigation.contains(event.target) &&
-        !menuToggle.contains(event.target)
-      ) {
-
-        navigation.classList.remove("active");
-
-        menuToggle.setAttribute("aria-expanded", "false");
-
-      }
-
-    });
-
-  }
-
-  document.querySelectorAll("a[href^='#']").forEach(function (link) {
-
-    link.addEventListener("click", function (event) {
-
-      const targetSelector = link.getAttribute("href");
-
-      if (!targetSelector || targetSelector === "#") {
-        return;
-      }
-
-      const target = document.querySelector(targetSelector);
-
-      if (target) {
-
-        event.preventDefault();
-
-        target.scrollIntoView({
-          behavior: "smooth",
-          block: "start"
-        });
-
-      }
-
-    });
-
-  });
-
-  const fadeElements = document.querySelectorAll(".fade");
-
-  if ("IntersectionObserver" in window) {
-
-    const fadeObserver = new IntersectionObserver(
-      function (entries) {
-
-        entries.forEach(function (entry) {
-
-          if (entry.isIntersecting) {
-
-            entry.target.classList.add("show");
-
-            fadeObserver.unobserve(entry.target);
-
-          }
-
-        });
-
-      },
-      {
-        threshold: 0.08,
-        rootMargin: "0px 0px -35px 0px"
-      }
-    );
-
-    fadeElements.forEach(function (element) {
-      fadeObserver.observe(element);
-    });
-
-  } else {
-
-    fadeElements.forEach(function (element) {
-      element.classList.add("show");
-    });
-
-  }
-
-  window.addEventListener("scroll", function () {
-
-    if (!header) {
-      return;
-    }
-
-    if (window.scrollY > 40) {
-
-      header.style.background = "rgba(255,255,255,0.94)";
-
-      header.style.boxShadow =
-        "0 14px 35px rgba(23,38,27,0.12)";
-
-    } else {
-
-      header.style.background = "rgba(255,255,255,0.82)";
-
-      header.style.boxShadow =
-        "0 10px 40px rgba(23,38,27,0.08)";
-
-    }
-
-  });
-
-  window.addEventListener("load", function () {
-
-    if (window.lucide) {
-      lucide.createIcons();
-    }
-
-  });
-
-</script>
-
-<!-- COOKIE BANNER -->
+<!-- ==================================================
+     COOKIE BANNER
+================================================== -->
 
 <div
   id="cookie-banner"
-  style="
-    display:none;
-    position:fixed;
-    bottom:16px;
-    left:50%;
-    transform:translateX(-50%);
-    width:min(88%,460px);
-    padding:14px 18px;
-    z-index:99999;
-    color:white;
-    background:rgba(23,38,27,.96);
-    border-radius:18px;
-    box-shadow:0 16px 40px rgba(23,38,27,.25);
-    text-align:center;
-    font-size:.9rem;
-  "
+  class="cookie-banner"
+  role="status"
 >
 
-This website uses essential cookies to improve your experience. By continuing to use this website, you agree to our <a href="privacy.html" style="color:#dfc28f;text-decoration:underline;">Privacy Policy</a>.
+  This website uses essential cookies to improve
+  your experience. By continuing to use this website,
+  you agree to our
+
+  <a href="privacy.html">
+    Privacy Policy
+  </a>.
 
   <button
     type="button"
     onclick="acceptCookies()"
-    style="
-      margin-left:15px;
-      padding:10px 18px;
-      color:#17261b;
-      background:#ffffff;
-      border:0;
-      border-radius:999px;
-      font-weight:700;
-      cursor:pointer;
-    "
   >
     Accept
   </button>
 
 </div>
 
+
+<!-- ==================================================
+     JAVASCRIPT
+================================================== -->
+
 <script>
 
-  function acceptCookies() {
 
-    localStorage.setItem("cookiesAccepted", "yes");
+/* ==================================================
+   MOBILE MENU
+================================================== */
 
-    const banner = document.getElementById("cookie-banner");
+const menuToggle =
+  document.querySelector(".menu-toggle");
 
-    if (banner) {
-      banner.style.display = "none";
+const navigation =
+  document.querySelector("#site-navigation");
+
+
+if(menuToggle && navigation){
+
+  menuToggle.addEventListener(
+    "click",
+    function(){
+
+      const open =
+        navigation.classList.toggle("active");
+
+      menuToggle.setAttribute(
+        "aria-expanded",
+        open ? "true" : "false"
+      );
+
+    }
+  );
+
+
+  navigation.querySelectorAll("a")
+    .forEach(function(link){
+
+      link.addEventListener(
+        "click",
+        function(){
+
+          navigation.classList.remove("active");
+
+          menuToggle.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+
+        }
+      );
+
+    });
+
+
+  document.addEventListener(
+    "click",
+    function(event){
+
+      if(
+        navigation.classList.contains("active") &&
+        !navigation.contains(event.target) &&
+        !menuToggle.contains(event.target)
+      ){
+
+        navigation.classList.remove("active");
+
+        menuToggle.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+      }
+
+    }
+  );
+
+
+  document.addEventListener(
+    "keydown",
+    function(event){
+
+      if(event.key === "Escape"){
+
+        navigation.classList.remove("active");
+
+        menuToggle.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+      }
+
+    }
+  );
+
+}
+
+
+/* ==================================================
+   HEADER
+================================================== */
+
+const header =
+  document.querySelector(".site-header");
+
+
+function updateHeader(){
+
+  if(!header){
+    return;
+  }
+
+  header.classList.toggle(
+    "scrolled",
+    window.scrollY > 35
+  );
+
+}
+
+
+window.addEventListener(
+  "scroll",
+  updateHeader,
+  { passive:true }
+);
+
+updateHeader();
+
+
+/* ==================================================
+   LUCIDE ICONS
+================================================== */
+
+document.addEventListener(
+  "DOMContentLoaded",
+  function(){
+
+    if(window.lucide){
+      lucide.createIcons();
     }
 
   }
+);
 
-  document.addEventListener("DOMContentLoaded", function () {
 
-    const banner = document.getElementById("cookie-banner");
+/* ==================================================
+   COOKIE BANNER
+================================================== */
 
-    if (
+function acceptCookies(){
+
+  localStorage.setItem(
+    "cookiesAccepted",
+    "yes"
+  );
+
+  const banner =
+    document.getElementById(
+      "cookie-banner"
+    );
+
+  if(banner){
+    banner.style.display="none";
+  }
+
+}
+
+
+document.addEventListener(
+  "DOMContentLoaded",
+  function(){
+
+    const banner =
+      document.getElementById(
+        "cookie-banner"
+      );
+
+    if(
       banner &&
-      localStorage.getItem("cookiesAccepted") !== "yes"
-    ) {
+      localStorage.getItem(
+        "cookiesAccepted"
+      ) !== "yes"
+    ){
 
-      banner.style.display = "block";
+      banner.style.display="block";
 
     }
 
-  });
+  }
+);
+
 
 </script>
 
