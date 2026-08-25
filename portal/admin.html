@@ -4,7 +4,6 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Sorted. Studio</title>
@@ -53,8 +52,14 @@ body{
 
 button,
 input,
-select{
+select,
+textarea{
   font:inherit;
+}
+
+button{
+  border:none;
+  cursor:pointer;
 }
 
 
@@ -136,11 +141,6 @@ select{
   border-color:var(--gold);
 
   box-shadow:0 0 0 4px rgba(202,167,106,.15);
-}
-
-button{
-  border:none;
-  cursor:pointer;
 }
 
 .login-button{
@@ -397,7 +397,7 @@ header .brand span{
 
 
 /* ==================================================
-   REGISTRATIONS / CLIENTS
+   LISTS
 ================================================== */
 
 .registration-list,
@@ -469,12 +469,16 @@ header .brand span{
   font-weight:850;
 }
 
-.approve-button{
+.approve-button,
+.view-button,
+.edit-button{
   background:var(--forest);
   color:white;
 }
 
-.approve-button:hover{
+.approve-button:hover,
+.view-button:hover,
+.edit-button:hover{
   background:var(--sage);
 }
 
@@ -485,15 +489,6 @@ header .brand span{
 
 .reject-button:hover{
   background:#e8cccc;
-}
-
-.view-button{
-  background:var(--forest);
-  color:white;
-}
-
-.view-button:hover{
-  background:var(--sage);
 }
 
 .action-button:disabled{
@@ -524,11 +519,7 @@ header .brand span{
   color:#7d5a22;
 }
 
-.status-approved{
-  background:#e4f0e7;
-  color:var(--green);
-}
-
+.status-approved,
 .status-submitted{
   background:#e4f0e7;
   color:var(--green);
@@ -611,7 +602,7 @@ header .brand span{
 
 
 /* ==================================================
-   FORM MODAL
+   MODALS
 ================================================== */
 
 .modal-overlay{
@@ -700,7 +691,8 @@ header .brand span{
   padding:25px;
 }
 
-.sensitive-warning{
+.sensitive-warning,
+.edit-note{
   margin-bottom:20px;
   padding:14px 16px;
 
@@ -750,6 +742,87 @@ header .brand span{
 
   white-space:pre-wrap;
   overflow-wrap:anywhere;
+}
+
+
+/* ==================================================
+   EDIT CLIENT
+================================================== */
+
+.edit-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+.edit-field{
+  display:flex;
+  flex-direction:column;
+  gap:7px;
+}
+
+.edit-field.full{
+  grid-column:1 / -1;
+}
+
+.edit-field label{
+  color:var(--forest);
+
+  font-size:.85rem;
+  font-weight:850;
+}
+
+.edit-field input,
+.edit-field select{
+  width:100%;
+
+  padding:14px 15px;
+
+  background:white;
+
+  border:1px solid rgba(23,38,27,.15);
+  border-radius:13px;
+
+  color:var(--ink);
+
+  outline:none;
+}
+
+.edit-field input:focus,
+.edit-field select:focus{
+  border-color:var(--gold);
+
+  box-shadow:0 0 0 4px rgba(202,167,106,.14);
+}
+
+.field-help{
+  color:var(--muted);
+
+  font-size:.76rem;
+  line-height:1.45;
+}
+
+.save-client-button{
+  width:100%;
+
+  margin-top:22px;
+  padding:16px 22px;
+
+  border-radius:999px;
+
+  background:var(--forest);
+  color:white;
+
+  font-weight:900;
+}
+
+.save-client-button:hover{
+  background:var(--sage);
+}
+
+.save-client-button:disabled{
+  opacity:.55;
+  cursor:not-allowed;
 }
 
 
@@ -878,12 +951,19 @@ header .brand span{
     padding:20px;
   }
 
+  .edit-grid{
+    grid-template-columns:1fr;
+  }
+
+  .edit-field.full{
+    grid-column:auto;
+  }
+
 }
 
 </style>
 
 </head>
-
 
 <body>
 
@@ -948,7 +1028,6 @@ header .brand span{
 
 <div id="studio">
 
-
 <header>
 
   <div class="brand">
@@ -983,12 +1062,7 @@ header .brand span{
   </section>
 
 
-  <!-- ==================================================
-       STATS
-  ================================================== -->
-
   <div class="stats">
-
 
     <div class="stat">
 
@@ -1041,16 +1115,13 @@ header .brand span{
 
     </div>
 
-
   </div>
 
 
   <div class="grid">
 
 
-    <!-- ==================================================
-         PENDING REGISTRATIONS
-    ================================================== -->
+    <!-- PENDING REGISTRATIONS -->
 
     <section class="card wide">
 
@@ -1072,7 +1143,6 @@ header .brand span{
 
         </div>
 
-
         <button
           type="button"
           class="refresh-button"
@@ -1083,24 +1153,19 @@ header .brand span{
 
       </div>
 
-
       <div
         id="pending-list"
         class="registration-list"
       >
-
         <div class="loading-state">
           Loading registrations...
         </div>
-
       </div>
 
     </section>
 
 
-    <!-- ==================================================
-         CLIENTS
-    ================================================== -->
+    <!-- CLIENTS -->
 
     <section class="card wide">
 
@@ -1113,27 +1178,22 @@ header .brand span{
       </h3>
 
       <p>
-        Approved clients linked to the Sorted. client portal.
+        Manage approved client membership and account information.
       </p>
-
 
       <div
         id="client-list"
         class="client-list"
       >
-
         <div class="loading-state">
           Loading clients...
         </div>
-
       </div>
 
     </section>
 
 
-    <!-- ==================================================
-         CLIENT FORMS
-    ================================================== -->
+    <!-- CLIENT FORMS -->
 
     <section class="card wide">
 
@@ -1155,7 +1215,6 @@ header .brand span{
 
         </div>
 
-
         <button
           type="button"
           class="refresh-button"
@@ -1166,24 +1225,19 @@ header .brand span{
 
       </div>
 
-
       <div
         id="form-list"
         class="form-list"
       >
-
         <div class="loading-state">
           Loading submitted forms...
         </div>
-
       </div>
 
     </section>
 
 
-    <!-- ==================================================
-         OTHER STUDIO AREAS
-    ================================================== -->
+    <!-- OTHER STUDIO AREAS -->
 
     <section class="card feature-card">
 
@@ -1247,10 +1301,208 @@ header .brand span{
 
     </section>
 
-
   </div>
 
 </div>
+
+</div>
+
+
+<!-- ==================================================
+     EDIT CLIENT MODAL
+================================================== -->
+
+<div
+  id="client-modal"
+  class="modal-overlay"
+  aria-hidden="true"
+>
+
+  <div
+    class="modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="client-modal-title"
+  >
+
+    <div class="modal-header">
+
+      <div>
+
+        <small>
+          Client Management
+        </small>
+
+        <h2 id="client-modal-title">
+          Edit Client
+        </h2>
+
+      </div>
+
+      <button
+        type="button"
+        class="modal-close"
+        id="client-modal-close"
+        aria-label="Close client editor"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <div class="modal-body">
+
+      <div class="edit-note">
+        These settings control the membership information displayed
+        in the client's My Sorted. dashboard.
+      </div>
+
+
+      <div class="edit-grid">
+
+
+        <div class="edit-field full">
+
+          <label for="edit-client-name">
+            Client
+          </label>
+
+          <input
+            id="edit-client-name"
+            type="text"
+            disabled
+          >
+
+        </div>
+
+
+        <div class="edit-field full">
+
+          <label for="edit-membership">
+            Membership
+          </label>
+
+          <input
+            id="edit-membership"
+            type="text"
+            placeholder="e.g. Premium"
+          >
+
+          <div class="field-help">
+            This is the membership name shown on the client dashboard.
+          </div>
+
+        </div>
+
+
+        <div class="edit-field">
+
+          <label for="edit-membership-status">
+            Membership status
+          </label>
+
+          <select id="edit-membership-status">
+
+            <option value="Awaiting setup">
+              Awaiting setup
+            </option>
+
+            <option value="Active">
+              Active
+            </option>
+
+            <option value="Paused">
+              Paused
+            </option>
+
+            <option value="Ended">
+              Ended
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="edit-field">
+
+          <label for="edit-service-status">
+            Service status
+          </label>
+
+          <select id="edit-service-status">
+
+            <option value="Active">
+              Active
+            </option>
+
+            <option value="Paused">
+              Paused
+            </option>
+
+            <option value="Inactive">
+              Inactive
+            </option>
+
+          </select>
+
+          <div class="field-help">
+            This changes the status shown in My Sorted. It does not
+            revoke portal login access.
+          </div>
+
+        </div>
+
+
+        <div class="edit-field">
+
+          <label for="edit-hours-total">
+            Allocated hours
+          </label>
+
+          <input
+            id="edit-hours-total"
+            type="number"
+            min="0"
+            step="0.5"
+            placeholder="0"
+          >
+
+        </div>
+
+
+        <div class="edit-field">
+
+          <label for="edit-hours-remaining">
+            Hours remaining
+          </label>
+
+          <input
+            id="edit-hours-remaining"
+            type="number"
+            min="0"
+            step="0.5"
+            placeholder="0"
+          >
+
+        </div>
+
+
+      </div>
+
+
+      <button
+        type="button"
+        id="save-client-button"
+        class="save-client-button"
+      >
+        Save Client Changes
+      </button>
+
+    </div>
+
+  </div>
 
 </div>
 
@@ -1286,7 +1538,6 @@ header .brand span{
 
       </div>
 
-
       <button
         type="button"
         class="modal-close"
@@ -1302,11 +1553,15 @@ header .brand span{
     <div class="modal-body">
 
       <div class="sensitive-warning">
-        <strong>Confidential client information.</strong>
+
+        <strong>
+          Confidential client information.
+        </strong>
+
         Only use and access this information where necessary for providing
         the client's Sorted. service.
-      </div>
 
+      </div>
 
       <div
         id="form-detail-grid"
@@ -1331,7 +1586,6 @@ header .brand span{
 ================================================== -->
 
 <script type="module">
-
 
 import {
   auth,
@@ -1370,65 +1624,89 @@ const ADMIN_EMAIL =
 const loginScreen =
   document.getElementById("loginScreen");
 
-
 const studio =
   document.getElementById("studio");
-
 
 const loginError =
   document.getElementById("error");
 
-
 const pendingList =
   document.getElementById("pending-list");
-
 
 const clientList =
   document.getElementById("client-list");
 
-
 const formList =
   document.getElementById("form-list");
-
 
 const pendingCount =
   document.getElementById("pending-count");
 
-
 const clientCount =
   document.getElementById("client-count");
 
-
 const formCount =
   document.getElementById("form-count");
-
 
 const studioMessage =
   document.getElementById("studio-message");
 
 
+const clientModal =
+  document.getElementById("client-modal");
+
+const clientModalClose =
+  document.getElementById("client-modal-close");
+
+const clientModalTitle =
+  document.getElementById("client-modal-title");
+
+const editClientName =
+  document.getElementById("edit-client-name");
+
+const editMembership =
+  document.getElementById("edit-membership");
+
+const editMembershipStatus =
+  document.getElementById("edit-membership-status");
+
+const editServiceStatus =
+  document.getElementById("edit-service-status");
+
+const editHoursTotal =
+  document.getElementById("edit-hours-total");
+
+const editHoursRemaining =
+  document.getElementById("edit-hours-remaining");
+
+const saveClientButton =
+  document.getElementById("save-client-button");
+
+
 const formModal =
   document.getElementById("form-modal");
-
 
 const formModalClose =
   document.getElementById("form-modal-close");
 
-
 const formModalTitle =
   document.getElementById("form-modal-title");
 
-
 const formModalClient =
   document.getElementById("form-modal-client");
-
 
 const formDetailGrid =
   document.getElementById("form-detail-grid");
 
 
+let loadedClients =
+  new Map();
+
 let loadedForms =
   new Map();
+
+let editingClientId =
+  null;
 
 
 /* ==================================================
@@ -1472,7 +1750,6 @@ window.adminLogin =
         .getElementById("email")
         .value
         .trim();
-
 
     const password =
       document
@@ -1603,7 +1880,9 @@ async function loadStudioData(){
     results[1] || [];
 
 
-  await loadClientForms(clients);
+  await loadClientForms(
+    clients
+  );
 
 }
 
@@ -1632,7 +1911,9 @@ async function loadPendingRegistrations(){
 
 
     const snapshot =
-      await getDocs(pendingQuery);
+      await getDocs(
+        pendingQuery
+      );
 
 
     pendingCount.textContent =
@@ -1659,14 +1940,12 @@ async function loadPendingRegistrations(){
         const data =
           userDocument.data();
 
-
         const uid =
           userDocument.id;
 
 
         const item =
           document.createElement("div");
-
 
         item.className =
           "registration-item";
@@ -1679,10 +1958,8 @@ async function loadPendingRegistrations(){
         const name =
           document.createElement("div");
 
-
         name.className =
           "person-name";
-
 
         name.textContent =
           data.fullName ||
@@ -1697,7 +1974,6 @@ async function loadPendingRegistrations(){
 
         const details =
           document.createElement("div");
-
 
         details.className =
           "person-details";
@@ -1726,21 +2002,17 @@ async function loadPendingRegistrations(){
 
 
         info.appendChild(name);
-
         info.appendChild(details);
 
 
         const status =
           document.createElement("span");
 
-
         status.className =
           "status-pill status-pending";
 
-
         status.textContent =
           "Awaiting approval";
-
 
         info.appendChild(status);
 
@@ -1750,15 +2022,12 @@ async function loadPendingRegistrations(){
           const note =
             document.createElement("div");
 
-
           note.className =
             "message-note";
-
 
           note.textContent =
             "Registration note: " +
             data.message;
-
 
           info.appendChild(note);
 
@@ -1768,7 +2037,6 @@ async function loadPendingRegistrations(){
         const actions =
           document.createElement("div");
 
-
         actions.className =
           "actions";
 
@@ -1776,14 +2044,11 @@ async function loadPendingRegistrations(){
         const approve =
           document.createElement("button");
 
-
         approve.type =
           "button";
 
-
         approve.className =
           "action-button approve-button";
-
 
         approve.textContent =
           "Approve";
@@ -1792,14 +2057,11 @@ async function loadPendingRegistrations(){
         const reject =
           document.createElement("button");
 
-
         reject.type =
           "button";
 
-
         reject.className =
           "action-button reject-button";
-
 
         reject.textContent =
           "Reject";
@@ -1837,7 +2099,6 @@ async function loadPendingRegistrations(){
           approve
         );
 
-
         actions.appendChild(
           reject
         );
@@ -1846,7 +2107,6 @@ async function loadPendingRegistrations(){
         item.appendChild(
           info
         );
-
 
         item.appendChild(
           actions
@@ -1865,10 +2125,8 @@ async function loadPendingRegistrations(){
 
     console.error(error);
 
-
     pendingCount.textContent =
       "—";
-
 
     pendingList.innerHTML =
       '<div class="empty-state">Unable to load registrations. Check your Firebase connection and Firestore rules.</div>';
@@ -1904,10 +2162,8 @@ async function approveRegistration(
   approveButton.disabled =
     true;
 
-
   rejectButton.disabled =
     true;
-
 
   approveButton.textContent =
     "Approving...";
@@ -1998,8 +2254,14 @@ async function approveRegistration(
         status:
           "Active",
 
+        monthlyHours:
+          0,
+
+        hoursTotal:
+          0,
+
         hoursRemaining:
-          "",
+          0,
 
         createdAt:
           serverTimestamp(),
@@ -2054,10 +2316,8 @@ async function approveRegistration(
     approveButton.disabled =
       false;
 
-
     rejectButton.disabled =
       false;
-
 
     approveButton.textContent =
       "Approve";
@@ -2093,10 +2353,8 @@ async function rejectRegistration(
   approveButton.disabled =
     true;
 
-
   rejectButton.disabled =
     true;
-
 
   rejectButton.textContent =
     "Rejecting...";
@@ -2145,10 +2403,8 @@ async function rejectRegistration(
     approveButton.disabled =
       false;
 
-
     rejectButton.disabled =
       false;
-
 
     rejectButton.textContent =
       "Reject";
@@ -2166,6 +2422,10 @@ async function loadClients(){
 
   clientList.innerHTML =
     '<div class="loading-state">Loading clients...</div>';
+
+
+  loadedClients =
+    new Map();
 
 
   try{
@@ -2208,18 +2468,29 @@ async function loadClients(){
           clientDocument.data();
 
 
-        clients.push({
-          id:
-            clientDocument.id,
+        const client =
+          {
+            id:
+              clientDocument.id,
 
-          data:
-            data
-        });
+            data:
+              data
+          };
+
+
+        clients.push(
+          client
+        );
+
+
+        loadedClients.set(
+          clientDocument.id,
+          client
+        );
 
 
         const item =
           document.createElement("div");
-
 
         item.className =
           "client-item";
@@ -2232,10 +2503,8 @@ async function loadClients(){
         const name =
           document.createElement("div");
 
-
         name.className =
           "person-name";
-
 
         name.textContent =
           data.fullName ||
@@ -2246,7 +2515,6 @@ async function loadClients(){
         const details =
           document.createElement("div");
 
-
         details.className =
           "person-details";
 
@@ -2255,6 +2523,19 @@ async function loadClients(){
           data.membership ||
           data.package ||
           "Not assigned";
+
+
+        const hoursRemaining =
+          normaliseDisplayNumber(
+            data.hoursRemaining
+          );
+
+
+        const allocatedHours =
+          normaliseDisplayNumber(
+            data.hoursTotal ??
+            data.monthlyHours
+          );
 
 
         details.innerHTML =
@@ -2272,7 +2553,19 @@ async function loadClients(){
               : "",
 
             "Membership: " +
-              escapeHTML(membership)
+              escapeHTML(membership),
+
+            "Membership status: " +
+              escapeHTML(
+                data.membershipStatus ||
+                "Not set"
+              ),
+
+            "Hours: " +
+              escapeHTML(hoursRemaining) +
+              " remaining / " +
+              escapeHTML(allocatedHours) +
+              " allocated"
           ]
           .filter(Boolean)
           .join("<br>");
@@ -2281,10 +2574,8 @@ async function loadClients(){
         const status =
           document.createElement("span");
 
-
         status.className =
           "status-pill status-approved";
-
 
         status.textContent =
           data.status ||
@@ -2295,19 +2586,58 @@ async function loadClients(){
           name
         );
 
-
         info.appendChild(
           details
         );
-
 
         info.appendChild(
           status
         );
 
 
+        const actions =
+          document.createElement("div");
+
+        actions.className =
+          "actions";
+
+
+        const edit =
+          document.createElement("button");
+
+        edit.type =
+          "button";
+
+        edit.className =
+          "action-button edit-button";
+
+        edit.textContent =
+          "Edit Client";
+
+
+        edit.addEventListener(
+          "click",
+          function(){
+
+            openClientEditor(
+              clientDocument.id
+            );
+
+          }
+        );
+
+
+        actions.appendChild(
+          edit
+        );
+
+
         item.appendChild(
           info
+        );
+
+        item.appendChild(
+          actions
         );
 
 
@@ -2340,6 +2670,295 @@ async function loadClients(){
   }
 
 }
+
+
+/* ==================================================
+   EDIT CLIENT
+================================================== */
+
+function openClientEditor(clientId){
+
+  const client =
+    loadedClients.get(
+      clientId
+    );
+
+
+  if(!client){
+
+    return;
+
+  }
+
+
+  editingClientId =
+    clientId;
+
+
+  const data =
+    client.data;
+
+
+  const name =
+    data.fullName ||
+    data.name ||
+    "Client";
+
+
+  clientModalTitle.textContent =
+    "Edit " + name;
+
+
+  editClientName.value =
+    name;
+
+
+  editMembership.value =
+    data.membership ||
+    data.package ||
+    "";
+
+
+  editMembershipStatus.value =
+    validSelectValue(
+      editMembershipStatus,
+      data.membershipStatus,
+      "Awaiting setup"
+    );
+
+
+  editServiceStatus.value =
+    validSelectValue(
+      editServiceStatus,
+      data.status,
+      "Active"
+    );
+
+
+  editHoursTotal.value =
+    normaliseInputNumber(
+      data.hoursTotal ??
+      data.monthlyHours
+    );
+
+
+  editHoursRemaining.value =
+    normaliseInputNumber(
+      data.hoursRemaining
+    );
+
+
+  clientModal.classList.add(
+    "is-open"
+  );
+
+
+  clientModal.setAttribute(
+    "aria-hidden",
+    "false"
+  );
+
+
+  document.body.style.overflow =
+    "hidden";
+
+}
+
+
+function closeClientEditor(){
+
+  clientModal.classList.remove(
+    "is-open"
+  );
+
+
+  clientModal.setAttribute(
+    "aria-hidden",
+    "true"
+  );
+
+
+  document.body.style.overflow =
+    "";
+
+
+  editingClientId =
+    null;
+
+}
+
+
+clientModalClose.addEventListener(
+  "click",
+  closeClientEditor
+);
+
+
+clientModal.addEventListener(
+  "click",
+  function(event){
+
+    if(
+      event.target === clientModal
+    ){
+
+      closeClientEditor();
+
+    }
+
+  }
+);
+
+
+saveClientButton.addEventListener(
+  "click",
+  async function(){
+
+    if(!editingClientId){
+
+      return;
+
+    }
+
+
+    const membership =
+      editMembership.value.trim();
+
+
+    const membershipStatus =
+      editMembershipStatus.value;
+
+
+    const serviceStatus =
+      editServiceStatus.value;
+
+
+    const allocatedHours =
+      parseOptionalNumber(
+        editHoursTotal.value
+      );
+
+
+    const hoursRemaining =
+      parseOptionalNumber(
+        editHoursRemaining.value
+      );
+
+
+    if(
+      allocatedHours !== "" &&
+      allocatedHours < 0
+    ){
+
+      showStudioMessage(
+        "error",
+        "Allocated hours cannot be below zero."
+      );
+
+      return;
+
+    }
+
+
+    if(
+      hoursRemaining !== "" &&
+      hoursRemaining < 0
+    ){
+
+      showStudioMessage(
+        "error",
+        "Hours remaining cannot be below zero."
+      );
+
+      return;
+
+    }
+
+
+    saveClientButton.disabled =
+      true;
+
+
+    saveClientButton.textContent =
+      "Saving...";
+
+
+    try{
+
+      await updateDoc(
+        doc(
+          db,
+          "clients",
+          editingClientId
+        ),
+        {
+
+          membership:
+            membership ||
+            "To be confirmed",
+
+          package:
+            membership ||
+            "To be confirmed",
+
+          membershipStatus:
+            membershipStatus,
+
+          status:
+            serviceStatus,
+
+          monthlyHours:
+            allocatedHours,
+
+          hoursTotal:
+            allocatedHours,
+
+          hoursRemaining:
+            hoursRemaining,
+
+          updatedAt:
+            serverTimestamp()
+
+        }
+      );
+
+
+      closeClientEditor();
+
+
+      showStudioMessage(
+        "success",
+        "Client details updated successfully."
+      );
+
+
+      await loadStudioData();
+
+
+    }catch(error){
+
+      console.error(error);
+
+
+      showStudioMessage(
+        "error",
+        "The client could not be updated. Please try again."
+      );
+
+
+    }finally{
+
+      saveClientButton.disabled =
+        false;
+
+
+      saveClientButton.textContent =
+        "Save Client Changes";
+
+    }
+
+  }
+);
 
 
 /* ==================================================
@@ -2467,7 +3086,6 @@ async function loadClientForms(clients){
         const item =
           document.createElement("div");
 
-
         item.className =
           "form-item";
 
@@ -2479,10 +3097,8 @@ async function loadClientForms(clients){
         const title =
           document.createElement("div");
 
-
         title.className =
           "form-title";
-
 
         title.textContent =
           getFormTitle(
@@ -2494,10 +3110,8 @@ async function loadClientForms(clients){
         const client =
           document.createElement("div");
 
-
         client.className =
           "form-client";
-
 
         client.textContent =
           form.clientName;
@@ -2505,7 +3119,6 @@ async function loadClientForms(clients){
 
         const meta =
           document.createElement("div");
-
 
         meta.className =
           "form-meta";
@@ -2527,10 +3140,8 @@ async function loadClientForms(clients){
         const status =
           document.createElement("span");
 
-
         status.className =
           "status-pill status-submitted";
-
 
         status.textContent =
           form.data.status === "submitted"
@@ -2545,16 +3156,13 @@ async function loadClientForms(clients){
           title
         );
 
-
         info.appendChild(
           client
         );
 
-
         info.appendChild(
           meta
         );
-
 
         info.appendChild(
           status
@@ -2564,7 +3172,6 @@ async function loadClientForms(clients){
         const actions =
           document.createElement("div");
 
-
         actions.className =
           "actions";
 
@@ -2572,14 +3179,11 @@ async function loadClientForms(clients){
         const view =
           document.createElement("button");
 
-
         view.type =
           "button";
 
-
         view.className =
           "action-button view-button";
-
 
         view.textContent =
           "View Form";
@@ -2605,7 +3209,6 @@ async function loadClientForms(clients){
         item.appendChild(
           info
         );
-
 
         item.appendChild(
           actions
@@ -2644,7 +3247,9 @@ async function loadClientForms(clients){
 function openFormViewer(key){
 
   const form =
-    loadedForms.get(key);
+    loadedForms.get(
+      key
+    );
 
 
   if(!form){
@@ -2682,7 +3287,6 @@ function openFormViewer(key){
       const detail =
         document.createElement("div");
 
-
       detail.className =
         "form-detail";
 
@@ -2690,10 +3294,8 @@ function openFormViewer(key){
       const label =
         document.createElement("span");
 
-
       label.className =
         "form-detail-label";
-
 
       label.textContent =
         field.label;
@@ -2702,10 +3304,8 @@ function openFormViewer(key){
       const value =
         document.createElement("div");
 
-
       value.className =
         "form-detail-value";
-
 
       value.textContent =
         formatFieldValue(
@@ -2716,7 +3316,6 @@ function openFormViewer(key){
       detail.appendChild(
         label
       );
-
 
       detail.appendChild(
         value
@@ -2789,13 +3388,38 @@ formModal.addEventListener(
 );
 
 
+/* ==================================================
+   ESCAPE KEY
+================================================== */
+
 document.addEventListener(
   "keydown",
   function(event){
 
+    if(event.key !== "Escape"){
+
+      return;
+
+    }
+
+
     if(
-      event.key === "Escape" &&
-      formModal.classList.contains("is-open")
+      clientModal.classList.contains(
+        "is-open"
+      )
+    ){
+
+      closeClientEditor();
+
+      return;
+
+    }
+
+
+    if(
+      formModal.classList.contains(
+        "is-open"
+      )
     ){
 
       closeFormViewer();
@@ -2812,7 +3436,10 @@ document.addEventListener(
 
 function getFormFields(formId,data){
 
-  if(formId === "client-information"){
+  if(
+    formId ===
+    "client-information"
+  ){
 
     return [
 
@@ -2899,7 +3526,10 @@ function getFormFields(formId,data){
   }
 
 
-  if(formId === "client-review"){
+  if(
+    formId ===
+    "client-review"
+  ){
 
     return [
 
@@ -2940,7 +3570,10 @@ function getFormFields(formId,data){
   }
 
 
-  if(formId === "change-of-circumstances"){
+  if(
+    formId ===
+    "change-of-circumstances"
+  ){
 
     return [
 
@@ -3000,7 +3633,9 @@ function getFormFields(formId,data){
           "updatedAt",
           "formType",
           "status"
-        ].includes(entry[0]);
+        ].includes(
+          entry[0]
+        );
 
       }
     )
@@ -3010,6 +3645,7 @@ function getFormFields(formId,data){
         return {
           label:
             entry[0],
+
           value:
             entry[1]
         };
@@ -3032,7 +3668,8 @@ function getFormTitle(formId,data){
 
 
   if(
-    type === "client-information"
+    type ===
+    "client-information"
   ){
 
     return "Client Information Form";
@@ -3041,7 +3678,8 @@ function getFormTitle(formId,data){
 
 
   if(
-    type === "client-review"
+    type ===
+    "client-review"
   ){
 
     return "Client Review";
@@ -3050,7 +3688,8 @@ function getFormTitle(formId,data){
 
 
   if(
-    type === "change-of-circumstances"
+    type ===
+    "change-of-circumstances"
   ){
 
     return "Change of Circumstances";
@@ -3076,7 +3715,10 @@ function formatFieldValue(value){
   }
 
 
-  if(typeof value === "boolean"){
+  if(
+    typeof value ===
+    "boolean"
+  ){
 
     return value
       ? "Yes"
@@ -3092,7 +3734,7 @@ function formatFieldValue(value){
 
 function escapeHTML(value){
 
-  return String(value)
+  return String(value ?? "")
     .replaceAll("&","&amp;")
     .replaceAll("<","&lt;")
     .replaceAll(">","&gt;")
@@ -3108,7 +3750,8 @@ function formatDate(timestamp){
 
     if(
       timestamp &&
-      typeof timestamp.toDate === "function"
+      typeof timestamp.toDate ===
+      "function"
     ){
 
       return timestamp
@@ -3142,7 +3785,8 @@ function formatDateTime(timestamp){
 
     if(
       timestamp &&
-      typeof timestamp.toDate === "function"
+      typeof timestamp.toDate ===
+      "function"
     ){
 
       return timestamp
@@ -3178,10 +3822,12 @@ function getTimestampMilliseconds(timestamp){
 
     if(
       timestamp &&
-      typeof timestamp.toMillis === "function"
+      typeof timestamp.toMillis ===
+      "function"
     ){
 
-      return timestamp.toMillis();
+      return timestamp
+        .toMillis();
 
     }
 
@@ -3196,6 +3842,111 @@ function getTimestampMilliseconds(timestamp){
 
 }
 
+
+function parseOptionalNumber(value){
+
+  const clean =
+    String(value ?? "")
+      .trim();
+
+
+  if(clean === ""){
+
+    return "";
+
+  }
+
+
+  const number =
+    Number(clean);
+
+
+  return Number.isFinite(number)
+    ? number
+    : "";
+
+}
+
+
+function normaliseInputNumber(value){
+
+  if(
+    value === undefined ||
+    value === null ||
+    value === ""
+  ){
+
+    return "";
+
+  }
+
+
+  const number =
+    Number(value);
+
+
+  return Number.isFinite(number)
+    ? String(number)
+    : "";
+
+}
+
+
+function normaliseDisplayNumber(value){
+
+  if(
+    value === undefined ||
+    value === null ||
+    value === ""
+  ){
+
+    return "0";
+
+  }
+
+
+  const number =
+    Number(value);
+
+
+  if(Number.isFinite(number)){
+
+    return String(number);
+
+  }
+
+
+  return String(value);
+
+}
+
+
+function validSelectValue(
+  selectElement,
+  requestedValue,
+  fallback
+){
+
+  const options =
+    Array.from(
+      selectElement.options
+    )
+    .map(
+      function(option){
+
+        return option.value;
+
+      }
+    );
+
+
+  return options.includes(
+    requestedValue
+  )
+    ? requestedValue
+    : fallback;
+
+}
 
 </script>
 
