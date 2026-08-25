@@ -1,324 +1,1571 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 
 <head>
 
-<meta charset="UTF-8">
-
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0"
->
-
-<title>Forms | My Sorted.</title>
-
-<meta
-  name="robots"
-  content="noindex,nofollow"
->
-
-<link
-  rel="icon"
-  href="../favicon.png"
-  type="image/png"
->
-
-<meta
-  name="theme-color"
-  content="#17261b"
->
+  <meta charset="UTF-8">
 
-<style>
-
-:root{
-  --cream:#f8f1e7;
-  --cream-light:#fffaf3;
-  --forest:#17261b;
-  --sage-dark:#314632;
-  --sage:#718c67;
-  --gold:#caa76a;
-  --ink:#1d241f;
-  --muted:#70756f;
-  --white:#ffffff;
-  --border:rgba(202,167,106,.28);
-  --shadow:0 18px 45px rgba(23,38,27,.10);
-}
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-*{
-  box-sizing:border-box;
-}
+  <title>Forms | My Sorted.</title>
 
-body{
-  margin:0;
+  <meta
+    name="description"
+    content="Access and update your secure Sorted. client forms."
+  >
 
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    Helvetica,
-    Arial,
-    sans-serif;
+  <meta
+    name="robots"
+    content="noindex,nofollow"
+  >
 
-  background:
-    radial-gradient(
-      circle at top left,
-      rgba(202,167,106,.12),
-      transparent 30%
-    ),
-    var(--cream);
+  <meta
+    name="theme-color"
+    content="#17261b"
+  >
 
-  color:var(--ink);
-}
+  <link
+    rel="icon"
+    href="../favicon.png"
+    type="image/png"
+  >
 
-a{
-  color:inherit;
-}
+  <link
+    rel="apple-touch-icon"
+    href="../favicon.png"
+  >
 
-.site-header{
-  position:sticky;
-  top:0;
-  z-index:1000;
+  <script
+    defer
+    src="https://unpkg.com/lucide@0.542.0/dist/umd/lucide.js"
+  ></script>
 
-  background:rgba(255,255,255,.95);
 
-  border-bottom:1px solid rgba(202,167,106,.22);
+  <style>
 
-  box-shadow:0 8px 28px rgba(23,38,27,.06);
+    /* ==================================================
+       ROOT
+    ================================================== */
 
-  backdrop-filter:blur(12px);
-  -webkit-backdrop-filter:blur(12px);
-}
+    :root {
 
-.header-inner{
-  width:min(1000px,92%);
-  min-height:72px;
+      --cream:#f8f1e7;
+      --cream-soft:#fffaf4;
+      --cream-deep:#efe0cc;
 
-  margin:auto;
+      --forest:#17261b;
+      --forest-soft:#223228;
 
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+      --sage:#314632;
+      --sage-mid:#718c67;
+      --sage-pale:#e6eadf;
 
-  gap:20px;
-}
+      --gold:#caa76a;
+      --gold-soft:#dec28d;
 
-.logo{
-  color:var(--forest);
+      --white:#ffffff;
 
-  font-size:2rem;
-  font-weight:900;
+      --ink:#1d241f;
+      --muted:#6f746e;
 
-  text-decoration:none;
+      --success:#47704d;
+      --success-soft:#edf5ec;
 
-  letter-spacing:-1.5px;
-}
+      --pending:#8a6828;
+      --pending-soft:#fff6e5;
 
-.logo span{
-  color:var(--gold);
-}
+      --border:rgba(202,167,106,.26);
 
-.back-header{
-  padding:11px 17px;
+      --shadow:
+        0 28px 75px rgba(23,38,27,.13);
 
-  color:var(--forest);
-  background:var(--cream-light);
+      --soft-shadow:
+        0 14px 36px rgba(23,38,27,.08);
 
-  border:1px solid var(--border);
-  border-radius:999px;
+    }
 
-  font-size:.9rem;
-  font-weight:800;
 
-  text-decoration:none;
-}
+    /* ==================================================
+       RESET
+    ================================================== */
 
-.container{
-  width:min(900px,92%);
+    * {
 
-  margin:auto;
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
 
-  padding:42px 0 70px;
-}
+    }
 
-.intro{
-  margin-bottom:30px;
-}
 
-.eyebrow{
-  margin:0 0 8px;
+    html {
 
-  color:var(--gold);
+      scroll-behavior:smooth;
 
-  font-size:.78rem;
-  font-weight:900;
+    }
 
-  letter-spacing:2px;
 
-  text-transform:uppercase;
-}
+    body {
 
-h1{
-  margin:0 0 12px;
+      min-height:100vh;
 
-  color:var(--forest);
+      overflow-x:hidden;
 
-  font-size:clamp(2.4rem,7vw,4rem);
+      background:
 
-  line-height:1;
-  letter-spacing:-2px;
-}
+        radial-gradient(
+          circle at 4% 5%,
+          rgba(202,167,106,.12),
+          transparent 28%
+        ),
 
-.subtitle{
-  max-width:650px;
+        radial-gradient(
+          circle at 95% 8%,
+          rgba(113,140,103,.12),
+          transparent 29%
+        ),
 
-  margin:0;
+        linear-gradient(
+          180deg,
+          var(--cream-soft),
+          var(--cream)
+        );
 
-  color:var(--muted);
+      color:var(--ink);
 
-  font-size:1.05rem;
-  line-height:1.7;
-}
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
 
-.card{
-  margin-bottom:22px;
-  padding:28px;
+      line-height:1.65;
 
-  background:white;
+    }
 
-  border:1px solid var(--border);
-  border-radius:25px;
 
-  box-shadow:var(--shadow);
-}
+    a {
 
-.card h2{
-  margin:0 0 12px;
+      color:inherit;
+      text-decoration:none;
 
-  color:var(--forest);
+    }
 
-  font-size:1.55rem;
-  line-height:1.2;
-}
 
-.card p{
-  margin:0;
+    button,
+    input,
+    select,
+    textarea {
 
-  color:var(--muted);
+      font:inherit;
 
-  line-height:1.65;
-}
+    }
 
-.status{
-  display:inline-block;
 
-  margin-top:18px;
-  padding:9px 17px;
+    button,
+    a {
 
-  border-radius:999px;
+      -webkit-tap-highlight-color:transparent;
 
-  background:#eef5ea;
-  color:var(--sage-dark);
+    }
 
-  font-size:.92rem;
-  font-weight:800;
-}
 
-.status.completed{
-  color:#285d37;
-  background:#e8f4e9;
-}
+    ::selection {
 
-.button{
-  display:inline-block;
+      background:var(--gold);
+      color:white;
 
-  margin-top:18px;
-  padding:14px 23px;
+    }
 
-  color:white;
-  background:var(--forest);
 
-  border-radius:999px;
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible,
+    select:focus-visible {
 
-  font-weight:800;
+      outline:3px solid var(--gold);
+      outline-offset:4px;
 
-  text-decoration:none;
-}
+    }
 
-.loading-screen{
-  position:fixed;
-  inset:0;
 
-  z-index:9999;
+    .container {
 
-  display:flex;
-  align-items:center;
-  justify-content:center;
+      width:min(1180px,92%);
+      margin:0 auto;
 
-  padding:20px;
+    }
 
-  background:var(--cream);
-}
 
-.loading-card{
-  width:min(420px,100%);
+    /* ==================================================
+       HEADER
+    ================================================== */
 
-  padding:30px;
+    .site-header {
 
-  text-align:center;
+      position:sticky;
+      top:0;
 
-  background:white;
+      z-index:1000;
 
-  border:1px solid var(--border);
-  border-radius:24px;
+      border-bottom:
+        1px solid rgba(202,167,106,.2);
 
-  box-shadow:var(--shadow);
-}
+      background:
+        rgba(255,253,249,.95);
 
-.loading-card strong{
-  display:block;
+      box-shadow:
+        0 10px 35px rgba(23,38,27,.07);
 
-  margin-bottom:8px;
+      backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px);
 
-  color:var(--forest);
+    }
 
-  font-size:1.2rem;
-}
 
-.loading-card p{
-  margin:0;
+    .header-inner {
 
-  color:var(--muted);
-}
+      min-height:74px;
 
-@media(max-width:650px){
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
 
-  .header-inner{
-    min-height:64px;
-  }
+      gap:24px;
 
-  .logo{
-    font-size:1.8rem;
-  }
+    }
 
-  .container{
-    padding-top:30px;
-  }
 
-  .card{
-    padding:25px 22px;
-  }
+    .brand-group {
 
-}
+      min-width:0;
 
-</style>
+      display:flex;
+      align-items:center;
 
-<link rel="stylesheet" href="brand.css">
+      gap:17px;
+
+    }
+
+
+    .logo {
+
+      flex-shrink:0;
+
+      color:var(--forest);
+
+      font-size:2rem;
+      font-weight:850;
+
+      letter-spacing:-1px;
+
+    }
+
+
+    .logo span {
+
+      color:var(--gold);
+
+    }
+
+
+    .portal-name {
+
+      padding-left:17px;
+
+      border-left:
+        1px solid rgba(23,38,27,.13);
+
+      color:var(--sage-mid);
+
+      font-size:.72rem;
+      font-weight:900;
+
+      letter-spacing:2px;
+
+      text-transform:uppercase;
+
+    }
+
+
+    .back-header {
+
+      min-height:43px;
+
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+
+      gap:8px;
+
+      padding:9px 16px;
+
+      border:
+        1px solid rgba(202,167,106,.28);
+
+      border-radius:999px;
+
+      background:
+        rgba(255,250,244,.9);
+
+      color:var(--forest);
+
+      font-size:.76rem;
+      font-weight:850;
+
+      transition:
+        background .25s ease,
+        color .25s ease,
+        transform .25s ease,
+        box-shadow .25s ease;
+
+    }
+
+
+    .back-header:hover {
+
+      background:var(--forest);
+      color:white;
+
+      transform:translateY(-2px);
+
+      box-shadow:
+        0 12px 28px rgba(23,38,27,.14);
+
+    }
+
+
+    .back-header svg {
+
+      width:17px;
+      height:17px;
+
+    }
+
+
+    /* ==================================================
+       MAIN
+    ================================================== */
+
+    .page-main {
+
+      padding:30px 0 70px;
+
+    }
+
+
+    /* ==================================================
+       HERO
+    ================================================== */
+
+    .forms-hero {
+
+      position:relative;
+
+      overflow:hidden;
+
+      display:grid;
+
+      grid-template-columns:
+        minmax(0,1.25fr)
+        minmax(280px,.75fr);
+
+      align-items:center;
+
+      gap:32px;
+
+      margin-bottom:25px;
+
+      padding:40px 42px;
+
+      border:
+        1px solid rgba(202,167,106,.23);
+
+      border-radius:32px;
+
+      background:
+
+        radial-gradient(
+          circle at 92% 8%,
+          rgba(202,167,106,.19),
+          transparent 31%
+        ),
+
+        radial-gradient(
+          circle at 5% 94%,
+          rgba(113,140,103,.16),
+          transparent 34%
+        ),
+
+        linear-gradient(
+          140deg,
+          var(--forest),
+          var(--forest-soft)
+        );
+
+      color:white;
+
+      box-shadow:var(--shadow);
+
+    }
+
+
+    .forms-hero::before {
+
+      content:"";
+
+      position:absolute;
+
+      top:-150px;
+      right:-120px;
+
+      width:350px;
+      height:350px;
+
+      border:
+        1px solid rgba(222,194,141,.13);
+
+      border-radius:50%;
+
+    }
+
+
+    .hero-copy,
+    .hero-note {
+
+      position:relative;
+      z-index:2;
+
+    }
+
+
+    .hero-eyebrow {
+
+      display:flex;
+      align-items:center;
+
+      gap:9px;
+
+      margin-bottom:14px;
+
+      color:var(--gold-soft);
+
+      font-size:.68rem;
+      font-weight:900;
+
+      letter-spacing:2px;
+
+      text-transform:uppercase;
+
+    }
+
+
+    .hero-eyebrow svg {
+
+      width:17px;
+      height:17px;
+
+    }
+
+
+    .forms-hero h1 {
+
+      max-width:700px;
+
+      margin-bottom:17px;
+
+      color:white;
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size:
+        clamp(3rem,5vw,4.65rem);
+
+      font-weight:500;
+
+      line-height:1;
+
+      letter-spacing:-2.6px;
+
+    }
+
+
+    .forms-hero h1 em {
+
+      display:block;
+
+      color:var(--gold-soft);
+
+      font-weight:500;
+
+    }
+
+
+    .hero-description {
+
+      max-width:680px;
+
+      color:rgba(255,255,255,.73);
+
+      font-size:.94rem;
+      line-height:1.72;
+
+    }
+
+
+    .hero-note {
+
+      padding:23px;
+
+      border:
+        1px solid rgba(255,255,255,.13);
+
+      border-radius:23px;
+
+      background:
+        rgba(255,255,255,.07);
+
+      backdrop-filter:blur(12px);
+      -webkit-backdrop-filter:blur(12px);
+
+    }
+
+
+    .hero-note-icon {
+
+      width:46px;
+      height:46px;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      margin-bottom:16px;
+
+      border-radius:50%;
+
+      background:
+        rgba(202,167,106,.14);
+
+      color:var(--gold-soft);
+
+    }
+
+
+    .hero-note-icon svg {
+
+      width:22px;
+      height:22px;
+
+    }
+
+
+    .hero-note strong {
+
+      display:block;
+
+      margin-bottom:7px;
+
+      color:white;
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size:1.3rem;
+      font-weight:500;
+
+    }
+
+
+    .hero-note p {
+
+      color:rgba(255,255,255,.67);
+
+      font-size:.77rem;
+      line-height:1.6;
+
+    }
+
+
+    /* ==================================================
+       INTRO
+    ================================================== */
+
+    .section-intro {
+
+      max-width:760px;
+
+      margin:0 auto 31px;
+
+      text-align:center;
+
+    }
+
+
+    .eyebrow {
+
+      margin-bottom:10px;
+
+      color:var(--gold);
+
+      font-size:.67rem;
+      font-weight:900;
+
+      letter-spacing:2px;
+
+      text-transform:uppercase;
+
+    }
+
+
+    .section-intro h2 {
+
+      margin-bottom:12px;
+
+      color:var(--forest);
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size:
+        clamp(2.3rem,4vw,3.4rem);
+
+      font-weight:500;
+
+      line-height:1.07;
+
+      letter-spacing:-1.8px;
+
+    }
+
+
+    .section-intro p {
+
+      max-width:660px;
+
+      margin:0 auto;
+
+      color:var(--muted);
+
+      font-size:.91rem;
+      line-height:1.7;
+
+    }
+
+
+    /* ==================================================
+       FORM GRID
+    ================================================== */
+
+    .forms-grid {
+
+      display:grid;
+
+      grid-template-columns:
+        repeat(3,minmax(0,1fr));
+
+      gap:19px;
+
+      margin-bottom:28px;
+
+    }
+
+
+    .form-card {
+
+      position:relative;
+
+      min-height:355px;
+
+      display:flex;
+      flex-direction:column;
+
+      overflow:hidden;
+
+      padding:26px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:25px;
+
+      background:
+
+        radial-gradient(
+          circle at 100% 0%,
+          rgba(202,167,106,.10),
+          transparent 35%
+        ),
+
+        rgba(255,255,255,.87);
+
+      box-shadow:var(--soft-shadow);
+
+      transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        border-color .3s ease;
+
+    }
+
+
+    .form-card:hover {
+
+      transform:translateY(-6px);
+
+      border-color:
+        rgba(202,167,106,.42);
+
+      box-shadow:var(--shadow);
+
+    }
+
+
+    .form-card::after {
+
+      content:"";
+
+      position:absolute;
+
+      right:-55px;
+      bottom:-65px;
+
+      width:155px;
+      height:155px;
+
+      border:
+        1px solid rgba(113,140,103,.09);
+
+      border-radius:50%;
+
+      pointer-events:none;
+
+    }
+
+
+    .card-top {
+
+      position:relative;
+      z-index:2;
+
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+
+      gap:14px;
+
+      margin-bottom:23px;
+
+    }
+
+
+    .form-icon {
+
+      width:54px;
+      height:54px;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      border-radius:17px;
+
+      background:
+
+        linear-gradient(
+          135deg,
+          var(--forest),
+          var(--sage)
+        );
+
+      color:white;
+
+      box-shadow:
+        0 11px 24px rgba(23,38,27,.15);
+
+    }
+
+
+    .form-icon svg {
+
+      width:25px;
+      height:25px;
+
+      stroke-width:1.8;
+
+    }
+
+
+    .form-number {
+
+      color:
+        rgba(202,167,106,.85);
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size:2rem;
+
+      line-height:1;
+
+    }
+
+
+    .form-card h3 {
+
+      position:relative;
+      z-index:2;
+
+      margin-bottom:11px;
+
+      color:var(--forest);
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size:1.55rem;
+      font-weight:500;
+
+      line-height:1.15;
+
+    }
+
+
+    .form-card-description {
+
+      position:relative;
+      z-index:2;
+
+      margin-bottom:18px;
+
+      color:var(--muted);
+
+      font-size:.82rem;
+      line-height:1.62;
+
+    }
+
+
+    .status {
+
+      position:relative;
+      z-index:2;
+
+      width:max-content;
+
+      display:inline-flex;
+      align-items:center;
+
+      gap:7px;
+
+      margin-bottom:18px;
+      padding:7px 11px;
+
+      border-radius:999px;
+
+      background:var(--pending-soft);
+      color:var(--pending);
+
+      font-size:.68rem;
+      font-weight:850;
+
+    }
+
+
+    .status::before {
+
+      content:"";
+
+      width:7px;
+      height:7px;
+
+      border-radius:50%;
+
+      background:currentColor;
+
+    }
+
+
+    .status.completed {
+
+      background:var(--success-soft);
+      color:var(--success);
+
+    }
+
+
+    .button {
+
+      position:relative;
+      z-index:2;
+
+      min-height:48px;
+
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+
+      gap:8px;
+
+      margin-top:auto;
+      padding:12px 17px;
+
+      border-radius:999px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--forest),
+          var(--sage)
+        );
+
+      color:white;
+
+      font-size:.76rem;
+      font-weight:900;
+
+      box-shadow:
+        0 12px 27px rgba(23,38,27,.13);
+
+      transition:
+        transform .22s ease,
+        box-shadow .22s ease;
+
+    }
+
+
+    .button:hover {
+
+      transform:translateY(-2px);
+
+      box-shadow:
+        0 16px 34px rgba(23,38,27,.18);
+
+    }
+
+
+    .button svg {
+
+      width:16px;
+      height:16px;
+
+    }
+
+
+    /* ==================================================
+       INFORMATION PANEL
+    ================================================== */
+
+    .information-panel {
+
+      position:relative;
+
+      overflow:hidden;
+
+      display:grid;
+
+      grid-template-columns:
+        auto
+        minmax(0,1fr)
+        auto;
+
+      align-items:center;
+
+      gap:18px;
+
+      padding:23px 25px;
+
+      border:
+        1px solid rgba(202,167,106,.25);
+
+      border-radius:22px;
+
+      background:
+        rgba(255,255,255,.73);
+
+      box-shadow:var(--soft-shadow);
+
+    }
+
+
+    .information-icon {
+
+      width:48px;
+      height:48px;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      border-radius:50%;
+
+      background:var(--sage-pale);
+      color:var(--sage);
+
+    }
+
+
+    .information-icon svg {
+
+      width:22px;
+      height:22px;
+
+    }
+
+
+    .information-copy strong {
+
+      display:block;
+
+      margin-bottom:3px;
+
+      color:var(--forest);
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size:1.08rem;
+      font-weight:500;
+
+    }
+
+
+    .information-copy p {
+
+      color:var(--muted);
+
+      font-size:.76rem;
+      line-height:1.55;
+
+    }
+
+
+    .contact-link {
+
+      min-height:42px;
+
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+
+      gap:7px;
+
+      padding:9px 14px;
+
+      border:
+        1px solid rgba(202,167,106,.26);
+
+      border-radius:999px;
+
+      background:var(--cream-soft);
+
+      color:var(--forest);
+
+      font-size:.7rem;
+      font-weight:850;
+
+      white-space:nowrap;
+
+      transition:
+        background .22s ease,
+        color .22s ease;
+
+    }
+
+
+    .contact-link:hover {
+
+      background:var(--forest);
+      color:white;
+
+    }
+
+
+    .contact-link svg {
+
+      width:15px;
+      height:15px;
+
+    }
+
+
+    /* ==================================================
+       FOOTER
+    ================================================== */
+
+    .portal-footer {
+
+      margin-top:31px;
+
+      padding:24px 20px 5px;
+
+      border-top:
+        1px solid rgba(23,38,27,.09);
+
+      color:var(--muted);
+
+      font-size:.7rem;
+
+      text-align:center;
+
+      line-height:1.7;
+
+    }
+
+
+    .portal-footer a {
+
+      color:var(--forest);
+      font-weight:850;
+
+    }
+
+
+    .portal-footer a:hover {
+
+      color:var(--gold);
+
+    }
+
+
+    /* ==================================================
+       LOADING
+    ================================================== */
+
+    .loading-screen {
+
+      position:fixed;
+      inset:0;
+
+      z-index:99999;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      padding:20px;
+
+      background:
+
+        radial-gradient(
+          circle at top left,
+          rgba(202,167,106,.12),
+          transparent 30%
+        ),
+
+        var(--cream);
+
+    }
+
+
+    .loading-card {
+
+      width:min(430px,100%);
+
+      padding:37px 30px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:27px;
+
+      background:
+        rgba(255,255,255,.88);
+
+      box-shadow:var(--shadow);
+
+      text-align:center;
+
+    }
+
+
+    .loading-spinner {
+
+      width:46px;
+      height:46px;
+
+      margin:0 auto 18px;
+
+      border:
+        4px solid rgba(113,140,103,.16);
+
+      border-top-color:var(--sage);
+
+      border-radius:50%;
+
+      animation:spin .85s linear infinite;
+
+    }
+
+
+    .loading-card strong {
+
+      display:block;
+
+      margin-bottom:7px;
+
+      color:var(--forest);
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size:1.35rem;
+      font-weight:500;
+
+    }
+
+
+    .loading-card p {
+
+      color:var(--muted);
+
+      font-size:.8rem;
+      line-height:1.6;
+
+    }
+
+
+    /* ==================================================
+       TABLET
+    ================================================== */
+
+    @media(max-width:950px) {
+
+      .forms-hero {
+
+        grid-template-columns:1fr;
+
+      }
+
+
+      .forms-grid {
+
+        grid-template-columns:
+          repeat(2,minmax(0,1fr));
+
+      }
+
+
+      .form-card:last-child {
+
+        grid-column:1 / -1;
+
+      }
+
+    }
+
+
+    /* ==================================================
+       MOBILE
+    ================================================== */
+
+    @media(max-width:650px) {
+
+      .container {
+
+        width:90%;
+
+      }
+
+
+      /* HEADER */
+
+      .header-inner {
+
+        min-height:64px;
+
+      }
+
+
+      .logo {
+
+        font-size:1.72rem;
+
+      }
+
+
+      .portal-name {
+
+        display:none;
+
+      }
+
+
+      .back-header {
+
+        min-height:39px;
+
+        padding:8px 12px;
+
+        font-size:.68rem;
+
+      }
+
+
+      .back-header svg {
+
+        width:15px;
+        height:15px;
+
+      }
+
+
+      /* MAIN */
+
+      .page-main {
+
+        padding-top:18px;
+        padding-bottom:45px;
+
+      }
+
+
+      /* HERO */
+
+      .forms-hero {
+
+        gap:22px;
+
+        padding:28px 23px;
+
+        border-radius:26px;
+
+      }
+
+
+      .forms-hero h1 {
+
+        font-size:
+          clamp(2.65rem,12vw,3.5rem);
+
+        letter-spacing:-1.9px;
+
+      }
+
+
+      .hero-description {
+
+        font-size:.82rem;
+        line-height:1.65;
+
+      }
+
+
+      .hero-note {
+
+        padding:19px;
+
+      }
+
+
+      /* INTRO */
+
+      .section-intro {
+
+        margin-bottom:24px;
+
+      }
+
+
+      .section-intro h2 {
+
+        font-size:2.25rem;
+
+      }
+
+
+      .section-intro p {
+
+        font-size:.82rem;
+
+      }
+
+
+      /* CARDS */
+
+      .forms-grid {
+
+        grid-template-columns:1fr;
+
+        gap:14px;
+
+      }
+
+
+      .form-card,
+      .form-card:last-child {
+
+        grid-column:auto;
+
+        min-height:0;
+
+        padding:22px;
+
+        border-radius:22px;
+
+      }
+
+
+      .card-top {
+
+        margin-bottom:19px;
+
+      }
+
+
+      .form-icon {
+
+        width:49px;
+        height:49px;
+
+      }
+
+
+      .form-icon svg {
+
+        width:22px;
+        height:22px;
+
+      }
+
+
+      .form-number {
+
+        font-size:1.8rem;
+
+      }
+
+
+      .form-card h3 {
+
+        font-size:1.4rem;
+
+      }
+
+
+      .form-card-description {
+
+        font-size:.78rem;
+
+      }
+
+
+      .button {
+
+        width:100%;
+
+        margin-top:5px;
+
+      }
+
+
+      /* INFORMATION */
+
+      .information-panel {
+
+        grid-template-columns:
+          auto
+          minmax(0,1fr);
+
+        padding:19px;
+
+      }
+
+
+      .contact-link {
+
+        grid-column:1 / -1;
+
+        width:100%;
+
+      }
+
+
+      .portal-footer {
+
+        font-size:.64rem;
+
+      }
+
+    }
+
+
+    /* ==================================================
+       REDUCED MOTION
+    ================================================== */
+
+    @media(prefers-reduced-motion:reduce) {
+
+      html {
+
+        scroll-behavior:auto;
+
+      }
+
+
+      *,
+      *::before,
+      *::after {
+
+        animation-duration:.01ms !important;
+        animation-iteration-count:1 !important;
+        transition-duration:.01ms !important;
+
+      }
+
+    }
+
+
+    @keyframes spin {
+
+      to {
+
+        transform:rotate(360deg);
+
+      }
+
+    }
+
+  </style>
+
+
+  <!-- Shared Sorted. wordmark -->
+  <link
+    rel="stylesheet"
+    href="../brand.css"
+  >
 
 </head>
 
+
 <body>
 
+
+<!-- ==================================================
+     LOADING SCREEN
+================================================== -->
 
 <div
   id="loading-screen"
@@ -327,12 +1574,15 @@ h1{
 
   <div class="loading-card">
 
+    <div class="loading-spinner"></div>
+
     <strong>
-      Opening your forms…
+      Opening your forms
     </strong>
 
     <p>
-      Please wait while we check your Sorted. account.
+      Please wait while we securely check your
+      My Sorted. account.
     </p>
 
   </div>
@@ -340,141 +1590,402 @@ h1{
 </div>
 
 
+<!-- ==================================================
+     HEADER
+================================================== -->
+
 <header class="site-header">
 
-  <div class="header-inner">
+  <div class="container header-inner">
 
-    <a
-      href="dashboard.html"
-      class="logo"
-    >
-      Sorted<span>.</span>
-    </a>
+
+    <div class="brand-group">
+
+      <a
+        href="dashboard.html"
+        class="logo"
+        aria-label="My Sorted. dashboard"
+      >
+        Sorted<span>.</span>
+      </a>
+
+
+      <span class="portal-name">
+        My Sorted.
+      </span>
+
+    </div>
+
 
     <a
       href="dashboard.html"
       class="back-header"
     >
-      ← Dashboard
+
+      <i data-lucide="arrow-left"></i>
+
+      <span>
+        Dashboard
+      </span>
+
     </a>
+
 
   </div>
 
 </header>
 
 
-<main class="container">
+<!-- ==================================================
+     MAIN
+================================================== -->
 
-  <section class="intro">
+<main class="page-main">
 
-    <p class="eyebrow">
-      My Sorted.
-    </p>
-
-    <h1>
-      Client Forms
-    </h1>
-
-    <p class="subtitle">
-      Complete and update your Sorted. forms securely online.
-      Submitted information is stored within your protected client account.
-    </p>
-
-  </section>
+  <div class="container">
 
 
-  <div class="card">
+    <!-- ==================================================
+         HERO
+    ================================================== -->
 
-    <h2>
-      ⭐ Client Review
-    </h2>
-
-    <p>
-      Tell us how we're doing and help us improve our service.
-    </p>
-
-    <span
-      id="review-status"
-      class="status"
-    >
-      Checking…
-    </span>
-
-    <br>
-
-    <a
-      id="review-button"
-      href="client-review.html"
-      class="button"
-    >
-      Open Form
-    </a>
-
-  </div>
+    <section class="forms-hero">
 
 
-  <div class="card">
+      <div class="hero-copy">
 
-    <h2>
-      📝 Client Information Form
-    </h2>
+        <div class="hero-eyebrow">
 
-    <p>
-      Keep your personal, emergency contact and important support details up to date.
-    </p>
+          <i data-lucide="clipboard-pen-line"></i>
 
-    <span
-      id="client-information-status"
-      class="status"
-    >
-      Checking…
-    </span>
+          <span>
+            My Sorted.
+          </span>
 
-    <br>
-
-    <a
-      id="client-information-button"
-      href="client-information.html"
-      class="button"
-    >
-      Open Form
-    </a>
-
-  </div>
+        </div>
 
 
-  <div class="card">
+        <h1>
+          Your forms.
+          <em>All in one place.</em>
+        </h1>
 
-    <h2>
-      🔄 Change of Circumstances
-    </h2>
 
-    <p>
-      Tell us about any important changes to your support needs,
-      household, contact details or arrangements.
-    </p>
+        <p class="hero-description">
+          Complete, review and update the information
+          connected to your Sorted. support securely from
+          your client account.
+        </p>
 
-    <span
-      id="change-status"
-      class="status"
-    >
-      Checking…
-    </span>
+      </div>
 
-    <br>
 
-    <a
-      id="change-button"
-      href="change-of-circumstances.html"
-      class="button"
-    >
-      Open Form
-    </a>
+      <aside class="hero-note">
+
+        <div class="hero-note-icon">
+
+          <i data-lucide="shield-check"></i>
+
+        </div>
+
+        <strong>
+          Private &amp; secure
+        </strong>
+
+        <p>
+          Your submitted information is stored within your
+          protected client account and is only used where
+          necessary to provide your Sorted. service.
+        </p>
+
+      </aside>
+
+
+    </section>
+
+
+    <!-- ==================================================
+         INTRO
+    ================================================== -->
+
+    <section class="section-intro">
+
+      <p class="eyebrow">
+        Client Forms
+      </p>
+
+      <h2>
+        Keep everything up to date.
+      </h2>
+
+      <p>
+        You can return to these forms whenever you need to
+        update information, tell us about a change or share
+        feedback about your experience.
+      </p>
+
+    </section>
+
+
+    <!-- ==================================================
+         FORM CARDS
+    ================================================== -->
+
+    <section class="forms-grid">
+
+
+      <!-- CLIENT INFORMATION -->
+
+      <article class="form-card">
+
+
+        <div class="card-top">
+
+          <div class="form-icon">
+            <i data-lucide="user-round-pen"></i>
+          </div>
+
+          <span class="form-number">
+            01
+          </span>
+
+        </div>
+
+
+        <h3>
+          Client Information
+        </h3>
+
+
+        <p class="form-card-description">
+          Keep your contact information, emergency contact,
+          access arrangements and other important support
+          details accurate and up to date.
+        </p>
+
+
+        <span
+          id="client-information-status"
+          class="status"
+        >
+          Checking…
+        </span>
+
+
+        <a
+          id="client-information-button"
+          href="client-information.html"
+          class="button"
+        >
+
+          <span>
+            Open Form
+          </span>
+
+          <i data-lucide="arrow-right"></i>
+
+        </a>
+
+
+      </article>
+
+
+      <!-- CHANGE OF CIRCUMSTANCES -->
+
+      <article class="form-card">
+
+
+        <div class="card-top">
+
+          <div class="form-icon">
+            <i data-lucide="refresh-cw"></i>
+          </div>
+
+          <span class="form-number">
+            02
+          </span>
+
+        </div>
+
+
+        <h3>
+          Change of Circumstances
+        </h3>
+
+
+        <p class="form-card-description">
+          Let us know about important changes to your
+          household, contact details, arrangements or
+          support needs.
+        </p>
+
+
+        <span
+          id="change-status"
+          class="status"
+        >
+          Checking…
+        </span>
+
+
+        <a
+          id="change-button"
+          href="change-of-circumstances.html"
+          class="button"
+        >
+
+          <span>
+            Open Form
+          </span>
+
+          <i data-lucide="arrow-right"></i>
+
+        </a>
+
+
+      </article>
+
+
+      <!-- CLIENT REVIEW -->
+
+      <article class="form-card">
+
+
+        <div class="card-top">
+
+          <div class="form-icon">
+            <i data-lucide="message-square-heart"></i>
+          </div>
+
+          <span class="form-number">
+            03
+          </span>
+
+        </div>
+
+
+        <h3>
+          Client Review
+        </h3>
+
+
+        <p class="form-card-description">
+          Share feedback about your experience with Sorted.
+          and help us continue improving the service we
+          provide.
+        </p>
+
+
+        <span
+          id="review-status"
+          class="status"
+        >
+          Checking…
+        </span>
+
+
+        <a
+          id="review-button"
+          href="client-review.html"
+          class="button"
+        >
+
+          <span>
+            Open Form
+          </span>
+
+          <i data-lucide="arrow-right"></i>
+
+        </a>
+
+
+      </article>
+
+
+    </section>
+
+
+    <!-- ==================================================
+         HELP
+    ================================================== -->
+
+    <section class="information-panel">
+
+
+      <div class="information-icon">
+
+        <i data-lucide="circle-help"></i>
+
+      </div>
+
+
+      <div class="information-copy">
+
+        <strong>
+          Not sure which form you need?
+        </strong>
+
+        <p>
+          Contact Sorted. and we can tell you what needs
+          updating or help if you're having trouble
+          completing anything online.
+        </p>
+
+      </div>
+
+
+      <a
+        href="mailto:contact@sortedlife.org.uk"
+        class="contact-link"
+      >
+
+        <i data-lucide="mail"></i>
+
+        Contact Sorted.
+
+      </a>
+
+
+    </section>
+
+
+    <!-- ==================================================
+         FOOTER
+    ================================================== -->
+
+    <footer class="portal-footer">
+
+      © 2026 Sorted.
+
+      &nbsp;·&nbsp;
+
+      <a href="dashboard.html">
+        My Sorted.
+      </a>
+
+      &nbsp;·&nbsp;
+
+      <a href="../privacy.html">
+        Privacy Policy
+      </a>
+
+      &nbsp;·&nbsp;
+
+      <a href="../terms.html">
+        Terms &amp; Conditions
+      </a>
+
+    </footer>
+
 
   </div>
 
 </main>
 
+
+<!-- ==================================================
+     FIREBASE
+================================================== -->
 
 <script type="module">
 
@@ -500,35 +2011,77 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
 
 
+/* ==================================================
+   ELEMENTS
+================================================== */
+
 const loadingScreen =
-  document.getElementById("loading-screen");
+  document.getElementById(
+    "loading-screen"
+  );
 
 
 const reviewStatus =
-  document.getElementById("review-status");
+  document.getElementById(
+    "review-status"
+  );
 
 
 const reviewButton =
-  document.getElementById("review-button");
+  document.getElementById(
+    "review-button"
+  );
 
 
 const clientInformationStatus =
-  document.getElementById("client-information-status");
+  document.getElementById(
+    "client-information-status"
+  );
 
 
 const clientInformationButton =
-  document.getElementById("client-information-button");
+  document.getElementById(
+    "client-information-button"
+  );
 
 
 const changeStatus =
-  document.getElementById("change-status");
+  document.getElementById(
+    "change-status"
+  );
 
 
 const changeButton =
-  document.getElementById("change-button");
+  document.getElementById(
+    "change-button"
+  );
 
+
+/* ==================================================
+   ICONS
+================================================== */
+
+function refreshIcons(){
+
+  if(window.lucide){
+
+    window.lucide.createIcons();
+
+  }
+
+}
+
+
+/* ==================================================
+   FIND CLIENT RECORD
+================================================== */
 
 async function findClientRecord(user){
+
+
+  /*
+    First try the simple clients/{uid} structure.
+  */
 
   const directRef =
     doc(
@@ -539,22 +2092,39 @@ async function findClientRecord(user){
 
 
   const directSnapshot =
-    await getDoc(directRef);
+    await getDoc(
+      directRef
+    );
 
 
-  if(directSnapshot.exists()){
+  if(
+    directSnapshot.exists()
+  ){
 
     return{
-      id:directSnapshot.id,
-      data:directSnapshot.data()
+
+      id:
+        directSnapshot.id,
+
+      data:
+        directSnapshot.data()
+
     };
 
   }
 
 
+  /*
+    If the client document does not use the UID as
+    its document ID, locate it using ownerUID.
+  */
+
   const clientQuery =
     query(
-      collection(db,"clients"),
+      collection(
+        db,
+        "clients"
+      ),
       where(
         "ownerUID",
         "==",
@@ -565,10 +2135,14 @@ async function findClientRecord(user){
 
 
   const querySnapshot =
-    await getDocs(clientQuery);
+    await getDocs(
+      clientQuery
+    );
 
 
-  if(querySnapshot.empty){
+  if(
+    querySnapshot.empty
+  ){
 
     return null;
 
@@ -580,17 +2154,29 @@ async function findClientRecord(user){
 
 
   return{
-    id:clientDocument.id,
-    data:clientDocument.data()
+
+    id:
+      clientDocument.id,
+
+    data:
+      clientDocument.data()
+
   };
 
 }
 
 
-function showCompleted(statusElement,buttonElement){
+/* ==================================================
+   STATUS DISPLAY
+================================================== */
+
+function showCompleted(
+  statusElement,
+  buttonElement
+){
 
   statusElement.textContent =
-    "✓ Completed";
+    "Completed";
 
 
   statusElement.classList.add(
@@ -598,13 +2184,18 @@ function showCompleted(statusElement,buttonElement){
   );
 
 
-  buttonElement.textContent =
-    "View / Update Form";
+  buttonElement
+    .querySelector("span")
+    .textContent =
+      "View / Update";
 
 }
 
 
-function showNotStarted(statusElement,buttonElement){
+function showNotStarted(
+  statusElement,
+  buttonElement
+){
 
   statusElement.textContent =
     "Not Started";
@@ -615,11 +2206,17 @@ function showNotStarted(statusElement,buttonElement){
   );
 
 
-  buttonElement.textContent =
-    "Open Form";
+  buttonElement
+    .querySelector("span")
+    .textContent =
+      "Open Form";
 
 }
 
+
+/* ==================================================
+   CHECK FORM STATUS
+================================================== */
 
 async function checkFormStatus(
   clientId,
@@ -639,12 +2236,15 @@ async function checkFormStatus(
 
 
   const formSnapshot =
-    await getDoc(formRef);
+    await getDoc(
+      formRef
+    );
 
 
   if(
     formSnapshot.exists() &&
-    formSnapshot.data().status === "submitted"
+    formSnapshot.data().status ===
+      "submitted"
   ){
 
     showCompleted(
@@ -664,11 +2264,68 @@ async function checkFormStatus(
 }
 
 
+/* ==================================================
+   ERROR SCREEN
+================================================== */
+
+function showLoadingMessage(
+  title,
+  message
+){
+
+  loadingScreen.innerHTML =
+    `
+      <div class="loading-card">
+
+        <div
+          style="
+            width:52px;
+            height:52px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            margin:0 auto 17px;
+            border-radius:50%;
+            background:#e6eadf;
+            color:#314632;
+          "
+        >
+          <i data-lucide="circle-alert"></i>
+        </div>
+
+        <strong>
+          ${title}
+        </strong>
+
+        <p>
+          ${message}
+        </p>
+
+      </div>
+    `;
+
+
+  refreshIcons();
+
+}
+
+
+/* ==================================================
+   INITIALISE
+================================================== */
+
 async function initialiseForms(user){
 
   try{
 
-    if(!user.emailVerified){
+
+    /*
+      The client must have verified their email.
+    */
+
+    if(
+      !user.emailVerified
+    ){
 
       window.location.href =
         "index.html";
@@ -677,6 +2334,10 @@ async function initialiseForms(user){
 
     }
 
+
+    /*
+      Check the portal user record.
+    */
 
     const userRef =
       doc(
@@ -687,10 +2348,14 @@ async function initialiseForms(user){
 
 
     const userSnapshot =
-      await getDoc(userRef);
+      await getDoc(
+        userRef
+      );
 
 
-    if(!userSnapshot.exists()){
+    if(
+      !userSnapshot.exists()
+    ){
 
       window.location.href =
         "index.html";
@@ -703,6 +2368,10 @@ async function initialiseForms(user){
     const userData =
       userSnapshot.data();
 
+
+    /*
+      Only approved client accounts may enter.
+    */
 
     if(
       userData.role !== "client" ||
@@ -717,32 +2386,33 @@ async function initialiseForms(user){
     }
 
 
+    /*
+      Locate the matching client record.
+    */
+
     const clientRecord =
-      await findClientRecord(user);
+      await findClientRecord(
+        user
+      );
 
 
-    if(!clientRecord){
+    if(
+      !clientRecord
+    ){
 
-      loadingScreen.innerHTML =
-        `
-          <div class="loading-card">
-
-            <strong>
-              Account setup incomplete
-            </strong>
-
-            <p>
-              Your client record could not be found.
-              Please contact Sorted.
-            </p>
-
-          </div>
-        `;
+      showLoadingMessage(
+        "Account setup incomplete",
+        "Your client record could not be found. Please contact Sorted. so we can finish setting up your account."
+      );
 
       return;
 
     }
 
+
+    /*
+      Check all three forms.
+    */
 
     await Promise.all([
 
@@ -770,40 +2440,47 @@ async function initialiseForms(user){
     ]);
 
 
+    /*
+      Display page.
+    */
+
     loadingScreen.style.display =
       "none";
 
 
+    refreshIcons();
+
+
   }catch(error){
 
-    console.error(error);
+
+    console.error(
+      "Forms page error:",
+      error
+    );
 
 
-    loadingScreen.innerHTML =
-      `
-        <div class="loading-card">
-
-          <strong>
-            We couldn't load your forms
-          </strong>
-
-          <p>
-            Please return to your dashboard and try again.
-          </p>
-
-        </div>
-      `;
+    showLoadingMessage(
+      "We couldn't load your forms",
+      "Please return to your dashboard and try again. If the problem continues, contact Sorted."
+    );
 
   }
 
 }
 
 
+/* ==================================================
+   AUTH
+================================================== */
+
 onAuthStateChanged(
   auth,
   function(user){
 
-    if(!user){
+    if(
+      !user
+    ){
 
       window.location.href =
         "index.html";
@@ -813,10 +2490,34 @@ onAuthStateChanged(
     }
 
 
-    initialiseForms(user);
+    initialiseForms(
+      user
+    );
 
   }
 );
+
+</script>
+
+
+<!-- ==================================================
+     ICON INITIALISATION
+================================================== -->
+
+<script>
+
+  window.addEventListener(
+    "load",
+    function(){
+
+      if(window.lucide){
+
+        window.lucide.createIcons();
+
+      }
+
+    }
+  );
 
 </script>
 

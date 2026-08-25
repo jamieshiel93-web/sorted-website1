@@ -1,988 +1,2995 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Sorted. Studio</title>
-
-<meta name="robots" content="noindex,nofollow">
-<meta name="theme-color" content="#17261b">
-
-<link rel="icon" href="../favicon.png">
-
-<style>
-
-:root{
-  --cream:#f8f1e7;
-  --cream2:#efe0cc;
-  --forest:#17261b;
-  --sage:#314632;
-  --sage-light:#718c67;
-  --gold:#caa76a;
-  --white:#ffffff;
-  --ink:#1d241f;
-  --muted:#6f746e;
-  --red:#9d3030;
-  --green:#356444;
-  --orange:#8a6828;
-  --shadow:0 22px 55px rgba(23,38,27,.12);
-}
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-body{
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    Helvetica,
-    Arial,
-    sans-serif;
-
-  background:var(--cream);
-  color:var(--forest);
-  line-height:1.6;
-}
-
-button,
-input,
-select,
-textarea{
-  font:inherit;
-}
-
-button{
-  border:none;
-  cursor:pointer;
-}
-
-
-/* ==================================================
-   LOGIN
-================================================== */
-
-.login-screen{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-
-  background:
-    radial-gradient(
-      circle at top left,
-      rgba(202,167,106,.18),
-      transparent 35%
-    ),
-    linear-gradient(
-      135deg,
-      #f8f1e7,
-      #efe0cc
-    );
-}
-
-.login-card{
-  width:100%;
-  max-width:460px;
-  padding:42px;
-
-  background:white;
-
-  border:1px solid rgba(202,167,106,.25);
-  border-radius:30px;
-
-  box-shadow:0 25px 60px rgba(0,0,0,.12);
-
-  text-align:center;
-}
-
-.logo{
-  margin-bottom:8px;
+  <meta charset="UTF-8">
 
-  font-size:46px;
-  font-weight:900;
-  letter-spacing:-2px;
-}
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-.logo span{
-  color:var(--gold);
-}
+  <title>Sorted. Studio | Administration</title>
 
-.login-card h1{
-  margin-bottom:10px;
-  font-size:30px;
-}
+  <meta
+    name="robots"
+    content="noindex,nofollow"
+  >
 
-.login-card p{
-  color:#666;
-}
+  <meta
+    name="theme-color"
+    content="#17261b"
+  >
 
-.login-card input{
-  width:100%;
+  <link
+    rel="icon"
+    href="../favicon.png"
+    type="image/png"
+  >
 
-  margin-top:14px;
-  padding:16px;
+  <link
+    rel="apple-touch-icon"
+    href="../favicon.png"
+  >
 
-  border:1px solid #ddd;
-  border-radius:14px;
+  <script
+    src="https://unpkg.com/lucide@0.542.0/dist/umd/lucide.js"
+  ></script>
 
-  font-size:16px;
-}
 
-.login-card input:focus{
-  outline:none;
-  border-color:var(--gold);
-  box-shadow:0 0 0 4px rgba(202,167,106,.15);
-}
+  <style>
 
-.login-button{
-  width:100%;
+    /* ==================================================
+       ROOT
+    ================================================== */
 
-  margin-top:18px;
-  padding:17px;
+    :root {
 
-  border-radius:14px;
+      --cream:#f8f1e7;
+      --cream-soft:#fffaf4;
+      --cream-deep:#efe0cc;
 
-  background:var(--forest);
-  color:white;
+      --forest:#17261b;
+      --forest-soft:#223228;
 
-  font-weight:800;
-}
+      --sage:#314632;
+      --sage-mid:#718c67;
+      --sage-pale:#e6eadf;
 
-.login-button:hover{
-  background:var(--sage);
-}
+      --gold:#caa76a;
+      --gold-soft:#dec28d;
 
-#error{
-  display:none;
+      --white:#ffffff;
 
-  margin-top:16px;
-  padding:12px;
+      --ink:#1d241f;
+      --muted:#6f746e;
 
-  border-radius:12px;
+      --red:#934242;
+      --red-soft:#fff0ed;
 
-  background:rgba(157,48,48,.08);
-  color:var(--red);
+      --green:#47704d;
+      --green-soft:#edf5ec;
 
-  font-weight:700;
-}
+      --orange:#8a6828;
+      --orange-soft:#fff5df;
 
+      --blue:#465f82;
+      --blue-soft:#edf1f8;
 
-/* ==================================================
-   STUDIO
-================================================== */
+      --border:rgba(202,167,106,.25);
+      --soft-border:rgba(23,38,27,.09);
 
-#studio{
-  display:none;
-}
+      --shadow:
+        0 28px 80px rgba(23,38,27,.14);
 
-header{
-  position:sticky;
-  top:0;
-  z-index:1000;
+      --soft-shadow:
+        0 14px 36px rgba(23,38,27,.08);
 
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+    }
 
-  padding:20px 32px;
 
-  background:var(--forest);
-  color:white;
+    /* ==================================================
+       RESET
+    ================================================== */
 
-  box-shadow:0 10px 35px rgba(0,0,0,.15);
-}
+    * {
 
-header .brand{
-  font-size:30px;
-  font-weight:900;
-  letter-spacing:-1px;
-}
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
 
-header .brand span{
-  color:var(--gold);
-}
+    }
 
-.logout{
-  padding:11px 20px;
 
-  border-radius:999px;
+    html {
 
-  background:var(--gold);
-  color:var(--forest);
+      scroll-behavior:smooth;
 
-  font-weight:800;
-}
+    }
 
-.container{
-  width:min(1300px,94%);
-  margin:auto;
-  padding:34px 0 60px;
-}
 
+    body {
 
-/* ==================================================
-   HERO
-================================================== */
+      min-height:100vh;
 
-.hero{
-  margin-bottom:26px;
-  padding:36px;
+      overflow-x:hidden;
 
-  border-radius:28px;
+      background:
 
-  background:
-    radial-gradient(
-      circle at top right,
-      rgba(202,167,106,.22),
-      transparent 35%
-    ),
-    linear-gradient(
-      135deg,
-      var(--forest),
-      var(--sage)
-    );
+        radial-gradient(
+          circle at 4% 4%,
+          rgba(202,167,106,.12),
+          transparent 27%
+        ),
 
-  color:white;
+        radial-gradient(
+          circle at 96% 7%,
+          rgba(113,140,103,.12),
+          transparent 29%
+        ),
 
-  box-shadow:var(--shadow);
-}
+        linear-gradient(
+          180deg,
+          var(--cream-soft),
+          var(--cream)
+        );
 
-.hero h2{
-  margin-bottom:7px;
-  color:white;
-  font-size:clamp(2rem,5vw,2.7rem);
-}
+      color:var(--ink);
 
-.hero p{
-  color:rgba(255,255,255,.75);
-}
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
 
+      line-height:1.6;
 
-/* ==================================================
-   STATS
-================================================== */
+    }
 
-.stats{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:18px;
 
-  margin-bottom:26px;
-}
+    body.modal-open {
 
-.stat{
-  padding:22px;
+      overflow:hidden;
 
-  background:white;
+    }
 
-  border:1px solid rgba(202,167,106,.24);
-  border-radius:22px;
 
-  box-shadow:0 12px 32px rgba(23,38,27,.08);
-}
+    ::selection {
 
-.stat small{
-  color:var(--gold);
+      background:var(--gold);
+      color:white;
 
-  font-size:.72rem;
-  font-weight:900;
-  letter-spacing:1.5px;
-  text-transform:uppercase;
-}
+    }
 
-.stat strong{
-  display:block;
 
-  margin-top:6px;
+    a {
 
-  color:var(--forest);
+      color:inherit;
+      text-decoration:none;
 
-  font-size:2rem;
-}
+    }
 
 
-/* ==================================================
-   CARDS
-================================================== */
+    button,
+    input,
+    select,
+    textarea {
 
-.grid{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:22px;
-}
+      font:inherit;
 
-.card{
-  padding:27px;
+    }
 
-  background:white;
 
-  border:1px solid rgba(202,167,106,.25);
-  border-radius:24px;
+    button {
 
-  box-shadow:var(--shadow);
-}
+      border:0;
+      cursor:pointer;
 
-.card.wide{
-  grid-column:1 / -1;
-}
+    }
 
-.section-label{
-  color:var(--gold);
 
-  font-size:.72rem;
-  font-weight:900;
-  letter-spacing:2px;
-  text-transform:uppercase;
-}
+    button,
+    a {
 
-.card h3{
-  margin:8px 0;
-  font-size:1.7rem;
-}
+      -webkit-tap-highlight-color:transparent;
 
-.card > p{
-  margin-bottom:20px;
-  color:var(--muted);
-}
+    }
 
 
-/* ==================================================
-   TOOLBAR
-================================================== */
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible {
 
-.toolbar{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:14px;
+      outline:3px solid var(--gold);
+      outline-offset:4px;
 
-  margin-bottom:18px;
-}
+    }
 
-.toolbar-actions{
-  display:flex;
-  gap:9px;
-  flex-wrap:wrap;
-}
 
-.refresh-button,
-.add-button{
-  padding:10px 17px;
+    .container {
 
-  border-radius:999px;
+      width:min(1320px,94%);
+      margin:0 auto;
 
-  font-weight:800;
-}
+    }
 
-.refresh-button{
-  background:#f3eadc;
-  color:var(--forest);
-}
 
-.refresh-button:hover{
-  background:var(--gold);
-}
+    .eyebrow {
 
-.add-button{
-  background:var(--forest);
-  color:white;
-}
+      color:var(--gold);
 
-.add-button:hover{
-  background:var(--sage);
-}
+      font-size:.68rem;
+      font-weight:900;
 
+      letter-spacing:2.1px;
 
-/* ==================================================
-   LISTS
-================================================== */
+      text-transform:uppercase;
 
-.registration-list,
-.client-list,
-.form-list,
-.visit-list{
-  display:grid;
-  gap:14px;
-}
+    }
 
-.registration-item,
-.client-item,
-.form-item,
-.visit-item{
-  display:grid;
-  grid-template-columns:minmax(0,1fr) auto;
-  gap:18px;
-  align-items:center;
 
-  padding:19px;
+    /* ==================================================
+       LOGIN
+    ================================================== */
 
-  background:#fcfaf7;
+    .login-screen {
 
-  border:1px solid rgba(202,167,106,.22);
-  border-radius:18px;
-}
+      min-height:100vh;
 
-.person-name,
-.form-title,
-.visit-title{
-  margin-bottom:4px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
 
-  color:var(--forest);
+      padding:40px 20px;
 
-  font-size:1.08rem;
-  font-weight:850;
-}
+      background:
 
-.person-details,
-.form-meta,
-.visit-meta{
-  color:var(--muted);
+        linear-gradient(
+          90deg,
+          rgba(248,241,231,.96) 0%,
+          rgba(248,241,231,.89) 46%,
+          rgba(248,241,231,.62) 100%
+        ),
 
-  font-size:.88rem;
-  line-height:1.6;
-}
+        url("../background.png");
 
-.form-client,
-.visit-client{
-  margin-top:3px;
+      background-size:cover;
+      background-position:center;
 
-  color:var(--sage);
+    }
 
-  font-size:.9rem;
-  font-weight:800;
-}
 
-.message-note{
-  margin-top:8px;
-  padding:10px 12px;
+    .login-shell {
 
-  background:rgba(113,140,103,.08);
+      width:min(1000px,100%);
 
-  border-radius:11px;
+      display:grid;
 
-  color:var(--sage);
+      grid-template-columns:
+        minmax(0,.9fr)
+        minmax(380px,1.1fr);
 
-  font-size:.88rem;
-}
+      overflow:hidden;
 
+      border:
+        1px solid rgba(202,167,106,.28);
 
-/* ==================================================
-   BUTTONS
-================================================== */
+      border-radius:34px;
 
-.actions{
-  display:flex;
-  gap:9px;
-  flex-wrap:wrap;
-}
+      background:
+        rgba(255,250,244,.96);
 
-.action-button{
-  padding:10px 16px;
+      box-shadow:
+        0 34px 90px rgba(23,38,27,.20);
 
-  border-radius:999px;
+      backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px);
 
-  font-weight:850;
-}
+    }
 
-.approve-button,
-.view-button,
-.edit-button{
-  background:var(--forest);
-  color:white;
-}
 
-.approve-button:hover,
-.view-button:hover,
-.edit-button:hover{
-  background:var(--sage);
-}
+    .login-brand-panel {
 
-.reject-button{
-  background:#f3e3e3;
-  color:var(--red);
-}
+      position:relative;
 
-.reject-button:hover{
-  background:#e8cccc;
-}
+      overflow:hidden;
 
-.action-button:disabled{
-  opacity:.55;
-  cursor:not-allowed;
-}
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
 
+      min-height:610px;
 
-/* ==================================================
-   STATUS
-================================================== */
+      padding:48px;
 
-.status-pill{
-  display:inline-flex;
-  align-items:center;
+      color:white;
 
-  margin-top:7px;
-  padding:5px 10px;
+      background:
 
-  border-radius:999px;
+        radial-gradient(
+          circle at 92% 8%,
+          rgba(202,167,106,.20),
+          transparent 32%
+        ),
 
-  font-size:.77rem;
-  font-weight:850;
-}
+        radial-gradient(
+          circle at 4% 93%,
+          rgba(113,140,103,.20),
+          transparent 34%
+        ),
 
-.status-pending{
-  background:#f7ecd7;
-  color:#7d5a22;
-}
+        linear-gradient(
+          145deg,
+          var(--forest),
+          var(--forest-soft)
+        );
 
-.status-approved,
-.status-submitted,
-.status-scheduled{
-  background:#e4f0e7;
-  color:var(--green);
-}
+    }
 
-.status-completed{
-  background:#e9edf7;
-  color:#344b76;
-}
 
-.status-cancelled{
-  background:#f3e3e3;
-  color:var(--red);
-}
+    .login-brand-panel::before {
 
-.empty-state{
-  padding:28px;
+      content:"";
 
-  border:1px dashed rgba(23,38,27,.18);
-  border-radius:18px;
+      position:absolute;
 
-  color:var(--muted);
+      top:-130px;
+      right:-120px;
 
-  text-align:center;
-}
+      width:330px;
+      height:330px;
 
-.loading-state{
-  padding:20px;
-  color:var(--muted);
-  text-align:center;
-}
+      border:
+        1px solid rgba(222,194,141,.14);
 
+      border-radius:50%;
 
-/* ==================================================
-   PLACEHOLDERS
-================================================== */
+    }
 
-.feature-card{
-  min-height:190px;
-}
 
-.feature-card h3{
-  font-size:1.45rem;
-}
+    .login-brand-panel::after {
 
-.feature-card p{
-  color:var(--muted);
-}
+      content:"";
 
-.coming-soon{
-  display:inline-block;
+      position:absolute;
 
-  margin-top:10px;
-  padding:7px 11px;
+      left:-120px;
+      bottom:-120px;
 
-  border-radius:999px;
+      width:280px;
+      height:280px;
 
-  background:#f3eadc;
-  color:var(--sage);
+      border:
+        1px solid rgba(255,255,255,.07);
 
-  font-size:.77rem;
-  font-weight:800;
-}
+      border-radius:50%;
 
+    }
 
-/* ==================================================
-   MODALS
-================================================== */
 
-.modal-overlay{
-  display:none;
+    .login-brand-content,
+    .login-brand-footer {
 
-  position:fixed;
-  inset:0;
-  z-index:20000;
+      position:relative;
+      z-index:2;
 
-  align-items:center;
-  justify-content:center;
+    }
 
-  padding:20px;
 
-  background:rgba(12,20,14,.72);
+    .login-logo {
 
-  backdrop-filter:blur(7px);
-  -webkit-backdrop-filter:blur(7px);
-}
+      margin-bottom:38px;
 
-.modal-overlay.is-open{
-  display:flex;
-}
+      color:white;
 
-.modal{
-  width:min(760px,100%);
-  max-height:88vh;
+      font-size:2.15rem;
+      font-weight:850;
 
-  overflow:auto;
+      letter-spacing:-1px;
 
-  background:var(--cream);
+    }
 
-  border:1px solid rgba(202,167,106,.3);
-  border-radius:28px;
 
-  box-shadow:0 30px 90px rgba(0,0,0,.32);
-}
+    .login-logo span {
 
-.modal-header{
-  position:sticky;
-  top:0;
-  z-index:2;
+      color:var(--gold);
 
-  display:flex;
-  align-items:flex-start;
-  justify-content:space-between;
-  gap:18px;
+    }
 
-  padding:24px 25px;
 
-  background:var(--forest);
-  color:white;
-}
+    .studio-label {
 
-.modal-header small{
-  color:var(--gold);
+      display:inline-flex;
+      align-items:center;
 
-  font-size:.7rem;
-  font-weight:900;
-  letter-spacing:1.6px;
-  text-transform:uppercase;
-}
+      gap:9px;
 
-.modal-header h2{
-  margin-top:3px;
-  color:white;
-  font-size:1.55rem;
-}
+      margin-bottom:17px;
 
-.modal-close{
-  flex-shrink:0;
+      color:var(--gold-soft);
 
-  width:42px;
-  height:42px;
+      font-size:.67rem;
+      font-weight:900;
 
-  border-radius:50%;
+      letter-spacing:2px;
 
-  background:rgba(255,255,255,.12);
-  color:white;
+      text-transform:uppercase;
 
-  font-size:24px;
-}
+    }
 
-.modal-body{
-  padding:25px;
-}
 
-.sensitive-warning,
-.edit-note{
-  margin-bottom:20px;
-  padding:14px 16px;
+    .studio-label svg {
 
-  border:1px solid rgba(202,167,106,.28);
-  border-radius:15px;
+      width:17px;
+      height:17px;
 
-  background:#fff8ed;
+    }
 
-  color:var(--sage);
 
-  font-size:.88rem;
-  line-height:1.6;
-}
+    .login-brand-panel h1 {
 
+      max-width:440px;
 
-/* ==================================================
-   EDIT FIELDS
-================================================== */
+      margin-bottom:21px;
 
-.edit-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:18px;
-}
+      color:white;
 
-.edit-field{
-  display:flex;
-  flex-direction:column;
-  gap:7px;
-}
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 
-.edit-field.full{
-  grid-column:1 / -1;
-}
+      font-size:
+        clamp(3rem,5vw,4.7rem);
 
-.edit-field label{
-  color:var(--forest);
+      font-weight:500;
 
-  font-size:.85rem;
-  font-weight:850;
-}
+      line-height:.98;
 
-.edit-field input,
-.edit-field select,
-.edit-field textarea{
-  width:100%;
+      letter-spacing:-2.7px;
 
-  padding:14px 15px;
+    }
 
-  background:white;
 
-  border:1px solid rgba(23,38,27,.15);
-  border-radius:13px;
+    .login-brand-panel h1 em {
 
-  color:var(--ink);
+      display:block;
 
-  outline:none;
-}
+      color:var(--gold-soft);
 
-.edit-field textarea{
-  min-height:120px;
-  resize:vertical;
-}
+      font-weight:500;
 
-.edit-field input:focus,
-.edit-field select:focus,
-.edit-field textarea:focus{
-  border-color:var(--gold);
-  box-shadow:0 0 0 4px rgba(202,167,106,.14);
-}
+    }
 
-.field-help{
-  color:var(--muted);
-  font-size:.76rem;
-  line-height:1.45;
-}
 
-.save-button{
-  width:100%;
+    .login-brand-panel p {
 
-  margin-top:22px;
-  padding:16px 22px;
+      max-width:470px;
 
-  border-radius:999px;
+      color:rgba(255,255,255,.72);
 
-  background:var(--forest);
-  color:white;
+      font-size:.95rem;
+      line-height:1.75;
 
-  font-weight:900;
-}
+    }
 
-.save-button:hover{
-  background:var(--sage);
-}
 
-.save-button:disabled{
-  opacity:.55;
-  cursor:not-allowed;
-}
+    .login-brand-footer {
 
+      display:flex;
+      align-items:center;
 
-/* ==================================================
-   FORM VIEWER
-================================================== */
+      gap:10px;
 
-.form-detail-grid{
-  display:grid;
-  gap:13px;
-}
+      color:rgba(255,255,255,.58);
 
-.form-detail{
-  padding:16px;
+      font-size:.73rem;
 
-  background:white;
+    }
 
-  border:1px solid rgba(202,167,106,.22);
-  border-radius:16px;
-}
 
-.form-detail-label{
-  display:block;
+    .login-brand-footer svg {
 
-  margin-bottom:5px;
+      width:17px;
+      height:17px;
 
-  color:var(--gold);
+      color:var(--gold-soft);
 
-  font-size:.7rem;
-  font-weight:900;
-  letter-spacing:1px;
-  text-transform:uppercase;
-}
+    }
 
-.form-detail-value{
-  color:var(--ink);
 
-  font-size:.95rem;
-  line-height:1.6;
+    .login-card {
 
-  white-space:pre-wrap;
-  overflow-wrap:anywhere;
-}
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
 
+      padding:54px;
 
-/* ==================================================
-   ALERT
-================================================== */
+      background:
+        rgba(255,253,249,.98);
 
-#studio-message{
-  display:none;
+    }
 
-  position:fixed;
-  left:50%;
-  bottom:24px;
-  z-index:30000;
 
-  width:min(92%,520px);
+    .login-card .eyebrow {
 
-  padding:15px 18px;
+      margin-bottom:12px;
 
-  border-radius:16px;
+    }
 
-  transform:translateX(-50%);
 
-  box-shadow:0 20px 45px rgba(0,0,0,.18);
+    .login-card h2 {
 
-  font-weight:700;
-}
+      margin-bottom:11px;
 
-#studio-message.success{
-  display:block;
+      color:var(--forest);
 
-  background:#e5f2e8;
-  color:#285d37;
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 
-  border:1px solid rgba(49,111,66,.22);
-}
+      font-size:
+        clamp(2.2rem,4vw,3.2rem);
 
-#studio-message.error{
-  display:block;
+      font-weight:500;
 
-  background:#f6e5e5;
-  color:#8c2727;
+      line-height:1.05;
 
-  border:1px solid rgba(167,46,46,.2);
-}
+      letter-spacing:-1.7px;
 
+    }
 
-/* ==================================================
-   MOBILE
-================================================== */
 
-@media(max-width:950px){
+    .login-intro {
 
-  .stats{
-    grid-template-columns:repeat(2,1fr);
-  }
+      margin-bottom:30px;
 
-}
+      color:var(--muted);
 
-@media(max-width:800px){
+      font-size:.88rem;
+      line-height:1.7;
 
-  header{
-    padding:17px 18px;
-  }
+    }
 
-  header .brand{
-    font-size:24px;
-  }
 
-  .logout{
-    padding:9px 14px;
-    font-size:.85rem;
-  }
+    .login-field {
 
-  .container{
-    width:92%;
-    padding-top:22px;
-  }
+      margin-bottom:17px;
 
-  .hero{
-    padding:27px 23px;
-    border-radius:23px;
-  }
+    }
 
-  .stats{
-    grid-template-columns:1fr 1fr;
-    gap:12px;
-  }
 
-  .grid{
-    grid-template-columns:1fr;
-  }
+    .login-field label {
 
-  .card.wide{
-    grid-column:auto;
-  }
+      display:block;
 
-  .registration-item,
-  .client-item,
-  .form-item,
-  .visit-item{
-    grid-template-columns:1fr;
-  }
+      margin-bottom:7px;
 
-  .actions{
-    width:100%;
-  }
+      color:var(--sage);
 
-  .actions button{
-    flex:1;
-  }
+      font-size:.76rem;
+      font-weight:850;
 
-  .toolbar{
-    align-items:flex-start;
-    flex-direction:column;
-  }
+    }
 
-  .modal{
-    border-radius:22px;
-  }
 
-  .modal-header{
-    padding:20px;
-  }
+    .login-input-wrap {
 
-  .modal-body{
-    padding:20px;
-  }
+      position:relative;
 
-  .edit-grid{
-    grid-template-columns:1fr;
-  }
+    }
 
-  .edit-field.full{
-    grid-column:auto;
-  }
 
-}
+    .login-input-wrap svg {
 
-</style>
+      position:absolute;
 
-<link rel="stylesheet" href="brand.css">
+      top:50%;
+      left:15px;
+
+      width:18px;
+      height:18px;
+
+      color:var(--sage-mid);
+
+      transform:translateY(-50%);
+
+      pointer-events:none;
+
+    }
+
+
+    .login-card input {
+
+      width:100%;
+      min-height:54px;
+
+      padding:
+        14px 15px
+        14px 45px;
+
+      border:
+        1px solid #e4d8c9;
+
+      border-radius:14px;
+
+      background:#fcfaf7;
+
+      color:var(--ink);
+
+      outline:none;
+
+      transition:
+        border-color .25s ease,
+        box-shadow .25s ease,
+        background .25s ease;
+
+    }
+
+
+    .login-card input:focus {
+
+      border-color:var(--gold);
+
+      background:white;
+
+      box-shadow:
+        0 0 0 5px rgba(202,167,106,.14);
+
+    }
+
+
+    .login-button {
+
+      position:relative;
+
+      width:100%;
+      min-height:56px;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      gap:9px;
+
+      overflow:hidden;
+
+      margin-top:4px;
+
+      padding:15px 22px;
+
+      border-radius:999px;
+
+      background:
+
+        linear-gradient(
+          135deg,
+          var(--forest),
+          var(--sage)
+        );
+
+      color:white;
+
+      font-size:.84rem;
+      font-weight:900;
+
+      box-shadow:
+        0 15px 34px rgba(23,38,27,.17);
+
+      transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+
+    }
+
+
+    .login-button::before {
+
+      content:"";
+
+      position:absolute;
+
+      top:0;
+      left:-130%;
+
+      width:60%;
+      height:100%;
+
+      background:
+
+        linear-gradient(
+          120deg,
+          transparent,
+          rgba(255,255,255,.25),
+          transparent
+        );
+
+      animation:buttonShine 5.5s infinite;
+
+    }
+
+
+    .login-button:hover {
+
+      transform:translateY(-3px);
+
+      box-shadow:
+        0 20px 42px rgba(23,38,27,.22);
+
+    }
+
+
+    .login-button svg {
+
+      width:18px;
+      height:18px;
+
+    }
+
+
+    #error {
+
+      display:none;
+
+      margin-top:17px;
+      padding:14px 15px;
+
+      border:
+        1px solid rgba(147,66,66,.16);
+
+      border-radius:14px;
+
+      background:var(--red-soft);
+
+      color:var(--red);
+
+      font-size:.79rem;
+      font-weight:750;
+
+      line-height:1.5;
+
+    }
+
+
+    .login-security {
+
+      display:flex;
+      align-items:flex-start;
+
+      gap:9px;
+
+      margin-top:22px;
+
+      padding-top:20px;
+
+      border-top:
+        1px solid var(--soft-border);
+
+      color:var(--muted);
+
+      font-size:.7rem;
+      line-height:1.55;
+
+    }
+
+
+    .login-security svg {
+
+      width:17px;
+      height:17px;
+
+      flex-shrink:0;
+
+      margin-top:1px;
+
+      color:var(--gold);
+
+    }
+
+
+    /* ==================================================
+       STUDIO
+    ================================================== */
+
+    #studio {
+
+      display:none;
+
+    }
+
+
+    .studio-header {
+
+      position:sticky;
+
+      top:0;
+
+      z-index:1000;
+
+      border-bottom:
+        1px solid rgba(202,167,106,.19);
+
+      background:
+        rgba(255,253,249,.96);
+
+      box-shadow:
+        0 10px 35px rgba(23,38,27,.07);
+
+      backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px);
+
+    }
+
+
+    .studio-header-inner {
+
+      min-height:74px;
+
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+
+      gap:24px;
+
+    }
+
+
+    .brand-group {
+
+      min-width:0;
+
+      display:flex;
+      align-items:center;
+
+      gap:17px;
+
+    }
+
+
+    .brand {
+
+      flex-shrink:0;
+
+      color:var(--forest);
+
+      font-size:2rem;
+      font-weight:850;
+
+      letter-spacing:-1px;
+
+    }
+
+
+    .brand span {
+
+      color:var(--gold);
+
+    }
+
+
+    .studio-name {
+
+      padding-left:17px;
+
+      border-left:
+        1px solid rgba(23,38,27,.13);
+
+      color:var(--sage-mid);
+
+      font-size:.71rem;
+      font-weight:900;
+
+      letter-spacing:2px;
+
+      text-transform:uppercase;
+
+    }
+
+
+    .header-actions {
+
+      display:flex;
+      align-items:center;
+
+      gap:10px;
+
+    }
+
+
+    .header-button {
+
+      min-height:43px;
+
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+
+      gap:8px;
+
+      padding:9px 15px;
+
+      border:
+        1px solid rgba(202,167,106,.28);
+
+      border-radius:999px;
+
+      background:
+        rgba(255,250,244,.9);
+
+      color:var(--forest);
+
+      font-size:.76rem;
+      font-weight:850;
+
+      transition:
+        background .25s ease,
+        color .25s ease,
+        transform .25s ease;
+
+    }
+
+
+    .header-button:hover {
+
+      background:var(--forest);
+      color:white;
+
+      transform:translateY(-2px);
+
+    }
+
+
+    .header-button svg {
+
+      width:17px;
+      height:17px;
+
+    }
+
+
+    .logout {
+
+      min-height:43px;
+
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+
+      gap:8px;
+
+      padding:9px 16px;
+
+      border-radius:999px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--forest),
+          var(--sage)
+        );
+
+      color:white;
+
+      font-size:.76rem;
+      font-weight:850;
+
+      transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+
+    }
+
+
+    .logout:hover {
+
+      transform:translateY(-2px);
+
+      box-shadow:
+        0 12px 28px rgba(23,38,27,.16);
+
+    }
+
+
+    .logout svg {
+
+      width:17px;
+      height:17px;
+
+    }
+
+
+    .studio-main {
+
+      padding:30px 0 70px;
+
+    }
+
+
+    /* ==================================================
+       HERO
+    ================================================== */
+
+    .hero {
+
+      position:relative;
+
+      overflow:hidden;
+
+      display:grid;
+
+      grid-template-columns:
+        minmax(0,1.25fr)
+        minmax(280px,.75fr);
+
+      gap:32px;
+
+      align-items:center;
+
+      margin-bottom:22px;
+
+      padding:39px 42px;
+
+      border:
+        1px solid rgba(202,167,106,.23);
+
+      border-radius:32px;
+
+      background:
+
+        radial-gradient(
+          circle at 93% 7%,
+          rgba(202,167,106,.18),
+          transparent 31%
+        ),
+
+        radial-gradient(
+          circle at 4% 95%,
+          rgba(113,140,103,.16),
+          transparent 34%
+        ),
+
+        linear-gradient(
+          140deg,
+          var(--forest),
+          var(--forest-soft)
+        );
+
+      color:white;
+
+      box-shadow:var(--shadow);
+
+    }
+
+
+    .hero::before {
+
+      content:"";
+
+      position:absolute;
+
+      top:-145px;
+      right:-110px;
+
+      width:340px;
+      height:340px;
+
+      border:
+        1px solid rgba(222,194,141,.12);
+
+      border-radius:50%;
+
+    }
+
+
+    .hero-copy {
+
+      position:relative;
+      z-index:2;
+
+    }
+
+
+    .hero-copy .studio-label {
+
+      margin-bottom:13px;
+
+    }
+
+
+    .hero h1 {
+
+      max-width:760px;
+
+      margin-bottom:15px;
+
+      color:white;
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size:
+        clamp(2.8rem,5vw,4.55rem);
+
+      font-weight:500;
+
+      line-height:1;
+
+      letter-spacing:-2.5px;
+
+    }
+
+
+    .hero h1 em {
+
+      color:var(--gold-soft);
+      font-weight:500;
+
+    }
+
+
+    .hero p {
+
+      max-width:690px;
+
+      color:rgba(255,255,255,.72);
+
+      font-size:.93rem;
+      line-height:1.7;
+
+    }
+
+
+    .hero-system {
+
+      position:relative;
+      z-index:2;
+
+      padding:23px;
+
+      border:
+        1px solid rgba(255,255,255,.12);
+
+      border-radius:23px;
+
+      background:
+        rgba(255,255,255,.07);
+
+      backdrop-filter:blur(12px);
+      -webkit-backdrop-filter:blur(12px);
+
+    }
+
+
+    .hero-system-label {
+
+      margin-bottom:15px;
+
+      color:var(--gold-soft);
+
+      font-size:.64rem;
+      font-weight:900;
+
+      letter-spacing:1.8px;
+
+      text-transform:uppercase;
+
+    }
+
+
+    .system-status {
+
+      display:flex;
+      align-items:center;
+
+      gap:11px;
+
+      margin-bottom:8px;
+
+      color:white;
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size:1.55rem;
+
+    }
+
+
+    .system-status-dot {
+
+      width:10px;
+      height:10px;
+
+      border-radius:50%;
+
+      background:#9fc79b;
+
+      box-shadow:
+        0 0 0 5px rgba(159,199,155,.12);
+
+    }
+
+
+    .hero-system p {
+
+      font-size:.77rem;
+      line-height:1.55;
+
+    }
+
+
+    /* ==================================================
+       STATS
+    ================================================== */
+
+    .stats {
+
+      display:grid;
+
+      grid-template-columns:
+        repeat(4,minmax(0,1fr));
+
+      gap:15px;
+
+      margin-bottom:23px;
+
+    }
+
+
+    .stat {
+
+      position:relative;
+
+      overflow:hidden;
+
+      min-height:145px;
+
+      padding:20px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:22px;
+
+      background:
+        rgba(255,255,255,.85);
+
+      box-shadow:var(--soft-shadow);
+
+    }
+
+
+    .stat::after {
+
+      content:"";
+
+      position:absolute;
+
+      right:-45px;
+      bottom:-55px;
+
+      width:130px;
+      height:130px;
+
+      border:
+        1px solid rgba(113,140,103,.09);
+
+      border-radius:50%;
+
+    }
+
+
+    .stat-top {
+
+      position:relative;
+      z-index:2;
+
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+
+      gap:12px;
+
+      margin-bottom:17px;
+
+    }
+
+
+    .stat small {
+
+      color:var(--gold);
+
+      font-size:.62rem;
+      font-weight:900;
+
+      letter-spacing:1.35px;
+
+      text-transform:uppercase;
+
+    }
+
+
+    .stat-icon {
+
+      width:39px;
+      height:39px;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      border-radius:13px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--forest),
+          var(--sage)
+        );
+
+      color:white;
+
+    }
+
+
+    .stat-icon svg {
+
+      width:19px;
+      height:19px;
+
+    }
+
+
+    .stat strong {
+
+      position:relative;
+      z-index:2;
+
+      display:block;
+
+      color:var(--forest);
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size:2.1rem;
+      font-weight:500;
+
+      line-height:1;
+
+    }
+
+
+    .stat-description {
+
+      position:relative;
+      z-index:2;
+
+      margin-top:7px;
+
+      color:var(--muted);
+
+      font-size:.71rem;
+
+    }
+
+
+    /* ==================================================
+       GRID
+    ================================================== */
+
+    .grid {
+
+      display:grid;
+
+      grid-template-columns:
+        repeat(2,minmax(0,1fr));
+
+      gap:21px;
+
+    }
+
+
+    .card {
+
+      overflow:hidden;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:26px;
+
+      background:
+        rgba(255,255,255,.87);
+
+      box-shadow:var(--soft-shadow);
+
+    }
+
+
+    .card.wide {
+
+      grid-column:1 / -1;
+
+    }
+
+
+    .card-header {
+
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+
+      gap:20px;
+
+      padding:24px 26px 20px;
+
+      border-bottom:
+        1px solid var(--soft-border);
+
+    }
+
+
+    .card-heading {
+
+      min-width:0;
+
+    }
+
+
+    .section-label {
+
+      display:block;
+
+      margin-bottom:7px;
+
+      color:var(--gold);
+
+      font-size:.63rem;
+      font-weight:900;
+
+      letter-spacing:1.7px;
+
+      text-transform:uppercase;
+
+    }
+
+
+    .card h2,
+    .card h3 {
+
+      color:var(--forest);
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-weight:500;
+
+    }
+
+
+    .card h2 {
+
+      margin-bottom:5px;
+
+      font-size:1.75rem;
+
+      line-height:1.15;
+
+    }
+
+
+    .card h3 {
+
+      font-size:1.55rem;
+
+    }
+
+
+    .card-header p {
+
+      color:var(--muted);
+
+      font-size:.81rem;
+      line-height:1.55;
+
+    }
+
+
+    .card-body {
+
+      padding:22px 26px 26px;
+
+    }
+
+
+    /* ==================================================
+       TOOLBAR BUTTONS
+    ================================================== */
+
+    .toolbar-actions {
+
+      display:flex;
+      align-items:center;
+
+      gap:8px;
+
+      flex-wrap:wrap;
+
+    }
+
+
+    .refresh-button,
+    .add-button {
+
+      min-height:41px;
+
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+
+      gap:7px;
+
+      padding:9px 14px;
+
+      border-radius:999px;
+
+      font-size:.73rem;
+      font-weight:850;
+
+      transition:
+        background .22s ease,
+        color .22s ease,
+        transform .22s ease;
+
+    }
+
+
+    .refresh-button {
+
+      border:
+        1px solid rgba(202,167,106,.24);
+
+      background:var(--cream);
+
+      color:var(--forest);
+
+    }
+
+
+    .refresh-button:hover {
+
+      background:var(--gold);
+
+      transform:translateY(-2px);
+
+    }
+
+
+    .add-button {
+
+      background:var(--forest);
+      color:white;
+
+    }
+
+
+    .add-button:hover {
+
+      background:var(--sage);
+
+      transform:translateY(-2px);
+
+    }
+
+
+    .refresh-button svg,
+    .add-button svg {
+
+      width:15px;
+      height:15px;
+
+    }
+
+
+    /* ==================================================
+       LISTS
+    ================================================== */
+
+    .registration-list,
+    .client-list,
+    .form-list,
+    .visit-list {
+
+      display:grid;
+      gap:12px;
+
+    }
+
+
+    .registration-item,
+    .client-item,
+    .form-item,
+    .visit-item {
+
+      display:grid;
+
+      grid-template-columns:
+        minmax(0,1fr)
+        auto;
+
+      gap:18px;
+
+      align-items:center;
+
+      padding:17px;
+
+      border:
+        1px solid rgba(23,38,27,.08);
+
+      border-radius:18px;
+
+      background:
+        rgba(248,241,231,.43);
+
+      transition:
+        background .22s ease,
+        border-color .22s ease,
+        transform .22s ease;
+
+    }
+
+
+    .registration-item:hover,
+    .client-item:hover,
+    .form-item:hover,
+    .visit-item:hover {
+
+      border-color:
+        rgba(202,167,106,.35);
+
+      background:
+        rgba(255,250,244,.94);
+
+      transform:translateY(-2px);
+
+    }
+
+
+    .person-name,
+    .form-title,
+    .visit-title {
+
+      margin-bottom:4px;
+
+      color:var(--forest);
+
+      font-size:.95rem;
+      font-weight:850;
+
+      line-height:1.35;
+
+    }
+
+
+    .person-details,
+    .form-meta,
+    .visit-meta {
+
+      color:var(--muted);
+
+      font-size:.77rem;
+      line-height:1.6;
+
+    }
+
+
+    .form-client,
+    .visit-client {
+
+      margin-top:2px;
+
+      color:var(--sage);
+
+      font-size:.76rem;
+      font-weight:850;
+
+    }
+
+
+    .message-note {
+
+      max-width:850px;
+
+      margin-top:9px;
+      padding:10px 12px;
+
+      border:
+        1px solid rgba(113,140,103,.12);
+
+      border-radius:11px;
+
+      background:
+        rgba(113,140,103,.07);
+
+      color:var(--sage);
+
+      font-size:.76rem;
+      line-height:1.55;
+
+    }
+
+
+    /* ==================================================
+       ACTION BUTTONS
+    ================================================== */
+
+    .actions {
+
+      display:flex;
+
+      gap:7px;
+
+      flex-wrap:wrap;
+
+    }
+
+
+    .action-button {
+
+      min-height:38px;
+
+      padding:8px 13px;
+
+      border-radius:999px;
+
+      font-size:.7rem;
+      font-weight:850;
+
+      transition:
+        background .22s ease,
+        color .22s ease,
+        transform .22s ease;
+
+    }
+
+
+    .approve-button,
+    .view-button,
+    .edit-button {
+
+      background:var(--forest);
+      color:white;
+
+    }
+
+
+    .approve-button:hover,
+    .view-button:hover,
+    .edit-button:hover {
+
+      background:var(--sage);
+
+      transform:translateY(-2px);
+
+    }
+
+
+    .reject-button {
+
+      border:
+        1px solid rgba(147,66,66,.12);
+
+      background:var(--red-soft);
+      color:var(--red);
+
+    }
+
+
+    .reject-button:hover {
+
+      background:#f6ddda;
+
+    }
+
+
+    .action-button:disabled {
+
+      opacity:.52;
+
+      cursor:not-allowed;
+
+      transform:none;
+
+    }
+
+
+    /* ==================================================
+       STATUS
+    ================================================== */
+
+    .status-pill {
+
+      display:inline-flex;
+      align-items:center;
+
+      gap:6px;
+
+      margin-top:7px;
+
+      padding:5px 9px;
+
+      border-radius:999px;
+
+      font-size:.65rem;
+      font-weight:850;
+
+    }
+
+
+    .status-pill::before {
+
+      content:"";
+
+      width:6px;
+      height:6px;
+
+      border-radius:50%;
+
+      background:currentColor;
+
+      opacity:.82;
+
+    }
+
+
+    .status-pending {
+
+      background:var(--orange-soft);
+      color:var(--orange);
+
+    }
+
+
+    .status-approved,
+    .status-submitted,
+    .status-scheduled {
+
+      background:var(--green-soft);
+      color:var(--green);
+
+    }
+
+
+    .status-completed {
+
+      background:var(--blue-soft);
+      color:var(--blue);
+
+    }
+
+
+    .status-cancelled {
+
+      background:var(--red-soft);
+      color:var(--red);
+
+    }
+
+
+    .empty-state {
+
+      padding:31px 22px;
+
+      border:
+        1px dashed rgba(23,38,27,.15);
+
+      border-radius:18px;
+
+      background:
+        rgba(248,241,231,.28);
+
+      color:var(--muted);
+
+      font-size:.8rem;
+
+      text-align:center;
+
+    }
+
+
+    .loading-state {
+
+      padding:25px;
+
+      color:var(--muted);
+
+      font-size:.78rem;
+
+      text-align:center;
+
+    }
+
+
+    /* ==================================================
+       FEATURE CARDS
+    ================================================== */
+
+    .feature-card {
+
+      position:relative;
+
+      min-height:210px;
+
+    }
+
+
+    .feature-card .card-body {
+
+      display:flex;
+      flex-direction:column;
+
+      min-height:185px;
+
+    }
+
+
+    .feature-icon {
+
+      width:44px;
+      height:44px;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      margin-bottom:18px;
+
+      border-radius:14px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--forest),
+          var(--sage)
+        );
+
+      color:white;
+
+    }
+
+
+    .feature-icon svg {
+
+      width:21px;
+      height:21px;
+
+    }
+
+
+    .feature-card h3 {
+
+      margin-bottom:8px;
+
+    }
+
+
+    .feature-card p {
+
+      color:var(--muted);
+
+      font-size:.82rem;
+      line-height:1.6;
+
+    }
+
+
+    .coming-soon {
+
+      width:max-content;
+
+      display:inline-flex;
+      align-items:center;
+
+      gap:6px;
+
+      margin-top:auto;
+      padding:7px 10px;
+
+      border-radius:999px;
+
+      background:var(--cream);
+
+      color:var(--sage);
+
+      font-size:.66rem;
+      font-weight:850;
+
+    }
+
+
+    .coming-soon::before {
+
+      content:"";
+
+      width:6px;
+      height:6px;
+
+      border-radius:50%;
+
+      background:var(--gold);
+
+    }
+
+
+    /* ==================================================
+       MODALS
+    ================================================== */
+
+    .modal-overlay {
+
+      position:fixed;
+      inset:0;
+
+      z-index:20000;
+
+      display:none;
+
+      align-items:center;
+      justify-content:center;
+
+      padding:20px;
+
+      background:
+        rgba(10,17,12,.72);
+
+      backdrop-filter:blur(8px);
+      -webkit-backdrop-filter:blur(8px);
+
+    }
+
+
+    .modal-overlay.is-open {
+
+      display:flex;
+
+    }
+
+
+    .modal {
+
+      width:min(760px,100%);
+      max-height:88vh;
+
+      overflow:auto;
+
+      border:
+        1px solid rgba(202,167,106,.27);
+
+      border-radius:28px;
+
+      background:var(--cream-soft);
+
+      box-shadow:
+        0 35px 100px rgba(0,0,0,.34);
+
+    }
+
+
+    .modal-header {
+
+      position:sticky;
+
+      top:0;
+
+      z-index:3;
+
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+
+      gap:18px;
+
+      padding:23px 25px;
+
+      background:
+
+        radial-gradient(
+          circle at 94% 5%,
+          rgba(202,167,106,.16),
+          transparent 30%
+        ),
+
+        linear-gradient(
+          135deg,
+          var(--forest),
+          var(--forest-soft)
+        );
+
+      color:white;
+
+    }
+
+
+    .modal-header small {
+
+      display:block;
+
+      margin-bottom:4px;
+
+      color:var(--gold-soft);
+
+      font-size:.62rem;
+      font-weight:900;
+
+      letter-spacing:1.7px;
+
+      text-transform:uppercase;
+
+    }
+
+
+    .modal-header h2 {
+
+      color:white;
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size:1.65rem;
+      font-weight:500;
+
+    }
+
+
+    .modal-close {
+
+      width:40px;
+      height:40px;
+
+      flex-shrink:0;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      border-radius:50%;
+
+      background:
+        rgba(255,255,255,.09);
+
+      color:white;
+
+      font-size:1.45rem;
+
+      transition:background .2s ease;
+
+    }
+
+
+    .modal-close:hover {
+
+      background:
+        rgba(255,255,255,.16);
+
+    }
+
+
+    .modal-body {
+
+      padding:25px;
+
+    }
+
+
+    .sensitive-warning,
+    .edit-note {
+
+      margin-bottom:20px;
+      padding:14px 15px;
+
+      border:
+        1px solid rgba(202,167,106,.23);
+
+      border-radius:14px;
+
+      background:#fff8ed;
+
+      color:var(--sage);
+
+      font-size:.77rem;
+      line-height:1.6;
+
+    }
+
+
+    /* ==================================================
+       EDIT FIELDS
+    ================================================== */
+
+    .edit-grid {
+
+      display:grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap:17px;
+
+    }
+
+
+    .edit-field {
+
+      display:flex;
+      flex-direction:column;
+
+      gap:7px;
+
+    }
+
+
+    .edit-field.full {
+
+      grid-column:1 / -1;
+
+    }
+
+
+    .edit-field label {
+
+      color:var(--sage);
+
+      font-size:.73rem;
+      font-weight:850;
+
+    }
+
+
+    .edit-field input,
+    .edit-field select,
+    .edit-field textarea {
+
+      width:100%;
+
+      min-height:48px;
+
+      padding:12px 14px;
+
+      border:
+        1px solid #e1d6c7;
+
+      border-radius:13px;
+
+      background:white;
+
+      color:var(--ink);
+
+      outline:none;
+
+      transition:
+        border-color .22s ease,
+        box-shadow .22s ease;
+
+    }
+
+
+    .edit-field textarea {
+
+      min-height:115px;
+
+      resize:vertical;
+
+    }
+
+
+    .edit-field input:focus,
+    .edit-field select:focus,
+    .edit-field textarea:focus {
+
+      border-color:var(--gold);
+
+      box-shadow:
+        0 0 0 4px rgba(202,167,106,.13);
+
+    }
+
+
+    .field-help {
+
+      color:var(--muted);
+
+      font-size:.67rem;
+      line-height:1.45;
+
+    }
+
+
+    .save-button {
+
+      width:100%;
+      min-height:53px;
+
+      margin-top:21px;
+      padding:14px 20px;
+
+      border-radius:999px;
+
+      background:
+
+        linear-gradient(
+          135deg,
+          var(--forest),
+          var(--sage)
+        );
+
+      color:white;
+
+      font-size:.78rem;
+      font-weight:900;
+
+      box-shadow:
+        0 13px 30px rgba(23,38,27,.15);
+
+      transition:
+        transform .22s ease,
+        box-shadow .22s ease;
+
+    }
+
+
+    .save-button:hover {
+
+      transform:translateY(-2px);
+
+      box-shadow:
+        0 18px 36px rgba(23,38,27,.20);
+
+    }
+
+
+    .save-button:disabled {
+
+      opacity:.52;
+
+      cursor:not-allowed;
+
+      transform:none;
+
+    }
+
+
+    /* ==================================================
+       FORM VIEWER
+    ================================================== */
+
+    .form-detail-grid {
+
+      display:grid;
+      gap:11px;
+
+    }
+
+
+    .form-detail {
+
+      padding:15px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:15px;
+
+      background:white;
+
+    }
+
+
+    .form-detail-label {
+
+      display:block;
+
+      margin-bottom:5px;
+
+      color:var(--gold);
+
+      font-size:.61rem;
+      font-weight:900;
+
+      letter-spacing:1px;
+
+      text-transform:uppercase;
+
+    }
+
+
+    .form-detail-value {
+
+      color:var(--ink);
+
+      font-size:.84rem;
+      line-height:1.6;
+
+      white-space:pre-wrap;
+      overflow-wrap:anywhere;
+
+    }
+
+
+    /* ==================================================
+       TOAST
+    ================================================== */
+
+    #studio-message {
+
+      position:fixed;
+
+      left:50%;
+      bottom:24px;
+
+      z-index:30000;
+
+      display:none;
+
+      width:min(92%,520px);
+
+      padding:14px 17px;
+
+      border-radius:15px;
+
+      transform:translateX(-50%);
+
+      box-shadow:
+        0 20px 45px rgba(0,0,0,.18);
+
+      font-size:.78rem;
+      font-weight:750;
+
+      line-height:1.5;
+
+    }
+
+
+    #studio-message.success {
+
+      display:block;
+
+      border:
+        1px solid rgba(71,112,77,.20);
+
+      background:var(--green-soft);
+      color:var(--green);
+
+    }
+
+
+    #studio-message.error {
+
+      display:block;
+
+      border:
+        1px solid rgba(147,66,66,.18);
+
+      background:var(--red-soft);
+      color:var(--red);
+
+    }
+
+
+    /* ==================================================
+       FOOTER
+    ================================================== */
+
+    .studio-footer {
+
+      margin-top:31px;
+
+      padding:24px 0 4px;
+
+      border-top:
+        1px solid var(--soft-border);
+
+      color:var(--muted);
+
+      font-size:.69rem;
+
+      text-align:center;
+
+    }
+
+
+    .studio-footer a {
+
+      color:var(--forest);
+      font-weight:850;
+
+    }
+
+
+    /* ==================================================
+       TABLET
+    ================================================== */
+
+    @media(max-width:1000px) {
+
+      .login-shell {
+
+        grid-template-columns:1fr;
+
+        max-width:700px;
+
+      }
+
+
+      .login-brand-panel {
+
+        min-height:0;
+
+      }
+
+
+      .login-brand-footer {
+
+        margin-top:40px;
+
+      }
+
+
+      .hero {
+
+        grid-template-columns:1fr;
+
+      }
+
+
+      .stats {
+
+        grid-template-columns:
+          repeat(2,1fr);
+
+      }
+
+    }
+
+
+    /* ==================================================
+       MOBILE
+    ================================================== */
+
+    @media(max-width:700px) {
+
+      .container {
+
+        width:90%;
+
+      }
+
+
+      /* LOGIN */
+
+      .login-screen {
+
+        padding:18px 13px;
+
+      }
+
+
+      .login-shell {
+
+        border-radius:27px;
+
+      }
+
+
+      .login-brand-panel {
+
+        padding:33px 25px;
+
+      }
+
+
+      .login-logo {
+
+        margin-bottom:27px;
+
+        font-size:1.8rem;
+
+      }
+
+
+      .login-brand-panel h1 {
+
+        font-size:
+          clamp(2.7rem,12vw,3.45rem);
+
+        letter-spacing:-2px;
+
+      }
+
+
+      .login-brand-panel p {
+
+        font-size:.83rem;
+
+      }
+
+
+      .login-brand-footer {
+
+        margin-top:30px;
+
+      }
+
+
+      .login-card {
+
+        padding:34px 23px;
+
+      }
+
+
+      .login-card h2 {
+
+        font-size:2.25rem;
+
+      }
+
+
+      /* HEADER */
+
+      .studio-header-inner {
+
+        min-height:64px;
+
+      }
+
+
+      .brand {
+
+        font-size:1.72rem;
+
+      }
+
+
+      .studio-name {
+
+        display:none;
+
+      }
+
+
+      .header-button {
+
+        display:none;
+
+      }
+
+
+      .logout {
+
+        min-height:39px;
+
+        padding:8px 12px;
+
+        font-size:.68rem;
+
+      }
+
+
+      .logout span {
+
+        display:none;
+
+      }
+
+
+      /* MAIN */
+
+      .studio-main {
+
+        padding-top:18px;
+        padding-bottom:45px;
+
+      }
+
+
+      .hero {
+
+        gap:22px;
+
+        padding:27px 23px;
+
+        border-radius:26px;
+
+      }
+
+
+      .hero h1 {
+
+        font-size:
+          clamp(2.65rem,12vw,3.5rem);
+
+        letter-spacing:-1.9px;
+
+      }
+
+
+      .hero p {
+
+        font-size:.82rem;
+
+      }
+
+
+      .hero-system {
+
+        padding:19px;
+
+      }
+
+
+      /* STATS */
+
+      .stats {
+
+        gap:11px;
+
+        margin-bottom:17px;
+
+      }
+
+
+      .stat {
+
+        min-height:130px;
+
+        padding:17px;
+
+        border-radius:20px;
+
+      }
+
+
+      .stat-icon {
+
+        width:35px;
+        height:35px;
+
+      }
+
+
+      .stat strong {
+
+        font-size:1.7rem;
+
+      }
+
+
+      .stat-description {
+
+        font-size:.65rem;
+
+      }
+
+
+      /* CARDS */
+
+      .grid {
+
+        grid-template-columns:1fr;
+
+        gap:16px;
+
+      }
+
+
+      .card.wide {
+
+        grid-column:auto;
+
+      }
+
+
+      .card {
+
+        border-radius:23px;
+
+      }
+
+
+      .card-header {
+
+        flex-direction:column;
+
+        padding:20px 20px 17px;
+
+      }
+
+
+      .card h2 {
+
+        font-size:1.55rem;
+
+      }
+
+
+      .card-body {
+
+        padding:18px 20px 21px;
+
+      }
+
+
+      .toolbar-actions {
+
+        width:100%;
+
+      }
+
+
+      .refresh-button,
+      .add-button {
+
+        flex:1;
+
+      }
+
+
+      /* LIST ITEMS */
+
+      .registration-item,
+      .client-item,
+      .form-item,
+      .visit-item {
+
+        grid-template-columns:1fr;
+
+        gap:13px;
+
+        padding:15px;
+
+      }
+
+
+      .actions {
+
+        width:100%;
+
+      }
+
+
+      .actions button {
+
+        flex:1;
+
+      }
+
+
+      /* MODAL */
+
+      .modal {
+
+        border-radius:23px;
+
+      }
+
+
+      .modal-header {
+
+        padding:20px;
+
+      }
+
+
+      .modal-body {
+
+        padding:20px;
+
+      }
+
+
+      .edit-grid {
+
+        grid-template-columns:1fr;
+
+      }
+
+
+      .edit-field.full {
+
+        grid-column:auto;
+
+      }
+
+
+      .studio-footer {
+
+        font-size:.64rem;
+
+      }
+
+    }
+
+
+    @media(max-width:390px) {
+
+      .stats {
+
+        grid-template-columns:1fr;
+
+      }
+
+    }
+
+
+    /* ==================================================
+       REDUCED MOTION
+    ================================================== */
+
+    @media(prefers-reduced-motion:reduce) {
+
+      html {
+
+        scroll-behavior:auto;
+
+      }
+
+
+      *,
+      *::before,
+      *::after {
+
+        animation-duration:.01ms !important;
+        animation-iteration-count:1 !important;
+        transition-duration:.01ms !important;
+
+      }
+
+    }
+
+
+    @keyframes buttonShine {
+
+      0% {
+
+        left:-130%;
+
+      }
+
+      100% {
+
+        left:160%;
+
+      }
+
+    }
+
+  </style>
+
+
+  <!-- Shared Sorted. wordmark styling -->
+  <link
+    rel="stylesheet"
+    href="../brand.css"
+  >
 
 </head>
 
@@ -994,47 +3001,157 @@ header .brand span{
      LOGIN
 ================================================== -->
 
-<div id="loginScreen" class="login-screen">
+<div
+  id="loginScreen"
+  class="login-screen"
+>
 
-  <div class="login-card">
+  <div class="login-shell">
 
-    <div class="logo">
-      Sorted<span>.</span>
-    </div>
 
-    <h1>
-      Administrator Login
-    </h1>
+    <section class="login-brand-panel">
 
-    <p>
-      Private admin area for Sorted.
-    </p>
+      <div class="login-brand-content">
 
-    <input
-      type="email"
-      id="email"
-      placeholder="Admin email"
-      autocomplete="email"
-    >
+        <div class="login-logo">
+          Sorted<span>.</span>
+        </div>
 
-    <input
-      type="password"
-      id="password"
-      placeholder="Password"
-      autocomplete="current-password"
-    >
 
-    <button
-      type="button"
-      class="login-button"
-      onclick="adminLogin()"
-    >
-      Sign In
-    </button>
+        <div class="studio-label">
 
-    <div id="error">
-      Access denied. Please check your login details.
-    </div>
+          <i data-lucide="sparkles"></i>
+
+          <span>
+            Sorted. Studio
+          </span>
+
+        </div>
+
+
+        <h1>
+          Your business.
+          <em>Beautifully organised.</em>
+        </h1>
+
+
+        <p>
+          The private control centre for managing clients,
+          registrations, visits, forms and the day-to-day
+          running of Sorted.
+        </p>
+
+      </div>
+
+
+      <div class="login-brand-footer">
+
+        <i data-lucide="shield-check"></i>
+
+        <span>
+          Private administrator access only.
+        </span>
+
+      </div>
+
+    </section>
+
+
+    <section class="login-card">
+
+      <p class="eyebrow">
+        Administrator Access
+      </p>
+
+
+      <h2>
+        Welcome back.
+      </h2>
+
+
+      <p class="login-intro">
+        Sign in with your authorised Sorted. administrator
+        account to continue to Studio.
+      </p>
+
+
+      <div class="login-field">
+
+        <label for="email">
+          Email Address
+        </label>
+
+        <div class="login-input-wrap">
+
+          <i data-lucide="mail"></i>
+
+          <input
+            type="email"
+            id="email"
+            placeholder="Admin email"
+            autocomplete="email"
+          >
+
+        </div>
+
+      </div>
+
+
+      <div class="login-field">
+
+        <label for="password">
+          Password
+        </label>
+
+        <div class="login-input-wrap">
+
+          <i data-lucide="lock-keyhole"></i>
+
+          <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            autocomplete="current-password"
+          >
+
+        </div>
+
+      </div>
+
+
+      <button
+        type="button"
+        class="login-button"
+        onclick="adminLogin()"
+      >
+
+        <i data-lucide="log-in"></i>
+
+        <span>
+          Enter Sorted. Studio
+        </span>
+
+      </button>
+
+
+      <div id="error">
+        Access denied. Please check your login details.
+      </div>
+
+
+      <div class="login-security">
+
+        <i data-lucide="shield-check"></i>
+
+        <span>
+          Access is restricted to the authorised Sorted.
+          administrator account.
+        </span>
+
+      </div>
+
+    </section>
+
 
   </div>
 
@@ -1047,307 +3164,599 @@ header .brand span{
 
 <div id="studio">
 
-<header>
 
-  <div class="brand">
-    Sorted<span>.</span> Studio
-  </div>
+  <!-- HEADER -->
 
-  <button
-    type="button"
-    class="logout"
-    onclick="logout()"
-  >
-    Logout
-  </button>
+  <header class="studio-header">
 
-</header>
+    <div class="container studio-header-inner">
 
 
-<div class="container">
+      <div class="brand-group">
 
-
-  <section class="hero">
-
-    <h2>
-      Welcome to Sorted. Studio
-    </h2>
-
-    <p>
-      Your private control centre for registrations, clients,
-      visits, invoices, forms and documents.
-    </p>
-
-  </section>
-
-
-  <!-- STATS -->
-
-  <div class="stats">
-
-    <div class="stat">
-      <small>Pending registrations</small>
-      <strong id="pending-count">—</strong>
-    </div>
-
-    <div class="stat">
-      <small>Clients</small>
-      <strong id="client-count">—</strong>
-    </div>
-
-    <div class="stat">
-      <small>Submitted forms</small>
-      <strong id="form-count">—</strong>
-    </div>
-
-    <div class="stat">
-      <small>System</small>
-      <strong style="font-size:1.3rem;margin-top:13px;">
-        Connected
-      </strong>
-    </div>
-
-  </div>
-
-
-  <div class="grid">
-
-
-    <!-- ==================================================
-         REGISTRATIONS
-    ================================================== -->
-
-    <section class="card wide">
-
-      <div class="toolbar">
-
-        <div>
-
-          <small class="section-label">
-            Registrations
-          </small>
-
-          <h3>
-            Pending Registrations
-          </h3>
-
-          <p style="margin-bottom:0;">
-            Review new portal registrations and approve access.
-          </p>
-
+        <div class="brand">
+          Sorted<span>.</span>
         </div>
 
-        <button
-          type="button"
-          class="refresh-button"
-          onclick="refreshStudio()"
+        <span class="studio-name">
+          Studio
+        </span>
+
+      </div>
+
+
+      <div class="header-actions">
+
+        <a
+          href="../index.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="header-button"
         >
-          Refresh
-        </button>
 
-      </div>
+          <i data-lucide="external-link"></i>
 
-      <div
-        id="pending-list"
-        class="registration-list"
-      >
-        <div class="loading-state">
-          Loading registrations...
-        </div>
-      </div>
+          <span>
+            View Website
+          </span>
 
-    </section>
-
-
-    <!-- ==================================================
-         CLIENTS
-    ================================================== -->
-
-    <section class="card wide">
-
-      <small class="section-label">
-        Clients
-      </small>
-
-      <h3>
-        Client Management
-      </h3>
-
-      <p>
-        Manage approved client membership and account information.
-      </p>
-
-      <div
-        id="client-list"
-        class="client-list"
-      >
-        <div class="loading-state">
-          Loading clients...
-        </div>
-      </div>
-
-    </section>
-
-
-    <!-- ==================================================
-         VISITS
-    ================================================== -->
-
-    <section class="card wide">
-
-      <div class="toolbar">
-
-        <div>
-
-          <small class="section-label">
-            Visits
-          </small>
-
-          <h3>
-            Manage Visits
-          </h3>
-
-          <p style="margin-bottom:0;">
-            Add and update client support visits.
-          </p>
-
-        </div>
-
-
-        <div class="toolbar-actions">
-
-          <button
-            type="button"
-            class="refresh-button"
-            onclick="refreshStudio()"
-          >
-            Refresh
-          </button>
-
-          <button
-            type="button"
-            class="add-button"
-            id="add-visit-button"
-          >
-            + Add Visit
-          </button>
-
-        </div>
-
-      </div>
-
-
-      <div
-        id="visit-list"
-        class="visit-list"
-      >
-
-        <div class="loading-state">
-          Loading visits...
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- ==================================================
-         CLIENT FORMS
-    ================================================== -->
-
-    <section class="card wide">
-
-      <div class="toolbar">
-
-        <div>
-
-          <small class="section-label">
-            Forms
-          </small>
-
-          <h3>
-            Client Forms
-          </h3>
-
-          <p style="margin-bottom:0;">
-            Review forms submitted securely through My Sorted.
-          </p>
-
-        </div>
+        </a>
 
 
         <button
           type="button"
-          class="refresh-button"
-          onclick="refreshStudio()"
+          class="logout"
+          onclick="logout()"
         >
-          Refresh
+
+          <i data-lucide="log-out"></i>
+
+          <span>
+            Log Out
+          </span>
+
         </button>
 
       </div>
 
 
-      <div
-        id="form-list"
-        class="form-list"
-      >
-        <div class="loading-state">
-          Loading submitted forms...
+    </div>
+
+  </header>
+
+
+  <!-- MAIN -->
+
+  <main class="studio-main">
+
+    <div class="container">
+
+
+      <!-- HERO -->
+
+      <section class="hero">
+
+        <div class="hero-copy">
+
+          <div class="studio-label">
+
+            <i data-lucide="layout-dashboard"></i>
+
+            <span>
+              Sorted. Studio
+            </span>
+
+          </div>
+
+
+          <h1>
+            Everything behind
+            <em>Sorted.</em>
+          </h1>
+
+
+          <p>
+            Manage clients, approve new registrations,
+            arrange visits and securely review information
+            submitted through My Sorted.
+          </p>
+
         </div>
+
+
+        <aside class="hero-system">
+
+          <div class="hero-system-label">
+            Studio Status
+          </div>
+
+          <div class="system-status">
+
+            <span class="system-status-dot"></span>
+
+            <span>
+              Connected
+            </span>
+
+          </div>
+
+          <p>
+            Firebase services are connected and Studio is
+            ready to manage your client accounts.
+          </p>
+
+        </aside>
+
+      </section>
+
+
+      <!-- ==================================================
+           STATS
+      ================================================== -->
+
+      <section class="stats">
+
+
+        <article class="stat">
+
+          <div class="stat-top">
+
+            <small>
+              Pending
+            </small>
+
+            <div class="stat-icon">
+              <i data-lucide="user-round-plus"></i>
+            </div>
+
+          </div>
+
+          <strong id="pending-count">
+            —
+          </strong>
+
+          <div class="stat-description">
+            Registrations awaiting approval
+          </div>
+
+        </article>
+
+
+        <article class="stat">
+
+          <div class="stat-top">
+
+            <small>
+              Clients
+            </small>
+
+            <div class="stat-icon">
+              <i data-lucide="users-round"></i>
+            </div>
+
+          </div>
+
+          <strong id="client-count">
+            —
+          </strong>
+
+          <div class="stat-description">
+            Current client accounts
+          </div>
+
+        </article>
+
+
+        <article class="stat">
+
+          <div class="stat-top">
+
+            <small>
+              Forms
+            </small>
+
+            <div class="stat-icon">
+              <i data-lucide="clipboard-check"></i>
+            </div>
+
+          </div>
+
+          <strong id="form-count">
+            —
+          </strong>
+
+          <div class="stat-description">
+            Client forms in Studio
+          </div>
+
+        </article>
+
+
+        <article class="stat">
+
+          <div class="stat-top">
+
+            <small>
+              System
+            </small>
+
+            <div class="stat-icon">
+              <i data-lucide="shield-check"></i>
+            </div>
+
+          </div>
+
+          <strong style="font-size:1.55rem;">
+            Live
+          </strong>
+
+          <div class="stat-description">
+            Administration connected
+          </div>
+
+        </article>
+
+
+      </section>
+
+
+      <!-- ==================================================
+           CONTENT GRID
+      ================================================== -->
+
+      <div class="grid">
+
+
+        <!-- ==================================================
+             REGISTRATIONS
+        ================================================== -->
+
+        <section class="card wide">
+
+          <div class="card-header">
+
+            <div class="card-heading">
+
+              <span class="section-label">
+                Registrations
+              </span>
+
+              <h2>
+                Pending registrations
+              </h2>
+
+              <p>
+                Review new My Sorted. registrations and
+                approve access when appropriate.
+              </p>
+
+            </div>
+
+
+            <div class="toolbar-actions">
+
+              <button
+                type="button"
+                class="refresh-button"
+                onclick="refreshStudio()"
+              >
+
+                <i data-lucide="refresh-cw"></i>
+
+                Refresh
+
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <div class="card-body">
+
+            <div
+              id="pending-list"
+              class="registration-list"
+            >
+
+              <div class="loading-state">
+                Loading registrations…
+              </div>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             CLIENTS
+        ================================================== -->
+
+        <section class="card wide">
+
+          <div class="card-header">
+
+            <div class="card-heading">
+
+              <span class="section-label">
+                Clients
+              </span>
+
+              <h2>
+                Client management
+              </h2>
+
+              <p>
+                Manage client membership, service status
+                and remaining support hours.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="card-body">
+
+            <div
+              id="client-list"
+              class="client-list"
+            >
+
+              <div class="loading-state">
+                Loading clients…
+              </div>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             VISITS
+        ================================================== -->
+
+        <section class="card wide">
+
+          <div class="card-header">
+
+            <div class="card-heading">
+
+              <span class="section-label">
+                Visits
+              </span>
+
+              <h2>
+                Visit management
+              </h2>
+
+              <p>
+                Add and update support visits that appear
+                in each client's My Sorted. dashboard.
+              </p>
+
+            </div>
+
+
+            <div class="toolbar-actions">
+
+              <button
+                type="button"
+                class="refresh-button"
+                onclick="refreshStudio()"
+              >
+
+                <i data-lucide="refresh-cw"></i>
+
+                Refresh
+
+              </button>
+
+
+              <button
+                type="button"
+                class="add-button"
+                id="add-visit-button"
+              >
+
+                <i data-lucide="calendar-plus"></i>
+
+                Add Visit
+
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <div class="card-body">
+
+            <div
+              id="visit-list"
+              class="visit-list"
+            >
+
+              <div class="loading-state">
+                Loading visits…
+              </div>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             CLIENT FORMS
+        ================================================== -->
+
+        <section class="card wide">
+
+          <div class="card-header">
+
+            <div class="card-heading">
+
+              <span class="section-label">
+                Forms
+              </span>
+
+              <h2>
+                Client forms
+              </h2>
+
+              <p>
+                Review forms submitted securely through
+                My Sorted.
+              </p>
+
+            </div>
+
+
+            <div class="toolbar-actions">
+
+              <button
+                type="button"
+                class="refresh-button"
+                onclick="refreshStudio()"
+              >
+
+                <i data-lucide="refresh-cw"></i>
+
+                Refresh
+
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <div class="card-body">
+
+            <div
+              id="form-list"
+              class="form-list"
+            >
+
+              <div class="loading-state">
+                Loading submitted forms…
+              </div>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             INVOICES
+        ================================================== -->
+
+        <section class="card feature-card">
+
+          <div class="card-body">
+
+            <div class="feature-icon">
+              <i data-lucide="receipt-text"></i>
+            </div>
+
+            <span class="section-label">
+              Invoices
+            </span>
+
+            <h3>
+              Invoice management
+            </h3>
+
+            <p>
+              Create, issue and track client invoices and
+              payment status from Studio.
+            </p>
+
+            <span class="coming-soon">
+              Next stage
+            </span>
+
+          </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             DOCUMENTS
+        ================================================== -->
+
+        <section class="card feature-card">
+
+          <div class="card-body">
+
+            <div class="feature-icon">
+              <i data-lucide="folder-lock"></i>
+            </div>
+
+            <span class="section-label">
+              Documents
+            </span>
+
+            <h3>
+              Client documents
+            </h3>
+
+            <p>
+              Manage Welcome Packs, agreements and other
+              client documents from one place.
+            </p>
+
+            <span class="coming-soon">
+              Next stage
+            </span>
+
+          </div>
+
+        </section>
+
+
       </div>
 
-    </section>
+
+      <!-- ==================================================
+           FOOTER
+      ================================================== -->
+
+      <footer class="studio-footer">
+
+        Sorted. Studio
+
+        &nbsp;·&nbsp;
+
+        Private administration area
+
+        &nbsp;·&nbsp;
+
+        <a href="../privacy.html">
+          Privacy Policy
+        </a>
+
+        &nbsp;·&nbsp;
+
+        <a href="../terms.html">
+          Terms &amp; Conditions
+        </a>
+
+      </footer>
 
 
-    <!-- ==================================================
-         NEXT AREAS
-    ================================================== -->
+    </div>
 
-    <section class="card feature-card">
+  </main>
 
-      <small class="section-label">
-        Invoices
-      </small>
-
-      <h3>
-        Invoices
-      </h3>
-
-      <p>
-        Create and track client invoices and payment status.
-      </p>
-
-      <span class="coming-soon">
-        Next stage
-      </span>
-
-    </section>
-
-
-    <section class="card feature-card">
-
-      <small class="section-label">
-        Documents
-      </small>
-
-      <h3>
-        Documents
-      </h3>
-
-      <p>
-        Manage welcome packs, agreements and client documents.
-      </p>
-
-      <span class="coming-soon">
-        Next stage
-      </span>
-
-    </section>
-
-
-  </div>
-
-</div>
 
 </div>
 
@@ -1364,6 +3773,7 @@ header .brand span{
 
   <div class="modal">
 
+
     <div class="modal-header">
 
       <div>
@@ -1378,10 +3788,12 @@ header .brand span{
 
       </div>
 
+
       <button
         type="button"
         class="modal-close"
         id="client-modal-close"
+        aria-label="Close client editor"
       >
         ×
       </button>
@@ -1391,9 +3803,11 @@ header .brand span{
 
     <div class="modal-body">
 
+
       <div class="edit-note">
-        These settings control the membership information shown
-        in the client's My Sorted. dashboard.
+        These settings control the membership and account
+        information displayed in the client's My Sorted.
+        dashboard.
       </div>
 
 
@@ -1424,7 +3838,7 @@ header .brand span{
           <input
             id="edit-membership"
             type="text"
-            placeholder="e.g. Premium"
+            placeholder="e.g. Essential Support"
           >
 
         </div>
@@ -1433,7 +3847,7 @@ header .brand span{
         <div class="edit-field">
 
           <label for="edit-membership-status">
-            Membership status
+            Membership Status
           </label>
 
           <select id="edit-membership-status">
@@ -1462,7 +3876,7 @@ header .brand span{
         <div class="edit-field">
 
           <label for="edit-service-status">
-            Service status
+            Service Status
           </label>
 
           <select id="edit-service-status">
@@ -1487,7 +3901,7 @@ header .brand span{
         <div class="edit-field">
 
           <label for="edit-hours-total">
-            Allocated hours
+            Allocated Hours
           </label>
 
           <input
@@ -1503,7 +3917,7 @@ header .brand span{
         <div class="edit-field">
 
           <label for="edit-hours-remaining">
-            Hours remaining
+            Hours Remaining
           </label>
 
           <input
@@ -1515,6 +3929,7 @@ header .brand span{
 
         </div>
 
+
       </div>
 
 
@@ -1525,6 +3940,7 @@ header .brand span{
       >
         Save Client Changes
       </button>
+
 
     </div>
 
@@ -1545,6 +3961,7 @@ header .brand span{
 
   <div class="modal">
 
+
     <div class="modal-header">
 
       <div>
@@ -1559,10 +3976,12 @@ header .brand span{
 
       </div>
 
+
       <button
         type="button"
         class="modal-close"
         id="visit-modal-close"
+        aria-label="Close visit editor"
       >
         ×
       </button>
@@ -1572,9 +3991,10 @@ header .brand span{
 
     <div class="modal-body">
 
+
       <div class="edit-note">
-        Visit information saved here will appear in the client's
-        My Sorted. dashboard.
+        Visit information saved here will appear in the
+        client's My Sorted. dashboard.
       </div>
 
 
@@ -1628,7 +4048,7 @@ header .brand span{
         <div class="edit-field full">
 
           <label for="visit-service">
-            Service / visit type
+            Service / Visit Type
           </label>
 
           <input
@@ -1644,7 +4064,7 @@ header .brand span{
         <div class="edit-field">
 
           <label for="visit-helper">
-            Assigned helper
+            Assigned Helper
           </label>
 
           <input
@@ -1659,7 +4079,7 @@ header .brand span{
         <div class="edit-field">
 
           <label for="visit-duration">
-            Duration in hours
+            Duration in Hours
           </label>
 
           <input
@@ -1676,7 +4096,7 @@ header .brand span{
         <div class="edit-field full">
 
           <label for="visit-status">
-            Visit status
+            Visit Status
           </label>
 
           <select id="visit-status">
@@ -1701,7 +4121,7 @@ header .brand span{
         <div class="edit-field full">
 
           <label for="visit-notes">
-            Client-visible notes
+            Client-visible Notes
           </label>
 
           <textarea
@@ -1710,7 +4130,7 @@ header .brand span{
           ></textarea>
 
           <div class="field-help">
-            Do not put private staff notes here.
+            Do not include private staff notes here.
           </div>
 
         </div>
@@ -1726,6 +4146,7 @@ header .brand span{
       >
         Save Visit
       </button>
+
 
     </div>
 
@@ -1746,12 +4167,13 @@ header .brand span{
 
   <div class="modal">
 
+
     <div class="modal-header">
 
       <div>
 
         <small id="form-modal-client">
-          Client form
+          Client Form
         </small>
 
         <h2 id="form-modal-title">
@@ -1760,10 +4182,12 @@ header .brand span{
 
       </div>
 
+
       <button
         type="button"
         class="modal-close"
         id="form-modal-close"
+        aria-label="Close form viewer"
       >
         ×
       </button>
@@ -1773,13 +4197,14 @@ header .brand span{
 
     <div class="modal-body">
 
+
       <div class="sensitive-warning">
 
         <strong>
           Confidential client information.
         </strong>
 
-        Only use and access this information where necessary
+        Only access and use this information where necessary
         for providing the client's Sorted. service.
 
       </div>
@@ -1790,12 +4215,17 @@ header .brand span{
         class="form-detail-grid"
       ></div>
 
+
     </div>
 
   </div>
 
 </div>
 
+
+<!-- ==================================================
+     TOAST
+================================================== -->
 
 <div
   id="studio-message"
@@ -1993,6 +4423,27 @@ let editingVisitKey =
 
 
 /* ==================================================
+   ICONS
+================================================== */
+
+function refreshIcons(){
+
+  if(window.lucide){
+
+    window.lucide.createIcons();
+
+  }
+
+}
+
+
+window.addEventListener(
+  "load",
+  refreshIcons
+);
+
+
+/* ==================================================
    MESSAGE
 ================================================== */
 
@@ -2091,6 +4542,22 @@ window.adminLogin =
   };
 
 
+document
+  .getElementById("password")
+  .addEventListener(
+    "keydown",
+    function(event){
+
+      if(event.key === "Enter"){
+
+        window.adminLogin();
+
+      }
+
+    }
+  );
+
+
 onAuthStateChanged(
   auth,
   function(user){
@@ -2121,6 +4588,8 @@ function showStudio(){
   studio.style.display =
     "block";
 
+  refreshIcons();
+
   loadStudioData();
 
 }
@@ -2133,6 +4602,8 @@ function showLogin(){
 
   studio.style.display =
     "none";
+
+  refreshIcons();
 
 }
 
@@ -2167,6 +4638,9 @@ async function loadStudioData(){
     loadClientForms(clients)
   ]);
 
+
+  refreshIcons();
+
 }
 
 
@@ -2181,7 +4655,7 @@ window.refreshStudio =
 async function loadPendingRegistrations(){
 
   pendingList.innerHTML =
-    '<div class="loading-state">Loading registrations...</div>';
+    '<div class="loading-state">Loading registrations…</div>';
 
 
   try{
@@ -2433,7 +4907,7 @@ async function approveRegistration(
     true;
 
   approveButton.textContent =
-    "Approving...";
+    "Approving…";
 
 
   try{
@@ -2593,7 +5067,7 @@ async function approveRegistration(
 
 
 /* ==================================================
-   REJECT
+   REJECT REGISTRATION
 ================================================== */
 
 async function rejectRegistration(
@@ -2620,7 +5094,7 @@ async function rejectRegistration(
     true;
 
   rejectButton.textContent =
-    "Rejecting...";
+    "Rejecting…";
 
 
   try{
@@ -2684,7 +5158,7 @@ async function rejectRegistration(
 async function loadClients(){
 
   clientList.innerHTML =
-    '<div class="loading-state">Loading clients...</div>';
+    '<div class="loading-state">Loading clients…</div>';
 
 
   loadedClients =
@@ -3083,7 +5557,7 @@ saveClientButton.addEventListener(
       true;
 
     saveClientButton.textContent =
-      "Saving...";
+      "Saving…";
 
 
     try{
@@ -3170,7 +5644,7 @@ saveClientButton.addEventListener(
 async function loadVisits(clients){
 
   visitList.innerHTML =
-    '<div class="loading-state">Loading visits...</div>';
+    '<div class="loading-state">Loading visits…</div>';
 
 
   loadedVisits =
@@ -3746,7 +6220,7 @@ saveVisitButton.addEventListener(
 
 
     saveVisitButton.textContent =
-      "Saving...";
+      "Saving…";
 
 
     try{
@@ -3891,7 +6365,7 @@ saveVisitButton.addEventListener(
 async function loadClientForms(clients){
 
   formList.innerHTML =
-    '<div class="loading-state">Loading submitted forms...</div>';
+    '<div class="loading-state">Loading submitted forms…</div>';
 
 
   formCount.textContent =
@@ -4298,8 +6772,15 @@ function getFormFields(formId,data){
         value:data.medicalConditions
       },
 
-      {label:"Allergies",value:data.allergies},
-      {label:"Pets at the property",value:data.pets},
+      {
+        label:"Allergies",
+        value:data.allergies
+      },
+
+      {
+        label:"Pets at the property",
+        value:data.pets
+      },
 
       {
         label:"Access instructions",
@@ -4447,8 +6928,9 @@ function openModal(modal){
   );
 
 
-  document.body.style.overflow =
-    "hidden";
+  document.body.classList.add(
+    "modal-open"
+  );
 
 }
 
@@ -4472,8 +6954,9 @@ function closeModal(modal){
     )
   ){
 
-    document.body.style.overflow =
-      "";
+    document.body.classList.remove(
+      "modal-open"
+    );
 
   }
 
@@ -4481,7 +6964,7 @@ function closeModal(modal){
 
 
 /* ==================================================
-   ESCAPE
+   ESCAPE KEY
 ================================================== */
 
 document.addEventListener(
@@ -5043,6 +7526,29 @@ function normaliseTimeInput(
 }
 
 </script>
+
+
+<!-- ==================================================
+     STATIC UI
+================================================== -->
+
+<script>
+
+  window.addEventListener(
+    "load",
+    function(){
+
+      if(window.lucide){
+
+        window.lucide.createIcons();
+
+      }
+
+    }
+  );
+
+</script>
+
 
 </body>
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 
 <head>
 
@@ -10,9 +10,22 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <title>Register | Sorted. Client Portal</title>
+  <title>Create Your Account | My Sorted.</title>
 
-  <meta name="robots" content="noindex,nofollow">
+  <meta
+    name="robots"
+    content="noindex, nofollow"
+  >
+
+  <meta
+    name="description"
+    content="Create your secure My Sorted. client portal account."
+  >
+
+  <meta
+    name="theme-color"
+    content="#17261b"
+  >
 
   <link
     rel="icon"
@@ -25,50 +38,99 @@
     href="../favicon.png"
   >
 
-  <meta
-    name="theme-color"
-    content="#17261b"
-  >
+  <script
+    src="https://unpkg.com/lucide@0.542.0/dist/umd/lucide.js"
+  ></script>
+
 
   <style>
 
+    /* ==================================================
+       ROOT
+    ================================================== */
+
     :root {
+
       --cream: #f8f1e7;
-      --cream-light: #fffaf3;
+      --cream-soft: #fffaf4;
+      --cream-deep: #efe0cc;
+
       --forest: #17261b;
-      --sage-dark: #314632;
+      --forest-soft: #223228;
       --sage: #718c67;
+      --sage-dark: #314632;
+      --sage-pale: #e6eadf;
+
       --gold: #caa76a;
-      --ink: #1d241f;
-      --muted: #697069;
+      --gold-soft: #dec28d;
+
       --white: #ffffff;
+
+      --ink: #1d241f;
+      --muted: #6f746e;
+
+      --success: #47704d;
+      --success-soft: #edf5ec;
+
+      --danger: #934242;
+      --danger-soft: #fff0ed;
+
       --border: rgba(202, 167, 106, 0.28);
-      --shadow: 0 28px 70px rgba(23, 38, 27, 0.17);
+
+      --shadow:
+        0 30px 85px rgba(23, 38, 27, 0.16);
+
+      --soft-shadow:
+        0 14px 36px rgba(23, 38, 27, 0.08);
+
     }
 
+
+    /* ==================================================
+       RESET
+    ================================================== */
+
     * {
+
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+
     }
+
 
     html {
+
       scroll-behavior: smooth;
+
     }
 
+
     body {
+
       min-height: 100vh;
 
-      background:
-        linear-gradient(
-          rgba(248, 241, 231, 0.84),
-          rgba(248, 241, 231, 0.93)
-        ),
-        url("../background.png");
+      overflow-x: hidden;
 
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
+      background:
+
+        radial-gradient(
+          circle at 4% 6%,
+          rgba(202, 167, 106, 0.13),
+          transparent 28%
+        ),
+
+        radial-gradient(
+          circle at 94% 10%,
+          rgba(113, 140, 103, 0.11),
+          transparent 28%
+        ),
+
+        linear-gradient(
+          180deg,
+          var(--cream-soft),
+          var(--cream)
+        );
 
       color: var(--ink);
 
@@ -81,23 +143,79 @@
         Arial,
         sans-serif;
 
-      line-height: 1.6;
+      line-height: 1.65;
+
     }
 
+
+    ::selection {
+
+      background: var(--gold);
+      color: white;
+
+    }
+
+
+    ::-moz-selection {
+
+      background: var(--gold);
+      color: white;
+
+    }
+
+
     a {
+
       color: inherit;
       text-decoration: none;
+
     }
+
 
     button,
     input,
-    select,
     textarea {
+
       font: inherit;
+
     }
 
+
+    button,
+    a {
+
+      -webkit-tap-highlight-color: transparent;
+
+    }
+
+
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible {
+
+      outline: 3px solid var(--gold);
+      outline-offset: 4px;
+
+    }
+
+
+    .container {
+
+      width: min(1180px, 92%);
+      margin: 0 auto;
+
+    }
+
+
+    /* ==================================================
+       HEADER
+    ================================================== */
+
     .site-header {
+
       position: fixed;
+
       top: 0;
       left: 0;
 
@@ -105,193 +223,499 @@
 
       z-index: 1000;
 
-      background: rgba(255, 255, 255, 0.9);
+      border-bottom:
+        1px solid rgba(202, 167, 106, 0.20);
 
-      border-bottom: 1px solid rgba(202, 167, 106, 0.22);
+      background:
+        rgba(255, 253, 249, 0.93);
 
-      box-shadow: 0 10px 35px rgba(23, 38, 27, 0.08);
+      box-shadow:
+        0 9px 32px rgba(23, 38, 27, 0.06);
 
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+
+      transition:
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+
     }
 
-    .header-inner {
-      width: min(1180px, 90%);
-      min-height: 72px;
 
-      margin: 0 auto;
+    .site-header.scrolled {
+
+      background:
+        rgba(255, 253, 249, 0.98);
+
+      box-shadow:
+        0 12px 38px rgba(23, 38, 27, 0.10);
+
+    }
+
+
+    .header-inner {
+
+      min-height: 74px;
 
       display: flex;
       align-items: center;
       justify-content: space-between;
 
-      gap: 20px;
+      gap: 24px;
+
     }
 
+
+    .brand-group {
+
+      display: flex;
+      align-items: center;
+
+      gap: 17px;
+
+      min-width: 0;
+
+    }
+
+
     .logo {
+
+      flex-shrink: 0;
+
       color: var(--forest);
 
       font-size: 2rem;
-      font-weight: 900;
-      letter-spacing: -1.5px;
+
+      font-weight: 850;
+
+      letter-spacing: -1px;
+
     }
+
 
     .logo span {
+
       color: var(--gold);
+
     }
 
-    .header-link {
-      padding: 10px 17px;
 
-      border: 1px solid rgba(23, 38, 27, 0.14);
+    .portal-name {
+
+      padding-left: 17px;
+
+      border-left:
+        1px solid rgba(23, 38, 27, 0.13);
+
+      color: var(--sage);
+
+      font-size: 0.72rem;
+
+      font-weight: 850;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+
+    }
+
+
+    .login-link {
+
+      min-height: 44px;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      gap: 8px;
+
+      padding: 10px 18px;
+
+      border:
+        1px solid rgba(202, 167, 106, 0.30);
+
       border-radius: 999px;
 
-      background: rgba(255, 255, 255, 0.82);
+      background:
+        rgba(255, 250, 244, 0.88);
 
       color: var(--forest);
 
-      font-size: 0.92rem;
-      font-weight: 800;
+      font-size: 0.82rem;
 
-      transition: 0.3s ease;
+      font-weight: 850;
+
+      transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        color 0.25s ease,
+        box-shadow 0.25s ease;
+
     }
 
-    .header-link:hover {
-      background: var(--forest);
 
-      color: var(--white);
+    .login-link:hover {
 
       transform: translateY(-2px);
+
+      background: var(--forest);
+
+      color: white;
+
+      box-shadow:
+        0 12px 28px rgba(23, 38, 27, 0.14);
+
     }
 
+
+    .login-link svg {
+
+      width: 17px;
+      height: 17px;
+
+    }
+
+
+    /* ==================================================
+       PAGE
+    ================================================== */
+
     .page-wrap {
+
+      position: relative;
+
       min-height: 100vh;
 
       display: flex;
       align-items: center;
-      justify-content: center;
 
-      padding: 112px 20px 48px;
+      padding:
+        112px 0
+        48px;
+
     }
 
-    .register-layout {
-      width: min(1080px, 100%);
+
+    .page-wrap::before {
+
+      content: "";
+
+      position: fixed;
+
+      inset: 0;
+
+      z-index: -2;
+
+      background:
+
+        linear-gradient(
+          90deg,
+          rgba(248, 241, 231, 0.95) 0%,
+          rgba(248, 241, 231, 0.89) 38%,
+          rgba(248, 241, 231, 0.71) 64%,
+          rgba(248, 241, 231, 0.57) 100%
+        ),
+
+        url("../background.png");
+
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
+    }
+
+
+    .page-wrap::after {
+
+      content: "";
+
+      position: fixed;
+
+      inset: 0;
+
+      z-index: -1;
+
+      pointer-events: none;
+
+      background:
+
+        radial-gradient(
+          circle at 14% 24%,
+          rgba(255, 255, 255, 0.36),
+          transparent 32%
+        ),
+
+        radial-gradient(
+          circle at 88% 78%,
+          rgba(202, 167, 106, 0.10),
+          transparent 34%
+        );
+
+    }
+
+
+    /* ==================================================
+       REGISTER SHELL
+    ================================================== */
+
+    .register-shell {
+
+      width: 100%;
 
       display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
+
+      grid-template-columns:
+        minmax(340px, 0.82fr)
+        minmax(0, 1.18fr);
 
       overflow: hidden;
 
-      border: 1px solid rgba(255, 255, 255, 0.64);
+      border:
+        1px solid rgba(202, 167, 106, 0.30);
+
       border-radius: 34px;
 
-      background: rgba(255, 250, 243, 0.9);
+      background:
+        rgba(255, 250, 244, 0.96);
 
       box-shadow: var(--shadow);
 
-      backdrop-filter: blur(15px);
-      -webkit-backdrop-filter: blur(15px);
     }
 
+
+    /* ==================================================
+       INTRO PANEL
+    ================================================== */
+
     .register-intro {
+
       position: relative;
 
       overflow: hidden;
 
-      padding: 52px;
+      display: flex;
+      flex-direction: column;
+
+      padding: 52px 48px;
 
       background:
+
         radial-gradient(
-          circle at top right,
-          rgba(202, 167, 106, 0.22),
+          circle at 90% 9%,
+          rgba(202, 167, 106, 0.19),
+          transparent 33%
+        ),
+
+        radial-gradient(
+          circle at 4% 94%,
+          rgba(113, 140, 103, 0.18),
           transparent 34%
         ),
+
         linear-gradient(
           145deg,
           var(--forest),
-          var(--sage-dark)
+          var(--forest-soft)
         );
 
-      color: var(--white);
+      color: white;
+
     }
 
-    .register-intro::after {
+
+    .register-intro::before {
+
       content: "";
 
       position: absolute;
 
-      right: -90px;
-      bottom: -90px;
+      top: -130px;
+      right: -120px;
 
-      width: 240px;
-      height: 240px;
+      width: 330px;
+      height: 330px;
 
-      border: 1px solid rgba(255, 255, 255, 0.14);
+      border:
+        1px solid rgba(222, 194, 141, 0.15);
+
       border-radius: 50%;
+
     }
+
+
+    .register-intro::after {
+
+      content: "";
+
+      position: absolute;
+
+      left: -120px;
+      bottom: -130px;
+
+      width: 280px;
+      height: 280px;
+
+      border:
+        1px solid rgba(255, 255, 255, 0.07);
+
+      border-radius: 50%;
+
+    }
+
+
+    .intro-content {
+
+      position: relative;
+
+      z-index: 2;
+
+    }
+
 
     .eyebrow {
+
       margin-bottom: 14px;
 
-      color: var(--gold);
+      color: var(--gold-soft);
 
-      font-size: 0.77rem;
+      font-size: 0.72rem;
+
       font-weight: 900;
-      letter-spacing: 2.5px;
+
+      letter-spacing: 2.2px;
 
       text-transform: uppercase;
+
     }
 
-    .register-intro h1 {
-      margin-bottom: 22px;
 
-      color: var(--white);
+    .intro-mark {
 
-      font-size: clamp(2.8rem, 5vw, 4.7rem);
-      line-height: 0.98;
-      letter-spacing: -3px;
-    }
+      width: 58px;
+      height: 58px;
 
-    .register-intro > p:not(.eyebrow) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
       margin-bottom: 28px;
 
-      color: rgba(255, 255, 255, 0.78);
+      border:
+        1px solid rgba(255, 255, 255, 0.13);
 
-      font-size: 1.03rem;
-      line-height: 1.8;
+      border-radius: 50%;
+
+      background:
+        rgba(255, 255, 255, 0.08);
+
+      color: var(--gold-soft);
+
     }
 
-    .benefit-list {
+
+    .intro-mark svg {
+
+      width: 26px;
+      height: 26px;
+
+      stroke-width: 1.8;
+
+    }
+
+
+    .register-intro h1 {
+
+      max-width: 460px;
+
+      margin-bottom: 24px;
+
+      color: white;
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size:
+        clamp(3rem, 5vw, 4.65rem);
+
+      font-weight: 500;
+
+      line-height: 0.98;
+
+      letter-spacing: -2.8px;
+
+    }
+
+
+    .register-intro h1 em {
+
+      display: block;
+
+      color: var(--gold-soft);
+
+      font-weight: 500;
+
+    }
+
+
+    .intro-description {
+
+      max-width: 500px;
+
+      margin-bottom: 32px;
+
+      color:
+        rgba(255, 255, 255, 0.75);
+
+      font-size: 0.98rem;
+
+      line-height: 1.76;
+
+    }
+
+
+    .benefits {
+
       display: grid;
-      gap: 14px;
-    }
-
-    .benefit-item {
-      display: flex;
-      align-items: flex-start;
 
       gap: 12px;
 
-      padding: 15px 16px;
+      margin-top: auto;
 
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      border-radius: 17px;
-
-      background: rgba(255, 255, 255, 0.07);
-
-      color: rgba(255, 255, 255, 0.9);
-
-      font-size: 0.94rem;
-      line-height: 1.55;
     }
 
-    .benefit-item::before {
-      content: "✓";
 
-      flex-shrink: 0;
+    .benefit {
 
-      width: 23px;
-      height: 23px;
+      display: grid;
+
+      grid-template-columns:
+        38px
+        minmax(0, 1fr);
+
+      align-items: center;
+
+      gap: 13px;
+
+      padding: 13px 14px;
+
+      border:
+        1px solid rgba(255, 255, 255, 0.11);
+
+      border-radius: 17px;
+
+      background:
+        rgba(255, 255, 255, 0.06);
+
+    }
+
+
+    .benefit-icon {
+
+      width: 38px;
+      height: 38px;
 
       display: flex;
       align-items: center;
@@ -299,72 +723,237 @@
 
       border-radius: 50%;
 
-      background: var(--gold);
+      background:
+        rgba(202, 167, 106, 0.14);
 
-      color: var(--forest);
+      color: var(--gold-soft);
+
+    }
+
+
+    .benefit-icon svg {
+
+      width: 18px;
+      height: 18px;
+
+      stroke-width: 1.9;
+
+    }
+
+
+    .benefit strong {
+
+      display: block;
+
+      margin-bottom: 1px;
+
+      color: white;
+
+      font-size: 0.83rem;
+
+    }
+
+
+    .benefit span {
+
+      display: block;
+
+      color:
+        rgba(255, 255, 255, 0.62);
 
       font-size: 0.72rem;
-      font-weight: 900;
+
+      line-height: 1.45;
+
     }
+
+
+    /* ==================================================
+       FORM PANEL
+    ================================================== */
 
     .register-panel {
-      padding: 50px;
 
-      background: rgba(255, 255, 255, 0.9);
+      position: relative;
+
+      padding: 49px 50px 46px;
+
+      background:
+        rgba(255, 253, 249, 0.97);
+
     }
 
-    .register-panel h2 {
-      margin-bottom: 10px;
+
+    .register-panel::before {
+
+      content: "";
+
+      position: absolute;
+
+      top: -90px;
+      right: -90px;
+
+      width: 220px;
+      height: 220px;
+
+      border:
+        1px solid rgba(202, 167, 106, 0.12);
+
+      border-radius: 50%;
+
+      pointer-events: none;
+
+    }
+
+
+    .form-heading {
+
+      position: relative;
+
+      z-index: 2;
+
+      margin-bottom: 31px;
+
+    }
+
+
+    .form-heading .eyebrow {
+
+      color: var(--gold);
+
+    }
+
+
+    .form-heading h2 {
+
+      margin-bottom: 12px;
 
       color: var(--forest);
 
-      font-size: 2.25rem;
-      line-height: 1.1;
-      letter-spacing: -1.4px;
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size:
+        clamp(2.3rem, 4vw, 3.35rem);
+
+      font-weight: 500;
+
+      line-height: 1.04;
+
+      letter-spacing: -1.8px;
+
     }
 
-    .form-intro {
-      margin-bottom: 30px;
+
+    .form-heading p {
+
+      max-width: 610px;
 
       color: var(--muted);
 
+      font-size: 0.92rem;
+
       line-height: 1.7;
+
     }
+
+
+    /* ==================================================
+       FORM
+    ================================================== */
 
     .form-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
 
-      gap: 18px;
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap:
+        0 18px;
+
     }
+
 
     .form-group {
-      margin-bottom: 18px;
+
+      margin-bottom: 19px;
+
     }
+
 
     .form-group.full {
-      grid-column: 1 / -1;
+
+      grid-column:
+        1 / -1;
+
     }
 
+
     label {
+
       display: block;
 
       margin-bottom: 8px;
 
       color: var(--sage-dark);
 
-      font-size: 0.92rem;
-      font-weight: 800;
+      font-size: 0.8rem;
+
+      font-weight: 850;
+
     }
 
+
+    .optional {
+
+      margin-left: 3px;
+
+      color: var(--muted);
+
+      font-size: 0.71rem;
+
+      font-weight: 500;
+
+    }
+
+
+    .field-wrap {
+
+      position: relative;
+
+    }
+
+
+    .field-icon {
+
+      position: absolute;
+
+      top: 50%;
+      left: 15px;
+
+      width: 18px;
+      height: 18px;
+
+      color: var(--sage);
+
+      pointer-events: none;
+
+      transform: translateY(-50%);
+
+    }
+
+
     input,
-    select,
     textarea {
+
       width: 100%;
 
-      padding: 15px 16px;
+      border:
+        1px solid #e5dacb;
 
-      border: 1px solid #e3d8c8;
       border-radius: 14px;
 
       background: #fcfaf7;
@@ -377,77 +966,163 @@
         border-color 0.25s ease,
         box-shadow 0.25s ease,
         background 0.25s ease;
+
     }
 
-    input:focus,
-    select:focus,
-    textarea:focus {
-      border-color: var(--gold);
 
-      background: var(--white);
+    input {
 
-      box-shadow:
-        0 0 0 5px rgba(202, 167, 106, 0.16);
+      min-height: 52px;
+
+      padding:
+        14px 15px
+        14px 45px;
+
     }
+
 
     textarea {
-      min-height: 115px;
+
+      min-height: 112px;
+
+      padding: 15px 16px;
 
       resize: vertical;
+
     }
 
+
+    input::placeholder,
+    textarea::placeholder {
+
+      color: #9a9e97;
+
+    }
+
+
+    input:focus,
+    textarea:focus {
+
+      border-color: var(--gold);
+
+      background: white;
+
+      box-shadow:
+        0 0 0 5px rgba(202, 167, 106, 0.14);
+
+    }
+
+
     .password-help {
+
       margin-top: 7px;
 
       color: var(--muted);
 
-      font-size: 0.8rem;
-      line-height: 1.5;
+      font-size: 0.72rem;
+
+      line-height: 1.45;
+
     }
 
-    .checkbox-row {
+
+    /* ==================================================
+       AGREEMENT
+    ================================================== */
+
+    .agreement {
+
       display: flex;
       align-items: flex-start;
 
       gap: 11px;
 
-      margin: 4px 0 22px;
+      margin:
+        3px 0
+        23px;
+
+      padding: 15px;
+
+      border:
+        1px solid rgba(202, 167, 106, 0.19);
+
+      border-radius: 15px;
+
+      background:
+        rgba(248, 241, 231, 0.45);
+
     }
 
-    .checkbox-row input {
-      width: auto;
 
-      margin-top: 4px;
+    .agreement input {
+
+      width: 18px;
+      height: 18px;
+
+      min-height: 0;
+
+      flex: 0 0 18px;
+
+      margin-top: 2px;
+      padding: 0;
 
       accent-color: var(--forest);
+
     }
 
-    .checkbox-row label {
+
+    .agreement label {
+
       margin: 0;
 
       color: var(--muted);
 
-      font-size: 0.87rem;
+      font-size: 0.77rem;
+
       font-weight: 600;
+
       line-height: 1.55;
+
     }
 
-    .checkbox-row a {
+
+    .agreement a {
+
       color: var(--forest);
 
-      font-weight: 800;
+      font-weight: 850;
 
       text-decoration: underline;
+
+      text-decoration-color:
+        rgba(202, 167, 106, 0.75);
+
       text-underline-offset: 3px;
+
     }
 
+
+    /* ==================================================
+       BUTTON
+    ================================================== */
+
     .register-button {
+
+      position: relative;
+
       width: 100%;
-      min-height: 54px;
+      min-height: 56px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      gap: 9px;
+
+      overflow: hidden;
 
       padding: 15px 24px;
 
-      border: 0;
       border-radius: 999px;
 
       background:
@@ -457,491 +1132,1248 @@
           var(--sage-dark)
         );
 
-      color: var(--white);
-
-      font-weight: 900;
+      color: white;
 
       cursor: pointer;
 
       box-shadow:
-        0 14px 30px rgba(23, 38, 27, 0.16);
+        0 15px 32px rgba(23, 38, 27, 0.17);
 
-      transition: 0.3s ease;
+      font-size: 0.85rem;
+
+      font-weight: 900;
+
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
     }
 
+
+    .register-button::before {
+
+      content: "";
+
+      position: absolute;
+
+      top: 0;
+      left: -130%;
+
+      width: 60%;
+      height: 100%;
+
+      background:
+
+        linear-gradient(
+          120deg,
+          transparent,
+          rgba(255, 255, 255, 0.25),
+          transparent
+        );
+
+      animation:
+        buttonShine 5.5s infinite;
+
+    }
+
+
     .register-button:hover {
+
       transform: translateY(-3px);
 
       box-shadow:
-        0 20px 38px rgba(23, 38, 27, 0.22);
+        0 20px 40px rgba(23, 38, 27, 0.22);
+
     }
 
+
     .register-button:disabled {
-      opacity: 0.65;
+
+      opacity: 0.62;
 
       cursor: not-allowed;
 
       transform: none;
+
     }
 
+
+    .register-button svg {
+
+      width: 18px;
+      height: 18px;
+
+    }
+
+
+    /* ==================================================
+       MESSAGE
+    ================================================== */
+
     .message {
+
       display: none;
 
       margin-top: 18px;
-      padding: 14px 16px;
 
-      border-radius: 14px;
+      padding: 15px 16px;
 
-      font-size: 0.91rem;
+      border-radius: 15px;
+
+      font-size: 0.8rem;
+
       line-height: 1.55;
+
     }
+
 
     .message.error {
+
       display: block;
 
       border:
-        1px solid rgba(167, 46, 46, 0.18);
+        1px solid rgba(147, 66, 66, 0.18);
 
-      background:
-        rgba(167, 46, 46, 0.08);
+      background: var(--danger-soft);
 
-      color: #8c2727;
+      color: var(--danger);
+
     }
+
 
     .message.success {
+
       display: block;
 
       border:
-        1px solid rgba(49, 111, 66, 0.2);
+        1px solid rgba(71, 112, 77, 0.18);
 
-      background:
-        rgba(49, 111, 66, 0.09);
+      background: var(--success-soft);
 
-      color: #285d37;
+      color: var(--success);
+
     }
 
+
+    /* ==================================================
+       LOGIN NOTE
+    ================================================== */
+
     .login-note {
+
       margin-top: 24px;
 
       color: var(--muted);
 
-      font-size: 0.93rem;
+      font-size: 0.79rem;
 
       text-align: center;
+
     }
 
+
     .login-note a {
+
       color: var(--forest);
 
       font-weight: 900;
+
     }
 
-    @media (max-width: 850px) {
 
-      .register-layout {
+    .login-note a:hover {
+
+      color: var(--gold);
+
+    }
+
+
+    /* ==================================================
+       APPROVAL NOTE
+    ================================================== */
+
+    .approval-note {
+
+      display: flex;
+      align-items: flex-start;
+
+      gap: 10px;
+
+      margin-top: 22px;
+
+      padding-top: 21px;
+
+      border-top:
+        1px solid rgba(23, 38, 27, 0.08);
+
+      color: var(--muted);
+
+      font-size: 0.72rem;
+
+      line-height: 1.55;
+
+    }
+
+
+    .approval-note svg {
+
+      width: 18px;
+      height: 18px;
+
+      flex-shrink: 0;
+
+      margin-top: 1px;
+
+      color: var(--gold);
+
+    }
+
+
+    /* ==================================================
+       FOOTER
+    ================================================== */
+
+    .register-footer {
+
+      margin-top: 21px;
+
+      color:
+        rgba(23, 38, 27, 0.60);
+
+      font-size: 0.68rem;
+
+      text-align: center;
+
+      line-height: 1.6;
+
+    }
+
+
+    .register-footer a {
+
+      color: var(--forest);
+
+      font-weight: 800;
+
+    }
+
+
+    /* ==================================================
+       TABLET
+    ================================================== */
+
+    @media (max-width: 900px) {
+
+      .register-shell {
+
         grid-template-columns: 1fr;
 
-        max-width: 680px;
+        max-width: 720px;
+
+        margin: 0 auto;
+
       }
+
 
       .register-intro {
-        padding: 40px;
+
+        padding: 44px;
+
       }
 
+
+      .register-intro h1 {
+
+        max-width: 560px;
+
+      }
+
+
+      .benefits {
+
+        grid-template-columns:
+          repeat(2, 1fr);
+
+      }
+
+
       .register-panel {
-        padding: 40px;
+
+        padding: 45px;
+
       }
 
     }
 
-    @media (max-width: 600px) {
+
+    /* ==================================================
+       MOBILE
+    ================================================== */
+
+    @media (max-width: 650px) {
+
+      .container {
+
+        width: 90%;
+
+      }
+
+
+      /* HEADER */
 
       .header-inner {
-        width: 90%;
+
         min-height: 64px;
+
       }
+
 
       .logo {
-        font-size: 1.8rem;
+
+        font-size: 1.74rem;
+
       }
 
-      .header-link {
-        padding: 9px 13px;
 
-        font-size: 0.82rem;
+      .portal-name {
+
+        display: none;
+
       }
+
+
+      .login-link {
+
+        min-height: 40px;
+
+        padding: 8px 13px;
+
+        font-size: 0.72rem;
+
+      }
+
+
+      .login-link svg {
+
+        width: 15px;
+        height: 15px;
+
+      }
+
+
+      /* PAGE */
 
       .page-wrap {
-        padding: 88px 14px 28px;
+
+        align-items: flex-start;
+
+        padding:
+          84px 0
+          28px;
+
       }
 
-      .register-layout {
-        border-radius: 26px;
+
+      .page-wrap::before {
+
+        background:
+
+          linear-gradient(
+            180deg,
+            rgba(248, 241, 231, 0.63) 0%,
+            rgba(248, 241, 231, 0.82) 28%,
+            rgba(248, 241, 231, 0.96) 58%,
+            var(--cream) 100%
+          ),
+
+          url("../background.png");
+
+        background-size:
+          auto 420px;
+
+        background-position:
+          62% top;
+
+        background-repeat:
+          no-repeat;
+
+        background-color:
+          var(--cream);
+
       }
+
+
+      /* SHELL */
+
+      .register-shell {
+
+        border-radius: 27px;
+
+      }
+
+
+      /* INTRO */
 
       .register-intro {
-        padding: 32px 24px;
+
+        padding:
+          34px 25px
+          32px;
+
       }
+
+
+      .intro-mark {
+
+        width: 49px;
+        height: 49px;
+
+        margin-bottom: 21px;
+
+      }
+
+
+      .intro-mark svg {
+
+        width: 22px;
+        height: 22px;
+
+      }
+
+
+      .eyebrow {
+
+        font-size: 0.63rem;
+
+        letter-spacing: 1.8px;
+
+      }
+
 
       .register-intro h1 {
-        font-size: 2.8rem;
+
+        margin-bottom: 18px;
+
+        font-size:
+          clamp(2.65rem, 12vw, 3.4rem);
+
+        line-height: 0.99;
+
         letter-spacing: -2px;
+
       }
+
+
+      .intro-description {
+
+        margin-bottom: 25px;
+
+        font-size: 0.84rem;
+
+        line-height: 1.66;
+
+      }
+
+
+      .benefits {
+
+        grid-template-columns: 1fr;
+
+        gap: 9px;
+
+      }
+
+
+      .benefit {
+
+        padding: 11px 12px;
+
+      }
+
+
+      .benefit-icon {
+
+        width: 35px;
+        height: 35px;
+
+      }
+
+
+      .benefit strong {
+
+        font-size: 0.78rem;
+
+      }
+
+
+      .benefit span {
+
+        font-size: 0.68rem;
+
+      }
+
+
+      /* PANEL */
 
       .register-panel {
-        padding: 32px 23px;
+
+        padding:
+          34px 23px
+          31px;
+
       }
 
-      .register-panel h2 {
-        font-size: 2rem;
+
+      .form-heading {
+
+        margin-bottom: 27px;
+
       }
+
+
+      .form-heading h2 {
+
+        font-size: 2.25rem;
+
+        line-height: 1.05;
+
+      }
+
+
+      .form-heading p {
+
+        font-size: 0.82rem;
+
+      }
+
+
+      /* FORM */
 
       .form-grid {
+
         grid-template-columns: 1fr;
 
         gap: 0;
+
       }
 
+
       .form-group.full {
+
         grid-column: auto;
+
+      }
+
+
+      .form-group {
+
+        margin-bottom: 17px;
+
+      }
+
+
+      input {
+
+        min-height: 51px;
+
+      }
+
+
+      .agreement {
+
+        padding: 13px;
+
+      }
+
+
+      .register-button {
+
+        min-height: 55px;
+
+      }
+
+
+      .approval-note {
+
+        font-size: 0.68rem;
+
       }
 
     }
+
+
+    /* ==================================================
+       REDUCED MOTION
+    ================================================== */
 
     @media (prefers-reduced-motion: reduce) {
 
       html {
+
         scroll-behavior: auto;
+
       }
 
+
       *,
+
       *::before,
+
       *::after {
+
         animation-duration: 0.01ms !important;
+
         animation-iteration-count: 1 !important;
+
         transition-duration: 0.01ms !important;
+
         scroll-behavior: auto !important;
+
       }
 
     }
 
-    a:focus-visible,
-    button:focus-visible,
-    input:focus-visible,
-    textarea:focus-visible,
-    select:focus-visible {
-      outline: 3px solid var(--gold);
-      outline-offset: 4px;
+
+    /* ==================================================
+       ANIMATION
+    ================================================== */
+
+    @keyframes buttonShine {
+
+      0% {
+
+        left: -130%;
+
+      }
+
+
+      100% {
+
+        left: 160%;
+
+      }
+
     }
 
   </style>
 
-<link rel="stylesheet" href="brand.css">
+
+  <!--
+    Shared Sorted. wordmark styling.
+    Register.html is inside /portal/,
+    so we go back one folder.
+  -->
+
+  <link
+    rel="stylesheet"
+    href="../brand.css"
+  >
 
 </head>
 
+
 <body>
+
+
+  <!-- ==================================================
+       HEADER
+  ================================================== -->
 
   <header class="site-header">
 
-    <div class="header-inner">
+    <div class="container header-inner">
 
-      <a
-        href="../index.html"
-        class="logo"
-      >
-        Sorted<span>.</span>
-      </a>
+
+      <div class="brand-group">
+
+        <a
+          href="../index.html"
+          class="logo"
+          aria-label="Sorted homepage"
+        >
+          Sorted<span>.</span>
+        </a>
+
+
+        <span class="portal-name">
+          My Sorted.
+        </span>
+
+      </div>
+
 
       <a
         href="index.html"
-        class="header-link"
+        class="login-link"
       >
-        Client Login
+
+        <i data-lucide="log-in"></i>
+
+        <span>
+          Client Login
+        </span>
+
       </a>
+
 
     </div>
 
   </header>
 
 
+  <!-- ==================================================
+       PAGE
+  ================================================== -->
+
   <main class="page-wrap">
 
-    <div class="register-layout">
+    <div class="container">
 
 
-      <section class="register-intro">
-
-        <p class="eyebrow">
-          Sorted. Client Portal
-        </p>
-
-        <h1>
-          Create your account.
-        </h1>
-
-        <p>
-          Register for secure access to your Sorted. client portal.
-          Once your email address has been verified and your account has been
-          approved by Sorted., you will be able to access your client area.
-        </p>
+      <div class="register-shell">
 
 
-        <div class="benefit-list">
+        <!-- ==================================================
+             INTRO
+        ================================================== -->
 
-          <div class="benefit-item">
-            Access your client information securely
-          </div>
-
-          <div class="benefit-item">
-            View important forms and documents
-          </div>
-
-          <div class="benefit-item">
-            Keep your contact details up to date
-          </div>
-
-          <div class="benefit-item">
-            Manage your Sorted. support in one place
-          </div>
-
-        </div>
-
-      </section>
+        <section class="register-intro">
 
 
-      <section class="register-panel">
-
-        <p class="eyebrow">
-          New Client Registration
-        </p>
-
-        <h2>
-          Register for the portal
-        </h2>
-
-        <p class="form-intro">
-          Complete the form below using the email address you use with Sorted.
-        </p>
+          <div class="intro-content">
 
 
-        <form id="register-form">
-
-          <div class="form-grid">
-
-
-            <div class="form-group">
-
-              <label for="first-name">
-                First name
-              </label>
-
-              <input
-                id="first-name"
-                name="firstName"
-                type="text"
-                autocomplete="given-name"
-                required
-              >
-
+            <div
+              class="intro-mark"
+              aria-hidden="true"
+            >
+              <i data-lucide="sparkles"></i>
             </div>
 
 
-            <div class="form-group">
+            <p class="eyebrow">
+              My Sorted.
+            </p>
 
-              <label for="last-name">
-                Last name
-              </label>
 
-              <input
-                id="last-name"
-                name="lastName"
-                type="text"
-                autocomplete="family-name"
-                required
-              >
+            <h1>
+              Your home.
+              <em>Your account.</em>
+            </h1>
+
+
+            <p class="intro-description">
+              Create your secure My Sorted. account and keep
+              everything connected to your support in one
+              private place.
+            </p>
+
+
+            <div class="benefits">
+
+
+              <div class="benefit">
+
+                <div class="benefit-icon">
+                  <i data-lucide="calendar-check-2"></i>
+                </div>
+
+                <div>
+
+                  <strong>
+                    Your support
+                  </strong>
+
+                  <span>
+                    Keep track of upcoming visits and arrangements.
+                  </span>
+
+                </div>
+
+              </div>
+
+
+              <div class="benefit">
+
+                <div class="benefit-icon">
+                  <i data-lucide="folder-lock"></i>
+                </div>
+
+                <div>
+
+                  <strong>
+                    Your documents
+                  </strong>
+
+                  <span>
+                    Access your Welcome Pack and important information.
+                  </span>
+
+                </div>
+
+              </div>
+
+
+              <div class="benefit">
+
+                <div class="benefit-icon">
+                  <i data-lucide="receipt-text"></i>
+                </div>
+
+                <div>
+
+                  <strong>
+                    Your account
+                  </strong>
+
+                  <span>
+                    View invoices and important account information.
+                  </span>
+
+                </div>
+
+              </div>
+
+
+              <div class="benefit">
+
+                <div class="benefit-icon">
+                  <i data-lucide="shield-check"></i>
+                </div>
+
+                <div>
+
+                  <strong>
+                    Private &amp; secure
+                  </strong>
+
+                  <span>
+                    Your client information stays protected.
+                  </span>
+
+                </div>
+
+              </div>
+
 
             </div>
 
-
-            <div class="form-group full">
-
-              <label for="email">
-                Email address
-              </label>
-
-              <input
-                id="email"
-                name="email"
-                type="email"
-                autocomplete="email"
-                required
-              >
-
-            </div>
-
-
-            <div class="form-group">
-
-              <label for="phone">
-                Telephone
-              </label>
-
-              <input
-                id="phone"
-                name="phone"
-                type="tel"
-                autocomplete="tel"
-                required
-              >
-
-            </div>
-
-
-            <div class="form-group">
-
-              <label for="postcode">
-                Postcode
-              </label>
-
-              <input
-                id="postcode"
-                name="postcode"
-                type="text"
-                autocomplete="postal-code"
-                required
-              >
-
-            </div>
-
-
-            <div class="form-group">
-
-              <label for="password">
-                Create password
-              </label>
-
-              <input
-                id="password"
-                name="password"
-                type="password"
-                autocomplete="new-password"
-                minlength="8"
-                required
-              >
-
-              <p class="password-help">
-                Use at least 8 characters.
-              </p>
-
-            </div>
-
-
-            <div class="form-group">
-
-              <label for="confirm-password">
-                Confirm password
-              </label>
-
-              <input
-                id="confirm-password"
-                name="confirmPassword"
-                type="password"
-                autocomplete="new-password"
-                minlength="8"
-                required
-              >
-
-            </div>
-
-
-            <div class="form-group full">
-
-              <label for="message">
-                Anything we should know?
-              </label>
-
-              <textarea
-                id="message"
-                name="message"
-                placeholder="Optional — please do not include detailed medical or other sensitive information here."
-              ></textarea>
-
-            </div>
 
           </div>
 
 
-          <div class="checkbox-row">
+        </section>
 
-            <input
-              id="terms"
-              type="checkbox"
-              required
+
+        <!-- ==================================================
+             REGISTER FORM
+        ================================================== -->
+
+        <section class="register-panel">
+
+
+          <div class="form-heading">
+
+            <p class="eyebrow">
+              Client Registration
+            </p>
+
+
+            <h2>
+              Create your account.
+            </h2>
+
+
+            <p>
+              Please register using the email address you use
+              with Sorted. Once your email has been verified
+              and your account approved, you’ll be able to sign
+              in to My Sorted.
+            </p>
+
+          </div>
+
+
+          <form id="register-form">
+
+
+            <div class="form-grid">
+
+
+              <!-- FIRST NAME -->
+
+              <div class="form-group">
+
+                <label for="first-name">
+                  First Name
+                </label>
+
+                <div class="field-wrap">
+
+                  <i
+                    data-lucide="user-round"
+                    class="field-icon"
+                  ></i>
+
+                  <input
+                    id="first-name"
+                    name="firstName"
+                    type="text"
+                    autocomplete="given-name"
+                    placeholder="First name"
+                    required
+                  >
+
+                </div>
+
+              </div>
+
+
+              <!-- LAST NAME -->
+
+              <div class="form-group">
+
+                <label for="last-name">
+                  Last Name
+                </label>
+
+                <div class="field-wrap">
+
+                  <i
+                    data-lucide="user-round"
+                    class="field-icon"
+                  ></i>
+
+                  <input
+                    id="last-name"
+                    name="lastName"
+                    type="text"
+                    autocomplete="family-name"
+                    placeholder="Last name"
+                    required
+                  >
+
+                </div>
+
+              </div>
+
+
+              <!-- EMAIL -->
+
+              <div class="form-group full">
+
+                <label for="email">
+                  Email Address
+                </label>
+
+                <div class="field-wrap">
+
+                  <i
+                    data-lucide="mail"
+                    class="field-icon"
+                  ></i>
+
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    autocomplete="email"
+                    placeholder="you@example.com"
+                    required
+                  >
+
+                </div>
+
+              </div>
+
+
+              <!-- PHONE -->
+
+              <div class="form-group">
+
+                <label for="phone">
+                  Telephone
+                </label>
+
+                <div class="field-wrap">
+
+                  <i
+                    data-lucide="phone"
+                    class="field-icon"
+                  ></i>
+
+                  <input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    autocomplete="tel"
+                    placeholder="Telephone number"
+                    required
+                  >
+
+                </div>
+
+              </div>
+
+
+              <!-- POSTCODE -->
+
+              <div class="form-group">
+
+                <label for="postcode">
+                  Postcode
+                </label>
+
+                <div class="field-wrap">
+
+                  <i
+                    data-lucide="map-pin"
+                    class="field-icon"
+                  ></i>
+
+                  <input
+                    id="postcode"
+                    name="postcode"
+                    type="text"
+                    autocomplete="postal-code"
+                    placeholder="Postcode"
+                    required
+                  >
+
+                </div>
+
+              </div>
+
+
+              <!-- PASSWORD -->
+
+              <div class="form-group">
+
+                <label for="password">
+                  Create Password
+                </label>
+
+                <div class="field-wrap">
+
+                  <i
+                    data-lucide="lock-keyhole"
+                    class="field-icon"
+                  ></i>
+
+                  <input
+                    id="password"
+                    name="password"
+                    type="password"
+                    autocomplete="new-password"
+                    minlength="8"
+                    placeholder="Create password"
+                    required
+                  >
+
+                </div>
+
+                <p class="password-help">
+                  Use at least 8 characters.
+                </p>
+
+              </div>
+
+
+              <!-- CONFIRM PASSWORD -->
+
+              <div class="form-group">
+
+                <label for="confirm-password">
+                  Confirm Password
+                </label>
+
+                <div class="field-wrap">
+
+                  <i
+                    data-lucide="shield-check"
+                    class="field-icon"
+                  ></i>
+
+                  <input
+                    id="confirm-password"
+                    name="confirmPassword"
+                    type="password"
+                    autocomplete="new-password"
+                    minlength="8"
+                    placeholder="Confirm password"
+                    required
+                  >
+
+                </div>
+
+              </div>
+
+
+              <!-- OPTIONAL MESSAGE -->
+
+              <div class="form-group full">
+
+                <label for="message">
+
+                  Anything we should know?
+
+                  <span class="optional">
+                    Optional
+                  </span>
+
+                </label>
+
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="You can add a short note here. Please do not include detailed medical or other sensitive information."
+                ></textarea>
+
+              </div>
+
+
+            </div>
+
+
+            <!-- TERMS -->
+
+            <div class="agreement">
+
+              <input
+                id="terms"
+                type="checkbox"
+                required
+              >
+
+
+              <label for="terms">
+
+                I agree to the
+
+                <a
+                  href="../terms.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Terms &amp; Conditions
+                </a>
+
+                and confirm that I have read the
+
+                <a
+                  href="../privacy.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Privacy Policy
+                </a>.
+
+              </label>
+
+            </div>
+
+
+            <!-- SUBMIT -->
+
+            <button
+              id="register-button"
+              type="submit"
+              class="register-button"
             >
 
-            <label for="terms">
+              <i data-lucide="user-round-plus"></i>
 
-              I agree to the
+              <span id="registerButtonText">
+                Create My Sorted. Account
+              </span>
 
-              <a
-                href="../terms.html"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Terms &amp; Conditions
-              </a>
+            </button>
 
-              and
 
-              <a
-                href="../privacy.html"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Privacy Policy
-              </a>.
+            <!-- MESSAGE -->
 
-            </label>
+            <div
+              id="register-message"
+              class="message"
+              role="alert"
+              aria-live="polite"
+            ></div>
+
+
+          </form>
+
+
+          <!-- LOGIN -->
+
+          <p class="login-note">
+
+            Already registered?
+
+            <a href="index.html">
+              Sign in to My Sorted.
+            </a>
+
+          </p>
+
+
+          <!-- APPROVAL -->
+
+          <div class="approval-note">
+
+            <i data-lucide="shield-check"></i>
+
+            <span>
+              For your security, new portal accounts require
+              email verification and approval by Sorted.
+              before client information can be accessed.
+            </span>
 
           </div>
 
 
-          <button
-            id="register-button"
-            type="submit"
-            class="register-button"
-          >
-            Create Account
-          </button>
+        </section>
 
 
-          <div
-            id="register-message"
-            class="message"
-            role="alert"
-            aria-live="polite"
-          ></div>
-
-        </form>
+      </div>
 
 
-        <p class="login-note">
+      <!-- ==================================================
+           MINI FOOTER
+      ================================================== -->
 
-          Already registered?
+      <div class="register-footer">
 
-          <a href="index.html">
-            Sign in here
-          </a>
+        © 2026 Sorted.
 
-        </p>
+        &nbsp;·&nbsp;
 
-      </section>
+        <a href="../privacy.html">
+          Privacy Policy
+        </a>
+
+        &nbsp;·&nbsp;
+
+        <a href="../terms.html">
+          Terms &amp; Conditions
+        </a>
+
+        &nbsp;·&nbsp;
+
+        <a href="../index.html">
+          Main Website
+        </a>
+
+      </div>
+
 
     </div>
 
   </main>
 
+
+  <!-- ==================================================
+       FIREBASE
+  ================================================== -->
 
   <script type="module">
 
@@ -966,20 +2398,46 @@
     } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
 
 
+    /* ==================================================
+       ELEMENTS
+    ================================================== */
+
     const registerForm =
-      document.getElementById("register-form");
+      document.getElementById(
+        "register-form"
+      );
+
 
     const registerButton =
-      document.getElementById("register-button");
+      document.getElementById(
+        "register-button"
+      );
+
+
+    const registerButtonText =
+      document.getElementById(
+        "registerButtonText"
+      );
+
 
     const registerMessage =
-      document.getElementById("register-message");
+      document.getElementById(
+        "register-message"
+      );
 
 
-    function showMessage(type, text) {
+    /* ==================================================
+       MESSAGE
+    ================================================== */
+
+    function showMessage(
+      type,
+      text
+    ) {
 
       registerMessage.className =
         "message " + type;
+
 
       registerMessage.textContent =
         text;
@@ -987,9 +2445,13 @@
     }
 
 
+    /* ==================================================
+       REGISTER
+    ================================================== */
+
     registerForm.addEventListener(
       "submit",
-      async function (event) {
+      async function(event) {
 
         event.preventDefault();
 
@@ -997,27 +2459,34 @@
         registerMessage.className =
           "message";
 
+
         registerMessage.textContent =
           "";
 
 
         const firstName =
           document
-            .getElementById("first-name")
+            .getElementById(
+              "first-name"
+            )
             .value
             .trim();
 
 
         const lastName =
           document
-            .getElementById("last-name")
+            .getElementById(
+              "last-name"
+            )
             .value
             .trim();
 
 
         const email =
           document
-            .getElementById("email")
+            .getElementById(
+              "email"
+            )
             .value
             .trim()
             .toLowerCase();
@@ -1025,14 +2494,18 @@
 
         const phone =
           document
-            .getElementById("phone")
+            .getElementById(
+              "phone"
+            )
             .value
             .trim();
 
 
         const postcode =
           document
-            .getElementById("postcode")
+            .getElementById(
+              "postcode"
+            )
             .value
             .trim()
             .toUpperCase();
@@ -1040,47 +2513,87 @@
 
         const password =
           document
-            .getElementById("password")
+            .getElementById(
+              "password"
+            )
             .value;
 
 
         const confirmPassword =
           document
-            .getElementById("confirm-password")
+            .getElementById(
+              "confirm-password"
+            )
             .value;
 
 
         const message =
           document
-            .getElementById("message")
+            .getElementById(
+              "message"
+            )
             .value
             .trim();
 
 
-        if (password !== confirmPassword) {
+        /* ==================================================
+           PASSWORD CHECK
+        ================================================== */
+
+        if(
+          password !==
+          confirmPassword
+        ) {
 
           showMessage(
             "error",
             "Your passwords do not match."
           );
 
+
           return;
 
         }
 
 
-        registerButton.disabled = true;
+        if(
+          password.length < 8
+        ) {
 
-        registerButton.textContent =
-          "Creating account...";
+          showMessage(
+            "error",
+            "Please choose a password containing at least 8 characters."
+          );
 
+
+          return;
+
+        }
+
+
+        /* ==================================================
+           LOADING STATE
+        ================================================== */
+
+        registerButton.disabled =
+          true;
+
+
+        registerButtonText.textContent =
+          "Creating your account…";
+
+
+        /* ==================================================
+           CREATE ACCOUNT
+        ================================================== */
 
         try {
 
+
           /*
-           * STEP 1
-           * Create the Firebase Authentication account.
-           */
+            1.
+            CREATE FIREBASE AUTH ACCOUNT
+          */
 
           const userCredential =
             await createUserWithEmailAndPassword(
@@ -1095,135 +2608,177 @@
 
 
           /*
-           * STEP 2
-           * Set the user's display name.
-           */
+            2.
+            ADD DISPLAY NAME
+          */
 
           await updateProfile(
             user,
             {
+
               displayName:
-                firstName + " " + lastName
+                firstName +
+                " " +
+                lastName
+
             }
           );
 
 
           /*
-           * STEP 3
-           * Create the Firestore user record BEFORE
-           * attempting to send the verification email.
-           *
-           * This prevents the account being left without
-           * its users/{uid} record if the email service fails.
-           */
+            3.
+            CREATE FIRESTORE USER RECORD
+          */
 
           await setDoc(
-            doc(db, "users", user.uid),
+            doc(
+              db,
+              "users",
+              user.uid
+            ),
             {
-              firstName: firstName,
-              lastName: lastName,
+
+              firstName:
+                firstName,
+
+              lastName:
+                lastName,
 
               fullName:
-                firstName + " " + lastName,
+                firstName +
+                " " +
+                lastName,
 
-              email: email,
-              phone: phone,
-              postcode: postcode,
-              message: message,
+              email:
+                email,
 
-              role: "client",
-              status: "pending",
+              phone:
+                phone,
+
+              postcode:
+                postcode,
+
+              message:
+                message,
+
+              role:
+                "client",
+
+              status:
+                "pending",
 
               createdAt:
                 serverTimestamp()
+
             }
           );
 
 
           /*
-           * STEP 4
-           * Attempt to send the verification email.
-           *
-           * If the email fails, the account and Firestore
-           * profile still exist correctly.
-           */
+            4.
+            SEND EMAIL VERIFICATION
+          */
 
-          let verificationEmailSent = true;
+          let verificationEmailSent =
+            true;
 
 
           try {
 
-            await sendEmailVerification(user);
+            await sendEmailVerification(
+              user
+            );
 
-          } catch (verificationError) {
+
+          } catch (
+            verificationError
+          ) {
 
             console.error(
               "Verification email could not be sent:",
               verificationError
             );
 
-            verificationEmailSent = false;
+
+            verificationEmailSent =
+              false;
 
           }
 
 
           /*
-           * STEP 5
-           * Sign the new user back out.
-           *
-           * They cannot use the portal until their email
-           * is verified AND Sorted. approves their account.
-           */
+            5.
+            SIGN USER OUT
+          */
 
-          await signOut(auth);
+          await signOut(
+            auth
+          );
 
+
+          /*
+            6.
+            RESET FORM
+          */
 
           registerForm.reset();
 
 
-          if (verificationEmailSent) {
+          /*
+            7.
+            SUCCESS MESSAGE
+          */
+
+          if(
+            verificationEmailSent
+          ) {
 
             showMessage(
               "success",
-              "Your account has been created. Please check your email and verify your email address. Your account will also need to be approved by Sorted. before you can access the client portal."
+              "Your My Sorted. account has been created. Please check your email and verify your email address. Your account will also need to be approved by Sorted. before you can access the client portal."
             );
+
 
           } else {
 
             showMessage(
               "success",
-              "Your account has been created and is awaiting approval, but we could not send the verification email. Please contact Sorted. if you do not receive one."
+              "Your My Sorted. account has been created and is awaiting approval. We could not send the verification email, so please contact Sorted. if you do not receive one."
             );
 
           }
 
 
           /*
-           * Return to the login page after giving the
-           * client time to read the message.
-           */
+            8.
+            REDIRECT TO LOGIN
+          */
 
           setTimeout(
-            function () {
+            function() {
 
               window.location.href =
                 "index.html";
 
             },
-            6000
+            6500
           );
 
 
-        } catch (error) {
+        } catch(error) {
 
-          console.error(error);
+
+          console.error(
+            "Registration error:",
+            error
+          );
 
 
           let errorMessage =
             "We could not create your account. Please try again.";
 
 
-          if (
+          if(
             error.code ===
             "auth/email-already-in-use"
           ) {
@@ -1233,7 +2788,8 @@
 
           }
 
-          else if (
+
+          else if(
             error.code ===
             "auth/invalid-email"
           ) {
@@ -1243,17 +2799,19 @@
 
           }
 
-          else if (
+
+          else if(
             error.code ===
             "auth/weak-password"
           ) {
 
             errorMessage =
-              "Please choose a stronger password with at least 8 characters.";
+              "Please choose a stronger password containing at least 8 characters.";
 
           }
 
-          else if (
+
+          else if(
             error.code ===
             "auth/network-request-failed"
           ) {
@@ -1263,7 +2821,8 @@
 
           }
 
-          else if (
+
+          else if(
             error.code ===
             "permission-denied"
           ) {
@@ -1274,17 +2833,33 @@
           }
 
 
+          else if(
+            error.code ===
+            "auth/too-many-requests"
+          ) {
+
+            errorMessage =
+              "There have been too many attempts. Please wait a little while and try again.";
+
+          }
+
+
           showMessage(
             "error",
             errorMessage
           );
 
+
         } finally {
 
-          registerButton.disabled = false;
 
-          registerButton.textContent =
-            "Create Account";
+          registerButton.disabled =
+            false;
+
+
+          registerButtonText.textContent =
+            "Create My Sorted. Account";
+
 
         }
 
@@ -1292,6 +2867,67 @@
     );
 
   </script>
+
+
+  <!-- ==================================================
+       PAGE JAVASCRIPT
+  ================================================== -->
+
+  <script>
+
+    function refreshIcons() {
+
+      if(window.lucide) {
+
+        window.lucide.createIcons();
+
+      }
+
+    }
+
+
+    window.addEventListener(
+      "load",
+      refreshIcons
+    );
+
+
+    const header =
+      document.querySelector(
+        ".site-header"
+      );
+
+
+    function updateHeader() {
+
+      if(!header) {
+
+        return;
+
+      }
+
+
+      header.classList.toggle(
+        "scrolled",
+        window.scrollY > 30
+      );
+
+    }
+
+
+    window.addEventListener(
+      "scroll",
+      updateHeader,
+      {
+        passive: true
+      }
+    );
+
+
+    updateHeader();
+
+  </script>
+
 
 </body>
 

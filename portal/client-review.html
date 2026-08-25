@@ -1,430 +1,1644 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 
 <head>
 
-<meta charset="UTF-8">
-
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0"
->
-
-<title>Client Review | My Sorted.</title>
-
-<meta
-  name="robots"
-  content="noindex,nofollow"
->
-
-<link
-  rel="icon"
-  href="../favicon.png"
-  type="image/png"
->
-
-<meta
-  name="theme-color"
-  content="#17261b"
->
-
-<style>
-
-:root{
-  --cream:#f8f1e7;
-  --cream-light:#fffaf3;
-  --forest:#17261b;
-  --sage-dark:#314632;
-  --sage:#718c67;
-  --gold:#caa76a;
-  --ink:#1d241f;
-  --muted:#70756f;
-  --white:#ffffff;
-  --border:rgba(202,167,106,.28);
-  --shadow:0 20px 55px rgba(23,38,27,.12);
-}
-
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-body{
-  min-height:100vh;
-
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    Helvetica,
-    Arial,
-    sans-serif;
-
-  background:
-    radial-gradient(
-      circle at top left,
-      rgba(202,167,106,.12),
-      transparent 30%
-    ),
-    var(--cream);
-
-  color:var(--ink);
-  line-height:1.6;
-}
-
-a{
-  color:inherit;
-  text-decoration:none;
-}
-
-button,
-input,
-textarea,
-select{
-  font:inherit;
-}
-
-.site-header{
-  position:sticky;
-  top:0;
-  z-index:1000;
-
-  background:rgba(255,255,255,.94);
-
-  border-bottom:1px solid rgba(202,167,106,.22);
-
-  box-shadow:0 8px 30px rgba(23,38,27,.07);
-
-  backdrop-filter:blur(14px);
-  -webkit-backdrop-filter:blur(14px);
-}
-
-.header-inner{
-  width:min(1000px,92%);
-  min-height:72px;
+  <meta charset="UTF-8">
 
-  margin:0 auto;
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+  <title>Client Review | My Sorted.</title>
 
-  gap:20px;
-}
+  <meta
+    name="description"
+    content="Share feedback about your experience with Sorted."
+  >
 
-.logo{
-  color:var(--forest);
+  <meta
+    name="robots"
+    content="noindex,nofollow"
+  >
 
-  font-size:2rem;
-  font-weight:900;
+  <meta
+    name="theme-color"
+    content="#17261b"
+  >
 
-  letter-spacing:-1.5px;
-}
+  <link
+    rel="icon"
+    href="../favicon.png"
+    type="image/png"
+  >
 
-.logo span{
-  color:var(--gold);
-}
+  <link
+    rel="apple-touch-icon"
+    href="../favicon.png"
+  >
 
-.back-link{
-  padding:10px 16px;
+  <script
+    defer
+    src="https://unpkg.com/lucide@0.542.0/dist/umd/lucide.js"
+  ></script>
 
-  color:var(--forest);
-  background:var(--cream-light);
 
-  border:1px solid var(--border);
-  border-radius:999px;
+  <style>
 
-  font-size:.9rem;
-  font-weight:800;
-}
+    /* ==================================================
+       ROOT
+    ================================================== */
 
-.page-wrap{
-  width:min(900px,92%);
+    :root{
 
-  margin:0 auto;
+      --cream:#f8f1e7;
+      --cream-soft:#fffaf4;
+      --cream-deep:#efe0cc;
 
-  padding:45px 0 70px;
-}
+      --forest:#17261b;
+      --forest-soft:#223228;
 
-.intro{
-  margin-bottom:28px;
-  padding:35px;
+      --sage:#314632;
+      --sage-mid:#718c67;
+      --sage-pale:#e6eadf;
 
-  color:white;
+      --gold:#caa76a;
+      --gold-soft:#dec28d;
 
-  background:
-    radial-gradient(
-      circle at top right,
-      rgba(202,167,106,.2),
-      transparent 40%
-    ),
-    linear-gradient(
-      145deg,
-      var(--forest),
-      var(--sage-dark)
-    );
+      --white:#ffffff;
 
-  border-radius:28px;
+      --ink:#1d241f;
+      --muted:#6f746e;
 
-  box-shadow:var(--shadow);
-}
+      --success:#47704d;
+      --success-soft:#edf5ec;
 
-.eyebrow{
-  margin-bottom:10px;
+      --danger:#934242;
+      --danger-soft:#fff0ed;
 
-  color:var(--gold);
+      --border:rgba(202,167,106,.26);
 
-  text-transform:uppercase;
-  letter-spacing:2.3px;
+      --shadow:
+        0 28px 75px rgba(23,38,27,.13);
 
-  font-size:.76rem;
-  font-weight:900;
-}
+      --soft-shadow:
+        0 14px 36px rgba(23,38,27,.08);
 
-.intro h1{
-  margin-bottom:15px;
+    }
 
-  font-size:clamp(2.4rem,6vw,4rem);
 
-  line-height:1;
-  letter-spacing:-2px;
-}
+    /* ==================================================
+       RESET
+    ================================================== */
 
-.intro p:last-child{
-  max-width:650px;
+    *{
 
-  color:rgba(255,255,255,.8);
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
 
-  font-size:1rem;
-  line-height:1.75;
-}
+    }
 
-.form-card{
-  padding:34px;
 
-  background:white;
+    html{
 
-  border:1px solid var(--border);
-  border-radius:28px;
+      scroll-behavior:smooth;
 
-  box-shadow:var(--shadow);
-}
+    }
 
-.form-group{
-  margin-bottom:24px;
-}
 
-label{
-  display:block;
+    body{
 
-  margin-bottom:8px;
+      min-height:100vh;
 
-  color:var(--forest);
+      overflow-x:hidden;
 
-  font-size:.95rem;
-  font-weight:800;
-}
+      background:
 
-input,
-textarea,
-select{
-  width:100%;
+        radial-gradient(
+          circle at 4% 5%,
+          rgba(202,167,106,.12),
+          transparent 28%
+        ),
 
-  padding:15px 16px;
+        radial-gradient(
+          circle at 95% 8%,
+          rgba(113,140,103,.11),
+          transparent 29%
+        ),
 
-  color:var(--ink);
-  background:#fcfaf7;
+        linear-gradient(
+          180deg,
+          var(--cream-soft),
+          var(--cream)
+        );
 
-  border:1px solid #e4dacb;
-  border-radius:14px;
+      color:var(--ink);
 
-  outline:none;
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
 
-  transition:
-    border-color .25s ease,
-    box-shadow .25s ease,
-    background .25s ease;
-}
+      line-height:1.65;
 
-input:focus,
-textarea:focus,
-select:focus{
-  background:white;
+    }
 
-  border-color:var(--gold);
 
-  box-shadow:
-    0 0 0 4px rgba(202,167,106,.16);
-}
+    ::selection{
 
-textarea{
-  min-height:170px;
-  resize:vertical;
-}
+      background:var(--gold);
+      color:white;
 
-.review-note{
-  margin-bottom:28px;
-  padding:18px 20px;
+    }
 
-  color:var(--sage-dark);
-  background:rgba(113,140,103,.09);
 
-  border:1px solid rgba(113,140,103,.18);
-  border-radius:18px;
+    a{
 
-  font-size:.94rem;
-  line-height:1.65;
-}
+      color:inherit;
+      text-decoration:none;
 
-.permission-note{
-  margin-top:8px;
+    }
 
-  color:var(--muted);
 
-  font-size:.83rem;
-  line-height:1.5;
-}
+    button,
+    input,
+    textarea,
+    select{
 
-.submit-button{
-  width:100%;
-  min-height:56px;
+      font:inherit;
 
-  padding:15px 25px;
+    }
 
-  color:white;
 
-  background:
-    linear-gradient(
-      135deg,
-      var(--forest),
-      var(--sage-dark)
-    );
+    button,
+    a{
 
-  border:0;
-  border-radius:999px;
+      -webkit-tap-highlight-color:transparent;
 
-  font-weight:900;
+    }
 
-  cursor:pointer;
 
-  box-shadow:0 14px 30px rgba(23,38,27,.16);
-}
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible,
+    select:focus-visible{
 
-.submit-button:disabled{
-  opacity:.6;
-  cursor:not-allowed;
-}
+      outline:3px solid var(--gold);
+      outline-offset:4px;
 
-.message{
-  display:none;
+    }
 
-  margin-top:20px;
-  padding:16px 18px;
 
-  border-radius:15px;
+    .container{
 
-  font-size:.94rem;
-  line-height:1.6;
-}
+      width:min(1120px,92%);
+      margin:0 auto;
 
-.message.success{
-  display:block;
+    }
 
-  color:#285d37;
-  background:rgba(49,111,66,.09);
 
-  border:1px solid rgba(49,111,66,.2);
-}
+    /* ==================================================
+       HEADER
+    ================================================== */
 
-.message.error{
-  display:block;
+    .site-header{
 
-  color:#8c2727;
-  background:rgba(167,46,46,.08);
+      position:sticky;
+      top:0;
 
-  border:1px solid rgba(167,46,46,.18);
-}
+      z-index:1000;
 
-.loading-screen{
-  position:fixed;
-  inset:0;
-  z-index:9999;
+      border-bottom:
+        1px solid rgba(202,167,106,.2);
 
-  display:flex;
-  align-items:center;
-  justify-content:center;
+      background:
+        rgba(255,253,249,.95);
 
-  padding:20px;
+      box-shadow:
+        0 10px 35px rgba(23,38,27,.07);
 
-  background:var(--cream);
-}
+      backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px);
 
-.loading-card{
-  width:min(420px,100%);
+    }
 
-  padding:30px;
 
-  text-align:center;
+    .header-inner{
 
-  background:white;
+      min-height:74px;
 
-  border:1px solid var(--border);
-  border-radius:24px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
 
-  box-shadow:var(--shadow);
-}
+      gap:24px;
 
-.loading-card strong{
-  display:block;
+    }
 
-  margin-bottom:8px;
 
-  color:var(--forest);
+    .brand-group{
 
-  font-size:1.25rem;
-}
+      display:flex;
+      align-items:center;
 
-.loading-card p{
-  color:var(--muted);
-}
+      gap:17px;
 
-@media(max-width:650px){
+      min-width:0;
 
-  .header-inner{
-    min-height:64px;
-  }
+    }
 
-  .logo{
-    font-size:1.8rem;
-  }
 
-  .page-wrap{
-    width:92%;
-    padding-top:28px;
-  }
+    .logo{
 
-  .intro{
-    padding:28px 24px;
-    border-radius:24px;
-  }
+      flex-shrink:0;
 
-  .form-card{
-    padding:25px 21px;
-    border-radius:24px;
-  }
+      color:var(--forest);
 
-}
+      font-size:2rem;
+      font-weight:850;
 
-</style>
+      letter-spacing:-1px;
 
-<link rel="stylesheet" href="brand.css">
+    }
+
+
+    .logo span{
+
+      color:var(--gold);
+
+    }
+
+
+    .portal-name{
+
+      padding-left:17px;
+
+      border-left:
+        1px solid rgba(23,38,27,.13);
+
+      color:var(--sage-mid);
+
+      font-size:.72rem;
+      font-weight:900;
+
+      letter-spacing:2px;
+
+      text-transform:uppercase;
+
+    }
+
+
+    .back-link{
+
+      min-height:43px;
+
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+
+      gap:8px;
+
+      padding:9px 16px;
+
+      border:
+        1px solid rgba(202,167,106,.28);
+
+      border-radius:999px;
+
+      background:
+        rgba(255,250,244,.9);
+
+      color:var(--forest);
+
+      font-size:.76rem;
+      font-weight:850;
+
+      transition:
+        background .25s ease,
+        color .25s ease,
+        transform .25s ease,
+        box-shadow .25s ease;
+
+    }
+
+
+    .back-link:hover{
+
+      background:var(--forest);
+      color:white;
+
+      transform:translateY(-2px);
+
+      box-shadow:
+        0 12px 28px rgba(23,38,27,.14);
+
+    }
+
+
+    .back-link svg{
+
+      width:17px;
+      height:17px;
+
+    }
+
+
+    /* ==================================================
+       PAGE
+    ================================================== */
+
+    .page-main{
+
+      padding:30px 0 68px;
+
+    }
+
+
+    /* ==================================================
+       HERO
+    ================================================== */
+
+    .review-hero{
+
+      position:relative;
+
+      overflow:hidden;
+
+      display:grid;
+
+      grid-template-columns:
+        minmax(0,1.22fr)
+        minmax(280px,.78fr);
+
+      align-items:center;
+
+      gap:34px;
+
+      margin-bottom:24px;
+
+      padding:40px 42px;
+
+      border:
+        1px solid rgba(202,167,106,.23);
+
+      border-radius:32px;
+
+      background:
+
+        radial-gradient(
+          circle at 93% 7%,
+          rgba(202,167,106,.19),
+          transparent 31%
+        ),
+
+        radial-gradient(
+          circle at 5% 95%,
+          rgba(113,140,103,.16),
+          transparent 34%
+        ),
+
+        linear-gradient(
+          140deg,
+          var(--forest),
+          var(--forest-soft)
+        );
+
+      color:white;
+
+      box-shadow:var(--shadow);
+
+    }
+
+
+    .review-hero::before{
+
+      content:"";
+
+      position:absolute;
+
+      top:-150px;
+      right:-120px;
+
+      width:350px;
+      height:350px;
+
+      border:
+        1px solid rgba(222,194,141,.13);
+
+      border-radius:50%;
+
+    }
+
+
+    .hero-copy,
+    .hero-card{
+
+      position:relative;
+      z-index:2;
+
+    }
+
+
+    .hero-eyebrow{
+
+      display:flex;
+      align-items:center;
+
+      gap:9px;
+
+      margin-bottom:14px;
+
+      color:var(--gold-soft);
+
+      font-size:.68rem;
+      font-weight:900;
+
+      letter-spacing:2px;
+
+      text-transform:uppercase;
+
+    }
+
+
+    .hero-eyebrow svg{
+
+      width:17px;
+      height:17px;
+
+    }
+
+
+    .review-hero h1{
+
+      max-width:700px;
+
+      margin-bottom:17px;
+
+      color:white;
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size:
+        clamp(3rem,5vw,4.65rem);
+
+      font-weight:500;
+
+      line-height:1;
+
+      letter-spacing:-2.6px;
+
+    }
+
+
+    .review-hero h1 em{
+
+      display:block;
+
+      color:var(--gold-soft);
+
+      font-weight:500;
+
+    }
+
+
+    .hero-description{
+
+      max-width:680px;
+
+      color:
+        rgba(255,255,255,.73);
+
+      font-size:.94rem;
+
+      line-height:1.72;
+
+    }
+
+
+    .hero-card{
+
+      padding:23px;
+
+      border:
+        1px solid rgba(255,255,255,.13);
+
+      border-radius:23px;
+
+      background:
+        rgba(255,255,255,.07);
+
+      backdrop-filter:blur(12px);
+      -webkit-backdrop-filter:blur(12px);
+
+    }
+
+
+    .hero-card-icon{
+
+      width:47px;
+      height:47px;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      margin-bottom:16px;
+
+      border-radius:50%;
+
+      background:
+        rgba(202,167,106,.14);
+
+      color:var(--gold-soft);
+
+    }
+
+
+    .hero-card-icon svg{
+
+      width:23px;
+      height:23px;
+
+    }
+
+
+    .hero-card strong{
+
+      display:block;
+
+      margin-bottom:7px;
+
+      color:white;
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size:1.3rem;
+      font-weight:500;
+
+    }
+
+
+    .hero-card p{
+
+      color:
+        rgba(255,255,255,.67);
+
+      font-size:.77rem;
+      line-height:1.6;
+
+    }
+
+
+    /* ==================================================
+       FORM LAYOUT
+    ================================================== */
+
+    .review-layout{
+
+      display:grid;
+
+      grid-template-columns:
+        minmax(0,1.4fr)
+        minmax(270px,.6fr);
+
+      gap:22px;
+
+      align-items:start;
+
+    }
+
+
+    /* ==================================================
+       FORM CARD
+    ================================================== */
+
+    .form-card{
+
+      overflow:hidden;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:27px;
+
+      background:
+        rgba(255,255,255,.88);
+
+      box-shadow:var(--soft-shadow);
+
+    }
+
+
+    .form-card-header{
+
+      padding:25px 28px 21px;
+
+      border-bottom:
+        1px solid rgba(23,38,27,.08);
+
+    }
+
+
+    .eyebrow{
+
+      margin-bottom:8px;
+
+      color:var(--gold);
+
+      font-size:.65rem;
+      font-weight:900;
+
+      letter-spacing:1.8px;
+
+      text-transform:uppercase;
+
+    }
+
+
+    .form-card-header h2{
+
+      margin-bottom:8px;
+
+      color:var(--forest);
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size:
+        clamp(2rem,4vw,2.7rem);
+
+      font-weight:500;
+
+      line-height:1.08;
+
+      letter-spacing:-1.4px;
+
+    }
+
+
+    .form-card-header p{
+
+      max-width:650px;
+
+      color:var(--muted);
+
+      font-size:.82rem;
+      line-height:1.65;
+
+    }
+
+
+    .form-body{
+
+      padding:27px 28px 30px;
+
+    }
+
+
+    .form-group{
+
+      margin-bottom:23px;
+
+    }
+
+
+    .form-group:last-of-type{
+
+      margin-bottom:0;
+
+    }
+
+
+    label{
+
+      display:block;
+
+      margin-bottom:8px;
+
+      color:var(--sage);
+
+      font-size:.78rem;
+      font-weight:850;
+
+    }
+
+
+    .field-help{
+
+      margin-top:7px;
+
+      color:var(--muted);
+
+      font-size:.7rem;
+
+      line-height:1.5;
+
+    }
+
+
+    input,
+    textarea,
+    select{
+
+      width:100%;
+
+      border:
+        1px solid #e4dacb;
+
+      border-radius:14px;
+
+      background:#fcfaf7;
+
+      color:var(--ink);
+
+      outline:none;
+
+      transition:
+        border-color .25s ease,
+        box-shadow .25s ease,
+        background .25s ease;
+
+    }
+
+
+    input,
+    select{
+
+      min-height:52px;
+
+      padding:13px 15px;
+
+    }
+
+
+    textarea{
+
+      min-height:190px;
+
+      padding:15px 16px;
+
+      resize:vertical;
+
+    }
+
+
+    input::placeholder,
+    textarea::placeholder{
+
+      color:#9a9e97;
+
+    }
+
+
+    input:focus,
+    textarea:focus,
+    select:focus{
+
+      border-color:var(--gold);
+
+      background:white;
+
+      box-shadow:
+        0 0 0 5px rgba(202,167,106,.14);
+
+    }
+
+
+    /* ==================================================
+       RATING
+    ================================================== */
+
+    .rating-wrap{
+
+      position:relative;
+
+    }
+
+
+    .rating-wrap::after{
+
+      content:"";
+
+      position:absolute;
+
+      top:50%;
+      right:16px;
+
+      width:7px;
+      height:7px;
+
+      border-right:
+        2px solid var(--sage);
+
+      border-bottom:
+        2px solid var(--sage);
+
+      pointer-events:none;
+
+      transform:
+        translateY(-68%)
+        rotate(45deg);
+
+    }
+
+
+    .rating-wrap select{
+
+      appearance:none;
+      -webkit-appearance:none;
+
+      padding-right:42px;
+
+    }
+
+
+    /* ==================================================
+       PUBLICATION PERMISSION
+    ================================================== */
+
+    .permission-box{
+
+      padding:19px;
+
+      border:
+        1px solid rgba(202,167,106,.22);
+
+      border-radius:18px;
+
+      background:
+        rgba(248,241,231,.44);
+
+    }
+
+
+    .permission-box label{
+
+      margin-bottom:9px;
+
+    }
+
+
+    .permission-note{
+
+      display:flex;
+      align-items:flex-start;
+
+      gap:9px;
+
+      margin-top:11px;
+
+      color:var(--muted);
+
+      font-size:.7rem;
+      line-height:1.55;
+
+    }
+
+
+    .permission-note svg{
+
+      width:17px;
+      height:17px;
+
+      flex-shrink:0;
+
+      margin-top:1px;
+
+      color:var(--gold);
+
+    }
+
+
+    /* ==================================================
+       SUBMIT
+    ================================================== */
+
+    .submit-area{
+
+      margin-top:27px;
+
+      padding-top:24px;
+
+      border-top:
+        1px solid rgba(23,38,27,.08);
+
+    }
+
+
+    .submit-button{
+
+      width:100%;
+      min-height:56px;
+
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+
+      gap:9px;
+
+      padding:14px 23px;
+
+      border:0;
+      border-radius:999px;
+
+      background:
+
+        linear-gradient(
+          135deg,
+          var(--forest),
+          var(--sage)
+        );
+
+      color:white;
+
+      cursor:pointer;
+
+      box-shadow:
+        0 14px 31px rgba(23,38,27,.16);
+
+      font-size:.8rem;
+      font-weight:900;
+
+      transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+
+    }
+
+
+    .submit-button:hover{
+
+      transform:translateY(-3px);
+
+      box-shadow:
+        0 19px 38px rgba(23,38,27,.21);
+
+    }
+
+
+    .submit-button:disabled{
+
+      opacity:.6;
+
+      cursor:not-allowed;
+
+      transform:none;
+
+    }
+
+
+    .submit-button svg{
+
+      width:18px;
+      height:18px;
+
+    }
+
+
+    /* ==================================================
+       MESSAGE
+    ================================================== */
+
+    .message{
+
+      display:none;
+
+      margin-top:18px;
+
+      padding:15px 16px;
+
+      border-radius:15px;
+
+      font-size:.78rem;
+
+      line-height:1.55;
+
+    }
+
+
+    .message.success{
+
+      display:block;
+
+      border:
+        1px solid rgba(71,112,77,.19);
+
+      background:var(--success-soft);
+
+      color:var(--success);
+
+    }
+
+
+    .message.error{
+
+      display:block;
+
+      border:
+        1px solid rgba(147,66,66,.18);
+
+      background:var(--danger-soft);
+
+      color:var(--danger);
+
+    }
+
+
+    /* ==================================================
+       SIDE COLUMN
+    ================================================== */
+
+    .side-column{
+
+      display:grid;
+
+      gap:17px;
+
+    }
+
+
+    .side-card{
+
+      padding:23px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:23px;
+
+      background:
+        rgba(255,255,255,.8);
+
+      box-shadow:var(--soft-shadow);
+
+    }
+
+
+    .side-icon{
+
+      width:44px;
+      height:44px;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      margin-bottom:16px;
+
+      border-radius:14px;
+
+      background:
+
+        linear-gradient(
+          135deg,
+          var(--forest),
+          var(--sage)
+        );
+
+      color:white;
+
+    }
+
+
+    .side-icon svg{
+
+      width:21px;
+      height:21px;
+
+    }
+
+
+    .side-card h3{
+
+      margin-bottom:8px;
+
+      color:var(--forest);
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size:1.32rem;
+      font-weight:500;
+
+      line-height:1.18;
+
+    }
+
+
+    .side-card p{
+
+      color:var(--muted);
+
+      font-size:.75rem;
+      line-height:1.6;
+
+    }
+
+
+    .privacy-card{
+
+      background:
+
+        radial-gradient(
+          circle at 95% 5%,
+          rgba(202,167,106,.13),
+          transparent 32%
+        ),
+
+        linear-gradient(
+          140deg,
+          var(--forest),
+          var(--sage)
+        );
+
+      color:white;
+
+    }
+
+
+    .privacy-card .side-icon{
+
+      border:
+        1px solid rgba(255,255,255,.12);
+
+      background:
+        rgba(255,255,255,.08);
+
+      color:var(--gold-soft);
+
+    }
+
+
+    .privacy-card h3{
+
+      color:white;
+
+    }
+
+
+    .privacy-card p{
+
+      color:
+        rgba(255,255,255,.7);
+
+    }
+
+
+    .contact-side-link{
+
+      width:100%;
+
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+
+      gap:8px;
+
+      margin-top:16px;
+      padding:11px 13px;
+
+      border:
+        1px solid rgba(255,255,255,.13);
+
+      border-radius:999px;
+
+      background:
+        rgba(255,255,255,.08);
+
+      color:white;
+
+      font-size:.7rem;
+      font-weight:850;
+
+      transition:
+        background .22s ease;
+
+    }
+
+
+    .contact-side-link:hover{
+
+      background:
+        rgba(255,255,255,.14);
+
+    }
+
+
+    .contact-side-link svg{
+
+      width:15px;
+      height:15px;
+
+      color:var(--gold-soft);
+
+    }
+
+
+    /* ==================================================
+       FOOTER
+    ================================================== */
+
+    .portal-footer{
+
+      margin-top:31px;
+
+      padding:24px 20px 5px;
+
+      border-top:
+        1px solid rgba(23,38,27,.09);
+
+      color:var(--muted);
+
+      font-size:.7rem;
+
+      text-align:center;
+
+      line-height:1.7;
+
+    }
+
+
+    .portal-footer a{
+
+      color:var(--forest);
+
+      font-weight:850;
+
+    }
+
+
+    .portal-footer a:hover{
+
+      color:var(--gold);
+
+    }
+
+
+    /* ==================================================
+       LOADING
+    ================================================== */
+
+    .loading-screen{
+
+      position:fixed;
+      inset:0;
+
+      z-index:99999;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      padding:20px;
+
+      background:
+
+        radial-gradient(
+          circle at top left,
+          rgba(202,167,106,.12),
+          transparent 30%
+        ),
+
+        var(--cream);
+
+    }
+
+
+    .loading-card{
+
+      width:min(430px,100%);
+
+      padding:37px 30px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:27px;
+
+      background:
+        rgba(255,255,255,.88);
+
+      box-shadow:var(--shadow);
+
+      text-align:center;
+
+    }
+
+
+    .loading-spinner{
+
+      width:46px;
+      height:46px;
+
+      margin:0 auto 18px;
+
+      border:
+        4px solid rgba(113,140,103,.16);
+
+      border-top-color:var(--sage);
+
+      border-radius:50%;
+
+      animation:spin .85s linear infinite;
+
+    }
+
+
+    .loading-card strong{
+
+      display:block;
+
+      margin-bottom:7px;
+
+      color:var(--forest);
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size:1.35rem;
+      font-weight:500;
+
+    }
+
+
+    .loading-card p{
+
+      color:var(--muted);
+
+      font-size:.8rem;
+      line-height:1.6;
+
+    }
+
+
+    /* ==================================================
+       TABLET
+    ================================================== */
+
+    @media(max-width:900px){
+
+      .review-hero{
+
+        grid-template-columns:1fr;
+
+      }
+
+
+      .review-layout{
+
+        grid-template-columns:1fr;
+
+      }
+
+
+      .side-column{
+
+        grid-template-columns:
+          repeat(2,minmax(0,1fr));
+
+      }
+
+    }
+
+
+    /* ==================================================
+       MOBILE
+    ================================================== */
+
+    @media(max-width:650px){
+
+      .container{
+
+        width:90%;
+
+      }
+
+
+      /* HEADER */
+
+      .header-inner{
+
+        min-height:64px;
+
+      }
+
+
+      .logo{
+
+        font-size:1.72rem;
+
+      }
+
+
+      .portal-name{
+
+        display:none;
+
+      }
+
+
+      .back-link{
+
+        min-height:39px;
+
+        padding:8px 12px;
+
+        font-size:.68rem;
+
+      }
+
+
+      .back-link svg{
+
+        width:15px;
+        height:15px;
+
+      }
+
+
+      /* MAIN */
+
+      .page-main{
+
+        padding-top:18px;
+        padding-bottom:44px;
+
+      }
+
+
+      /* HERO */
+
+      .review-hero{
+
+        gap:22px;
+
+        padding:28px 23px;
+
+        border-radius:26px;
+
+      }
+
+
+      .review-hero h1{
+
+        font-size:
+          clamp(2.65rem,12vw,3.5rem);
+
+        letter-spacing:-1.9px;
+
+      }
+
+
+      .hero-description{
+
+        font-size:.82rem;
+        line-height:1.65;
+
+      }
+
+
+      .hero-card{
+
+        padding:19px;
+
+      }
+
+
+      /* FORM */
+
+      .form-card{
+
+        border-radius:23px;
+
+      }
+
+
+      .form-card-header{
+
+        padding:21px 21px 18px;
+
+      }
+
+
+      .form-card-header h2{
+
+        font-size:2rem;
+
+      }
+
+
+      .form-body{
+
+        padding:21px 20px 23px;
+
+      }
+
+
+      textarea{
+
+        min-height:170px;
+
+      }
+
+
+      /* SIDE */
+
+      .side-column{
+
+        grid-template-columns:1fr;
+
+      }
+
+
+      .side-card{
+
+        padding:20px;
+
+      }
+
+
+      .portal-footer{
+
+        font-size:.64rem;
+
+      }
+
+    }
+
+
+    /* ==================================================
+       REDUCED MOTION
+    ================================================== */
+
+    @media(prefers-reduced-motion:reduce){
+
+      html{
+
+        scroll-behavior:auto;
+
+      }
+
+
+      *,
+      *::before,
+      *::after{
+
+        animation-duration:.01ms !important;
+        animation-iteration-count:1 !important;
+        transition-duration:.01ms !important;
+
+      }
+
+    }
+
+
+    @keyframes spin{
+
+      to{
+
+        transform:rotate(360deg);
+
+      }
+
+    }
+
+  </style>
+
+
+  <!-- Shared Sorted. wordmark -->
+  <link
+    rel="stylesheet"
+    href="../brand.css"
+  >
 
 </head>
 
+
 <body>
 
+
+<!-- ==================================================
+     LOADING
+================================================== -->
 
 <div
   id="loading-screen"
@@ -433,12 +1647,15 @@ textarea{
 
   <div class="loading-card">
 
+    <div class="loading-spinner"></div>
+
     <strong>
-      Opening your review…
+      Opening your review
     </strong>
 
     <p>
-      Please wait while we check your Sorted. account.
+      Please wait while we securely check your
+      My Sorted. account.
     </p>
 
   </div>
@@ -446,186 +1663,443 @@ textarea{
 </div>
 
 
+<!-- ==================================================
+     HEADER
+================================================== -->
+
 <header class="site-header">
 
-  <div class="header-inner">
+  <div class="container header-inner">
 
-    <a
-      href="dashboard.html"
-      class="logo"
-    >
-      Sorted<span>.</span>
-    </a>
+
+    <div class="brand-group">
+
+      <a
+        href="dashboard.html"
+        class="logo"
+        aria-label="My Sorted. dashboard"
+      >
+        Sorted<span>.</span>
+      </a>
+
+
+      <span class="portal-name">
+        My Sorted.
+      </span>
+
+    </div>
+
 
     <a
       href="forms.html"
       class="back-link"
     >
-      ← Forms
+
+      <i data-lucide="arrow-left"></i>
+
+      <span>
+        Forms
+      </span>
+
     </a>
+
 
   </div>
 
 </header>
 
 
-<main class="page-wrap">
+<!-- ==================================================
+     MAIN
+================================================== -->
+
+<main class="page-main">
+
+  <div class="container">
 
 
-  <section class="intro">
+    <!-- ==================================================
+         HERO
+    ================================================== -->
 
-    <p class="eyebrow">
-      My Sorted.
-    </p>
-
-    <h1>
-      Client Review
-    </h1>
-
-    <p>
-      Tell us about your experience with Sorted.
-      Your feedback helps us understand what we're doing well
-      and where we can make your service even better.
-    </p>
-
-  </section>
+    <section class="review-hero">
 
 
-  <div class="review-note">
+      <div class="hero-copy">
 
-    <strong>Your review is saved to your Sorted. client account.</strong>
-    We will only use it publicly if you give us permission below.
+
+        <div class="hero-eyebrow">
+
+          <i data-lucide="message-square-heart"></i>
+
+          <span>
+            My Sorted.
+          </span>
+
+        </div>
+
+
+        <h1>
+          Tell us how
+          <em>we’re doing.</em>
+        </h1>
+
+
+        <p class="hero-description">
+          Your experience matters. Share what has worked well,
+          tell us what you have valued and let us know where
+          your Sorted. support could be even better.
+        </p>
+
+
+      </div>
+
+
+      <aside class="hero-card">
+
+
+        <div class="hero-card-icon">
+
+          <i data-lucide="heart-handshake"></i>
+
+        </div>
+
+
+        <strong>
+          Your feedback matters
+        </strong>
+
+
+        <p>
+          Reviews help us maintain the thoughtful, personal
+          standard of support we want every Sorted. client
+          to receive.
+        </p>
+
+
+      </aside>
+
+
+    </section>
+
+
+    <!-- ==================================================
+         REVIEW AREA
+    ================================================== -->
+
+    <section class="review-layout">
+
+
+      <!-- FORM -->
+
+      <form
+        id="review-form"
+        class="form-card"
+      >
+
+
+        <div class="form-card-header">
+
+          <p class="eyebrow">
+            Client Review
+          </p>
+
+          <h2>
+            Share your experience.
+          </h2>
+
+          <p>
+            You can return and update your review at any time.
+            Nothing will be published publicly unless you
+            specifically give permission below.
+          </p>
+
+        </div>
+
+
+        <div class="form-body">
+
+
+          <!-- NAME -->
+
+          <div class="form-group">
+
+            <label for="name">
+              Your Name
+            </label>
+
+            <input
+              id="name"
+              type="text"
+              autocomplete="name"
+              placeholder="Your name"
+              required
+            >
+
+          </div>
+
+
+          <!-- RATING -->
+
+          <div class="form-group">
+
+            <label for="rating">
+              Overall Rating
+            </label>
+
+            <div class="rating-wrap">
+
+              <select
+                id="rating"
+                required
+              >
+
+                <option value="">
+                  Choose your rating
+                </option>
+
+                <option value="5">
+                  ★★★★★ &nbsp; Excellent
+                </option>
+
+                <option value="4">
+                  ★★★★☆ &nbsp; Very Good
+                </option>
+
+                <option value="3">
+                  ★★★☆☆ &nbsp; Good
+                </option>
+
+                <option value="2">
+                  ★★☆☆☆ &nbsp; Fair
+                </option>
+
+                <option value="1">
+                  ★☆☆☆☆ &nbsp; Poor
+                </option>
+
+              </select>
+
+            </div>
+
+          </div>
+
+
+          <!-- REVIEW -->
+
+          <div class="form-group">
+
+            <label for="review">
+              Your Review
+            </label>
+
+            <textarea
+              id="review"
+              placeholder="Tell us about your experience with Sorted. You might like to mention what we helped with, what you particularly valued, or anything we could improve."
+              required
+            ></textarea>
+
+            <p class="field-help">
+              Write as much or as little as you would like.
+            </p>
+
+          </div>
+
+
+          <!-- PERMISSION -->
+
+          <div class="form-group permission-box">
+
+            <label for="permission">
+              May Sorted. Publish Your Review?
+            </label>
+
+            <select
+              id="permission"
+              required
+            >
+
+              <option value="no">
+                No — keep my review private
+              </option>
+
+              <option value="yes">
+                Yes — Sorted. may publish my review
+              </option>
+
+            </select>
+
+
+            <div class="permission-note">
+
+              <i data-lucide="shield-check"></i>
+
+              <span>
+                Choosing “Yes” allows Sorted. to use your review
+                in places such as our website, brochure, leaflet
+                or other promotional materials. Choosing “No”
+                means it will remain private within your client
+                account.
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <!-- SUBMIT -->
+
+          <div class="submit-area">
+
+            <button
+              id="submit-button"
+              type="submit"
+              class="submit-button"
+            >
+
+              <i data-lucide="shield-check"></i>
+
+              <span id="submit-button-text">
+                Save Review Securely
+              </span>
+
+            </button>
+
+
+            <div
+              id="form-message"
+              class="message"
+              role="alert"
+              aria-live="polite"
+            ></div>
+
+          </div>
+
+
+        </div>
+
+
+      </form>
+
+
+      <!-- ==================================================
+           SIDE COLUMN
+      ================================================== -->
+
+      <aside class="side-column">
+
+
+        <section class="side-card">
+
+
+          <div class="side-icon">
+
+            <i data-lucide="refresh-cw"></i>
+
+          </div>
+
+
+          <h3>
+            Change your review anytime.
+          </h3>
+
+
+          <p>
+            Already submitted feedback? Simply return to this
+            page, make any changes you want and save it again.
+            Your latest version will replace the previous one.
+          </p>
+
+
+        </section>
+
+
+        <section class="side-card privacy-card">
+
+
+          <div class="side-icon">
+
+            <i data-lucide="lock-keyhole"></i>
+
+          </div>
+
+
+          <h3>
+            Your review stays in your account.
+          </h3>
+
+
+          <p>
+            Your feedback is stored securely with your
+            My Sorted. client record. We will not treat a
+            private review as permission to publish it.
+          </p>
+
+
+          <a
+            href="mailto:contact@sortedlife.org.uk"
+            class="contact-side-link"
+          >
+
+            <i data-lucide="mail"></i>
+
+            Contact Sorted.
+
+          </a>
+
+
+        </section>
+
+
+      </aside>
+
+
+    </section>
+
+
+    <!-- ==================================================
+         FOOTER
+    ================================================== -->
+
+    <footer class="portal-footer">
+
+      © 2026 Sorted.
+
+      &nbsp;·&nbsp;
+
+      <a href="dashboard.html">
+        My Sorted.
+      </a>
+
+      &nbsp;·&nbsp;
+
+      <a href="forms.html">
+        Forms
+      </a>
+
+      &nbsp;·&nbsp;
+
+      <a href="../privacy.html">
+        Privacy Policy
+      </a>
+
+      &nbsp;·&nbsp;
+
+      <a href="../terms.html">
+        Terms &amp; Conditions
+      </a>
+
+    </footer>
+
 
   </div>
 
-
-  <form
-    id="review-form"
-    class="form-card"
-  >
-
-
-    <div class="form-group">
-
-      <label for="name">
-        Your name
-      </label>
-
-      <input
-        id="name"
-        type="text"
-        autocomplete="name"
-        required
-      >
-
-    </div>
-
-
-    <div class="form-group">
-
-      <label for="rating">
-        Overall rating
-      </label>
-
-      <select
-        id="rating"
-        required
-      >
-
-        <option value="">
-          Choose your rating
-        </option>
-
-        <option value="5">
-          ★★★★★ Excellent
-        </option>
-
-        <option value="4">
-          ★★★★ Very Good
-        </option>
-
-        <option value="3">
-          ★★★ Good
-        </option>
-
-        <option value="2">
-          ★★ Fair
-        </option>
-
-        <option value="1">
-          ★ Poor
-        </option>
-
-      </select>
-
-    </div>
-
-
-    <div class="form-group">
-
-      <label for="review">
-        Your review
-      </label>
-
-      <textarea
-        id="review"
-        placeholder="Tell us about your experience with Sorted."
-        required
-      ></textarea>
-
-    </div>
-
-
-    <div class="form-group">
-
-      <label for="permission">
-        May Sorted. publish your review?
-      </label>
-
-      <select
-        id="permission"
-        required
-      >
-
-        <option value="no">
-          No
-        </option>
-
-        <option value="yes">
-          Yes
-        </option>
-
-      </select>
-
-      <p class="permission-note">
-        Choosing “Yes” means Sorted. may use your review in marketing,
-        such as on our website or promotional materials.
-      </p>
-
-    </div>
-
-
-    <button
-      id="submit-button"
-      type="submit"
-      class="submit-button"
-    >
-      Save Review Securely
-    </button>
-
-
-    <div
-      id="form-message"
-      class="message"
-      role="alert"
-    ></div>
-
-
-  </form>
-
-
 </main>
 
+
+<!-- ==================================================
+     FIREBASE
+================================================== -->
 
 <script type="module">
 
@@ -653,31 +2127,79 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
 
 
+/* ==================================================
+   ELEMENTS
+================================================== */
+
 const loadingScreen =
-  document.getElementById("loading-screen");
+  document.getElementById(
+    "loading-screen"
+  );
 
 
 const reviewForm =
-  document.getElementById("review-form");
+  document.getElementById(
+    "review-form"
+  );
 
 
 const submitButton =
-  document.getElementById("submit-button");
+  document.getElementById(
+    "submit-button"
+  );
+
+
+const submitButtonText =
+  document.getElementById(
+    "submit-button-text"
+  );
 
 
 const formMessage =
-  document.getElementById("form-message");
+  document.getElementById(
+    "form-message"
+  );
 
 
-let currentUser = null;
+let currentUser =
+  null;
 
-let clientId = null;
+
+let clientId =
+  null;
 
 
-function showMessage(type,text){
+let existingReview =
+  false;
+
+
+/* ==================================================
+   ICONS
+================================================== */
+
+function refreshIcons(){
+
+  if(window.lucide){
+
+    window.lucide.createIcons();
+
+  }
+
+}
+
+
+/* ==================================================
+   MESSAGE
+================================================== */
+
+function showMessage(
+  type,
+  text
+){
 
   formMessage.className =
     "message " + type;
+
 
   formMessage.textContent =
     text;
@@ -685,7 +2207,58 @@ function showMessage(type,text){
 }
 
 
+/* ==================================================
+   LOADING ERROR
+================================================== */
+
+function showLoadingMessage(
+  title,
+  message
+){
+
+  loadingScreen.innerHTML =
+    `
+      <div class="loading-card">
+
+        <div
+          style="
+            width:52px;
+            height:52px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            margin:0 auto 17px;
+            border-radius:50%;
+            background:#e6eadf;
+            color:#314632;
+          "
+        >
+          <i data-lucide="circle-alert"></i>
+        </div>
+
+        <strong>
+          ${title}
+        </strong>
+
+        <p>
+          ${message}
+        </p>
+
+      </div>
+    `;
+
+
+  refreshIcons();
+
+}
+
+
+/* ==================================================
+   FIND CLIENT
+================================================== */
+
 async function findClientRecord(user){
+
 
   /*
     First try clients/{uid}.
@@ -700,26 +2273,39 @@ async function findClientRecord(user){
 
 
   const directClientSnapshot =
-    await getDoc(directClientRef);
+    await getDoc(
+      directClientRef
+    );
 
 
-  if(directClientSnapshot.exists()){
+  if(
+    directClientSnapshot.exists()
+  ){
 
     return{
-      id:directClientSnapshot.id,
-      data:directClientSnapshot.data()
+
+      id:
+        directClientSnapshot.id,
+
+      data:
+        directClientSnapshot.data()
+
     };
 
   }
 
 
   /*
-    Fallback for older client records.
+    Fallback for client records that use a
+    different Firestore document ID.
   */
 
   const clientQuery =
     query(
-      collection(db,"clients"),
+      collection(
+        db,
+        "clients"
+      ),
       where(
         "ownerUID",
         "==",
@@ -730,10 +2316,14 @@ async function findClientRecord(user){
 
 
   const querySnapshot =
-    await getDocs(clientQuery);
+    await getDocs(
+      clientQuery
+    );
 
 
-  if(querySnapshot.empty){
+  if(
+    querySnapshot.empty
+  ){
 
     return null;
 
@@ -745,12 +2335,21 @@ async function findClientRecord(user){
 
 
   return{
-    id:clientDocument.id,
-    data:clientDocument.data()
+
+    id:
+      clientDocument.id,
+
+    data:
+      clientDocument.data()
+
   };
 
 }
 
+
+/* ==================================================
+   LOAD EXISTING REVIEW
+================================================== */
 
 async function loadExistingReview(){
 
@@ -765,10 +2364,14 @@ async function loadExistingReview(){
 
 
   const reviewSnapshot =
-    await getDoc(reviewRef);
+    await getDoc(
+      reviewRef
+    );
 
 
-  if(!reviewSnapshot.exists()){
+  if(
+    !reviewSnapshot.exists()
+  ){
 
     return;
 
@@ -779,41 +2382,64 @@ async function loadExistingReview(){
     reviewSnapshot.data();
 
 
-  document.getElementById("name").value =
-    data.name || "";
+  existingReview =
+    true;
 
 
-  document.getElementById("rating").value =
-    data.rating
-      ? String(data.rating)
-      : "";
+  document
+    .getElementById("name")
+    .value =
+      data.name || "";
 
 
-  document.getElementById("review").value =
-    data.review || "";
+  document
+    .getElementById("rating")
+    .value =
+      data.rating
+        ? String(data.rating)
+        : "";
 
 
-  document.getElementById("permission").value =
-    data.permissionToPublish === true
-      ? "yes"
-      : "no";
+  document
+    .getElementById("review")
+    .value =
+      data.review || "";
+
+
+  document
+    .getElementById("permission")
+    .value =
+      data.permissionToPublish === true
+        ? "yes"
+        : "no";
+
+
+  submitButtonText.textContent =
+    "Update Review Securely";
 
 }
 
 
+/* ==================================================
+   INITIALISE
+================================================== */
+
 async function initialiseReview(user){
 
   try{
+
 
     currentUser =
       user;
 
 
     /*
-      Require a verified Firebase account.
+      Require verified email.
     */
 
-    if(!user.emailVerified){
+    if(
+      !user.emailVerified
+    ){
 
       window.location.href =
         "index.html";
@@ -824,7 +2450,7 @@ async function initialiseReview(user){
 
 
     /*
-      Require an approved Sorted. client account.
+      Confirm approved client account.
     */
 
     const userRef =
@@ -836,10 +2462,14 @@ async function initialiseReview(user){
 
 
     const userSnapshot =
-      await getDoc(userRef);
+      await getDoc(
+        userRef
+      );
 
 
-    if(!userSnapshot.exists()){
+    if(
+      !userSnapshot.exists()
+    ){
 
       window.location.href =
         "index.html";
@@ -867,30 +2497,23 @@ async function initialiseReview(user){
 
 
     /*
-      Find the correct client record.
+      Locate correct client document.
     */
 
     const clientRecord =
-      await findClientRecord(user);
+      await findClientRecord(
+        user
+      );
 
 
-    if(!clientRecord){
+    if(
+      !clientRecord
+    ){
 
-      loadingScreen.innerHTML =
-        `
-          <div class="loading-card">
-
-            <strong>
-              Account setup incomplete
-            </strong>
-
-            <p>
-              Your portal account is approved, but your Sorted.
-              client record could not be found.
-            </p>
-
-          </div>
-        `;
+      showLoadingMessage(
+        "Account setup incomplete",
+        "Your portal account is approved, but your Sorted. client record could not be found. Please contact Sorted. so we can finish setting up your account."
+      );
 
       return;
 
@@ -902,54 +2525,67 @@ async function initialiseReview(user){
 
 
     /*
-      Prefill the client's name before checking
-      for an existing review.
+      Prefill client's name.
     */
 
-    document.getElementById("name").value =
-      clientRecord.data.fullName ||
-      clientRecord.data.name ||
-      userData.fullName ||
-      "";
+    document
+      .getElementById("name")
+      .value =
+        clientRecord.data.fullName ||
+        clientRecord.data.name ||
+        userData.fullName ||
+        user.displayName ||
+        "";
 
+
+    /*
+      Load any previous review.
+    */
 
     await loadExistingReview();
 
+
+    /*
+      Reveal page.
+    */
 
     loadingScreen.style.display =
       "none";
 
 
+    refreshIcons();
+
+
   }catch(error){
 
-    console.error(error);
+
+    console.error(
+      "Client review error:",
+      error
+    );
 
 
-    loadingScreen.innerHTML =
-      `
-        <div class="loading-card">
-
-          <strong>
-            We couldn't open your review
-          </strong>
-
-          <p>
-            Please return to your portal and try again.
-          </p>
-
-        </div>
-      `;
+    showLoadingMessage(
+      "We couldn't open your review",
+      "Please return to your portal and try again. If the problem continues, contact Sorted."
+    );
 
   }
 
 }
 
 
+/* ==================================================
+   AUTH
+================================================== */
+
 onAuthStateChanged(
   auth,
   function(user){
 
-    if(!user){
+    if(
+      !user
+    ){
 
       window.location.href =
         "index.html";
@@ -959,17 +2595,31 @@ onAuthStateChanged(
     }
 
 
-    initialiseReview(user);
+    initialiseReview(
+      user
+    );
 
   }
 );
 
+
+/* ==================================================
+   SAVE REVIEW
+================================================== */
 
 reviewForm.addEventListener(
   "submit",
   async function(event){
 
     event.preventDefault();
+
+
+    formMessage.className =
+      "message";
+
+
+    formMessage.textContent =
+      "";
 
 
     if(
@@ -987,14 +2637,62 @@ reviewForm.addEventListener(
     }
 
 
+    const name =
+      document
+        .getElementById("name")
+        .value
+        .trim();
+
+
+    const rating =
+      Number(
+        document
+          .getElementById("rating")
+          .value
+      );
+
+
+    const review =
+      document
+        .getElementById("review")
+        .value
+        .trim();
+
+
+    const permissionToPublish =
+      document
+        .getElementById("permission")
+        .value === "yes";
+
+
+    if(
+      !name ||
+      !rating ||
+      !review
+    ){
+
+      showMessage(
+        "error",
+        "Please complete your name, rating and review before saving."
+      );
+
+      return;
+
+    }
+
+
     submitButton.disabled =
       true;
 
-    submitButton.textContent =
-      "Saving securely…";
+
+    submitButtonText.textContent =
+      existingReview
+        ? "Updating securely…"
+        : "Saving securely…";
 
 
     try{
+
 
       const reviewRef =
         doc(
@@ -1004,20 +2702,6 @@ reviewForm.addEventListener(
           "forms",
           "client-review"
         );
-
-
-      const rating =
-        Number(
-          document
-            .getElementById("rating")
-            .value
-        );
-
-
-      const permissionToPublish =
-        document
-          .getElementById("permission")
-          .value === "yes";
 
 
       await setDoc(
@@ -1031,19 +2715,13 @@ reviewForm.addEventListener(
             "submitted",
 
           name:
-            document
-              .getElementById("name")
-              .value
-              .trim(),
+            name,
 
           rating:
             rating,
 
           review:
-            document
-              .getElementById("review")
-              .value
-              .trim(),
+            review,
 
           permissionToPublish:
             permissionToPublish,
@@ -1064,21 +2742,33 @@ reviewForm.addEventListener(
       );
 
 
+      existingReview =
+        true;
+
+
+      submitButtonText.textContent =
+        "Update Review Securely";
+
+
       showMessage(
         "success",
-        "Thank you. Your review has been saved securely to your Sorted. account."
+        "Thank you. Your review has been saved securely to your My Sorted. account."
       );
 
 
-      window.scrollTo({
-        top:document.body.scrollHeight,
-        behavior:"smooth"
+      formMessage.scrollIntoView({
+        behavior:"smooth",
+        block:"nearest"
       });
 
 
     }catch(error){
 
-      console.error(error);
+
+      console.error(
+        "Review save error:",
+        error
+      );
 
 
       showMessage(
@@ -1086,13 +2776,19 @@ reviewForm.addEventListener(
         "We couldn't save your review. Please try again."
       );
 
+
     }finally{
+
 
       submitButton.disabled =
         false;
 
-      submitButton.textContent =
-        "Save Review Securely";
+
+      submitButtonText.textContent =
+        existingReview
+          ? "Update Review Securely"
+          : "Save Review Securely";
+
 
     }
 
@@ -1100,6 +2796,29 @@ reviewForm.addEventListener(
 );
 
 </script>
+
+
+<!-- ==================================================
+     ICONS
+================================================== -->
+
+<script>
+
+  window.addEventListener(
+    "load",
+    function(){
+
+      if(window.lucide){
+
+        window.lucide.createIcons();
+
+      }
+
+    }
+  );
+
+</script>
+
 
 </body>
 

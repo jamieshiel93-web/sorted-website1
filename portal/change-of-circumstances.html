@@ -1,427 +1,1725 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 
 <head>
 
-<meta charset="UTF-8">
-
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0"
->
-
-<title>Change of Circumstances | My Sorted.</title>
-
-<meta
-  name="robots"
-  content="noindex,nofollow"
->
-
-<link
-  rel="icon"
-  href="../favicon.png"
-  type="image/png"
->
-
-<meta
-  name="theme-color"
-  content="#17261b"
->
-
-<style>
-
-:root{
-  --cream:#f8f1e7;
-  --cream-light:#fffaf3;
-  --forest:#17261b;
-  --sage-dark:#314632;
-  --gold:#caa76a;
-  --ink:#1d241f;
-  --muted:#70756f;
-  --border:rgba(202,167,106,.28);
-  --shadow:0 20px 55px rgba(23,38,27,.12);
-}
-
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-body{
-  min-height:100vh;
-
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    Helvetica,
-    Arial,
-    sans-serif;
-
-  background:
-    radial-gradient(
-      circle at top left,
-      rgba(202,167,106,.12),
-      transparent 30%
-    ),
-    var(--cream);
-
-  color:var(--ink);
-  line-height:1.6;
-}
-
-a{
-  color:inherit;
-  text-decoration:none;
-}
-
-button,
-input,
-textarea,
-select{
-  font:inherit;
-}
-
-.site-header{
-  position:sticky;
-  top:0;
-  z-index:1000;
-
-  background:rgba(255,255,255,.94);
+  <meta charset="UTF-8">
 
-  border-bottom:1px solid rgba(202,167,106,.22);
-
-  box-shadow:0 8px 30px rgba(23,38,27,.07);
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-  backdrop-filter:blur(14px);
-  -webkit-backdrop-filter:blur(14px);
-}
+  <title>Change of Circumstances | My Sorted.</title>
 
-.header-inner{
-  width:min(1000px,92%);
-  min-height:72px;
+  <meta
+    name="description"
+    content="Tell Sorted. about an important change to your circumstances, household or support arrangements."
+  >
 
-  margin:0 auto;
+  <meta
+    name="robots"
+    content="noindex,nofollow"
+  >
 
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+  <meta
+    name="theme-color"
+    content="#17261b"
+  >
 
-  gap:20px;
-}
+  <link
+    rel="icon"
+    href="../favicon.png"
+    type="image/png"
+  >
 
-.logo{
-  color:var(--forest);
+  <link
+    rel="apple-touch-icon"
+    href="../favicon.png"
+  >
 
-  font-size:2rem;
-  font-weight:900;
+  <script
+    defer
+    src="https://unpkg.com/lucide@0.542.0/dist/umd/lucide.js"
+  ></script>
 
-  letter-spacing:-1.5px;
-}
 
-.logo span{
-  color:var(--gold);
-}
+  <style>
 
-.back-link{
-  padding:10px 16px;
+    /* ==================================================
+       ROOT
+    ================================================== */
 
-  color:var(--forest);
-  background:var(--cream-light);
+    :root{
 
-  border:1px solid var(--border);
-  border-radius:999px;
+      --cream:#f8f1e7;
+      --cream-soft:#fffaf4;
+      --cream-deep:#efe0cc;
 
-  font-size:.9rem;
-  font-weight:800;
-}
+      --forest:#17261b;
+      --forest-soft:#223228;
 
-.page-wrap{
-  width:min(900px,92%);
+      --sage:#314632;
+      --sage-mid:#718c67;
+      --sage-pale:#e6eadf;
 
-  margin:0 auto;
+      --gold:#caa76a;
+      --gold-soft:#dec28d;
 
-  padding:45px 0 70px;
-}
+      --white:#ffffff;
 
-.intro{
-  margin-bottom:28px;
-  padding:35px;
+      --ink:#1d241f;
+      --muted:#6f746e;
 
-  color:white;
+      --success:#47704d;
+      --success-soft:#edf5ec;
 
-  background:
-    radial-gradient(
-      circle at top right,
-      rgba(202,167,106,.2),
-      transparent 40%
-    ),
-    linear-gradient(
-      145deg,
-      var(--forest),
-      var(--sage-dark)
-    );
+      --danger:#934242;
+      --danger-soft:#fff0ed;
 
-  border-radius:28px;
+      --warning:#8a6828;
+      --warning-soft:#fff6e5;
 
-  box-shadow:var(--shadow);
-}
+      --border:rgba(202,167,106,.26);
 
-.eyebrow{
-  margin-bottom:10px;
+      --shadow:
+        0 28px 75px rgba(23,38,27,.13);
 
-  color:var(--gold);
+      --soft-shadow:
+        0 14px 36px rgba(23,38,27,.08);
 
-  text-transform:uppercase;
-  letter-spacing:2.3px;
+    }
 
-  font-size:.76rem;
-  font-weight:900;
-}
 
-.intro h1{
-  margin-bottom:15px;
+    /* ==================================================
+       RESET
+    ================================================== */
 
-  font-size:clamp(2.3rem,6vw,4rem);
+    *{
 
-  line-height:1;
-  letter-spacing:-2px;
-}
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
 
-.intro p:last-child{
-  max-width:650px;
+    }
 
-  color:rgba(255,255,255,.8);
 
-  line-height:1.75;
-}
+    html{
 
-.info-note{
-  margin-bottom:28px;
-  padding:18px 20px;
+      scroll-behavior:smooth;
 
-  color:var(--sage-dark);
-  background:rgba(113,140,103,.09);
+    }
 
-  border:1px solid rgba(113,140,103,.18);
-  border-radius:18px;
 
-  font-size:.94rem;
-}
+    body{
 
-.form-card{
-  padding:34px;
+      min-height:100vh;
 
-  background:white;
+      overflow-x:hidden;
 
-  border:1px solid var(--border);
-  border-radius:28px;
+      background:
 
-  box-shadow:var(--shadow);
-}
+        radial-gradient(
+          circle at 4% 5%,
+          rgba(202,167,106,.12),
+          transparent 28%
+        ),
 
-.form-group{
-  margin-bottom:24px;
-}
+        radial-gradient(
+          circle at 95% 8%,
+          rgba(113,140,103,.11),
+          transparent 29%
+        ),
 
-label{
-  display:block;
+        linear-gradient(
+          180deg,
+          var(--cream-soft),
+          var(--cream)
+        );
 
-  margin-bottom:8px;
+      color:var(--ink);
 
-  color:var(--forest);
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
 
-  font-size:.95rem;
-  font-weight:800;
-}
+      line-height:1.65;
 
-.optional{
-  color:var(--muted);
+    }
 
-  font-size:.8rem;
-  font-weight:600;
-}
 
-input,
-textarea,
-select{
-  width:100%;
+    ::selection{
 
-  padding:15px 16px;
+      background:var(--gold);
+      color:white;
 
-  color:var(--ink);
-  background:#fcfaf7;
+    }
 
-  border:1px solid #e4dacb;
-  border-radius:14px;
 
-  outline:none;
-}
+    a{
 
-input:focus,
-textarea:focus,
-select:focus{
-  background:white;
+      color:inherit;
+      text-decoration:none;
 
-  border-color:var(--gold);
+    }
 
-  box-shadow:
-    0 0 0 4px rgba(202,167,106,.16);
-}
 
-textarea{
-  min-height:160px;
-  resize:vertical;
-}
+    button,
+    input,
+    textarea,
+    select{
 
-.help{
-  margin-top:7px;
+      font:inherit;
 
-  color:var(--muted);
+    }
 
-  font-size:.82rem;
-  line-height:1.5;
-}
 
-.submit-button{
-  width:100%;
-  min-height:56px;
+    button,
+    a{
 
-  padding:15px 25px;
+      -webkit-tap-highlight-color:transparent;
 
-  color:white;
+    }
 
-  background:
-    linear-gradient(
-      135deg,
-      var(--forest),
-      var(--sage-dark)
-    );
 
-  border:0;
-  border-radius:999px;
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible,
+    select:focus-visible{
 
-  font-weight:900;
+      outline:3px solid var(--gold);
+      outline-offset:4px;
 
-  cursor:pointer;
+    }
 
-  box-shadow:0 14px 30px rgba(23,38,27,.16);
-}
 
-.submit-button:disabled{
-  opacity:.6;
-  cursor:not-allowed;
-}
+    .container{
 
-.message{
-  display:none;
+      width:min(1120px,92%);
+      margin:0 auto;
 
-  margin-top:20px;
-  padding:16px 18px;
+    }
 
-  border-radius:15px;
 
-  font-size:.94rem;
-}
+    /* ==================================================
+       HEADER
+    ================================================== */
 
-.message.success{
-  display:block;
+    .site-header{
 
-  color:#285d37;
-  background:rgba(49,111,66,.09);
+      position:sticky;
+      top:0;
 
-  border:1px solid rgba(49,111,66,.2);
-}
+      z-index:1000;
 
-.message.error{
-  display:block;
+      border-bottom:
+        1px solid rgba(202,167,106,.2);
 
-  color:#8c2727;
-  background:rgba(167,46,46,.08);
+      background:
+        rgba(255,253,249,.95);
 
-  border:1px solid rgba(167,46,46,.18);
-}
+      box-shadow:
+        0 10px 35px rgba(23,38,27,.07);
 
-.loading-screen{
-  position:fixed;
-  inset:0;
-  z-index:9999;
+      backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px);
 
-  display:flex;
-  align-items:center;
-  justify-content:center;
+    }
 
-  padding:20px;
 
-  background:var(--cream);
-}
+    .header-inner{
 
-.loading-card{
-  width:min(420px,100%);
+      min-height:74px;
 
-  padding:30px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
 
-  text-align:center;
+      gap:24px;
 
-  background:white;
+    }
 
-  border:1px solid var(--border);
-  border-radius:24px;
 
-  box-shadow:var(--shadow);
-}
+    .brand-group{
 
-.loading-card strong{
-  display:block;
+      display:flex;
+      align-items:center;
 
-  margin-bottom:8px;
+      gap:17px;
 
-  color:var(--forest);
+      min-width:0;
 
-  font-size:1.25rem;
-}
+    }
 
-.loading-card p{
-  color:var(--muted);
-}
 
-@media(max-width:650px){
+    .logo{
 
-  .header-inner{
-    min-height:64px;
-  }
+      flex-shrink:0;
 
-  .logo{
-    font-size:1.8rem;
-  }
+      color:var(--forest);
 
-  .page-wrap{
-    padding-top:28px;
-  }
+      font-size:2rem;
+      font-weight:850;
 
-  .intro{
-    padding:28px 24px;
-    border-radius:24px;
-  }
+      letter-spacing:-1px;
 
-  .form-card{
-    padding:25px 21px;
-    border-radius:24px;
-  }
+    }
 
-}
 
-</style>
+    .logo span{
 
-<link rel="stylesheet" href="brand.css">
+      color:var(--gold);
+
+    }
+
+
+    .portal-name{
+
+      padding-left:17px;
+
+      border-left:
+        1px solid rgba(23,38,27,.13);
+
+      color:var(--sage-mid);
+
+      font-size:.72rem;
+      font-weight:900;
+
+      letter-spacing:2px;
+
+      text-transform:uppercase;
+
+    }
+
+
+    .back-link{
+
+      min-height:43px;
+
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+
+      gap:8px;
+
+      padding:9px 16px;
+
+      border:
+        1px solid rgba(202,167,106,.28);
+
+      border-radius:999px;
+
+      background:
+        rgba(255,250,244,.9);
+
+      color:var(--forest);
+
+      font-size:.76rem;
+      font-weight:850;
+
+      transition:
+        background .25s ease,
+        color .25s ease,
+        transform .25s ease,
+        box-shadow .25s ease;
+
+    }
+
+
+    .back-link:hover{
+
+      background:var(--forest);
+      color:white;
+
+      transform:translateY(-2px);
+
+      box-shadow:
+        0 12px 28px rgba(23,38,27,.14);
+
+    }
+
+
+    .back-link svg{
+
+      width:17px;
+      height:17px;
+
+    }
+
+
+    /* ==================================================
+       PAGE
+    ================================================== */
+
+    .page-main{
+
+      padding:30px 0 68px;
+
+    }
+
+
+    /* ==================================================
+       HERO
+    ================================================== */
+
+    .change-hero{
+
+      position:relative;
+
+      overflow:hidden;
+
+      display:grid;
+
+      grid-template-columns:
+        minmax(0,1.22fr)
+        minmax(280px,.78fr);
+
+      align-items:center;
+
+      gap:34px;
+
+      margin-bottom:24px;
+
+      padding:40px 42px;
+
+      border:
+        1px solid rgba(202,167,106,.23);
+
+      border-radius:32px;
+
+      background:
+
+        radial-gradient(
+          circle at 93% 7%,
+          rgba(202,167,106,.19),
+          transparent 31%
+        ),
+
+        radial-gradient(
+          circle at 5% 95%,
+          rgba(113,140,103,.16),
+          transparent 34%
+        ),
+
+        linear-gradient(
+          140deg,
+          var(--forest),
+          var(--forest-soft)
+        );
+
+      color:white;
+
+      box-shadow:var(--shadow);
+
+    }
+
+
+    .change-hero::before{
+
+      content:"";
+
+      position:absolute;
+
+      top:-150px;
+      right:-120px;
+
+      width:350px;
+      height:350px;
+
+      border:
+        1px solid rgba(222,194,141,.13);
+
+      border-radius:50%;
+
+    }
+
+
+    .hero-copy,
+    .hero-card{
+
+      position:relative;
+      z-index:2;
+
+    }
+
+
+    .hero-eyebrow{
+
+      display:flex;
+      align-items:center;
+
+      gap:9px;
+
+      margin-bottom:14px;
+
+      color:var(--gold-soft);
+
+      font-size:.68rem;
+      font-weight:900;
+
+      letter-spacing:2px;
+
+      text-transform:uppercase;
+
+    }
+
+
+    .hero-eyebrow svg{
+
+      width:17px;
+      height:17px;
+
+    }
+
+
+    .change-hero h1{
+
+      max-width:720px;
+
+      margin-bottom:17px;
+
+      color:white;
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size:
+        clamp(3rem,5vw,4.65rem);
+
+      font-weight:500;
+
+      line-height:1;
+
+      letter-spacing:-2.6px;
+
+    }
+
+
+    .change-hero h1 em{
+
+      display:block;
+
+      color:var(--gold-soft);
+
+      font-weight:500;
+
+    }
+
+
+    .hero-description{
+
+      max-width:680px;
+
+      color:
+        rgba(255,255,255,.73);
+
+      font-size:.94rem;
+      line-height:1.72;
+
+    }
+
+
+    .hero-card{
+
+      padding:23px;
+
+      border:
+        1px solid rgba(255,255,255,.13);
+
+      border-radius:23px;
+
+      background:
+        rgba(255,255,255,.07);
+
+      backdrop-filter:blur(12px);
+      -webkit-backdrop-filter:blur(12px);
+
+    }
+
+
+    .hero-card-icon{
+
+      width:47px;
+      height:47px;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      margin-bottom:16px;
+
+      border-radius:50%;
+
+      background:
+        rgba(202,167,106,.14);
+
+      color:var(--gold-soft);
+
+    }
+
+
+    .hero-card-icon svg{
+
+      width:23px;
+      height:23px;
+
+    }
+
+
+    .hero-card strong{
+
+      display:block;
+
+      margin-bottom:7px;
+
+      color:white;
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size:1.3rem;
+      font-weight:500;
+
+    }
+
+
+    .hero-card p{
+
+      color:
+        rgba(255,255,255,.67);
+
+      font-size:.77rem;
+      line-height:1.6;
+
+    }
+
+
+    /* ==================================================
+       FORM LAYOUT
+    ================================================== */
+
+    .change-layout{
+
+      display:grid;
+
+      grid-template-columns:
+        minmax(0,1.4fr)
+        minmax(270px,.6fr);
+
+      gap:22px;
+
+      align-items:start;
+
+    }
+
+
+    /* ==================================================
+       FORM CARD
+    ================================================== */
+
+    .form-card{
+
+      overflow:hidden;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:27px;
+
+      background:
+        rgba(255,255,255,.88);
+
+      box-shadow:var(--soft-shadow);
+
+    }
+
+
+    .form-card-header{
+
+      padding:25px 28px 21px;
+
+      border-bottom:
+        1px solid rgba(23,38,27,.08);
+
+    }
+
+
+    .eyebrow{
+
+      margin-bottom:8px;
+
+      color:var(--gold);
+
+      font-size:.65rem;
+      font-weight:900;
+
+      letter-spacing:1.8px;
+
+      text-transform:uppercase;
+
+    }
+
+
+    .form-card-header h2{
+
+      margin-bottom:8px;
+
+      color:var(--forest);
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size:
+        clamp(2rem,4vw,2.7rem);
+
+      font-weight:500;
+
+      line-height:1.08;
+
+      letter-spacing:-1.4px;
+
+    }
+
+
+    .form-card-header p{
+
+      max-width:650px;
+
+      color:var(--muted);
+
+      font-size:.82rem;
+      line-height:1.65;
+
+    }
+
+
+    .form-body{
+
+      padding:27px 28px 30px;
+
+    }
+
+
+    .form-group{
+
+      margin-bottom:23px;
+
+    }
+
+
+    .form-group:last-of-type{
+
+      margin-bottom:0;
+
+    }
+
+
+    label{
+
+      display:block;
+
+      margin-bottom:8px;
+
+      color:var(--sage);
+
+      font-size:.78rem;
+      font-weight:850;
+
+    }
+
+
+    .optional{
+
+      margin-left:3px;
+
+      color:var(--muted);
+
+      font-size:.69rem;
+      font-weight:550;
+
+    }
+
+
+    .field-help{
+
+      margin-top:7px;
+
+      color:var(--muted);
+
+      font-size:.7rem;
+      line-height:1.5;
+
+    }
+
+
+    input,
+    textarea,
+    select{
+
+      width:100%;
+
+      border:
+        1px solid #e4dacb;
+
+      border-radius:14px;
+
+      background:#fcfaf7;
+
+      color:var(--ink);
+
+      outline:none;
+
+      transition:
+        border-color .25s ease,
+        box-shadow .25s ease,
+        background .25s ease;
+
+    }
+
+
+    input,
+    select{
+
+      min-height:52px;
+
+      padding:13px 15px;
+
+    }
+
+
+    textarea{
+
+      min-height:185px;
+
+      padding:15px 16px;
+
+      resize:vertical;
+
+    }
+
+
+    input::placeholder,
+    textarea::placeholder{
+
+      color:#9a9e97;
+
+    }
+
+
+    input:focus,
+    textarea:focus,
+    select:focus{
+
+      border-color:var(--gold);
+
+      background:white;
+
+      box-shadow:
+        0 0 0 5px rgba(202,167,106,.14);
+
+    }
+
+
+    /* ==================================================
+       SELECT WRAPPER
+    ================================================== */
+
+    .select-wrap{
+
+      position:relative;
+
+    }
+
+
+    .select-wrap::after{
+
+      content:"";
+
+      position:absolute;
+
+      top:50%;
+      right:16px;
+
+      width:7px;
+      height:7px;
+
+      border-right:
+        2px solid var(--sage);
+
+      border-bottom:
+        2px solid var(--sage);
+
+      pointer-events:none;
+
+      transform:
+        translateY(-68%)
+        rotate(45deg);
+
+    }
+
+
+    .select-wrap select{
+
+      appearance:none;
+      -webkit-appearance:none;
+
+      padding-right:42px;
+
+    }
+
+
+    /* ==================================================
+       IMPORTANT CHANGE BOX
+    ================================================== */
+
+    .detail-box{
+
+      padding:19px;
+
+      border:
+        1px solid rgba(202,167,106,.22);
+
+      border-radius:18px;
+
+      background:
+        rgba(248,241,231,.44);
+
+    }
+
+
+    /* ==================================================
+       SUBMIT
+    ================================================== */
+
+    .submit-area{
+
+      margin-top:27px;
+
+      padding-top:24px;
+
+      border-top:
+        1px solid rgba(23,38,27,.08);
+
+    }
+
+
+    .submit-button{
+
+      width:100%;
+      min-height:56px;
+
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+
+      gap:9px;
+
+      padding:14px 23px;
+
+      border:0;
+      border-radius:999px;
+
+      background:
+
+        linear-gradient(
+          135deg,
+          var(--forest),
+          var(--sage)
+        );
+
+      color:white;
+
+      cursor:pointer;
+
+      box-shadow:
+        0 14px 31px rgba(23,38,27,.16);
+
+      font-size:.8rem;
+      font-weight:900;
+
+      transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+
+    }
+
+
+    .submit-button:hover{
+
+      transform:translateY(-3px);
+
+      box-shadow:
+        0 19px 38px rgba(23,38,27,.21);
+
+    }
+
+
+    .submit-button:disabled{
+
+      opacity:.6;
+
+      cursor:not-allowed;
+
+      transform:none;
+
+    }
+
+
+    .submit-button svg{
+
+      width:18px;
+      height:18px;
+
+    }
+
+
+    /* ==================================================
+       MESSAGE
+    ================================================== */
+
+    .message{
+
+      display:none;
+
+      margin-top:18px;
+
+      padding:15px 16px;
+
+      border-radius:15px;
+
+      font-size:.78rem;
+
+      line-height:1.55;
+
+    }
+
+
+    .message.success{
+
+      display:block;
+
+      border:
+        1px solid rgba(71,112,77,.19);
+
+      background:var(--success-soft);
+
+      color:var(--success);
+
+    }
+
+
+    .message.error{
+
+      display:block;
+
+      border:
+        1px solid rgba(147,66,66,.18);
+
+      background:var(--danger-soft);
+
+      color:var(--danger);
+
+    }
+
+
+    /* ==================================================
+       SIDE COLUMN
+    ================================================== */
+
+    .side-column{
+
+      display:grid;
+
+      gap:17px;
+
+    }
+
+
+    .side-card{
+
+      padding:23px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:23px;
+
+      background:
+        rgba(255,255,255,.8);
+
+      box-shadow:var(--soft-shadow);
+
+    }
+
+
+    .side-icon{
+
+      width:44px;
+      height:44px;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      margin-bottom:16px;
+
+      border-radius:14px;
+
+      background:
+
+        linear-gradient(
+          135deg,
+          var(--forest),
+          var(--sage)
+        );
+
+      color:white;
+
+    }
+
+
+    .side-icon svg{
+
+      width:21px;
+      height:21px;
+
+    }
+
+
+    .side-card h3{
+
+      margin-bottom:8px;
+
+      color:var(--forest);
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size:1.32rem;
+      font-weight:500;
+
+      line-height:1.18;
+
+    }
+
+
+    .side-card p{
+
+      color:var(--muted);
+
+      font-size:.75rem;
+      line-height:1.6;
+
+    }
+
+
+    .side-list{
+
+      display:grid;
+
+      gap:9px;
+
+      margin-top:15px;
+
+      list-style:none;
+
+    }
+
+
+    .side-list li{
+
+      position:relative;
+
+      padding-left:21px;
+
+      color:var(--muted);
+
+      font-size:.72rem;
+      line-height:1.5;
+
+    }
+
+
+    .side-list li::before{
+
+      content:"";
+
+      position:absolute;
+
+      top:7px;
+      left:2px;
+
+      width:6px;
+      height:6px;
+
+      border-radius:50%;
+
+      background:var(--gold);
+
+    }
+
+
+    /* ==================================================
+       URGENT CARD
+    ================================================== */
+
+    .urgent-card{
+
+      border-color:
+        rgba(138,104,40,.18);
+
+      background:var(--warning-soft);
+
+    }
+
+
+    .urgent-card .side-icon{
+
+      background:
+        rgba(138,104,40,.12);
+
+      color:var(--warning);
+
+    }
+
+
+    .urgent-card strong{
+
+      color:var(--warning);
+
+    }
+
+
+    .contact-links{
+
+      display:grid;
+
+      gap:8px;
+
+      margin-top:16px;
+
+    }
+
+
+    .contact-link{
+
+      min-height:42px;
+
+      display:flex;
+      align-items:center;
+
+      gap:9px;
+
+      padding:10px 12px;
+
+      border:
+        1px solid rgba(138,104,40,.14);
+
+      border-radius:13px;
+
+      background:
+        rgba(255,255,255,.58);
+
+      color:var(--forest);
+
+      font-size:.7rem;
+      font-weight:850;
+
+      transition:
+        background .22s ease,
+        transform .22s ease;
+
+    }
+
+
+    .contact-link:hover{
+
+      background:white;
+
+      transform:translateX(2px);
+
+    }
+
+
+    .contact-link svg{
+
+      width:16px;
+      height:16px;
+
+      color:var(--warning);
+
+    }
+
+
+    /* ==================================================
+       PRIVACY CARD
+    ================================================== */
+
+    .privacy-card{
+
+      background:
+
+        radial-gradient(
+          circle at 95% 5%,
+          rgba(202,167,106,.13),
+          transparent 32%
+        ),
+
+        linear-gradient(
+          140deg,
+          var(--forest),
+          var(--sage)
+        );
+
+      color:white;
+
+    }
+
+
+    .privacy-card .side-icon{
+
+      border:
+        1px solid rgba(255,255,255,.12);
+
+      background:
+        rgba(255,255,255,.08);
+
+      color:var(--gold-soft);
+
+    }
+
+
+    .privacy-card h3{
+
+      color:white;
+
+    }
+
+
+    .privacy-card p{
+
+      color:
+        rgba(255,255,255,.7);
+
+    }
+
+
+    /* ==================================================
+       FOOTER
+    ================================================== */
+
+    .portal-footer{
+
+      margin-top:31px;
+
+      padding:24px 20px 5px;
+
+      border-top:
+        1px solid rgba(23,38,27,.09);
+
+      color:var(--muted);
+
+      font-size:.7rem;
+
+      text-align:center;
+
+      line-height:1.7;
+
+    }
+
+
+    .portal-footer a{
+
+      color:var(--forest);
+
+      font-weight:850;
+
+    }
+
+
+    .portal-footer a:hover{
+
+      color:var(--gold);
+
+    }
+
+
+    /* ==================================================
+       LOADING
+    ================================================== */
+
+    .loading-screen{
+
+      position:fixed;
+      inset:0;
+
+      z-index:99999;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      padding:20px;
+
+      background:
+
+        radial-gradient(
+          circle at top left,
+          rgba(202,167,106,.12),
+          transparent 30%
+        ),
+
+        var(--cream);
+
+    }
+
+
+    .loading-card{
+
+      width:min(430px,100%);
+
+      padding:37px 30px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:27px;
+
+      background:
+        rgba(255,255,255,.88);
+
+      box-shadow:var(--shadow);
+
+      text-align:center;
+
+    }
+
+
+    .loading-spinner{
+
+      width:46px;
+      height:46px;
+
+      margin:0 auto 18px;
+
+      border:
+        4px solid rgba(113,140,103,.16);
+
+      border-top-color:var(--sage);
+
+      border-radius:50%;
+
+      animation:spin .85s linear infinite;
+
+    }
+
+
+    .loading-card strong{
+
+      display:block;
+
+      margin-bottom:7px;
+
+      color:var(--forest);
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size:1.35rem;
+      font-weight:500;
+
+    }
+
+
+    .loading-card p{
+
+      color:var(--muted);
+
+      font-size:.8rem;
+      line-height:1.6;
+
+    }
+
+
+    /* ==================================================
+       TABLET
+    ================================================== */
+
+    @media(max-width:900px){
+
+      .change-hero{
+
+        grid-template-columns:1fr;
+
+      }
+
+
+      .change-layout{
+
+        grid-template-columns:1fr;
+
+      }
+
+
+      .side-column{
+
+        grid-template-columns:
+          repeat(2,minmax(0,1fr));
+
+      }
+
+
+      .privacy-card{
+
+        grid-column:1 / -1;
+
+      }
+
+    }
+
+
+    /* ==================================================
+       MOBILE
+    ================================================== */
+
+    @media(max-width:650px){
+
+      .container{
+
+        width:90%;
+
+      }
+
+
+      /* HEADER */
+
+      .header-inner{
+
+        min-height:64px;
+
+      }
+
+
+      .logo{
+
+        font-size:1.72rem;
+
+      }
+
+
+      .portal-name{
+
+        display:none;
+
+      }
+
+
+      .back-link{
+
+        min-height:39px;
+
+        padding:8px 12px;
+
+        font-size:.68rem;
+
+      }
+
+
+      .back-link svg{
+
+        width:15px;
+        height:15px;
+
+      }
+
+
+      /* PAGE */
+
+      .page-main{
+
+        padding-top:18px;
+        padding-bottom:44px;
+
+      }
+
+
+      /* HERO */
+
+      .change-hero{
+
+        gap:22px;
+
+        padding:28px 23px;
+
+        border-radius:26px;
+
+      }
+
+
+      .change-hero h1{
+
+        font-size:
+          clamp(2.65rem,12vw,3.5rem);
+
+        letter-spacing:-1.9px;
+
+      }
+
+
+      .hero-description{
+
+        font-size:.82rem;
+        line-height:1.65;
+
+      }
+
+
+      .hero-card{
+
+        padding:19px;
+
+      }
+
+
+      /* FORM */
+
+      .form-card{
+
+        border-radius:23px;
+
+      }
+
+
+      .form-card-header{
+
+        padding:21px 21px 18px;
+
+      }
+
+
+      .form-card-header h2{
+
+        font-size:2rem;
+
+      }
+
+
+      .form-body{
+
+        padding:21px 20px 23px;
+
+      }
+
+
+      textarea{
+
+        min-height:170px;
+
+      }
+
+
+      /* SIDE */
+
+      .side-column{
+
+        grid-template-columns:1fr;
+
+      }
+
+
+      .privacy-card{
+
+        grid-column:auto;
+
+      }
+
+
+      .side-card{
+
+        padding:20px;
+
+      }
+
+
+      .portal-footer{
+
+        font-size:.64rem;
+
+      }
+
+    }
+
+
+    /* ==================================================
+       REDUCED MOTION
+    ================================================== */
+
+    @media(prefers-reduced-motion:reduce){
+
+      html{
+
+        scroll-behavior:auto;
+
+      }
+
+
+      *,
+      *::before,
+      *::after{
+
+        animation-duration:.01ms !important;
+        animation-iteration-count:1 !important;
+        transition-duration:.01ms !important;
+
+      }
+
+    }
+
+
+    @keyframes spin{
+
+      to{
+
+        transform:rotate(360deg);
+
+      }
+
+    }
+
+  </style>
+
+
+  <!-- Shared Sorted. wordmark -->
+  <link
+    rel="stylesheet"
+    href="../brand.css"
+  >
 
 </head>
 
 
 <body>
 
+
+<!-- ==================================================
+     LOADING
+================================================== -->
 
 <div
   id="loading-screen"
@@ -430,12 +1728,15 @@ textarea{
 
   <div class="loading-card">
 
+    <div class="loading-spinner"></div>
+
     <strong>
-      Opening your secure form…
+      Opening your secure form
     </strong>
 
     <p>
-      Please wait while we check your Sorted. account.
+      Please wait while we securely check your
+      My Sorted. account.
     </p>
 
   </div>
@@ -443,237 +1744,583 @@ textarea{
 </div>
 
 
+<!-- ==================================================
+     HEADER
+================================================== -->
+
 <header class="site-header">
 
-  <div class="header-inner">
+  <div class="container header-inner">
 
-    <a
-      href="dashboard.html"
-      class="logo"
-    >
-      Sorted<span>.</span>
-    </a>
+
+    <div class="brand-group">
+
+      <a
+        href="dashboard.html"
+        class="logo"
+        aria-label="My Sorted. dashboard"
+      >
+        Sorted<span>.</span>
+      </a>
+
+
+      <span class="portal-name">
+        My Sorted.
+      </span>
+
+    </div>
+
 
     <a
       href="forms.html"
       class="back-link"
     >
-      ← Forms
+
+      <i data-lucide="arrow-left"></i>
+
+      <span>
+        Forms
+      </span>
+
     </a>
+
 
   </div>
 
 </header>
 
 
-<main class="page-wrap">
+<!-- ==================================================
+     MAIN
+================================================== -->
 
+<main class="page-main">
 
-<section class="intro">
+  <div class="container">
 
-  <p class="eyebrow">
-    My Sorted.
-  </p>
 
-  <h1>
-    Change of Circumstances
-  </h1>
+    <!-- ==================================================
+         HERO
+    ================================================== -->
 
-  <p>
-    Let us know about any important changes that may affect
-    your support, visits, household or contact arrangements.
-  </p>
+    <section class="change-hero">
 
-</section>
 
+      <div class="hero-copy">
 
-<div class="info-note">
 
-  🔒 <strong>This form is stored securely in your Sorted. client account.</strong>
-  Please only include information relevant to the support we provide.
+        <div class="hero-eyebrow">
 
-</div>
+          <i data-lucide="refresh-cw"></i>
 
+          <span>
+            My Sorted.
+          </span>
 
-<form
-  id="change-form"
-  class="form-card"
->
+        </div>
 
 
-<div class="form-group">
+        <h1>
+          Something changed?
+          <em>Keep us updated.</em>
+        </h1>
 
-  <label for="name">
-    Your name
-  </label>
 
-  <input
-    id="name"
-    type="text"
-    autocomplete="name"
-    required
-  >
+        <p class="hero-description">
+          Tell us about a change that may affect your
+          household, visits, contact arrangements or the
+          support Sorted. provides for you.
+        </p>
 
-</div>
 
+      </div>
 
-<div class="form-group">
 
-  <label for="changeType">
-    What has changed?
-  </label>
+      <aside class="hero-card">
 
-  <select
-    id="changeType"
-    required
-  >
 
-    <option value="">
-      Choose an option
-    </option>
+        <div class="hero-card-icon">
 
-    <option value="Contact details">
-      Contact details
-    </option>
+          <i data-lucide="clipboard-pen-line"></i>
 
-    <option value="Address or home access">
-      Address or home access
-    </option>
+        </div>
 
-    <option value="Health or support needs">
-      Health or support needs
-    </option>
 
-    <option value="Emergency contact">
-      Emergency contact
-    </option>
+        <strong>
+          Keeping your support current
+        </strong>
 
-    <option value="Availability or schedule">
-      Availability or schedule
-    </option>
 
-    <option value="Household or pets">
-      Household or pets
-    </option>
+        <p>
+          Up-to-date information helps us make sure your
+          arrangements continue to work properly for you
+          and your household.
+        </p>
 
-    <option value="Other">
-      Other
-    </option>
 
-  </select>
+      </aside>
 
-</div>
 
+    </section>
 
-<div class="form-group">
 
-  <label for="effectiveDate">
-    When does this change take effect?
-    <span class="optional">(optional)</span>
-  </label>
+    <!-- ==================================================
+         FORM AREA
+    ================================================== -->
 
-  <input
-    id="effectiveDate"
-    type="date"
-  >
+    <section class="change-layout">
 
-</div>
 
+      <!-- ==================================================
+           FORM
+      ================================================== -->
 
-<div class="form-group">
+      <form
+        id="change-form"
+        class="form-card"
+      >
 
-  <label for="urgency">
-    Does Sorted. need to know about this urgently?
-  </label>
 
-  <select
-    id="urgency"
-    required
-  >
+        <div class="form-card-header">
 
-    <option value="no">
-      No
-    </option>
+          <p class="eyebrow">
+            Change of Circumstances
+          </p>
 
-    <option value="yes">
-      Yes
-    </option>
 
-  </select>
+          <h2>
+            Tell us what has changed.
+          </h2>
 
-</div>
 
+          <p>
+            Please include the information we need to
+            understand the change and update your Sorted.
+            arrangements where appropriate.
+          </p>
 
-<div class="form-group">
+        </div>
 
-  <label for="details">
-    Tell us what has changed
-  </label>
 
-  <textarea
-    id="details"
-    placeholder="Please explain the change and anything Sorted. needs to know."
-    required
-  ></textarea>
+        <div class="form-body">
 
-  <p class="help">
-    If this relates to health or support needs, only include information
-    that is relevant to providing your Sorted. service safely.
-  </p>
 
-</div>
+          <!-- NAME -->
 
+          <div class="form-group">
 
-<div class="form-group">
+            <label for="name">
+              Your Name
+            </label>
 
-  <label for="preferredContactMethod">
-    How would you prefer us to contact you about this?
-  </label>
+            <input
+              id="name"
+              type="text"
+              autocomplete="name"
+              placeholder="Your name"
+              required
+            >
 
-  <select id="preferredContactMethod">
+          </div>
 
-    <option value="Email">
-      Email
-    </option>
 
-    <option value="Phone">
-      Phone
-    </option>
+          <!-- CHANGE TYPE -->
 
-    <option value="Text Message">
-      Text message
-    </option>
+          <div class="form-group">
 
-    <option value="WhatsApp">
-      WhatsApp
-    </option>
+            <label for="changeType">
+              What Has Changed?
+            </label>
 
-  </select>
+            <div class="select-wrap">
 
-</div>
+              <select
+                id="changeType"
+                required
+              >
 
+                <option value="">
+                  Choose an option
+                </option>
 
-<button
-  id="submit-button"
-  type="submit"
-  class="submit-button"
->
-  Save Change Securely
-</button>
+                <option value="Contact details">
+                  Contact details
+                </option>
 
+                <option value="Address or home access">
+                  Address or home access
+                </option>
 
-<div
-  id="form-message"
-  class="message"
-  role="alert"
-></div>
+                <option value="Health or support needs">
+                  Health or support needs
+                </option>
 
+                <option value="Emergency contact">
+                  Emergency contact
+                </option>
 
-</form>
+                <option value="Availability or schedule">
+                  Availability or schedule
+                </option>
 
+                <option value="Household or pets">
+                  Household or pets
+                </option>
+
+                <option value="Other">
+                  Other
+                </option>
+
+              </select>
+
+            </div>
+
+          </div>
+
+
+          <!-- DATE -->
+
+          <div class="form-group">
+
+            <label for="effectiveDate">
+
+              When Does This Change Take Effect?
+
+              <span class="optional">
+                Optional
+              </span>
+
+            </label>
+
+            <input
+              id="effectiveDate"
+              type="date"
+            >
+
+          </div>
+
+
+          <!-- URGENCY -->
+
+          <div class="form-group">
+
+            <label for="urgency">
+              Does Sorted. Need to Know About This Urgently?
+            </label>
+
+            <div class="select-wrap">
+
+              <select
+                id="urgency"
+                required
+              >
+
+                <option value="no">
+                  No
+                </option>
+
+                <option value="yes">
+                  Yes
+                </option>
+
+              </select>
+
+            </div>
+
+          </div>
+
+
+          <!-- DETAILS -->
+
+          <div class="form-group detail-box">
+
+            <label for="details">
+              Tell Us What Has Changed
+            </label>
+
+            <textarea
+              id="details"
+              placeholder="Please explain the change and anything Sorted. needs to know."
+              required
+            ></textarea>
+
+            <p class="field-help">
+              If this relates to health or support needs,
+              please only include information relevant to
+              providing your Sorted. service safely and
+              appropriately.
+            </p>
+
+          </div>
+
+
+          <!-- CONTACT METHOD -->
+
+          <div class="form-group">
+
+            <label for="preferredContactMethod">
+              How Would You Prefer Us to Contact You?
+            </label>
+
+            <div class="select-wrap">
+
+              <select
+                id="preferredContactMethod"
+              >
+
+                <option value="Email">
+                  Email
+                </option>
+
+                <option value="Phone">
+                  Phone
+                </option>
+
+                <option value="Text Message">
+                  Text message
+                </option>
+
+                <option value="WhatsApp">
+                  WhatsApp
+                </option>
+
+              </select>
+
+            </div>
+
+          </div>
+
+
+          <!-- SUBMIT -->
+
+          <div class="submit-area">
+
+            <button
+              id="submit-button"
+              type="submit"
+              class="submit-button"
+            >
+
+              <i data-lucide="shield-check"></i>
+
+              <span id="submit-button-text">
+                Save Change Securely
+              </span>
+
+            </button>
+
+
+            <div
+              id="form-message"
+              class="message"
+              role="alert"
+              aria-live="polite"
+            ></div>
+
+          </div>
+
+
+        </div>
+
+
+      </form>
+
+
+      <!-- ==================================================
+           SIDE COLUMN
+      ================================================== -->
+
+      <aside class="side-column">
+
+
+        <!-- WHEN TO USE -->
+
+        <section class="side-card">
+
+
+          <div class="side-icon">
+
+            <i data-lucide="list-checks"></i>
+
+          </div>
+
+
+          <h3>
+            When should I use this?
+          </h3>
+
+
+          <p>
+            Use this form whenever something changes that
+            could affect the way we support you.
+          </p>
+
+
+          <ul class="side-list">
+
+            <li>
+              Your contact details have changed.
+            </li>
+
+            <li>
+              You have moved or home access has changed.
+            </li>
+
+            <li>
+              Your usual schedule or availability is different.
+            </li>
+
+            <li>
+              Your household or pet arrangements have changed.
+            </li>
+
+            <li>
+              Something relevant to your support needs updating.
+            </li>
+
+          </ul>
+
+
+        </section>
+
+
+        <!-- URGENT -->
+
+        <section class="side-card urgent-card">
+
+
+          <div class="side-icon">
+
+            <i data-lucide="clock-alert"></i>
+
+          </div>
+
+
+          <h3>
+            Need us to know quickly?
+          </h3>
+
+
+          <p>
+            If the change affects an upcoming visit or needs
+            prompt attention, mark it as urgent and contact
+            Sorted. directly as well.
+          </p>
+
+
+          <div class="contact-links">
+
+            <a
+              href="tel:+441323396610"
+              class="contact-link"
+            >
+
+              <i data-lucide="phone"></i>
+
+              <span>
+                01323 396610
+              </span>
+
+            </a>
+
+
+            <a
+              href="https://wa.me/447460934371"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="contact-link"
+            >
+
+              <i data-lucide="message-circle"></i>
+
+              <span>
+                WhatsApp Sorted.
+              </span>
+
+            </a>
+
+          </div>
+
+
+        </section>
+
+
+        <!-- PRIVACY -->
+
+        <section class="side-card privacy-card">
+
+
+          <div class="side-icon">
+
+            <i data-lucide="lock-keyhole"></i>
+
+          </div>
+
+
+          <h3>
+            Stored securely.
+          </h3>
+
+
+          <p>
+            Your information is saved within your protected
+            My Sorted. client record and should only include
+            details relevant to the support we provide.
+          </p>
+
+
+        </section>
+
+
+      </aside>
+
+
+    </section>
+
+
+    <!-- ==================================================
+         FOOTER
+    ================================================== -->
+
+    <footer class="portal-footer">
+
+      © 2026 Sorted.
+
+      &nbsp;·&nbsp;
+
+      <a href="dashboard.html">
+        My Sorted.
+      </a>
+
+      &nbsp;·&nbsp;
+
+      <a href="forms.html">
+        Forms
+      </a>
+
+      &nbsp;·&nbsp;
+
+      <a href="../privacy.html">
+        Privacy Policy
+      </a>
+
+      &nbsp;·&nbsp;
+
+      <a href="../terms.html">
+        Terms &amp; Conditions
+      </a>
+
+    </footer>
+
+
+  </div>
 
 </main>
 
+
+<!-- ==================================================
+     FIREBASE
+================================================== -->
 
 <script type="module">
 
@@ -701,27 +2348,79 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
 
 
+/* ==================================================
+   ELEMENTS
+================================================== */
+
 const loadingScreen =
-  document.getElementById("loading-screen");
+  document.getElementById(
+    "loading-screen"
+  );
+
 
 const changeForm =
-  document.getElementById("change-form");
+  document.getElementById(
+    "change-form"
+  );
+
 
 const submitButton =
-  document.getElementById("submit-button");
+  document.getElementById(
+    "submit-button"
+  );
+
+
+const submitButtonText =
+  document.getElementById(
+    "submit-button-text"
+  );
+
 
 const formMessage =
-  document.getElementById("form-message");
+  document.getElementById(
+    "form-message"
+  );
 
 
-let currentUser = null;
-let clientId = null;
+let currentUser =
+  null;
 
 
-function showMessage(type,text){
+let clientId =
+  null;
+
+
+let existingForm =
+  false;
+
+
+/* ==================================================
+   ICONS
+================================================== */
+
+function refreshIcons(){
+
+  if(window.lucide){
+
+    window.lucide.createIcons();
+
+  }
+
+}
+
+
+/* ==================================================
+   MESSAGE
+================================================== */
+
+function showMessage(
+  type,
+  text
+){
 
   formMessage.className =
     "message " + type;
+
 
   formMessage.textContent =
     text;
@@ -729,7 +2428,62 @@ function showMessage(type,text){
 }
 
 
+/* ==================================================
+   LOADING ERROR
+================================================== */
+
+function showLoadingMessage(
+  title,
+  message
+){
+
+  loadingScreen.innerHTML =
+    `
+      <div class="loading-card">
+
+        <div
+          style="
+            width:52px;
+            height:52px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            margin:0 auto 17px;
+            border-radius:50%;
+            background:#e6eadf;
+            color:#314632;
+          "
+        >
+          <i data-lucide="circle-alert"></i>
+        </div>
+
+        <strong>
+          ${title}
+        </strong>
+
+        <p>
+          ${message}
+        </p>
+
+      </div>
+    `;
+
+
+  refreshIcons();
+
+}
+
+
+/* ==================================================
+   FIND CLIENT RECORD
+================================================== */
+
 async function findClientRecord(user){
+
+
+  /*
+    First try clients/{uid}.
+  */
 
   const directRef =
     doc(
@@ -740,22 +2494,39 @@ async function findClientRecord(user){
 
 
   const directSnapshot =
-    await getDoc(directRef);
+    await getDoc(
+      directRef
+    );
 
 
-  if(directSnapshot.exists()){
+  if(
+    directSnapshot.exists()
+  ){
 
     return{
-      id:directSnapshot.id,
-      data:directSnapshot.data()
+
+      id:
+        directSnapshot.id,
+
+      data:
+        directSnapshot.data()
+
     };
 
   }
 
 
+  /*
+    Fallback for client records using another
+    Firestore document ID.
+  */
+
   const clientQuery =
     query(
-      collection(db,"clients"),
+      collection(
+        db,
+        "clients"
+      ),
       where(
         "ownerUID",
         "==",
@@ -766,10 +2537,14 @@ async function findClientRecord(user){
 
 
   const querySnapshot =
-    await getDocs(clientQuery);
+    await getDocs(
+      clientQuery
+    );
 
 
-  if(querySnapshot.empty){
+  if(
+    querySnapshot.empty
+  ){
 
     return null;
 
@@ -781,12 +2556,21 @@ async function findClientRecord(user){
 
 
   return{
-    id:clientDocument.id,
-    data:clientDocument.data()
+
+    id:
+      clientDocument.id,
+
+    data:
+      clientDocument.data()
+
   };
 
 }
 
+
+/* ==================================================
+   LOAD EXISTING FORM
+================================================== */
 
 async function loadExistingForm(){
 
@@ -801,10 +2585,14 @@ async function loadExistingForm(){
 
 
   const formSnapshot =
-    await getDoc(formRef);
+    await getDoc(
+      formRef
+    );
 
 
-  if(!formSnapshot.exists()){
+  if(
+    !formSnapshot.exists()
+  ){
 
     return;
 
@@ -815,43 +2603,75 @@ async function loadExistingForm(){
     formSnapshot.data();
 
 
-  document.getElementById("name").value =
-    data.name || "";
+  existingForm =
+    true;
 
 
-  document.getElementById("changeType").value =
-    data.changeType || "";
+  document
+    .getElementById("name")
+    .value =
+      data.name || "";
 
 
-  document.getElementById("effectiveDate").value =
-    data.effectiveDate || "";
+  document
+    .getElementById("changeType")
+    .value =
+      data.changeType || "";
 
 
-  document.getElementById("urgency").value =
-    data.urgent === true
-      ? "yes"
-      : "no";
+  document
+    .getElementById("effectiveDate")
+    .value =
+      data.effectiveDate || "";
 
 
-  document.getElementById("details").value =
-    data.details || "";
+  document
+    .getElementById("urgency")
+    .value =
+      data.urgent === true
+        ? "yes"
+        : "no";
 
 
-  document.getElementById("preferredContactMethod").value =
-    data.preferredContactMethod || "Email";
+  document
+    .getElementById("details")
+    .value =
+      data.details || "";
+
+
+  document
+    .getElementById("preferredContactMethod")
+    .value =
+      data.preferredContactMethod ||
+      "Email";
+
+
+  submitButtonText.textContent =
+    "Update Change Securely";
 
 }
 
+
+/* ==================================================
+   INITIALISE
+================================================== */
 
 async function initialiseForm(user){
 
   try{
 
+
     currentUser =
       user;
 
 
-    if(!user.emailVerified){
+    /*
+      Require verified email.
+    */
+
+    if(
+      !user.emailVerified
+    ){
 
       window.location.href =
         "index.html";
@@ -860,6 +2680,10 @@ async function initialiseForm(user){
 
     }
 
+
+    /*
+      Confirm approved portal account.
+    */
 
     const userRef =
       doc(
@@ -870,10 +2694,14 @@ async function initialiseForm(user){
 
 
     const userSnapshot =
-      await getDoc(userRef);
+      await getDoc(
+        userRef
+      );
 
 
-    if(!userSnapshot.exists()){
+    if(
+      !userSnapshot.exists()
+    ){
 
       window.location.href =
         "index.html";
@@ -900,27 +2728,24 @@ async function initialiseForm(user){
     }
 
 
+    /*
+      Locate client record.
+    */
+
     const clientRecord =
-      await findClientRecord(user);
+      await findClientRecord(
+        user
+      );
 
 
-    if(!clientRecord){
+    if(
+      !clientRecord
+    ){
 
-      loadingScreen.innerHTML =
-        `
-          <div class="loading-card">
-
-            <strong>
-              Account setup incomplete
-            </strong>
-
-            <p>
-              Your client record could not be found.
-              Please contact Sorted.
-            </p>
-
-          </div>
-        `;
+      showLoadingMessage(
+        "Account setup incomplete",
+        "Your portal account is approved, but your Sorted. client record could not be found. Please contact Sorted. so we can finish setting up your account."
+      );
 
       return;
 
@@ -931,50 +2756,68 @@ async function initialiseForm(user){
       clientRecord.id;
 
 
-    document.getElementById("name").value =
-      clientRecord.data.fullName ||
-      clientRecord.data.name ||
-      userData.fullName ||
-      "";
+    /*
+      Prefill client's name.
+    */
 
+    document
+      .getElementById("name")
+      .value =
+        clientRecord.data.fullName ||
+        clientRecord.data.name ||
+        userData.fullName ||
+        user.displayName ||
+        "";
+
+
+    /*
+      Load previous form if one exists.
+    */
 
     await loadExistingForm();
 
+
+    /*
+      Reveal page.
+    */
 
     loadingScreen.style.display =
       "none";
 
 
+    refreshIcons();
+
+
   }catch(error){
 
-    console.error(error);
+
+    console.error(
+      "Change of circumstances error:",
+      error
+    );
 
 
-    loadingScreen.innerHTML =
-      `
-        <div class="loading-card">
-
-          <strong>
-            We couldn't open the form
-          </strong>
-
-          <p>
-            Please return to your portal and try again.
-          </p>
-
-        </div>
-      `;
+    showLoadingMessage(
+      "We couldn't open the form",
+      "Please return to your portal and try again. If the problem continues, contact Sorted."
+    );
 
   }
 
 }
 
 
+/* ==================================================
+   AUTH
+================================================== */
+
 onAuthStateChanged(
   auth,
   function(user){
 
-    if(!user){
+    if(
+      !user
+    ){
 
       window.location.href =
         "index.html";
@@ -984,17 +2827,31 @@ onAuthStateChanged(
     }
 
 
-    initialiseForm(user);
+    initialiseForm(
+      user
+    );
 
   }
 );
 
+
+/* ==================================================
+   SAVE FORM
+================================================== */
 
 changeForm.addEventListener(
   "submit",
   async function(event){
 
     event.preventDefault();
+
+
+    formMessage.className =
+      "message";
+
+
+    formMessage.textContent =
+      "";
 
 
     if(
@@ -1012,14 +2869,72 @@ changeForm.addEventListener(
     }
 
 
+    const name =
+      document
+        .getElementById("name")
+        .value
+        .trim();
+
+
+    const changeType =
+      document
+        .getElementById("changeType")
+        .value;
+
+
+    const effectiveDate =
+      document
+        .getElementById("effectiveDate")
+        .value;
+
+
+    const urgent =
+      document
+        .getElementById("urgency")
+        .value === "yes";
+
+
+    const details =
+      document
+        .getElementById("details")
+        .value
+        .trim();
+
+
+    const preferredContactMethod =
+      document
+        .getElementById("preferredContactMethod")
+        .value;
+
+
+    if(
+      !name ||
+      !changeType ||
+      !details
+    ){
+
+      showMessage(
+        "error",
+        "Please complete your name, the type of change and the details before saving."
+      );
+
+      return;
+
+    }
+
+
     submitButton.disabled =
       true;
 
-    submitButton.textContent =
-      "Saving securely…";
+
+    submitButtonText.textContent =
+      existingForm
+        ? "Updating securely…"
+        : "Saving securely…";
 
 
     try{
+
 
       const formRef =
         doc(
@@ -1042,36 +2957,22 @@ changeForm.addEventListener(
             "submitted",
 
           name:
-            document
-              .getElementById("name")
-              .value
-              .trim(),
+            name,
 
           changeType:
-            document
-              .getElementById("changeType")
-              .value,
+            changeType,
 
           effectiveDate:
-            document
-              .getElementById("effectiveDate")
-              .value,
+            effectiveDate,
 
           urgent:
-            document
-              .getElementById("urgency")
-              .value === "yes",
+            urgent,
 
           details:
-            document
-              .getElementById("details")
-              .value
-              .trim(),
+            details,
 
           preferredContactMethod:
-            document
-              .getElementById("preferredContactMethod")
-              .value,
+            preferredContactMethod,
 
           submittedBy:
             currentUser.uid,
@@ -1089,21 +2990,35 @@ changeForm.addEventListener(
       );
 
 
+      existingForm =
+        true;
+
+
+      submitButtonText.textContent =
+        "Update Change Securely";
+
+
       showMessage(
         "success",
-        "Thank you. Your change of circumstances has been saved securely to your Sorted. account."
+        urgent
+          ? "Thank you. Your change has been saved securely and marked as urgent. If it affects an upcoming visit or needs prompt attention, please contact Sorted. directly as well."
+          : "Thank you. Your change of circumstances has been saved securely to your My Sorted. account."
       );
 
 
-      window.scrollTo({
-        top:document.body.scrollHeight,
-        behavior:"smooth"
+      formMessage.scrollIntoView({
+        behavior:"smooth",
+        block:"nearest"
       });
 
 
     }catch(error){
 
-      console.error(error);
+
+      console.error(
+        "Change of circumstances save error:",
+        error
+      );
 
 
       showMessage(
@@ -1111,18 +3026,46 @@ changeForm.addEventListener(
         "We couldn't save your information. Please try again."
       );
 
+
     }finally{
+
 
       submitButton.disabled =
         false;
 
-      submitButton.textContent =
-        "Save Change Securely";
+
+      submitButtonText.textContent =
+        existingForm
+          ? "Update Change Securely"
+          : "Save Change Securely";
+
 
     }
 
   }
 );
+
+</script>
+
+
+<!-- ==================================================
+     ICON INITIALISATION
+================================================== -->
+
+<script>
+
+  window.addEventListener(
+    "load",
+    function(){
+
+      if(window.lucide){
+
+        window.lucide.createIcons();
+
+      }
+
+    }
+  );
 
 </script>
 
