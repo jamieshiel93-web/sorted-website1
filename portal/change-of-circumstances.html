@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
+
+<title>Change of Circumstances | My Sorted.</title>
+
+<meta
+  name="robots"
+  content="noindex,nofollow"
+>
+
+<link
+  rel="icon"
+  href="../favicon.png"
+  type="image/png"
+>
+
+<meta
+  name="theme-color"
+  content="#17261b"
+>
+
+<style>
+
+:root{
+  --cream:#f8f1e7;
+  --cream-light:#fffaf3;
+  --forest:#17261b;
+  --sage-dark:#314632;
+  --gold:#caa76a;
+  --ink:#1d241f;
+  --muted:#70756f;
+  --border:rgba(202,167,106,.28);
+  --shadow:0 20px 55px rgba(23,38,27,.12);
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  min-height:100vh;
+
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(202,167,106,.12),
+      transparent 30%
+    ),
+    var(--cream);
+
+  color:var(--ink);
+  line-height:1.6;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+button,
+input,
+textarea,
+select{
+  font:inherit;
+}
+
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+
+  background:rgba(255,255,255,.94);
+
+  border-bottom:1px solid rgba(202,167,106,.22);
+
+  box-shadow:0 8px 30px rgba(23,38,27,.07);
+
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+}
+
+.header-inner{
+  width:min(1000px,92%);
+  min-height:72px;
+
+  margin:0 auto;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  gap:20px;
+}
+
+.logo{
+  color:var(--forest);
+
+  font-size:2rem;
+  font-weight:900;
+
+  letter-spacing:-1.5px;
+}
+
+.logo span{
+  color:var(--gold);
+}
+
+.back-link{
+  padding:10px 16px;
+
+  color:var(--forest);
+  background:var(--cream-light);
+
+  border:1px solid var(--border);
+  border-radius:999px;
+
+  font-size:.9rem;
+  font-weight:800;
+}
+
+.page-wrap{
+  width:min(900px,92%);
+
+  margin:0 auto;
+
+  padding:45px 0 70px;
+}
+
+.intro{
+  margin-bottom:28px;
+  padding:35px;
+
+  color:white;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(202,167,106,.2),
+      transparent 40%
+    ),
+    linear-gradient(
+      145deg,
+      var(--forest),
+      var(--sage-dark)
+    );
+
+  border-radius:28px;
+
+  box-shadow:var(--shadow);
+}
+
+.eyebrow{
+  margin-bottom:10px;
+
+  color:var(--gold);
+
+  text-transform:uppercase;
+  letter-spacing:2.3px;
+
+  font-size:.76rem;
+  font-weight:900;
+}
+
+.intro h1{
+  margin-bottom:15px;
+
+  font-size:clamp(2.3rem,6vw,4rem);
+
+  line-height:1;
+  letter-spacing:-2px;
+}
+
+.intro p:last-child{
+  max-width:650px;
+
+  color:rgba(255,255,255,.8);
+
+  line-height:1.75;
+}
+
+.info-note{
+  margin-bottom:28px;
+  padding:18px 20px;
+
+  color:var(--sage-dark);
+  background:rgba(113,140,103,.09);
+
+  border:1px solid rgba(113,140,103,.18);
+  border-radius:18px;
+
+  font-size:.94rem;
+}
+
+.form-card{
+  padding:34px;
+
+  background:white;
+
+  border:1px solid var(--border);
+  border-radius:28px;
+
+  box-shadow:var(--shadow);
+}
+
+.form-group{
+  margin-bottom:24px;
+}
+
+label{
+  display:block;
+
+  margin-bottom:8px;
+
+  color:var(--forest);
+
+  font-size:.95rem;
+  font-weight:800;
+}
+
+.optional{
+  color:var(--muted);
+
+  font-size:.8rem;
+  font-weight:600;
+}
+
+input,
+textarea,
+select{
+  width:100%;
+
+  padding:15px 16px;
+
+  color:var(--ink);
+  background:#fcfaf7;
+
+  border:1px solid #e4dacb;
+  border-radius:14px;
+
+  outline:none;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+  background:white;
+
+  border-color:var(--gold);
+
+  box-shadow:
+    0 0 0 4px rgba(202,167,106,.16);
+}
+
+textarea{
+  min-height:160px;
+  resize:vertical;
+}
+
+.help{
+  margin-top:7px;
+
+  color:var(--muted);
+
+  font-size:.82rem;
+  line-height:1.5;
+}
+
+.submit-button{
+  width:100%;
+  min-height:56px;
+
+  padding:15px 25px;
+
+  color:white;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--forest),
+      var(--sage-dark)
+    );
+
+  border:0;
+  border-radius:999px;
+
+  font-weight:900;
+
+  cursor:pointer;
+
+  box-shadow:0 14px 30px rgba(23,38,27,.16);
+}
+
+.submit-button:disabled{
+  opacity:.6;
+  cursor:not-allowed;
+}
+
+.message{
+  display:none;
+
+  margin-top:20px;
+  padding:16px 18px;
+
+  border-radius:15px;
+
+  font-size:.94rem;
+}
+
+.message.success{
+  display:block;
+
+  color:#285d37;
+  background:rgba(49,111,66,.09);
+
+  border:1px solid rgba(49,111,66,.2);
+}
+
+.message.error{
+  display:block;
+
+  color:#8c2727;
+  background:rgba(167,46,46,.08);
+
+  border:1px solid rgba(167,46,46,.18);
+}
+
+.loading-screen{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:20px;
+
+  background:var(--cream);
+}
+
+.loading-card{
+  width:min(420px,100%);
+
+  padding:30px;
+
+  text-align:center;
+
+  background:white;
+
+  border:1px solid var(--border);
+  border-radius:24px;
+
+  box-shadow:var(--shadow);
+}
+
+.loading-card strong{
+  display:block;
+
+  margin-bottom:8px;
+
+  color:var(--forest);
+
+  font-size:1.25rem;
+}
+
+.loading-card p{
+  color:var(--muted);
+}
+
+@media(max-width:650px){
+
+  .header-inner{
+    min-height:64px;
+  }
+
+  .logo{
+    font-size:1.8rem;
+  }
+
+  .page-wrap{
+    padding-top:28px;
+  }
+
+  .intro{
+    padding:28px 24px;
+    border-radius:24px;
+  }
+
+  .form-card{
+    padding:25px 21px;
+    border-radius:24px;
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div
+  id="loading-screen"
+  class="loading-screen"
+>
+
+  <div class="loading-card">
+
+    <strong>
+      Opening your secure form…
+    </strong>
+
+    <p>
+      Please wait while we check your Sorted. account.
+    </p>
+
+  </div>
+
+</div>
+
+
+<header class="site-header">
+
+  <div class="header-inner">
+
+    <a
+      href="dashboard.html"
+      class="logo"
+    >
+      Sorted<span>.</span>
+    </a>
+
+    <a
+      href="forms.html"
+      class="back-link"
+    >
+      ← Forms
+    </a>
+
+  </div>
+
+</header>
+
+
+<main class="page-wrap">
+
+
+<section class="intro">
+
+  <p class="eyebrow">
+    My Sorted.
+  </p>
+
+  <h1>
+    Change of Circumstances
+  </h1>
+
+  <p>
+    Let us know about any important changes that may affect
+    your support, visits, household or contact arrangements.
+  </p>
+
+</section>
+
+
+<div class="info-note">
+
+  🔒 <strong>This form is stored securely in your Sorted. client account.</strong>
+  Please only include information relevant to the support we provide.
+
+</div>
+
+
+<form
+  id="change-form"
+  class="form-card"
+>
+
+
+<div class="form-group">
+
+  <label for="name">
+    Your name
+  </label>
+
+  <input
+    id="name"
+    type="text"
+    autocomplete="name"
+    required
+  >
+
+</div>
+
+
+<div class="form-group">
+
+  <label for="changeType">
+    What has changed?
+  </label>
+
+  <select
+    id="changeType"
+    required
+  >
+
+    <option value="">
+      Choose an option
+    </option>
+
+    <option value="Contact details">
+      Contact details
+    </option>
+
+    <option value="Address or home access">
+      Address or home access
+    </option>
+
+    <option value="Health or support needs">
+      Health or support needs
+    </option>
+
+    <option value="Emergency contact">
+      Emergency contact
+    </option>
+
+    <option value="Availability or schedule">
+      Availability or schedule
+    </option>
+
+    <option value="Household or pets">
+      Household or pets
+    </option>
+
+    <option value="Other">
+      Other
+    </option>
+
+  </select>
+
+</div>
+
+
+<div class="form-group">
+
+  <label for="effectiveDate">
+    When does this change take effect?
+    <span class="optional">(optional)</span>
+  </label>
+
+  <input
+    id="effectiveDate"
+    type="date"
+  >
+
+</div>
+
+
+<div class="form-group">
+
+  <label for="urgency">
+    Does Sorted. need to know about this urgently?
+  </label>
+
+  <select
+    id="urgency"
+    required
+  >
+
+    <option value="no">
+      No
+    </option>
+
+    <option value="yes">
+      Yes
+    </option>
+
+  </select>
+
+</div>
+
+
+<div class="form-group">
+
+  <label for="details">
+    Tell us what has changed
+  </label>
+
+  <textarea
+    id="details"
+    placeholder="Please explain the change and anything Sorted. needs to know."
+    required
+  ></textarea>
+
+  <p class="help">
+    If this relates to health or support needs, only include information
+    that is relevant to providing your Sorted. service safely.
+  </p>
+
+</div>
+
+
+<div class="form-group">
+
+  <label for="preferredContactMethod">
+    How would you prefer us to contact you about this?
+  </label>
+
+  <select id="preferredContactMethod">
+
+    <option value="Email">
+      Email
+    </option>
+
+    <option value="Phone">
+      Phone
+    </option>
+
+    <option value="Text Message">
+      Text message
+    </option>
+
+    <option value="WhatsApp">
+      WhatsApp
+    </option>
+
+  </select>
+
+</div>
+
+
+<button
+  id="submit-button"
+  type="submit"
+  class="submit-button"
+>
+  Save Change Securely
+</button>
+
+
+<div
+  id="form-message"
+  class="message"
+  role="alert"
+></div>
+
+
+</form>
+
+
+</main>
+
+
+<script type="module">
+
+import {
+  auth,
+  db
+} from "../firebase.js";
+
+
+import {
+  onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
+
+
+import {
+  doc,
+  getDoc,
+  setDoc,
+  serverTimestamp,
+  collection,
+  query,
+  where,
+  getDocs,
+  limit
+} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
+
+
+const loadingScreen =
+  document.getElementById("loading-screen");
+
+const changeForm =
+  document.getElementById("change-form");
+
+const submitButton =
+  document.getElementById("submit-button");
+
+const formMessage =
+  document.getElementById("form-message");
+
+
+let currentUser = null;
+let clientId = null;
+
+
+function showMessage(type,text){
+
+  formMessage.className =
+    "message " + type;
+
+  formMessage.textContent =
+    text;
+
+}
+
+
+async function findClientRecord(user){
+
+  const directRef =
+    doc(
+      db,
+      "clients",
+      user.uid
+    );
+
+
+  const directSnapshot =
+    await getDoc(directRef);
+
+
+  if(directSnapshot.exists()){
+
+    return{
+      id:directSnapshot.id,
+      data:directSnapshot.data()
+    };
+
+  }
+
+
+  const clientQuery =
+    query(
+      collection(db,"clients"),
+      where(
+        "ownerUID",
+        "==",
+        user.uid
+      ),
+      limit(1)
+    );
+
+
+  const querySnapshot =
+    await getDocs(clientQuery);
+
+
+  if(querySnapshot.empty){
+
+    return null;
+
+  }
+
+
+  const clientDocument =
+    querySnapshot.docs[0];
+
+
+  return{
+    id:clientDocument.id,
+    data:clientDocument.data()
+  };
+
+}
+
+
+async function loadExistingForm(){
+
+  const formRef =
+    doc(
+      db,
+      "clients",
+      clientId,
+      "forms",
+      "change-of-circumstances"
+    );
+
+
+  const formSnapshot =
+    await getDoc(formRef);
+
+
+  if(!formSnapshot.exists()){
+
+    return;
+
+  }
+
+
+  const data =
+    formSnapshot.data();
+
+
+  document.getElementById("name").value =
+    data.name || "";
+
+
+  document.getElementById("changeType").value =
+    data.changeType || "";
+
+
+  document.getElementById("effectiveDate").value =
+    data.effectiveDate || "";
+
+
+  document.getElementById("urgency").value =
+    data.urgent === true
+      ? "yes"
+      : "no";
+
+
+  document.getElementById("details").value =
+    data.details || "";
+
+
+  document.getElementById("preferredContactMethod").value =
+    data.preferredContactMethod || "Email";
+
+}
+
+
+async function initialiseForm(user){
+
+  try{
+
+    currentUser =
+      user;
+
+
+    if(!user.emailVerified){
+
+      window.location.href =
+        "index.html";
+
+      return;
+
+    }
+
+
+    const userRef =
+      doc(
+        db,
+        "users",
+        user.uid
+      );
+
+
+    const userSnapshot =
+      await getDoc(userRef);
+
+
+    if(!userSnapshot.exists()){
+
+      window.location.href =
+        "index.html";
+
+      return;
+
+    }
+
+
+    const userData =
+      userSnapshot.data();
+
+
+    if(
+      userData.role !== "client" ||
+      userData.status !== "approved"
+    ){
+
+      window.location.href =
+        "index.html";
+
+      return;
+
+    }
+
+
+    const clientRecord =
+      await findClientRecord(user);
+
+
+    if(!clientRecord){
+
+      loadingScreen.innerHTML =
+        `
+          <div class="loading-card">
+
+            <strong>
+              Account setup incomplete
+            </strong>
+
+            <p>
+              Your client record could not be found.
+              Please contact Sorted.
+            </p>
+
+          </div>
+        `;
+
+      return;
+
+    }
+
+
+    clientId =
+      clientRecord.id;
+
+
+    document.getElementById("name").value =
+      clientRecord.data.fullName ||
+      clientRecord.data.name ||
+      userData.fullName ||
+      "";
+
+
+    await loadExistingForm();
+
+
+    loadingScreen.style.display =
+      "none";
+
+
+  }catch(error){
+
+    console.error(error);
+
+
+    loadingScreen.innerHTML =
+      `
+        <div class="loading-card">
+
+          <strong>
+            We couldn't open the form
+          </strong>
+
+          <p>
+            Please return to your portal and try again.
+          </p>
+
+        </div>
+      `;
+
+  }
+
+}
+
+
+onAuthStateChanged(
+  auth,
+  function(user){
+
+    if(!user){
+
+      window.location.href =
+        "index.html";
+
+      return;
+
+    }
+
+
+    initialiseForm(user);
+
+  }
+);
+
+
+changeForm.addEventListener(
+  "submit",
+  async function(event){
+
+    event.preventDefault();
+
+
+    if(
+      !currentUser ||
+      !clientId
+    ){
+
+      showMessage(
+        "error",
+        "Your client account could not be confirmed."
+      );
+
+      return;
+
+    }
+
+
+    submitButton.disabled =
+      true;
+
+    submitButton.textContent =
+      "Saving securely…";
+
+
+    try{
+
+      const formRef =
+        doc(
+          db,
+          "clients",
+          clientId,
+          "forms",
+          "change-of-circumstances"
+        );
+
+
+      await setDoc(
+        formRef,
+        {
+
+          formType:
+            "change-of-circumstances",
+
+          status:
+            "submitted",
+
+          name:
+            document
+              .getElementById("name")
+              .value
+              .trim(),
+
+          changeType:
+            document
+              .getElementById("changeType")
+              .value,
+
+          effectiveDate:
+            document
+              .getElementById("effectiveDate")
+              .value,
+
+          urgent:
+            document
+              .getElementById("urgency")
+              .value === "yes",
+
+          details:
+            document
+              .getElementById("details")
+              .value
+              .trim(),
+
+          preferredContactMethod:
+            document
+              .getElementById("preferredContactMethod")
+              .value,
+
+          submittedBy:
+            currentUser.uid,
+
+          submittedAt:
+            serverTimestamp(),
+
+          updatedAt:
+            serverTimestamp()
+
+        },
+        {
+          merge:true
+        }
+      );
+
+
+      showMessage(
+        "success",
+        "Thank you. Your change of circumstances has been saved securely to your Sorted. account."
+      );
+
+
+      window.scrollTo({
+        top:document.body.scrollHeight,
+        behavior:"smooth"
+      });
+
+
+    }catch(error){
+
+      console.error(error);
+
+
+      showMessage(
+        "error",
+        "We couldn't save your information. Please try again."
+      );
+
+    }finally{
+
+      submitButton.disabled =
+        false;
+
+      submitButton.textContent =
+        "Save Change Securely";
+
+    }
+
+  }
+);
+
+</script>
+
+
+</body>
+
+</html>
