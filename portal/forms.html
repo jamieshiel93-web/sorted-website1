@@ -395,12 +395,13 @@ h1{
       id="review-status"
       class="status"
     >
-      Not Started
+      Checking…
     </span>
 
     <br>
 
     <a
+      id="review-button"
       href="client-review.html"
       class="button"
     >
@@ -470,6 +471,14 @@ const loadingScreen =
   document.getElementById("loading-screen");
 
 
+const reviewStatus =
+  document.getElementById("review-status");
+
+
+const reviewButton =
+  document.getElementById("review-button");
+
+
 const clientInformationStatus =
   document.getElementById("client-information-status");
 
@@ -481,7 +490,7 @@ const clientInformationButton =
 async function findClientRecord(user){
 
   /*
-    First try the new clients/{uid} structure.
+    First try the newer clients/{uid} structure.
   */
 
   const directRef =
@@ -498,9 +507,9 @@ async function findClientRecord(user){
 
   if(directSnapshot.exists()){
 
-    return {
-      id: directSnapshot.id,
-      data: directSnapshot.data()
+    return{
+      id:directSnapshot.id,
+      data:directSnapshot.data()
     };
 
   }
@@ -537,10 +546,87 @@ async function findClientRecord(user){
     querySnapshot.docs[0];
 
 
-  return {
+  return{
     id:clientDocument.id,
     data:clientDocument.data()
   };
+
+}
+
+
+function showCompleted(statusElement,buttonElement){
+
+  statusElement.textContent =
+    "✓ Completed";
+
+
+  statusElement.classList.add(
+    "completed"
+  );
+
+
+  buttonElement.textContent =
+    "View / Update Form";
+
+}
+
+
+function showNotStarted(statusElement,buttonElement){
+
+  statusElement.textContent =
+    "Not Started";
+
+
+  statusElement.classList.remove(
+    "completed"
+  );
+
+
+  buttonElement.textContent =
+    "Open Form";
+
+}
+
+
+async function checkFormStatus(
+  clientId,
+  formId,
+  statusElement,
+  buttonElement
+){
+
+  const formRef =
+    doc(
+      db,
+      "clients",
+      clientId,
+      "forms",
+      formId
+    );
+
+
+  const formSnapshot =
+    await getDoc(formRef);
+
+
+  if(
+    formSnapshot.exists() &&
+    formSnapshot.data().status === "submitted"
+  ){
+
+    showCompleted(
+      statusElement,
+      buttonElement
+    );
+
+  }else{
+
+    showNotStarted(
+      statusElement,
+      buttonElement
+    );
+
+  }
 
 }
 
@@ -550,7 +636,7 @@ async function initialiseForms(user){
   try{
 
     /*
-      Must be signed in with a verified email.
+      Require a verified Firebase account.
     */
 
     if(!user.emailVerified){
@@ -564,7 +650,7 @@ async function initialiseForms(user){
 
 
     /*
-      Check the user's Sorted. account status.
+      Require an approved Sorted. client account.
     */
 
     const userRef =
@@ -638,56 +724,26 @@ async function initialiseForms(user){
 
 
     /*
-      Check whether the Client Information form
-      has already been submitted.
+      Check both client forms.
     */
 
-    const clientInformationRef =
-      doc(
-        db,
-        "clients",
+    await Promise.all([
+
+      checkFormStatus(
         clientRecord.id,
-        "forms",
-        "client-information"
-      );
+        "client-review",
+        reviewStatus,
+        reviewButton
+      ),
 
+      checkFormStatus(
+        clientRecord.id,
+        "client-information",
+        clientInformationStatus,
+        clientInformationButton
+      )
 
-    const clientInformationSnapshot =
-      await getDoc(clientInformationRef);
-
-
-    if(clientInformationSnapshot.exists()){
-
-      const formData =
-        clientInformationSnapshot.data();
-
-
-      if(formData.status === "submitted"){
-
-        clientInformationStatus.textContent =
-          "✓ Completed";
-
-        clientInformationStatus.classList.add(
-          "completed"
-        );
-
-
-        clientInformationButton.textContent =
-          "View / Update Form";
-
-      }else{
-
-        clientInformationStatus.textContent =
-          "Not Started";
-
-      }
-
-    }else{
-
-      clientInformationStatus.textContent =
-        "Not Started";
-
-    }
+    ]);
 
 
     loadingScreen.style.display =
