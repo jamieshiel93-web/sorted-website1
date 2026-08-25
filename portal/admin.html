@@ -57,6 +57,7 @@ select{
   font:inherit;
 }
 
+
 /* ==================================================
    LOGIN
 ================================================== */
@@ -175,6 +176,7 @@ button{
   font-weight:700;
 }
 
+
 /* ==================================================
    STUDIO
 ================================================== */
@@ -230,6 +232,7 @@ header .brand span{
   padding:34px 0 60px;
 }
 
+
 /* ==================================================
    HERO
 ================================================== */
@@ -263,9 +266,7 @@ header .brand span{
 
 .hero h2{
   margin-bottom:7px;
-
   color:white;
-
   font-size:clamp(2rem,5vw,2.7rem);
 }
 
@@ -273,13 +274,14 @@ header .brand span{
   color:rgba(255,255,255,.75);
 }
 
+
 /* ==================================================
    STATS
 ================================================== */
 
 .stats{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:repeat(4,1fr);
   gap:18px;
 
   margin-bottom:26px;
@@ -314,6 +316,7 @@ header .brand span{
 
   font-size:2rem;
 }
+
 
 /* ==================================================
    CARDS
@@ -360,6 +363,7 @@ header .brand span{
   color:var(--muted);
 }
 
+
 /* ==================================================
    TOOLBAR
 ================================================== */
@@ -391,18 +395,21 @@ header .brand span{
   background:var(--gold);
 }
 
+
 /* ==================================================
-   REGISTRATION LIST
+   REGISTRATIONS / CLIENTS
 ================================================== */
 
 .registration-list,
-.client-list{
+.client-list,
+.form-list{
   display:grid;
   gap:14px;
 }
 
 .registration-item,
-.client-item{
+.client-item,
+.form-item{
   display:grid;
   grid-template-columns:minmax(0,1fr) auto;
   gap:18px;
@@ -480,10 +487,20 @@ header .brand span{
   background:#e8cccc;
 }
 
+.view-button{
+  background:var(--forest);
+  color:white;
+}
+
+.view-button:hover{
+  background:var(--sage);
+}
+
 .action-button:disabled{
   opacity:.55;
   cursor:not-allowed;
 }
+
 
 /* ==================================================
    STATUS
@@ -512,6 +529,11 @@ header .brand span{
   color:var(--green);
 }
 
+.status-submitted{
+  background:#e4f0e7;
+  color:var(--green);
+}
+
 .empty-state{
   padding:28px;
 
@@ -528,6 +550,33 @@ header .brand span{
   color:var(--muted);
   text-align:center;
 }
+
+
+/* ==================================================
+   FORM SUBMISSIONS
+================================================== */
+
+.form-title{
+  color:var(--forest);
+  font-size:1.05rem;
+  font-weight:850;
+}
+
+.form-client{
+  margin-top:3px;
+
+  color:var(--sage);
+  font-size:.9rem;
+  font-weight:800;
+}
+
+.form-meta{
+  margin-top:4px;
+
+  color:var(--muted);
+  font-size:.82rem;
+}
+
 
 /* ==================================================
    OTHER STUDIO CARDS
@@ -560,6 +609,150 @@ header .brand span{
   font-weight:800;
 }
 
+
+/* ==================================================
+   FORM MODAL
+================================================== */
+
+.modal-overlay{
+  display:none;
+
+  position:fixed;
+  inset:0;
+  z-index:20000;
+
+  align-items:center;
+  justify-content:center;
+
+  padding:20px;
+
+  background:rgba(12,20,14,.72);
+
+  backdrop-filter:blur(7px);
+  -webkit-backdrop-filter:blur(7px);
+}
+
+.modal-overlay.is-open{
+  display:flex;
+}
+
+.modal{
+  width:min(760px,100%);
+  max-height:88vh;
+
+  overflow:auto;
+
+  background:var(--cream);
+
+  border:1px solid rgba(202,167,106,.3);
+  border-radius:28px;
+
+  box-shadow:0 30px 90px rgba(0,0,0,.32);
+}
+
+.modal-header{
+  position:sticky;
+  top:0;
+  z-index:2;
+
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:18px;
+
+  padding:24px 25px;
+
+  background:var(--forest);
+  color:white;
+}
+
+.modal-header small{
+  color:var(--gold);
+
+  font-size:.7rem;
+  font-weight:900;
+  letter-spacing:1.6px;
+  text-transform:uppercase;
+}
+
+.modal-header h2{
+  margin-top:3px;
+  color:white;
+  font-size:1.55rem;
+}
+
+.modal-close{
+  flex-shrink:0;
+
+  width:42px;
+  height:42px;
+
+  border-radius:50%;
+
+  background:rgba(255,255,255,.12);
+  color:white;
+
+  font-size:24px;
+  line-height:1;
+}
+
+.modal-body{
+  padding:25px;
+}
+
+.sensitive-warning{
+  margin-bottom:20px;
+  padding:14px 16px;
+
+  border:1px solid rgba(202,167,106,.28);
+  border-radius:15px;
+
+  background:#fff8ed;
+
+  color:var(--sage);
+
+  font-size:.88rem;
+  line-height:1.6;
+}
+
+.form-detail-grid{
+  display:grid;
+  gap:13px;
+}
+
+.form-detail{
+  padding:16px;
+
+  background:white;
+
+  border:1px solid rgba(202,167,106,.22);
+  border-radius:16px;
+}
+
+.form-detail-label{
+  display:block;
+
+  margin-bottom:5px;
+
+  color:var(--gold);
+
+  font-size:.7rem;
+  font-weight:900;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+
+.form-detail-value{
+  color:var(--ink);
+
+  font-size:.95rem;
+  line-height:1.6;
+
+  white-space:pre-wrap;
+  overflow-wrap:anywhere;
+}
+
+
 /* ==================================================
    ALERT
 ================================================== */
@@ -570,7 +763,7 @@ header .brand span{
   position:fixed;
   left:50%;
   bottom:24px;
-  z-index:10000;
+  z-index:30000;
 
   width:min(92%,520px);
 
@@ -603,9 +796,18 @@ header .brand span{
   border:1px solid rgba(167,46,46,.2);
 }
 
+
 /* ==================================================
    MOBILE
 ================================================== */
+
+@media(max-width:950px){
+
+  .stats{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+}
 
 @media(max-width:800px){
 
@@ -633,7 +835,7 @@ header .brand span{
   }
 
   .stats{
-    grid-template-columns:1fr;
+    grid-template-columns:1fr 1fr;
     gap:12px;
   }
 
@@ -646,7 +848,8 @@ header .brand span{
   }
 
   .registration-item,
-  .client-item{
+  .client-item,
+  .form-item{
     grid-template-columns:1fr;
   }
 
@@ -663,19 +866,36 @@ header .brand span{
     flex-direction:column;
   }
 
+  .modal{
+    border-radius:22px;
+  }
+
+  .modal-header{
+    padding:20px;
+  }
+
+  .modal-body{
+    padding:20px;
+  }
+
 }
 
 </style>
 
 </head>
 
+
 <body>
+
 
 <!-- ==================================================
      LOGIN
 ================================================== -->
 
-<div id="loginScreen" class="login-screen">
+<div
+  id="loginScreen"
+  class="login-screen"
+>
 
   <div class="login-card">
 
@@ -721,11 +941,13 @@ header .brand span{
 
 </div>
 
+
 <!-- ==================================================
      STUDIO
 ================================================== -->
 
 <div id="studio">
+
 
 <header>
 
@@ -743,7 +965,9 @@ header .brand span{
 
 </header>
 
+
 <div class="container">
+
 
   <section class="hero">
 
@@ -758,9 +982,13 @@ header .brand span{
 
   </section>
 
-  <!-- STATS -->
+
+  <!-- ==================================================
+       STATS
+  ================================================== -->
 
   <div class="stats">
+
 
     <div class="stat">
 
@@ -774,6 +1002,7 @@ header .brand span{
 
     </div>
 
+
     <div class="stat">
 
       <small>
@@ -785,6 +1014,20 @@ header .brand span{
       </strong>
 
     </div>
+
+
+    <div class="stat">
+
+      <small>
+        Submitted forms
+      </small>
+
+      <strong id="form-count">
+        —
+      </strong>
+
+    </div>
+
 
     <div class="stat">
 
@@ -798,9 +1041,12 @@ header .brand span{
 
     </div>
 
+
   </div>
 
+
   <div class="grid">
+
 
     <!-- ==================================================
          PENDING REGISTRATIONS
@@ -826,6 +1072,7 @@ header .brand span{
 
         </div>
 
+
         <button
           type="button"
           class="refresh-button"
@@ -835,6 +1082,7 @@ header .brand span{
         </button>
 
       </div>
+
 
       <div
         id="pending-list"
@@ -848,6 +1096,7 @@ header .brand span{
       </div>
 
     </section>
+
 
     <!-- ==================================================
          CLIENTS
@@ -867,6 +1116,7 @@ header .brand span{
         Approved clients linked to the Sorted. client portal.
       </p>
 
+
       <div
         id="client-list"
         class="client-list"
@@ -880,7 +1130,60 @@ header .brand span{
 
     </section>
 
-    <!-- OTHER STUDIO AREAS -->
+
+    <!-- ==================================================
+         CLIENT FORMS
+    ================================================== -->
+
+    <section class="card wide">
+
+      <div class="toolbar">
+
+        <div>
+
+          <small class="section-label">
+            Forms
+          </small>
+
+          <h3>
+            Client Forms
+          </h3>
+
+          <p style="margin-bottom:0;">
+            Review forms submitted securely through My Sorted.
+          </p>
+
+        </div>
+
+
+        <button
+          type="button"
+          class="refresh-button"
+          onclick="refreshStudio()"
+        >
+          Refresh
+        </button>
+
+      </div>
+
+
+      <div
+        id="form-list"
+        class="form-list"
+      >
+
+        <div class="loading-state">
+          Loading submitted forms...
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         OTHER STUDIO AREAS
+    ================================================== -->
 
     <section class="card feature-card">
 
@@ -902,6 +1205,7 @@ header .brand span{
 
     </section>
 
+
     <section class="card feature-card">
 
       <small class="section-label">
@@ -922,25 +1226,6 @@ header .brand span{
 
     </section>
 
-    <section class="card feature-card">
-
-      <small class="section-label">
-        Forms
-      </small>
-
-      <h3>
-        Client Forms
-      </h3>
-
-      <p>
-        Review client information and submitted forms securely.
-      </p>
-
-      <span class="coming-soon">
-        Next stage
-      </span>
-
-    </section>
 
     <section class="card feature-card">
 
@@ -962,16 +1247,84 @@ header .brand span{
 
     </section>
 
+
   </div>
 
 </div>
 
 </div>
 
+
+<!-- ==================================================
+     FORM VIEWER
+================================================== -->
+
+<div
+  id="form-modal"
+  class="modal-overlay"
+  aria-hidden="true"
+>
+
+  <div
+    class="modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="form-modal-title"
+  >
+
+    <div class="modal-header">
+
+      <div>
+
+        <small id="form-modal-client">
+          Client form
+        </small>
+
+        <h2 id="form-modal-title">
+          Submitted Form
+        </h2>
+
+      </div>
+
+
+      <button
+        type="button"
+        class="modal-close"
+        id="form-modal-close"
+        aria-label="Close form"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <div class="modal-body">
+
+      <div class="sensitive-warning">
+        <strong>Confidential client information.</strong>
+        Only use and access this information where necessary for providing
+        the client's Sorted. service.
+      </div>
+
+
+      <div
+        id="form-detail-grid"
+        class="form-detail-grid"
+      ></div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
 <div
   id="studio-message"
   role="alert"
 ></div>
+
 
 <!-- ==================================================
      FIREBASE
@@ -979,16 +1332,19 @@ header .brand span{
 
 <script type="module">
 
+
 import {
   auth,
   db
 } from "../firebase.js";
+
 
 import {
   signInWithEmailAndPassword,
   onAuthStateChanged,
   signOut
 } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
+
 
 import {
   collection,
@@ -1006,6 +1362,7 @@ import {
 const ADMIN_UID =
   "prs1Rcq8qQNrZBSCpFpwLRtvvj52";
 
+
 const ADMIN_EMAIL =
   "contact@sortedlife.org.uk";
 
@@ -1013,45 +1370,92 @@ const ADMIN_EMAIL =
 const loginScreen =
   document.getElementById("loginScreen");
 
+
 const studio =
   document.getElementById("studio");
+
 
 const loginError =
   document.getElementById("error");
 
+
 const pendingList =
   document.getElementById("pending-list");
+
 
 const clientList =
   document.getElementById("client-list");
 
+
+const formList =
+  document.getElementById("form-list");
+
+
 const pendingCount =
   document.getElementById("pending-count");
+
 
 const clientCount =
   document.getElementById("client-count");
 
+
+const formCount =
+  document.getElementById("form-count");
+
+
 const studioMessage =
   document.getElementById("studio-message");
+
+
+const formModal =
+  document.getElementById("form-modal");
+
+
+const formModalClose =
+  document.getElementById("form-modal-close");
+
+
+const formModalTitle =
+  document.getElementById("form-modal-title");
+
+
+const formModalClient =
+  document.getElementById("form-modal-client");
+
+
+const formDetailGrid =
+  document.getElementById("form-detail-grid");
+
+
+let loadedForms =
+  new Map();
 
 
 /* ==================================================
    MESSAGES
 ================================================== */
 
-function showStudioMessage(type, text){
+function showStudioMessage(type,text){
 
-  studioMessage.className = type;
+  studioMessage.className =
+    type;
 
-  studioMessage.textContent = text;
+  studioMessage.style.display =
+    "block";
+
+  studioMessage.textContent =
+    text;
+
 
   setTimeout(function(){
 
-    studioMessage.className = "";
+    studioMessage.className =
+      "";
 
-    studioMessage.style.display = "none";
+    studioMessage.style.display =
+      "none";
 
-  }, 4000);
+  },4000);
 
 }
 
@@ -1060,52 +1464,68 @@ function showStudioMessage(type, text){
    ADMIN LOGIN
 ================================================== */
 
-window.adminLogin = async function(){
+window.adminLogin =
+  async function(){
 
-  const email =
-    document.getElementById("email").value.trim();
+    const email =
+      document
+        .getElementById("email")
+        .value
+        .trim();
 
-  const password =
-    document.getElementById("password").value;
 
-  loginError.style.display = "none";
+    const password =
+      document
+        .getElementById("password")
+        .value;
 
-  try{
 
-    const userCredential =
-      await signInWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
+    loginError.style.display =
+      "none";
 
-    const user =
-      userCredential.user;
 
-    if(
-      user.uid !== ADMIN_UID ||
-      user.email !== ADMIN_EMAIL
-    ){
+    try{
 
-      await signOut(auth);
+      const userCredential =
+        await signInWithEmailAndPassword(
+          auth,
+          email,
+          password
+        );
 
-      loginError.style.display = "block";
 
-      return;
+      const user =
+        userCredential.user;
+
+
+      if(
+        user.uid !== ADMIN_UID ||
+        user.email !== ADMIN_EMAIL
+      ){
+
+        await signOut(auth);
+
+        loginError.style.display =
+          "block";
+
+        return;
+
+      }
+
+
+      showStudio();
+
+
+    }catch(error){
+
+      console.error(error);
+
+      loginError.style.display =
+        "block";
 
     }
 
-    showStudio();
-
-  }catch(error){
-
-    console.error(error);
-
-    loginError.style.display = "block";
-
-  }
-
-};
+  };
 
 
 /* ==================================================
@@ -1136,9 +1556,11 @@ onAuthStateChanged(
 
 function showStudio(){
 
-  loginScreen.style.display = "none";
+  loginScreen.style.display =
+    "none";
 
-  studio.style.display = "block";
+  studio.style.display =
+    "block";
 
   loadStudioData();
 
@@ -1147,18 +1569,21 @@ function showStudio(){
 
 function showLogin(){
 
-  loginScreen.style.display = "flex";
+  loginScreen.style.display =
+    "flex";
 
-  studio.style.display = "none";
+  studio.style.display =
+    "none";
 
 }
 
 
-window.logout = async function(){
+window.logout =
+  async function(){
 
-  await signOut(auth);
+    await signOut(auth);
 
-};
+  };
 
 
 /* ==================================================
@@ -1167,10 +1592,18 @@ window.logout = async function(){
 
 async function loadStudioData(){
 
-  await Promise.all([
-    loadPendingRegistrations(),
-    loadClients()
-  ]);
+  const results =
+    await Promise.all([
+      loadPendingRegistrations(),
+      loadClients()
+    ]);
+
+
+  const clients =
+    results[1] || [];
+
+
+  await loadClientForms(clients);
 
 }
 
@@ -1188,21 +1621,27 @@ async function loadPendingRegistrations(){
   pendingList.innerHTML =
     '<div class="loading-state">Loading registrations...</div>';
 
+
   try{
 
     const pendingQuery =
       query(
-        collection(db, "users"),
-        where("status", "==", "pending")
+        collection(db,"users"),
+        where("status","==","pending")
       );
+
 
     const snapshot =
       await getDocs(pendingQuery);
 
+
     pendingCount.textContent =
       snapshot.size;
 
-    pendingList.innerHTML = "";
+
+    pendingList.innerHTML =
+      "";
+
 
     if(snapshot.empty){
 
@@ -1213,178 +1652,223 @@ async function loadPendingRegistrations(){
 
     }
 
-    snapshot.forEach(function(userDocument){
 
-      const data =
-        userDocument.data();
+    snapshot.forEach(
+      function(userDocument){
 
-      const uid =
-        userDocument.id;
-
-      const item =
-        document.createElement("div");
-
-      item.className =
-        "registration-item";
+        const data =
+          userDocument.data();
 
 
-      const info =
-        document.createElement("div");
+        const uid =
+          userDocument.id;
 
 
-      const name =
-        document.createElement("div");
-
-      name.className =
-        "person-name";
-
-      name.textContent =
-        data.fullName ||
-        [
-          data.firstName,
-          data.lastName
-        ]
-        .filter(Boolean)
-        .join(" ") ||
-        "New client";
-
-
-      const details =
-        document.createElement("div");
-
-      details.className =
-        "person-details";
-
-      details.innerHTML =
-        [
-          data.email
-            ? "Email: " + escapeHTML(data.email)
-            : "",
-          data.phone
-            ? "Telephone: " + escapeHTML(data.phone)
-            : "",
-          data.postcode
-            ? "Postcode: " + escapeHTML(data.postcode)
-            : "",
-          data.createdAt
-            ? "Registered: " + formatDate(data.createdAt)
-            : ""
-        ]
-        .filter(Boolean)
-        .join("<br>");
-
-
-      info.appendChild(name);
-
-      info.appendChild(details);
-
-
-      const status =
-        document.createElement("span");
-
-      status.className =
-        "status-pill status-pending";
-
-      status.textContent =
-        "Awaiting approval";
-
-      info.appendChild(status);
-
-
-      if(data.message){
-
-        const note =
+        const item =
           document.createElement("div");
 
-        note.className =
-          "message-note";
 
-        note.textContent =
-          "Registration note: " + data.message;
+        item.className =
+          "registration-item";
 
-        info.appendChild(note);
+
+        const info =
+          document.createElement("div");
+
+
+        const name =
+          document.createElement("div");
+
+
+        name.className =
+          "person-name";
+
+
+        name.textContent =
+          data.fullName ||
+          [
+            data.firstName,
+            data.lastName
+          ]
+          .filter(Boolean)
+          .join(" ") ||
+          "New client";
+
+
+        const details =
+          document.createElement("div");
+
+
+        details.className =
+          "person-details";
+
+
+        details.innerHTML =
+          [
+            data.email
+              ? "Email: " + escapeHTML(data.email)
+              : "",
+
+            data.phone
+              ? "Telephone: " + escapeHTML(data.phone)
+              : "",
+
+            data.postcode
+              ? "Postcode: " + escapeHTML(data.postcode)
+              : "",
+
+            data.createdAt
+              ? "Registered: " + formatDate(data.createdAt)
+              : ""
+          ]
+          .filter(Boolean)
+          .join("<br>");
+
+
+        info.appendChild(name);
+
+        info.appendChild(details);
+
+
+        const status =
+          document.createElement("span");
+
+
+        status.className =
+          "status-pill status-pending";
+
+
+        status.textContent =
+          "Awaiting approval";
+
+
+        info.appendChild(status);
+
+
+        if(data.message){
+
+          const note =
+            document.createElement("div");
+
+
+          note.className =
+            "message-note";
+
+
+          note.textContent =
+            "Registration note: " +
+            data.message;
+
+
+          info.appendChild(note);
+
+        }
+
+
+        const actions =
+          document.createElement("div");
+
+
+        actions.className =
+          "actions";
+
+
+        const approve =
+          document.createElement("button");
+
+
+        approve.type =
+          "button";
+
+
+        approve.className =
+          "action-button approve-button";
+
+
+        approve.textContent =
+          "Approve";
+
+
+        const reject =
+          document.createElement("button");
+
+
+        reject.type =
+          "button";
+
+
+        reject.className =
+          "action-button reject-button";
+
+
+        reject.textContent =
+          "Reject";
+
+
+        approve.addEventListener(
+          "click",
+          function(){
+
+            approveRegistration(
+              uid,
+              approve,
+              reject
+            );
+
+          }
+        );
+
+
+        reject.addEventListener(
+          "click",
+          function(){
+
+            rejectRegistration(
+              uid,
+              approve,
+              reject
+            );
+
+          }
+        );
+
+
+        actions.appendChild(
+          approve
+        );
+
+
+        actions.appendChild(
+          reject
+        );
+
+
+        item.appendChild(
+          info
+        );
+
+
+        item.appendChild(
+          actions
+        );
+
+
+        pendingList.appendChild(
+          item
+        );
 
       }
+    );
 
-
-      const actions =
-        document.createElement("div");
-
-      actions.className =
-        "actions";
-
-
-      const approve =
-        document.createElement("button");
-
-      approve.type =
-        "button";
-
-      approve.className =
-        "action-button approve-button";
-
-      approve.textContent =
-        "Approve";
-
-      approve.addEventListener(
-        "click",
-        function(){
-
-          approveRegistration(
-            uid,
-            approve,
-            reject
-          );
-
-        }
-      );
-
-
-      const reject =
-        document.createElement("button");
-
-      reject.type =
-        "button";
-
-      reject.className =
-        "action-button reject-button";
-
-      reject.textContent =
-        "Reject";
-
-      reject.addEventListener(
-        "click",
-        function(){
-
-          rejectRegistration(
-            uid,
-            approve,
-            reject
-          );
-
-        }
-      );
-
-
-      actions.appendChild(approve);
-
-      actions.appendChild(reject);
-
-
-      item.appendChild(info);
-
-      item.appendChild(actions);
-
-
-      pendingList.appendChild(item);
-
-    });
 
   }catch(error){
 
     console.error(error);
 
-    pendingCount.textContent = "—";
+
+    pendingCount.textContent =
+      "—";
+
 
     pendingList.innerHTML =
       '<div class="empty-state">Unable to load registrations. Check your Firebase connection and Firestore rules.</div>';
@@ -1409,14 +1893,21 @@ async function approveRegistration(
       "Approve this client and allow access to My Sorted.?"
     );
 
+
   if(!confirmed){
+
     return;
+
   }
 
 
-  approveButton.disabled = true;
+  approveButton.disabled =
+    true;
 
-  rejectButton.disabled = true;
+
+  rejectButton.disabled =
+    true;
+
 
   approveButton.textContent =
     "Approving...";
@@ -1425,10 +1916,17 @@ async function approveRegistration(
   try{
 
     const userReference =
-      doc(db, "users", uid);
+      doc(
+        db,
+        "users",
+        uid
+      );
+
 
     const userSnapshot =
-      await getDoc(userReference);
+      await getDoc(
+        userReference
+      );
 
 
     if(!userSnapshot.exists()){
@@ -1444,18 +1942,16 @@ async function approveRegistration(
       userSnapshot.data();
 
 
-    /*
-      Create the client's portal record FIRST.
-
-      This means we do not mark the user approved
-      until their client record exists.
-    */
-
     await setDoc(
-      doc(db, "clients", uid),
+      doc(
+        db,
+        "clients",
+        uid
+      ),
       {
 
-        ownerUID: uid,
+        ownerUID:
+          uid,
 
         firstName:
           registration.firstName || "",
@@ -1521,11 +2017,6 @@ async function approveRegistration(
     );
 
 
-    /*
-      Only after the client record exists
-      is the portal account approved.
-    */
-
     await updateDoc(
       userReference,
       {
@@ -1548,18 +2039,25 @@ async function approveRegistration(
 
     await loadStudioData();
 
+
   }catch(error){
 
     console.error(error);
+
 
     showStudioMessage(
       "error",
       "The registration could not be approved. Please try again."
     );
 
-    approveButton.disabled = false;
 
-    rejectButton.disabled = false;
+    approveButton.disabled =
+      false;
+
+
+    rejectButton.disabled =
+      false;
+
 
     approveButton.textContent =
       "Approve";
@@ -1584,14 +2082,21 @@ async function rejectRegistration(
       "Reject this portal registration?"
     );
 
+
   if(!confirmed){
+
     return;
+
   }
 
 
-  approveButton.disabled = true;
+  approveButton.disabled =
+    true;
 
-  rejectButton.disabled = true;
+
+  rejectButton.disabled =
+    true;
+
 
   rejectButton.textContent =
     "Rejecting...";
@@ -1600,7 +2105,11 @@ async function rejectRegistration(
   try{
 
     await updateDoc(
-      doc(db, "users", uid),
+      doc(
+        db,
+        "users",
+        uid
+      ),
       {
 
         status:
@@ -1621,18 +2130,25 @@ async function rejectRegistration(
 
     await loadStudioData();
 
+
   }catch(error){
 
     console.error(error);
+
 
     showStudioMessage(
       "error",
       "The registration could not be rejected."
     );
 
-    approveButton.disabled = false;
 
-    rejectButton.disabled = false;
+    approveButton.disabled =
+      false;
+
+
+    rejectButton.disabled =
+      false;
+
 
     rejectButton.textContent =
       "Reject";
@@ -1651,11 +2167,15 @@ async function loadClients(){
   clientList.innerHTML =
     '<div class="loading-state">Loading clients...</div>';
 
+
   try{
 
     const snapshot =
       await getDocs(
-        collection(db, "clients")
+        collection(
+          db,
+          "clients"
+        )
       );
 
 
@@ -1663,7 +2183,12 @@ async function loadClients(){
       snapshot.size;
 
 
-    clientList.innerHTML = "";
+    clientList.innerHTML =
+      "";
+
+
+    const clients =
+      [];
 
 
     if(snapshot.empty){
@@ -1671,103 +2196,826 @@ async function loadClients(){
       clientList.innerHTML =
         '<div class="empty-state">No client records have been created yet.</div>';
 
-      return;
+      return clients;
 
     }
 
 
-    snapshot.forEach(function(clientDocument){
+    snapshot.forEach(
+      function(clientDocument){
 
-      const data =
-        clientDocument.data();
-
-
-      const item =
-        document.createElement("div");
-
-      item.className =
-        "client-item";
+        const data =
+          clientDocument.data();
 
 
-      const info =
-        document.createElement("div");
+        clients.push({
+          id:
+            clientDocument.id,
+
+          data:
+            data
+        });
 
 
-      const name =
-        document.createElement("div");
-
-      name.className =
-        "person-name";
-
-      name.textContent =
-        data.fullName ||
-        data.name ||
-        "Client";
+        const item =
+          document.createElement("div");
 
 
-      const details =
-        document.createElement("div");
-
-      details.className =
-        "person-details";
-
-      const membership =
-        data.membership ||
-        data.package ||
-        "Not assigned";
+        item.className =
+          "client-item";
 
 
-      details.innerHTML =
-        [
-          data.email
-            ? "Email: " + escapeHTML(data.email)
-            : "",
-          data.phone
-            ? "Telephone: " + escapeHTML(data.phone)
-            : "",
-          data.postcode
-            ? "Postcode: " + escapeHTML(data.postcode)
-            : "",
-          "Membership: " + escapeHTML(membership)
-        ]
-        .filter(Boolean)
-        .join("<br>");
+        const info =
+          document.createElement("div");
 
 
-      const status =
-        document.createElement("span");
-
-      status.className =
-        "status-pill status-approved";
-
-      status.textContent =
-        data.status || "Active";
+        const name =
+          document.createElement("div");
 
 
-      info.appendChild(name);
-
-      info.appendChild(details);
-
-      info.appendChild(status);
+        name.className =
+          "person-name";
 
 
-      item.appendChild(info);
+        name.textContent =
+          data.fullName ||
+          data.name ||
+          "Client";
 
 
-      clientList.appendChild(item);
+        const details =
+          document.createElement("div");
 
-    });
+
+        details.className =
+          "person-details";
+
+
+        const membership =
+          data.membership ||
+          data.package ||
+          "Not assigned";
+
+
+        details.innerHTML =
+          [
+            data.email
+              ? "Email: " + escapeHTML(data.email)
+              : "",
+
+            data.phone
+              ? "Telephone: " + escapeHTML(data.phone)
+              : "",
+
+            data.postcode
+              ? "Postcode: " + escapeHTML(data.postcode)
+              : "",
+
+            "Membership: " +
+              escapeHTML(membership)
+          ]
+          .filter(Boolean)
+          .join("<br>");
+
+
+        const status =
+          document.createElement("span");
+
+
+        status.className =
+          "status-pill status-approved";
+
+
+        status.textContent =
+          data.status ||
+          "Active";
+
+
+        info.appendChild(
+          name
+        );
+
+
+        info.appendChild(
+          details
+        );
+
+
+        info.appendChild(
+          status
+        );
+
+
+        item.appendChild(
+          info
+        );
+
+
+        clientList.appendChild(
+          item
+        );
+
+      }
+    );
+
+
+    return clients;
+
 
   }catch(error){
 
     console.error(error);
 
-    clientCount.textContent = "—";
+
+    clientCount.textContent =
+      "—";
+
 
     clientList.innerHTML =
       '<div class="empty-state">Unable to load clients.</div>';
 
+
+    return [];
+
   }
+
+}
+
+
+/* ==================================================
+   CLIENT FORMS
+================================================== */
+
+async function loadClientForms(clients){
+
+  formList.innerHTML =
+    '<div class="loading-state">Loading submitted forms...</div>';
+
+
+  formCount.textContent =
+    "—";
+
+
+  loadedForms =
+    new Map();
+
+
+  try{
+
+    const groups =
+      await Promise.all(
+
+        clients.map(
+          async function(client){
+
+            const snapshot =
+              await getDocs(
+                collection(
+                  db,
+                  "clients",
+                  client.id,
+                  "forms"
+                )
+              );
+
+
+            return snapshot.docs.map(
+              function(formDocument){
+
+                return {
+
+                  key:
+                    client.id +
+                    "/" +
+                    formDocument.id,
+
+                  clientId:
+                    client.id,
+
+                  clientName:
+                    client.data.fullName ||
+                    client.data.name ||
+                    "Client",
+
+                  formId:
+                    formDocument.id,
+
+                  data:
+                    formDocument.data()
+
+                };
+
+              }
+            );
+
+          }
+        )
+
+      );
+
+
+    const forms =
+      groups.flat();
+
+
+    forms.sort(
+      function(a,b){
+
+        return (
+          getTimestampMilliseconds(
+            b.data.updatedAt ||
+            b.data.submittedAt
+          )
+          -
+          getTimestampMilliseconds(
+            a.data.updatedAt ||
+            a.data.submittedAt
+          )
+        );
+
+      }
+    );
+
+
+    formCount.textContent =
+      String(forms.length);
+
+
+    formList.innerHTML =
+      "";
+
+
+    if(!forms.length){
+
+      formList.innerHTML =
+        '<div class="empty-state">No client forms have been submitted yet.</div>';
+
+      return;
+
+    }
+
+
+    forms.forEach(
+      function(form){
+
+        loadedForms.set(
+          form.key,
+          form
+        );
+
+
+        const item =
+          document.createElement("div");
+
+
+        item.className =
+          "form-item";
+
+
+        const info =
+          document.createElement("div");
+
+
+        const title =
+          document.createElement("div");
+
+
+        title.className =
+          "form-title";
+
+
+        title.textContent =
+          getFormTitle(
+            form.formId,
+            form.data
+          );
+
+
+        const client =
+          document.createElement("div");
+
+
+        client.className =
+          "form-client";
+
+
+        client.textContent =
+          form.clientName;
+
+
+        const meta =
+          document.createElement("div");
+
+
+        meta.className =
+          "form-meta";
+
+
+        const date =
+          formatDateTime(
+            form.data.updatedAt ||
+            form.data.submittedAt
+          );
+
+
+        meta.textContent =
+          date
+            ? "Updated: " + date
+            : "Submitted form";
+
+
+        const status =
+          document.createElement("span");
+
+
+        status.className =
+          "status-pill status-submitted";
+
+
+        status.textContent =
+          form.data.status === "submitted"
+            ? "Submitted"
+            : (
+              form.data.status ||
+              "Saved"
+            );
+
+
+        info.appendChild(
+          title
+        );
+
+
+        info.appendChild(
+          client
+        );
+
+
+        info.appendChild(
+          meta
+        );
+
+
+        info.appendChild(
+          status
+        );
+
+
+        const actions =
+          document.createElement("div");
+
+
+        actions.className =
+          "actions";
+
+
+        const view =
+          document.createElement("button");
+
+
+        view.type =
+          "button";
+
+
+        view.className =
+          "action-button view-button";
+
+
+        view.textContent =
+          "View Form";
+
+
+        view.addEventListener(
+          "click",
+          function(){
+
+            openFormViewer(
+              form.key
+            );
+
+          }
+        );
+
+
+        actions.appendChild(
+          view
+        );
+
+
+        item.appendChild(
+          info
+        );
+
+
+        item.appendChild(
+          actions
+        );
+
+
+        formList.appendChild(
+          item
+        );
+
+      }
+    );
+
+
+  }catch(error){
+
+    console.error(error);
+
+
+    formCount.textContent =
+      "—";
+
+
+    formList.innerHTML =
+      '<div class="empty-state">Unable to load client forms.</div>';
+
+  }
+
+}
+
+
+/* ==================================================
+   FORM VIEWER
+================================================== */
+
+function openFormViewer(key){
+
+  const form =
+    loadedForms.get(key);
+
+
+  if(!form){
+
+    return;
+
+  }
+
+
+  formModalTitle.textContent =
+    getFormTitle(
+      form.formId,
+      form.data
+    );
+
+
+  formModalClient.textContent =
+    form.clientName;
+
+
+  formDetailGrid.innerHTML =
+    "";
+
+
+  const fields =
+    getFormFields(
+      form.formId,
+      form.data
+    );
+
+
+  fields.forEach(
+    function(field){
+
+      const detail =
+        document.createElement("div");
+
+
+      detail.className =
+        "form-detail";
+
+
+      const label =
+        document.createElement("span");
+
+
+      label.className =
+        "form-detail-label";
+
+
+      label.textContent =
+        field.label;
+
+
+      const value =
+        document.createElement("div");
+
+
+      value.className =
+        "form-detail-value";
+
+
+      value.textContent =
+        formatFieldValue(
+          field.value
+        );
+
+
+      detail.appendChild(
+        label
+      );
+
+
+      detail.appendChild(
+        value
+      );
+
+
+      formDetailGrid.appendChild(
+        detail
+      );
+
+    }
+  );
+
+
+  formModal.classList.add(
+    "is-open"
+  );
+
+
+  formModal.setAttribute(
+    "aria-hidden",
+    "false"
+  );
+
+
+  document.body.style.overflow =
+    "hidden";
+
+}
+
+
+function closeFormViewer(){
+
+  formModal.classList.remove(
+    "is-open"
+  );
+
+
+  formModal.setAttribute(
+    "aria-hidden",
+    "true"
+  );
+
+
+  document.body.style.overflow =
+    "";
+
+}
+
+
+formModalClose.addEventListener(
+  "click",
+  closeFormViewer
+);
+
+
+formModal.addEventListener(
+  "click",
+  function(event){
+
+    if(
+      event.target === formModal
+    ){
+
+      closeFormViewer();
+
+    }
+
+  }
+);
+
+
+document.addEventListener(
+  "keydown",
+  function(event){
+
+    if(
+      event.key === "Escape" &&
+      formModal.classList.contains("is-open")
+    ){
+
+      closeFormViewer();
+
+    }
+
+  }
+);
+
+
+/* ==================================================
+   FORM FIELD DEFINITIONS
+================================================== */
+
+function getFormFields(formId,data){
+
+  if(formId === "client-information"){
+
+    return [
+
+      {
+        label:"Full name",
+        value:data.fullName
+      },
+
+      {
+        label:"Date of birth",
+        value:data.dateOfBirth
+      },
+
+      {
+        label:"Address",
+        value:data.address
+      },
+
+      {
+        label:"Telephone",
+        value:data.phone
+      },
+
+      {
+        label:"Email address",
+        value:data.email
+      },
+
+      {
+        label:"Emergency contact name",
+        value:data.emergencyContactName
+      },
+
+      {
+        label:"Emergency contact telephone",
+        value:data.emergencyContactPhone
+      },
+
+      {
+        label:"GP surgery / doctor details",
+        value:data.gpDetails
+      },
+
+      {
+        label:"Relevant medical conditions",
+        value:data.medicalConditions
+      },
+
+      {
+        label:"Allergies",
+        value:data.allergies
+      },
+
+      {
+        label:"Pets at the property",
+        value:data.pets
+      },
+
+      {
+        label:"Access instructions",
+        value:data.accessInstructions
+      },
+
+      {
+        label:"Preferred contact method",
+        value:data.preferredContactMethod
+      },
+
+      {
+        label:"Additional notes",
+        value:data.additionalNotes
+      },
+
+      {
+        label:"Last updated",
+        value:formatDateTime(
+          data.updatedAt ||
+          data.submittedAt
+        )
+      }
+
+    ];
+
+  }
+
+
+  if(formId === "client-review"){
+
+    return [
+
+      {
+        label:"Client name",
+        value:data.name
+      },
+
+      {
+        label:"Overall rating",
+        value:data.rating
+          ? data.rating + " / 5"
+          : ""
+      },
+
+      {
+        label:"Review",
+        value:data.review
+      },
+
+      {
+        label:"Permission to publish",
+        value:data.permissionToPublish === true
+          ? "Yes"
+          : "No"
+      },
+
+      {
+        label:"Last updated",
+        value:formatDateTime(
+          data.updatedAt ||
+          data.submittedAt
+        )
+      }
+
+    ];
+
+  }
+
+
+  if(formId === "change-of-circumstances"){
+
+    return [
+
+      {
+        label:"Client name",
+        value:data.name
+      },
+
+      {
+        label:"What has changed?",
+        value:data.changeType
+      },
+
+      {
+        label:"Effective date",
+        value:data.effectiveDate
+      },
+
+      {
+        label:"Urgent",
+        value:data.urgent === true
+          ? "Yes"
+          : "No"
+      },
+
+      {
+        label:"Details",
+        value:data.details
+      },
+
+      {
+        label:"Preferred contact method",
+        value:data.preferredContactMethod
+      },
+
+      {
+        label:"Last updated",
+        value:formatDateTime(
+          data.updatedAt ||
+          data.submittedAt
+        )
+      }
+
+    ];
+
+  }
+
+
+  return Object
+    .entries(data)
+    .filter(
+      function(entry){
+
+        return ![
+          "submittedBy",
+          "submittedAt",
+          "updatedAt",
+          "formType",
+          "status"
+        ].includes(entry[0]);
+
+      }
+    )
+    .map(
+      function(entry){
+
+        return {
+          label:
+            entry[0],
+          value:
+            entry[1]
+        };
+
+      }
+    );
 
 }
 
@@ -1776,14 +3024,80 @@ async function loadClients(){
    HELPERS
 ================================================== */
 
+function getFormTitle(formId,data){
+
+  const type =
+    data.formType ||
+    formId;
+
+
+  if(
+    type === "client-information"
+  ){
+
+    return "Client Information Form";
+
+  }
+
+
+  if(
+    type === "client-review"
+  ){
+
+    return "Client Review";
+
+  }
+
+
+  if(
+    type === "change-of-circumstances"
+  ){
+
+    return "Change of Circumstances";
+
+  }
+
+
+  return "Client Form";
+
+}
+
+
+function formatFieldValue(value){
+
+  if(
+    value === undefined ||
+    value === null ||
+    value === ""
+  ){
+
+    return "Not provided";
+
+  }
+
+
+  if(typeof value === "boolean"){
+
+    return value
+      ? "Yes"
+      : "No";
+
+  }
+
+
+  return String(value);
+
+}
+
+
 function escapeHTML(value){
 
   return String(value)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
 
 }
 
@@ -1816,9 +3130,72 @@ function formatDate(timestamp){
 
   }
 
+
   return "";
 
 }
+
+
+function formatDateTime(timestamp){
+
+  try{
+
+    if(
+      timestamp &&
+      typeof timestamp.toDate === "function"
+    ){
+
+      return timestamp
+        .toDate()
+        .toLocaleString(
+          "en-GB",
+          {
+            day:"numeric",
+            month:"short",
+            year:"numeric",
+            hour:"2-digit",
+            minute:"2-digit"
+          }
+        );
+
+    }
+
+  }catch(error){
+
+    console.error(error);
+
+  }
+
+
+  return "";
+
+}
+
+
+function getTimestampMilliseconds(timestamp){
+
+  try{
+
+    if(
+      timestamp &&
+      typeof timestamp.toMillis === "function"
+    ){
+
+      return timestamp.toMillis();
+
+    }
+
+  }catch(error){
+
+    console.error(error);
+
+  }
+
+
+  return 0;
+
+}
+
 
 </script>
 
