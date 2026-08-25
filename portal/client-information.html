@@ -1,1007 +1,2982 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 
 <head>
 
-  <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
-  <title>Client Information | My Sorted.</title>
-
-  <meta
-    name="robots"
-    content="noindex,nofollow"
-  >
-
-  <link
-    rel="icon"
-    href="../favicon.png"
-    type="image/png"
-  >
-
-  <meta
-    name="theme-color"
-    content="#17261b"
-  >
-
-  <style>
-
-    :root {
-      --cream: #f8f1e7;
-      --cream-light: #fffaf3;
-      --forest: #17261b;
-      --sage-dark: #314632;
-      --sage: #718c67;
-      --gold: #caa76a;
-      --ink: #1d241f;
-      --muted: #70756f;
-      --white: #ffffff;
-      --border: rgba(202,167,106,.28);
-      --shadow: 0 20px 55px rgba(23,38,27,.12);
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      min-height: 100vh;
-      font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
-        Helvetica,
-        Arial,
-        sans-serif;
-
-      background:
-        radial-gradient(
-          circle at top left,
-          rgba(202,167,106,.12),
-          transparent 30%
-        ),
-        var(--cream);
-
-      color: var(--ink);
-      line-height: 1.6;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button,
-    input,
-    textarea,
-    select {
-      font: inherit;
-    }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-
-      background: rgba(255,255,255,.94);
-      border-bottom: 1px solid rgba(202,167,106,.22);
-      box-shadow: 0 8px 30px rgba(23,38,27,.07);
-
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-    }
-
-    .header-inner {
-      width: min(1000px, 92%);
-      min-height: 72px;
-      margin: 0 auto;
-
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+<meta charset="UTF-8">
 
-      gap: 20px;
-    }
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
 
-    .logo {
-      color: var(--forest);
-      font-size: 2rem;
-      font-weight: 900;
-      letter-spacing: -1.5px;
-    }
+<title>Client Information | My Sorted.</title>
 
-    .logo span {
-      color: var(--gold);
-    }
+<meta
+  name="robots"
+  content="noindex,nofollow"
+>
 
-    .back-link {
-      padding: 10px 16px;
+<meta
+  name="theme-color"
+  content="#17261b"
+>
 
-      color: var(--forest);
-      background: var(--cream-light);
+<link
+  rel="icon"
+  href="../favicon.png"
+  type="image/png"
+>
 
-      border: 1px solid var(--border);
-      border-radius: 999px;
+<link
+  rel="apple-touch-icon"
+  href="../favicon.png"
+>
 
-      font-size: .9rem;
-      font-weight: 800;
-    }
+<link
+  rel="stylesheet"
+  href="brand.css"
+>
 
-    .page-wrap {
-      width: min(900px, 92%);
-      margin: 0 auto;
-      padding: 45px 0 70px;
-    }
+<script
+  defer
+  src="https://unpkg.com/lucide@0.542.0/dist/umd/lucide.js"
+></script>
 
-    .intro {
-      margin-bottom: 28px;
-      padding: 35px;
 
-      color: white;
+<style>
 
-      background:
-        radial-gradient(
-          circle at top right,
-          rgba(202,167,106,.2),
-          transparent 40%
-        ),
-        linear-gradient(
-          145deg,
-          var(--forest),
-          var(--sage-dark)
-        );
+/* ==================================================
+   ROOT
+================================================== */
 
-      border-radius: 28px;
-      box-shadow: var(--shadow);
-    }
+:root{
 
-    .eyebrow {
-      margin-bottom: 10px;
+  --cream:#f8f1e7;
+  --cream-soft:#fffaf4;
+  --cream-deep:#efe0cc;
 
-      color: var(--gold);
+  --forest:#17261b;
+  --forest-soft:#223228;
 
-      text-transform: uppercase;
-      letter-spacing: 2.3px;
+  --sage:#314632;
+  --sage-mid:#718c67;
+  --sage-pale:#e6eadf;
 
-      font-size: .76rem;
-      font-weight: 900;
-    }
+  --gold:#caa76a;
+  --gold-soft:#dec28d;
 
-    .intro h1 {
-      margin-bottom: 15px;
+  --white:#ffffff;
 
-      font-size: clamp(2.4rem, 6vw, 4rem);
-      line-height: 1;
-      letter-spacing: -2px;
-    }
+  --ink:#1d241f;
+  --muted:#6f746e;
 
-    .intro p:last-child {
-      max-width: 650px;
+  --line:rgba(23,38,27,.10);
+  --gold-line:rgba(202,167,106,.27);
 
-      color: rgba(255,255,255,.8);
+  --shadow:
+    0 24px 65px rgba(23,38,27,.12);
 
-      font-size: 1rem;
-      line-height: 1.75;
-    }
+  --shadow-deep:
+    0 34px 85px rgba(23,38,27,.16);
 
-    .secure-note {
-      margin-bottom: 28px;
-      padding: 18px 20px;
+  --soft-shadow:
+    0 14px 36px rgba(23,38,27,.08);
 
-      color: var(--sage-dark);
-      background: rgba(113,140,103,.09);
+}
 
-      border: 1px solid rgba(113,140,103,.18);
-      border-radius: 18px;
 
-      font-size: .94rem;
-      line-height: 1.65;
-    }
+/* ==================================================
+   RESET
+================================================== */
 
-    .form-card {
-      padding: 34px;
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
-      background: white;
+html{
+  scroll-behavior:smooth;
+}
 
-      border: 1px solid var(--border);
-      border-radius: 28px;
+body{
 
-      box-shadow: var(--shadow);
-    }
+  min-height:100vh;
 
-    .section-heading {
-      margin: 35px 0 20px;
-      padding-bottom: 12px;
+  overflow-x:hidden;
 
-      border-bottom: 1px solid rgba(23,38,27,.08);
-    }
+  background:
 
-    .section-heading:first-child {
-      margin-top: 0;
-    }
+    radial-gradient(
+      circle at 8% 2%,
+      rgba(202,167,106,.12),
+      transparent 28%
+    ),
 
-    .section-heading h2 {
-      color: var(--forest);
-      font-size: 1.35rem;
-    }
+    radial-gradient(
+      circle at 95% 18%,
+      rgba(113,140,103,.09),
+      transparent 27%
+    ),
 
-    .section-heading p {
-      margin-top: 5px;
+    var(--cream);
 
-      color: var(--muted);
+  color:var(--ink);
 
-      font-size: .9rem;
-    }
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
 
-    .form-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+  line-height:1.65;
 
-      gap: 20px;
-    }
+}
 
-    .form-group {
-      margin-bottom: 20px;
-    }
+::selection{
+  background:var(--gold);
+  color:white;
+}
 
-    .form-group.full {
-      grid-column: 1 / -1;
-    }
+::-moz-selection{
+  background:var(--gold);
+  color:white;
+}
 
-    label {
-      display: block;
+a{
+  color:inherit;
+  text-decoration:none;
+}
 
-      margin-bottom: 8px;
+button,
+input,
+textarea,
+select{
+  font:inherit;
+}
 
-      color: var(--forest);
 
-      font-size: .92rem;
-      font-weight: 800;
-    }
+/* ==================================================
+   ACCESSIBILITY
+================================================== */
 
-    .optional {
-      color: var(--muted);
+.skip-link{
 
-      font-size: .78rem;
-      font-weight: 600;
-    }
+  position:fixed;
 
-    input,
-    textarea,
-    select {
-      width: 100%;
+  top:-100px;
+  left:20px;
 
-      padding: 15px 16px;
+  z-index:100000;
 
-      color: var(--ink);
-      background: #fcfaf7;
+  padding:11px 17px;
 
-      border: 1px solid #e4dacb;
-      border-radius: 14px;
+  border-radius:12px;
 
-      outline: none;
+  background:var(--forest);
 
-      transition:
-        border-color .25s ease,
-        box-shadow .25s ease,
-        background .25s ease;
-    }
+  color:white;
 
-    input:focus,
-    textarea:focus,
-    select:focus {
-      background: white;
+  font-weight:800;
 
-      border-color: var(--gold);
+  transition:
+    top .2s ease;
 
-      box-shadow:
-        0 0 0 4px rgba(202,167,106,.16);
-    }
+}
 
-    textarea {
-      min-height: 110px;
-      resize: vertical;
-    }
+.skip-link:focus{
+  top:18px;
+}
 
-    .sensitive-box {
-      margin: 12px 0 25px;
-      padding: 20px;
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible{
 
-      background: #fbf5ec;
+  outline:
+    3px solid var(--gold);
 
-      border-left: 5px solid var(--gold);
-      border-radius: 0 17px 17px 0;
-    }
+  outline-offset:4px;
 
-    .sensitive-box strong {
-      display: block;
+}
 
-      margin-bottom: 5px;
 
-      color: var(--forest);
-    }
+/* ==================================================
+   GLOBAL
+================================================== */
 
-    .sensitive-box p {
-      color: var(--muted);
+.container{
 
-      font-size: .9rem;
-      line-height: 1.65;
-    }
+  width:min(1120px,92%);
+  margin:0 auto;
 
-    .submit-button {
-      width: 100%;
-      min-height: 56px;
+}
 
-      margin-top: 10px;
-      padding: 15px 25px;
+.eyebrow{
 
-      color: white;
-      background:
-        linear-gradient(
-          135deg,
-          var(--forest),
-          var(--sage-dark)
-        );
+  margin-bottom:12px;
 
-      border: 0;
-      border-radius: 999px;
+  color:var(--gold);
 
-      font-weight: 900;
+  font-size:.72rem;
+  font-weight:850;
 
-      cursor: pointer;
+  letter-spacing:2.7px;
 
-      box-shadow: 0 14px 30px rgba(23,38,27,.16);
-    }
+  text-transform:uppercase;
 
-    .submit-button:disabled {
-      opacity: .6;
-      cursor: not-allowed;
-    }
+}
 
-    .message {
-      display: none;
 
-      margin-top: 20px;
-      padding: 16px 18px;
+/* ==================================================
+   HEADER
+================================================== */
 
-      border-radius: 15px;
+.site-header{
 
-      font-size: .94rem;
-      line-height: 1.6;
-    }
+  position:sticky;
 
-    .message.success {
-      display: block;
+  top:0;
 
-      color: #285d37;
-      background: rgba(49,111,66,.09);
+  z-index:1000;
 
-      border: 1px solid rgba(49,111,66,.2);
-    }
+  background:
+    rgba(255,255,255,.80);
 
-    .message.error {
-      display: block;
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
 
-      color: #8c2727;
-      background: rgba(167,46,46,.08);
+  border-bottom:
+    1px solid rgba(255,255,255,.48);
 
-      border: 1px solid rgba(167,46,46,.18);
-    }
+  box-shadow:
+    0 9px 35px rgba(23,38,27,.07);
 
-    .loading-screen {
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
+}
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+.header-inner{
 
-      padding: 20px;
+  min-height:74px;
 
-      background: var(--cream);
-    }
+  display:flex;
 
-    .loading-card {
-      width: min(420px, 100%);
+  align-items:center;
+  justify-content:space-between;
 
-      padding: 30px;
+  gap:25px;
 
-      text-align: center;
+}
 
-      background: white;
+.header-brand{
 
-      border: 1px solid var(--border);
-      border-radius: 24px;
+  display:flex;
 
-      box-shadow: var(--shadow);
-    }
+  align-items:center;
 
-    .loading-card strong {
-      display: block;
+  gap:16px;
 
-      margin-bottom: 8px;
+}
 
-      color: var(--forest);
+.logo{
 
-      font-size: 1.25rem;
-    }
+  color:var(--forest);
 
-    .loading-card p {
-      color: var(--muted);
-    }
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
 
-    @media (max-width: 650px) {
+  font-size:2rem;
 
-      .header-inner {
-        min-height: 64px;
-      }
+  font-weight:500;
 
-      .logo {
-        font-size: 1.8rem;
-      }
+  letter-spacing:-1.2px;
 
-      .page-wrap {
-        width: 92%;
-        padding-top: 28px;
-      }
+}
 
-      .intro {
-        padding: 28px 24px;
-        border-radius: 24px;
-      }
+.logo span{
+  color:var(--gold);
+}
 
-      .form-card {
-        padding: 25px 21px;
-        border-radius: 24px;
-      }
+.portal-label{
 
-      .form-grid {
-        grid-template-columns: 1fr;
-        gap: 0;
-      }
+  padding-left:16px;
 
-      .form-group.full {
-        grid-column: auto;
-      }
+  border-left:
+    1px solid rgba(23,38,27,.12);
 
-    }
+  color:var(--sage);
 
-  </style>
+  font-size:.72rem;
+  font-weight:800;
 
-<link rel="stylesheet" href="brand.css">
+  letter-spacing:1.7px;
+
+  text-transform:uppercase;
+
+}
+
+.header-actions{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:10px;
+
+}
+
+.back-link{
+
+  display:inline-flex;
+
+  align-items:center;
+  justify-content:center;
+
+  gap:8px;
+
+  min-height:43px;
+
+  padding:
+    10px 16px;
+
+  border:
+    1px solid rgba(202,167,106,.31);
+
+  border-radius:999px;
+
+  background:
+    rgba(255,250,244,.88);
+
+  color:var(--forest);
+
+  font-size:.86rem;
+  font-weight:800;
+
+  transition:
+    transform .25s ease,
+    background .25s ease,
+    box-shadow .25s ease;
+
+}
+
+.back-link:hover{
+
+  transform:translateY(-2px);
+
+  background:white;
+
+  box-shadow:
+    0 10px 24px rgba(23,38,27,.08);
+
+}
+
+.back-link svg{
+
+  width:17px;
+  height:17px;
+
+}
+
+
+/* ==================================================
+   PAGE
+================================================== */
+
+.page-wrap{
+
+  padding:
+    44px 0 85px;
+
+}
+
+
+/* ==================================================
+   HERO
+================================================== */
+
+.portal-hero{
+
+  position:relative;
+
+  overflow:hidden;
+
+  margin-bottom:28px;
+
+  border:
+    1px solid rgba(202,167,106,.24);
+
+  border-radius:38px;
+
+  background:
+
+    radial-gradient(
+      circle at 90% 4%,
+      rgba(202,167,106,.18),
+      transparent 28%
+    ),
+
+    linear-gradient(
+      145deg,
+      var(--forest),
+      #213326
+    );
+
+  box-shadow:var(--shadow-deep);
+
+}
+
+.portal-hero::before{
+
+  content:"";
+
+  position:absolute;
+
+  right:-110px;
+  bottom:-150px;
+
+  width:360px;
+  height:360px;
+
+  border:
+    1px solid rgba(202,167,106,.10);
+
+  border-radius:50%;
+
+  pointer-events:none;
+
+}
+
+.portal-hero-grid{
+
+  position:relative;
+
+  z-index:2;
+
+  display:grid;
+
+  grid-template-columns:
+    1.25fr .75fr;
+
+  gap:60px;
+
+  align-items:center;
+
+  min-height:355px;
+
+  padding:52px;
+
+}
+
+.portal-hero-copy{
+
+  max-width:680px;
+
+}
+
+.portal-hero-copy .eyebrow{
+
+  color:var(--gold-soft);
+
+}
+
+.portal-hero h1{
+
+  max-width:640px;
+
+  margin-bottom:18px;
+
+  color:white;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(3rem,6vw,5.1rem);
+
+  font-weight:500;
+
+  line-height:.96;
+
+  letter-spacing:-2.8px;
+
+}
+
+.portal-hero-copy > p:not(.eyebrow){
+
+  max-width:650px;
+
+  color:
+    rgba(255,255,255,.74);
+
+  font-size:1rem;
+
+  line-height:1.8;
+
+}
+
+.hero-status{
+
+  position:relative;
+
+  padding:27px;
+
+  border:
+    1px solid rgba(255,255,255,.11);
+
+  border-radius:25px;
+
+  background:
+    rgba(255,255,255,.065);
+
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+
+}
+
+.hero-status-icon{
+
+  width:46px;
+  height:46px;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  margin-bottom:19px;
+
+  border-radius:50%;
+
+  background:
+    rgba(202,167,106,.16);
+
+  color:var(--gold-soft);
+
+}
+
+.hero-status-icon svg{
+
+  width:21px;
+  height:21px;
+
+}
+
+.hero-status h2{
+
+  margin-bottom:8px;
+
+  color:white;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:1.42rem;
+
+  font-weight:500;
+
+}
+
+.hero-status > p{
+
+  margin-bottom:18px;
+
+  color:
+    rgba(255,255,255,.65);
+
+  font-size:.88rem;
+
+  line-height:1.65;
+
+}
+
+.hero-status-list{
+
+  display:grid;
+
+  gap:10px;
+
+}
+
+.hero-status-item{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:9px;
+
+  padding-top:10px;
+
+  border-top:
+    1px solid rgba(255,255,255,.09);
+
+  color:
+    rgba(255,255,255,.82);
+
+  font-size:.79rem;
+  font-weight:700;
+
+}
+
+.hero-status-item::before{
+
+  content:"✓";
+
+  color:var(--gold-soft);
+
+  font-weight:900;
+
+}
+
+
+/* ==================================================
+   SECURE STRIP
+================================================== */
+
+.secure-strip{
+
+  display:grid;
+
+  grid-template-columns:
+    auto 1fr;
+
+  gap:15px;
+
+  align-items:center;
+
+  margin-bottom:34px;
+
+  padding:
+    17px 20px;
+
+  border:
+    1px solid rgba(113,140,103,.17);
+
+  border-radius:19px;
+
+  background:
+    rgba(113,140,103,.07);
+
+}
+
+.secure-icon{
+
+  width:39px;
+  height:39px;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  border-radius:50%;
+
+  background:
+    rgba(113,140,103,.12);
+
+  color:var(--sage);
+
+}
+
+.secure-icon svg{
+
+  width:18px;
+  height:18px;
+
+}
+
+.secure-strip strong{
+
+  display:block;
+
+  margin-bottom:2px;
+
+  color:var(--forest);
+
+  font-size:.9rem;
+
+}
+
+.secure-strip p{
+
+  color:var(--muted);
+
+  font-size:.84rem;
+
+  line-height:1.55;
+
+}
+
+
+/* ==================================================
+   FORM INTRO
+================================================== */
+
+.form-introduction{
+
+  display:grid;
+
+  grid-template-columns:
+    .72fr 1.28fr;
+
+  gap:50px;
+
+  align-items:end;
+
+  margin:
+    48px 0 30px;
+
+}
+
+.form-introduction h2{
+
+  color:var(--forest);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(2.3rem,5vw,3.7rem);
+
+  font-weight:500;
+
+  line-height:1;
+
+  letter-spacing:-2px;
+
+}
+
+.form-introduction > p{
+
+  max-width:610px;
+
+  color:var(--muted);
+
+  line-height:1.8;
+
+}
+
+
+/* ==================================================
+   FORM
+================================================== */
+
+.client-form{
+
+  display:grid;
+
+  gap:22px;
+
+}
+
+
+/* ==================================================
+   FORM SECTION
+================================================== */
+
+.form-section{
+
+  overflow:hidden;
+
+  display:grid;
+
+  grid-template-columns:
+    280px 1fr;
+
+  border:
+    1px solid rgba(202,167,106,.22);
+
+  border-radius:30px;
+
+  background:white;
+
+  box-shadow:var(--soft-shadow);
+
+}
+
+.form-section-heading{
+
+  position:relative;
+
+  padding:31px;
+
+  background:
+
+    radial-gradient(
+      circle at 0% 100%,
+      rgba(202,167,106,.12),
+      transparent 40%
+    ),
+
+    var(--cream-soft);
+
+  border-right:
+    1px solid rgba(23,38,27,.07);
+
+}
+
+.section-number{
+
+  display:inline-flex;
+
+  align-items:center;
+  justify-content:center;
+
+  min-width:36px;
+  height:30px;
+
+  margin-bottom:25px;
+
+  padding:
+    0 10px;
+
+  border-radius:999px;
+
+  background:
+    rgba(202,167,106,.13);
+
+  color:var(--gold);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:.75rem;
+  font-weight:700;
+
+}
+
+.form-section-heading h2{
+
+  margin-bottom:10px;
+
+  color:var(--forest);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:1.75rem;
+
+  font-weight:500;
+
+  line-height:1.05;
+
+  letter-spacing:-.8px;
+
+}
+
+.form-section-heading p{
+
+  color:var(--muted);
+
+  font-size:.86rem;
+
+  line-height:1.65;
+
+}
+
+.form-section-body{
+
+  padding:33px;
+
+}
+
+.form-grid{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(2,minmax(0,1fr));
+
+  gap:
+    21px 20px;
+
+}
+
+.form-group{
+
+  min-width:0;
+
+}
+
+.form-group.full{
+
+  grid-column:
+    1 / -1;
+
+}
+
+label{
+
+  display:block;
+
+  margin-bottom:8px;
+
+  color:var(--forest);
+
+  font-size:.88rem;
+  font-weight:760;
+
+}
+
+.optional{
+
+  margin-left:4px;
+
+  color:var(--muted);
+
+  font-size:.73rem;
+  font-weight:600;
+
+}
+
+input,
+textarea,
+select{
+
+  width:100%;
+
+  padding:
+    14px 15px;
+
+  color:var(--ink);
+
+  background:#fcfaf7;
+
+  border:
+    1px solid #e5dbcd;
+
+  border-radius:13px;
+
+  outline:none;
+
+  transition:
+    border-color .25s ease,
+    box-shadow .25s ease,
+    background .25s ease;
+
+}
+
+input:hover,
+textarea:hover,
+select:hover{
+
+  border-color:
+    rgba(202,167,106,.55);
+
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+
+  background:white;
+
+  border-color:var(--gold);
+
+  box-shadow:
+    0 0 0 4px rgba(202,167,106,.13);
+
+}
+
+textarea{
+
+  min-height:115px;
+
+  resize:vertical;
+
+}
+
+#address{
+
+  min-height:100px;
+
+}
+
+
+/* ==================================================
+   SENSITIVE INFORMATION
+================================================== */
+
+.sensitive-box{
+
+  position:relative;
+
+  display:grid;
+
+  grid-template-columns:
+    auto 1fr;
+
+  gap:14px;
+
+  align-items:start;
+
+  margin-bottom:23px;
+
+  padding:18px;
+
+  border:
+    1px solid rgba(202,167,106,.24);
+
+  border-radius:17px;
+
+  background:
+    #fbf5ec;
+
+}
+
+.sensitive-icon{
+
+  width:35px;
+  height:35px;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  flex-shrink:0;
+
+  border-radius:50%;
+
+  background:
+    rgba(202,167,106,.14);
+
+  color:var(--gold);
+
+}
+
+.sensitive-icon svg{
+
+  width:17px;
+  height:17px;
+
+}
+
+.sensitive-box strong{
+
+  display:block;
+
+  margin-bottom:4px;
+
+  color:var(--forest);
+
+  font-size:.88rem;
+
+}
+
+.sensitive-box p{
+
+  color:var(--muted);
+
+  font-size:.83rem;
+
+  line-height:1.62;
+
+}
+
+
+/* ==================================================
+   SAVE PANEL
+================================================== */
+
+.save-panel{
+
+  position:relative;
+
+  overflow:hidden;
+
+  display:grid;
+
+  grid-template-columns:
+    1fr auto;
+
+  gap:30px;
+
+  align-items:center;
+
+  margin-top:5px;
+
+  padding:
+    31px 34px;
+
+  border-radius:28px;
+
+  background:
+
+    radial-gradient(
+      circle at 95% 0%,
+      rgba(202,167,106,.18),
+      transparent 30%
+    ),
+
+    linear-gradient(
+      145deg,
+      var(--forest),
+      var(--forest-soft)
+    );
+
+  color:white;
+
+  box-shadow:var(--shadow);
+
+}
+
+.save-panel::before{
+
+  content:"";
+
+  position:absolute;
+
+  left:-95px;
+  bottom:-130px;
+
+  width:240px;
+  height:240px;
+
+  border:
+    1px solid rgba(202,167,106,.09);
+
+  border-radius:50%;
+
+  pointer-events:none;
+
+}
+
+.save-copy{
+
+  position:relative;
+
+  z-index:2;
+
+}
+
+.save-copy .eyebrow{
+
+  margin-bottom:7px;
+
+  color:var(--gold-soft);
+
+}
+
+.save-copy h2{
+
+  margin-bottom:5px;
+
+  color:white;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(1.7rem,4vw,2.45rem);
+
+  font-weight:500;
+
+  line-height:1.08;
+
+}
+
+.save-copy p{
+
+  max-width:590px;
+
+  color:
+    rgba(255,255,255,.67);
+
+  font-size:.86rem;
+
+}
+
+.submit-button{
+
+  position:relative;
+
+  z-index:2;
+
+  min-height:53px;
+
+  display:inline-flex;
+
+  align-items:center;
+  justify-content:center;
+
+  gap:9px;
+
+  padding:
+    13px 24px;
+
+  border:0;
+
+  border-radius:999px;
+
+  background:var(--gold);
+
+  color:var(--forest);
+
+  font-weight:850;
+
+  white-space:nowrap;
+
+  cursor:pointer;
+
+  box-shadow:
+    0 13px 28px rgba(0,0,0,.12);
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    opacity .25s ease;
+
+}
+
+.submit-button:hover:not(:disabled){
+
+  transform:translateY(-2px);
+
+  box-shadow:
+    0 17px 32px rgba(0,0,0,.16);
+
+}
+
+.submit-button:disabled{
+
+  opacity:.58;
+
+  cursor:not-allowed;
+
+}
+
+.submit-button svg{
+
+  width:18px;
+  height:18px;
+
+}
+
+
+/* ==================================================
+   MESSAGE
+================================================== */
+
+.message{
+
+  display:none;
+
+  margin-top:0;
+
+  padding:
+    17px 19px;
+
+  border-radius:17px;
+
+  font-size:.9rem;
+
+  line-height:1.6;
+
+}
+
+.message.success{
+
+  display:block;
+
+  color:#285d37;
+
+  background:
+    rgba(49,111,66,.09);
+
+  border:
+    1px solid rgba(49,111,66,.20);
+
+}
+
+.message.error{
+
+  display:block;
+
+  color:#8c2727;
+
+  background:
+    rgba(167,46,46,.08);
+
+  border:
+    1px solid rgba(167,46,46,.18);
+
+}
+
+
+/* ==================================================
+   PORTAL FOOTER
+================================================== */
+
+.portal-footer{
+
+  margin-top:42px;
+
+  padding-top:28px;
+
+  border-top:
+    1px solid rgba(23,38,27,.09);
+
+  text-align:center;
+
+}
+
+.portal-footer-logo{
+
+  display:inline-block;
+
+  margin-bottom:7px;
+
+  color:var(--forest);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:1.45rem;
+
+}
+
+.portal-footer-logo span{
+
+  color:var(--gold);
+
+}
+
+.portal-footer p{
+
+  color:var(--muted);
+
+  font-size:.77rem;
+
+}
+
+
+/* ==================================================
+   LOADING
+================================================== */
+
+.loading-screen{
+
+  position:fixed;
+
+  inset:0;
+
+  z-index:99999;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  padding:20px;
+
+  background:
+
+    radial-gradient(
+      circle at 50% 30%,
+      rgba(202,167,106,.11),
+      transparent 32%
+    ),
+
+    var(--cream);
+
+}
+
+.loading-card{
+
+  width:min(430px,100%);
+
+  padding:
+    37px 30px;
+
+  text-align:center;
+
+  border:
+    1px solid rgba(202,167,106,.25);
+
+  border-radius:27px;
+
+  background:white;
+
+  box-shadow:var(--shadow);
+
+}
+
+.loading-logo{
+
+  margin-bottom:20px;
+
+  color:var(--forest);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:2rem;
+
+}
+
+.loading-logo span{
+
+  color:var(--gold);
+
+}
+
+.loading-icon{
+
+  width:44px;
+  height:44px;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  margin:
+    0 auto 16px;
+
+  border-radius:50%;
+
+  background:
+    rgba(202,167,106,.12);
+
+  color:var(--gold);
+
+}
+
+.loading-card strong{
+
+  display:block;
+
+  margin-bottom:6px;
+
+  color:var(--forest);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:1.27rem;
+
+  font-weight:500;
+
+}
+
+.loading-card p{
+
+  color:var(--muted);
+
+  font-size:.88rem;
+
+  line-height:1.6;
+
+}
+
+
+/* ==================================================
+   TABLET
+================================================== */
+
+@media(max-width:900px){
+
+  .portal-hero-grid{
+
+    grid-template-columns:1fr;
+
+    gap:30px;
+
+  }
+
+  .hero-status{
+
+    max-width:600px;
+
+  }
+
+  .form-introduction{
+
+    grid-template-columns:1fr;
+
+    gap:15px;
+
+  }
+
+  .form-section{
+
+    grid-template-columns:1fr;
+
+  }
+
+  .form-section-heading{
+
+    padding:
+      26px 28px;
+
+    border-right:0;
+
+    border-bottom:
+      1px solid rgba(23,38,27,.07);
+
+  }
+
+  .section-number{
+
+    margin-bottom:16px;
+
+  }
+
+  .save-panel{
+
+    grid-template-columns:1fr;
+
+  }
+
+  .submit-button{
+
+    width:100%;
+
+  }
+
+}
+
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media(max-width:650px){
+
+  .container{
+
+    width:90%;
+
+  }
+
+  .header-inner{
+
+    min-height:64px;
+
+  }
+
+  .logo{
+
+    font-size:1.78rem;
+
+  }
+
+  .portal-label{
+
+    display:none;
+
+  }
+
+  .back-link{
+
+    min-height:40px;
+
+    padding:
+      8px 12px;
+
+    font-size:.78rem;
+
+  }
+
+  .page-wrap{
+
+    padding:
+      26px 0 58px;
+
+  }
+
+  .portal-hero{
+
+    border-radius:27px;
+
+  }
+
+  .portal-hero-grid{
+
+    min-height:0;
+
+    padding:
+      34px 22px;
+
+  }
+
+  .portal-hero h1{
+
+    font-size:2.75rem;
+
+    line-height:.98;
+
+    letter-spacing:-1.7px;
+
+  }
+
+  .portal-hero-copy > p:not(.eyebrow){
+
+    font-size:.92rem;
+
+    line-height:1.72;
+
+  }
+
+  .hero-status{
+
+    padding:22px;
+
+    border-radius:21px;
+
+  }
+
+  .secure-strip{
+
+    grid-template-columns:
+      36px 1fr;
+
+    gap:12px;
+
+    padding:
+      15px 16px;
+
+  }
+
+  .secure-icon{
+
+    width:35px;
+    height:35px;
+
+  }
+
+  .form-introduction{
+
+    margin:
+      38px 0 23px;
+
+  }
+
+  .form-introduction h2{
+
+    font-size:2.25rem;
+
+  }
+
+  .form-introduction > p{
+
+    font-size:.91rem;
+
+  }
+
+  .client-form{
+
+    gap:17px;
+
+  }
+
+  .form-section{
+
+    border-radius:24px;
+
+  }
+
+  .form-section-heading{
+
+    padding:
+      24px 21px;
+
+  }
+
+  .form-section-heading h2{
+
+    font-size:1.55rem;
+
+  }
+
+  .form-section-body{
+
+    padding:
+      24px 20px;
+
+  }
+
+  .form-grid{
+
+    grid-template-columns:1fr;
+
+    gap:18px;
+
+  }
+
+  .form-group.full{
+
+    grid-column:auto;
+
+  }
+
+  input,
+  textarea,
+  select{
+
+    padding:
+      13px 14px;
+
+  }
+
+  .sensitive-box{
+
+    grid-template-columns:
+      34px 1fr;
+
+    gap:11px;
+
+    padding:
+      15px;
+
+  }
+
+  .save-panel{
+
+    padding:
+      27px 21px;
+
+    border-radius:24px;
+
+  }
+
+  .save-copy h2{
+
+    font-size:1.9rem;
+
+  }
+
+}
+
+
+/* ==================================================
+   REDUCED MOTION
+================================================== */
+
+@media(prefers-reduced-motion:reduce){
+
+  html{
+    scroll-behavior:auto;
+  }
+
+  *,
+  *::before,
+  *::after{
+
+    transition-duration:.01ms !important;
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+
+  }
+
+}
+
+</style>
 
 </head>
 
+
 <body>
 
-  <div
-    id="loading-screen"
-    class="loading-screen"
-  >
 
-    <div class="loading-card">
+<a
+  href="#main-content"
+  class="skip-link"
+>
+  Skip to client information
+</a>
 
-      <strong>
-        Opening your secure form…
-      </strong>
 
-      <p>
-        Please wait while we check your Sorted. account.
-      </p>
+<!-- ==================================================
+     LOADING
+================================================== -->
 
+<div
+  id="loading-screen"
+  class="loading-screen"
+>
+
+  <div class="loading-card">
+
+    <div class="loading-logo">
+      Sorted<span>.</span>
     </div>
+
+    <div class="loading-icon">
+      <i data-lucide="shield-check"></i>
+    </div>
+
+    <strong>
+      Opening your secure form…
+    </strong>
+
+    <p>
+      Please wait while we check your
+      My Sorted. account.
+    </p>
 
   </div>
 
+</div>
 
-  <header class="site-header">
 
-    <div class="header-inner">
+<!-- ==================================================
+     HEADER
+================================================== -->
+
+<header class="site-header">
+
+  <div class="container header-inner">
+
+
+    <div class="header-brand">
 
       <a
         href="dashboard.html"
         class="logo"
+        aria-label="My Sorted. dashboard"
       >
         Sorted<span>.</span>
       </a>
+
+      <span class="portal-label">
+        My Sorted.
+      </span>
+
+    </div>
+
+
+    <div class="header-actions">
 
       <a
         href="forms.html"
         class="back-link"
       >
-        ← Forms
+
+        <i data-lucide="arrow-left"></i>
+
+        <span>
+          Forms
+        </span>
+
       </a>
 
     </div>
 
-  </header>
+
+  </div>
+
+</header>
 
 
-  <main class="page-wrap">
+<!-- ==================================================
+     MAIN
+================================================== -->
 
-    <section class="intro">
+<main
+  id="main-content"
+  class="page-wrap"
+>
 
-      <p class="eyebrow">
-        My Sorted.
-      </p>
+  <div class="container">
 
-      <h1>
-        Client Information
-      </h1>
 
-      <p>
-        Keep your personal details, preferences and important support
-        information up to date so we can provide your service safely,
-        thoughtfully and reliably.
-      </p>
+    <!-- ==================================================
+         HERO
+    ================================================== -->
+
+    <section class="portal-hero">
+
+      <div class="portal-hero-grid">
+
+
+        <div class="portal-hero-copy">
+
+          <p class="eyebrow">
+            MY SORTED.
+          </p>
+
+          <h1>
+            Client Information
+          </h1>
+
+          <p>
+            Keep the details we use to support you
+            accurate and up to date. This helps us
+            understand your household, preferences
+            and any important information relevant
+            to the service we provide.
+          </p>
+
+        </div>
+
+
+        <aside class="hero-status">
+
+          <div class="hero-status-icon">
+            <i data-lucide="lock-keyhole"></i>
+          </div>
+
+          <h2>
+            Your secure client record
+          </h2>
+
+          <p>
+            Information entered here is stored directly
+            within your Sorted. client account.
+          </p>
+
+
+          <div class="hero-status-list">
+
+            <div class="hero-status-item">
+              Securely stored
+            </div>
+
+            <div class="hero-status-item">
+              Used only where relevant
+            </div>
+
+            <div class="hero-status-item">
+              Update whenever things change
+            </div>
+
+          </div>
+
+        </aside>
+
+
+      </div>
 
     </section>
 
 
-    <div class="secure-note">
+    <!-- ==================================================
+         SECURE NOTE
+    ================================================== -->
 
-      🔒 <strong>Your information is stored securely in your Sorted. client account.</strong>
-      This form is not sent by ordinary email.
+    <div class="secure-strip">
 
-    </div>
+      <div class="secure-icon">
+        <i data-lucide="shield-check"></i>
+      </div>
 
+      <div>
 
-    <form
-      id="client-form"
-      class="form-card"
-    >
-
-      <div class="section-heading">
-
-        <h2>
-          Your details
-        </h2>
+        <strong>
+          Your information stays inside your Sorted. client account.
+        </strong>
 
         <p>
-          Basic information we use to manage your Sorted. account.
+          This form is saved securely to your portal record
+          and is not sent using ordinary email.
         </p>
 
       </div>
 
-
-      <div class="form-grid">
-
-        <div class="form-group full">
-
-          <label for="fullName">
-            Full name
-          </label>
-
-          <input
-            id="fullName"
-            type="text"
-            autocomplete="name"
-            required
-          >
-
-        </div>
+    </div>
 
 
-        <div class="form-group">
+    <!-- ==================================================
+         FORM INTRO
+    ================================================== -->
 
-          <label for="dateOfBirth">
-            Date of birth
-            <span class="optional">(optional)</span>
-          </label>
+    <div class="form-introduction">
 
-          <input
-            id="dateOfBirth"
-            type="date"
-          >
+      <div>
 
-        </div>
+        <p class="eyebrow">
+          YOUR CLIENT RECORD
+        </p>
 
+        <h2>
+          The details that help us support you properly.
+        </h2>
 
-        <div class="form-group">
+      </div>
 
-          <label for="phone">
-            Telephone
-          </label>
+      <p>
+        Some information is essential for managing your
+        account, while other fields are optional. Only
+        provide health or household information where it
+        is relevant to the support Sorted. provides.
+      </p>
 
-          <input
-            id="phone"
-            type="tel"
-            autocomplete="tel"
-            required
-          >
-
-        </div>
+    </div>
 
 
-        <div class="form-group full">
+    <!-- ==================================================
+         FORM
+    ================================================== -->
 
-          <label for="email">
-            Email address
-          </label>
-
-          <input
-            id="email"
-            type="email"
-            autocomplete="email"
-            required
-          >
-
-        </div>
+    <form
+      id="client-form"
+      class="client-form"
+    >
 
 
-        <div class="form-group full">
+      <!-- ==================================================
+           01 YOUR DETAILS
+      ================================================== -->
 
-          <label for="address">
-            Address
-          </label>
-
-          <textarea
-            id="address"
-            autocomplete="street-address"
-            required
-          ></textarea>
-
-        </div>
+      <section class="form-section">
 
 
-        <div class="section-heading form-group full">
+        <div class="form-section-heading">
+
+          <span class="section-number">
+            01
+          </span>
 
           <h2>
-            Emergency contact
+            Your details
           </h2>
 
           <p>
-            Someone we can contact where appropriate if an urgent situation arises.
+            The basic contact information attached
+            to your Sorted. client account.
           </p>
 
         </div>
 
 
-        <div class="form-group">
+        <div class="form-section-body">
 
-          <label for="emergencyContactName">
-            Emergency contact name
-          </label>
-
-          <input
-            id="emergencyContactName"
-            type="text"
-            required
-          >
-
-        </div>
+          <div class="form-grid">
 
 
-        <div class="form-group">
+            <div class="form-group full">
 
-          <label for="emergencyContactPhone">
-            Emergency contact telephone
-          </label>
+              <label for="fullName">
+                Full name
+              </label>
 
-          <input
-            id="emergencyContactPhone"
-            type="tel"
-            required
-          >
+              <input
+                id="fullName"
+                type="text"
+                autocomplete="name"
+                required
+              >
 
-        </div>
-
-
-        <div class="section-heading form-group full">
-
-          <h2>
-            Health &amp; support information
-          </h2>
-
-          <p>
-            Only provide information that is relevant to the support Sorted. provides.
-          </p>
-
-        </div>
+            </div>
 
 
-        <div class="form-group full">
+            <div class="form-group">
 
-          <div class="sensitive-box">
+              <label for="dateOfBirth">
+                Date of birth
+                <span class="optional">
+                  Optional
+                </span>
+              </label>
 
-            <strong>
-              Sensitive information
-            </strong>
+              <input
+                id="dateOfBirth"
+                type="date"
+                autocomplete="bday"
+              >
 
-            <p>
-              Health information is treated as confidential information.
-              Please do not upload or enter full medical records. Only include
-              details that Sorted. reasonably needs to provide your support safely.
-            </p>
+            </div>
+
+
+            <div class="form-group">
+
+              <label for="phone">
+                Telephone
+              </label>
+
+              <input
+                id="phone"
+                type="tel"
+                autocomplete="tel"
+                required
+              >
+
+            </div>
+
+
+            <div class="form-group full">
+
+              <label for="email">
+                Email address
+              </label>
+
+              <input
+                id="email"
+                type="email"
+                autocomplete="email"
+                required
+              >
+
+            </div>
+
+
+            <div class="form-group full">
+
+              <label for="address">
+                Home address
+              </label>
+
+              <textarea
+                id="address"
+                autocomplete="street-address"
+                required
+              ></textarea>
+
+            </div>
+
 
           </div>
 
         </div>
 
 
-        <div class="form-group full">
-
-          <label for="gpDetails">
-            GP surgery / doctor details
-            <span class="optional">(optional)</span>
-          </label>
-
-          <textarea
-            id="gpDetails"
-          ></textarea>
-
-        </div>
+      </section>
 
 
-        <div class="form-group full">
+      <!-- ==================================================
+           02 EMERGENCY CONTACT
+      ================================================== -->
 
-          <label for="medicalConditions">
-            Relevant medical conditions
-            <span class="optional">(optional)</span>
-          </label>
-
-          <textarea
-            id="medicalConditions"
-          ></textarea>
-
-        </div>
+      <section class="form-section">
 
 
-        <div class="form-group full">
+        <div class="form-section-heading">
 
-          <label for="allergies">
-            Allergies
-            <span class="optional">(optional)</span>
-          </label>
+          <span class="section-number">
+            02
+          </span>
 
-          <textarea
-            id="allergies"
-          ></textarea>
+          <h2>
+            Emergency contact
+          </h2>
+
+          <p>
+            Someone we can contact where appropriate
+            if an urgent situation arises during
+            your support.
+          </p>
 
         </div>
 
 
-        <div class="section-heading form-group full">
+        <div class="form-section-body">
+
+          <div class="form-grid">
+
+
+            <div class="form-group">
+
+              <label for="emergencyContactName">
+                Contact name
+              </label>
+
+              <input
+                id="emergencyContactName"
+                type="text"
+                autocomplete="name"
+                required
+              >
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label for="emergencyContactPhone">
+                Contact telephone
+              </label>
+
+              <input
+                id="emergencyContactPhone"
+                type="tel"
+                autocomplete="tel"
+                required
+              >
+
+            </div>
+
+
+          </div>
+
+        </div>
+
+
+      </section>
+
+
+      <!-- ==================================================
+           03 HEALTH & SUPPORT
+      ================================================== -->
+
+      <section class="form-section">
+
+
+        <div class="form-section-heading">
+
+          <span class="section-number">
+            03
+          </span>
+
+          <h2>
+            Health &amp; support
+          </h2>
+
+          <p>
+            Only tell us information that is
+            genuinely relevant to providing your
+            support safely.
+          </p>
+
+        </div>
+
+
+        <div class="form-section-body">
+
+
+          <div class="sensitive-box">
+
+            <div class="sensitive-icon">
+              <i data-lucide="shield-alert"></i>
+            </div>
+
+            <div>
+
+              <strong>
+                Sensitive information
+              </strong>
+
+              <p>
+                Please do not enter complete medical
+                records. Only include health information
+                that Sorted. reasonably needs to know
+                in connection with your service.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="form-grid">
+
+
+            <div class="form-group full">
+
+              <label for="gpDetails">
+                GP surgery / doctor details
+                <span class="optional">
+                  Optional
+                </span>
+              </label>
+
+              <textarea
+                id="gpDetails"
+                placeholder="For example, surgery name and telephone number where relevant."
+              ></textarea>
+
+            </div>
+
+
+            <div class="form-group full">
+
+              <label for="medicalConditions">
+                Relevant medical conditions
+                <span class="optional">
+                  Optional
+                </span>
+              </label>
+
+              <textarea
+                id="medicalConditions"
+                placeholder="Only include information relevant to the support we provide."
+              ></textarea>
+
+            </div>
+
+
+            <div class="form-group full">
+
+              <label for="allergies">
+                Relevant allergies
+                <span class="optional">
+                  Optional
+                </span>
+              </label>
+
+              <textarea
+                id="allergies"
+                placeholder="Please include anything we should reasonably be aware of."
+              ></textarea>
+
+            </div>
+
+
+          </div>
+
+        </div>
+
+
+      </section>
+
+
+      <!-- ==================================================
+           04 HOME & PREFERENCES
+      ================================================== -->
+
+      <section class="form-section">
+
+
+        <div class="form-section-heading">
+
+          <span class="section-number">
+            04
+          </span>
 
           <h2>
             Home &amp; preferences
           </h2>
 
           <p>
-            Information that helps us prepare for visits and support your household.
+            Practical details that help visits
+            feel smoother and more familiar.
           </p>
 
         </div>
 
 
-        <div class="form-group full">
+        <div class="form-section-body">
 
-          <label for="pets">
-            Pets at the property
-            <span class="optional">(optional)</span>
-          </label>
+          <div class="form-grid">
 
-          <textarea
-            id="pets"
-          ></textarea>
+
+            <div class="form-group full">
+
+              <label for="pets">
+                Pets at the property
+                <span class="optional">
+                  Optional
+                </span>
+              </label>
+
+              <textarea
+                id="pets"
+                placeholder="For example, pet names, type of pet or anything relevant when visiting."
+              ></textarea>
+
+            </div>
+
+
+            <div class="form-group full">
+
+              <label for="accessInstructions">
+                Access instructions
+                <span class="optional">
+                  Optional
+                </span>
+              </label>
+
+              <textarea
+                id="accessInstructions"
+                placeholder="Parking, entry arrangements or other relevant instructions."
+              ></textarea>
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label for="preferredContactMethod">
+                Preferred contact method
+              </label>
+
+              <select
+                id="preferredContactMethod"
+              >
+
+                <option value="Email">
+                  Email
+                </option>
+
+                <option value="Phone">
+                  Phone
+                </option>
+
+                <option value="Text Message">
+                  Text message
+                </option>
+
+                <option value="WhatsApp">
+                  WhatsApp
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div class="form-group full">
+
+              <label for="additionalNotes">
+                Anything else we should know?
+                <span class="optional">
+                  Optional
+                </span>
+              </label>
+
+              <textarea
+                id="additionalNotes"
+                placeholder="Preferences, routines or other information that would help us support you."
+              ></textarea>
+
+            </div>
+
+
+          </div>
 
         </div>
 
 
-        <div class="form-group full">
-
-          <label for="accessInstructions">
-            Access instructions
-            <span class="optional">(optional)</span>
-          </label>
-
-          <textarea
-            id="accessInstructions"
-            placeholder="Parking, entry arrangements or other relevant instructions."
-          ></textarea>
-
-        </div>
+      </section>
 
 
-        <div class="form-group">
+      <!-- ==================================================
+           SAVE
+      ================================================== -->
 
-          <label for="preferredContactMethod">
-            Preferred contact method
-          </label>
+      <section class="save-panel">
 
-          <select id="preferredContactMethod">
 
-            <option value="Email">
-              Email
-            </option>
+        <div class="save-copy">
 
-            <option value="Phone">
-              Phone
-            </option>
+          <p class="eyebrow">
+            ALL DONE?
+          </p>
 
-            <option value="Text Message">
-              Text message
-            </option>
+          <h2>
+            Keep your Sorted. record up to date.
+          </h2>
 
-            <option value="WhatsApp">
-              WhatsApp
-            </option>
-
-          </select>
+          <p>
+            You can return to this page whenever
+            your details, household or circumstances
+            change.
+          </p>
 
         </div>
 
 
-        <div class="form-group full">
+        <button
+          id="submit-button"
+          type="submit"
+          class="submit-button"
+        >
 
-          <label for="additionalNotes">
-            Anything else we should know?
-            <span class="optional">(optional)</span>
-          </label>
+          <i data-lucide="lock-keyhole"></i>
 
-          <textarea
-            id="additionalNotes"
-          ></textarea>
+          <span>
+            Save Information Securely
+          </span>
 
-        </div>
-
-      </div>
+        </button>
 
 
-      <button
-        id="submit-button"
-        type="submit"
-        class="submit-button"
-      >
-        Save Information Securely
-      </button>
+      </section>
 
 
       <div
         id="form-message"
         class="message"
         role="alert"
+        aria-live="polite"
       ></div>
+
 
     </form>
 
-  </main>
+
+    <!-- ==================================================
+         FOOTER
+    ================================================== -->
+
+    <div class="portal-footer">
+
+      <a
+        href="dashboard.html"
+        class="portal-footer-logo"
+      >
+        Sorted<span>.</span>
+      </a>
+
+      <p>
+        My Sorted. · Secure Client Portal
+      </p>
+
+    </div>
 
 
-  <script type="module">
+  </div>
 
-    import {
-      auth,
-      db
-    } from "../firebase.js";
+</main>
 
 
-    import {
-      onAuthStateChanged
-    } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
+<!-- ==================================================
+     FIREBASE
+================================================== -->
+
+<script type="module">
+
+import {
+  auth,
+  db
+} from "../firebase.js";
 
 
-    import {
-      doc,
-      getDoc,
-      setDoc,
-      serverTimestamp,
-      collection,
-      query,
-      where,
-      getDocs,
-      limit
-    } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
+import {
+  onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
 
 
-    const loadingScreen =
-      document.getElementById("loading-screen");
-
-    const clientForm =
-      document.getElementById("client-form");
-
-    const submitButton =
-      document.getElementById("submit-button");
-
-    const formMessage =
-      document.getElementById("form-message");
-
-
-    let currentUser = null;
-
-    let clientId = null;
+import {
+  doc,
+  getDoc,
+  setDoc,
+  serverTimestamp,
+  collection,
+  query,
+  where,
+  getDocs,
+  limit
+} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
 
 
-    function showMessage(type, text) {
+const loadingScreen =
+  document.getElementById("loading-screen");
 
-      formMessage.className =
-        "message " + type;
+const clientForm =
+  document.getElementById("client-form");
 
-      formMessage.textContent =
-        text;
+const submitButton =
+  document.getElementById("submit-button");
+
+const formMessage =
+  document.getElementById("form-message");
+
+
+let currentUser = null;
+
+let clientId = null;
+
+
+/* ==================================================
+   MESSAGE
+================================================== */
+
+function showMessage(type, text){
+
+  formMessage.className =
+    "message " + type;
+
+  formMessage.textContent =
+    text;
+
+}
+
+
+/* ==================================================
+   FIND CLIENT
+================================================== */
+
+async function findClientRecord(user){
+
+  /*
+    First try clients/{uid}.
+
+    This supports the newer client structure.
+  */
+
+  const directClientRef =
+    doc(
+      db,
+      "clients",
+      user.uid
+    );
+
+
+  const directClientSnapshot =
+    await getDoc(directClientRef);
+
+
+  if(directClientSnapshot.exists()){
+
+    return {
+      id:directClientSnapshot.id,
+      data:directClientSnapshot.data()
+    };
+
+  }
+
+
+  /*
+    Fallback for older client records.
+  */
+
+  const clientQuery =
+    query(
+      collection(db,"clients"),
+      where(
+        "ownerUID",
+        "==",
+        user.uid
+      ),
+      limit(1)
+    );
+
+
+  const querySnapshot =
+    await getDocs(clientQuery);
+
+
+  if(querySnapshot.empty){
+
+    return null;
+
+  }
+
+
+  const clientDocument =
+    querySnapshot.docs[0];
+
+
+  return {
+    id:clientDocument.id,
+    data:clientDocument.data()
+  };
+
+}
+
+
+/* ==================================================
+   LOAD EXISTING FORM
+================================================== */
+
+async function loadExistingForm(){
+
+  const formRef =
+    doc(
+      db,
+      "clients",
+      clientId,
+      "forms",
+      "client-information"
+    );
+
+
+  const formSnapshot =
+    await getDoc(formRef);
+
+
+  if(!formSnapshot.exists()){
+
+    return;
+
+  }
+
+
+  const data =
+    formSnapshot.data();
+
+
+  document.getElementById("fullName").value =
+    data.fullName || "";
+
+  document.getElementById("dateOfBirth").value =
+    data.dateOfBirth || "";
+
+  document.getElementById("address").value =
+    data.address || "";
+
+  document.getElementById("phone").value =
+    data.phone || "";
+
+  document.getElementById("email").value =
+    data.email || "";
+
+  document.getElementById("emergencyContactName").value =
+    data.emergencyContactName || "";
+
+  document.getElementById("emergencyContactPhone").value =
+    data.emergencyContactPhone || "";
+
+  document.getElementById("gpDetails").value =
+    data.gpDetails || "";
+
+  document.getElementById("medicalConditions").value =
+    data.medicalConditions || "";
+
+  document.getElementById("allergies").value =
+    data.allergies || "";
+
+  document.getElementById("pets").value =
+    data.pets || "";
+
+  document.getElementById("accessInstructions").value =
+    data.accessInstructions || "";
+
+  document.getElementById("preferredContactMethod").value =
+    data.preferredContactMethod || "Email";
+
+  document.getElementById("additionalNotes").value =
+    data.additionalNotes || "";
+
+}
+
+
+/* ==================================================
+   INITIALISE PORTAL
+================================================== */
+
+async function initialisePortal(user){
+
+  try{
+
+    currentUser =
+      user;
+
+
+    if(!user.emailVerified){
+
+      window.location.href =
+        "index.html";
+
+      return;
 
     }
 
 
-    async function findClientRecord(user) {
-
-      /*
-        First try clients/{uid}.
-
-        This supports the newer client structure.
-      */
-
-      const directClientRef =
-        doc(
-          db,
-          "clients",
-          user.uid
-        );
+    const userRef =
+      doc(
+        db,
+        "users",
+        user.uid
+      );
 
 
-      const directClientSnapshot =
-        await getDoc(directClientRef);
+    const userSnapshot =
+      await getDoc(userRef);
 
 
-      if (directClientSnapshot.exists()) {
+    if(!userSnapshot.exists()){
 
-        return {
-          id: directClientSnapshot.id,
-          data: directClientSnapshot.data()
-        };
+      window.location.href =
+        "index.html";
 
-      }
-
-
-      /*
-        Fallback for older client records such as the
-        original Jamie account.
-      */
-
-      const clientQuery =
-        query(
-          collection(db, "clients"),
-          where(
-            "ownerUID",
-            "==",
-            user.uid
-          ),
-          limit(1)
-        );
-
-
-      const querySnapshot =
-        await getDocs(clientQuery);
-
-
-      if (querySnapshot.empty) {
-
-        return null;
-
-      }
-
-
-      const clientDocument =
-        querySnapshot.docs[0];
-
-
-      return {
-        id: clientDocument.id,
-        data: clientDocument.data()
-      };
+      return;
 
     }
 
 
-    async function loadExistingForm() {
+    const userData =
+      userSnapshot.data();
+
+
+    if(
+      userData.role !== "client" ||
+      userData.status !== "approved"
+    ){
+
+      window.location.href =
+        "index.html";
+
+      return;
+
+    }
+
+
+    const clientRecord =
+      await findClientRecord(user);
+
+
+    if(!clientRecord){
+
+      loadingScreen.innerHTML =
+        `
+          <div class="loading-card">
+
+            <div class="loading-logo">
+              Sorted<span>.</span>
+            </div>
+
+            <strong>
+              Account setup incomplete
+            </strong>
+
+            <p>
+              Your portal account is approved,
+              but your Sorted. client record has
+              not yet been connected. Please
+              contact Sorted.
+            </p>
+
+          </div>
+        `;
+
+      return;
+
+    }
+
+
+    clientId =
+      clientRecord.id;
+
+
+    /*
+      Prefill using the existing client record
+      before loading a previously saved form.
+    */
+
+    document.getElementById("fullName").value =
+      clientRecord.data.fullName ||
+      clientRecord.data.name ||
+      userData.fullName ||
+      "";
+
+    document.getElementById("phone").value =
+      clientRecord.data.phone ||
+      userData.phone ||
+      "";
+
+    document.getElementById("email").value =
+      clientRecord.data.email ||
+      user.email ||
+      userData.email ||
+      "";
+
+
+    await loadExistingForm();
+
+
+    loadingScreen.style.display =
+      "none";
+
+
+  }catch(error){
+
+    console.error(error);
+
+
+    loadingScreen.innerHTML =
+      `
+        <div class="loading-card">
+
+          <div class="loading-logo">
+            Sorted<span>.</span>
+          </div>
+
+          <strong>
+            We couldn't open the form
+          </strong>
+
+          <p>
+            Please return to your portal
+            and try again.
+          </p>
+
+        </div>
+      `;
+
+  }
+
+}
+
+
+/* ==================================================
+   AUTH
+================================================== */
+
+onAuthStateChanged(
+  auth,
+  function(user){
+
+    if(!user){
+
+      window.location.href =
+        "index.html";
+
+      return;
+
+    }
+
+
+    initialisePortal(user);
+
+  }
+);
+
+
+/* ==================================================
+   SAVE FORM
+================================================== */
+
+clientForm.addEventListener(
+  "submit",
+  async function(event){
+
+    event.preventDefault();
+
+
+    if(
+      !currentUser ||
+      !clientId
+    ){
+
+      showMessage(
+        "error",
+        "Your client account could not be confirmed."
+      );
+
+      return;
+
+    }
+
+
+    submitButton.disabled =
+      true;
+
+    submitButton.innerHTML =
+      `
+        <span>
+          Saving securely…
+        </span>
+      `;
+
+
+    try{
 
       const formRef =
         doc(
@@ -1013,404 +2988,182 @@
         );
 
 
-      const formSnapshot =
-        await getDoc(formRef);
+      await setDoc(
+        formRef,
+        {
 
+          formType:
+            "client-information",
 
-      if (!formSnapshot.exists()) {
+          status:
+            "submitted",
 
-        return;
+          fullName:
+            document
+              .getElementById("fullName")
+              .value
+              .trim(),
 
-      }
+          dateOfBirth:
+            document
+              .getElementById("dateOfBirth")
+              .value,
 
+          address:
+            document
+              .getElementById("address")
+              .value
+              .trim(),
 
-      const data =
-        formSnapshot.data();
+          phone:
+            document
+              .getElementById("phone")
+              .value
+              .trim(),
 
+          email:
+            document
+              .getElementById("email")
+              .value
+              .trim(),
 
-      document.getElementById("fullName").value =
-        data.fullName || "";
+          emergencyContactName:
+            document
+              .getElementById("emergencyContactName")
+              .value
+              .trim(),
 
-      document.getElementById("dateOfBirth").value =
-        data.dateOfBirth || "";
+          emergencyContactPhone:
+            document
+              .getElementById("emergencyContactPhone")
+              .value
+              .trim(),
 
-      document.getElementById("address").value =
-        data.address || "";
+          gpDetails:
+            document
+              .getElementById("gpDetails")
+              .value
+              .trim(),
 
-      document.getElementById("phone").value =
-        data.phone || "";
+          medicalConditions:
+            document
+              .getElementById("medicalConditions")
+              .value
+              .trim(),
 
-      document.getElementById("email").value =
-        data.email || "";
+          allergies:
+            document
+              .getElementById("allergies")
+              .value
+              .trim(),
 
-      document.getElementById("emergencyContactName").value =
-        data.emergencyContactName || "";
+          pets:
+            document
+              .getElementById("pets")
+              .value
+              .trim(),
 
-      document.getElementById("emergencyContactPhone").value =
-        data.emergencyContactPhone || "";
+          accessInstructions:
+            document
+              .getElementById("accessInstructions")
+              .value
+              .trim(),
 
-      document.getElementById("gpDetails").value =
-        data.gpDetails || "";
+          preferredContactMethod:
+            document
+              .getElementById("preferredContactMethod")
+              .value,
 
-      document.getElementById("medicalConditions").value =
-        data.medicalConditions || "";
+          additionalNotes:
+            document
+              .getElementById("additionalNotes")
+              .value
+              .trim(),
 
-      document.getElementById("allergies").value =
-        data.allergies || "";
+          submittedBy:
+            currentUser.uid,
 
-      document.getElementById("pets").value =
-        data.pets || "";
+          submittedAt:
+            serverTimestamp(),
 
-      document.getElementById("accessInstructions").value =
-        data.accessInstructions || "";
+          updatedAt:
+            serverTimestamp()
 
-      document.getElementById("preferredContactMethod").value =
-        data.preferredContactMethod || "Email";
-
-      document.getElementById("additionalNotes").value =
-        data.additionalNotes || "";
-
-    }
-
-
-    async function initialisePortal(user) {
-
-      try {
-
-        currentUser =
-          user;
-
-
-        if (!user.emailVerified) {
-
-          window.location.href =
-            "index.html";
-
-          return;
-
+        },
+        {
+          merge:true
         }
+      );
 
 
-        const userRef =
-          doc(
-            db,
-            "users",
-            user.uid
-          );
+      showMessage(
+        "success",
+        "Your information has been saved securely to your Sorted. account."
+      );
 
 
-        const userSnapshot =
-          await getDoc(userRef);
+      formMessage.scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+      });
 
 
-        if (!userSnapshot.exists()) {
+    }catch(error){
 
-          window.location.href =
-            "index.html";
-
-          return;
-
-        }
+      console.error(error);
 
 
-        const userData =
-          userSnapshot.data();
+      showMessage(
+        "error",
+        "We couldn't save your information. Please try again."
+      );
+
+    }finally{
+
+      submitButton.disabled =
+        false;
+
+      submitButton.innerHTML =
+        `
+          <i data-lucide="lock-keyhole"></i>
+
+          <span>
+            Save Information Securely
+          </span>
+        `;
 
 
-        if (
-          userData.role !== "client" ||
-          userData.status !== "approved"
-        ) {
+      if(window.lucide){
 
-          window.location.href =
-            "index.html";
-
-          return;
-
-        }
-
-
-        const clientRecord =
-          await findClientRecord(user);
-
-
-        if (!clientRecord) {
-
-          loadingScreen.innerHTML =
-            `
-              <div class="loading-card">
-                <strong>Account setup incomplete</strong>
-                <p>
-                  Your portal account is approved, but your Sorted. client
-                  record has not yet been connected. Please contact Sorted.
-                </p>
-              </div>
-            `;
-
-          return;
-
-        }
-
-
-        clientId =
-          clientRecord.id;
-
-
-        /*
-          Prefill from the client record / registration
-          before checking whether this form was already saved.
-        */
-
-        document.getElementById("fullName").value =
-          clientRecord.data.fullName ||
-          clientRecord.data.name ||
-          userData.fullName ||
-          "";
-
-        document.getElementById("phone").value =
-          clientRecord.data.phone ||
-          userData.phone ||
-          "";
-
-        document.getElementById("email").value =
-          clientRecord.data.email ||
-          user.email ||
-          userData.email ||
-          "";
-
-
-        await loadExistingForm();
-
-
-        loadingScreen.style.display =
-          "none";
-
-
-      } catch (error) {
-
-        console.error(error);
-
-
-        loadingScreen.innerHTML =
-          `
-            <div class="loading-card">
-              <strong>We couldn't open the form</strong>
-              <p>
-                Please return to your portal and try again.
-              </p>
-            </div>
-          `;
+        lucide.createIcons();
 
       }
 
     }
 
-
-    onAuthStateChanged(
-      auth,
-      function (user) {
-
-        if (!user) {
-
-          window.location.href =
-            "index.html";
-
-          return;
-
-        }
+  }
+);
 
 
-        initialisePortal(user);
+/* ==================================================
+   ICONS
+================================================== */
 
-      }
-    );
+document.addEventListener(
+  "DOMContentLoaded",
+  function(){
 
+    if(window.lucide){
 
-    clientForm.addEventListener(
-      "submit",
-      async function (event) {
+      lucide.createIcons();
 
-        event.preventDefault();
+    }
 
+  }
+);
 
-        if (
-          !currentUser ||
-          !clientId
-        ) {
+</script>
 
-          showMessage(
-            "error",
-            "Your client account could not be confirmed."
-          );
-
-          return;
-
-        }
-
-
-        submitButton.disabled =
-          true;
-
-        submitButton.textContent =
-          "Saving securely…";
-
-
-        try {
-
-          const formRef =
-            doc(
-              db,
-              "clients",
-              clientId,
-              "forms",
-              "client-information"
-            );
-
-
-          await setDoc(
-            formRef,
-            {
-              formType:
-                "client-information",
-
-              status:
-                "submitted",
-
-              fullName:
-                document
-                  .getElementById("fullName")
-                  .value
-                  .trim(),
-
-              dateOfBirth:
-                document
-                  .getElementById("dateOfBirth")
-                  .value,
-
-              address:
-                document
-                  .getElementById("address")
-                  .value
-                  .trim(),
-
-              phone:
-                document
-                  .getElementById("phone")
-                  .value
-                  .trim(),
-
-              email:
-                document
-                  .getElementById("email")
-                  .value
-                  .trim(),
-
-              emergencyContactName:
-                document
-                  .getElementById("emergencyContactName")
-                  .value
-                  .trim(),
-
-              emergencyContactPhone:
-                document
-                  .getElementById("emergencyContactPhone")
-                  .value
-                  .trim(),
-
-              gpDetails:
-                document
-                  .getElementById("gpDetails")
-                  .value
-                  .trim(),
-
-              medicalConditions:
-                document
-                  .getElementById("medicalConditions")
-                  .value
-                  .trim(),
-
-              allergies:
-                document
-                  .getElementById("allergies")
-                  .value
-                  .trim(),
-
-              pets:
-                document
-                  .getElementById("pets")
-                  .value
-                  .trim(),
-
-              accessInstructions:
-                document
-                  .getElementById("accessInstructions")
-                  .value
-                  .trim(),
-
-              preferredContactMethod:
-                document
-                  .getElementById("preferredContactMethod")
-                  .value,
-
-              additionalNotes:
-                document
-                  .getElementById("additionalNotes")
-                  .value
-                  .trim(),
-
-              submittedBy:
-                currentUser.uid,
-
-              submittedAt:
-                serverTimestamp(),
-
-              updatedAt:
-                serverTimestamp()
-            },
-            {
-              merge: true
-            }
-          );
-
-
-          showMessage(
-            "success",
-            "Your information has been saved securely to your Sorted. account."
-          );
-
-
-          window.scrollTo({
-            top:
-              document.body.scrollHeight,
-            behavior:
-              "smooth"
-          });
-
-
-        } catch (error) {
-
-          console.error(error);
-
-
-          showMessage(
-            "error",
-            "We couldn't save your information. Please try again."
-          );
-
-        } finally {
-
-          submitButton.disabled =
-            false;
-
-          submitButton.textContent =
-            "Save Information Securely";
-
-        }
-
-      }
-    );
-
-  </script>
 
 </body>
 
