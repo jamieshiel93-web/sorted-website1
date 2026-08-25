@@ -1,322 +1,1827 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Sorted. Studio</title>
+
+<meta name="robots" content="noindex,nofollow">
+
 <link rel="icon" href="../favicon.png">
 
 <style>
+
 :root{
---cream:#f8f1e7;
---forest:#17261b;
---sage:#314632;
---gold:#caa76a;
---white:#ffffff;
+  --cream:#f8f1e7;
+  --cream2:#efe0cc;
+  --forest:#17261b;
+  --sage:#314632;
+  --sage-light:#718c67;
+  --gold:#caa76a;
+  --white:#ffffff;
+  --ink:#1d241f;
+  --muted:#6f746e;
+  --red:#9d3030;
+  --green:#356444;
+  --shadow:0 22px 55px rgba(23,38,27,.12);
 }
 
-*{margin:0;padding:0;box-sizing:border-box;}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
 body{
-font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-background:#f8f1e7;
-color:#17261b;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  background:var(--cream);
+  color:var(--forest);
+  line-height:1.6;
 }
 
+button,
+input,
+select{
+  font:inherit;
+}
+
+/* ==================================================
+   LOGIN
+================================================== */
+
 .login-screen{
-min-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-padding:20px;
-background:linear-gradient(135deg,#f8f1e7,#efe0cc);
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(202,167,106,.18),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      #f8f1e7,
+      #efe0cc
+    );
 }
 
 .login-card{
-width:100%;
-max-width:460px;
-background:white;
-border-radius:30px;
-padding:40px;
-box-shadow:0 25px 60px rgba(0,0,0,.12);
-text-align:center;
+  width:100%;
+  max-width:460px;
+  padding:42px;
+
+  background:white;
+
+  border:1px solid rgba(202,167,106,.25);
+  border-radius:30px;
+
+  box-shadow:0 25px 60px rgba(0,0,0,.12);
+
+  text-align:center;
 }
 
 .logo{
-font-size:46px;
-font-weight:800;
-margin-bottom:10px;
+  margin-bottom:8px;
+
+  font-size:46px;
+  font-weight:900;
+  letter-spacing:-2px;
 }
 
-.logo span{color:#caa76a;}
-
-h1{
-font-size:30px;
-margin-bottom:10px;
+.logo span{
+  color:var(--gold);
 }
 
-p{
-color:#666;
-line-height:1.6;
+.login-card h1{
+  margin-bottom:10px;
+  font-size:30px;
 }
 
-input,select{
-width:100%;
-padding:16px;
-margin-top:14px;
-border-radius:14px;
-border:1px solid #ddd;
-font-size:16px;
+.login-card p{
+  color:#666;
+}
+
+.login-card input{
+  width:100%;
+
+  margin-top:14px;
+  padding:16px;
+
+  border:1px solid #ddd;
+  border-radius:14px;
+
+  font-size:16px;
+}
+
+.login-card input:focus{
+  outline:none;
+
+  border-color:var(--gold);
+
+  box-shadow:0 0 0 4px rgba(202,167,106,.15);
 }
 
 button{
-width:100%;
-padding:17px;
-margin-top:18px;
-border:none;
-border-radius:14px;
-background:#17261b;
-color:white;
-font-size:16px;
-font-weight:800;
-cursor:pointer;
+  border:none;
+  cursor:pointer;
 }
 
-button:hover{background:#314632;}
+.login-button{
+  width:100%;
+
+  margin-top:18px;
+  padding:17px;
+
+  border-radius:14px;
+
+  background:var(--forest);
+  color:white;
+
+  font-size:16px;
+  font-weight:800;
+}
+
+.login-button:hover{
+  background:var(--sage);
+}
 
 #error{
-display:none;
-margin-top:16px;
-color:#b00020;
-font-weight:700;
+  display:none;
+
+  margin-top:16px;
+  padding:12px;
+
+  border-radius:12px;
+
+  background:rgba(157,48,48,.08);
+  color:var(--red);
+
+  font-weight:700;
 }
 
+/* ==================================================
+   STUDIO
+================================================== */
+
 #studio{
-display:none;
+  display:none;
 }
 
 header{
-background:#17261b;
-color:white;
-padding:24px 36px;
-display:flex;
-justify-content:space-between;
-align-items:center;
+  position:sticky;
+  top:0;
+  z-index:1000;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  padding:20px 32px;
+
+  background:var(--forest);
+  color:white;
+
+  box-shadow:0 10px 35px rgba(0,0,0,.15);
 }
 
 header .brand{
-font-size:32px;
-font-weight:800;
+  font-size:30px;
+  font-weight:900;
+  letter-spacing:-1px;
 }
 
-header .brand span{color:#caa76a;}
+header .brand span{
+  color:var(--gold);
+}
 
 .logout{
-background:#caa76a;
-color:#17261b;
-padding:12px 22px;
-border-radius:999px;
-width:auto;
-margin:0;
+  width:auto;
+
+  margin:0;
+  padding:11px 20px;
+
+  border-radius:999px;
+
+  background:var(--gold);
+  color:var(--forest);
+
+  font-weight:800;
 }
 
 .container{
-max-width:1300px;
-margin:auto;
-padding:36px 20px;
+  width:min(1300px,94%);
+  margin:auto;
+  padding:34px 0 60px;
 }
 
+/* ==================================================
+   HERO
+================================================== */
+
 .hero{
-background:linear-gradient(135deg,#17261b,#314632);
-color:white;
-border-radius:28px;
-padding:36px;
-margin-bottom:28px;
+  position:relative;
+
+  overflow:hidden;
+
+  margin-bottom:26px;
+  padding:36px;
+
+  border-radius:28px;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(202,167,106,.22),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      var(--forest),
+      var(--sage)
+    );
+
+  color:white;
+
+  box-shadow:var(--shadow);
 }
 
 .hero h2{
-font-size:40px;
-margin-bottom:8px;
+  margin-bottom:7px;
+
+  color:white;
+
+  font-size:clamp(2rem,5vw,2.7rem);
 }
 
+.hero p{
+  color:rgba(255,255,255,.75);
+}
+
+/* ==================================================
+   STATS
+================================================== */
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+
+  margin-bottom:26px;
+}
+
+.stat{
+  padding:22px;
+
+  background:white;
+
+  border:1px solid rgba(202,167,106,.24);
+  border-radius:22px;
+
+  box-shadow:0 12px 32px rgba(23,38,27,.08);
+}
+
+.stat small{
+  color:var(--gold);
+
+  font-size:.72rem;
+  font-weight:900;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+}
+
+.stat strong{
+  display:block;
+
+  margin-top:6px;
+
+  color:var(--forest);
+
+  font-size:2rem;
+}
+
+/* ==================================================
+   CARDS
+================================================== */
+
 .grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:22px;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:22px;
 }
 
 .card{
-background:white;
-border-radius:24px;
-padding:26px;
-box-shadow:0 18px 40px rgba(23,38,27,.10);
-border:1px solid rgba(202,167,106,.25);
+  padding:27px;
+
+  background:white;
+
+  border:1px solid rgba(202,167,106,.25);
+  border-radius:24px;
+
+  box-shadow:var(--shadow);
 }
 
-.card small{
-color:#caa76a;
-font-weight:900;
-letter-spacing:2px;
-text-transform:uppercase;
+.card.wide{
+  grid-column:1 / -1;
+}
+
+.card small.section-label{
+  color:var(--gold);
+
+  font-size:.72rem;
+  font-weight:900;
+  letter-spacing:2px;
+  text-transform:uppercase;
 }
 
 .card h3{
-font-size:26px;
-margin:12px 0;
+  margin:8px 0 8px;
+
+  font-size:1.7rem;
 }
 
-.client-box{
-margin-top:14px;
-padding:14px;
-border-radius:14px;
-background:#f8f1e7;
+.card > p{
+  margin-bottom:20px;
+  color:var(--muted);
 }
 
-@media(max-width:700px){
-header{padding:20px;}
-.hero h2{font-size:32px;}
+/* ==================================================
+   TOOLBAR
+================================================== */
+
+.toolbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+
+  margin-bottom:18px;
 }
+
+.refresh-button{
+  width:auto;
+
+  margin:0;
+  padding:10px 17px;
+
+  border-radius:999px;
+
+  background:#f3eadc;
+  color:var(--forest);
+
+  font-weight:800;
+}
+
+.refresh-button:hover{
+  background:var(--gold);
+}
+
+/* ==================================================
+   REGISTRATION LIST
+================================================== */
+
+.registration-list,
+.client-list{
+  display:grid;
+  gap:14px;
+}
+
+.registration-item,
+.client-item{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:18px;
+  align-items:center;
+
+  padding:19px;
+
+  background:#fcfaf7;
+
+  border:1px solid rgba(202,167,106,.22);
+  border-radius:18px;
+}
+
+.person-name{
+  margin-bottom:4px;
+
+  color:var(--forest);
+
+  font-size:1.08rem;
+  font-weight:850;
+}
+
+.person-details{
+  color:var(--muted);
+
+  font-size:.9rem;
+  line-height:1.6;
+}
+
+.message-note{
+  margin-top:8px;
+  padding:10px 12px;
+
+  background:rgba(113,140,103,.08);
+
+  border-radius:11px;
+
+  color:var(--sage);
+
+  font-size:.88rem;
+}
+
+.actions{
+  display:flex;
+  gap:9px;
+  flex-wrap:wrap;
+}
+
+.action-button{
+  width:auto;
+
+  margin:0;
+  padding:10px 16px;
+
+  border-radius:999px;
+
+  font-weight:850;
+}
+
+.approve-button{
+  background:var(--forest);
+  color:white;
+}
+
+.approve-button:hover{
+  background:var(--sage);
+}
+
+.reject-button{
+  background:#f3e3e3;
+  color:var(--red);
+}
+
+.reject-button:hover{
+  background:#e8cccc;
+}
+
+.action-button:disabled{
+  opacity:.55;
+  cursor:not-allowed;
+}
+
+/* ==================================================
+   STATUS
+================================================== */
+
+.status-pill{
+  display:inline-flex;
+  align-items:center;
+
+  margin-top:7px;
+  padding:5px 10px;
+
+  border-radius:999px;
+
+  font-size:.77rem;
+  font-weight:850;
+}
+
+.status-pending{
+  background:#f7ecd7;
+  color:#7d5a22;
+}
+
+.status-approved{
+  background:#e4f0e7;
+  color:var(--green);
+}
+
+.empty-state{
+  padding:28px;
+
+  border:1px dashed rgba(23,38,27,.18);
+  border-radius:18px;
+
+  color:var(--muted);
+
+  text-align:center;
+}
+
+.loading-state{
+  padding:20px;
+  color:var(--muted);
+  text-align:center;
+}
+
+/* ==================================================
+   OTHER STUDIO CARDS
+================================================== */
+
+.feature-card{
+  min-height:190px;
+}
+
+.feature-card h3{
+  font-size:1.45rem;
+}
+
+.feature-card p{
+  color:var(--muted);
+}
+
+.coming-soon{
+  display:inline-block;
+
+  margin-top:10px;
+  padding:7px 11px;
+
+  border-radius:999px;
+
+  background:#f3eadc;
+  color:var(--sage);
+
+  font-size:.77rem;
+  font-weight:800;
+}
+
+/* ==================================================
+   ALERT
+================================================== */
+
+#studio-message{
+  display:none;
+
+  position:fixed;
+  left:50%;
+  bottom:24px;
+  z-index:10000;
+
+  width:min(92%,520px);
+
+  padding:15px 18px;
+
+  border-radius:16px;
+
+  transform:translateX(-50%);
+
+  box-shadow:0 20px 45px rgba(0,0,0,.18);
+
+  font-weight:700;
+}
+
+#studio-message.success{
+  display:block;
+
+  background:#e5f2e8;
+  color:#285d37;
+
+  border:1px solid rgba(49,111,66,.22);
+}
+
+#studio-message.error{
+  display:block;
+
+  background:#f6e5e5;
+  color:#8c2727;
+
+  border:1px solid rgba(167,46,46,.2);
+}
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media(max-width:800px){
+
+  header{
+    padding:17px 18px;
+  }
+
+  header .brand{
+    font-size:24px;
+  }
+
+  .logout{
+    padding:9px 14px;
+    font-size:.85rem;
+  }
+
+  .container{
+    width:92%;
+    padding-top:22px;
+  }
+
+  .hero{
+    padding:27px 23px;
+    border-radius:23px;
+  }
+
+  .stats{
+    grid-template-columns:1fr;
+    gap:12px;
+  }
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .card.wide{
+    grid-column:auto;
+  }
+
+  .registration-item,
+  .client-item{
+    grid-template-columns:1fr;
+  }
+
+  .actions{
+    width:100%;
+  }
+
+  .actions button{
+    flex:1;
+  }
+
+  .toolbar{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+
+}
+
 </style>
+
 </head>
 
 <body>
 
+<!-- ==================================================
+     LOGIN
+================================================== -->
+
 <div id="loginScreen" class="login-screen">
-<div class="login-card">
-<div class="logo">Sorted<span>.</span></div>
-<h1>Administrator Login</h1>
-<p>Private admin area for Sorted.</p>
 
-<input type="email" id="email" placeholder="Admin email">
-<input type="password" id="password" placeholder="Password">
+  <div class="login-card">
 
-<button onclick="adminLogin()">Sign In</button>
+    <div class="logo">
+      Sorted<span>.</span>
+    </div>
 
-<div id="error">Access denied. Please check your login details.</div>
+    <h1>
+      Administrator Login
+    </h1>
+
+    <p>
+      Private admin area for Sorted.
+    </p>
+
+    <input
+      type="email"
+      id="email"
+      placeholder="Admin email"
+      autocomplete="email"
+    >
+
+    <input
+      type="password"
+      id="password"
+      placeholder="Password"
+      autocomplete="current-password"
+    >
+
+    <button
+      type="button"
+      class="login-button"
+      onclick="adminLogin()"
+    >
+      Sign In
+    </button>
+
+    <div id="error">
+      Access denied. Please check your login details.
+    </div>
+
+  </div>
+
 </div>
-</div>
+
+<!-- ==================================================
+     STUDIO
+================================================== -->
 
 <div id="studio">
 
 <header>
-<div class="brand">Sorted<span>.</span> Studio</div>
-<button class="logout" onclick="logout()">Logout</button>
+
+  <div class="brand">
+    Sorted<span>.</span> Studio
+  </div>
+
+  <button
+    type="button"
+    class="logout"
+    onclick="logout()"
+  >
+    Logout
+  </button>
+
 </header>
 
 <div class="container">
 
-<section class="hero">
-<h2>Welcome to Sorted. Studio</h2>
-<p>Your private control centre for clients, visits, invoices and documents.</p>
-</section>
+  <section class="hero">
 
-<div class="grid">
+    <h2>
+      Welcome to Sorted. Studio
+    </h2>
 
-<div class="card">
-<small>Clients</small>
-<h3>Client Management</h3>
-<p>Add, view and manage Sorted. clients.</p>
-<button onclick="alert('Client creation is the next step.')">Add Client</button>
+    <p>
+      Your private control centre for registrations, clients,
+      visits, invoices, forms and documents.
+    </p>
+
+  </section>
+
+  <!-- STATS -->
+
+  <div class="stats">
+
+    <div class="stat">
+
+      <small>
+        Pending registrations
+      </small>
+
+      <strong id="pending-count">
+        —
+      </strong>
+
+    </div>
+
+    <div class="stat">
+
+      <small>
+        Clients
+      </small>
+
+      <strong id="client-count">
+        —
+      </strong>
+
+    </div>
+
+    <div class="stat">
+
+      <small>
+        System
+      </small>
+
+      <strong style="font-size:1.3rem;margin-top:13px;">
+        Connected
+      </strong>
+
+    </div>
+
+  </div>
+
+  <div class="grid">
+
+    <!-- ==================================================
+         PENDING REGISTRATIONS
+    ================================================== -->
+
+    <section class="card wide">
+
+      <div class="toolbar">
+
+        <div>
+
+          <small class="section-label">
+            Registrations
+          </small>
+
+          <h3>
+            Pending Registrations
+          </h3>
+
+          <p style="margin-bottom:0;">
+            Review new portal registrations and approve access.
+          </p>
+
+        </div>
+
+        <button
+          type="button"
+          class="refresh-button"
+          onclick="refreshStudio()"
+        >
+          Refresh
+        </button>
+
+      </div>
+
+      <div
+        id="pending-list"
+        class="registration-list"
+      >
+
+        <div class="loading-state">
+          Loading registrations...
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ==================================================
+         CLIENTS
+    ================================================== -->
+
+    <section class="card wide">
+
+      <small class="section-label">
+        Clients
+      </small>
+
+      <h3>
+        Client Management
+      </h3>
+
+      <p>
+        Approved clients linked to the Sorted. client portal.
+      </p>
+
+      <div
+        id="client-list"
+        class="client-list"
+      >
+
+        <div class="loading-state">
+          Loading clients...
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- OTHER STUDIO AREAS -->
+
+    <section class="card feature-card">
+
+      <small class="section-label">
+        Visits
+      </small>
+
+      <h3>
+        Upcoming Visits
+      </h3>
+
+      <p>
+        Manage bookings and support sessions.
+      </p>
+
+      <span class="coming-soon">
+        Next stage
+      </span>
+
+    </section>
+
+    <section class="card feature-card">
+
+      <small class="section-label">
+        Invoices
+      </small>
+
+      <h3>
+        Invoices
+      </h3>
+
+      <p>
+        Create and track client invoices and payment status.
+      </p>
+
+      <span class="coming-soon">
+        Next stage
+      </span>
+
+    </section>
+
+    <section class="card feature-card">
+
+      <small class="section-label">
+        Forms
+      </small>
+
+      <h3>
+        Client Forms
+      </h3>
+
+      <p>
+        Review client information and submitted forms securely.
+      </p>
+
+      <span class="coming-soon">
+        Next stage
+      </span>
+
+    </section>
+
+    <section class="card feature-card">
+
+      <small class="section-label">
+        Documents
+      </small>
+
+      <h3>
+        Documents
+      </h3>
+
+      <p>
+        Manage welcome packs, agreements and client documents.
+      </p>
+
+      <span class="coming-soon">
+        Next stage
+      </span>
+
+    </section>
+
+  </div>
+
 </div>
 
-<div class="card">
-<small>Visits</small>
-<h3>Upcoming Visits</h3>
-<p>Manage bookings and support sessions.</p>
 </div>
 
-<div class="card">
-<small>Invoices</small>
-<h3>Invoices</h3>
-<p>Create and track client invoices.</p>
-</div>
+<div
+  id="studio-message"
+  role="alert"
+></div>
 
-<div class="card">
-<small>Documents</small>
-<h3>Documents</h3>
-<p>Manage welcome packs, agreements and policies.</p>
-</div>
-
-<div class="card">
-<small>Forms</small>
-<h3>Client Forms</h3>
-<p>View submitted client forms.</p>
-</div>
-
-<div class="card">
-<small>Status</small>
-<h3>System Ready</h3>
-<p>Your admin login is now connected.</p>
-</div>
-
-</div>
-
-</div>
-</div>
+<!-- ==================================================
+     FIREBASE
+================================================== -->
 
 <script type="module">
 
-import { auth } from "../firebase.js";
+import {
+  auth,
+  db
+} from "../firebase.js";
 
 import {
-signInWithEmailAndPassword,
-onAuthStateChanged,
-signOut
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut
 } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
 
-const ADMIN_EMAIL = "contact@sortedlife.org.uk";
+import {
+  collection,
+  query,
+  where,
+  getDocs,
+  getDoc,
+  doc,
+  setDoc,
+  updateDoc,
+  serverTimestamp
+} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
 
-window.adminLogin = function(){
 
-const email = document.getElementById("email").value.trim();
-const password = document.getElementById("password").value;
-const error = document.getElementById("error");
+const ADMIN_UID =
+  "prs1Rcq8qQNrZBSCpFpwLRtvvj52";
 
-error.style.display = "none";
+const ADMIN_EMAIL =
+  "contact@sortedlife.org.uk";
 
-signInWithEmailAndPassword(auth,email,password)
-.then((userCredential)=>{
 
-if(userCredential.user.email !== ADMIN_EMAIL){
-signOut(auth);
-error.style.display = "block";
-return;
+const loginScreen =
+  document.getElementById("loginScreen");
+
+const studio =
+  document.getElementById("studio");
+
+const loginError =
+  document.getElementById("error");
+
+const pendingList =
+  document.getElementById("pending-list");
+
+const clientList =
+  document.getElementById("client-list");
+
+const pendingCount =
+  document.getElementById("pending-count");
+
+const clientCount =
+  document.getElementById("client-count");
+
+const studioMessage =
+  document.getElementById("studio-message");
+
+
+/* ==================================================
+   MESSAGES
+================================================== */
+
+function showStudioMessage(type, text){
+
+  studioMessage.className = type;
+
+  studioMessage.textContent = text;
+
+  setTimeout(function(){
+
+    studioMessage.className = "";
+
+    studioMessage.style.display = "none";
+
+  }, 4000);
+
 }
 
-showStudio();
 
-})
-.catch(()=>{
-error.style.display = "block";
-});
+/* ==================================================
+   ADMIN LOGIN
+================================================== */
+
+window.adminLogin = async function(){
+
+  const email =
+    document.getElementById("email").value.trim();
+
+  const password =
+    document.getElementById("password").value;
+
+  loginError.style.display = "none";
+
+  try{
+
+    const userCredential =
+      await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+
+    const user =
+      userCredential.user;
+
+    if(
+      user.uid !== ADMIN_UID ||
+      user.email !== ADMIN_EMAIL
+    ){
+
+      await signOut(auth);
+
+      loginError.style.display = "block";
+
+      return;
+
+    }
+
+    showStudio();
+
+  }catch(error){
+
+    console.error(error);
+
+    loginError.style.display = "block";
+
+  }
 
 };
 
-onAuthStateChanged(auth,(user)=>{
 
-if(user && user.email === ADMIN_EMAIL){
-showStudio();
-}else{
-showLogin();
-}
+/* ==================================================
+   AUTH STATE
+================================================== */
 
-});
+onAuthStateChanged(
+  auth,
+  async function(user){
+
+    if(
+      user &&
+      user.uid === ADMIN_UID &&
+      user.email === ADMIN_EMAIL
+    ){
+
+      showStudio();
+
+    }else{
+
+      showLogin();
+
+    }
+
+  }
+);
+
 
 function showStudio(){
-document.getElementById("loginScreen").style.display = "none";
-document.getElementById("studio").style.display = "block";
+
+  loginScreen.style.display = "none";
+
+  studio.style.display = "block";
+
+  loadStudioData();
+
 }
+
 
 function showLogin(){
-document.getElementById("loginScreen").style.display = "flex";
-document.getElementById("studio").style.display = "none";
+
+  loginScreen.style.display = "flex";
+
+  studio.style.display = "none";
+
 }
 
-window.logout = function(){
-signOut(auth);
+
+window.logout = async function(){
+
+  await signOut(auth);
+
 };
+
+
+/* ==================================================
+   LOAD STUDIO
+================================================== */
+
+async function loadStudioData(){
+
+  await Promise.all([
+    loadPendingRegistrations(),
+    loadClients()
+  ]);
+
+}
+
+
+window.refreshStudio =
+  loadStudioData;
+
+
+/* ==================================================
+   PENDING REGISTRATIONS
+================================================== */
+
+async function loadPendingRegistrations(){
+
+  pendingList.innerHTML =
+    '<div class="loading-state">Loading registrations...</div>';
+
+  try{
+
+    const pendingQuery =
+      query(
+        collection(db, "users"),
+        where("status", "==", "pending")
+      );
+
+    const snapshot =
+      await getDocs(pendingQuery);
+
+    pendingCount.textContent =
+      snapshot.size;
+
+    pendingList.innerHTML = "";
+
+    if(snapshot.empty){
+
+      pendingList.innerHTML =
+        '<div class="empty-state">There are currently no registrations waiting for approval.</div>';
+
+      return;
+
+    }
+
+    snapshot.forEach(function(userDocument){
+
+      const data =
+        userDocument.data();
+
+      const uid =
+        userDocument.id;
+
+      const item =
+        document.createElement("div");
+
+      item.className =
+        "registration-item";
+
+
+      const info =
+        document.createElement("div");
+
+
+      const name =
+        document.createElement("div");
+
+      name.className =
+        "person-name";
+
+      name.textContent =
+        data.fullName ||
+        [
+          data.firstName,
+          data.lastName
+        ]
+        .filter(Boolean)
+        .join(" ") ||
+        "New client";
+
+
+      const details =
+        document.createElement("div");
+
+      details.className =
+        "person-details";
+
+      details.innerHTML =
+        [
+          data.email
+            ? "Email: " + escapeHTML(data.email)
+            : "",
+          data.phone
+            ? "Telephone: " + escapeHTML(data.phone)
+            : "",
+          data.postcode
+            ? "Postcode: " + escapeHTML(data.postcode)
+            : "",
+          data.createdAt
+            ? "Registered: " + formatDate(data.createdAt)
+            : ""
+        ]
+        .filter(Boolean)
+        .join("<br>");
+
+
+      info.appendChild(name);
+
+      info.appendChild(details);
+
+
+      const status =
+        document.createElement("span");
+
+      status.className =
+        "status-pill status-pending";
+
+      status.textContent =
+        "Awaiting approval";
+
+      info.appendChild(status);
+
+
+      if(data.message){
+
+        const note =
+          document.createElement("div");
+
+        note.className =
+          "message-note";
+
+        note.textContent =
+          "Registration note: " + data.message;
+
+        info.appendChild(note);
+
+      }
+
+
+      const actions =
+        document.createElement("div");
+
+      actions.className =
+        "actions";
+
+
+      const approve =
+        document.createElement("button");
+
+      approve.type =
+        "button";
+
+      approve.className =
+        "action-button approve-button";
+
+      approve.textContent =
+        "Approve";
+
+      approve.addEventListener(
+        "click",
+        function(){
+
+          approveRegistration(
+            uid,
+            approve,
+            reject
+          );
+
+        }
+      );
+
+
+      const reject =
+        document.createElement("button");
+
+      reject.type =
+        "button";
+
+      reject.className =
+        "action-button reject-button";
+
+      reject.textContent =
+        "Reject";
+
+      reject.addEventListener(
+        "click",
+        function(){
+
+          rejectRegistration(
+            uid,
+            approve,
+            reject
+          );
+
+        }
+      );
+
+
+      actions.appendChild(approve);
+
+      actions.appendChild(reject);
+
+
+      item.appendChild(info);
+
+      item.appendChild(actions);
+
+
+      pendingList.appendChild(item);
+
+    });
+
+  }catch(error){
+
+    console.error(error);
+
+    pendingCount.textContent = "—";
+
+    pendingList.innerHTML =
+      '<div class="empty-state">Unable to load registrations. Check your Firebase connection and Firestore rules.</div>';
+
+  }
+
+}
+
+
+/* ==================================================
+   APPROVE REGISTRATION
+================================================== */
+
+async function approveRegistration(
+  uid,
+  approveButton,
+  rejectButton
+){
+
+  const confirmed =
+    window.confirm(
+      "Approve this client and allow access to My Sorted.?"
+    );
+
+  if(!confirmed){
+    return;
+  }
+
+
+  approveButton.disabled = true;
+
+  rejectButton.disabled = true;
+
+  approveButton.textContent =
+    "Approving...";
+
+
+  try{
+
+    const userReference =
+      doc(db, "users", uid);
+
+    const userSnapshot =
+      await getDoc(userReference);
+
+
+    if(!userSnapshot.exists()){
+
+      throw new Error(
+        "Registration record does not exist."
+      );
+
+    }
+
+
+    const registration =
+      userSnapshot.data();
+
+
+    /*
+      Create the client's portal record FIRST.
+
+      This means we do not mark the user approved
+      until their client record exists.
+    */
+
+    await setDoc(
+      doc(db, "clients", uid),
+      {
+
+        ownerUID: uid,
+
+        firstName:
+          registration.firstName || "",
+
+        lastName:
+          registration.lastName || "",
+
+        fullName:
+          registration.fullName ||
+          [
+            registration.firstName,
+            registration.lastName
+          ]
+          .filter(Boolean)
+          .join(" "),
+
+        name:
+          registration.fullName ||
+          [
+            registration.firstName,
+            registration.lastName
+          ]
+          .filter(Boolean)
+          .join(" "),
+
+        email:
+          registration.email || "",
+
+        phone:
+          registration.phone || "",
+
+        postcode:
+          registration.postcode || "",
+
+        package:
+          "To be confirmed",
+
+        membership:
+          "To be confirmed",
+
+        membershipStatus:
+          "Awaiting setup",
+
+        status:
+          "Active",
+
+        hoursRemaining:
+          "",
+
+        createdAt:
+          serverTimestamp(),
+
+        approvedAt:
+          serverTimestamp(),
+
+        updatedAt:
+          serverTimestamp()
+
+      },
+      {
+        merge:true
+      }
+    );
+
+
+    /*
+      Only after the client record exists
+      is the portal account approved.
+    */
+
+    await updateDoc(
+      userReference,
+      {
+
+        status:
+          "approved",
+
+        approvedAt:
+          serverTimestamp()
+
+      }
+    );
+
+
+    showStudioMessage(
+      "success",
+      "Client approved successfully. They can now sign in once their email address has been verified."
+    );
+
+
+    await loadStudioData();
+
+  }catch(error){
+
+    console.error(error);
+
+    showStudioMessage(
+      "error",
+      "The registration could not be approved. Please try again."
+    );
+
+    approveButton.disabled = false;
+
+    rejectButton.disabled = false;
+
+    approveButton.textContent =
+      "Approve";
+
+  }
+
+}
+
+
+/* ==================================================
+   REJECT REGISTRATION
+================================================== */
+
+async function rejectRegistration(
+  uid,
+  approveButton,
+  rejectButton
+){
+
+  const confirmed =
+    window.confirm(
+      "Reject this portal registration?"
+    );
+
+  if(!confirmed){
+    return;
+  }
+
+
+  approveButton.disabled = true;
+
+  rejectButton.disabled = true;
+
+  rejectButton.textContent =
+    "Rejecting...";
+
+
+  try{
+
+    await updateDoc(
+      doc(db, "users", uid),
+      {
+
+        status:
+          "rejected",
+
+        rejectedAt:
+          serverTimestamp()
+
+      }
+    );
+
+
+    showStudioMessage(
+      "success",
+      "Registration rejected."
+    );
+
+
+    await loadStudioData();
+
+  }catch(error){
+
+    console.error(error);
+
+    showStudioMessage(
+      "error",
+      "The registration could not be rejected."
+    );
+
+    approveButton.disabled = false;
+
+    rejectButton.disabled = false;
+
+    rejectButton.textContent =
+      "Reject";
+
+  }
+
+}
+
+
+/* ==================================================
+   CLIENTS
+================================================== */
+
+async function loadClients(){
+
+  clientList.innerHTML =
+    '<div class="loading-state">Loading clients...</div>';
+
+  try{
+
+    const snapshot =
+      await getDocs(
+        collection(db, "clients")
+      );
+
+
+    clientCount.textContent =
+      snapshot.size;
+
+
+    clientList.innerHTML = "";
+
+
+    if(snapshot.empty){
+
+      clientList.innerHTML =
+        '<div class="empty-state">No client records have been created yet.</div>';
+
+      return;
+
+    }
+
+
+    snapshot.forEach(function(clientDocument){
+
+      const data =
+        clientDocument.data();
+
+
+      const item =
+        document.createElement("div");
+
+      item.className =
+        "client-item";
+
+
+      const info =
+        document.createElement("div");
+
+
+      const name =
+        document.createElement("div");
+
+      name.className =
+        "person-name";
+
+      name.textContent =
+        data.fullName ||
+        data.name ||
+        "Client";
+
+
+      const details =
+        document.createElement("div");
+
+      details.className =
+        "person-details";
+
+      const membership =
+        data.membership ||
+        data.package ||
+        "Not assigned";
+
+
+      details.innerHTML =
+        [
+          data.email
+            ? "Email: " + escapeHTML(data.email)
+            : "",
+          data.phone
+            ? "Telephone: " + escapeHTML(data.phone)
+            : "",
+          data.postcode
+            ? "Postcode: " + escapeHTML(data.postcode)
+            : "",
+          "Membership: " + escapeHTML(membership)
+        ]
+        .filter(Boolean)
+        .join("<br>");
+
+
+      const status =
+        document.createElement("span");
+
+      status.className =
+        "status-pill status-approved";
+
+      status.textContent =
+        data.status || "Active";
+
+
+      info.appendChild(name);
+
+      info.appendChild(details);
+
+      info.appendChild(status);
+
+
+      item.appendChild(info);
+
+
+      clientList.appendChild(item);
+
+    });
+
+  }catch(error){
+
+    console.error(error);
+
+    clientCount.textContent = "—";
+
+    clientList.innerHTML =
+      '<div class="empty-state">Unable to load clients.</div>';
+
+  }
+
+}
+
+
+/* ==================================================
+   HELPERS
+================================================== */
+
+function escapeHTML(value){
+
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+
+}
+
+
+function formatDate(timestamp){
+
+  try{
+
+    if(
+      timestamp &&
+      typeof timestamp.toDate === "function"
+    ){
+
+      return timestamp
+        .toDate()
+        .toLocaleDateString(
+          "en-GB",
+          {
+            day:"numeric",
+            month:"short",
+            year:"numeric"
+          }
+        );
+
+    }
+
+  }catch(error){
+
+    console.error(error);
+
+  }
+
+  return "";
+
+}
 
 </script>
 
 </body>
+
 </html>
