@@ -10,22 +10,21 @@
   content="width=device-width, initial-scale=1.0"
 >
 
+
+<!-- ==================================================
+     SEO
+================================================== -->
+
 <title>Sorted. Away From Home | Property Care & Home Checks</title>
-
-<link
-  rel="icon"
-  href="favicon.png"
-  type="image/png"
->
-
-<link
-  rel="apple-touch-icon"
-  href="favicon.png"
->
 
 <meta
   name="description"
-  content="Discreet home and property care while you're away, including home checks, key holding, plant care, parcel collection, contractor access and return-home preparation across Eastbourne and surrounding areas."
+  content="Property checks, key holding and practical home care while you're away. Sorted. looks after the practical details of home across Eastbourne and surrounding areas."
+>
+
+<meta
+  name="robots"
+  content="index,follow"
 >
 
 <meta
@@ -38,6 +37,32 @@
   href="https://sortedlife.org.uk/away-from-home.html"
 >
 
+
+<!-- ==================================================
+     ICONS
+================================================== -->
+
+<link
+  rel="icon"
+  href="favicon.png"
+  type="image/png"
+>
+
+<link
+  rel="apple-touch-icon"
+  href="favicon.png"
+>
+
+
+<!-- ==================================================
+     SOCIAL
+================================================== -->
+
+<meta
+  property="og:site_name"
+  content="Sorted."
+>
+
 <meta
   property="og:title"
   content="Sorted. Away From Home | Property Care & Home Checks"
@@ -45,7 +70,7 @@
 
 <meta
   property="og:description"
-  content="Professional home checks, key holding and property care while you're away."
+  content="While you're away, your home stays handled."
 >
 
 <meta
@@ -60,8 +85,24 @@
 
 <meta
   property="og:image"
-  content="https://sortedlife.org.uk/awayfromhome.png"
+  content="https://sortedlife.org.uk/away-hero.jpg"
 >
+
+<meta
+  property="og:image:width"
+  content="1600"
+>
+
+<meta
+  property="og:image:height"
+  content="1000"
+>
+
+<meta
+  property="og:image:alt"
+  content="Sorted. Away From Home property care"
+>
+
 
 <meta
   name="twitter:card"
@@ -75,13 +116,31 @@
 
 <meta
   name="twitter:description"
-  content="Professional home checks, key holding and property care while you're away."
+  content="While you're away, your home stays handled."
 >
 
 <meta
   name="twitter:image"
-  content="https://sortedlife.org.uk/awayfromhome.png"
+  content="https://sortedlife.org.uk/away-hero.jpg"
 >
+
+
+<!-- ==================================================
+     PERFORMANCE
+================================================== -->
+
+<link
+  rel="preload"
+  href="away-hero.jpg"
+  as="image"
+  fetchpriority="high"
+>
+
+
+<script>
+  document.documentElement.classList.add("js");
+</script>
+
 
 <script
   defer
@@ -104,6 +163,7 @@
 
   --forest:#17261b;
   --forest-soft:#223228;
+  --forest-deep:#101a13;
 
   --sage:#314632;
   --sage-mid:#718c67;
@@ -118,15 +178,17 @@
   --muted:#6f746e;
 
   --line:rgba(23,38,27,.10);
+  --line-strong:rgba(23,38,27,.16);
+  --gold-line:rgba(202,167,106,.43);
 
   --shadow:
     0 24px 65px rgba(23,38,27,.13);
 
-  --deep-shadow:
-    0 32px 80px rgba(23,38,27,.17);
+  --shadow-deep:
+    0 35px 90px rgba(23,38,27,.17);
 
-  --soft-shadow:
-    0 14px 36px rgba(23,38,27,.09);
+  --shadow-soft:
+    0 14px 38px rgba(23,38,27,.08);
 
 }
 
@@ -164,6 +226,10 @@ body{
 
   line-height:1.65;
 
+  text-rendering:optimizeLegibility;
+
+  -webkit-font-smoothing:antialiased;
+
 }
 
 body::before{
@@ -171,7 +237,6 @@ body::before{
   content:"";
 
   position:fixed;
-
   inset:0;
 
   z-index:-10;
@@ -181,15 +246,15 @@ body::before{
   background:
 
     radial-gradient(
-      circle at 9% 6%,
-      rgba(202,167,106,.10),
-      transparent 31%
+      circle at 7% 4%,
+      rgba(202,167,106,.09),
+      transparent 30%
     ),
 
     radial-gradient(
-      circle at 92% 23%,
-      rgba(113,140,103,.10),
-      transparent 29%
+      circle at 94% 24%,
+      rgba(113,140,103,.07),
+      transparent 30%
     );
 
 }
@@ -210,8 +275,12 @@ a{
 }
 
 img{
+
   display:block;
+
   width:100%;
+  height:auto;
+
 }
 
 button,
@@ -222,19 +291,56 @@ select{
 }
 
 button{
-  cursor:pointer;
-}
-
-section{
-
-  position:relative;
-
-  padding:94px 0;
-
+  color:inherit;
 }
 
 section[id]{
   scroll-margin-top:90px;
+}
+
+
+/* ==================================================
+   ACCESSIBILITY
+================================================== */
+
+.skip-link{
+
+  position:fixed;
+
+  top:-100px;
+  left:20px;
+
+  z-index:999999;
+
+  padding:12px 18px;
+
+  border-radius:12px;
+
+  background:var(--forest);
+
+  color:white;
+
+  font-weight:800;
+
+  transition:top .2s ease;
+
+}
+
+.skip-link:focus{
+  top:18px;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible{
+
+  outline:
+    3px solid var(--gold);
+
+  outline-offset:4px;
+
 }
 
 
@@ -252,25 +358,33 @@ section[id]{
 
 .narrow{
 
-  width:min(840px,100%);
+  width:min(800px,100%);
 
   margin:0 auto;
 
-  text-align:center;
+}
+
+section{
+
+  position:relative;
+
+  padding:105px 0;
 
 }
 
 .eyebrow{
 
-  margin-bottom:14px;
+  margin-bottom:15px;
 
   color:var(--gold);
 
-  font-size:.76rem;
+  font-size:.7rem;
 
   font-weight:850;
 
   letter-spacing:3px;
+
+  line-height:1.4;
 
   text-transform:uppercase;
 
@@ -278,9 +392,10 @@ section[id]{
 
 .section-heading{
 
-  max-width:820px;
+  width:min(860px,100%);
 
-  margin:0 auto 50px;
+  margin:
+    0 auto 55px;
 
   text-align:center;
 
@@ -298,25 +413,25 @@ section[id]{
     serif;
 
   font-size:
-    clamp(2.5rem,5vw,4.3rem);
+    clamp(2.8rem,5vw,4.7rem);
 
   font-weight:500;
 
-  line-height:1;
+  line-height:.99;
 
-  letter-spacing:-2px;
+  letter-spacing:-2.6px;
 
 }
 
-.section-heading > p:not(.eyebrow){
+.section-heading p:not(.eyebrow){
 
-  max-width:700px;
+  width:min(700px,100%);
 
   margin:0 auto;
 
   color:var(--muted);
 
-  font-size:1.04rem;
+  font-size:1rem;
 
   line-height:1.82;
 
@@ -333,15 +448,15 @@ section[id]{
 
   flex-wrap:wrap;
 
-  gap:13px;
+  align-items:center;
 
-  margin-top:29px;
+  gap:14px;
 
 }
 
 .btn{
 
-  position:relative;
+  min-height:53px;
 
   display:inline-flex;
 
@@ -350,42 +465,38 @@ section[id]{
 
   gap:8px;
 
-  min-height:54px;
-
-  padding:14px 26px;
-
-  overflow:hidden;
+  padding:13px 25px;
 
   border:0;
 
   border-radius:999px;
+
+  cursor:pointer;
 
   font-weight:800;
 
   text-align:center;
 
   transition:
-
-    transform .3s ease,
-    box-shadow .3s ease,
-    background .3s ease,
-    color .3s ease;
+    transform .28s ease,
+    box-shadow .28s ease,
+    background .28s ease,
+    color .28s ease;
 
 }
 
 .btn:hover{
 
-  transform:translateY(-3px);
+  transform:translateY(-2px);
 
   box-shadow:
-    0 17px 36px rgba(23,38,27,.15);
+    0 16px 35px rgba(23,38,27,.15);
 
 }
 
 .btn-primary{
 
   background:
-
     linear-gradient(
       135deg,
       var(--forest),
@@ -396,41 +507,14 @@ section[id]{
 
 }
 
-.btn-primary::before{
-
-  content:"";
-
-  position:absolute;
-
-  top:0;
-  left:-120%;
-
-  width:70%;
-  height:100%;
-
-  background:
-
-    linear-gradient(
-      120deg,
-      transparent,
-      rgba(255,255,255,.25),
-      transparent
-    );
-
-  animation:
-    buttonShine 5.5s infinite;
-
-}
-
 .btn-light{
 
-  background:
-    rgba(255,255,255,.92);
+  border:
+    1px solid var(--line);
+
+  background:white;
 
   color:var(--forest);
-
-  border:
-    1px solid rgba(23,38,27,.15);
 
 }
 
@@ -442,52 +526,35 @@ section[id]{
 
 }
 
+.text-link{
 
-/* ==================================================
-   LOADER
-================================================== */
-
-.loader{
-
-  position:fixed;
-
-  inset:0;
-
-  z-index:99999;
-
-  display:flex;
+  display:inline-flex;
 
   align-items:center;
-  justify-content:center;
 
-  background:var(--cream);
+  gap:8px;
 
-  pointer-events:none;
-
-  animation:
-    loaderFade 1s ease forwards;
-
-  animation-delay:.9s;
-
-}
-
-.loader-logo{
+  padding:9px 2px;
 
   color:var(--forest);
 
-  font-size:3rem;
-
-  font-weight:850;
-
-  letter-spacing:-2px;
-
-  animation:
-    loaderPulse 1.15s ease infinite alternate;
+  font-weight:800;
 
 }
 
-.loader-logo span{
+.text-link::after{
+
+  content:"→";
+
   color:var(--gold);
+
+  transition:
+    transform .28s ease;
+
+}
+
+.text-link:hover::after{
+  transform:translateX(5px);
 }
 
 
@@ -504,16 +571,16 @@ section[id]{
   z-index:1000;
 
   background:
-    rgba(255,255,255,.77);
+    rgba(255,255,255,.82);
 
   backdrop-filter:blur(18px);
   -webkit-backdrop-filter:blur(18px);
 
   border-bottom:
-    1px solid rgba(255,255,255,.43);
+    1px solid rgba(255,255,255,.46);
 
   box-shadow:
-    0 8px 30px rgba(23,38,27,.06);
+    0 8px 28px rgba(23,38,27,.06);
 
   transition:
     background .3s ease,
@@ -521,18 +588,28 @@ section[id]{
 
 }
 
+.site-header.scrolled{
+
+  background:
+    rgba(255,255,255,.97);
+
+  box-shadow:
+    0 12px 34px rgba(23,38,27,.10);
+
+}
+
 .nav-wrap{
 
   position:relative;
 
-  min-height:76px;
+  min-height:74px;
 
   display:flex;
 
   align-items:center;
   justify-content:space-between;
 
-  gap:25px;
+  gap:24px;
 
 }
 
@@ -542,11 +619,16 @@ section[id]{
 
   color:var(--forest);
 
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
   font-size:2rem;
 
-  font-weight:850;
+  font-weight:500;
 
-  letter-spacing:-1px;
+  letter-spacing:-1.2px;
 
 }
 
@@ -568,68 +650,46 @@ nav a{
 
   color:var(--sage);
 
-  font-size:.92rem;
+  font-size:.9rem;
 
   font-weight:720;
 
   white-space:nowrap;
 
   transition:
-    color .3s ease,
-    transform .3s ease,
-    background .3s ease;
+    color .25s ease,
+    background .25s ease;
 
 }
 
 nav a:hover{
-
   color:var(--gold);
-
-  transform:translateY(-1px);
-
 }
 
 nav a.active-page{
 
-  padding:9px 14px;
+  padding:8px 14px;
+
+  border:
+    1px solid rgba(202,167,106,.24);
 
   border-radius:999px;
 
   background:
-    rgba(202,167,106,.15);
-
-  border:
-    1px solid rgba(202,167,106,.27);
+    rgba(202,167,106,.14);
 
   color:var(--forest);
 
 }
 
-nav a.active-page:hover{
+.client-login{
 
-  color:var(--forest);
+  margin-left:1px;
 
-  transform:none;
+  padding-left:20px;
 
-}
-
-nav .login-link{
-
-  padding:9px 15px;
-
-  border-radius:999px;
-
-  background:var(--forest);
-
-  color:white;
-
-}
-
-nav .login-link:hover{
-
-  background:var(--gold);
-
-  color:var(--forest);
+  border-left:
+    1px solid var(--line);
 
 }
 
@@ -637,27 +697,29 @@ nav .login-link:hover{
 
   display:none;
 
-  align-items:center;
-  justify-content:center;
-
   width:43px;
   height:43px;
+
+  align-items:center;
+  justify-content:center;
 
   border:0;
 
   border-radius:50%;
 
   background:
-    rgba(202,167,106,.12);
+    rgba(202,167,106,.10);
 
   color:var(--forest);
+
+  cursor:pointer;
 
 }
 
 .menu-toggle svg{
 
-  width:23px;
-  height:23px;
+  width:22px;
+  height:22px;
 
 }
 
@@ -668,8 +730,10 @@ nav .login-link:hover{
 
 .away-hero{
 
+  position:relative;
+
   min-height:
-    calc(92svh - 76px);
+    calc(90svh - 74px);
 
   display:flex;
 
@@ -678,48 +742,42 @@ nav .login-link:hover{
   overflow:hidden;
 
   padding:
-    80px 0 88px;
+    84px 0 90px;
 
-  background:
-
-    linear-gradient(
-      90deg,
-      rgba(248,241,231,.97) 0%,
-      rgba(248,241,231,.88) 34%,
-      rgba(248,241,231,.47) 59%,
-      rgba(248,241,231,.10) 100%
-    ),
-
-    url("awayfromhome.png");
-
-  background-size:cover;
-
-  background-position:center;
+  background:var(--cream);
 
 }
 
-.away-hero::before{
-
-  content:"";
+.hero-image{
 
   position:absolute;
 
   inset:0;
 
-  pointer-events:none;
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  object-position:center;
+
+}
+
+.hero-overlay{
+
+  position:absolute;
+
+  inset:0;
 
   background:
 
-    radial-gradient(
-      circle at 18% 25%,
-      rgba(255,255,255,.18),
-      transparent 32%
-    ),
-
     linear-gradient(
-      180deg,
-      transparent 55%,
-      rgba(248,241,231,.30) 100%
+      90deg,
+      rgba(248,241,231,.99) 0%,
+      rgba(248,241,231,.96) 30%,
+      rgba(248,241,231,.79) 50%,
+      rgba(248,241,231,.30) 71%,
+      rgba(248,241,231,.05) 100%
     );
 
 }
@@ -734,53 +792,38 @@ nav .login-link:hover{
 
 .hero-content{
 
-  width:min(710px,100%);
+  width:min(670px,100%);
 
 }
 
-.page-label{
+.hero-label{
 
-  display:inline-flex;
+  display:flex;
 
   align-items:center;
 
-  gap:9px;
+  gap:12px;
 
-  margin-bottom:21px;
-
-  padding:9px 15px;
-
-  border-radius:999px;
-
-  background:
-    rgba(255,250,244,.90);
-
-  border:
-    1px solid rgba(202,167,106,.40);
+  margin-bottom:22px;
 
   color:var(--sage);
 
-  font-size:.72rem;
+  font-size:.69rem;
 
   font-weight:850;
 
-  letter-spacing:1.6px;
+  letter-spacing:2.5px;
 
   text-transform:uppercase;
 
-  backdrop-filter:blur(8px);
-  -webkit-backdrop-filter:blur(8px);
-
 }
 
-.page-label::before{
+.hero-label::before{
 
   content:"";
 
-  width:7px;
-  height:7px;
-
-  border-radius:50%;
+  width:35px;
+  height:1px;
 
   background:var(--gold);
 
@@ -788,7 +831,7 @@ nav .login-link:hover{
 
 .away-hero h1{
 
-  max-width:700px;
+  max-width:680px;
 
   margin-bottom:25px;
 
@@ -800,176 +843,31 @@ nav .login-link:hover{
     serif;
 
   font-size:
-    clamp(3.8rem,7vw,6.5rem);
+    clamp(4rem,6.7vw,6.5rem);
 
   font-weight:500;
 
-  line-height:.92;
+  line-height:.91;
 
   letter-spacing:-4px;
 
 }
 
-.away-hero h1 span{
+.away-hero h1 em{
 
   color:var(--gold);
 
   font-style:italic;
 
-}
-
-.hero-copy{
-
-  max-width:640px;
-
-  color:var(--forest);
-
-  font-size:1.13rem;
-
-  line-height:1.8;
-
-  font-weight:600;
+  font-weight:500;
 
 }
 
-.hero-trust{
+.hero-lead{
 
-  display:flex;
+  max-width:610px;
 
-  flex-wrap:wrap;
-
-  gap:8px;
-
-  margin-top:26px;
-
-}
-
-.hero-trust span{
-
-  display:inline-flex;
-
-  align-items:center;
-
-  gap:6px;
-
-  padding:8px 11px;
-
-  border-radius:999px;
-
-  background:
-    rgba(255,250,244,.88);
-
-  border:
-    1px solid rgba(202,167,106,.28);
-
-  color:var(--sage);
-
-  font-size:.75rem;
-
-  font-weight:740;
-
-}
-
-.hero-trust span::before{
-
-  content:"✓";
-
-  color:var(--gold);
-
-  font-weight:900;
-
-}
-
-
-/* ==================================================
-   INTRODUCTION
-================================================== */
-
-.intro-section{
-
-  background:var(--cream-soft);
-
-}
-
-.intro-grid{
-
-  display:grid;
-
-  grid-template-columns:
-    .95fr 1.05fr;
-
-  gap:60px;
-
-  align-items:center;
-
-}
-
-.intro-image-wrap{
-
-  position:relative;
-
-}
-
-.intro-image{
-
-  height:590px;
-
-  object-fit:cover;
-
-  border-radius:32px;
-
-  box-shadow:var(--shadow);
-
-}
-
-.intro-image-caption{
-
-  position:absolute;
-
-  left:22px;
-  bottom:22px;
-
-  max-width:300px;
-
-  padding:17px 19px;
-
-  border-radius:19px;
-
-  background:
-    rgba(255,250,244,.95);
-
-  border:
-    1px solid rgba(202,167,106,.28);
-
-  box-shadow:var(--soft-shadow);
-
-}
-
-.intro-image-caption strong{
-
-  display:block;
-
-  margin-bottom:4px;
-
-  color:var(--forest);
-
-  font-size:.95rem;
-
-}
-
-.intro-image-caption span{
-
-  color:var(--muted);
-
-  font-size:.86rem;
-
-  line-height:1.55;
-
-}
-
-.intro-copy h2{
-
-  margin-bottom:23px;
+  margin-bottom:14px;
 
   color:var(--forest);
 
@@ -979,163 +877,142 @@ nav .login-link:hover{
     serif;
 
   font-size:
-    clamp(2.7rem,5vw,4.5rem);
+    clamp(1.3rem,2vw,1.7rem);
 
-  font-weight:500;
-
-  line-height:1;
-
-  letter-spacing:-2px;
+  line-height:1.42;
 
 }
 
-.intro-copy > p:not(.eyebrow){
+.hero-description{
 
-  margin-bottom:18px;
+  max-width:610px;
 
   color:var(--muted);
 
-  font-size:1.04rem;
+  font-size:1rem;
 
-  line-height:1.83;
+  line-height:1.82;
 
 }
 
-.intro-copy > p:last-child{
-  margin-bottom:0;
+.hero-buttons{
+  margin-top:30px;
+}
+
+.hero-trust{
+
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:9px 21px;
+
+  margin-top:27px;
+
+  padding-top:20px;
+
+  border-top:
+    1px solid var(--line);
+
+}
+
+.hero-trust span{
+
+  color:var(--sage);
+
+  font-size:.74rem;
+
+  font-weight:740;
+
+}
+
+.hero-trust span::before{
+
+  content:"✓";
+
+  margin-right:7px;
+
+  color:var(--gold);
+
+  font-weight:900;
+
 }
 
 
 /* ==================================================
-   SERVICES
+   SWITCH OFF
 ================================================== */
 
-.services-section{
+.switch-off{
+
+  overflow:hidden;
 
   background:white;
 
 }
 
-.service-grid{
+.switch-layout{
 
   display:grid;
 
   grid-template-columns:
-    repeat(3,1fr);
+    1.05fr .95fr;
 
-  gap:18px;
-
-}
-
-.service-card{
-
-  min-height:245px;
-
-  display:flex;
-
-  flex-direction:column;
-
-  padding:27px;
-
-  border-radius:24px;
-
-  background:var(--cream-soft);
-
-  border:
-    1px solid rgba(23,38,27,.08);
-
-  transition:
-    transform .3s ease,
-    box-shadow .3s ease;
-
-}
-
-.service-card:nth-child(2),
-.service-card:nth-child(8){
-
-  background:var(--sage-pale);
-
-}
-
-.service-card:nth-child(3),
-.service-card:nth-child(7){
-
-  background:#ede3d5;
-
-}
-
-.service-card:nth-child(5){
-
-  background:white;
-
-  border:
-    1px solid rgba(202,167,106,.40);
-
-}
-
-.service-card:nth-child(9){
-
-  background:var(--sage);
-
-}
-
-.service-card:nth-child(9) h3{
-  color:white;
-}
-
-.service-card:nth-child(9) p{
-  color:rgba(255,255,255,.72);
-}
-
-.service-card:hover{
-
-  transform:translateY(-6px);
-
-  box-shadow:var(--soft-shadow);
-
-}
-
-.service-icon{
-
-  width:47px;
-  height:47px;
-
-  display:flex;
+  gap:72px;
 
   align-items:center;
-  justify-content:center;
 
-  margin-bottom:22px;
+}
 
-  border-radius:50%;
+.switch-image-wrap{
+
+  position:relative;
+
+}
+
+.switch-image{
+
+  width:100%;
+  height:620px;
+
+  object-fit:cover;
+
+  border-radius:38px;
+
+  box-shadow:var(--shadow-deep);
+
+}
+
+.switch-image-note{
+
+  position:absolute;
+
+  right:22px;
+  bottom:22px;
+
+  width:min(300px,calc(100% - 44px));
+
+  padding:18px 20px;
+
+  border:
+    1px solid rgba(202,167,106,.27);
+
+  border-radius:19px;
 
   background:
-    rgba(202,167,106,.14);
+    rgba(255,250,244,.95);
 
-  color:var(--forest);
+  box-shadow:var(--shadow-soft);
 
-}
-
-.service-card:nth-child(9)
-.service-icon{
-
-  background:
-    rgba(255,255,255,.12);
-
-  color:var(--gold-soft);
+  backdrop-filter:blur(9px);
 
 }
 
-.service-icon svg{
+.switch-image-note strong{
 
-  width:22px;
-  height:22px;
+  display:block;
 
-}
-
-.service-card h3{
-
-  margin-bottom:10px;
+  margin-bottom:4px;
 
   color:var(--forest);
 
@@ -1144,21 +1021,831 @@ nav .login-link:hover{
     "Times New Roman",
     serif;
 
-  font-size:1.42rem;
+  font-size:1rem;
 
   font-weight:500;
 
-  line-height:1.2;
-
 }
 
-.service-card p{
+.switch-image-note span{
 
   color:var(--muted);
 
-  font-size:.93rem;
+  font-size:.84rem;
 
-  line-height:1.68;
+  line-height:1.55;
+
+}
+
+.switch-copy h2{
+
+  margin-bottom:22px;
+
+  color:var(--forest);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(2.9rem,5vw,4.7rem);
+
+  font-weight:500;
+
+  line-height:1;
+
+  letter-spacing:-2.5px;
+
+}
+
+.switch-copy > p:not(.eyebrow){
+
+  margin-bottom:17px;
+
+  color:var(--muted);
+
+  line-height:1.83;
+
+}
+
+.switch-statement{
+
+  margin-top:30px;
+
+  padding-left:24px;
+
+  border-left:
+    1px solid var(--gold);
+
+  color:var(--forest);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(1.45rem,2.5vw,1.95rem);
+
+  line-height:1.42;
+
+}
+
+.switch-statement em{
+
+  color:var(--gold);
+
+  font-style:italic;
+
+}
+
+
+/* ==================================================
+   AWAY PLAN
+================================================== */
+
+.away-plan{
+
+  overflow:hidden;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--cream-soft),
+      var(--cream)
+    );
+
+}
+
+.plan-grid{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(
+      3,
+      minmax(0,1fr)
+    );
+
+  gap:22px;
+
+}
+
+.plan-card{
+
+  min-width:0;
+
+  overflow:hidden;
+
+  display:flex;
+
+  flex-direction:column;
+
+  border:
+    1px solid rgba(23,38,27,.08);
+
+  border-radius:30px;
+
+  background:white;
+
+  box-shadow:var(--shadow-soft);
+
+}
+
+.plan-card.featured{
+
+  border:
+    1px solid rgba(202,167,106,.54);
+
+  background:
+    linear-gradient(
+      145deg,
+      var(--forest),
+      var(--forest-soft)
+    );
+
+  color:white;
+
+  box-shadow:var(--shadow);
+
+}
+
+.plan-image-wrap{
+
+  position:relative;
+
+  height:295px;
+
+  overflow:hidden;
+
+}
+
+.plan-image{
+
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  transition:
+    transform .65s ease;
+
+}
+
+.plan-card:hover
+.plan-image{
+
+  transform:scale(1.025);
+
+}
+
+.plan-image-wrap::after{
+
+  content:"";
+
+  position:absolute;
+
+  inset:0;
+
+  background:
+    linear-gradient(
+      180deg,
+      transparent 52%,
+      rgba(23,38,27,.24)
+    );
+
+}
+
+.plan-stage{
+
+  position:absolute;
+
+  left:17px;
+  bottom:16px;
+
+  z-index:2;
+
+  padding:7px 11px;
+
+  border-radius:999px;
+
+  background:
+    rgba(255,250,244,.94);
+
+  color:var(--forest);
+
+  font-size:.65rem;
+
+  font-weight:850;
+
+  letter-spacing:1px;
+
+  text-transform:uppercase;
+
+}
+
+.plan-content{
+
+  display:flex;
+
+  flex-direction:column;
+
+  flex:1;
+
+  padding:28px;
+
+}
+
+.plan-content h3{
+
+  margin-bottom:12px;
+
+  color:var(--forest);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(1.9rem,3vw,2.5rem);
+
+  font-weight:500;
+
+  line-height:1.05;
+
+}
+
+.featured
+.plan-content h3{
+  color:white;
+}
+
+.plan-content > p{
+
+  margin-bottom:22px;
+
+  color:var(--muted);
+
+  font-size:.92rem;
+
+  line-height:1.72;
+
+}
+
+.featured
+.plan-content > p{
+
+  color:
+    rgba(255,255,255,.70);
+
+}
+
+.plan-list{
+
+  display:grid;
+
+  margin-top:auto;
+
+  border-top:
+    1px solid var(--line);
+
+}
+
+.featured
+.plan-list{
+
+  border-color:
+    rgba(255,255,255,.12);
+
+}
+
+.plan-list div{
+
+  position:relative;
+
+  padding:
+    11px 0 11px 23px;
+
+  border-bottom:
+    1px solid var(--line);
+
+  color:var(--sage);
+
+  font-size:.86rem;
+
+  font-weight:650;
+
+}
+
+.featured
+.plan-list div{
+
+  border-color:
+    rgba(255,255,255,.09);
+
+  color:
+    rgba(255,255,255,.82);
+
+}
+
+.plan-list div:last-child{
+  border-bottom:0;
+}
+
+.plan-list div::before{
+
+  content:"✓";
+
+  position:absolute;
+
+  left:0;
+
+  color:var(--gold);
+
+  font-weight:900;
+
+}
+
+
+/* ==================================================
+   DARK STATEMENT
+================================================== */
+
+.away-statement{
+
+  overflow:hidden;
+
+  padding:
+    125px 0;
+
+  background:
+    linear-gradient(
+      145deg,
+      var(--forest),
+      var(--forest-deep)
+    );
+
+  color:white;
+
+  text-align:center;
+
+}
+
+.away-statement::before{
+
+  content:"";
+
+  position:absolute;
+
+  width:520px;
+  height:520px;
+
+  top:-290px;
+  right:-190px;
+
+  border:
+    1px solid rgba(202,167,106,.12);
+
+  border-radius:50%;
+
+}
+
+.away-statement::after{
+
+  content:"";
+
+  position:absolute;
+
+  width:350px;
+  height:350px;
+
+  left:-220px;
+  bottom:-230px;
+
+  border:
+    1px solid rgba(202,167,106,.08);
+
+  border-radius:50%;
+
+}
+
+.statement-inner{
+
+  position:relative;
+
+  z-index:2;
+
+  width:min(950px,100%);
+
+  margin:0 auto;
+
+}
+
+.statement-inner .eyebrow{
+  color:var(--gold-soft);
+}
+
+.statement-inner h2{
+
+  margin-bottom:25px;
+
+  color:white;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(3rem,6vw,5.4rem);
+
+  font-weight:500;
+
+  line-height:.98;
+
+  letter-spacing:-2.6px;
+
+}
+
+.statement-inner h2 em{
+
+  color:var(--gold-soft);
+
+  font-style:italic;
+
+}
+
+.statement-inner p{
+
+  color:
+    rgba(255,255,255,.70);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(1.25rem,2.4vw,1.65rem);
+
+  line-height:1.45;
+
+}
+
+
+/* ==================================================
+   REAL EXAMPLE
+================================================== */
+
+.example-section{
+
+  overflow:hidden;
+
+  background:white;
+
+}
+
+.example-layout{
+
+  display:grid;
+
+  grid-template-columns:
+    .8fr 1.2fr;
+
+  gap:70px;
+
+  align-items:center;
+
+}
+
+.example-copy h2{
+
+  margin-bottom:21px;
+
+  color:var(--forest);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(2.8rem,4.8vw,4.45rem);
+
+  font-weight:500;
+
+  line-height:1;
+
+  letter-spacing:-2.3px;
+
+}
+
+.example-copy > p:not(.eyebrow){
+
+  color:var(--muted);
+
+  line-height:1.82;
+
+}
+
+.example-finish{
+
+  margin-top:29px;
+
+  color:var(--forest) !important;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(1.45rem,2.5vw,1.95rem);
+
+  line-height:1.4 !important;
+
+}
+
+.example-finish em{
+
+  color:var(--gold);
+
+  font-style:italic;
+
+}
+
+.away-timeline{
+
+  position:relative;
+
+  border-top:
+    1px solid var(--line);
+
+}
+
+.away-timeline::before{
+
+  content:"";
+
+  position:absolute;
+
+  left:104px;
+
+  top:30px;
+  bottom:30px;
+
+  width:1px;
+
+  background:
+    linear-gradient(
+      var(--gold),
+      rgba(202,167,106,.10)
+    );
+
+}
+
+.timeline-row{
+
+  position:relative;
+
+  display:grid;
+
+  grid-template-columns:
+    80px 32px 1fr;
+
+  gap:18px;
+
+  align-items:start;
+
+  padding:23px 0;
+
+  border-bottom:
+    1px solid var(--line);
+
+}
+
+.timeline-day{
+
+  padding-top:5px;
+
+  color:var(--gold);
+
+  font-size:.66rem;
+
+  font-weight:850;
+
+  letter-spacing:1.5px;
+
+  text-transform:uppercase;
+
+}
+
+.timeline-dot{
+
+  position:relative;
+
+  z-index:2;
+
+  width:15px;
+  height:15px;
+
+  margin-top:7px;
+  margin-left:1px;
+
+  border:
+    4px solid var(--cream-soft);
+
+  border-radius:50%;
+
+  background:var(--gold);
+
+  box-shadow:
+    0 0 0 1px rgba(202,167,106,.35);
+
+}
+
+.timeline-copy h3{
+
+  margin-bottom:5px;
+
+  color:var(--forest);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:1.25rem;
+
+  font-weight:500;
+
+}
+
+.timeline-copy p{
+
+  color:var(--muted);
+
+  font-size:.88rem;
+
+  line-height:1.62;
+
+}
+
+
+/* ==================================================
+   WHAT WE HANDLE
+================================================== */
+
+.handle-section{
+
+  overflow:hidden;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--cream),
+      var(--cream-soft)
+    );
+
+}
+
+.handle-layout{
+
+  display:grid;
+
+  grid-template-columns:
+    1.05fr .95fr;
+
+  gap:60px;
+
+  align-items:center;
+
+}
+
+.handle-image{
+
+  width:100%;
+  height:590px;
+
+  object-fit:cover;
+
+  border-radius:36px;
+
+  box-shadow:var(--shadow-deep);
+
+}
+
+.handle-content h2{
+
+  margin-bottom:20px;
+
+  color:var(--forest);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(2.8rem,4.8vw,4.4rem);
+
+  font-weight:500;
+
+  line-height:1;
+
+  letter-spacing:-2.3px;
+
+}
+
+.handle-content > p:not(.eyebrow){
+
+  margin-bottom:28px;
+
+  color:var(--muted);
+
+  line-height:1.82;
+
+}
+
+.handle-columns{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(
+      2,
+      minmax(0,1fr)
+    );
+
+  gap:34px;
+
+}
+
+.handle-column{
+
+  padding-top:19px;
+
+  border-top:
+    1px solid var(--gold-line);
+
+}
+
+.handle-column h3{
+
+  margin-bottom:13px;
+
+  color:var(--forest);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:1.3rem;
+
+  font-weight:500;
+
+}
+
+.handle-list{
+
+  display:grid;
+
+  gap:9px;
+
+}
+
+.handle-list div{
+
+  position:relative;
+
+  padding-left:21px;
+
+  color:var(--muted);
+
+  font-size:.88rem;
+
+  line-height:1.55;
+
+}
+
+.handle-list div::before{
+
+  content:"";
+
+  position:absolute;
+
+  left:1px;
+  top:.72em;
+
+  width:6px;
+  height:6px;
+
+  border-radius:50%;
+
+  background:var(--gold);
 
 }
 
@@ -1169,21 +1856,9 @@ nav .login-link:hover{
 
 .how-section{
 
-  background:
+  overflow:hidden;
 
-    linear-gradient(
-      180deg,
-      var(--cream),
-      var(--cream-deep)
-    );
-
-}
-
-.steps-wrap{
-
-  max-width:960px;
-
-  margin:0 auto;
+  background:white;
 
 }
 
@@ -1191,7 +1866,9 @@ nav .login-link:hover{
 
   position:relative;
 
-  display:grid;
+  width:min(920px,100%);
+
+  margin:0 auto;
 
 }
 
@@ -1201,18 +1878,17 @@ nav .login-link:hover{
 
   position:absolute;
 
-  left:24px;
+  left:22px;
 
-  top:30px;
-  bottom:30px;
+  top:25px;
+  bottom:25px;
 
   width:1px;
 
   background:
-
     linear-gradient(
       var(--gold),
-      rgba(202,167,106,.12)
+      rgba(202,167,106,.10)
     );
 
 }
@@ -1224,11 +1900,11 @@ nav .login-link:hover{
   display:grid;
 
   grid-template-columns:
-    50px 1fr;
+    46px 1fr;
 
-  gap:22px;
+  gap:20px;
 
-  padding-bottom:33px;
+  padding-bottom:29px;
 
 }
 
@@ -1242,8 +1918,8 @@ nav .login-link:hover{
 
   z-index:2;
 
-  width:50px;
-  height:50px;
+  width:46px;
+  height:46px;
 
   display:flex;
 
@@ -1256,36 +1932,36 @@ nav .login-link:hover{
 
   color:white;
 
-  font-size:.78rem;
+  font-size:.72rem;
 
   font-weight:850;
 
-  letter-spacing:1px;
+  letter-spacing:.8px;
 
 }
 
 .step-content{
 
   padding:
-    3px 0 29px;
+    3px 0 27px;
 
   border-bottom:
-    1px solid rgba(23,38,27,.10);
+    1px solid var(--line);
 
 }
 
 .step:last-child
 .step-content{
 
-  border-bottom:0;
-
   padding-bottom:0;
+
+  border-bottom:0;
 
 }
 
 .step h3{
 
-  margin-bottom:7px;
+  margin-bottom:5px;
 
   color:var(--forest);
 
@@ -1294,7 +1970,7 @@ nav .login-link:hover{
     "Times New Roman",
     serif;
 
-  font-size:1.5rem;
+  font-size:1.35rem;
 
   font-weight:500;
 
@@ -1304,175 +1980,9 @@ nav .login-link:hover{
 
   color:var(--muted);
 
-  font-size:.96rem;
+  font-size:.9rem;
 
-  line-height:1.72;
-
-}
-
-
-/* ==================================================
-   REASSURANCE
-================================================== */
-
-.reassurance-section{
-
-  overflow:hidden;
-
-  background:var(--forest);
-
-  color:white;
-
-}
-
-.reassurance-section::before{
-
-  content:"";
-
-  position:absolute;
-
-  width:430px;
-  height:430px;
-
-  right:-140px;
-  top:-150px;
-
-  border-radius:50%;
-
-  border:
-    1px solid rgba(202,167,106,.12);
-
-}
-
-.reassurance-grid{
-
-  position:relative;
-
-  z-index:2;
-
-  display:grid;
-
-  grid-template-columns:
-    1.05fr .95fr;
-
-  gap:58px;
-
-  align-items:center;
-
-}
-
-.reassurance-copy h2{
-
-  margin-bottom:29px;
-
-  color:white;
-
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  font-size:
-    clamp(2.7rem,5vw,4.4rem);
-
-  font-weight:500;
-
-  line-height:1;
-
-  letter-spacing:-2px;
-
-}
-
-.reassurance-list{
-
-  display:grid;
-
-}
-
-.reassurance-item{
-
-  display:grid;
-
-  grid-template-columns:
-    40px 1fr;
-
-  gap:15px;
-
-  padding:20px 0;
-
-  border-bottom:
-    1px solid rgba(255,255,255,.12);
-
-}
-
-.reassurance-item:last-child{
-  border-bottom:0;
-}
-
-.reassurance-icon{
-
-  width:38px;
-  height:38px;
-
-  display:flex;
-
-  align-items:center;
-  justify-content:center;
-
-  border-radius:50%;
-
-  background:
-    rgba(202,167,106,.13);
-
-  color:var(--gold-soft);
-
-}
-
-.reassurance-icon svg{
-
-  width:19px;
-  height:19px;
-
-}
-
-.reassurance-item h3{
-
-  margin-bottom:4px;
-
-  color:white;
-
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  font-size:1.22rem;
-
-  font-weight:500;
-
-}
-
-.reassurance-item p{
-
-  color:
-    rgba(255,255,255,.69);
-
-  font-size:.91rem;
-
-  line-height:1.65;
-
-}
-
-.reassurance-image{
-
-  height:590px;
-
-  object-fit:cover;
-
-  border-radius:32px;
-
-  box-shadow:
-    0 28px 70px rgba(0,0,0,.20);
+  line-height:1.68;
 
 }
 
@@ -1483,7 +1993,14 @@ nav .login-link:hover{
 
 .pricing-section{
 
-  background:var(--cream-soft);
+  overflow:hidden;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--cream-soft),
+      var(--cream-deep)
+    );
 
 }
 
@@ -1492,7 +2009,10 @@ nav .login-link:hover{
   display:grid;
 
   grid-template-columns:
-    repeat(3,1fr);
+    repeat(
+      3,
+      minmax(0,1fr)
+    );
 
   gap:24px;
 
@@ -1502,80 +2022,49 @@ nav .login-link:hover{
 
 .price-card{
 
-  position:relative;
+  min-width:0;
 
   display:flex;
 
   flex-direction:column;
 
-  padding:34px;
+  padding:35px;
+
+  border:
+    1px solid rgba(202,167,106,.24);
 
   border-radius:30px;
 
   background:white;
 
-  border:
-    1px solid rgba(202,167,106,.24);
-
-  box-shadow:var(--soft-shadow);
-
-  transition:
-    transform .35s ease,
-    box-shadow .35s ease;
-
-}
-
-.price-card:hover{
-
-  transform:translateY(-7px);
-
-  box-shadow:var(--shadow);
+  box-shadow:var(--shadow-soft);
 
 }
 
 .price-card.featured{
 
-  background:var(--forest);
+  background:
+    linear-gradient(
+      145deg,
+      var(--forest),
+      var(--forest-soft)
+    );
 
   color:white;
 
   border-color:
-    rgba(202,167,106,.62);
+    rgba(202,167,106,.60);
 
-}
-
-.price-badge{
-
-  align-self:flex-start;
-
-  margin-bottom:17px;
-
-  padding:8px 13px;
-
-  border-radius:999px;
-
-  background:var(--gold);
-
-  color:var(--forest);
-
-  font-size:.67rem;
-
-  font-weight:900;
-
-  letter-spacing:.8px;
+  box-shadow:var(--shadow);
 
 }
 
 .price-card .eyebrow{
-
-  margin-bottom:9px;
-
+  margin-bottom:10px;
 }
 
 .price-card.featured .eyebrow{
-
   color:var(--gold-soft);
-
 }
 
 .price-card h3{
@@ -1589,11 +2078,12 @@ nav .login-link:hover{
     "Times New Roman",
     serif;
 
-  font-size:2rem;
+  font-size:
+    clamp(1.8rem,3vw,2.25rem);
 
   font-weight:500;
 
-  line-height:1.05;
+  line-height:1.08;
 
 }
 
@@ -1601,26 +2091,27 @@ nav .login-link:hover{
   color:white;
 }
 
-.price-card > p:not(.eyebrow):not(.price-note){
+.price-description{
 
   color:var(--muted);
 
-  line-height:1.72;
+  font-size:.91rem;
+
+  line-height:1.7;
 
 }
 
-.price-card.featured
-> p:not(.eyebrow):not(.price-note){
+.featured .price-description{
 
   color:
-    rgba(255,255,255,.72);
+    rgba(255,255,255,.70);
 
 }
 
 .price{
 
   margin:
-    24px 0 5px;
+    26px 0 5px;
 
   color:var(--forest);
 
@@ -1632,68 +2123,78 @@ nav .login-link:hover{
 
 }
 
-.price-card.featured .price{
+.featured .price{
   color:white;
 }
 
 .price-note{
 
-  margin-bottom:21px;
+  margin-bottom:23px;
 
   color:var(--muted);
 
-  font-size:.87rem;
+  font-size:.81rem;
+
+  line-height:1.55;
 
 }
 
-.price-card.featured .price-note{
+.featured .price-note{
 
   color:
-    rgba(255,255,255,.57);
+    rgba(255,255,255,.58);
 
 }
 
-.price-card ul{
+.price-list{
 
-  list-style:none;
+  display:grid;
 
-  margin-bottom:27px;
+  margin-bottom:28px;
+
+  border-top:
+    1px solid var(--line);
 
 }
 
-.price-card li{
+.featured
+.price-list{
+
+  border-color:
+    rgba(255,255,255,.11);
+
+}
+
+.price-list div{
 
   position:relative;
 
   padding:
-    10px 0 10px 25px;
+    11px 0 11px 24px;
 
   border-bottom:
-    1px solid rgba(23,38,27,.07);
+    1px solid var(--line);
 
   color:var(--muted);
 
-  font-size:.92rem;
+  font-size:.88rem;
 
   line-height:1.5;
 
 }
 
-.price-card.featured li{
-
-  color:
-    rgba(255,255,255,.76);
+.featured
+.price-list div{
 
   border-color:
-    rgba(255,255,255,.08);
+    rgba(255,255,255,.09);
+
+  color:
+    rgba(255,255,255,.78);
 
 }
 
-.price-card li:last-child{
-  border-bottom:0;
-}
-
-.price-card li::before{
+.price-list div::before{
 
   content:"✓";
 
@@ -1715,7 +2216,7 @@ nav .login-link:hover{
 
 }
 
-.price-card.featured .btn{
+.featured .btn{
 
   background:var(--gold);
 
@@ -1723,9 +2224,24 @@ nav .login-link:hover{
 
 }
 
-.bespoke-note{
+.price-smallprint{
 
-  max-width:900px;
+  width:min(830px,100%);
+
+  margin:
+    38px auto 0;
+
+  color:var(--muted);
+
+  text-align:center;
+
+  font-size:.83rem;
+
+  line-height:1.72;
+
+}
+
+.bespoke-banner{
 
   display:grid;
 
@@ -1736,25 +2252,23 @@ nav .login-link:hover{
 
   align-items:center;
 
-  margin:
-    50px auto 0;
+  margin-top:46px;
 
-  padding:
-    35px 38px;
-
-  border-radius:28px;
-
-  background:
-    #ede3d5;
+  padding:34px 38px;
 
   border:
-    1px solid rgba(202,167,106,.34);
+    1px solid rgba(202,167,106,.32);
+
+  border-radius:27px;
+
+  background:
+    rgba(255,250,244,.84);
 
 }
 
-.bespoke-note h3{
+.bespoke-banner h3{
 
-  margin-bottom:8px;
+  margin-bottom:7px;
 
   color:var(--forest);
 
@@ -1763,17 +2277,336 @@ nav .login-link:hover{
     "Times New Roman",
     serif;
 
-  font-size:1.75rem;
+  font-size:
+    clamp(1.8rem,3.5vw,2.45rem);
+
+  font-weight:500;
+
+  line-height:1.08;
+
+}
+
+.bespoke-banner p{
+
+  max-width:680px;
+
+  color:var(--muted);
+
+  line-height:1.7;
+
+}
+
+
+/* ==================================================
+   SECOND HOMES
+================================================== */
+
+.second-home-section{
+
+  overflow:hidden;
+
+  background:white;
+
+}
+
+.second-home-layout{
+
+  display:grid;
+
+  grid-template-columns:
+    .92fr 1.08fr;
+
+  gap:68px;
+
+  align-items:center;
+
+}
+
+.second-home-copy h2{
+
+  margin-bottom:21px;
+
+  color:var(--forest);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(2.9rem,4.9vw,4.55rem);
+
+  font-weight:500;
+
+  line-height:1;
+
+  letter-spacing:-2.4px;
+
+}
+
+.second-home-copy > p:not(.eyebrow){
+
+  margin-bottom:16px;
+
+  color:var(--muted);
+
+  line-height:1.82;
+
+}
+
+.second-home-list{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(2,minmax(0,1fr));
+
+  gap:0 25px;
+
+  margin-top:27px;
+
+  border-top:
+    1px solid var(--line);
+
+}
+
+.second-home-list div{
+
+  position:relative;
+
+  padding:
+    14px 0 14px 23px;
+
+  border-bottom:
+    1px solid var(--line);
+
+  color:var(--sage);
+
+  font-size:.88rem;
+
+  font-weight:650;
+
+}
+
+.second-home-list div::before{
+
+  content:"✓";
+
+  position:absolute;
+
+  left:0;
+
+  color:var(--gold);
+
+  font-weight:900;
+
+}
+
+.second-home-link{
+
+  margin-top:25px;
+
+}
+
+.second-home-image{
+
+  width:100%;
+  height:620px;
+
+  object-fit:cover;
+
+  border-radius:38px;
+
+  box-shadow:var(--shadow-deep);
+
+}
+
+
+/* ==================================================
+   TRUST
+================================================== */
+
+.trust-section{
+
+  overflow:hidden;
+
+  background:
+    linear-gradient(
+      145deg,
+      var(--forest),
+      var(--forest-deep)
+    );
+
+  color:white;
+
+}
+
+.trust-section::before{
+
+  content:"";
+
+  position:absolute;
+
+  width:500px;
+  height:500px;
+
+  top:-260px;
+  right:-220px;
+
+  border:
+    1px solid rgba(202,167,106,.12);
+
+  border-radius:50%;
+
+}
+
+.trust-layout{
+
+  position:relative;
+
+  z-index:2;
+
+  display:grid;
+
+  grid-template-columns:
+    .95fr 1.05fr;
+
+  gap:70px;
+
+  align-items:center;
+
+}
+
+.trust-image{
+
+  width:100%;
+  height:570px;
+
+  object-fit:cover;
+
+  border:
+    1px solid rgba(202,167,106,.22);
+
+  border-radius:35px;
+
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.23);
+
+}
+
+.trust-copy .eyebrow{
+  color:var(--gold-soft);
+}
+
+.trust-copy h2{
+
+  margin-bottom:22px;
+
+  color:white;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(2.8rem,4.8vw,4.3rem);
+
+  font-weight:500;
+
+  line-height:1;
+
+  letter-spacing:-2.3px;
+
+}
+
+.trust-copy > p:not(.eyebrow){
+
+  margin-bottom:25px;
+
+  color:
+    rgba(255,255,255,.70);
+
+  line-height:1.8;
+
+}
+
+.trust-list{
+
+  display:grid;
+
+  border-top:
+    1px solid rgba(255,255,255,.12);
+
+}
+
+.trust-row{
+
+  display:grid;
+
+  grid-template-columns:
+    42px 1fr;
+
+  gap:15px;
+
+  padding:18px 0;
+
+  border-bottom:
+    1px solid rgba(255,255,255,.11);
+
+}
+
+.trust-icon{
+
+  width:39px;
+  height:39px;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  border-radius:50%;
+
+  background:
+    rgba(202,167,106,.13);
+
+  color:var(--gold-soft);
+
+}
+
+.trust-icon svg{
+
+  width:18px;
+  height:18px;
+
+}
+
+.trust-row h3{
+
+  margin-bottom:3px;
+
+  color:white;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:1.1rem;
 
   font-weight:500;
 
 }
 
-.bespoke-note p{
+.trust-row p{
 
-  color:var(--muted);
+  color:
+    rgba(255,255,255,.62);
 
-  line-height:1.7;
+  font-size:.82rem;
+
+  line-height:1.58;
 
 }
 
@@ -1784,25 +2617,27 @@ nav .login-link:hover{
 
 .faq-section{
 
+  overflow:hidden;
+
   background:white;
 
 }
 
 .faq-list{
 
-  max-width:900px;
+  width:min(900px,100%);
 
   margin:0 auto;
 
   border-top:
-    1px solid rgba(23,38,27,.11);
+    1px solid var(--line);
 
 }
 
 .faq-item{
 
   border-bottom:
-    1px solid rgba(23,38,27,.11);
+    1px solid var(--line);
 
 }
 
@@ -1815,7 +2650,7 @@ nav .login-link:hover{
   align-items:center;
   justify-content:space-between;
 
-  gap:25px;
+  gap:22px;
 
   padding:22px 2px;
 
@@ -1825,6 +2660,8 @@ nav .login-link:hover{
 
   color:var(--forest);
 
+  cursor:pointer;
+
   text-align:left;
 
   font-family:
@@ -1832,7 +2669,7 @@ nav .login-link:hover{
     "Times New Roman",
     serif;
 
-  font-size:1.27rem;
+  font-size:1.2rem;
 
   font-weight:500;
 
@@ -1863,8 +2700,6 @@ nav .login-link:hover{
     "Segoe UI",
     sans-serif;
 
-  font-size:1.25rem;
-
   transition:
     transform .3s ease;
 
@@ -1885,26 +2720,28 @@ nav .login-link:hover{
 
   opacity:0;
 
+  color:var(--muted);
+
+  font-size:.92rem;
+
+  line-height:1.75;
+
   transition:
     max-height .35s ease,
     opacity .35s ease,
     padding .35s ease;
-
-  color:var(--muted);
-
-  line-height:1.75;
 
 }
 
 .faq-item.active
 .faq-answer{
 
-  max-height:300px;
+  max-height:440px;
 
   opacity:1;
 
   padding:
-    0 50px 22px 2px;
+    0 48px 22px 2px;
 
 }
 
@@ -1913,107 +2750,71 @@ nav .login-link:hover{
    AREAS
 ================================================== */
 
-.areas{
+.areas-section{
 
-  padding:76px 0;
+  position:relative;
+
+  min-height:390px;
+
+  display:flex;
+
+  align-items:center;
 
   overflow:hidden;
 
-  color:white;
-
   text-align:center;
 
-  background:
-
-    linear-gradient(
-      rgba(23,38,27,.50),
-      rgba(23,38,27,.58)
-    ),
-
-    url("eastbourne-area.jpg");
-
-  background-size:cover;
-
-  background-position:center;
-
-  background-repeat:no-repeat;
-
-}
-
-.areas h2{
-
-  margin-bottom:15px;
-
   color:white;
 
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  font-size:
-    clamp(2.2rem,4.5vw,3.5rem);
-
-  font-weight:500;
-
-  line-height:1.05;
-
-  text-shadow:
-    0 3px 18px rgba(0,0,0,.23);
+  background:
+    var(--forest);
 
 }
 
-.areas p:not(.eyebrow){
+.areas-image{
 
-  max-width:790px;
+  position:absolute;
 
-  margin:0 auto;
+  inset:0;
 
-  color:
-    rgba(255,255,255,.90);
+  width:100%;
+  height:100%;
 
-  line-height:1.78;
-
-  text-shadow:
-    0 2px 12px rgba(0,0,0,.24);
+  object-fit:cover;
 
 }
 
+.areas-overlay{
 
-/* ==================================================
-   CONTACT
-================================================== */
+  position:absolute;
 
-.contact{
+  inset:0;
 
   background:
-
     linear-gradient(
-      180deg,
-      var(--cream-soft),
-      var(--cream)
+      rgba(23,38,27,.48),
+      rgba(23,38,27,.68)
     );
 
 }
 
-.contact-grid{
+.areas-section .container{
 
-  display:grid;
+  position:relative;
 
-  grid-template-columns:
-    .85fr 1.15fr;
-
-  gap:60px;
-
-  align-items:start;
+  z-index:2;
 
 }
 
-.contact-copy h2{
+.areas-section .eyebrow{
+  color:var(--gold-soft);
+}
 
-  margin-bottom:18px;
+.areas-section h2{
 
-  color:var(--forest);
+  margin-bottom:16px;
+
+  color:white;
 
   font-family:
     Georgia,
@@ -2021,7 +2822,7 @@ nav .login-link:hover{
     serif;
 
   font-size:
-    clamp(2.6rem,5vw,4rem);
+    clamp(2.8rem,5vw,4.35rem);
 
   font-weight:500;
 
@@ -2031,135 +2832,190 @@ nav .login-link:hover{
 
 }
 
-.contact-copy > p:not(.eyebrow){
+.areas-section p:not(.eyebrow){
 
-  margin-bottom:18px;
+  width:min(760px,100%);
 
-  color:var(--muted);
+  margin:0 auto;
+
+  color:
+    rgba(255,255,255,.89);
 
   line-height:1.8;
 
 }
 
-.contact-copy .response-time{
 
-  color:var(--sage);
+/* ==================================================
+   FINAL ENQUIRY
+================================================== */
 
-  font-weight:700;
+.contact-section{
+
+  overflow:hidden;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--cream),
+      var(--cream-soft)
+    );
 
 }
 
-.contact-details{
+.contact-layout{
 
   display:grid;
 
-  gap:0;
+  grid-template-columns:
+    .82fr 1.18fr;
 
-  margin-top:32px;
+  gap:55px;
 
-}
-
-.contact-detail{
-
-  padding:17px 0;
-
-  border-top:
-    1px solid rgba(23,38,27,.11);
+  align-items:start;
 
 }
 
-.contact-detail h3{
+.contact-side{
 
-  margin-bottom:4px;
+  position:sticky;
+
+  top:110px;
+
+}
+
+.contact-image{
+
+  width:100%;
+
+  aspect-ratio:4 / 3;
+
+  object-fit:cover;
+
+  margin-bottom:31px;
+
+  border-radius:30px;
+
+  box-shadow:var(--shadow);
+
+}
+
+.contact-side h2{
+
+  margin-bottom:18px;
 
   color:var(--forest);
-
-  font-size:.94rem;
-
-}
-
-.contact-detail p{
-
-  color:var(--muted);
-
-  line-height:1.65;
-
-}
-
-.promise-card{
-
-  margin-bottom:20px;
-
-  padding:26px 28px;
-
-  border-radius:24px;
-
-  background:var(--forest);
-
-  color:white;
-
-  box-shadow:var(--soft-shadow);
-
-}
-
-.promise-card .eyebrow{
-
-  color:var(--gold-soft);
-
-  margin-bottom:7px;
-
-}
-
-.promise-card h3{
-
-  margin-bottom:8px;
-
-  color:white;
 
   font-family:
     Georgia,
     "Times New Roman",
     serif;
 
-  font-size:1.55rem;
+  font-size:
+    clamp(2.7rem,4.8vw,4.1rem);
 
   font-weight:500;
 
+  line-height:1;
+
+  letter-spacing:-2.2px;
+
 }
 
-.promise-card p{
+.contact-side > p:not(.eyebrow){
 
-  color:
-    rgba(255,255,255,.72);
+  margin-bottom:16px;
 
-  line-height:1.7;
+  color:var(--muted);
 
-  font-size:.94rem;
+  line-height:1.78;
+
+}
+
+.contact-phone{
+
+  margin-top:22px !important;
+
+  font-size:.9rem;
+
+}
+
+.contact-phone a{
+
+  color:var(--forest);
+
+  font-weight:800;
+
+}
+
+.contact-assurance{
+
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:8px 14px;
+
+  margin-top:22px;
+
+  padding-top:18px;
+
+  border-top:
+    1px solid var(--line);
+
+}
+
+.contact-assurance span{
+
+  color:var(--sage);
+
+  font-size:.72rem;
+
+  font-weight:720;
+
+}
+
+.contact-assurance span::before{
+
+  content:"✓";
+
+  margin-right:6px;
+
+  color:var(--gold);
+
+  font-weight:900;
 
 }
 
 .contact-form{
 
-  padding:39px;
+  padding:40px;
+
+  border:
+    1px solid rgba(202,167,106,.27);
 
   border-radius:30px;
 
   background:white;
 
-  border:
-    1px solid rgba(202,167,106,.27);
-
-  box-shadow:var(--soft-shadow);
+  box-shadow:var(--shadow-soft);
 
 }
 
 .form-intro{
 
-  margin-bottom:24px;
+  margin-bottom:26px;
 
   color:var(--sage);
 
-  font-weight:650;
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:1.22rem;
+
+  line-height:1.5;
 
 }
 
@@ -2171,7 +3027,7 @@ nav .login-link:hover{
 
   color:var(--sage);
 
-  font-size:.93rem;
+  font-size:.9rem;
 
   font-weight:650;
 
@@ -2183,20 +3039,22 @@ nav .login-link:hover{
 
   width:100%;
 
-  margin-top:8px;
+  margin-top:7px;
 
   padding:15px 16px;
 
   border:
     1px solid #e3d8c8;
 
-  border-radius:14px;
+  border-radius:13px;
 
-  background:#fcfaf7;
+  background:#fffdf9;
 
   color:var(--ink);
 
-  transition:.3s ease;
+  transition:
+    border-color .25s ease,
+    box-shadow .25s ease;
 
 }
 
@@ -2209,13 +3067,13 @@ nav .login-link:hover{
   border-color:var(--gold);
 
   box-shadow:
-    0 0 0 4px rgba(202,167,106,.14);
+    0 0 0 4px rgba(202,167,106,.13);
 
 }
 
 .contact-form textarea{
 
-  min-height:160px;
+  min-height:165px;
 
   resize:vertical;
 
@@ -2227,93 +3085,11 @@ nav .login-link:hover{
 
 .form-note{
 
-  margin-top:16px;
+  margin-top:15px;
 
   color:var(--muted);
 
-  font-size:.88rem;
-
-  line-height:1.65;
-
-}
-
-
-/* ==================================================
-   TRUST STRIP
-================================================== */
-
-.trust-section{
-
-  padding:48px 0;
-
-  background:#fdf8f1;
-
-  border-top:
-    1px solid rgba(202,167,106,.18);
-
-}
-
-.trust-section
-.section-heading{
-
-  margin-bottom:31px;
-
-}
-
-.trust-section
-.section-heading h2{
-
-  font-size:
-    clamp(2.15rem,4vw,3rem);
-
-}
-
-.trust-strip{
-
-  display:flex;
-
-  flex-wrap:wrap;
-
-  justify-content:center;
-
-  gap:9px;
-
-}
-
-.trust-strip span{
-
-  display:inline-flex;
-
-  align-items:center;
-
-  gap:7px;
-
-  padding:
-    10px 14px;
-
-  border-radius:999px;
-
-  background:
-    rgba(255,250,244,.93);
-
-  border:
-    1px solid rgba(202,167,106,.31);
-
-  color:var(--forest);
-
-  font-size:.87rem;
-
-  font-weight:700;
-
-}
-
-.trust-strip span::before{
-
-  content:"✓";
-
-  color:var(--gold);
-
-  font-weight:900;
+  font-size:.82rem;
 
 }
 
@@ -2331,12 +3107,6 @@ nav .login-link:hover{
 
   z-index:9998;
 
-  display:flex;
-
-  flex-direction:column;
-
-  gap:9px;
-
   opacity:0;
 
   visibility:hidden;
@@ -2347,9 +3117,9 @@ nav .login-link:hover{
     translateY(15px);
 
   transition:
-    opacity .35s ease,
-    visibility .35s ease,
-    transform .35s ease;
+    opacity .3s ease,
+    visibility .3s ease,
+    transform .3s ease;
 
 }
 
@@ -2361,33 +3131,51 @@ nav .login-link:hover{
 
   pointer-events:auto;
 
-  transform:
-    translateY(0);
+  transform:none;
 
 }
 
-.floating-btn{
+.floating-contact.footer-visible{
 
-  width:54px;
-  height:54px;
+  opacity:0;
+
+  visibility:hidden;
+
+  pointer-events:none;
+
+}
+
+.floating-message{
+
+  min-height:49px;
 
   display:flex;
 
   align-items:center;
   justify-content:center;
 
-  border-radius:50%;
+  gap:9px;
+
+  padding:11px 17px;
+
+  border:
+    1px solid rgba(202,167,106,.38);
+
+  border-radius:999px;
 
   background:
     rgba(255,250,244,.97);
 
   color:var(--forest);
 
-  border:
-    1px solid rgba(202,167,106,.42);
-
   box-shadow:
     0 13px 30px rgba(23,38,27,.14);
+
+  font-size:.82rem;
+
+  font-weight:800;
+
+  backdrop-filter:blur(9px);
 
   transition:
     transform .25s ease,
@@ -2396,7 +3184,7 @@ nav .login-link:hover{
 
 }
 
-.floating-btn:hover{
+.floating-message:hover{
 
   transform:translateY(-2px);
 
@@ -2406,10 +3194,10 @@ nav .login-link:hover{
 
 }
 
-.floating-btn svg{
+.floating-message svg{
 
-  width:20px;
-  height:20px;
+  width:18px;
+  height:18px;
 
 }
 
@@ -2420,58 +3208,208 @@ nav .login-link:hover{
 
 footer{
 
+  position:relative;
+
+  overflow:hidden;
+
   padding:
-    76px 0 30px;
+    74px 0 28px;
 
   background:
-
     linear-gradient(
-      180deg,
+      145deg,
       var(--forest),
-      #101a13
+      var(--forest-deep)
     );
 
   color:white;
 
 }
 
-footer .logo{
-  color:white;
+footer::before{
+
+  content:"Sorted.";
+
+  position:absolute;
+
+  right:-35px;
+  bottom:80px;
+
+  color:
+    rgba(255,255,255,.025);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(9rem,20vw,18rem);
+
+  line-height:.8;
+
+  letter-spacing:-10px;
+
+  white-space:nowrap;
+
+  pointer-events:none;
+
 }
 
-.footer-grid{
+footer::after{
+
+  content:"";
+
+  position:absolute;
+
+  left:0;
+  top:0;
+
+  width:100%;
+  height:1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(202,167,106,.65),
+      transparent
+    );
+
+}
+
+.footer-top{
+
+  position:relative;
+
+  z-index:2;
 
   display:grid;
 
   grid-template-columns:
-    1.2fr 1fr 1fr 1fr;
+    1.2fr .8fr;
 
-  gap:38px;
+  gap:50px;
 
-  margin-bottom:42px;
+  align-items:end;
+
+  padding-bottom:40px;
+
+  border-bottom:
+    1px solid rgba(255,255,255,.10);
+
+}
+
+.footer-brand .logo{
+
+  display:inline-block;
+
+  margin-bottom:14px;
+
+  color:white;
+
+  font-size:2.25rem;
+
+}
+
+.footer-tagline{
+
+  margin-bottom:9px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(1.6rem,3vw,2.25rem);
+
+  line-height:1.1;
 
 }
 
 .footer-description{
 
-  max-width:320px;
-
-  margin-top:14px;
+  max-width:470px;
 
   color:
-    rgba(255,255,255,.68);
+    rgba(255,255,255,.65);
 
   line-height:1.72;
 
 }
 
-footer h3{
+.footer-contact{
 
-  margin-bottom:11px;
+  justify-self:end;
+
+  text-align:right;
+
+}
+
+.footer-contact-label{
+
+  margin-bottom:7px;
+
+  color:var(--gold-soft);
+
+  font-size:.68rem;
+
+  font-weight:850;
+
+  letter-spacing:2px;
+
+  text-transform:uppercase;
+
+}
+
+.footer-contact a{
+
+  display:block;
 
   color:white;
 
-  font-size:1rem;
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:1.15rem;
+
+  line-height:1.65;
+
+}
+
+.footer-grid{
+
+  position:relative;
+
+  z-index:2;
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap:52px;
+
+  padding:39px 0;
+
+}
+
+footer h3{
+
+  margin-bottom:15px;
+
+  color:var(--gold-soft);
+
+  font-size:.7rem;
+
+  font-weight:850;
+
+  letter-spacing:2px;
+
+  text-transform:uppercase;
 
 }
 
@@ -2479,7 +3417,7 @@ footer h3{
 
   display:grid;
 
-  gap:6px;
+  gap:8px;
 
 }
 
@@ -2489,53 +3427,62 @@ footer h3{
   color:
     rgba(255,255,255,.68);
 
-  font-size:.92rem;
+  font-size:.9rem;
 
-  line-height:1.6;
-
-}
-
-.footer-links a{
-
-  transition:
-    color .25s ease;
+  line-height:1.55;
 
 }
 
 .footer-links a:hover{
-  color:var(--gold-soft);
+  color:white;
 }
 
 .footer-bottom{
 
-  padding-top:25px;
+  position:relative;
+
+  z-index:2;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:space-between;
+
+  gap:20px;
+
+  padding-top:23px;
 
   border-top:
     1px solid rgba(255,255,255,.09);
 
-  text-align:center;
+}
+
+.footer-bottom-left{
+
+  display:flex;
+
+  align-items:center;
 
 }
 
+.copyright,
+.footer-location,
 .legal-links{
 
   color:
-    rgba(255,255,255,.64);
+    rgba(255,255,255,.46);
+
+  font-size:.79rem;
 
 }
 
-.legal-links a:hover{
-  color:var(--gold-soft);
-}
+.footer-location::before{
 
-.copyright{
+  content:"•";
 
-  margin-top:11px;
+  margin:0 13px;
 
-  color:
-    rgba(255,255,255,.48);
-
-  font-size:.85rem;
+  color:var(--gold);
 
 }
 
@@ -2562,19 +3509,27 @@ footer h3{
   transform:
     translateX(-50%);
 
-  border-radius:18px;
+  border-radius:17px;
 
   background:
     rgba(23,38,27,.97);
 
   color:white;
 
-  box-shadow:
-    0 16px 40px rgba(23,38,27,.25);
-
   text-align:center;
 
-  font-size:.87rem;
+  box-shadow:
+    0 16px 40px rgba(23,38,27,.22);
+
+  font-size:.86rem;
+
+}
+
+.cookie-banner a{
+
+  color:var(--gold-soft);
+
+  text-decoration:underline;
 
 }
 
@@ -2582,8 +3537,7 @@ footer h3{
 
   margin-left:9px;
 
-  padding:
-    8px 15px;
+  padding:7px 14px;
 
   border:0;
 
@@ -2595,11 +3549,13 @@ footer h3{
 
   font-weight:800;
 
+  cursor:pointer;
+
 }
 
 
 /* ==================================================
-   FADE EFFECTS
+   FADE
 ================================================== */
 
 .fade{
@@ -2615,13 +3571,11 @@ footer h3{
   opacity:0;
 
   transform:
-    translateY(44px);
+    translateY(28px);
 
   transition:
-
-    opacity .85s cubic-bezier(.22,.61,.36,1),
-
-    transform .85s cubic-bezier(.22,.61,.36,1);
+    opacity .75s cubic-bezier(.22,.61,.36,1),
+    transform .75s cubic-bezier(.22,.61,.36,1);
 
 }
 
@@ -2629,8 +3583,7 @@ footer h3{
 
   opacity:1;
 
-  transform:
-    translateY(0);
+  transform:none;
 
 }
 
@@ -2639,7 +3592,7 @@ footer h3{
    TABLET
 ================================================== */
 
-@media(max-width:1080px){
+@media(max-width:1050px){
 
   .menu-toggle{
     display:flex;
@@ -2651,9 +3604,8 @@ footer h3{
 
     position:absolute;
 
-    top:calc(100% + 8px);
-
     right:0;
+    top:calc(100% + 8px);
 
     width:min(300px,92vw);
 
@@ -2668,14 +3620,14 @@ footer h3{
 
     gap:2px;
 
-    padding:11px;
+    padding:12px;
+
+    border:
+      1px solid rgba(202,167,106,.30);
 
     border-radius:18px;
 
     background:#fffdf9;
-
-    border:
-      1px solid rgba(202,167,106,.30);
 
     box-shadow:
       0 20px 50px rgba(23,38,27,.20);
@@ -2690,56 +3642,55 @@ footer h3{
 
     width:100%;
 
-    padding:
-      11px 13px;
+    padding:11px 13px;
 
     border-radius:10px;
 
   }
 
-  nav a:hover{
+  .client-login{
 
-    background:var(--cream);
+    margin-top:5px;
 
-    transform:none;
+    padding-left:13px;
 
-  }
+    border-top:
+      1px solid var(--line);
 
-  nav a.active-page{
-
-    padding:
-      11px 13px;
+    border-left:0;
 
   }
 
-  nav .login-link{
-
-    margin-top:4px;
-
-    text-align:center;
-
-  }
-
-  .intro-grid,
-  .reassurance-grid,
-  .contact-grid{
+  .switch-layout,
+  .example-layout,
+  .handle-layout,
+  .second-home-layout,
+  .trust-layout,
+  .contact-layout{
 
     grid-template-columns:1fr;
 
   }
 
-  .intro-grid,
-  .reassurance-grid{
+  .switch-layout,
+  .example-layout,
+  .handle-layout,
+  .second-home-layout,
+  .trust-layout{
 
-    max-width:790px;
+    max-width:850px;
 
     margin:0 auto;
 
   }
 
-  .reassurance-image{
+  .plan-grid{
 
-    height:470px;
+    grid-template-columns:
+      repeat(
+        auto-fit,
+        minmax(280px,1fr)
+      );
 
   }
 
@@ -2747,23 +3698,25 @@ footer h3{
 
     grid-template-columns:1fr;
 
-    max-width:750px;
+    max-width:760px;
 
     margin:0 auto;
 
   }
 
-  .service-grid{
-
-    grid-template-columns:
-      repeat(2,1fr);
-
+  .contact-side{
+    position:static;
   }
 
-  .footer-grid{
+  .footer-top{
+    grid-template-columns:1fr;
+  }
 
-    grid-template-columns:
-      repeat(2,1fr);
+  .footer-contact{
+
+    justify-self:start;
+
+    text-align:left;
 
   }
 
@@ -2776,12 +3729,12 @@ footer h3{
 
 @media(max-width:720px){
 
-  .container{
-    width:92%;
+  section{
+    padding:70px 0;
   }
 
-  section{
-    padding:62px 0;
+  .container{
+    width:90%;
   }
 
   .nav-wrap{
@@ -2803,24 +3756,27 @@ footer h3{
     align-items:flex-end;
 
     padding:
-      175px 0 25px;
+      180px 0 31px;
+
+  }
+
+  .hero-image{
+
+    object-position:
+      61% center;
+
+  }
+
+  .hero-overlay{
 
     background:
-
       linear-gradient(
         180deg,
-        rgba(248,241,231,.02) 0%,
-        rgba(248,241,231,.08) 28%,
-        rgba(248,241,231,.45) 58%,
-        rgba(248,241,231,.91) 100%
-      ),
-
-      url("awayfromhome.png");
-
-    background-size:cover;
-
-    background-position:
-      60% center;
+        rgba(248,241,231,.03) 0%,
+        rgba(248,241,231,.11) 28%,
+        rgba(248,241,231,.85) 64%,
+        rgba(248,241,231,.99) 100%
+      );
 
   }
 
@@ -2828,197 +3784,305 @@ footer h3{
 
     width:100%;
 
-    padding:
-      26px 21px 23px;
-
-    border-radius:
-      26px 26px 21px 21px;
-
-    background:
-      rgba(255,250,244,.93);
+    padding:24px 20px;
 
     border:
-      1px solid rgba(202,167,106,.27);
+      1px solid rgba(202,167,106,.25);
+
+    border-radius:24px;
+
+    background:
+      rgba(255,250,244,.94);
 
     backdrop-filter:blur(7px);
-    -webkit-backdrop-filter:blur(7px);
 
   }
 
-  .page-label{
+  .hero-label{
 
-    margin-bottom:14px;
+    margin-bottom:16px;
 
-    padding:
-      7px 11px;
+    font-size:.61rem;
 
-    font-size:.62rem;
+    letter-spacing:1.7px;
 
-    letter-spacing:1.3px;
+  }
 
+  .hero-label::before{
+    width:27px;
   }
 
   .away-hero h1{
 
-    margin-bottom:17px;
+    margin-bottom:19px;
 
     font-size:
-      clamp(3rem,14vw,3.75rem);
+      clamp(3.1rem,14.6vw,4.25rem);
 
-    line-height:.94;
+    line-height:.92;
 
-    letter-spacing:-2.6px;
-
-  }
-
-  .hero-copy{
-
-    font-size:.95rem;
-
-    line-height:1.69;
-
-    font-weight:500;
+    letter-spacing:-2.7px;
 
   }
 
-  .buttons{
+  .hero-lead{
+    font-size:1.14rem;
+  }
+
+  .hero-description{
+
+    font-size:.92rem;
+
+    line-height:1.72;
+
+  }
+
+  .hero-buttons{
 
     flex-direction:column;
 
-    gap:9px;
-
-    margin-top:21px;
+    align-items:stretch;
 
   }
 
-  .buttons .btn{
+  .hero-buttons .btn{
     width:100%;
+  }
+
+  .hero-buttons .text-link{
+
+    align-self:flex-start;
+
+    padding-top:8px;
+
   }
 
   .hero-trust{
 
-    gap:6px;
+    gap:7px 12px;
 
-    margin-top:17px;
+    margin-top:20px;
+
+    padding-top:17px;
 
   }
 
   .hero-trust span{
-
-    padding:
-      6px 8px;
-
-    font-size:.67rem;
-
+    font-size:.66rem;
   }
 
 
   /* GLOBAL */
 
   .section-heading{
-
-    margin-bottom:34px;
-
+    margin-bottom:38px;
   }
 
   .section-heading h2{
 
-    font-size:2.25rem;
+    font-size:2.45rem;
 
-    line-height:1.07;
+    line-height:1.03;
 
-    letter-spacing:-1px;
-
-  }
-
-  .section-heading > p:not(.eyebrow){
-
-    font-size:.95rem;
-
-    line-height:1.72;
+    letter-spacing:-1.4px;
 
   }
 
+  .section-heading p:not(.eyebrow){
 
-  /* INTRO */
+    font-size:.92rem;
 
-  .intro-grid{
-
-    gap:30px;
+    line-height:1.73;
 
   }
 
-  .intro-image{
+  .eyebrow{
+
+    font-size:.63rem;
+
+    letter-spacing:2.1px;
+
+  }
+
+
+  /* SWITCH */
+
+  .switch-layout{
+    gap:33px;
+  }
+
+  .switch-image{
 
     height:auto;
 
     aspect-ratio:4 / 3;
 
-    border-radius:24px;
+    border-radius:27px;
 
   }
 
-  .intro-image-caption{
+  .switch-image-note{
 
-    left:13px;
     right:13px;
+    left:13px;
     bottom:13px;
 
-    max-width:none;
+    width:auto;
 
   }
 
-  .intro-copy h2{
+  .switch-copy h2{
 
-    font-size:2.4rem;
+    font-size:2.5rem;
 
-    line-height:1.05;
+    line-height:1.02;
 
-    letter-spacing:-1px;
-
-  }
-
-  .intro-copy > p:not(.eyebrow){
-
-    font-size:.95rem;
-
-    line-height:1.74;
+    letter-spacing:-1.5px;
 
   }
 
+  .switch-copy > p:not(.eyebrow){
 
-  /* SERVICES */
+    font-size:.92rem;
 
-  .service-grid{
+    line-height:1.73;
+
+  }
+
+  .switch-statement{
+
+    padding-left:18px;
+
+    font-size:1.33rem;
+
+  }
+
+
+  /* PLAN */
+
+  .plan-grid{
+    grid-template-columns:1fr;
+  }
+
+  .plan-card{
+    border-radius:25px;
+  }
+
+  .plan-image-wrap{
+    height:240px;
+  }
+
+  .plan-content{
+    padding:24px 21px;
+  }
+
+  .plan-content h3{
+    font-size:1.9rem;
+  }
+
+
+  /* STATEMENT */
+
+  .away-statement{
+
+    padding:
+      90px 0;
+
+  }
+
+  .statement-inner h2{
+
+    font-size:2.75rem;
+
+    line-height:1.02;
+
+  }
+
+  .statement-inner p{
+    font-size:1.1rem;
+  }
+
+
+  /* TIMELINE */
+
+  .example-layout{
+    gap:32px;
+  }
+
+  .example-copy h2{
+
+    font-size:2.5rem;
+
+    line-height:1.02;
+
+  }
+
+  .away-timeline::before{
+    left:77px;
+  }
+
+  .timeline-row{
+
+    grid-template-columns:
+      54px 24px 1fr;
+
+    gap:10px;
+
+    padding:19px 0;
+
+  }
+
+  .timeline-day{
+
+    font-size:.58rem;
+
+    letter-spacing:1px;
+
+  }
+
+  .timeline-dot{
+
+    width:13px;
+    height:13px;
+
+    margin-left:0;
+
+  }
+
+  .timeline-copy h3{
+    font-size:1.12rem;
+  }
+
+
+  /* HANDLE */
+
+  .handle-layout{
+    gap:33px;
+  }
+
+  .handle-image{
+
+    height:auto;
+
+    aspect-ratio:4 / 3;
+
+    border-radius:27px;
+
+  }
+
+  .handle-content h2{
+
+    font-size:2.5rem;
+
+    line-height:1.02;
+
+  }
+
+  .handle-columns{
 
     grid-template-columns:1fr;
 
-    gap:12px;
-
-  }
-
-  .service-card{
-
-    min-height:0;
-
-    padding:23px;
-
-    border-radius:22px;
-
-  }
-
-  .service-icon{
-
-    width:44px;
-    height:44px;
-
-    margin-bottom:17px;
-
-  }
-
-  .service-card h3{
-
-    font-size:1.32rem;
+    gap:24px;
 
   }
 
@@ -3026,17 +4090,15 @@ footer h3{
   /* HOW */
 
   .steps::before{
-
-    left:21px;
-
+    left:20px;
   }
 
   .step{
 
     grid-template-columns:
-      44px 1fr;
+      42px 1fr;
 
-    gap:15px;
+    gap:14px;
 
     padding-bottom:25px;
 
@@ -3044,113 +4106,118 @@ footer h3{
 
   .step-number{
 
-    width:44px;
-    height:44px;
+    width:42px;
+    height:42px;
 
-    font-size:.70rem;
+    font-size:.67rem;
 
   }
 
   .step h3{
-
-    font-size:1.3rem;
-
-  }
-
-  .step p{
-
-    font-size:.92rem;
-
-  }
-
-
-  /* REASSURANCE */
-
-  .reassurance-grid{
-    gap:32px;
-  }
-
-  .reassurance-copy h2{
-
-    font-size:2.35rem;
-
-    line-height:1.05;
-
-    letter-spacing:-1px;
-
-  }
-
-  .reassurance-item{
-
-    grid-template-columns:
-      36px 1fr;
-
-    gap:11px;
-
-    padding:17px 0;
-
-  }
-
-  .reassurance-icon{
-
-    width:34px;
-    height:34px;
-
-  }
-
-  .reassurance-image{
-
-    height:auto;
-
-    aspect-ratio:4 / 3;
-
-    border-radius:24px;
-
+    font-size:1.25rem;
   }
 
 
   /* PRICING */
 
   .pricing-grid{
-
     gap:18px;
-
   }
 
   .price-card{
 
-    padding:27px 23px;
+    padding:27px 22px;
 
-    border-radius:24px;
-
-  }
-
-  .price-card h3{
-
-    font-size:1.75rem;
+    border-radius:25px;
 
   }
 
   .price{
-
-    font-size:1.9rem;
-
+    font-size:1.95rem;
   }
 
-  .bespoke-note{
+  .bespoke-banner{
 
     grid-template-columns:1fr;
 
     gap:20px;
 
-    padding:28px 23px;
-
-    border-radius:24px;
+    padding:28px 22px;
 
   }
 
-  .bespoke-note .btn{
+  .bespoke-banner .btn{
     width:100%;
+  }
+
+
+  /* SECOND HOME */
+
+  .second-home-layout{
+    gap:32px;
+  }
+
+  .second-home-copy h2{
+
+    font-size:2.5rem;
+
+    line-height:1.02;
+
+  }
+
+  .second-home-list{
+    grid-template-columns:1fr;
+  }
+
+  .second-home-image{
+
+    height:auto;
+
+    aspect-ratio:4 / 3;
+
+    border-radius:27px;
+
+  }
+
+
+  /* TRUST */
+
+  .trust-layout{
+    gap:34px;
+  }
+
+  .trust-image{
+
+    height:auto;
+
+    aspect-ratio:4 / 3;
+
+    border-radius:27px;
+
+  }
+
+  .trust-copy h2{
+
+    font-size:2.45rem;
+
+    line-height:1.03;
+
+  }
+
+  .trust-row{
+
+    grid-template-columns:
+      39px 1fr;
+
+    gap:12px;
+
+  }
+
+  .trust-icon{
+
+    width:36px;
+    height:36px;
+
   }
 
 
@@ -3160,13 +4227,7 @@ footer h3{
 
     padding:19px 0;
 
-    font-size:1.12rem;
-
-  }
-
-  .faq-answer{
-
-    font-size:.93rem;
+    font-size:1.08rem;
 
   }
 
@@ -3181,41 +4242,38 @@ footer h3{
 
   /* AREAS */
 
-  .areas{
+  .areas-section{
 
-    padding:62px 0;
+    min-height:340px;
 
-    background-position:
-      67% center;
-
-  }
-
-  .areas h2{
-
-    font-size:2.35rem;
+    padding:60px 0;
 
   }
 
-  .areas p:not(.eyebrow){
+  .areas-section h2{
 
-    font-size:.94rem;
+    font-size:2.4rem;
+
+    line-height:1.03;
 
   }
 
 
   /* CONTACT */
 
-  .contact-grid{
-
-    gap:32px;
-
+  .contact-layout{
+    gap:33px;
   }
 
-  .contact-copy h2{
+  .contact-image{
+    border-radius:25px;
+  }
 
-    font-size:2.4rem;
+  .contact-side h2{
 
-    letter-spacing:-1px;
+    font-size:2.5rem;
+
+    line-height:1.02;
 
   }
 
@@ -3223,7 +4281,7 @@ footer h3{
 
     padding:27px 21px;
 
-    border-radius:24px;
+    border-radius:25px;
 
   }
 
@@ -3231,52 +4289,27 @@ footer h3{
     width:100%;
   }
 
-  .promise-card{
-
-    padding:23px;
-
-    border-radius:22px;
-
-  }
-
-
-  /* TRUST */
-
-  .trust-strip{
-
-    gap:7px;
-
-  }
-
-  .trust-strip span{
-
-    padding:
-      8px 10px;
-
-    font-size:.74rem;
-
-  }
-
 
   /* FLOATING */
 
   .floating-contact{
 
-    right:9px;
-    bottom:9px;
-
-    gap:6px;
+    right:10px;
+    bottom:10px;
 
   }
 
-  .floating-btn{
+  .floating-message{
 
-    width:40px;
-    height:40px;
+    min-height:42px;
+
+    padding:9px 13px;
+
+    font-size:.71rem;
 
   }
 
-  .floating-btn svg{
+  .floating-message svg{
 
     width:16px;
     height:16px;
@@ -3289,15 +4322,61 @@ footer h3{
   footer{
 
     padding:
-      58px 0 27px;
+      56px 0 24px;
+
+  }
+
+  footer::before{
+
+    right:-70px;
+
+    font-size:9rem;
+
+  }
+
+  .footer-top{
+
+    gap:26px;
+
+    padding-bottom:30px;
+
+  }
+
+  .footer-contact{
+
+    padding-top:18px;
+
+    border-top:
+      1px solid rgba(255,255,255,.09);
 
   }
 
   .footer-grid{
 
-    grid-template-columns:1fr;
+    grid-template-columns:
+      repeat(2,1fr);
 
-    gap:26px;
+    gap:
+      28px 20px;
+
+    padding:33px 0;
+
+  }
+
+  .footer-grid > div:last-child{
+
+    grid-column:
+      1 / -1;
+
+  }
+
+  .footer-bottom{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    gap:11px;
 
   }
 
@@ -3305,70 +4384,8 @@ footer h3{
 
 
 /* ==================================================
-   KEYFRAMES
+   REDUCED MOTION
 ================================================== */
-
-@keyframes buttonShine{
-
-  from{
-    left:-120%;
-  }
-
-  to{
-    left:160%;
-  }
-
-}
-
-@keyframes loaderFade{
-
-  to{
-
-    opacity:0;
-
-    visibility:hidden;
-
-  }
-
-}
-
-@keyframes loaderPulse{
-
-  from{
-
-    opacity:.8;
-
-    transform:scale(.98);
-
-  }
-
-  to{
-
-    opacity:1;
-
-    transform:scale(1.02);
-
-  }
-
-}
-
-
-/* ==================================================
-   ACCESSIBILITY
-================================================== */
-
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-textarea:focus-visible,
-select:focus-visible{
-
-  outline:
-    3px solid var(--gold);
-
-  outline-offset:4px;
-
-}
 
 @media(prefers-reduced-motion:reduce){
 
@@ -3386,8 +4403,6 @@ select:focus-visible{
 
     transition-duration:.01ms !important;
 
-    scroll-behavior:auto !important;
-
   }
 
 }
@@ -3395,21 +4410,49 @@ select:focus-visible{
 </style>
 
 
+<!-- ==================================================
+     STRUCTURED DATA
+================================================== -->
+
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
   "@type":"LocalBusiness",
+  "@id":"https://sortedlife.org.uk/#business",
   "name":"Sorted.",
-  "description":"Discreet home checks, key holding and property care while clients are away.",
-  "url":"https://sortedlife.org.uk/away-from-home.html",
+  "url":"https://sortedlife.org.uk/",
+  "image":"https://sortedlife.org.uk/away-hero.jpg",
+  "description":"Household and lifestyle management including property checks, key holding and practical home care while clients are away.",
   "email":"contact@sortedlife.org.uk",
   "telephone":"+441323396610",
+  "priceRange":"££",
   "address":{
     "@type":"PostalAddress",
     "addressLocality":"Eastbourne",
     "addressRegion":"East Sussex",
     "addressCountry":"GB"
   },
+  "contactPoint":{
+    "@type":"ContactPoint",
+    "telephone":"+441323396610",
+    "email":"contact@sortedlife.org.uk",
+    "contactType":"customer service",
+    "availableLanguage":"English"
+  },
+  "openingHoursSpecification":[
+    {
+      "@type":"OpeningHoursSpecification",
+      "dayOfWeek":[
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens":"08:00",
+      "closes":"18:00"
+    }
+  ],
   "areaServed":[
     "Eastbourne",
     "Meads",
@@ -3421,22 +4464,44 @@ select:focus-visible{
     "Langney",
     "Polegate",
     "Pevensey",
-    "Seaford"
+    "Seaford",
+    "East Sussex"
   ],
-  "serviceType":[
-    "Home security checks",
-    "Key holding",
-    "Mail and parcel collection",
-    "Plant care",
-    "Contractor access",
-    "Property checks",
-    "Return-home preparation",
-    "Pet visits by arrangement"
+  "makesOffer":[
+    {
+      "@type":"Offer",
+      "name":"Property Check",
+      "priceCurrency":"GBP",
+      "priceSpecification":{
+        "@type":"PriceSpecification",
+        "minPrice":"35",
+        "maxPrice":"60",
+        "priceCurrency":"GBP"
+      }
+    },
+    {
+      "@type":"Offer",
+      "name":"Away From Home Care",
+      "priceCurrency":"GBP",
+      "priceSpecification":{
+        "@type":"PriceSpecification",
+        "minPrice":"95",
+        "priceCurrency":"GBP"
+      }
+    },
+    {
+      "@type":"Offer",
+      "name":"Key Holding",
+      "priceCurrency":"GBP",
+      "priceSpecification":{
+        "@type":"PriceSpecification",
+        "minPrice":"25",
+        "priceCurrency":"GBP"
+      }
+    }
   ]
 }
 </script>
-
-<link rel="stylesheet" href="brand.css">
 
 </head>
 
@@ -3444,17 +4509,12 @@ select:focus-visible{
 <body>
 
 
-<!-- ==================================================
-     LOADER
-================================================== -->
-
-<div class="loader">
-
-  <div class="loader-logo">
-    Sorted<span>.</span>
-  </div>
-
-</div>
+<a
+  href="#main-content"
+  class="skip-link"
+>
+  Skip to main content
+</a>
 
 
 <!-- ==================================================
@@ -3465,26 +4525,29 @@ select:focus-visible{
 
   <div class="container nav-wrap">
 
+
     <a
       href="index.html"
       class="logo"
-      aria-label="Sorted home"
+      aria-label="Sorted homepage"
     >
       Sorted<span>.</span>
     </a>
+
 
     <button
       type="button"
       class="menu-toggle"
       aria-label="Open navigation menu"
       aria-expanded="false"
-      aria-controls="main-navigation"
+      aria-controls="site-navigation"
     >
       <i data-lucide="menu"></i>
     </button>
 
+
     <nav
-      id="main-navigation"
+      id="site-navigation"
       aria-label="Main navigation"
     >
 
@@ -3522,52 +4585,76 @@ select:focus-visible{
 
       <a
         href="portal/index.html"
-        class="login-link"
+        class="client-login"
       >
         Client Login
       </a>
 
     </nav>
 
+
   </div>
 
 </header>
 
 
-<main>
+<main id="main-content">
 
 
 <!-- ==================================================
      HERO
 
      IMAGE:
-     awayfromhome.png
+     away-hero.jpg
 ================================================== -->
 
 <section class="away-hero">
 
+
+  <img
+    src="away-hero.jpg"
+    alt="Beautiful home ready to be looked after while its owners are away"
+    class="hero-image"
+    fetchpriority="high"
+    decoding="async"
+  >
+
+
+  <div class="hero-overlay"></div>
+
+
   <div class="container">
+
 
     <div class="hero-content">
 
-      <div class="page-label">
-        Sorted. Away From Home
+
+      <div class="hero-label">
+        Away From Home
       </div>
 
+
       <h1>
-        Leave Home.<br>
-        <span>With Complete Peace of Mind.</span>
+        While you're away,<br>
+        your home <em>stays handled.</em>
       </h1>
 
-      <p class="hero-copy">
-        Whether you're away for a weekend, travelling for work,
-        enjoying a holiday or spending time at a second home,
-        Sorted. provides discreet, dependable care for your home
-        and everyday responsibilities until you return.
+
+      <p class="hero-lead">
+        Leave the practical side of home with Sorted.
       </p>
 
 
-      <div class="buttons">
+      <p class="hero-description">
+        Property checks, key holding and home care
+        arranged around your plans — whether you're
+        away for a weekend, travelling regularly or
+        spending months elsewhere.
+      </p>
+
+
+      <div class="buttons hero-buttons">
+
 
         <a
           href="https://calendly.com/d/dzzd-qmh-mcm/one-off-meeting"
@@ -3575,15 +4662,17 @@ select:focus-visible{
           rel="noopener noreferrer"
           class="btn btn-primary"
         >
-          Book Your Complimentary Consultation
+          Talk to Sorted.
         </a>
 
+
         <a
-          href="#away-services"
-          class="btn btn-light"
+          href="#away-plan"
+          class="text-link"
         >
-          Explore Away-From-Home Support
+          See How It Works
         </a>
+
 
       </div>
 
@@ -3602,13 +4691,11 @@ select:focus-visible{
           Confidential &amp; Discreet
         </span>
 
-        <span>
-          Key Holding Available
-        </span>
-
       </div>
 
+
     </div>
+
 
   </div>
 
@@ -3616,66 +4703,79 @@ select:focus-visible{
 
 
 <!-- ==================================================
-     INTRODUCTION
+     SWITCH OFF
+
+     IMAGE:
+     away-switch-off.jpg
 ================================================== -->
 
-<section class="intro-section fade">
+<section class="switch-off fade">
 
-  <div class="container intro-grid">
+  <div class="container switch-layout">
 
 
-    <div class="intro-image-wrap">
+    <div class="switch-image-wrap">
+
 
       <img
-        src="awayfromhome.png"
-        alt="Beautiful home professionally cared for while the owner is away"
-        class="intro-image"
+        src="away-switch-off.jpg"
+        alt="Relaxing away from home knowing everything is being looked after"
+        class="switch-image"
         loading="lazy"
+        decoding="async"
       >
 
-      <div class="intro-image-caption">
+
+      <div class="switch-image-note">
 
         <strong>
-          Your home, quietly looked after.
+          Home doesn't need to travel with you.
         </strong>
 
         <span>
-          A dependable local presence while you're elsewhere.
+          Tell us what's important before you leave.
         </span>
 
       </div>
 
+
     </div>
 
 
-    <div class="intro-copy">
+    <div class="switch-copy">
+
 
       <p class="eyebrow">
-        HOME &amp; LIFESTYLE CARE WHILE AWAY
+        ACTUALLY SWITCH OFF
       </p>
+
 
       <h2>
-        Everything looked after until you return.
+        Go away without taking your home with you.
       </h2>
 
-      <p>
-        Leaving your home unattended can bring unnecessary worry,
-        especially when you're away for more than a few days.
-        Sorted. provides a dependable local presence, keeping an eye
-        on your property and quietly handling the practical details.
-      </p>
 
       <p>
-        Visits can be arranged around your travel plans and tailored
-        to your home, pets, plants, deliveries and other
-        responsibilities.
+        Being away shouldn't mean wondering whether
+        the parcel arrived, asking a neighbour to
+        check the house or coordinating a tradesperson
+        from hundreds of miles away.
       </p>
 
+
       <p>
-        You'll know when each visit has taken place and can receive
-        a concise update, photographs or confirmation that everything
-        is secure and as expected.
+        Tell Sorted. what needs handling before you
+        leave. We'll take care of the agreed details
+        at home and keep you updated when it matters.
       </p>
+
+
+      <div class="switch-statement">
+        You enjoy being away.
+        <br>
+        <em>We'll handle home.</em>
+      </div>
+
 
     </div>
 
@@ -3686,12 +4786,17 @@ select:focus-visible{
 
 
 <!-- ==================================================
-     SERVICES
+     AWAY PLAN
+
+     IMAGES:
+     away-before-you-go.jpg
+     away-property-check.jpg
+     away-return-home.jpg
 ================================================== -->
 
 <section
-  class="services-section fade"
-  id="away-services"
+  class="away-plan fade"
+  id="away-plan"
 >
 
   <div class="container">
@@ -3699,188 +4804,564 @@ select:focus-visible{
 
     <div class="section-heading">
 
+
       <p class="eyebrow">
-        WHAT WE CAN TAKE CARE OF
+        YOUR AWAY PLAN
       </p>
+
 
       <h2>
-        Thoughtful care for your home while you're away.
+        Before you leave. While you're away. Ready when you're back.
       </h2>
 
+
       <p>
-        Choose the support you need, from straightforward property
-        checks to complete preparation before you arrive home.
+        Support can begin before the door closes,
+        continue while you're away and finish with
+        home ready for your return.
       </p>
 
+
+    </div>
+
+
+    <div class="plan-grid">
+
+
+      <!-- BEFORE -->
+
+      <article class="plan-card">
+
+
+        <div class="plan-image-wrap">
+
+
+          <img
+            src="away-before-you-go.jpg"
+            alt="Organised packing and preparation before leaving home"
+            class="plan-image"
+            loading="lazy"
+            decoding="async"
+          >
+
+
+          <span class="plan-stage">
+            01 · Before
+          </span>
+
+
+        </div>
+
+
+        <div class="plan-content">
+
+
+          <h3>
+            Before You Go
+          </h3>
+
+
+          <p>
+            Everything that needs to happen at home
+            has somewhere to go before you leave.
+          </p>
+
+
+          <div class="plan-list">
+
+            <div>
+              Access and keys arranged
+            </div>
+
+            <div>
+              Property instructions recorded
+            </div>
+
+            <div>
+              Pets, plants and deliveries planned
+            </div>
+
+            <div>
+              Return-home requests noted
+            </div>
+
+          </div>
+
+
+        </div>
+
+
+      </article>
+
+
+      <!-- WHILE -->
+
+      <article class="plan-card featured">
+
+
+        <div class="plan-image-wrap">
+
+
+          <img
+            src="away-property-check.jpg"
+            alt="Sorted. carrying out a property check while the client is away"
+            class="plan-image"
+            loading="lazy"
+            decoding="async"
+          >
+
+
+          <span class="plan-stage">
+            02 · While Away
+          </span>
+
+
+        </div>
+
+
+        <div class="plan-content">
+
+
+          <h3>
+            While You're Away
+          </h3>
+
+
+          <p>
+            Agreed visits and household jobs are
+            handled at home, with clear updates so
+            you know what's been done.
+          </p>
+
+
+          <div class="plan-list">
+
+            <div>
+              Property checks
+            </div>
+
+            <div>
+              Post, parcels and plants
+            </div>
+
+            <div>
+              Contractor or delivery access
+            </div>
+
+            <div>
+              Agreed pet and household support
+            </div>
+
+          </div>
+
+
+        </div>
+
+
+      </article>
+
+
+      <!-- RETURN -->
+
+      <article class="plan-card">
+
+
+        <div class="plan-image-wrap">
+
+
+          <img
+            src="away-return-home.jpg"
+            alt="Beautifully prepared home ready for the owner's return"
+            class="plan-image"
+            loading="lazy"
+            decoding="async"
+          >
+
+
+          <span class="plan-stage">
+            03 · Return
+          </span>
+
+
+        </div>
+
+
+        <div class="plan-content">
+
+
+          <h3>
+            Ready For Your Return
+          </h3>
+
+
+          <p>
+            Come back to a home that's ready for you,
+            rather than another list waiting to be dealt with.
+          </p>
+
+
+          <div class="plan-list">
+
+            <div>
+              Final property check
+            </div>
+
+            <div>
+              Heating and lighting adjusted
+            </div>
+
+            <div>
+              Requested groceries ready
+            </div>
+
+            <div>
+              Other agreed preparations completed
+            </div>
+
+          </div>
+
+
+        </div>
+
+
+      </article>
+
+
     </div>
 
 
-    <div class="service-grid">
+  </div>
+
+</section>
 
 
-      <article class="service-card">
+<!-- ==================================================
+     DARK STATEMENT
+================================================== -->
 
-        <div class="service-icon">
-          <i data-lucide="shield-check"></i>
-        </div>
+<section class="away-statement fade">
 
-        <h3>
-          Home Security Checks
-        </h3>
-
-        <p>
-          Scheduled visits to check doors, windows, alarms, heating,
-          lighting and the general condition of your property.
-        </p>
-
-      </article>
+  <div class="container statement-inner">
 
 
-      <article class="service-card">
-
-        <div class="service-icon">
-          <i data-lucide="key-round"></i>
-        </div>
-
-        <h3>
-          Key Holding
-        </h3>
-
-        <p>
-          Secure key holding for planned visits, unexpected issues,
-          contractor access or support when you are unable to attend.
-        </p>
-
-      </article>
+    <p class="eyebrow">
+      THE POINT OF IT ALL
+    </p>
 
 
-      <article class="service-card">
-
-        <div class="service-icon">
-          <i data-lucide="mail"></i>
-        </div>
-
-        <h3>
-          Mail &amp; Parcel Collection
-        </h3>
-
-        <p>
-          Post brought inside, parcels collected and important
-          deliveries checked so your home never appears unattended.
-        </p>
-
-      </article>
+    <h2>
+      You're away.<br>
+      Home isn't <em>on your mind.</em>
+    </h2>
 
 
-      <article class="service-card">
-
-        <div class="service-icon">
-          <i data-lucide="sprout"></i>
-        </div>
-
-        <h3>
-          Plant Care
-        </h3>
-
-        <p>
-          Indoor and outdoor plants watered and checked according to
-          your instructions while you are away.
-        </p>
-
-      </article>
+    <p>
+      Your Home. Handled. Even when you're not there.
+    </p>
 
 
-      <article class="service-card">
+  </div>
 
-        <div class="service-icon">
-          <i data-lucide="paw-print"></i>
-        </div>
-
-        <h3>
-          Pet Visits
-        </h3>
-
-        <p>
-          Feeding, fresh water, litter care, companionship and routine
-          pet visits can be arranged following an initial consultation.
-        </p>
-
-      </article>
+</section>
 
 
-      <article class="service-card">
+<!-- ==================================================
+     REAL EXAMPLE
+================================================== -->
 
-        <div class="service-icon">
-          <i data-lucide="wrench"></i>
-        </div>
+<section class="example-section fade">
 
-        <h3>
-          Contractor Access
-        </h3>
-
-        <p>
-          Trusted access for cleaners, gardeners, maintenance teams or
-          tradespeople, with arrival and completion updates.
-        </p>
-
-      </article>
+  <div class="container example-layout">
 
 
-      <article class="service-card">
-
-        <div class="service-icon">
-          <i data-lucide="shopping-basket"></i>
-        </div>
-
-        <h3>
-          Return-Home Shopping
-        </h3>
-
-        <p>
-          Essential groceries, milk, bread, fresh produce and requested
-          household items ready before you return.
-        </p>
-
-      </article>
+    <div class="example-copy">
 
 
-      <article class="service-card">
-
-        <div class="service-icon">
-          <i data-lucide="shirt"></i>
-        </div>
-
-        <h3>
-          Laundry &amp; Light Housekeeping
-        </h3>
-
-        <p>
-          Fresh bedding, light tidying, laundry and practical
-          preparation so your home feels calm and ready.
-        </p>
-
-      </article>
+      <p class="eyebrow">
+        ONE WEEK AWAY
+      </p>
 
 
-      <article class="service-card">
+      <h2>
+        Meanwhile, back at home...
+      </h2>
 
-        <div class="service-icon">
-          <i data-lucide="house"></i>
-        </div>
 
-        <h3>
-          Home Ready for Your Return
-        </h3>
+      <p>
+        Instead of managing little household jobs
+        from your phone, your Away Plan keeps them
+        moving without interrupting your time away.
+      </p>
 
-        <p>
-          Heating adjusted, lights prepared, curtains arranged and
-          final checks completed before you arrive home.
-        </p>
 
-      </article>
+      <p class="example-finish">
+        Four things handled.
+        <br>
+        <em>Zero favours to ask.</em>
+      </p>
 
 
     </div>
+
+
+    <div class="away-timeline">
+
+
+      <div class="timeline-row">
+
+
+        <span class="timeline-day">
+          Monday
+        </span>
+
+
+        <span class="timeline-dot"></span>
+
+
+        <div class="timeline-copy">
+
+          <h3>
+            Home checked.
+          </h3>
+
+          <p>
+            Post brought inside and agreed
+            property checks completed.
+          </p>
+
+        </div>
+
+
+      </div>
+
+
+      <div class="timeline-row">
+
+
+        <span class="timeline-day">
+          Wednesday
+        </span>
+
+
+        <span class="timeline-dot"></span>
+
+
+        <div class="timeline-copy">
+
+          <h3>
+            Delivery handled.
+          </h3>
+
+          <p>
+            Parcel accepted, plants watered
+            and a short update sent.
+          </p>
+
+        </div>
+
+
+      </div>
+
+
+      <div class="timeline-row">
+
+
+        <span class="timeline-day">
+          Friday
+        </span>
+
+
+        <span class="timeline-dot"></span>
+
+
+        <div class="timeline-copy">
+
+          <h3>
+            Contractor sorted.
+          </h3>
+
+          <p>
+            Access provided as arranged and
+            the property secured afterwards.
+          </p>
+
+        </div>
+
+
+      </div>
+
+
+      <div class="timeline-row">
+
+
+        <span class="timeline-day">
+          Sunday
+        </span>
+
+
+        <span class="timeline-dot"></span>
+
+
+        <div class="timeline-copy">
+
+          <h3>
+            Ready for you.
+          </h3>
+
+          <p>
+            Final check completed, heating adjusted
+            and requested groceries put away.
+          </p>
+
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- ==================================================
+     WHAT WE HANDLE
+
+     IMAGE:
+     away-home-details.jpg
+================================================== -->
+
+<section class="handle-section fade">
+
+  <div class="container handle-layout">
+
+
+    <div>
+
+
+      <img
+        src="away-home-details.jpg"
+        alt="Home details being quietly taken care of while the owner is away"
+        class="handle-image"
+        loading="lazy"
+        decoding="async"
+      >
+
+
+    </div>
+
+
+    <div class="handle-content">
+
+
+      <p class="eyebrow">
+        WHAT CAN SORTED. HANDLE?
+      </p>
+
+
+      <h2>
+        Whatever makes being away easier.
+      </h2>
+
+
+      <p>
+        Your arrangement isn't limited to one type
+        of task. We can combine property care with
+        agreed household and lifestyle support.
+      </p>
+
+
+      <div class="handle-columns">
+
+
+        <div class="handle-column">
+
+
+          <h3>
+            Around the property
+          </h3>
+
+
+          <div class="handle-list">
+
+            <div>
+              Property checks
+            </div>
+
+            <div>
+              Post &amp; parcel collection
+            </div>
+
+            <div>
+              Heating &amp; lighting checks
+            </div>
+
+            <div>
+              Plant care
+            </div>
+
+            <div>
+              Contractor access
+            </div>
+
+            <div>
+              Key holding
+            </div>
+
+          </div>
+
+
+        </div>
+
+
+        <div class="handle-column">
+
+
+          <h3>
+            Around everyday life
+          </h3>
+
+
+          <div class="handle-list">
+
+            <div>
+              Groceries before you return
+            </div>
+
+            <div>
+              Dog walks &amp; agreed pet support
+            </div>
+
+            <div>
+              Household errands
+            </div>
+
+            <div>
+              Fresh bedding by arrangement
+            </div>
+
+            <div>
+              Light home preparation
+            </div>
+
+            <div>
+              Bespoke requests
+            </div>
+
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+
+    </div>
+
 
   </div>
 
@@ -3895,252 +5376,125 @@ select:focus-visible{
 
   <div class="container">
 
+
     <div class="section-heading">
 
+
       <p class="eyebrow">
-        HOW IT WORKS
+        EVERYTHING AGREED BEFORE YOU GO
       </p>
 
+
       <h2>
-        Simple, organised and entirely tailored.
+        Then you leave it with us.
       </h2>
+
 
       <p>
-        Every arrangement begins with a conversation so we can
-        understand your home, routine and priorities.
+        A clear Away Plan means you know what's being
+        handled before your trip even begins.
       </p>
 
-    </div>
-
-
-    <div class="steps-wrap">
-
-      <div class="steps">
-
-
-        <div class="step">
-
-          <div class="step-number">
-            01
-          </div>
-
-          <div class="step-content">
-
-            <h3>
-              Complimentary Consultation
-            </h3>
-
-            <p>
-              We discuss your travel dates, property, pets, access
-              arrangements and the level of support required.
-            </p>
-
-          </div>
-
-        </div>
-
-
-        <div class="step">
-
-          <div class="step-number">
-            02
-          </div>
-
-          <div class="step-content">
-
-            <h3>
-              Personalised Plan
-            </h3>
-
-            <p>
-              You receive a clear schedule covering visits, checks,
-              responsibilities and any specific instructions.
-            </p>
-
-          </div>
-
-        </div>
-
-
-        <div class="step">
-
-          <div class="step-number">
-            03
-          </div>
-
-          <div class="step-content">
-
-            <h3>
-              Dependable Visits
-            </h3>
-
-            <p>
-              Each agreed visit is completed discreetly and
-              professionally, with your home treated with care and
-              respect.
-            </p>
-
-          </div>
-
-        </div>
-
-
-        <div class="step">
-
-          <div class="step-number">
-            04
-          </div>
-
-          <div class="step-content">
-
-            <h3>
-              Updates &amp; Peace of Mind
-            </h3>
-
-            <p>
-              Receive confirmation, concise updates or photographs
-              after visits, according to your preference.
-            </p>
-
-          </div>
-
-        </div>
-
-
-      </div>
 
     </div>
 
-  </div>
 
-</section>
-
-
-<!-- ==================================================
-     REASSURANCE
-
-     IMAGE:
-     management.png
-================================================== -->
-
-<section class="reassurance-section fade">
-
-  <div class="container reassurance-grid">
+    <div class="steps">
 
 
-    <div class="reassurance-copy">
+      <article class="step">
 
-      <p class="eyebrow">
-        DEPENDABLE LOCAL SUPPORT
-      </p>
-
-      <h2>
-        Your home is always treated with care.
-      </h2>
-
-
-      <div class="reassurance-list">
-
-
-        <div class="reassurance-item">
-
-          <div class="reassurance-icon">
-            <i data-lucide="badge-check"></i>
-          </div>
-
-          <div>
-
-            <h3>
-              Professional and trustworthy
-            </h3>
-
-            <p>
-              Enhanced DBS checked, fully insured and committed to
-              discretion, confidentiality and dependable service.
-            </p>
-
-          </div>
-
+        <div class="step-number">
+          01
         </div>
 
 
-        <div class="reassurance-item">
+        <div class="step-content">
 
-          <div class="reassurance-icon">
-            <i data-lucide="lock-keyhole"></i>
-          </div>
+          <h3>
+            Tell us your plans.
+          </h3>
 
-          <div>
-
-            <h3>
-              Secure access arrangements
-            </h3>
-
-            <p>
-              Keys, access information and security details are
-              managed carefully and only used for agreed purposes.
-            </p>
-
-          </div>
+          <p>
+            Dates, property, access and what
+            you'd like us to take care of.
+          </p>
 
         </div>
 
+      </article>
 
-        <div class="reassurance-item">
 
-          <div class="reassurance-icon">
-            <i data-lucide="message-circle-check"></i>
-          </div>
+      <article class="step">
 
-          <div>
-
-            <h3>
-              Clear communication
-            </h3>
-
-            <p>
-              You'll receive updates in the format and frequency
-              agreed during your consultation.
-            </p>
-
-          </div>
-
+        <div class="step-number">
+          02
         </div>
 
 
-        <div class="reassurance-item">
+        <div class="step-content">
 
-          <div class="reassurance-icon">
-            <i data-lucide="sliders-horizontal"></i>
-          </div>
+          <h3>
+            Your Away Plan is created.
+          </h3>
 
-          <div>
-
-            <h3>
-              Flexible around your plans
-            </h3>
-
-            <p>
-              Support can cover a single weekend, regular travel,
-              a long holiday or periods spent at a second home.
-            </p>
-
-          </div>
+          <p>
+            We agree visits, tasks, updates
+            and any important household instructions.
+          </p>
 
         </div>
 
+      </article>
 
-      </div>
+
+      <article class="step">
+
+        <div class="step-number">
+          03
+        </div>
+
+
+        <div class="step-content">
+
+          <h3>
+            Sorted. takes over at home.
+          </h3>
+
+          <p>
+            We complete the visits and practical
+            jobs you've asked us to handle.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <article class="step">
+
+        <div class="step-number">
+          04
+        </div>
+
+
+        <div class="step-content">
+
+          <h3>
+            Come home.
+          </h3>
+
+          <p>
+            Any agreed final preparations are
+            completed before your return.
+          </p>
+
+        </div>
+
+      </article>
+
 
     </div>
-
-
-    <img
-      src="management.png"
-      alt="Calm and beautifully managed home"
-      class="reassurance-image"
-      loading="lazy"
-    >
 
 
   </div>
@@ -4162,18 +5516,23 @@ select:focus-visible{
 
     <div class="section-heading">
 
+
       <p class="eyebrow">
         PRICING
       </p>
 
+
       <h2>
-        Choose the level of care your home needs.
+        Choose how much you'd like us to handle.
       </h2>
 
+
       <p>
-        Every arrangement is tailored. The following prices provide a
-        clear guide before your complimentary consultation.
+        Every property and trip is different.
+        We'll agree the right arrangement before
+        any support begins.
       </p>
+
 
     </div>
 
@@ -4181,61 +5540,70 @@ select:focus-visible{
     <div class="pricing-grid">
 
 
-      <!-- HOME CHECK -->
+      <!-- PROPERTY CHECK -->
 
       <article class="price-card">
 
+
         <p class="eyebrow">
-          ESSENTIAL PROPERTY CARE
+          PROPERTY CHECK
         </p>
+
 
         <h3>
-          Home Check Visit
+          A dependable check while you're away.
         </h3>
 
-        <p>
-          A dependable property check while your home is temporarily
-          unoccupied.
+
+        <p class="price-description">
+          Ideal when you simply want somebody local
+          to visit the property and make sure everything
+          appears as expected.
         </p>
+
 
         <div class="price">
           £35–£60
         </div>
 
+
         <p class="price-note">
-          per visit, depending on requirements
+          Per visit, depending on requirements.
         </p>
 
-        <ul>
 
-          <li>
+        <div class="price-list">
+
+          <div>
             Doors and windows checked
-          </li>
+          </div>
 
-          <li>
+          <div>
             Visible property condition checked
-          </li>
+          </div>
 
-          <li>
-            Mail brought inside
-          </li>
+          <div>
+            Post brought inside
+          </div>
 
-          <li>
-            Heating or lighting checked
-          </li>
+          <div>
+            Agreed heating or lighting checks
+          </div>
 
-          <li>
-            Visit confirmation provided
-          </li>
+          <div>
+            Visit confirmation
+          </div>
 
-        </ul>
+        </div>
+
 
         <a
-          href="contact.html"
+          href="#contact"
           class="btn btn-primary"
         >
-          Request a Quote
+          Enquire About Property Checks
         </a>
+
 
       </article>
 
@@ -4244,67 +5612,72 @@ select:focus-visible{
 
       <article class="price-card featured">
 
-        <span class="price-badge">
-          MOST POPULAR
-        </span>
 
         <p class="eyebrow">
-          COMPLETE PEACE OF MIND
+          AWAY FROM HOME CARE
         </p>
+
 
         <h3>
-          Away-From-Home Care
+          Your home looked after around your plans.
         </h3>
 
-        <p>
-          Regular home care combining property checks with practical
-          household support.
+
+        <p class="price-description">
+          A tailored arrangement combining property
+          checks with the practical household details
+          you'd like taken care of.
         </p>
+
 
         <div class="price">
           From £95
         </div>
 
+
         <p class="price-note">
-          per night or care period
+          Per care arrangement.
         </p>
 
-        <ul>
 
-          <li>
+        <div class="price-list">
+
+          <div>
             Scheduled home visits
-          </li>
+          </div>
 
-          <li>
-            Mail and parcel collection
-          </li>
+          <div>
+            Post, parcels and plants
+          </div>
 
-          <li>
-            Plant care
-          </li>
+          <div>
+            Contractor access
+          </div>
 
-          <li>
-            Pet care by arrangement
-          </li>
+          <div>
+            Agreed household tasks
+          </div>
 
-          <li>
-            Contractor access if needed
-          </li>
+          <div>
+            Visit updates
+          </div>
 
-          <li>
+          <div>
             Return-home preparation
-          </li>
+          </div>
 
-        </ul>
+        </div>
+
 
         <a
           href="https://calendly.com/d/dzzd-qmh-mcm/one-off-meeting"
           target="_blank"
           rel="noopener noreferrer"
-          class="btn btn-primary"
+          class="btn btn-gold"
         >
-          Arrange a Consultation
+          Talk to Sorted.
         </a>
+
 
       </article>
 
@@ -4313,57 +5686,66 @@ select:focus-visible{
 
       <article class="price-card">
 
+
         <p class="eyebrow">
-          ONGOING PROPERTY SUPPORT
+          KEY HOLDING
         </p>
+
 
         <h3>
-          Key Holding
+          Someone nearby when you can't be.
         </h3>
 
-        <p>
-          Secure local key holding for clients requiring dependable
-          access support.
+
+        <p class="price-description">
+          For regular travellers, property owners
+          and clients who want dependable local access
+          available when needed.
         </p>
+
 
         <div class="price">
           From £25
         </div>
 
+
         <p class="price-note">
-          per month
+          Per month.
         </p>
 
-        <ul>
 
-          <li>
+        <div class="price-list">
+
+          <div>
             Secure key holding
-          </li>
+          </div>
 
-          <li>
-            Access for agreed appointments
-          </li>
+          <div>
+            Agreed contractor access
+          </div>
 
-          <li>
-            Contractor and delivery access
-          </li>
+          <div>
+            Delivery access where arranged
+          </div>
 
-          <li>
-            Priority response where available
-          </li>
+          <div>
+            Property visits available separately
+          </div>
 
-          <li>
-            Suitable for regular travellers
-          </li>
+          <div>
+            Useful for frequent travel
+          </div>
 
-        </ul>
+        </div>
+
 
         <a
-          href="contact.html"
+          href="#contact"
           class="btn btn-primary"
         >
           Discuss Key Holding
         </a>
+
 
       </article>
 
@@ -4371,21 +5753,41 @@ select:focus-visible{
     </div>
 
 
-    <div class="bespoke-note">
+    <p class="price-smallprint">
+      Away From Home Care quotes reflect the length of time
+      you're away, the number of visits required and what
+      you'd like Sorted. to handle. The first 5 miles of
+      travel are included; additional travel is charged at
+      60p per mile.
+    </p>
+
+
+    <div class="bespoke-banner">
+
 
       <div>
 
-        <h3>
-          Need something more tailored?
-        </h3>
 
-        <p>
-          Longer stays, second homes, regular business travel,
-          multiple pets and more comprehensive home management can
-          all be arranged through a bespoke quotation.
+        <p class="eyebrow">
+          BESPOKE ARRANGEMENTS
         </p>
 
+
+        <h3>
+          Need something more involved?
+        </h3>
+
+
+        <p>
+          Longer periods away, multiple properties,
+          second homes, regular business travel and
+          more comprehensive household arrangements
+          can all be quoted individually.
+        </p>
+
+
       </div>
+
 
       <a
         href="https://calendly.com/d/dzzd-qmh-mcm/one-off-meeting"
@@ -4393,8 +5795,285 @@ select:focus-visible{
         rel="noopener noreferrer"
         class="btn btn-primary"
       >
-        Book Your Consultation
+        Talk to Sorted.
       </a>
+
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- ==================================================
+     SECOND HOMES
+
+     IMAGE:
+     away-second-home.jpg
+================================================== -->
+
+<section class="second-home-section fade">
+
+  <div class="container second-home-layout">
+
+
+    <div class="second-home-copy">
+
+
+      <p class="eyebrow">
+        FOR HOMES YOU AREN'T ALWAYS IN
+      </p>
+
+
+      <h2>
+        A local presence when you live somewhere else.
+      </h2>
+
+
+      <p>
+        If you travel frequently, split your time
+        between properties or own a second home in
+        the area, Sorted. can provide ongoing local
+        support rather than arranging everything
+        afresh each time.
+      </p>
+
+
+      <p>
+        We can build a recurring arrangement around
+        the property and the way you use it.
+      </p>
+
+
+      <div class="second-home-list">
+
+        <div>
+          Regular property checks
+        </div>
+
+        <div>
+          Key holding
+        </div>
+
+        <div>
+          Contractor access
+        </div>
+
+        <div>
+          Arrival preparation
+        </div>
+
+        <div>
+          Household coordination
+        </div>
+
+        <div>
+          Recurring Away Plans
+        </div>
+
+      </div>
+
+
+      <div class="second-home-link">
+
+        <a
+          href="#contact"
+          class="text-link"
+        >
+          Discuss Ongoing Property Support
+        </a>
+
+      </div>
+
+
+    </div>
+
+
+    <div>
+
+
+      <img
+        src="away-second-home.jpg"
+        alt="Beautiful second home supported locally by Sorted."
+        class="second-home-image"
+        loading="lazy"
+        decoding="async"
+      >
+
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- ==================================================
+     TRUST
+
+     IMAGE:
+     away-keyholding-trust.jpg
+================================================== -->
+
+<section class="trust-section fade">
+
+  <div class="container trust-layout">
+
+
+    <div>
+
+
+      <img
+        src="away-keyholding-trust.jpg"
+        alt="Secure key holding and careful home access"
+        class="trust-image"
+        loading="lazy"
+        decoding="async"
+      >
+
+
+    </div>
+
+
+    <div class="trust-copy">
+
+
+      <p class="eyebrow">
+        TRUSTED WITH YOUR HOME
+      </p>
+
+
+      <h2>
+        Access is something we take seriously.
+      </h2>
+
+
+      <p>
+        Keys, access instructions and household
+        information are handled carefully, and every
+        visit is carried out with respect for your
+        home and privacy.
+      </p>
+
+
+      <div class="trust-list">
+
+
+        <article class="trust-row">
+
+          <div class="trust-icon">
+            <i data-lucide="badge-check"></i>
+          </div>
+
+          <div>
+
+            <h3>
+              Enhanced DBS Checked
+            </h3>
+
+            <p>
+              Additional reassurance when we're
+              entering your home.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <article class="trust-row">
+
+          <div class="trust-icon">
+            <i data-lucide="shield-check"></i>
+          </div>
+
+          <div>
+
+            <h3>
+              Fully Insured
+            </h3>
+
+            <p>
+              Professional cover for the work
+              we undertake.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <article class="trust-row">
+
+          <div class="trust-icon">
+            <i data-lucide="key-round"></i>
+          </div>
+
+          <div>
+
+            <h3>
+              Careful Key Management
+            </h3>
+
+            <p>
+              Access is used only for the purposes
+              agreed with you.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <article class="trust-row">
+
+          <div class="trust-icon">
+            <i data-lucide="message-circle-check"></i>
+          </div>
+
+          <div>
+
+            <h3>
+              Clear Visit Updates
+            </h3>
+
+            <p>
+              Know when we've attended and what
+              has been handled.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <article class="trust-row">
+
+          <div class="trust-icon">
+            <i data-lucide="lock-keyhole"></i>
+          </div>
+
+          <div>
+
+            <h3>
+              Confidential &amp; Discreet
+            </h3>
+
+            <p>
+              Your household and personal information
+              are treated respectfully.
+            </p>
+
+          </div>
+
+        </article>
+
+
+      </div>
+
 
     </div>
 
@@ -4408,28 +6087,29 @@ select:focus-visible{
      FAQ
 ================================================== -->
 
-<section
-  class="faq-section fade"
-  id="faq"
->
+<section class="faq-section fade">
 
   <div class="container">
 
 
     <div class="section-heading">
 
+
       <p class="eyebrow">
         FREQUENTLY ASKED QUESTIONS
       </p>
 
+
       <h2>
-        Before you leave home.
+        Before you hand us the keys.
       </h2>
 
+
       <p>
-        A few common questions about our away-from-home and
-        property-care service.
+        A few of the things clients commonly want
+        to know before arranging Away From Home care.
       </p>
+
 
     </div>
 
@@ -4443,10 +6123,11 @@ select:focus-visible{
           type="button"
           class="faq-question"
           aria-expanded="false"
+          aria-controls="faq-answer-1"
         >
 
           <span>
-            How often can you visit my home?
+            How often can Sorted. visit?
           </span>
 
           <span
@@ -4458,12 +6139,14 @@ select:focus-visible{
 
         </button>
 
-        <div class="faq-answer">
-
-          Visits can be arranged daily, several times each week,
-          weekly or according to a bespoke schedule agreed during
-          your consultation.
-
+        <div
+          class="faq-answer"
+          id="faq-answer-1"
+        >
+          Visits can be arranged around your needs,
+          from a single property check to several visits
+          during a holiday or a recurring schedule for
+          frequent travel.
         </div>
 
       </article>
@@ -4475,10 +6158,11 @@ select:focus-visible{
           type="button"
           class="faq-question"
           aria-expanded="false"
+          aria-controls="faq-answer-2"
         >
 
           <span>
-            Will I receive confirmation after each visit?
+            What happens during a property check?
           </span>
 
           <span
@@ -4490,12 +6174,14 @@ select:focus-visible{
 
         </button>
 
-        <div class="faq-answer">
-
-          Yes. We can provide a short message, checklist,
-          photographs or a more detailed update depending on your
-          preference.
-
+        <div
+          class="faq-answer"
+          id="faq-answer-2"
+        >
+          The exact check is agreed in advance. It may
+          include checking doors and windows, looking for
+          visible issues, bringing post inside and checking
+          agreed heating, lighting or household arrangements.
         </div>
 
       </article>
@@ -4507,10 +6193,11 @@ select:focus-visible{
           type="button"
           class="faq-question"
           aria-expanded="false"
+          aria-controls="faq-answer-3"
         >
 
           <span>
-            Can you look after pets?
+            Will I receive photographs or an update?
           </span>
 
           <span
@@ -4522,12 +6209,13 @@ select:focus-visible{
 
         </button>
 
-        <div class="faq-answer">
-
-          Pet feeding, fresh water, litter care and companionship
-          visits may be available following a consultation.
-          Overnight pet sitting is considered by arrangement.
-
+        <div
+          class="faq-answer"
+          id="faq-answer-3"
+        >
+          Yes. We can send a simple confirmation,
+          short written update or photographs according
+          to what you prefer.
         </div>
 
       </article>
@@ -4539,10 +6227,11 @@ select:focus-visible{
           type="button"
           class="faq-question"
           aria-expanded="false"
+          aria-controls="faq-answer-4"
         >
 
           <span>
-            Can you let a contractor into my home?
+            How are my keys handled?
           </span>
 
           <span
@@ -4554,12 +6243,14 @@ select:focus-visible{
 
         </button>
 
-        <div class="faq-answer">
-
-          Yes. We can provide access to approved contractors, wait
-          while work is carried out where agreed and confirm when the
-          property is secure afterwards.
-
+        <div
+          class="faq-answer"
+          id="faq-answer-4"
+        >
+          Key and access arrangements are agreed before
+          support begins. Access is used only for agreed
+          purposes and household information is handled
+          carefully.
         </div>
 
       </article>
@@ -4571,6 +6262,76 @@ select:focus-visible{
           type="button"
           class="faq-question"
           aria-expanded="false"
+          aria-controls="faq-answer-5"
+        >
+
+          <span>
+            Can you meet contractors?
+          </span>
+
+          <span
+            class="faq-symbol"
+            aria-hidden="true"
+          >
+            +
+          </span>
+
+        </button>
+
+        <div
+          class="faq-answer"
+          id="faq-answer-5"
+        >
+          Yes. We can provide agreed access to contractors
+          and confirm that the property has been secured
+          afterwards.
+        </div>
+
+      </article>
+
+
+      <article class="faq-item">
+
+        <button
+          type="button"
+          class="faq-question"
+          aria-expanded="false"
+          aria-controls="faq-answer-6"
+        >
+
+          <span>
+            Can you help with pets?
+          </span>
+
+          <span
+            class="faq-symbol"
+            aria-hidden="true"
+          >
+            +
+          </span>
+
+        </button>
+
+        <div
+          class="faq-answer"
+          id="faq-answer-6"
+        >
+          Practical pet support may be arranged depending
+          on the animal and requirements. This can include
+          feeding, fresh water, litter care, dog walks and
+          agreed routine visits.
+        </div>
+
+      </article>
+
+
+      <article class="faq-item">
+
+        <button
+          type="button"
+          class="faq-question"
+          aria-expanded="false"
+          aria-controls="faq-answer-7"
         >
 
           <span>
@@ -4586,12 +6347,14 @@ select:focus-visible{
 
         </button>
 
-        <div class="faq-answer">
-
-          Yes. This can include groceries, heating adjustments,
-          fresh bedding, light tidying, opening curtains and
-          completing a final property check.
-
+        <div
+          class="faq-answer"
+          id="faq-answer-7"
+        >
+          Yes. Return-home preparation can include a
+          final property check, heating adjustments,
+          requested groceries and other practical details
+          agreed in advance.
         </div>
 
       </article>
@@ -4603,10 +6366,11 @@ select:focus-visible{
           type="button"
           class="faq-question"
           aria-expanded="false"
+          aria-controls="faq-answer-8"
         >
 
           <span>
-            Do you provide emergency call-outs?
+            What happens if you find a problem?
           </span>
 
           <span
@@ -4618,19 +6382,89 @@ select:focus-visible{
 
         </button>
 
-        <div class="faq-answer">
+        <div
+          class="faq-answer"
+          id="faq-answer-8"
+        >
+          We'll contact you using the method agreed with
+          you. Any further action, contractor booking or
+          additional expense will be handled according to
+          the authority you've given us.
+        </div>
 
-          Emergency availability is not guaranteed. Where key
-          holding or ongoing support has been arranged, we will
-          clearly explain any available response arrangements in
-          advance.
+      </article>
 
+
+      <article class="faq-item">
+
+        <button
+          type="button"
+          class="faq-question"
+          aria-expanded="false"
+          aria-controls="faq-answer-9"
+        >
+
+          <span>
+            Can I arrange regular support if I travel often?
+          </span>
+
+          <span
+            class="faq-symbol"
+            aria-hidden="true"
+          >
+            +
+          </span>
+
+        </button>
+
+        <div
+          class="faq-answer"
+          id="faq-answer-9"
+        >
+          Yes. Regular travellers can arrange recurring
+          checks, ongoing key holding and a more tailored
+          property support arrangement.
+        </div>
+
+      </article>
+
+
+      <article class="faq-item">
+
+        <button
+          type="button"
+          class="faq-question"
+          aria-expanded="false"
+          aria-controls="faq-answer-10"
+        >
+
+          <span>
+            Do you look after second homes?
+          </span>
+
+          <span
+            class="faq-symbol"
+            aria-hidden="true"
+          >
+            +
+          </span>
+
+        </button>
+
+        <div
+          class="faq-answer"
+          id="faq-answer-10"
+        >
+          Yes. Second-home support can include property
+          checks, key holding, access, arrival preparation
+          and recurring practical household support.
         </div>
 
       </article>
 
 
     </div>
+
 
   </div>
 
@@ -4641,26 +6475,44 @@ select:focus-visible{
      AREAS
 
      IMAGE:
-     eastbourne-area.jpg
+     eastbourne-area1.jpg
 ================================================== -->
 
-<section class="areas fade">
+<section class="areas-section fade">
+
+
+  <img
+    src="eastbourne-area1.jpg"
+    alt="Eastbourne and surrounding East Sussex area"
+    class="areas-image"
+    loading="lazy"
+    decoding="async"
+  >
+
+
+  <div class="areas-overlay"></div>
+
 
   <div class="container narrow">
 
+
     <p class="eyebrow">
-      AREAS COVERED
+      BASED IN EASTBOURNE
     </p>
+
 
     <h2>
-      Eastbourne &amp; surrounding areas
+      Local enough to be there when you can't.
     </h2>
 
+
     <p>
-      Eastbourne, Meads, Old Town, Upperton, Sovereign Harbour,
-      Hampden Park, Willingdon, Langney, Polegate, Pevensey,
-      Seaford and nearby villages.
+      Supporting homes across Eastbourne, Meads,
+      Old Town, Upperton, Sovereign Harbour,
+      Hampden Park, Willingdon, Langney, Polegate,
+      Pevensey, Seaford and surrounding areas.
     </p>
+
 
   </div>
 
@@ -4669,349 +6521,245 @@ select:focus-visible{
 
 <!-- ==================================================
      CONTACT
+
+     IMAGE:
+     away-final-enquiry.jpg
 ================================================== -->
 
 <section
-  class="contact fade"
+  class="contact-section fade"
   id="contact"
 >
 
-  <div class="container contact-grid">
+  <div class="container contact-layout">
 
 
-    <div class="contact-copy">
-
-      <p class="eyebrow">
-        LET'S START WITH A CONVERSATION
-      </p>
-
-      <h2>
-        Leave everything beautifully Sorted.
-      </h2>
-
-      <p class="response-time">
-        We aim to respond to all enquiries within 24 hours,
-        often much sooner.
-      </p>
-
-      <p>
-        Tell us where you're going, how long you'll be away and what
-        you would like taken care of. We'll recommend a calm,
-        practical plan tailored around your property, pets and
-        priorities.
-      </p>
+    <div class="contact-side">
 
 
-      <div class="contact-details">
-
-
-        <div class="contact-detail">
-
-          <h3>
-            Email
-          </h3>
-
-          <p>
-            <a href="mailto:contact@sortedlife.org.uk">
-              contact@sortedlife.org.uk
-            </a>
-          </p>
-
-        </div>
-
-
-        <div class="contact-detail">
-
-          <h3>
-            Phone
-          </h3>
-
-          <p>
-            <a href="tel:+441323396610">
-              01323 396610
-            </a>
-          </p>
-
-        </div>
-
-
-        <div class="contact-detail">
-
-          <h3>
-            Opening Hours
-          </h3>
-
-          <p>
-            Monday–Friday: 8:00am–6:00pm
-            <br>
-            Saturday: By appointment
-            <br>
-            Sunday: By arrangement
-          </p>
-
-        </div>
-
-
-        <div class="contact-detail">
-
-          <h3>
-            Areas Covered
-          </h3>
-
-          <p>
-            Eastbourne, Meads, Old Town, Upperton, Sovereign
-            Harbour, Hampden Park, Willingdon, Langney, Polegate,
-            Pevensey and Seaford.
-          </p>
-
-        </div>
-
-
-      </div>
-
-    </div>
-
-
-    <div>
-
-
-      <div class="promise-card">
-
-        <p class="eyebrow">
-          OUR PROMISE
-        </p>
-
-        <h3>
-          Your home is treated with genuine care.
-        </h3>
-
-        <p>
-          Every visit is carried out with professionalism,
-          discretion and attention to detail. We treat your home with
-          the same respect we would expect for our own.
-        </p>
-
-      </div>
-
-
-      <form
-        class="contact-form"
-        action="https://formsubmit.co/contact@sortedlife.org.uk"
-        method="POST"
+      <img
+        src="away-final-enquiry.jpg"
+        alt="A welcoming home ready before travelling"
+        class="contact-image"
+        loading="lazy"
+        decoding="async"
       >
 
-        <p class="form-intro">
-          No obligation. No pressure. Just a friendly conversation
-          about how we can help.
-        </p>
-
-
-        <input
-          type="hidden"
-          name="_subject"
-          value="New Sorted. Away From Home Enquiry"
-        >
-
-        <input
-          type="hidden"
-          name="_captcha"
-          value="false"
-        >
-
-        <input
-          type="hidden"
-          name="_template"
-          value="table"
-        >
-
-        <input
-          type="hidden"
-          name="_next"
-          value="https://sortedlife.org.uk/thank-you.html"
-        >
-
-        <input
-          type="hidden"
-          name="_autoresponse"
-          value="Thank you for contacting Sorted. We have received your enquiry and will respond within one working day. If your enquiry is urgent, please call us on 01323 396610."
-        >
-
-        <input
-          type="hidden"
-          name="enquiry_type"
-          value="Away From Home Support"
-        >
-
-
-        <label>
-
-          Your Name
-
-          <input
-            type="text"
-            name="name"
-            placeholder="John Smith"
-            autocomplete="name"
-            required
-          >
-
-        </label>
-
-
-        <label>
-
-          Email Address
-
-          <input
-            type="email"
-            name="email"
-            placeholder="john@email.com"
-            autocomplete="email"
-            required
-          >
-
-        </label>
-
-
-        <label>
-
-          Telephone
-
-          <input
-            type="tel"
-            name="phone"
-            placeholder="Optional"
-            autocomplete="tel"
-          >
-
-        </label>
-
-
-        <label>
-
-          Approximate travel dates
-
-          <input
-            type="text"
-            name="travel_dates"
-            placeholder="For example: 12–20 August"
-          >
-
-        </label>
-
-
-        <label>
-
-          How can we help?
-
-          <textarea
-            name="message"
-            placeholder="Tell us a little about your home, travel plans and the support you need..."
-            required
-          ></textarea>
-
-        </label>
-
-
-        <label style="display:none !important;">
-
-          Spam check
-
-          <input
-            type="text"
-            name="_honey"
-          >
-
-        </label>
-
-
-        <button
-          type="submit"
-          class="btn btn-primary"
-        >
-          Send Enquiry
-        </button>
-
-
-        <p class="form-note">
-          We'll aim to reply as soon as possible.
-        </p>
-
-
-        <p
-          class="form-note"
-          style="margin-top:22px;"
-        >
-
-          <strong>
-            Payment Options
-          </strong>
-
-          <br>
-
-          Bank Transfer • Debit &amp; Credit Card •
-          Standing Order for ongoing arrangements
-
-        </p>
-
-
-      </form>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ==================================================
-     TRUST STRIP
-================================================== -->
-
-<section class="trust-section fade">
-
-  <div class="container">
-
-    <div class="section-heading">
 
       <p class="eyebrow">
-        WHY CHOOSE SORTED?
+        GOING SOMEWHERE?
       </p>
 
+
       <h2>
-        Trusted support you can rely on.
+        Tell us what you'd like to stop thinking about while you're gone.
       </h2>
 
+
+      <p>
+        Tell us when you'll be away, where the
+        property is and what you'd like Sorted.
+        to take care of.
+      </p>
+
+
+      <p>
+        We'll recommend the most sensible arrangement.
+      </p>
+
+
+      <p class="contact-phone">
+
+        Prefer to talk?
+
+        <a href="tel:+441323396610">
+          01323 396610
+        </a>
+
+      </p>
+
+
+      <div class="contact-assurance">
+
+        <span>
+          No obligation
+        </span>
+
+        <span>
+          Confidential
+        </span>
+
+        <span>
+          Tailored around your plans
+        </span>
+
+      </div>
+
+
     </div>
 
 
-    <div class="trust-strip">
+    <form
+      class="contact-form"
+      action="https://formsubmit.co/contact@sortedlife.org.uk"
+      method="POST"
+    >
 
-      <span>
-        Enhanced DBS Checked
-      </span>
 
-      <span>
-        Fully Insured
-      </span>
+      <p class="form-intro">
+        Tell us a little about your plans and
+        what you'd like us to handle.
+      </p>
 
-      <span>
-        Confidential &amp; Discreet
-      </span>
 
-      <span>
-        Local Independent Business
-      </span>
+      <input
+        type="hidden"
+        name="_subject"
+        value="New Sorted. Away From Home Enquiry"
+      >
 
-      <span>
-        Flexible One-off &amp; Ongoing Support
-      </span>
 
-      <span>
-        Tailored Around Your Home
-      </span>
+      <input
+        type="hidden"
+        name="_captcha"
+        value="false"
+      >
 
-    </div>
+
+      <input
+        type="hidden"
+        name="_template"
+        value="table"
+      >
+
+
+      <input
+        type="hidden"
+        name="_next"
+        value="https://sortedlife.org.uk/thank-you.html"
+      >
+
+
+      <input
+        type="hidden"
+        name="enquiry_type"
+        value="Away From Home Support"
+      >
+
+
+      <label>
+
+        Your Name
+
+        <input
+          type="text"
+          name="name"
+          autocomplete="name"
+          placeholder="John Smith"
+          required
+        >
+
+      </label>
+
+
+      <label>
+
+        Email Address
+
+        <input
+          type="email"
+          name="email"
+          autocomplete="email"
+          placeholder="john@email.com"
+          required
+        >
+
+      </label>
+
+
+      <label>
+
+        Telephone
+
+        <input
+          type="tel"
+          name="phone"
+          autocomplete="tel"
+          placeholder="Optional"
+        >
+
+      </label>
+
+
+      <label>
+
+        Property area or postcode
+
+        <input
+          type="text"
+          name="property_location"
+          autocomplete="postal-code"
+          placeholder="For example: Meads, BN20"
+        >
+
+      </label>
+
+
+      <label>
+
+        Approximate dates away
+
+        <input
+          type="text"
+          name="travel_dates"
+          placeholder="For example: 12–20 September"
+        >
+
+      </label>
+
+
+      <label>
+
+        What should Sorted. handle?
+
+        <textarea
+          name="message"
+          placeholder="Tell us about the property, checks, plants, pets, access, deliveries or anything you'd like ready for your return..."
+          required
+        ></textarea>
+
+      </label>
+
+
+      <label style="display:none !important;">
+
+        Spam check
+
+        <input
+          type="text"
+          name="_honey"
+          tabindex="-1"
+          autocomplete="off"
+        >
+
+      </label>
+
+
+      <button
+        type="submit"
+        class="btn btn-primary"
+      >
+        Send My Enquiry
+      </button>
+
+
+      <p class="form-note">
+        We aim to respond within 24 hours, often much sooner.
+      </p>
+
+
+    </form>
+
 
   </div>
 
@@ -5028,29 +6776,19 @@ select:focus-visible{
 <div class="floating-contact">
 
   <a
-    href="tel:+441323396610"
-    class="floating-btn"
-    aria-label="Call Sorted"
-  >
-    <i data-lucide="phone"></i>
-  </a>
-
-  <a
     href="https://wa.me/447460934371"
     target="_blank"
     rel="noopener noreferrer"
-    class="floating-btn"
+    class="floating-message"
     aria-label="Message Sorted on WhatsApp"
   >
-    <i data-lucide="message-circle"></i>
-  </a>
 
-  <a
-    href="mailto:contact@sortedlife.org.uk"
-    class="floating-btn"
-    aria-label="Email Sorted"
-  >
-    <i data-lucide="mail"></i>
+    <i data-lucide="message-circle"></i>
+
+    <span>
+      Message Sorted.
+    </span>
+
   </a>
 
 </div>
@@ -5064,10 +6802,12 @@ select:focus-visible{
 
   <div class="container">
 
-    <div class="footer-grid">
+
+    <div class="footer-top">
 
 
-      <div>
+      <div class="footer-brand">
+
 
         <a
           href="index.html"
@@ -5076,21 +6816,55 @@ select:focus-visible{
           Sorted<span>.</span>
         </a>
 
-        <p class="footer-description">
+
+        <p class="footer-tagline">
           Your Home. Handled.
-          <br><br>
-          Premium home and lifestyle support across Eastbourne and
-          surrounding areas.
         </p>
+
+
+        <p class="footer-description">
+          Household and lifestyle management across
+          Eastbourne and surrounding areas.
+        </p>
+
 
       </div>
 
 
+      <div class="footer-contact">
+
+
+        <p class="footer-contact-label">
+          Get in touch
+        </p>
+
+
+        <a href="tel:+441323396610">
+          01323 396610
+        </a>
+
+
+        <a href="mailto:contact@sortedlife.org.uk">
+          contact@sortedlife.org.uk
+        </a>
+
+
+      </div>
+
+
+    </div>
+
+
+    <div class="footer-grid">
+
+
       <div>
+
 
         <h3>
           Explore
         </h3>
+
 
         <div class="footer-links">
 
@@ -5112,14 +6886,17 @@ select:focus-visible{
 
         </div>
 
+
       </div>
 
 
       <div>
 
+
         <h3>
           Sorted.
         </h3>
+
 
         <div class="footer-links">
 
@@ -5145,24 +6922,19 @@ select:focus-visible{
 
         </div>
 
+
       </div>
 
 
       <div>
 
+
         <h3>
-          Contact
+          Hours
         </h3>
 
+
         <div class="footer-links">
-
-          <a href="tel:+441323396610">
-            01323 396610
-          </a>
-
-          <a href="mailto:contact@sortedlife.org.uk">
-            contact@sortedlife.org.uk
-          </a>
 
           <p>
             Monday–Friday: 8am–6pm
@@ -5178,6 +6950,7 @@ select:focus-visible{
 
         </div>
 
+
       </div>
 
 
@@ -5186,25 +6959,37 @@ select:focus-visible{
 
     <div class="footer-bottom">
 
+
+      <div class="footer-bottom-left">
+
+        <p class="copyright">
+          © 2026 Sorted.
+        </p>
+
+        <p class="footer-location">
+          Eastbourne · East Sussex
+        </p>
+
+      </div>
+
+
       <p class="legal-links">
 
         <a href="privacy.html">
-          Privacy Policy
+          Privacy
         </a>
 
         &nbsp;·&nbsp;
 
         <a href="terms.html">
-          Terms &amp; Conditions
+          Terms
         </a>
 
       </p>
 
-      <p class="copyright">
-        © 2026 Sorted. All rights reserved.
-      </p>
 
     </div>
+
 
   </div>
 
@@ -5212,7 +6997,7 @@ select:focus-visible{
 
 
 <!-- ==================================================
-     COOKIE BANNER
+     COOKIE
 ================================================== -->
 
 <div
@@ -5220,7 +7005,12 @@ select:focus-visible{
   class="cookie-banner"
 >
 
-  This website uses essential cookies to improve your experience.
+  This website uses essential browser storage
+  for basic preferences. See our
+
+  <a href="privacy.html">
+    Privacy Policy
+  </a>.
 
   <button
     type="button"
@@ -5240,29 +7030,32 @@ select:focus-visible{
 
 
 /* ==================================================
-   ENABLE JS ANIMATIONS
-================================================== */
-
-document.documentElement.classList.add("js");
-
-
-/* ==================================================
-   MOBILE NAVIGATION
+   ELEMENTS
 ================================================== */
 
 const menuToggle =
   document.querySelector(".menu-toggle");
 
 const navigation =
-  document.querySelector("nav");
+  document.querySelector("#site-navigation");
 
+const header =
+  document.querySelector(".site-header");
+
+const floatingContact =
+  document.querySelector(".floating-contact");
+
+const siteFooter =
+  document.querySelector("footer");
+
+
+/* ==================================================
+   MOBILE MENU
+================================================== */
 
 function closeMenu(){
 
-  if(
-    !menuToggle ||
-    !navigation
-  ){
+  if(!menuToggle || !navigation){
     return;
   }
 
@@ -5283,10 +7076,8 @@ function closeMenu(){
 }
 
 
-if(
-  menuToggle &&
-  navigation
-){
+if(menuToggle && navigation){
+
 
   menuToggle.addEventListener(
     "click",
@@ -5297,10 +7088,12 @@ if(
           .classList
           .toggle("active");
 
+
       menuToggle.setAttribute(
         "aria-expanded",
         open ? "true" : "false"
       );
+
 
       menuToggle.setAttribute(
         "aria-label",
@@ -5355,106 +7148,151 @@ if(
   );
 
 
-  window.addEventListener(
-    "resize",
-    function(){
-
-      if(window.innerWidth > 1080){
-        closeMenu();
-      }
-
-    }
-  );
-
 }
 
 
 /* ==================================================
-   SMOOTH INTERNAL LINKS
+   FAQ
 ================================================== */
 
 document
-  .querySelectorAll(
-    "a[href^='#']"
-  )
-  .forEach(function(link){
+  .querySelectorAll(".faq-question")
+  .forEach(function(button){
 
-    link.addEventListener(
+
+    button.addEventListener(
       "click",
-      function(event){
+      function(){
 
-        const href =
-          link.getAttribute(
-            "href"
-          );
 
-        if(
-          !href ||
-          href === "#"
-        ){
+        const item =
+          button.closest(".faq-item");
+
+
+        if(!item){
           return;
         }
 
-        const target =
-          document.querySelector(
-            href
-          );
 
-        if(target){
+        const open =
+          item.classList.toggle("active");
 
-          event.preventDefault();
 
-          target.scrollIntoView({
-            behavior:"smooth",
-            block:"start"
-          });
+        button.setAttribute(
+          "aria-expanded",
+          open ? "true" : "false"
+        );
 
-        }
 
       }
     );
+
 
   });
 
 
 /* ==================================================
-   FADE-IN ON SCROLL
+   SCROLL EFFECTS
 ================================================== */
 
-const fadeElements =
-  document.querySelectorAll(
-    ".fade"
+let scrollTicking = false;
+
+
+function updateScrollEffects(){
+
+
+  const scrollY =
+    window.scrollY;
+
+
+  if(header){
+
+    header.classList.toggle(
+      "scrolled",
+      scrollY > 40
+    );
+
+  }
+
+
+  if(floatingContact){
+
+    floatingContact.classList.toggle(
+      "visible",
+      scrollY > 450
+    );
+
+  }
+
+
+  scrollTicking = false;
+
+
+}
+
+
+function requestScrollUpdate(){
+
+
+  if(scrollTicking){
+    return;
+  }
+
+
+  scrollTicking = true;
+
+
+  window.requestAnimationFrame(
+    updateScrollEffects
   );
 
 
-if(
-  "IntersectionObserver" in window
-){
+}
+
+
+window.addEventListener(
+  "scroll",
+  requestScrollUpdate,
+  { passive:true }
+);
+
+
+updateScrollEffects();
+
+
+/* ==================================================
+   FADE IN
+================================================== */
+
+const fadeElements =
+  document.querySelectorAll(".fade");
+
+
+if("IntersectionObserver" in window){
+
 
   const fadeObserver =
     new IntersectionObserver(
 
-      function(
-        entries,
-        observer
-      ){
+      function(entries,observer){
 
         entries.forEach(
           function(entry){
 
-            if(
-              entry.isIntersecting
-            ){
-
-              entry.target
-                .classList
-                .add("show");
-
-              observer.unobserve(
-                entry.target
-              );
-
+            if(!entry.isIntersecting){
+              return;
             }
+
+
+            entry.target
+              .classList
+              .add("show");
+
+
+            observer.unobserve(
+              entry.target
+            );
+
 
           }
         );
@@ -5462,9 +7300,10 @@ if(
       },
 
       {
-        threshold:.08,
+        threshold:.07,
+
         rootMargin:
-          "0px 0px -35px 0px"
+          "0px 0px -25px 0px"
       }
 
     );
@@ -5480,7 +7319,9 @@ if(
     }
   );
 
+
 }else{
+
 
   fadeElements.forEach(
     function(element){
@@ -5492,149 +7333,74 @@ if(
     }
   );
 
+
 }
 
 
 /* ==================================================
-   FAQ
+   FLOATING CONTACT / FOOTER
 ================================================== */
 
-document
-  .querySelectorAll(
-    ".faq-question"
-  )
-  .forEach(function(button){
+if(
+  floatingContact &&
+  siteFooter &&
+  "IntersectionObserver" in window
+){
 
-    button.addEventListener(
-      "click",
-      function(){
 
-        const item =
-          button.closest(
-            ".faq-item"
-          );
+  const footerObserver =
+    new IntersectionObserver(
 
-        if(!item){
-          return;
-        }
+      function(entries){
 
-        const open =
-          item.classList
-            .toggle("active");
+        entries.forEach(
+          function(entry){
 
-        button.setAttribute(
-          "aria-expanded",
-          open ? "true" : "false"
+            floatingContact
+              .classList
+              .toggle(
+                "footer-visible",
+                entry.isIntersecting
+              );
+
+          }
         );
 
+      },
+
+      {
+        threshold:.03
       }
+
     );
 
-  });
 
-
-/* ==================================================
-   FLOATING CONTACT
-================================================== */
-
-const floatingContact =
-  document.querySelector(
-    ".floating-contact"
+  footerObserver.observe(
+    siteFooter
   );
 
-
-function updateFloatingContact(){
-
-  if(!floatingContact){
-    return;
-  }
-
-  floatingContact
-    .classList
-    .toggle(
-      "visible",
-      window.scrollY > 330
-    );
 
 }
 
 
-window.addEventListener(
-  "scroll",
-  updateFloatingContact,
-  {
-    passive:true
-  }
-);
-
-updateFloatingContact();
-
-
 /* ==================================================
-   HEADER SCROLL EFFECT
-================================================== */
-
-const siteHeader =
-  document.querySelector(
-    ".site-header"
-  );
-
-
-function updateHeader(){
-
-  if(!siteHeader){
-    return;
-  }
-
-  if(
-    window.scrollY > 35
-  ){
-
-    siteHeader.style.background =
-      "rgba(255,255,255,.95)";
-
-    siteHeader.style.boxShadow =
-      "0 13px 35px rgba(23,38,27,.11)";
-
-  }else{
-
-    siteHeader.style.background =
-      "rgba(255,255,255,.77)";
-
-    siteHeader.style.boxShadow =
-      "0 8px 30px rgba(23,38,27,.06)";
-
-  }
-
-}
-
-
-window.addEventListener(
-  "scroll",
-  updateHeader,
-  {
-    passive:true
-  }
-);
-
-updateHeader();
-
-
-/* ==================================================
-   COOKIE BANNER
+   COOKIE
 ================================================== */
 
 function acceptCookies(){
+
 
   localStorage.setItem(
     "cookiesAccepted",
     "yes"
   );
 
+
   const banner =
     document.getElementById(
       "cookie-banner"
     );
+
 
   if(banner){
 
@@ -5643,17 +7409,24 @@ function acceptCookies(){
 
   }
 
+
 }
 
+
+/* ==================================================
+   INITIALISE
+================================================== */
 
 document.addEventListener(
   "DOMContentLoaded",
   function(){
 
+
     const banner =
       document.getElementById(
         "cookie-banner"
       );
+
 
     if(
       banner &&
@@ -5667,39 +7440,6 @@ document.addEventListener(
 
     }
 
-  }
-);
-
-
-/* ==================================================
-   LOADER + ICONS
-================================================== */
-
-window.addEventListener(
-  "load",
-  function(){
-
-    const loader =
-      document.querySelector(
-        ".loader"
-      );
-
-    if(loader){
-
-      loader.style.pointerEvents =
-        "none";
-
-      setTimeout(
-        function(){
-
-          loader.remove();
-
-        },
-        2000
-      );
-
-    }
-
 
     if(window.lucide){
 
@@ -5707,11 +7447,13 @@ window.addEventListener(
 
     }
 
+
   }
 );
 
 
 </script>
+
 
 </body>
 

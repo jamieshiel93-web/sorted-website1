@@ -10,11 +10,11 @@
   content="width=device-width, initial-scale=1.0"
 >
 
-<title>Sorted. | Premium Home & Lifestyle Support in Eastbourne</title>
+<title>Sorted. | Household & Lifestyle Management in Eastbourne</title>
 
 <meta
   name="description"
-  content="Trusted, discreet home and lifestyle support across Eastbourne and surrounding areas. Errands, home management, organisation, household admin, pet support and property care. Your Home. Handled."
+  content="Household and lifestyle management across Eastbourne and surrounding areas. Practical support with errands, organisation, household administration, pets, property and everyday life. Your Home. Handled."
 >
 
 <meta
@@ -22,10 +22,20 @@
   content="#17261b"
 >
 
+<meta
+  name="robots"
+  content="index,follow"
+>
+
 <link
   rel="canonical"
   href="https://sortedlife.org.uk/"
 >
+
+
+<!-- ==================================================
+     ICONS
+================================================== -->
 
 <link
   rel="icon"
@@ -40,17 +50,22 @@
 
 
 <!-- ==================================================
-     SOCIAL
+     SOCIAL SHARING
 ================================================== -->
 
 <meta
+  property="og:site_name"
+  content="Sorted."
+>
+
+<meta
   property="og:title"
-  content="Sorted. | Premium Home & Lifestyle Support"
+  content="Sorted. | Household & Lifestyle Management"
 >
 
 <meta
   property="og:description"
-  content="One trusted local service for the practical details of home and everyday life."
+  content="Less to organise. Less to remember. More handled."
 >
 
 <meta
@@ -69,18 +84,24 @@
 >
 
 <meta
+  property="og:image:alt"
+  content="Sorted. household and lifestyle management"
+>
+
+
+<meta
   name="twitter:card"
   content="summary_large_image"
 >
 
 <meta
   name="twitter:title"
-  content="Sorted. | Premium Home & Lifestyle Support"
+  content="Sorted. | Household & Lifestyle Management"
 >
 
 <meta
   name="twitter:description"
-  content="One trusted local service for the practical details of home and everyday life."
+  content="Less to organise. Less to remember. More handled."
 >
 
 <meta
@@ -89,10 +110,15 @@
 >
 
 
+<!-- ==================================================
+     PERFORMANCE
+================================================== -->
+
 <link
   rel="preload"
   href="hero-home-handled.jpg"
   as="image"
+  fetchpriority="high"
 >
 
 
@@ -121,6 +147,7 @@
 
   --forest:#17261b;
   --forest-soft:#223228;
+  --forest-deep:#101a13;
 
   --sage:#314632;
   --sage-mid:#718c67;
@@ -135,6 +162,8 @@
   --muted:#6f746e;
 
   --line:rgba(23,38,27,.10);
+  --line-strong:rgba(23,38,27,.16);
+  --gold-line:rgba(202,167,106,.42);
 
   --shadow:
     0 24px 65px rgba(23,38,27,.13);
@@ -162,10 +191,6 @@ html{
   scroll-behavior:smooth;
 }
 
-section[id]{
-  scroll-margin-top:90px;
-}
-
 body{
 
   overflow-x:hidden;
@@ -185,6 +210,10 @@ body{
 
   line-height:1.65;
 
+  text-rendering:optimizeLegibility;
+
+  -webkit-font-smoothing:antialiased;
+
 }
 
 body::before{
@@ -202,15 +231,15 @@ body::before{
   background:
 
     radial-gradient(
-      circle at 8% 2%,
-      rgba(202,167,106,.10),
-      transparent 30%
+      circle at 7% 2%,
+      rgba(202,167,106,.09),
+      transparent 31%
     ),
 
     radial-gradient(
-      circle at 92% 18%,
-      rgba(113,140,103,.08),
-      transparent 28%
+      circle at 94% 18%,
+      rgba(113,140,103,.07),
+      transparent 30%
     );
 
 }
@@ -236,11 +265,64 @@ video{
   width:100%;
 }
 
+img{
+  height:auto;
+}
+
 button,
 input,
 textarea,
 select{
   font:inherit;
+}
+
+button{
+  color:inherit;
+}
+
+section[id]{
+  scroll-margin-top:90px;
+}
+
+
+/* ==================================================
+   ACCESSIBILITY
+================================================== */
+
+.skip-link{
+
+  position:fixed;
+
+  top:-100px;
+  left:20px;
+
+  z-index:999999;
+
+  padding:12px 18px;
+
+  border-radius:12px;
+
+  background:var(--forest);
+
+  color:white;
+
+  font-weight:800;
+
+  transition:top .2s ease;
+
+}
+
+.skip-link:focus{
+  top:18px;
+}
+
+a:focus-visible,
+button:focus-visible{
+
+  outline:3px solid var(--gold);
+
+  outline-offset:4px;
+
 }
 
 
@@ -251,13 +333,15 @@ select{
 .container{
 
   width:min(1180px,92%);
+
   margin:0 auto;
 
 }
 
 .narrow{
 
-  width:min(820px,100%);
+  width:min(790px,100%);
+
   margin:0 auto;
 
 }
@@ -266,20 +350,23 @@ section{
 
   position:relative;
 
-  padding:92px 0;
+  padding:104px 0;
 
 }
 
 .eyebrow{
 
-  margin-bottom:14px;
+  margin-bottom:15px;
 
   color:var(--gold);
 
-  font-size:.75rem;
+  font-size:.72rem;
+
   font-weight:850;
 
   letter-spacing:3px;
+
+  line-height:1.4;
 
   text-transform:uppercase;
 
@@ -287,9 +374,9 @@ section{
 
 .section-heading{
 
-  max-width:830px;
+  width:min(850px,100%);
 
-  margin:0 auto 48px;
+  margin:0 auto 54px;
 
   text-align:center;
 
@@ -297,7 +384,7 @@ section{
 
 .section-heading h2{
 
-  margin-bottom:18px;
+  margin-bottom:19px;
 
   color:var(--forest);
 
@@ -307,27 +394,27 @@ section{
     serif;
 
   font-size:
-    clamp(2.65rem,5vw,4.5rem);
+    clamp(2.75rem,5vw,4.65rem);
 
   font-weight:500;
 
-  line-height:1;
+  line-height:.99;
 
-  letter-spacing:-2.3px;
+  letter-spacing:-2.5px;
 
 }
 
 .section-heading p:not(.eyebrow){
 
-  max-width:700px;
+  width:min(700px,100%);
 
   margin:0 auto;
 
   color:var(--muted);
 
-  font-size:1.03rem;
+  font-size:1.02rem;
 
-  line-height:1.8;
+  line-height:1.82;
 
 }
 
@@ -342,60 +429,53 @@ section{
 
   flex-wrap:wrap;
 
+  align-items:center;
+
   gap:13px;
 
 }
 
 .btn{
 
-  position:relative;
-
   display:inline-flex;
 
   align-items:center;
   justify-content:center;
 
-  gap:9px;
+  min-height:53px;
 
-  min-height:54px;
-
-  padding:14px 26px;
-
-  overflow:hidden;
+  padding:13px 25px;
 
   border:0;
 
   border-radius:999px;
 
+  cursor:pointer;
+
   font-weight:800;
 
   text-align:center;
 
-  cursor:pointer;
-
   transition:
-    transform .3s ease,
-    box-shadow .3s ease,
-    background .3s ease,
-    color .3s ease;
+    transform .28s ease,
+    box-shadow .28s ease,
+    background .28s ease,
+    color .28s ease;
 
 }
 
 .btn:hover{
 
-  transform:translateY(-3px);
+  transform:translateY(-2px);
 
   box-shadow:
-    0 17px 36px rgba(23,38,27,.15);
+    0 16px 34px rgba(23,38,27,.15);
 
 }
 
 .btn-primary{
 
-  isolation:isolate;
-
   background:
-
     linear-gradient(
       135deg,
       var(--forest),
@@ -403,34 +483,6 @@ section{
     );
 
   color:white;
-
-}
-
-.btn-primary::before{
-
-  content:"";
-
-  position:absolute;
-
-  z-index:-1;
-
-  top:0;
-  left:-120%;
-
-  width:70%;
-  height:100%;
-
-  background:
-
-    linear-gradient(
-      120deg,
-      transparent,
-      rgba(255,255,255,.27),
-      transparent
-    );
-
-  animation:
-    buttonShine 5s infinite;
 
 }
 
@@ -444,24 +496,11 @@ section{
 
 .btn-light{
 
+  border:1px solid var(--line);
+
   background:white;
 
   color:var(--forest);
-
-  border:
-    1px solid rgba(23,38,27,.10);
-
-}
-
-.btn-dark-outline{
-
-  border:
-    1px solid rgba(255,255,255,.28);
-
-  background:
-    rgba(255,255,255,.07);
-
-  color:white;
 
 }
 
@@ -485,84 +524,12 @@ section{
 
   color:var(--gold);
 
-  transition:
-    transform .3s ease;
+  transition:transform .28s ease;
 
 }
 
 .text-link:hover::after{
-
   transform:translateX(5px);
-
-}
-
-
-/* ==================================================
-   LOADER
-================================================== */
-
-.loader{
-
-  position:fixed;
-
-  inset:0;
-
-  z-index:100000;
-
-  display:flex;
-
-  align-items:center;
-  justify-content:center;
-
-  background:var(--cream);
-
-  animation:
-    loaderFade 1.35s ease forwards;
-
-  animation-delay:.7s;
-
-}
-
-.loader-logo{
-
-  position:relative;
-
-  color:var(--forest);
-
-  font-size:3rem;
-  font-weight:850;
-
-  letter-spacing:-2px;
-
-}
-
-.loader-logo span{
-  color:var(--gold);
-}
-
-.loader-logo::after{
-
-  content:"";
-
-  position:absolute;
-
-  left:50%;
-  bottom:-18px;
-
-  width:55px;
-  height:1px;
-
-  transform:translateX(-50%);
-
-  background:
-
-    linear-gradient(
-      90deg,
-      transparent,
-      var(--gold),
-      transparent
-    );
-
 }
 
 
@@ -579,18 +546,30 @@ section{
   z-index:1000;
 
   background:
-    rgba(255,255,255,.80);
+    rgba(255,255,255,.82);
 
   backdrop-filter:blur(18px);
   -webkit-backdrop-filter:blur(18px);
 
   border-bottom:
-    1px solid rgba(255,255,255,.42);
+    1px solid rgba(255,255,255,.46);
 
   box-shadow:
-    0 9px 35px rgba(23,38,27,.07);
+    0 8px 28px rgba(23,38,27,.06);
 
-  transition:.3s ease;
+  transition:
+    background .3s ease,
+    box-shadow .3s ease;
+
+}
+
+.site-header.scrolled{
+
+  background:
+    rgba(255,255,255,.97);
+
+  box-shadow:
+    0 12px 34px rgba(23,38,27,.10);
 
 }
 
@@ -598,14 +577,14 @@ section{
 
   position:relative;
 
-  min-height:76px;
+  min-height:74px;
 
   display:flex;
 
   align-items:center;
   justify-content:space-between;
 
-  gap:25px;
+  gap:24px;
 
 }
 
@@ -638,7 +617,7 @@ nav{
 
   align-items:center;
 
-  gap:24px;
+  gap:22px;
 
 }
 
@@ -646,34 +625,46 @@ nav a{
 
   color:var(--sage);
 
-  font-size:.92rem;
+  font-size:.9rem;
+
   font-weight:720;
 
   white-space:nowrap;
 
-  transition:.3s ease;
+  transition:
+    color .25s ease,
+    background .25s ease;
 
 }
 
 nav a:hover{
-
   color:var(--gold);
-
 }
 
 nav a.active-page{
 
-  padding:9px 15px;
-
-  color:var(--forest);
-
-  background:
-    rgba(202,167,106,.14);
+  padding:8px 14px;
 
   border:
     1px solid rgba(202,167,106,.24);
 
   border-radius:999px;
+
+  background:
+    rgba(202,167,106,.14);
+
+  color:var(--forest);
+
+}
+
+.client-login{
+
+  margin-left:1px;
+
+  padding-left:20px;
+
+  border-left:
+    1px solid var(--line);
 
 }
 
@@ -681,18 +672,29 @@ nav a.active-page{
 
   display:none;
 
+  width:43px;
+  height:43px;
+
   align-items:center;
   justify-content:center;
 
-  padding:7px;
-
   border:0;
 
-  background:none;
+  border-radius:50%;
+
+  background:
+    rgba(202,167,106,.10);
 
   color:var(--forest);
 
   cursor:pointer;
+
+}
+
+.menu-toggle svg{
+
+  width:22px;
+  height:22px;
 
 }
 
@@ -705,14 +707,13 @@ nav a.active-page{
 
   overflow:hidden;
 
-  padding:
-    62px 0 80px;
+  padding:44px 0 82px;
 
   background:
 
     radial-gradient(
-      circle at 6% 8%,
-      rgba(202,167,106,.14),
+      circle at 5% 5%,
+      rgba(202,167,106,.13),
       transparent 30%
     ),
 
@@ -727,14 +728,14 @@ nav a.active-page{
 .hero-grid{
 
   min-height:
-    calc(100svh - 150px);
+    calc(100svh - 118px);
 
   display:grid;
 
   grid-template-columns:
-    .9fr 1.1fr;
+    .91fr 1.09fr;
 
-  gap:58px;
+  gap:62px;
 
   align-items:center;
 
@@ -744,35 +745,42 @@ nav a.active-page{
 
   position:relative;
 
-  z-index:2;
+  z-index:3;
 
 }
 
-.home-page-label{
+.hero-label{
 
-  display:inline-flex;
+  display:flex;
 
   align-items:center;
 
-  gap:11px;
+  gap:12px;
 
   margin-bottom:22px;
 
   color:var(--sage);
 
-  font-size:.72rem;
+  font-size:.7rem;
+
   font-weight:850;
 
-  letter-spacing:2px;
+  letter-spacing:2.35px;
+
+  line-height:1.5;
 
   text-transform:uppercase;
 
 }
 
-.home-page-label-line{
+.hero-label::before{
+
+  content:"";
 
   width:34px;
   height:1px;
+
+  flex-shrink:0;
 
   background:var(--gold);
 
@@ -780,7 +788,7 @@ nav a.active-page{
 
 .hero h1{
 
-  max-width:660px;
+  max-width:690px;
 
   margin-bottom:26px;
 
@@ -792,7 +800,7 @@ nav a.active-page{
     serif;
 
   font-size:
-    clamp(4.6rem,7vw,7.3rem);
+    clamp(4.7rem,7vw,7.4rem);
 
   font-weight:500;
 
@@ -807,13 +815,14 @@ nav a.active-page{
   color:var(--gold);
 
   font-style:italic;
+
   font-weight:500;
 
 }
 
-.hero-lead{
+.hero-positioning{
 
-  max-width:570px;
+  max-width:590px;
 
   margin-bottom:15px;
 
@@ -827,31 +836,23 @@ nav a.active-page{
   font-size:
     clamp(1.32rem,2vw,1.72rem);
 
-  line-height:1.4;
+  line-height:1.42;
 
 }
 
 .hero-description{
 
-  max-width:600px;
+  max-width:605px;
 
   color:var(--muted);
 
-  font-size:1.01rem;
+  font-size:1rem;
 
-  line-height:1.78;
+  line-height:1.82;
 
 }
 
 .hero-buttons{
-
-  display:flex;
-
-  flex-wrap:wrap;
-
-  align-items:center;
-
-  gap:18px;
 
   margin-top:29px;
 
@@ -863,14 +864,14 @@ nav a.active-page{
 
   flex-wrap:wrap;
 
-  gap:10px 20px;
+  gap:9px 20px;
 
   margin-top:28px;
 
   padding-top:20px;
 
   border-top:
-    1px solid rgba(23,38,27,.10);
+    1px solid var(--line);
 
 }
 
@@ -878,8 +879,9 @@ nav a.active-page{
 
   color:var(--sage);
 
-  font-size:.77rem;
-  font-weight:760;
+  font-size:.76rem;
+
+  font-weight:740;
 
 }
 
@@ -895,12 +897,11 @@ nav a.active-page{
 
 }
 
-
-/* HERO IMAGE */
-
 .hero-image-wrap{
 
   position:relative;
+
+  min-width:0;
 
 }
 
@@ -910,13 +911,11 @@ nav a.active-page{
 
   position:absolute;
 
-  z-index:0;
-
   left:-24px;
   bottom:-24px;
 
-  width:160px;
-  height:160px;
+  width:165px;
+  height:165px;
 
   border:
     1px solid rgba(202,167,106,.38);
@@ -931,16 +930,14 @@ nav a.active-page{
 
   position:absolute;
 
-  z-index:3;
-
   right:-18px;
-  top:34px;
+  top:35px;
 
-  width:72px;
-  height:72px;
+  width:74px;
+  height:74px;
 
   border:
-    1px solid rgba(113,140,103,.20);
+    1px solid rgba(113,140,103,.22);
 
   border-radius:50%;
 
@@ -952,10 +949,10 @@ nav a.active-page{
 
   z-index:2;
 
-  height:680px;
+  width:100%;
+  height:690px;
 
   object-fit:cover;
-
   object-position:center;
 
   border-radius:42px;
@@ -966,10 +963,10 @@ nav a.active-page{
 
 
 /* ==================================================
-   WHAT SORTED IS
+   PROBLEM
 ================================================== */
 
-.service-intro{
+.problem-section{
 
   overflow:hidden;
 
@@ -977,9 +974,9 @@ nav a.active-page{
 
 }
 
-.service-intro-inner{
+.problem-inner{
 
-  max-width:980px;
+  width:min(900px,100%);
 
   margin:0 auto;
 
@@ -987,12 +984,9 @@ nav a.active-page{
 
 }
 
-.service-intro-inner h2{
+.problem-inner h2{
 
-  max-width:820px;
-
-  margin:
-    0 auto 20px;
+  margin-bottom:31px;
 
   color:var(--forest);
 
@@ -1002,88 +996,95 @@ nav a.active-page{
     serif;
 
   font-size:
-    clamp(2.8rem,5vw,4.7rem);
+    clamp(3rem,5.3vw,5rem);
 
   font-weight:500;
 
-  line-height:1;
+  line-height:.99;
 
-  letter-spacing:-2.4px;
+  letter-spacing:-2.8px;
 
 }
 
-.service-intro-copy{
+.problem-copy{
 
-  max-width:720px;
+  width:min(720px,100%);
 
-  margin:
-    0 auto 38px;
+  margin:0 auto;
 
   color:var(--muted);
 
-  font-size:1.05rem;
+  font-size:1.01rem;
 
-  line-height:1.8;
-
-}
-
-.service-lineup{
-
-  display:flex;
-
-  flex-wrap:wrap;
-
-  justify-content:center;
-
-  gap:10px;
+  line-height:1.9;
 
 }
 
-.service-chip{
+.problem-copy p + p{
+  margin-top:15px;
+}
 
-  display:flex;
+.problem-emphasis{
 
-  align-items:center;
-
-  gap:9px;
-
-  padding:
-    11px 15px;
-
-  border:
-    1px solid rgba(23,38,27,.08);
-
-  border-radius:999px;
-
-  background:var(--cream-soft);
+  margin-top:27px !important;
 
   color:var(--forest);
 
-  font-size:.85rem;
-  font-weight:760;
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(1.5rem,2.6vw,2.05rem);
+
+  line-height:1.4;
 
 }
 
-.service-chip svg{
+.problem-divider{
 
-  width:17px;
-  height:17px;
+  width:115px;
+  height:1px;
 
-  color:var(--sage-mid);
+  margin:35px auto 29px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--gold),
+      transparent
+    );
+
+}
+
+.problem-answer{
+
+  color:var(--gold);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(1.6rem,3vw,2.25rem);
+
+  font-style:italic;
 
 }
 
 
 /* ==================================================
-   ONE VISIT
+   DEFINITION
 ================================================== */
 
-.visit-section{
+.definition-section{
 
   overflow:hidden;
 
   background:
-
     linear-gradient(
       180deg,
       var(--cream),
@@ -1092,28 +1093,23 @@ nav a.active-page{
 
 }
 
-.visit-grid{
+.definition-grid{
 
   display:grid;
 
   grid-template-columns:
-    1.05fr .95fr;
+    1.03fr .97fr;
 
-  gap:60px;
+  gap:65px;
 
   align-items:center;
 
 }
 
-.visit-image-wrap{
+.definition-image{
 
-  position:relative;
-
-}
-
-.visit-image{
-
-  height:650px;
+  width:100%;
+  height:610px;
 
   object-fit:cover;
 
@@ -1123,26 +1119,9 @@ nav a.active-page{
 
 }
 
-.visit-card{
+.definition-copy h2{
 
-  position:relative;
-
-  padding:48px;
-
-  border:
-    1px solid rgba(202,167,106,.26);
-
-  border-radius:32px;
-
-  background:white;
-
-  box-shadow:var(--soft-shadow);
-
-}
-
-.visit-card h2{
-
-  margin-bottom:18px;
+  margin-bottom:22px;
 
   color:var(--forest);
 
@@ -1152,118 +1131,65 @@ nav a.active-page{
     serif;
 
   font-size:
-    clamp(2.8rem,4.5vw,4.25rem);
+    clamp(2.8rem,4.8vw,4.45rem);
 
   font-weight:500;
 
-  line-height:.98;
+  line-height:.99;
 
-  letter-spacing:-2px;
+  letter-spacing:-2.4px;
 
 }
 
-.visit-card > p:not(.eyebrow){
+.definition-copy > p:not(.eyebrow){
 
-  margin-bottom:27px;
+  margin-bottom:17px;
 
   color:var(--muted);
 
-  line-height:1.8;
+  font-size:1rem;
+
+  line-height:1.82;
 
 }
 
-.visit-list{
+.definition-statement{
 
-  display:grid;
+  margin-top:29px;
 
-  gap:0;
+  padding-left:25px;
 
-  margin-bottom:28px;
-
-  border-top:
-    1px solid rgba(23,38,27,.09);
-
-}
-
-.visit-item{
-
-  display:flex;
-
-  align-items:center;
-
-  gap:13px;
-
-  padding:
-    14px 0;
-
-  border-bottom:
-    1px solid rgba(23,38,27,.09);
+  border-left:
+    1px solid var(--gold);
 
   color:var(--forest);
-
-  font-weight:720;
-
-}
-
-.visit-item span{
-
-  width:31px;
-  height:31px;
-
-  display:flex;
-
-  align-items:center;
-  justify-content:center;
-
-  flex-shrink:0;
-
-  border-radius:50%;
-
-  background:
-    rgba(202,167,106,.12);
-
-  color:var(--sage);
-
-}
-
-.visit-item svg{
-
-  width:16px;
-  height:16px;
-
-}
-
-.visit-note{
-
-  padding:
-    17px 19px;
-
-  margin-bottom:27px;
-
-  border-radius:17px;
-
-  background:
-    rgba(113,140,103,.07);
-
-  color:var(--sage);
 
   font-family:
     Georgia,
     "Times New Roman",
     serif;
 
-  font-size:1.03rem;
+  font-size:
+    clamp(1.45rem,2.4vw,2rem);
 
-  line-height:1.55;
+  line-height:1.38;
+
+}
+
+.definition-statement em{
+
+  color:var(--gold);
+
+  font-style:italic;
 
 }
 
 
 /* ==================================================
-   WAYS TO WORK WITH SORTED
+   VISIT
 ================================================== */
 
-.support-options{
+.visit-section{
 
   overflow:hidden;
 
@@ -1271,7 +1197,261 @@ nav a.active-page{
 
 }
 
-.support-options-grid{
+.visit-intro{
+
+  width:min(810px,100%);
+
+  margin:0 auto 49px;
+
+  text-align:center;
+
+}
+
+.visit-intro h2{
+
+  margin-bottom:17px;
+
+  color:var(--forest);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(2.8rem,5vw,4.55rem);
+
+  font-weight:500;
+
+  line-height:1;
+
+  letter-spacing:-2.4px;
+
+}
+
+.visit-intro p:not(.eyebrow){
+
+  width:min(650px,100%);
+
+  margin:0 auto;
+
+  color:var(--muted);
+
+  line-height:1.8;
+
+}
+
+.timeline-wrap{
+
+  display:grid;
+
+  grid-template-columns:
+    .9fr 1.1fr;
+
+  gap:56px;
+
+  align-items:stretch;
+
+}
+
+.visit-image{
+
+  width:100%;
+  height:100%;
+
+  min-height:610px;
+
+  object-fit:cover;
+
+  border-radius:34px;
+
+  box-shadow:var(--shadow);
+
+}
+
+.timeline{
+
+  border-top:
+    1px solid var(--line);
+
+}
+
+.timeline-row{
+
+  display:grid;
+
+  grid-template-columns:
+    82px 1fr;
+
+  gap:20px;
+
+  align-items:start;
+
+  padding:19px 0;
+
+  border-bottom:
+    1px solid var(--line);
+
+}
+
+.timeline-time{
+
+  color:var(--gold);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:1rem;
+
+}
+
+.timeline-task{
+
+  color:var(--forest);
+
+  font-size:.97rem;
+
+  font-weight:700;
+
+  line-height:1.55;
+
+}
+
+.timeline-finish{
+
+  margin-top:31px;
+
+  color:var(--forest);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(1.55rem,2.7vw,2.2rem);
+
+  line-height:1.34;
+
+}
+
+.timeline-finish em{
+
+  color:var(--gold);
+
+  font-style:italic;
+
+}
+
+
+/* ==================================================
+   WHO
+================================================== */
+
+.who-section{
+
+  overflow:hidden;
+
+  background:var(--cream-soft);
+
+}
+
+.who-grid{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(220px,1fr)
+    );
+
+  gap:34px 28px;
+
+}
+
+.who-item{
+
+  padding-top:24px;
+
+  border-top:
+    1px solid rgba(202,167,106,.58);
+
+}
+
+.who-icon{
+
+  width:43px;
+  height:43px;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  margin-bottom:21px;
+
+  border-radius:50%;
+
+  background:
+    rgba(202,167,106,.11);
+
+  color:var(--sage);
+
+}
+
+.who-icon svg{
+
+  width:20px;
+  height:20px;
+
+}
+
+.who-item h3{
+
+  margin-bottom:10px;
+
+  color:var(--forest);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:1.55rem;
+
+  font-weight:500;
+
+  line-height:1.12;
+
+}
+
+.who-item p{
+
+  color:var(--muted);
+
+  font-size:.92rem;
+
+  line-height:1.72;
+
+}
+
+
+/* ==================================================
+   WAYS
+================================================== */
+
+.ways-section{
+
+  overflow:hidden;
+
+  background:white;
+
+}
+
+.ways-grid{
 
   display:grid;
 
@@ -1280,20 +1460,28 @@ nav a.active-page{
 
   gap:22px;
 
+  align-items:stretch;
+
 }
 
-.support-option{
+.way-card{
+
+  position:relative;
 
   overflow:hidden;
 
+  display:flex;
+
+  flex-direction:column;
+
+  min-height:535px;
+
   border:
-    1px solid rgba(202,167,106,.22);
+    1px solid var(--line);
 
-  border-radius:30px;
+  border-radius:31px;
 
-  background:white;
-
-  box-shadow:var(--soft-shadow);
+  background:var(--cream-soft);
 
   transition:
     transform .35s ease,
@@ -1301,97 +1489,85 @@ nav a.active-page{
 
 }
 
-.support-option:hover{
+.way-card:hover{
 
-  transform:translateY(-6px);
+  transform:translateY(-5px);
 
   box-shadow:var(--shadow);
 
 }
 
-.support-option-image{
+.way-card.featured{
 
-  position:relative;
+  transform:translateY(-12px);
 
-  height:255px;
-
-  overflow:hidden;
-
-}
-
-.support-option-image::after{
-
-  content:"";
-
-  position:absolute;
-
-  inset:0;
+  border-color:
+    rgba(202,167,106,.55);
 
   background:
-
     linear-gradient(
-      180deg,
-      transparent 45%,
-      rgba(23,38,27,.30)
+      145deg,
+      var(--forest),
+      var(--forest-soft)
     );
+
+  color:white;
+
+  box-shadow:
+    0 25px 60px rgba(23,38,27,.16);
 
 }
 
-.support-option-image img{
+.way-card.featured:hover{
 
-  height:100%;
+  transform:translateY(-17px);
+
+}
+
+.way-image{
+
+  width:100%;
+  height:245px;
 
   object-fit:cover;
 
-  transition:
-    transform .7s ease;
-
 }
 
-.support-option:hover
-.support-option-image img{
-
-  transform:scale(1.04);
-
-}
-
-.support-option-content{
-
-  padding:28px;
-
-}
-
-.support-option-icon{
-
-  width:42px;
-  height:42px;
+.way-content{
 
   display:flex;
 
-  align-items:center;
-  justify-content:center;
+  flex-direction:column;
 
-  margin-bottom:19px;
+  flex:1;
 
-  border-radius:50%;
-
-  background:
-    rgba(202,167,106,.13);
-
-  color:var(--sage);
+  padding:27px;
 
 }
 
-.support-option-icon svg{
+.way-label{
 
-  width:19px;
-  height:19px;
+  margin-bottom:14px;
+
+  color:var(--sage-mid);
+
+  font-size:.67rem;
+
+  font-weight:850;
+
+  letter-spacing:2px;
+
+  text-transform:uppercase;
 
 }
 
-.support-option h3{
+.featured .way-label{
+  color:var(--gold-soft);
+}
 
-  margin-bottom:11px;
+.way-content h3{
+
+  margin-bottom:12px;
 
   color:var(--forest);
 
@@ -1404,15 +1580,17 @@ nav a.active-page{
 
   font-weight:500;
 
-  line-height:1.02;
+  line-height:1.04;
 
 }
 
-.support-option p{
+.featured .way-content h3{
+  color:white;
+}
 
-  min-height:78px;
+.way-content p{
 
-  margin-bottom:21px;
+  margin-bottom:24px;
 
   color:var(--muted);
 
@@ -1422,17 +1600,209 @@ nav a.active-page{
 
 }
 
+.featured .way-content p{
+
+  color:
+    rgba(255,255,255,.72);
+
+}
+
+.way-link{
+
+  margin-top:auto;
+
+  color:var(--forest);
+
+  font-weight:800;
+
+}
+
+.featured .way-link{
+  color:var(--gold-soft);
+}
+
+.way-link::after{
+
+  content:"→";
+
+  margin-left:8px;
+
+}
+
 
 /* ==================================================
-   SERVICE TILES
+   MEMBERSHIP FEATURE
 ================================================== */
 
-.service-showcase{
+.membership-feature{
 
   overflow:hidden;
 
   background:
+    linear-gradient(
+      145deg,
+      var(--forest),
+      #1b2c1f
+    );
 
+  color:white;
+
+}
+
+.membership-feature::before{
+
+  content:"";
+
+  position:absolute;
+
+  width:500px;
+  height:500px;
+
+  right:-220px;
+  top:-220px;
+
+  border:
+    1px solid rgba(202,167,106,.12);
+
+  border-radius:50%;
+
+}
+
+.membership-feature-grid{
+
+  position:relative;
+
+  z-index:2;
+
+  display:grid;
+
+  grid-template-columns:
+    .95fr 1.05fr;
+
+  gap:70px;
+
+  align-items:center;
+
+}
+
+.membership-feature-copy .eyebrow{
+  color:var(--gold-soft);
+}
+
+.membership-feature-copy h2{
+
+  margin-bottom:22px;
+
+  color:white;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(3rem,5vw,4.75rem);
+
+  font-weight:500;
+
+  line-height:.98;
+
+  letter-spacing:-2.7px;
+
+}
+
+.membership-feature-copy > p:not(.eyebrow){
+
+  margin-bottom:18px;
+
+  color:
+    rgba(255,255,255,.73);
+
+  line-height:1.82;
+
+}
+
+.member-features{
+
+  display:grid;
+
+  margin:30px 0 31px;
+
+}
+
+.member-feature{
+
+  padding:16px 0;
+
+  border-top:
+    1px solid rgba(255,255,255,.12);
+
+}
+
+.member-feature:last-child{
+
+  border-bottom:
+    1px solid rgba(255,255,255,.12);
+
+}
+
+.member-feature strong{
+
+  display:block;
+
+  margin-bottom:4px;
+
+  color:var(--gold-soft);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:1.18rem;
+
+  font-weight:500;
+
+}
+
+.member-feature span{
+
+  color:
+    rgba(255,255,255,.66);
+
+  font-size:.9rem;
+
+  line-height:1.6;
+
+}
+
+.membership-feature-image{
+
+  width:100%;
+  height:620px;
+
+  object-fit:cover;
+
+  border:
+    1px solid rgba(202,167,106,.24);
+
+  border-radius:37px;
+
+  box-shadow:
+    0 30px 75px rgba(0,0,0,.24);
+
+}
+
+
+/* ==================================================
+   SERVICES
+================================================== */
+
+.services-section{
+
+  overflow:hidden;
+
+  background:
     linear-gradient(
       180deg,
       var(--cream-soft),
@@ -1441,7 +1811,7 @@ nav a.active-page{
 
 }
 
-.editorial-grid{
+.service-grid{
 
   display:grid;
 
@@ -1452,11 +1822,11 @@ nav a.active-page{
 
 }
 
-.editorial-card{
+.service-card{
 
   position:relative;
 
-  min-height:470px;
+  min-height:500px;
 
   overflow:hidden;
 
@@ -1466,7 +1836,7 @@ nav a.active-page{
 
 }
 
-.editorial-card img{
+.service-card img{
 
   position:absolute;
 
@@ -1482,13 +1852,11 @@ nav a.active-page{
 
 }
 
-.editorial-card:hover img{
-
-  transform:scale(1.045);
-
+.service-card:hover img{
+  transform:scale(1.04);
 }
 
-.editorial-card::after{
+.service-card::after{
 
   content:"";
 
@@ -1497,16 +1865,15 @@ nav a.active-page{
   inset:0;
 
   background:
-
     linear-gradient(
       180deg,
-      rgba(23,38,27,.03) 30%,
-      rgba(23,38,27,.80) 100%
+      rgba(23,38,27,.03) 25%,
+      rgba(23,38,27,.84) 100%
     );
 
 }
 
-.editorial-copy{
+.service-copy{
 
   position:absolute;
 
@@ -1522,7 +1889,7 @@ nav a.active-page{
 
 }
 
-.editorial-label{
+.service-label{
 
   display:block;
 
@@ -1530,7 +1897,8 @@ nav a.active-page{
 
   color:var(--gold-soft);
 
-  font-size:.7rem;
+  font-size:.68rem;
+
   font-weight:850;
 
   letter-spacing:2.2px;
@@ -1539,11 +1907,9 @@ nav a.active-page{
 
 }
 
-.editorial-copy h3{
+.service-copy h3{
 
-  max-width:430px;
-
-  margin-bottom:9px;
+  margin-bottom:10px;
 
   font-family:
     Georgia,
@@ -1551,7 +1917,7 @@ nav a.active-page{
     serif;
 
   font-size:
-    clamp(1.9rem,3vw,2.6rem);
+    clamp(2rem,3vw,2.7rem);
 
   font-weight:500;
 
@@ -1559,9 +1925,9 @@ nav a.active-page{
 
 }
 
-.editorial-copy p{
+.service-copy p{
 
-  max-width:440px;
+  max-width:460px;
 
   margin-bottom:15px;
 
@@ -1570,20 +1936,21 @@ nav a.active-page{
 
   font-size:.91rem;
 
-  line-height:1.6;
+  line-height:1.65;
 
 }
 
-.editorial-link{
+.service-link{
 
   color:white;
 
-  font-size:.89rem;
+  font-size:.88rem;
+
   font-weight:800;
 
 }
 
-.editorial-link::after{
+.service-link::after{
 
   content:"→";
 
@@ -1593,75 +1960,208 @@ nav a.active-page{
 
 }
 
-.services-footer{
+.services-action{
 
-  margin-top:38px;
-
-  text-align:center;
-
-}
-
-.who-we-help-line{
-
-  max-width:920px;
-
-  margin:
-    48px auto 0;
-
-  padding-top:31px;
-
-  border-top:
-    1px solid rgba(23,38,27,.10);
-
-  color:var(--muted);
+  margin-top:39px;
 
   text-align:center;
-
-  line-height:1.8;
-
-}
-
-.who-we-help-line strong{
-
-  color:var(--forest);
 
 }
 
 
 /* ==================================================
-   MEMBERSHIP FEATURE
+   GETTING STARTED
 ================================================== */
 
-.membership-feature{
+.start-section{
 
   overflow:hidden;
 
-  background:var(--forest);
-
-  color:white;
+  background:white;
 
 }
 
-.membership-feature::before{
+.start-grid{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap:38px;
+
+  margin-top:10px;
+
+}
+
+.start-step{
+
+  position:relative;
+
+  padding-top:26px;
+
+  border-top:
+    1px solid var(--gold-line);
+
+}
+
+.start-number{
+
+  display:block;
+
+  margin-bottom:18px;
+
+  color:var(--gold);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:.9rem;
+
+}
+
+.start-step h3{
+
+  margin-bottom:10px;
+
+  color:var(--forest);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(1.5rem,2.3vw,1.85rem);
+
+  font-weight:500;
+
+  line-height:1.15;
+
+}
+
+.start-step p{
+
+  color:var(--muted);
+
+  font-size:.92rem;
+
+  line-height:1.72;
+
+}
+
+.start-action{
+
+  margin-top:40px;
+
+  text-align:center;
+
+}
+
+
+/* ==================================================
+   TRUST — REDESIGNED
+================================================== */
+
+.trust-section{
+
+  overflow:hidden;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--cream),
+      var(--cream-soft)
+    );
+
+}
+
+.trust-layout{
+
+  display:grid;
+
+  grid-template-columns:
+    .9fr 1.1fr;
+
+  gap:70px;
+
+  align-items:center;
+
+}
+
+.trust-copy h2{
+
+  margin-bottom:22px;
+
+  color:var(--forest);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(2.8rem,4.8vw,4.4rem);
+
+  font-weight:500;
+
+  line-height:1;
+
+  letter-spacing:-2.4px;
+
+}
+
+.trust-copy > p:not(.eyebrow){
+
+  margin-bottom:17px;
+
+  color:var(--muted);
+
+  line-height:1.82;
+
+}
+
+.assurance-panel{
+
+  position:relative;
+
+  overflow:hidden;
+
+  padding:16px 38px;
+
+  border:
+    1px solid rgba(202,167,106,.25);
+
+  border-radius:30px;
+
+  background:white;
+
+  box-shadow:var(--soft-shadow);
+
+}
+
+.assurance-panel::before{
 
   content:"";
 
   position:absolute;
 
-  right:-180px;
-  top:-190px;
+  width:210px;
+  height:210px;
 
-  width:450px;
-  height:450px;
+  right:-100px;
+  top:-110px;
 
   border:
-    1px solid rgba(202,167,106,.12);
+    1px solid rgba(202,167,106,.14);
 
   border-radius:50%;
 
 }
 
-.membership-grid{
+.assurance-item{
 
   position:relative;
 
@@ -1670,205 +2170,32 @@ nav a.active-page{
   display:grid;
 
   grid-template-columns:
-    .92fr 1.08fr;
+    46px 1fr;
 
-  gap:60px;
+  gap:17px;
 
-  align-items:center;
+  align-items:start;
 
-}
-
-.membership-copy .eyebrow{
-
-  color:var(--gold-soft);
-
-}
-
-.membership-copy h2{
-
-  margin-bottom:20px;
-
-  color:white;
-
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  font-size:
-    clamp(3rem,5vw,4.8rem);
-
-  font-weight:500;
-
-  line-height:.98;
-
-  letter-spacing:-2.5px;
-
-}
-
-.membership-copy > p:not(.eyebrow){
-
-  max-width:610px;
-
-  margin-bottom:27px;
-
-  color:
-    rgba(255,255,255,.73);
-
-  line-height:1.82;
-
-}
-
-.membership-benefits{
-
-  display:flex;
-
-  flex-wrap:wrap;
-
-  gap:9px;
-
-  margin-bottom:30px;
-
-}
-
-.membership-benefits span{
-
-  padding:
-    9px 13px;
-
-  border:
-    1px solid rgba(255,255,255,.12);
-
-  border-radius:999px;
-
-  background:
-    rgba(255,255,255,.06);
-
-  color:
-    rgba(255,255,255,.86);
-
-  font-size:.79rem;
-
-}
-
-.membership-image{
-
-  height:520px;
-
-  object-fit:cover;
-
-  border:
-    1px solid rgba(202,167,106,.28);
-
-  border-radius:36px;
-
-  box-shadow:
-    0 30px 70px rgba(0,0,0,.22);
-
-}
-
-
-/* ==================================================
-   TRUST STRIP
-================================================== */
-
-.trust-section{
-
-  padding:
-    70px 0;
-
-  background:var(--cream-soft);
-
-}
-
-.trust-heading{
-
-  max-width:780px;
-
-  margin:
-    0 auto 35px;
-
-  text-align:center;
-
-}
-
-.trust-heading h2{
-
-  margin-bottom:14px;
-
-  color:var(--forest);
-
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  font-size:
-    clamp(2.5rem,4.5vw,4rem);
-
-  font-weight:500;
-
-  line-height:1;
-
-  letter-spacing:-2px;
-
-}
-
-.trust-heading p{
-
-  color:var(--muted);
-
-}
-
-.trust-grid{
-
-  display:grid;
-
-  grid-template-columns:
-    repeat(4,1fr);
-
-  max-width:1000px;
-
-  margin:0 auto;
-
-  border-top:
-    1px solid rgba(23,38,27,.10);
+  padding:24px 0;
 
   border-bottom:
-    1px solid rgba(23,38,27,.10);
+    1px solid var(--line);
 
 }
 
-.trust-item{
-
-  padding:
-    27px 18px;
-
-  text-align:center;
-
-  border-right:
-    1px solid rgba(23,38,27,.10);
-
+.assurance-item:last-child{
+  border-bottom:0;
 }
 
-.trust-item:last-child{
+.assurance-icon{
 
-  border-right:0;
-
-}
-
-.trust-icon{
-
-  width:41px;
-  height:41px;
+  width:42px;
+  height:42px;
 
   display:flex;
 
   align-items:center;
   justify-content:center;
-
-  margin:
-    0 auto 13px;
 
   border-radius:50%;
 
@@ -1879,29 +2206,48 @@ nav a.active-page{
 
 }
 
-.trust-icon svg{
+.assurance-icon svg{
 
-  width:19px;
-  height:19px;
+  width:20px;
+  height:20px;
 
 }
 
-.trust-item strong{
+.assurance-item h3{
 
-  display:block;
+  margin-bottom:5px;
 
   color:var(--forest);
 
-  font-size:.9rem;
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:1.22rem;
+
+  font-weight:500;
+
+}
+
+.assurance-item p{
+
+  color:var(--muted);
+
+  font-size:.87rem;
+
+  line-height:1.6;
 
 }
 
 
 /* ==================================================
-   SMALL BRAND FILM
+   VIDEO
 ================================================== */
 
 .brand-film{
+
+  overflow:hidden;
 
   background:white;
 
@@ -1912,9 +2258,9 @@ nav a.active-page{
   display:grid;
 
   grid-template-columns:
-    .8fr 1.2fr;
+    .82fr 1.18fr;
 
-  gap:55px;
+  gap:60px;
 
   align-items:center;
 
@@ -1922,7 +2268,7 @@ nav a.active-page{
 
 .brand-film-copy h2{
 
-  margin-bottom:18px;
+  margin-bottom:19px;
 
   color:var(--forest);
 
@@ -1932,7 +2278,7 @@ nav a.active-page{
     serif;
 
   font-size:
-    clamp(2.6rem,4.5vw,4rem);
+    clamp(2.7rem,4.6vw,4.15rem);
 
   font-weight:500;
 
@@ -1944,38 +2290,40 @@ nav a.active-page{
 
 .brand-film-copy p:not(.eyebrow){
 
-  margin-bottom:20px;
+  margin-bottom:22px;
 
   color:var(--muted);
 
-  line-height:1.8;
+  line-height:1.82;
 
 }
 
 .brand-film-frame{
 
+  position:relative;
+
   overflow:hidden;
 
   border:
-    1px solid rgba(202,167,106,.24);
+    1px solid rgba(202,167,106,.25);
 
-  border-radius:28px;
+  border-radius:30px;
 
-  background:#000;
+  background:#111;
 
   box-shadow:var(--shadow);
 
 }
 
-.brand-film-frame video{
+.brand-video{
 
   width:100%;
 
-  max-height:500px;
+  aspect-ratio:16 / 9;
 
-  object-fit:contain;
+  object-fit:cover;
 
-  background:#000;
+  background:#111;
 
 }
 
@@ -1988,16 +2336,13 @@ nav a.active-page{
 
   position:relative;
 
-  min-height:380px;
+  min-height:390px;
 
   display:flex;
 
   align-items:center;
 
   overflow:hidden;
-
-  padding:
-    78px 0;
 
   text-align:center;
 
@@ -2006,8 +2351,8 @@ nav a.active-page{
   background:
 
     linear-gradient(
-      rgba(23,38,27,.50),
-      rgba(23,38,27,.62)
+      rgba(23,38,27,.52),
+      rgba(23,38,27,.65)
     ),
 
     url("eastbourne-area.jpg");
@@ -2029,14 +2374,12 @@ nav a.active-page{
 }
 
 .areas-section .eyebrow{
-
   color:var(--gold-soft);
-
 }
 
 .areas-section h2{
 
-  margin-bottom:16px;
+  margin-bottom:17px;
 
   color:white;
 
@@ -2046,27 +2389,27 @@ nav a.active-page{
     serif;
 
   font-size:
-    clamp(2.7rem,5vw,4.2rem);
+    clamp(2.8rem,5vw,4.4rem);
 
   font-weight:500;
 
   line-height:1;
 
-  letter-spacing:-2px;
+  letter-spacing:-2.3px;
 
   text-shadow:
-    0 3px 18px rgba(0,0,0,.23);
+    0 4px 18px rgba(0,0,0,.18);
 
 }
 
 .areas-section p:not(.eyebrow){
 
-  max-width:780px;
+  width:min(780px,100%);
 
   margin:0 auto;
 
   color:
-    rgba(255,255,255,.89);
+    rgba(255,255,255,.88);
 
   line-height:1.8;
 
@@ -2074,20 +2417,14 @@ nav a.active-page{
 
 
 /* ==================================================
-   FINAL CTA — NEW
+   FINAL CTA
 ================================================== */
 
-.final-cta-section{
-
-  position:relative;
+.final-section{
 
   overflow:hidden;
 
-  padding:
-    110px 0;
-
   background:
-
     linear-gradient(
       180deg,
       var(--cream),
@@ -2096,23 +2433,21 @@ nav a.active-page{
 
 }
 
-.final-cta{
-
-  position:relative;
+.final-card{
 
   display:grid;
 
   grid-template-columns:
     1.05fr .95fr;
 
-  min-height:610px;
+  min-height:600px;
 
   overflow:hidden;
 
   border:
     1px solid rgba(202,167,106,.25);
 
-  border-radius:42px;
+  border-radius:40px;
 
   background:white;
 
@@ -2120,52 +2455,18 @@ nav a.active-page{
 
 }
 
-
-/* IMAGE SIDE */
-
-.final-cta-image{
-
-  position:relative;
-
-  min-height:610px;
-
-  overflow:hidden;
-
-}
-
-.final-cta-image img{
+.final-image{
 
   width:100%;
   height:100%;
 
+  min-height:600px;
+
   object-fit:cover;
 
-  object-position:center;
-
 }
 
-.final-cta-image::after{
-
-  content:"";
-
-  position:absolute;
-
-  inset:0;
-
-  background:
-
-    linear-gradient(
-      180deg,
-      rgba(23,38,27,.04),
-      rgba(23,38,27,.18)
-    );
-
-}
-
-
-/* COPY SIDE */
-
-.final-cta-copy{
+.final-copy{
 
   position:relative;
 
@@ -2174,59 +2475,52 @@ nav a.active-page{
   flex-direction:column;
   justify-content:center;
 
-  padding:
-    64px 60px;
+  overflow:hidden;
+
+  padding:62px;
 
   background:
 
     radial-gradient(
-      circle at 95% 5%,
-      rgba(202,167,106,.12),
-      transparent 25%
+      circle at 100% 0%,
+      rgba(202,167,106,.13),
+      transparent 28%
     ),
 
     var(--cream-soft);
 
 }
 
-.final-cta-copy::before{
+.final-copy::after{
 
   content:"";
 
   position:absolute;
 
-  right:-65px;
-  bottom:-70px;
+  right:-90px;
+  bottom:-110px;
 
-  width:190px;
-  height:190px;
+  width:250px;
+  height:250px;
 
   border:
-    1px solid rgba(202,167,106,.20);
+    1px solid rgba(202,167,106,.18);
 
   border-radius:50%;
 
 }
 
-.final-cta-copy .eyebrow{
+.final-copy > *{
 
   position:relative;
 
   z-index:2;
-
-  color:var(--gold);
 
 }
 
-.final-cta-copy h2{
+.final-copy h2{
 
-  position:relative;
-
-  z-index:2;
-
-  max-width:520px;
-
-  margin-bottom:22px;
+  margin-bottom:20px;
 
   color:var(--forest);
 
@@ -2236,59 +2530,41 @@ nav a.active-page{
     serif;
 
   font-size:
-    clamp(3.2rem,5.5vw,5rem);
+    clamp(3rem,5vw,4.75rem);
 
   font-weight:500;
 
-  line-height:.96;
+  line-height:.98;
 
-  letter-spacing:-2.6px;
+  letter-spacing:-2.7px;
 
 }
 
-.final-cta-copy > p:not(.eyebrow){
+.final-copy > p:not(.eyebrow):not(.final-phone){
 
-  position:relative;
-
-  z-index:2;
-
-  max-width:520px;
-
-  margin-bottom:28px;
+  margin-bottom:15px;
 
   color:var(--muted);
-
-  font-size:1rem;
 
   line-height:1.82;
 
 }
 
-.final-cta-copy .buttons{
-
-  position:relative;
-
-  z-index:2;
-
-  align-items:center;
-
+.final-copy .buttons{
+  margin-top:14px;
 }
 
-.final-cta-call{
-
-  position:relative;
-
-  z-index:2;
+.final-phone{
 
   margin-top:22px;
 
-  color:var(--sage);
+  color:var(--muted);
 
-  font-size:.91rem;
+  font-size:.9rem;
 
 }
 
-.final-cta-call a{
+.final-phone a{
 
   color:var(--forest);
 
@@ -2296,38 +2572,34 @@ nav a.active-page{
 
 }
 
-.final-reassurance{
-
-  position:relative;
-
-  z-index:2;
+.final-assurance{
 
   display:flex;
 
   flex-wrap:wrap;
 
-  gap:
-    8px 18px;
+  gap:8px 16px;
 
-  margin-top:24px;
+  margin-top:22px;
 
-  padding-top:20px;
+  padding-top:18px;
 
   border-top:
-    1px solid rgba(23,38,27,.09);
+    1px solid var(--line);
 
 }
 
-.final-reassurance span{
+.final-assurance span{
 
   color:var(--sage);
 
-  font-size:.76rem;
+  font-size:.73rem;
+
   font-weight:720;
 
 }
 
-.final-reassurance span::before{
+.final-assurance span::before{
 
   content:"✓";
 
@@ -2341,23 +2613,17 @@ nav a.active-page{
 
 
 /* ==================================================
-   FLOATING CONTACT
+   FLOATING WHATSAPP
 ================================================== */
 
 .floating-contact{
 
   position:fixed;
 
-  right:22px;
-  bottom:26px;
+  right:20px;
+  bottom:24px;
 
   z-index:9998;
-
-  display:flex;
-
-  flex-direction:column;
-
-  gap:11px;
 
   opacity:0;
 
@@ -2366,12 +2632,12 @@ nav a.active-page{
   pointer-events:none;
 
   transform:
-    translateY(16px);
+    translateY(15px);
 
   transition:
-    opacity .35s ease,
-    visibility .35s ease,
-    transform .35s ease;
+    opacity .3s ease,
+    visibility .3s ease,
+    transform .3s ease;
 
 }
 
@@ -2383,8 +2649,7 @@ nav a.active-page{
 
   pointer-events:auto;
 
-  transform:
-    translateY(0);
+  transform:none;
 
 }
 
@@ -2396,61 +2661,67 @@ nav a.active-page{
 
   pointer-events:none;
 
-  transform:
-    translateY(16px);
-
 }
 
-.floating-btn{
+.floating-message{
 
-  width:55px;
-  height:55px;
+  min-height:49px;
 
   display:flex;
 
   align-items:center;
   justify-content:center;
 
-  border:
-    1px solid rgba(202,167,106,.40);
+  gap:9px;
 
-  border-radius:50%;
+  padding:11px 17px;
+
+  border:
+    1px solid rgba(202,167,106,.38);
+
+  border-radius:999px;
 
   background:
-    rgba(255,250,244,.96);
+    rgba(255,250,244,.97);
 
   color:var(--forest);
 
   box-shadow:
-    0 13px 30px rgba(23,38,27,.15);
+    0 13px 30px rgba(23,38,27,.14);
 
-  backdrop-filter:blur(10px);
+  font-size:.82rem;
 
-  transition:.3s ease;
+  font-weight:800;
+
+  backdrop-filter:blur(9px);
+
+  transition:
+    transform .25s ease,
+    background .25s ease,
+    color .25s ease;
 
 }
 
-.floating-btn:hover{
+.floating-message:hover{
+
+  transform:translateY(-2px);
 
   background:var(--forest);
 
   color:white;
 
-  transform:
-    translateY(-3px);
-
 }
 
-.floating-btn svg{
+.floating-message svg{
 
-  width:21px;
-  height:21px;
+  width:18px;
+  height:18px;
 
 }
 
 
 /* ==================================================
-   FOOTER — NEW
+   FOOTER
 ================================================== */
 
 footer{
@@ -2459,15 +2730,13 @@ footer{
 
   overflow:hidden;
 
-  padding:
-    78px 0 28px;
+  padding:74px 0 28px;
 
   background:
-
     linear-gradient(
       145deg,
-      #17261b,
-      #101a13
+      var(--forest),
+      var(--forest-deep)
     );
 
   color:white;
@@ -2480,8 +2749,8 @@ footer::before{
 
   position:absolute;
 
-  right:-20px;
-  bottom:65px;
+  right:-35px;
+  bottom:80px;
 
   color:
     rgba(255,255,255,.025);
@@ -2493,8 +2762,6 @@ footer::before{
 
   font-size:
     clamp(9rem,20vw,18rem);
-
-  font-weight:500;
 
   line-height:.8;
 
@@ -2512,25 +2779,21 @@ footer::after{
 
   position:absolute;
 
-  top:0;
   left:0;
+  top:0;
 
   width:100%;
   height:1px;
 
   background:
-
     linear-gradient(
       90deg,
       transparent,
-      rgba(202,167,106,.70),
+      rgba(202,167,106,.65),
       transparent
     );
 
 }
-
-
-/* FOOTER BRAND */
 
 .footer-top{
 
@@ -2541,13 +2804,13 @@ footer::after{
   display:grid;
 
   grid-template-columns:
-    1.3fr .7fr;
+    1.2fr .8fr;
 
   gap:50px;
 
   align-items:end;
 
-  padding-bottom:42px;
+  padding-bottom:40px;
 
   border-bottom:
     1px solid rgba(255,255,255,.10);
@@ -2558,7 +2821,7 @@ footer::after{
 
   display:inline-block;
 
-  margin-bottom:15px;
+  margin-bottom:14px;
 
   color:white;
 
@@ -2568,9 +2831,7 @@ footer::after{
 
 .footer-tagline{
 
-  margin-bottom:10px;
-
-  color:white;
+  margin-bottom:9px;
 
   font-family:
     Georgia,
@@ -2578,7 +2839,7 @@ footer::after{
     serif;
 
   font-size:
-    clamp(1.65rem,3vw,2.35rem);
+    clamp(1.6rem,3vw,2.25rem);
 
   line-height:1.1;
 
@@ -2586,18 +2847,16 @@ footer::after{
 
 .footer-description{
 
-  max-width:480px;
-
-  margin:0;
+  max-width:470px;
 
   color:
-    rgba(255,255,255,.66);
+    rgba(255,255,255,.65);
 
-  line-height:1.75;
+  line-height:1.72;
 
 }
 
-.footer-contact-feature{
+.footer-contact{
 
   justify-self:end;
 
@@ -2605,23 +2864,23 @@ footer::after{
 
 }
 
-.footer-contact-feature p{
+.footer-contact-label{
 
-  margin-bottom:6px;
+  margin-bottom:7px;
 
-  color:
-    rgba(255,255,255,.52);
+  color:var(--gold-soft);
 
-  font-size:.72rem;
-  font-weight:800;
+  font-size:.68rem;
 
-  letter-spacing:1.8px;
+  font-weight:850;
+
+  letter-spacing:2px;
 
   text-transform:uppercase;
 
 }
 
-.footer-contact-feature a{
+.footer-contact a{
 
   display:block;
 
@@ -2632,23 +2891,11 @@ footer::after{
     "Times New Roman",
     serif;
 
-  font-size:1.22rem;
+  font-size:1.15rem;
 
-  line-height:1.6;
-
-  transition:
-    color .3s ease;
+  line-height:1.65;
 
 }
-
-.footer-contact-feature a:hover{
-
-  color:var(--gold-soft);
-
-}
-
-
-/* FOOTER NAV */
 
 .footer-grid{
 
@@ -2659,24 +2906,22 @@ footer::after{
   display:grid;
 
   grid-template-columns:
-    1fr 1fr 1fr;
+    repeat(3,1fr);
 
-  gap:55px;
+  gap:52px;
 
-  padding:
-    42px 0;
-
-  margin:0;
+  padding:39px 0;
 
 }
 
 footer h3{
 
-  margin-bottom:17px;
+  margin-bottom:15px;
 
   color:var(--gold-soft);
 
-  font-size:.73rem;
+  font-size:.7rem;
+
   font-weight:850;
 
   letter-spacing:2px;
@@ -2689,7 +2934,7 @@ footer h3{
 
   display:grid;
 
-  gap:9px;
+  gap:8px;
 
 }
 
@@ -2697,44 +2942,17 @@ footer h3{
 .footer-links p{
 
   color:
-    rgba(255,255,255,.69);
+    rgba(255,255,255,.68);
 
-  font-size:.92rem;
+  font-size:.9rem;
 
   line-height:1.55;
-
-  transition:
-    color .3s ease;
 
 }
 
 .footer-links a:hover{
-
   color:white;
-
 }
-
-.footer-hours{
-
-  display:grid;
-
-  gap:8px;
-
-}
-
-.footer-hours p{
-
-  color:
-    rgba(255,255,255,.69);
-
-  font-size:.92rem;
-
-  line-height:1.55;
-
-}
-
-
-/* FOOTER BOTTOM */
 
 .footer-bottom{
 
@@ -2749,12 +2967,10 @@ footer h3{
 
   gap:20px;
 
-  padding-top:25px;
+  padding-top:23px;
 
   border-top:
     1px solid rgba(255,255,255,.09);
-
-  text-align:left;
 
 }
 
@@ -2764,17 +2980,16 @@ footer h3{
 
   align-items:center;
 
-  gap:15px;
-
 }
 
 .copyright,
-.footer-location{
+.footer-location,
+.legal-links{
 
   color:
-    rgba(255,255,255,.45);
+    rgba(255,255,255,.46);
 
-  font-size:.82rem;
+  font-size:.79rem;
 
 }
 
@@ -2782,33 +2997,9 @@ footer h3{
 
   content:"•";
 
-  margin-right:15px;
+  margin:0 13px;
 
   color:var(--gold);
-
-}
-
-.legal-links{
-
-  margin:0;
-
-  color:
-    rgba(255,255,255,.55);
-
-  font-size:.82rem;
-
-}
-
-.legal-links a{
-
-  transition:
-    color .3s ease;
-
-}
-
-.legal-links a:hover{
-
-  color:var(--gold-soft);
 
 }
 
@@ -2823,8 +3014,8 @@ footer h3{
 
   position:fixed;
 
-  bottom:16px;
   left:50%;
+  bottom:16px;
 
   z-index:100000;
 
@@ -2835,19 +3026,19 @@ footer h3{
   transform:
     translateX(-50%);
 
-  border-radius:18px;
+  border-radius:17px;
 
   background:
-    rgba(23,38,27,.96);
+    rgba(23,38,27,.97);
 
   color:white;
 
   text-align:center;
 
   box-shadow:
-    0 16px 40px rgba(23,38,27,.25);
+    0 16px 40px rgba(23,38,27,.22);
 
-  font-size:.88rem;
+  font-size:.86rem;
 
 }
 
@@ -2861,9 +3052,9 @@ footer h3{
 
 .cookie-banner button{
 
-  margin-left:10px;
+  margin-left:9px;
 
-  padding:8px 15px;
+  padding:7px 14px;
 
   border:0;
 
@@ -2897,14 +3088,14 @@ footer h3{
   opacity:0;
 
   transform:
-    translateY(38px);
+    translateY(30px);
 
   transition:
 
-    opacity .78s
+    opacity .75s
     cubic-bezier(.22,.61,.36,1),
 
-    transform .78s
+    transform .75s
     cubic-bezier(.22,.61,.36,1);
 
 }
@@ -2937,7 +3128,7 @@ footer h3{
     right:0;
     top:calc(100% + 8px);
 
-    width:280px;
+    width:min(300px,92vw);
 
     max-height:
       calc(100vh - 100px);
@@ -2978,118 +3169,46 @@ footer h3{
 
   }
 
+  .client-login{
+
+    margin-top:5px;
+
+    padding-left:13px;
+
+    border-top:
+      1px solid var(--line);
+
+    border-left:0;
+
+  }
+
   .hero-grid{
 
     min-height:auto;
 
     grid-template-columns:1fr;
 
-    gap:45px;
-
-  }
-
-  .hero-copy{
-
-    max-width:780px;
-
   }
 
   .hero-image{
-
     height:580px;
-
   }
 
-  .visit-grid{
-
-    grid-template-columns:1fr;
-
-    max-width:840px;
-
-    margin:0 auto;
-
-  }
-
-  .visit-image{
-
-    height:520px;
-
-  }
-
-  .support-options-grid{
-
-    grid-template-columns:1fr;
-
-    max-width:760px;
-
-    margin:0 auto;
-
-  }
-
-  .support-option{
-
-    display:grid;
-
-    grid-template-columns:
-      .9fr 1.1fr;
-
-  }
-
-  .support-option-image{
-
-    height:auto;
-
-    min-height:310px;
-
-  }
-
-  .editorial-card{
-
-    min-height:420px;
-
-  }
-
-  .membership-grid{
-
-    grid-template-columns:1fr;
-
-  }
-
-  .membership-copy{
-
-    max-width:760px;
-
-  }
-
-  .membership-image{
-
-    height:460px;
-
-  }
-
-  .trust-grid{
-
-    grid-template-columns:
-      repeat(2,1fr);
-
-  }
-
-  .trust-item:nth-child(2){
-
-    border-right:0;
-
-  }
-
-  .trust-item:nth-child(-n+2){
-
-    border-bottom:
-      1px solid rgba(23,38,27,.10);
-
-  }
-
+  .definition-grid,
+  .timeline-wrap,
+  .membership-feature-grid,
+  .trust-layout,
   .brand-film-grid{
 
     grid-template-columns:1fr;
+
+  }
+
+  .definition-image{
+    height:500px;
+  }
+
+  .timeline-wrap{
 
     max-width:850px;
 
@@ -3097,10 +3216,78 @@ footer h3{
 
   }
 
+  .visit-image{
 
-  /* NEW CTA TABLET */
+    min-height:0;
 
-  .final-cta{
+    height:500px;
+
+  }
+
+  .ways-grid{
+
+    grid-template-columns:1fr;
+
+    max-width:760px;
+
+    margin:0 auto;
+
+  }
+
+  .way-card{
+
+    display:grid;
+
+    grid-template-columns:
+      .9fr 1.1fr;
+
+    min-height:0;
+
+  }
+
+  .way-card.featured{
+
+    transform:none;
+
+  }
+
+  .way-card.featured:hover{
+
+    transform:translateY(-5px);
+
+  }
+
+  .way-image{
+
+    height:100%;
+
+    min-height:310px;
+
+  }
+
+  .membership-feature-image{
+    height:500px;
+  }
+
+  .service-grid{
+    gap:18px;
+  }
+
+  .start-grid{
+
+    gap:25px;
+
+  }
+
+  .trust-layout{
+
+    max-width:850px;
+
+    margin:0 auto;
+
+  }
+
+  .final-card{
 
     grid-template-columns:1fr;
 
@@ -3110,35 +3297,25 @@ footer h3{
 
   }
 
-  .final-cta-image{
+  .final-image{
 
-    min-height:420px;
+    min-height:0;
+
+    height:450px;
 
   }
-
-
-  /* NEW FOOTER TABLET */
 
   .footer-top{
 
     grid-template-columns:1fr;
 
-    gap:28px;
-
   }
 
-  .footer-contact-feature{
+  .footer-contact{
 
     justify-self:start;
 
     text-align:left;
-
-  }
-
-  .footer-grid{
-
-    grid-template-columns:
-      repeat(3,1fr);
 
   }
 
@@ -3152,28 +3329,19 @@ footer h3{
 @media(max-width:720px){
 
   section{
-
-    padding:
-      64px 0;
-
+    padding:70px 0;
   }
 
   .container{
-
     width:90%;
-
   }
 
   .nav-wrap{
-
     min-height:64px;
-
   }
 
   .logo{
-
     font-size:1.8rem;
-
   }
 
 
@@ -3181,8 +3349,7 @@ footer h3{
 
   .hero{
 
-    padding:
-      30px 0 58px;
+    padding:18px 0 58px;
 
   }
 
@@ -3192,7 +3359,7 @@ footer h3{
 
     flex-direction:column-reverse;
 
-    gap:32px;
+    gap:30px;
 
   }
 
@@ -3200,8 +3367,7 @@ footer h3{
 
     height:auto;
 
-    aspect-ratio:
-      4 / 3;
+    aspect-ratio:4 / 3;
 
     border-radius:27px;
 
@@ -3218,16 +3384,28 @@ footer h3{
   }
 
   .hero-image-wrap::after{
-
     display:none;
+  }
+
+  .hero-label{
+
+    align-items:flex-start;
+
+    margin-bottom:16px;
+
+    font-size:.61rem;
+
+    letter-spacing:1.7px;
+
+    line-height:1.55;
 
   }
 
-  .home-page-label{
+  .hero-label::before{
 
-    margin-bottom:15px;
+    width:27px;
 
-    font-size:.64rem;
+    margin-top:7px;
 
   }
 
@@ -3236,25 +3414,27 @@ footer h3{
     margin-bottom:20px;
 
     font-size:
-      clamp(3.6rem,17vw,5rem);
+      clamp(3.55rem,17vw,4.9rem);
 
-    line-height:.86;
+    line-height:.87;
 
     letter-spacing:-3.5px;
 
   }
 
-  .hero-lead{
+  .hero-positioning{
 
-    font-size:1.15rem;
+    margin-bottom:13px;
+
+    font-size:1.18rem;
 
   }
 
   .hero-description{
 
-    font-size:.95rem;
+    font-size:.94rem;
 
-    line-height:1.7;
+    line-height:1.74;
 
   }
 
@@ -3264,16 +3444,14 @@ footer h3{
 
     align-items:stretch;
 
-    gap:10px;
+    gap:9px;
 
     margin-top:23px;
 
   }
 
   .hero-buttons .btn{
-
     width:100%;
-
   }
 
   .hero-buttons .text-link{
@@ -3286,129 +3464,218 @@ footer h3{
 
   .hero-trust{
 
-    gap:8px 13px;
+    gap:7px 13px;
 
-    margin-top:20px;
+    margin-top:21px;
+
+    padding-top:17px;
 
   }
 
   .hero-trust span{
-
-    font-size:.7rem;
-
+    font-size:.68rem;
   }
 
 
-  /* SERVICE INTRO */
+  /* GLOBAL */
 
-  .service-intro-inner h2{
+  .section-heading{
 
-    font-size:2.55rem;
+    margin-bottom:38px;
 
-    line-height:1.04;
+  }
+
+  .section-heading h2{
+
+    font-size:2.5rem;
+
+    line-height:1.03;
 
     letter-spacing:-1.5px;
 
   }
 
-  .service-intro-copy{
+  .section-heading p:not(.eyebrow){
 
-    margin-bottom:28px;
+    font-size:.94rem;
 
-    font-size:.96rem;
-
-  }
-
-  .service-lineup{
-
-    gap:7px;
+    line-height:1.74;
 
   }
 
-  .service-chip{
+  .eyebrow{
 
-    padding:
-      9px 11px;
+    font-size:.66rem;
 
-    font-size:.75rem;
+    letter-spacing:2.3px;
+
+  }
+
+
+  /* PROBLEM */
+
+  .problem-inner h2{
+
+    margin-bottom:24px;
+
+    font-size:2.65rem;
+
+    line-height:1.02;
+
+    letter-spacing:-1.7px;
+
+  }
+
+  .problem-copy{
+
+    font-size:.94rem;
+
+    line-height:1.8;
+
+  }
+
+  .problem-emphasis{
+    font-size:1.42rem;
+  }
+
+  .problem-answer{
+    font-size:1.65rem;
+  }
+
+
+  /* DEFINITION */
+
+  .definition-grid{
+    gap:30px;
+  }
+
+  .definition-image{
+
+    height:auto;
+
+    aspect-ratio:4 / 3;
+
+    border-radius:26px;
+
+  }
+
+  .definition-copy h2{
+
+    font-size:2.55rem;
+
+    line-height:1.02;
+
+    letter-spacing:-1.6px;
+
+  }
+
+  .definition-copy > p:not(.eyebrow){
+
+    font-size:.94rem;
+
+    line-height:1.75;
+
+  }
+
+  .definition-statement{
+
+    padding-left:18px;
+
+    font-size:1.4rem;
 
   }
 
 
   /* VISIT */
 
-  .visit-grid{
+  .visit-intro{
 
-    gap:25px;
+    margin-bottom:33px;
 
+  }
+
+  .visit-intro h2{
+
+    font-size:2.5rem;
+
+    line-height:1.03;
+
+    letter-spacing:-1.5px;
+
+  }
+
+  .timeline-wrap{
+    gap:28px;
   }
 
   .visit-image{
 
     height:auto;
 
-    aspect-ratio:
-      4 / 3;
-
-    border-radius:26px;
-
-  }
-
-  .visit-card{
-
-    padding:
-      30px 22px;
+    aspect-ratio:4 / 3;
 
     border-radius:25px;
 
   }
 
-  .visit-card h2{
+  .timeline-row{
 
-    font-size:2.5rem;
+    grid-template-columns:
+      60px 1fr;
 
-    line-height:1;
+    gap:14px;
 
-  }
-
-  .visit-card > p:not(.eyebrow){
-
-    font-size:.95rem;
+    padding:16px 0;
 
   }
 
-  .visit-item{
+  .timeline-time{
+    font-size:.9rem;
+  }
+
+  .timeline-task{
 
     font-size:.87rem;
 
-  }
-
-
-  /* OPTIONS */
-
-  .section-heading{
-
-    margin-bottom:34px;
+    line-height:1.5;
 
   }
 
-  .section-heading h2{
+  .timeline-finish{
 
-    font-size:2.45rem;
+    margin-top:25px;
 
-    line-height:1.04;
-
-    letter-spacing:-1.4px;
+    font-size:1.5rem;
 
   }
 
-  .section-heading p:not(.eyebrow){
 
-    font-size:.96rem;
+  /* WHO */
+
+  .who-grid{
+
+    grid-template-columns:1fr;
+
+    gap:25px;
 
   }
 
-  .support-option{
+  .who-item{
+    padding-top:20px;
+  }
+
+  .who-icon{
+    margin-bottom:17px;
+  }
+
+  .who-item h3{
+    font-size:1.45rem;
+  }
+
+
+  /* WAYS */
+
+  .way-card{
 
     display:block;
 
@@ -3416,7 +3683,7 @@ footer h3{
 
   }
 
-  .support-option-image{
+  .way-image{
 
     height:220px;
 
@@ -3424,197 +3691,199 @@ footer h3{
 
   }
 
-  .support-option-content{
+  .way-content{
 
     padding:24px 21px;
 
   }
 
-  .support-option h3{
-
+  .way-content h3{
     font-size:1.9rem;
-
-  }
-
-  .support-option p{
-
-    min-height:0;
-
-  }
-
-
-  /* SERVICE TILES */
-
-  .editorial-grid{
-
-    grid-template-columns:1fr;
-
-    gap:17px;
-
-  }
-
-  .editorial-card{
-
-    min-height:390px;
-
-    border-radius:26px;
-
-  }
-
-  .editorial-copy{
-
-    padding:25px 22px;
-
-  }
-
-  .editorial-copy h3{
-
-    font-size:2rem;
-
-  }
-
-  .editorial-copy p{
-
-    font-size:.87rem;
-
-  }
-
-  .who-we-help-line{
-
-    margin-top:35px;
-
-    padding-top:25px;
-
-    font-size:.91rem;
-
   }
 
 
   /* MEMBERSHIP */
 
-  .membership-grid{
+  .membership-feature-grid{
+    gap:34px;
+  }
 
-    gap:31px;
+  .membership-feature-copy h2{
+
+    font-size:2.7rem;
+
+    line-height:1;
+
+    letter-spacing:-1.8px;
 
   }
 
-  .membership-copy h2{
+  .membership-feature-copy > p:not(.eyebrow){
 
-    font-size:2.65rem;
+    font-size:.94rem;
 
-    line-height:1.01;
-
-    letter-spacing:-1.6px;
+    line-height:1.75;
 
   }
 
-  .membership-copy > p:not(.eyebrow){
+  .member-feature{
 
-    font-size:.95rem;
+    padding:14px 0;
 
   }
 
-  .membership-image{
+  .member-feature strong{
+    font-size:1.08rem;
+  }
+
+  .member-feature span{
+    font-size:.84rem;
+  }
+
+  .membership-feature-copy .btn{
+    width:100%;
+  }
+
+  .membership-feature-image{
 
     height:auto;
 
-    aspect-ratio:
-      4 / 3;
+    aspect-ratio:4 / 3;
 
     border-radius:27px;
 
   }
 
-  .membership-copy .btn{
 
-    width:100%;
+  /* SERVICES */
+
+  .service-grid{
+
+    grid-template-columns:1fr;
+
+    gap:18px;
+
+  }
+
+  .service-card{
+
+    min-height:400px;
+
+    border-radius:26px;
+
+  }
+
+  .service-copy{
+
+    padding:25px 22px;
+
+  }
+
+  .service-copy h3{
+    font-size:2rem;
+  }
+
+  .service-copy p{
+    font-size:.86rem;
+  }
+
+
+  /* START */
+
+  .start-grid{
+
+    grid-template-columns:1fr;
+
+    gap:28px;
+
+  }
+
+  .start-step{
+
+    padding-top:20px;
 
   }
 
 
   /* TRUST */
 
-  .trust-section{
+  .trust-layout{
+    gap:35px;
+  }
 
-    padding:
-      58px 0;
+  .trust-copy h2{
+
+    font-size:2.55rem;
+
+    line-height:1.02;
+
+    letter-spacing:-1.6px;
 
   }
 
-  .trust-heading h2{
+  .trust-copy > p:not(.eyebrow){
 
-    font-size:2.35rem;
+    font-size:.94rem;
 
-    line-height:1.04;
-
-  }
-
-  .trust-grid{
-
-    grid-template-columns:1fr;
+    line-height:1.75;
 
   }
 
-  .trust-item{
+  .assurance-panel{
 
-    display:flex;
+    padding:8px 21px;
 
-    align-items:center;
+    border-radius:25px;
+
+  }
+
+  .assurance-item{
+
+    grid-template-columns:
+      40px 1fr;
 
     gap:13px;
 
-    padding:
-      16px 3px;
-
-    text-align:left;
-
-    border-right:0;
-
-    border-bottom:
-      1px solid rgba(23,38,27,.10);
+    padding:20px 0;
 
   }
 
-  .trust-item:nth-child(-n+2){
+  .assurance-icon{
 
-    border-bottom:
-      1px solid rgba(23,38,27,.10);
-
-  }
-
-  .trust-item:last-child{
-
-    border-bottom:0;
+    width:38px;
+    height:38px;
 
   }
 
-  .trust-icon{
+  .assurance-item h3{
+    font-size:1.12rem;
+  }
 
-    margin:0;
-
-    flex-shrink:0;
-
+  .assurance-item p{
+    font-size:.82rem;
   }
 
 
   /* VIDEO */
 
   .brand-film-grid{
-
-    gap:27px;
-
+    gap:30px;
   }
 
   .brand-film-copy h2{
 
-    font-size:2.4rem;
+    font-size:2.45rem;
+
+    line-height:1.03;
 
   }
 
+  .brand-film-copy p:not(.eyebrow){
+    font-size:.94rem;
+  }
+
   .brand-film-frame{
-
-    border-radius:22px;
-
+    border-radius:23px;
   }
 
 
@@ -3622,16 +3891,15 @@ footer h3{
 
   .areas-section{
 
-    min-height:340px;
+    min-height:350px;
 
-    padding:
-      60px 0;
+    padding:62px 0;
 
     background:
 
       linear-gradient(
-        rgba(23,38,27,.48),
-        rgba(23,38,27,.63)
+        rgba(23,38,27,.50),
+        rgba(23,38,27,.67)
       ),
 
       url("eastbourne-area.jpg");
@@ -3644,29 +3912,24 @@ footer h3{
 
   .areas-section h2{
 
-    font-size:2.45rem;
+    font-size:2.5rem;
 
-    line-height:1.04;
+    line-height:1.03;
 
   }
 
   .areas-section p:not(.eyebrow){
 
-    font-size:.94rem;
+    font-size:.92rem;
+
+    line-height:1.72;
 
   }
 
 
-  /* NEW CTA MOBILE */
+  /* FINAL */
 
-  .final-cta-section{
-
-    padding:
-      68px 0;
-
-  }
-
-  .final-cta{
+  .final-card{
 
     display:flex;
 
@@ -3678,43 +3941,41 @@ footer h3{
 
   }
 
-  .final-cta-image{
+  .final-image{
 
     min-height:0;
 
     height:auto;
 
-    aspect-ratio:
-      4 / 3;
+    aspect-ratio:4 / 3;
 
   }
 
-  .final-cta-copy{
+  .final-copy{
 
-    padding:
-      37px 23px 34px;
+    padding:37px 23px 34px;
 
   }
 
-  .final-cta-copy h2{
+  .final-copy h2{
 
-    font-size:2.85rem;
+    font-size:2.75rem;
 
-    line-height:.99;
+    line-height:1;
 
     letter-spacing:-1.8px;
 
   }
 
-  .final-cta-copy > p:not(.eyebrow){
+  .final-copy > p:not(.eyebrow):not(.final-phone){
 
-    font-size:.95rem;
+    font-size:.94rem;
 
-    line-height:1.72;
+    line-height:1.75;
 
   }
 
-  .final-cta-copy .buttons{
+  .final-copy .buttons{
 
     flex-direction:column;
 
@@ -3722,56 +3983,49 @@ footer h3{
 
   }
 
-  .final-cta-copy .btn{
-
+  .final-copy .btn{
     width:100%;
+  }
+
+  .final-copy .text-link{
+
+    align-self:flex-start;
+
+    padding:8px 0;
 
   }
 
-  .final-cta-call{
-
-    margin-top:20px;
-
-    font-size:.86rem;
-
-  }
-
-  .final-reassurance{
+  .final-assurance{
 
     gap:7px 12px;
 
-    margin-top:21px;
-
-    padding-top:17px;
-
   }
 
-  .final-reassurance span{
-
-    font-size:.68rem;
-
+  .final-assurance span{
+    font-size:.67rem;
   }
 
 
-  /* FLOATING */
+  /* FLOATING CONTACT */
 
   .floating-contact{
 
     right:10px;
     bottom:10px;
 
-    gap:7px;
+  }
+
+  .floating-message{
+
+    min-height:42px;
+
+    padding:9px 13px;
+
+    font-size:.73rem;
 
   }
 
-  .floating-btn{
-
-    width:39px;
-    height:39px;
-
-  }
-
-  .floating-btn svg{
+  .floating-message svg{
 
     width:16px;
     height:16px;
@@ -3779,71 +4033,36 @@ footer h3{
   }
 
 
-  /* NEW FOOTER MOBILE */
+  /* FOOTER */
 
   footer{
 
-    padding:
-      58px 0 25px;
+    padding:56px 0 24px;
 
   }
 
   footer::before{
 
-    right:-65px;
-    bottom:100px;
+    right:-70px;
 
     font-size:9rem;
-
-    letter-spacing:-6px;
 
   }
 
   .footer-top{
 
-    gap:28px;
+    gap:26px;
 
-    padding-bottom:31px;
-
-  }
-
-  .footer-brand .logo{
-
-    margin-bottom:13px;
-
-    font-size:2rem;
+    padding-bottom:30px;
 
   }
 
-  .footer-tagline{
+  .footer-contact{
 
-    font-size:1.65rem;
-
-  }
-
-  .footer-description{
-
-    max-width:340px;
-
-    font-size:.91rem;
-
-  }
-
-  .footer-contact-feature{
-
-    width:100%;
-
-    padding:
-      20px 0 0;
+    padding-top:18px;
 
     border-top:
       1px solid rgba(255,255,255,.09);
-
-  }
-
-  .footer-contact-feature a{
-
-    font-size:1.05rem;
 
   }
 
@@ -3852,42 +4071,13 @@ footer h3{
     grid-template-columns:
       repeat(2,1fr);
 
-    gap:
-      31px 24px;
+    gap:28px 20px;
 
-    padding:
-      34px 0;
-
-  }
-
-  .footer-grid > div{
-
-    padding:0;
-
-    border:0;
+    padding:33px 0;
 
   }
 
   .footer-grid > div:last-child{
-
-    grid-column:
-      1 / -1;
-
-    padding-top:5px;
-
-  }
-
-  .footer-hours{
-
-    grid-template-columns:
-      repeat(2,1fr);
-
-    gap:
-      6px 15px;
-
-  }
-
-  .footer-hours p:first-child{
 
     grid-column:
       1 / -1;
@@ -3900,43 +4090,9 @@ footer h3{
 
     align-items:flex-start;
 
-    gap:13px;
-
-    padding-top:21px;
+    gap:11px;
 
   }
-
-  .footer-bottom-left{
-
-    gap:0;
-
-  }
-
-  .copyright,
-  .footer-location,
-  .legal-links{
-
-    font-size:.75rem;
-
-  }
-
-}
-
-
-/* ==================================================
-   ACCESSIBILITY
-================================================== */
-
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-textarea:focus-visible,
-select:focus-visible{
-
-  outline:
-    3px solid var(--gold);
-
-  outline-offset:4px;
 
 }
 
@@ -3965,50 +4121,52 @@ select:focus-visible{
 
 }
 
-
-/* ==================================================
-   ANIMATIONS
-================================================== */
-
-@keyframes buttonShine{
-
-  from{
-    left:-120%;
-  }
-
-  to{
-    left:150%;
-  }
-
-}
-
-@keyframes loaderFade{
-
-  to{
-    opacity:0;
-    visibility:hidden;
-  }
-
-}
-
 </style>
 
+
+<!-- ==================================================
+     STRUCTURED DATA
+================================================== -->
 
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
   "@type":"LocalBusiness",
+  "@id":"https://sortedlife.org.uk/#business",
   "name":"Sorted.",
-  "description":"Premium home and lifestyle support in Eastbourne and surrounding areas.",
   "url":"https://sortedlife.org.uk/",
+  "image":"https://sortedlife.org.uk/hero-home-handled.jpg",
+  "description":"Household and lifestyle management across Eastbourne and surrounding areas, including household support, errands, home organisation, administration, pet support and property services.",
   "email":"contact@sortedlife.org.uk",
   "telephone":"+441323396610",
+  "priceRange":"££",
   "address":{
     "@type":"PostalAddress",
     "addressLocality":"Eastbourne",
     "addressRegion":"East Sussex",
     "addressCountry":"GB"
   },
+  "contactPoint":{
+    "@type":"ContactPoint",
+    "telephone":"+441323396610",
+    "email":"contact@sortedlife.org.uk",
+    "contactType":"customer service",
+    "availableLanguage":"English"
+  },
+  "openingHoursSpecification":[
+    {
+      "@type":"OpeningHoursSpecification",
+      "dayOfWeek":[
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens":"08:00",
+      "closes":"18:00"
+    }
+  ],
   "areaServed":[
     "Eastbourne",
     "Meads",
@@ -4020,25 +4178,28 @@ select:focus-visible{
     "Langney",
     "Polegate",
     "Pevensey",
-    "Seaford"
+    "Seaford",
+    "East Sussex"
   ],
   "serviceType":[
-    "Home management",
+    "Household management",
     "Lifestyle assistance",
     "Home organisation",
-    "Administrative support",
+    "Household administration",
     "Shopping and errands",
     "Pet support",
-    "Flexible home support",
     "Property checks",
     "Key holding",
-    "Home management while away"
+    "Away from home support"
   ]
 }
 </script>
 
 
-<link rel="stylesheet" href="brand.css">
+<link
+  rel="stylesheet"
+  href="brand.css"
+>
 
 </head>
 
@@ -4046,17 +4207,12 @@ select:focus-visible{
 <body>
 
 
-<!-- ==================================================
-     LOADER
-================================================== -->
-
-<div class="loader">
-
-  <div class="loader-logo">
-    Sorted<span>.</span>
-  </div>
-
-</div>
+<a
+  href="#main-content"
+  class="skip-link"
+>
+  Skip to main content
+</a>
 
 
 <!-- ==================================================
@@ -4066,6 +4222,7 @@ select:focus-visible{
 <header class="site-header">
 
   <div class="container nav-wrap">
+
 
     <a
       href="index.html"
@@ -4081,12 +4238,16 @@ select:focus-visible{
       class="menu-toggle"
       aria-label="Open navigation menu"
       aria-expanded="false"
+      aria-controls="site-navigation"
     >
       <i data-lucide="menu"></i>
     </button>
 
 
-    <nav aria-label="Main navigation">
+    <nav
+      id="site-navigation"
+      aria-label="Main navigation"
+    >
 
       <a
         href="index.html"
@@ -4120,18 +4281,22 @@ select:focus-visible{
         Contact
       </a>
 
-      <a href="portal/index.html">
+      <a
+        href="portal/index.html"
+        class="client-login"
+      >
         Client Login
       </a>
 
     </nav>
+
 
   </div>
 
 </header>
 
 
-<main>
+<main id="main-content">
 
 
 <!-- ==================================================
@@ -4145,14 +4310,9 @@ select:focus-visible{
 
     <div class="hero-copy">
 
-      <div class="home-page-label">
 
-        <span class="home-page-label-line"></span>
-
-        <span>
-          Premium Home &amp; Lifestyle Support
-        </span>
-
+      <div class="hero-label">
+        Household &amp; Lifestyle Management
       </div>
 
 
@@ -4162,22 +4322,22 @@ select:focus-visible{
       </h1>
 
 
-      <p class="hero-lead">
-        One trusted local service for the practical details
-        of home and everyday life.
+      <p class="hero-positioning">
+        Less to organise. Less to remember.
+        More handled.
       </p>
 
 
       <p class="hero-description">
-        From errands and organisation to household admin,
-        appointments, pet support and property care,
-        Sorted. provides dependable help shaped around
-        your home, your routine and what would genuinely
-        make life easier.
+        From everyday household jobs and organisation
+        to errands, admin, pets and property support,
+        Sorted. takes care of the practical details
+        that would otherwise stay on your list.
       </p>
 
 
-      <div class="hero-buttons">
+      <div class="buttons hero-buttons">
+
 
         <a
           href="https://calendly.com/d/dzzd-qmh-mcm/one-off-meeting"
@@ -4185,48 +4345,113 @@ select:focus-visible{
           rel="noopener noreferrer"
           class="btn btn-primary"
         >
-          Book Your Complimentary Consultation
+          Talk to Sorted.
         </a>
 
+
         <a
-          href="#what-is-sorted"
+          href="#how-it-works"
           class="text-link"
         >
-          Discover Sorted.
+          See How It Works
         </a>
+
 
       </div>
 
 
       <div class="hero-trust">
 
-        <span>
-          Enhanced DBS Checked
-        </span>
-
-        <span>
-          Fully Insured
-        </span>
-
-        <span>
-          Confidential &amp; Discreet
-        </span>
+        <span>Enhanced DBS Checked</span>
+        <span>Fully Insured</span>
+        <span>Local &amp; Independent</span>
 
       </div>
+
 
     </div>
 
 
     <div class="hero-image-wrap">
 
+
       <img
         src="hero-home-handled.jpg"
-        alt="A calm beautifully managed British home"
+        alt="A calm, beautifully managed home"
         class="hero-image"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
       >
+
 
     </div>
 
+
+  </div>
+
+</section>
+
+
+<!-- ==================================================
+     THE PROBLEM
+================================================== -->
+
+<section
+  class="problem-section fade"
+  id="how-it-works"
+>
+
+  <div class="container">
+
+    <div class="problem-inner">
+
+
+      <p class="eyebrow">
+        THE THINGS THAT TAKE UP MORE LIFE THAN THEY SHOULD
+      </p>
+
+
+      <h2>
+        There is always something that needs doing.
+      </h2>
+
+
+      <div class="problem-copy">
+
+
+        <p>
+          The parcel that still needs returning.
+          The appointment you haven't booked.
+          The paperwork sitting on the table.
+          The cupboard you've been meaning to sort.
+          The dog that needs walking.
+          The delivery somebody has to wait in for.
+        </p>
+
+
+        <p>
+          None of it is particularly difficult.
+        </p>
+
+
+        <p class="problem-emphasis">
+          Together, it takes up an enormous amount of life.
+        </p>
+
+
+      </div>
+
+
+      <div class="problem-divider"></div>
+
+
+      <p class="problem-answer">
+        That's where Sorted. comes in.
+      </p>
+
+
+    </div>
 
   </div>
 
@@ -4237,66 +4462,68 @@ select:focus-visible{
      WHAT SORTED IS
 ================================================== -->
 
-<section
-  class="service-intro fade"
-  id="what-is-sorted"
->
+<section class="definition-section fade">
 
-  <div class="container">
-
-    <div class="service-intro-inner">
-
-      <p class="eyebrow">
-        WHAT IS SORTED?
-      </p>
-
-      <h2>
-        One trusted service. Whatever home and life needs.
-      </h2>
-
-      <p class="service-intro-copy">
-        Sorted. brings practical home and lifestyle support
-        together in one place, so you do not need to arrange
-        several different people for the everyday jobs that
-        keep life running smoothly.
-      </p>
+  <div class="container definition-grid">
 
 
-      <div class="service-lineup">
+    <div>
 
-        <div class="service-chip">
-          <i data-lucide="house"></i>
-          Home Management
-        </div>
-
-        <div class="service-chip">
-          <i data-lucide="shopping-bag"></i>
-          Errands &amp; Appointments
-        </div>
-
-        <div class="service-chip">
-          <i data-lucide="sparkles"></i>
-          Home Organisation
-        </div>
-
-        <div class="service-chip">
-          <i data-lucide="file-text"></i>
-          Household Admin
-        </div>
-
-        <div class="service-chip">
-          <i data-lucide="paw-print"></i>
-          Pet Support
-        </div>
-
-        <div class="service-chip">
-          <i data-lucide="key-round"></i>
-          Property Care
-        </div>
-
-      </div>
+      <img
+        src="home-management.jpg"
+        alt="A calm, organised home"
+        class="definition-image"
+        loading="lazy"
+        decoding="async"
+      >
 
     </div>
+
+
+    <div class="definition-copy">
+
+
+      <p class="eyebrow">
+        ONE PLACE TO START
+      </p>
+
+
+      <h2>
+        Whatever needs handling, start with Sorted.
+      </h2>
+
+
+      <p>
+        Sorted. is household and lifestyle support
+        designed around real life.
+      </p>
+
+
+      <p>
+        We organise, arrange, collect, coordinate,
+        prepare and get things done around your home
+        and routine — without you needing to find a
+        different person every time something lands
+        on the list.
+      </p>
+
+
+      <p>
+        One day that might mean several errands.
+        Another might mean household paperwork,
+        organising a room, meeting a contractor or
+        getting everything ready before you're away.
+      </p>
+
+
+      <div class="definition-statement">
+        One person to ask.<br>
+        <em>Far less for you to organise.</em>
+      </div>
+
+
+    </div>
+
 
   </div>
 
@@ -4304,88 +4531,124 @@ select:focus-visible{
 
 
 <!-- ==================================================
-     VISIT
+     REAL VISIT
 ================================================== -->
 
 <section class="visit-section fade">
 
-  <div class="container visit-grid">
+  <div class="container">
 
-    <div class="visit-image-wrap">
 
-      <img
-        src="visit-example.jpg"
-        alt="A typical Sorted. visit with several everyday tasks handled"
-        class="visit-image"
-        loading="lazy"
-      >
+    <div class="visit-intro">
+
+
+      <p class="eyebrow">
+        A FEW HOURS WITH SORTED.
+      </p>
+
+
+      <h2>
+        Imagine getting all of this off today's list.
+      </h2>
+
+
+      <p>
+        Your time can move naturally between different
+        jobs, rather than having to arrange a separate
+        person for every little thing.
+      </p>
+
 
     </div>
 
 
-    <div class="visit-card">
-
-      <p class="eyebrow">
-        ONE VISIT. SEVERAL THINGS HANDLED.
-      </p>
-
-      <h2>
-        What could a Sorted. visit actually look like?
-      </h2>
-
-      <p>
-        There is no fixed list you have to choose from.
-        Your time can be used around whatever would make
-        the biggest difference that day.
-      </p>
+    <div class="timeline-wrap">
 
 
-      <div class="visit-list">
+      <div>
 
-        <div class="visit-item">
-          <span><i data-lucide="pill"></i></span>
-          Pick up a prescription
-        </div>
-
-        <div class="visit-item">
-          <span><i data-lucide="package"></i></span>
-          Return a parcel
-        </div>
-
-        <div class="visit-item">
-          <span><i data-lucide="paw-print"></i></span>
-          Walk the dog
-        </div>
-
-        <div class="visit-item">
-          <span><i data-lucide="shopping-basket"></i></span>
-          Put the shopping away
-        </div>
-
-        <div class="visit-item">
-          <span><i data-lucide="calendar-check"></i></span>
-          Arrange a household appointment
-        </div>
-
-        <div class="visit-item">
-          <span><i data-lucide="files"></i></span>
-          Sort the paperwork you've been putting off
-        </div>
+        <img
+          src="visit-example.jpg"
+          alt="A typical Sorted. visit"
+          class="visit-image"
+          loading="lazy"
+          decoding="async"
+        >
 
       </div>
 
 
-      <p class="visit-note">
-        Every visit is shaped around what would genuinely
-        make your day, week or home easier.
-      </p>
+      <div>
 
-      <a
-        href="services.html"
-        class="text-link"
-      >
-        See everything we can help with
-      </a>
+
+        <div class="timeline">
+
+
+          <div class="timeline-row">
+            <div class="timeline-time">10:00</div>
+            <div class="timeline-task">Prescription collected</div>
+          </div>
+
+
+          <div class="timeline-row">
+            <div class="timeline-time">10:20</div>
+            <div class="timeline-task">Two parcels returned</div>
+          </div>
+
+
+          <div class="timeline-row">
+            <div class="timeline-time">10:45</div>
+            <div class="timeline-task">Household shopping picked up</div>
+          </div>
+
+
+          <div class="timeline-row">
+            <div class="timeline-time">11:15</div>
+            <div class="timeline-task">Shopping unpacked and put away</div>
+          </div>
+
+
+          <div class="timeline-row">
+            <div class="timeline-time">11:30</div>
+            <div class="timeline-task">Engineer appointment arranged</div>
+          </div>
+
+
+          <div class="timeline-row">
+            <div class="timeline-time">11:45</div>
+            <div class="timeline-task">Dog walked</div>
+          </div>
+
+
+          <div class="timeline-row">
+            <div class="timeline-time">12:30</div>
+            <div class="timeline-task">Kitchen cupboard finally organised</div>
+          </div>
+
+
+        </div>
+
+
+        <p class="timeline-finish">
+          Seven things handled.
+          <em>One person to arrange.</em>
+        </p>
+
+
+        <div style="margin-top:24px;">
+
+          <a
+            href="services.html"
+            class="text-link"
+          >
+            See Everything We Can Help With
+          </a>
+
+        </div>
+
+
+      </div>
+
 
     </div>
 
@@ -4395,66 +4658,187 @@ select:focus-visible{
 
 
 <!-- ==================================================
-     SUPPORT OPTIONS
+     WHO
 ================================================== -->
 
-<section class="support-options fade">
+<section class="who-section fade">
 
   <div class="container">
 
+
     <div class="section-heading">
 
+
       <p class="eyebrow">
-        CHOOSE YOUR SUPPORT
+        MADE FOR REAL LIFE
       </p>
+
 
       <h2>
-        Support that fits the way you need it.
+        For lives that already have enough going on.
       </h2>
 
+
       <p>
-        One-off help, regular ongoing support or trusted
-        care for your home while you're away.
+        Sorted. is for anyone who wants the practical
+        side of home and everyday life to take up less
+        time, energy and headspace.
       </p>
+
 
     </div>
 
 
-    <div class="support-options-grid">
+    <div class="who-grid">
+
+
+      <article class="who-item">
+
+        <div class="who-icon">
+          <i data-lucide="users"></i>
+        </div>
+
+        <h3>
+          Busy Households
+        </h3>
+
+        <p>
+          When work, family, appointments, pets and
+          home all seem to need something at once.
+        </p>
+
+      </article>
+
+
+      <article class="who-item">
+
+        <div class="who-icon">
+          <i data-lucide="briefcase"></i>
+        </div>
+
+        <h3>
+          Professionals
+        </h3>
+
+        <p>
+          Spend your free time living rather than
+          catching up on errands, admin and household jobs.
+        </p>
+
+      </article>
+
+
+      <article class="who-item">
+
+        <div class="who-icon">
+          <i data-lucide="heart-handshake"></i>
+        </div>
+
+        <h3>
+          Independent Living
+        </h3>
+
+        <p>
+          Practical support that makes everyday life
+          easier while keeping you completely in control.
+        </p>
+
+      </article>
+
+
+      <article class="who-item">
+
+        <div class="who-icon">
+          <i data-lucide="key-round"></i>
+        </div>
+
+        <h3>
+          Families &amp; Property Owners
+        </h3>
+
+        <p>
+          Dependable help nearby when a property —
+          or someone you care about — needs local support.
+        </p>
+
+      </article>
+
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- ==================================================
+     WAYS TO USE SORTED
+================================================== -->
+
+<section class="ways-section fade">
+
+  <div class="container">
+
+
+    <div class="section-heading">
+
+
+      <p class="eyebrow">
+        HOW SORTED. FITS IN
+      </p>
+
+
+      <h2>
+        As much support as you need. No more than you want.
+      </h2>
+
+
+      <p>
+        Use Sorted. for the occasional things you need
+        handled, make us part of your regular household
+        routine or have us look after practical details
+        while you're away.
+      </p>
+
+
+    </div>
+
+
+    <div class="ways-grid">
 
 
       <a
         href="flexible-support.html"
-        class="support-option"
+        class="way-card"
       >
 
-        <div class="support-option-image">
+        <img
+          src="flexible-support.jpg"
+          alt="Flexible household support"
+          class="way-image"
+          loading="lazy"
+          decoding="async"
+        >
 
-          <img
-            src="flexible-support.jpg"
-            alt="Flexible practical support when life gets busy"
-            loading="lazy"
-          >
 
-        </div>
+        <div class="way-content">
 
-        <div class="support-option-content">
-
-          <div class="support-option-icon">
-            <i data-lucide="calendar-plus"></i>
-          </div>
+          <span class="way-label">
+            WHEN YOU NEED US
+          </span>
 
           <h3>
             Flexible Support
           </h3>
 
           <p>
-            One-off jobs, projects, busy weeks and
-            occasional help whenever you need an
-            extra pair of hands.
+            One-off jobs, home projects and particularly
+            busy periods when another pair of capable
+            hands would make life easier.
           </p>
 
-          <span class="text-link">
+          <span class="way-link">
             Explore Flexible Support
           </span>
 
@@ -4465,37 +4849,37 @@ select:focus-visible{
 
       <a
         href="memberships.html"
-        class="support-option"
+        class="way-card featured"
       >
 
-        <div class="support-option-image">
+        <img
+          src="memberships-support.jpg"
+          alt="Sorted. membership support"
+          class="way-image"
+          loading="lazy"
+          decoding="async"
+        >
 
-          <img
-            src="memberships-support.jpg"
-            alt="Regular ongoing home and lifestyle support"
-            loading="lazy"
-          >
 
-        </div>
+        <div class="way-content">
 
-        <div class="support-option-content">
-
-          <div class="support-option-icon">
-            <i data-lucide="heart-handshake"></i>
-          </div>
+          <span class="way-label">
+            THE FULL SORTED. EXPERIENCE
+          </span>
 
           <h3>
-            Ongoing Memberships
+            Membership
           </h3>
 
           <p>
-            Regular dependable support from someone
-            who becomes familiar with your home,
-            routine and priorities.
+            Ongoing household support from a service
+            that gets to know your home, routines
+            and what you'd rather not have to keep
+            thinking about.
           </p>
 
-          <span class="text-link">
-            Explore Memberships
+          <span class="way-link">
+            Discover Membership
           </span>
 
         </div>
@@ -4505,24 +4889,23 @@ select:focus-visible{
 
       <a
         href="away-from-home.html"
-        class="support-option"
+        class="way-card"
       >
 
-        <div class="support-option-image">
+        <img
+          src="away-from-home.jpg"
+          alt="Home support while away"
+          class="way-image"
+          loading="lazy"
+          decoding="async"
+        >
 
-          <img
-            src="away-from-home.jpg"
-            alt="Property checks and home care while clients are away"
-            loading="lazy"
-          >
 
-        </div>
+        <div class="way-content">
 
-        <div class="support-option-content">
-
-          <div class="support-option-icon">
-            <i data-lucide="key-round"></i>
-          </div>
+          <span class="way-label">
+            WHEN YOU'RE AWAY
+          </span>
 
           <h3>
             Away From Home
@@ -4530,11 +4913,11 @@ select:focus-visible{
 
           <p>
             Property checks, key holding, contractor
-            access and practical care while you're
-            away from home.
+            access and practical household support
+            while you're travelling or away.
           </p>
 
-          <span class="text-link">
+          <span class="way-link">
             Explore Away From Home
           </span>
 
@@ -4545,207 +4928,6 @@ select:focus-visible{
 
     </div>
 
-  </div>
-
-</section>
-
-
-<!-- ==================================================
-     SERVICES
-================================================== -->
-
-<section class="service-showcase fade">
-
-  <div class="container">
-
-
-    <div class="section-heading">
-
-      <p class="eyebrow">
-        OUR SERVICES
-      </p>
-
-      <h2>
-        Practical help across home and everyday life.
-      </h2>
-
-      <p>
-        Support can move between different tasks depending
-        on what would genuinely make life easier.
-      </p>
-
-    </div>
-
-
-    <div class="editorial-grid">
-
-
-      <a
-        href="services.html"
-        class="editorial-card"
-      >
-
-        <img
-          src="home-management.jpg"
-          alt="Home management and practical household support"
-          loading="lazy"
-        >
-
-        <div class="editorial-copy">
-
-          <span class="editorial-label">
-            HOME MANAGEMENT
-          </span>
-
-          <h3>
-            Keeping everyday life running smoothly.
-          </h3>
-
-          <p>
-            Household tasks, deliveries, appointments,
-            practical jobs and the details that keep
-            your home running properly.
-          </p>
-
-          <span class="editorial-link">
-            View services
-          </span>
-
-        </div>
-
-      </a>
-
-
-      <a
-        href="services.html"
-        class="editorial-card"
-      >
-
-        <img
-          src="lifestyle-assistance.jpg"
-          alt="Lifestyle assistance with errands, appointments and practical support"
-          loading="lazy"
-        >
-
-        <div class="editorial-copy">
-
-          <span class="editorial-label">
-            LIFESTYLE ASSISTANCE
-          </span>
-
-          <h3>
-            An extra pair of trusted hands.
-          </h3>
-
-          <p>
-            Errands, appointments, collections,
-            shopping, dog walking and practical
-            help when your schedule is too full.
-          </p>
-
-          <span class="editorial-link">
-            View services
-          </span>
-
-        </div>
-
-      </a>
-
-
-      <a
-        href="services.html"
-        class="editorial-card"
-      >
-
-        <img
-          src="home-organisation.jpg"
-          alt="Home organisation and practical storage systems"
-          loading="lazy"
-        >
-
-        <div class="editorial-copy">
-
-          <span class="editorial-label">
-            HOME ORGANISATION
-          </span>
-
-          <h3>
-            Calm, practical organisation for your home.
-          </h3>
-
-          <p>
-            Decluttering, wardrobes, kitchens,
-            cupboards, packing, unpacking and
-            practical household systems.
-          </p>
-
-          <span class="editorial-link">
-            View services
-          </span>
-
-        </div>
-
-      </a>
-
-
-      <a
-        href="services.html"
-        class="editorial-card"
-      >
-
-        <img
-          src="administration-coordination.jpg"
-          alt="Household administration and practical coordination"
-          loading="lazy"
-        >
-
-        <div class="editorial-copy">
-
-          <span class="editorial-label">
-            ADMINISTRATION &amp; COORDINATION
-          </span>
-
-          <h3>
-            The household details that are easy to put off.
-          </h3>
-
-          <p>
-            Paperwork, household bookings, reminders,
-            online tasks and practical coordination
-            handled calmly and properly.
-          </p>
-
-          <span class="editorial-link">
-            View services
-          </span>
-
-        </div>
-
-      </a>
-
-
-    </div>
-
-
-    <div class="services-footer">
-
-      <a
-        href="services.html"
-        class="btn btn-primary"
-      >
-        Explore All Services
-      </a>
-
-    </div>
-
-
-    <p class="who-we-help-line">
-      <strong>Who we help:</strong>
-      busy professionals, families, older adults,
-      people living independently, second-home owners
-      and families arranging trusted local support
-      for someone they care about.
-    </p>
 
   </div>
 
@@ -4753,45 +4935,101 @@ select:focus-visible{
 
 
 <!-- ==================================================
-     MEMBERSHIPS
+     MEMBERSHIP
 ================================================== -->
 
 <section class="membership-feature fade">
 
-  <div class="container membership-grid">
+  <div class="container membership-feature-grid">
 
 
-    <div class="membership-copy">
+    <div class="membership-feature-copy">
+
 
       <p class="eyebrow">
-        ONGOING SUPPORT
+        THE FULL SORTED. EXPERIENCE
       </p>
+
 
       <h2>
-        The luxury of knowing it's already handled.
+        The longer we know your household, the less you have to think about.
       </h2>
 
+
       <p>
-        Memberships are for clients who want regular,
-        dependable support from someone who gets to know
-        their home, routine and preferences — so you do
-        not need to start from scratch every time.
+        A Sorted. membership means you don't have to
+        explain everything again each time something
+        needs doing.
       </p>
 
 
-      <div class="membership-benefits">
+      <p>
+        As we get to know your household, we learn the
+        useful details — your routines, preferences,
+        recurring jobs and priorities — so support
+        becomes easier, more personal and increasingly
+        proactive.
+      </p>
 
-        <span>
-          A familiar point of contact
-        </span>
 
-        <span>
-          Regular reserved support
-        </span>
+      <div class="member-features">
 
-        <span>
-          Flexible use of your time
-        </span>
+
+        <div class="member-feature">
+
+          <strong>
+            My Household
+          </strong>
+
+          <span>
+            Useful household information, routines
+            and preferences remembered.
+          </span>
+
+        </div>
+
+
+        <div class="member-feature">
+
+          <strong>
+            Your Sorted. List
+          </strong>
+
+          <span>
+            The practical things that need handling,
+            kept together rather than living in your head.
+          </span>
+
+        </div>
+
+
+        <div class="member-feature">
+
+          <strong>
+            Monthly Review
+          </strong>
+
+          <span>
+            A clearer view of what's been handled
+            and what needs attention next.
+          </span>
+
+        </div>
+
+
+        <div class="member-feature">
+
+          <strong>
+            Sorted. Ahead
+          </strong>
+
+          <span>
+            More proactive household management
+            within Signature and Private Client.
+          </span>
+
+        </div>
+
 
       </div>
 
@@ -4803,6 +5041,7 @@ select:focus-visible{
         Explore Memberships
       </a>
 
+
     </div>
 
 
@@ -4810,12 +5049,333 @@ select:focus-visible{
 
       <img
         src="memberships-feature.jpg"
-        alt="Ongoing trusted household and lifestyle support from Sorted."
-        class="membership-image"
+        alt="Sorted. household membership"
+        class="membership-feature-image"
         loading="lazy"
+        decoding="async"
       >
 
     </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- ==================================================
+     SERVICES
+================================================== -->
+
+<section class="services-section fade">
+
+  <div class="container">
+
+
+    <div class="section-heading">
+
+
+      <p class="eyebrow">
+        WHAT WE CAN TAKE CARE OF
+      </p>
+
+
+      <h2>
+        From the everyday to the easily forgotten.
+      </h2>
+
+
+      <p>
+        No two households need exactly the same thing.
+        Sorted. can move between different parts of home
+        and everyday life depending on what would make
+        the biggest difference.
+      </p>
+
+
+    </div>
+
+
+    <div class="service-grid">
+
+
+      <a
+        href="services.html"
+        class="service-card"
+      >
+
+        <img
+          src="home-management.jpg"
+          alt="Household management"
+          loading="lazy"
+          decoding="async"
+        >
+
+
+        <div class="service-copy">
+
+          <span class="service-label">
+            HOUSEHOLD
+          </span>
+
+          <h3>
+            Keeping everyday life moving.
+          </h3>
+
+          <p>
+            Appointments, deliveries, contractor access,
+            wait-ins, household jobs and practical
+            coordination.
+          </p>
+
+          <span class="service-link">
+            Explore Household Support
+          </span>
+
+        </div>
+
+      </a>
+
+
+      <a
+        href="services.html"
+        class="service-card"
+      >
+
+        <img
+          src="lifestyle-assistance.jpg"
+          alt="Lifestyle support"
+          loading="lazy"
+          decoding="async"
+        >
+
+
+        <div class="service-copy">
+
+          <span class="service-label">
+            LIFESTYLE
+          </span>
+
+          <h3>
+            The jobs your schedule doesn't have room for.
+          </h3>
+
+          <p>
+            Shopping, errands, collections, appointments,
+            pets and practical help with everyday life.
+          </p>
+
+          <span class="service-link">
+            Explore Lifestyle Support
+          </span>
+
+        </div>
+
+      </a>
+
+
+      <a
+        href="services.html"
+        class="service-card"
+      >
+
+        <img
+          src="home-organisation.jpg"
+          alt="Home organisation"
+          loading="lazy"
+          decoding="async"
+        >
+
+
+        <div class="service-copy">
+
+          <span class="service-label">
+            ORGANISATION
+          </span>
+
+          <h3>
+            A calmer home that's easier to live in.
+          </h3>
+
+          <p>
+            Wardrobes, kitchens, cupboards, paperwork,
+            decluttering, packing, unpacking and
+            practical household systems.
+          </p>
+
+          <span class="service-link">
+            Explore Home Organisation
+          </span>
+
+        </div>
+
+      </a>
+
+
+      <a
+        href="away-from-home.html"
+        class="service-card"
+      >
+
+        <img
+          src="away-from-home.jpg"
+          alt="Property support"
+          loading="lazy"
+          decoding="async"
+        >
+
+
+        <div class="service-copy">
+
+          <span class="service-label">
+            PROPERTY
+          </span>
+
+          <h3>
+            Someone dependable when you can't be there.
+          </h3>
+
+          <p>
+            Home checks, key holding, contractor access,
+            preparation and practical property support
+            while you're away.
+          </p>
+
+          <span class="service-link">
+            Explore Property Support
+          </span>
+
+        </div>
+
+      </a>
+
+
+    </div>
+
+
+    <div class="services-action">
+
+      <a
+        href="services.html"
+        class="btn btn-primary"
+      >
+        Explore All Services
+      </a>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- ==================================================
+     GETTING STARTED
+================================================== -->
+
+<section class="start-section fade">
+
+  <div class="container">
+
+
+    <div class="section-heading">
+
+
+      <p class="eyebrow">
+        GETTING STARTED
+      </p>
+
+
+      <h2>
+        Easy from the very beginning.
+      </h2>
+
+
+      <p>
+        You don't need to know exactly what service
+        or membership you need before you contact us.
+      </p>
+
+
+    </div>
+
+
+    <div class="start-grid">
+
+
+      <article class="start-step">
+
+        <span class="start-number">
+          01
+        </span>
+
+        <h3>
+          Tell us what would help.
+        </h3>
+
+        <p>
+          Start with a conversation about what's taking
+          up your time, what keeps getting pushed back or
+          what you'd simply like somebody else to handle.
+        </p>
+
+      </article>
+
+
+      <article class="start-step">
+
+        <span class="start-number">
+          02
+        </span>
+
+        <h3>
+          We'll recommend the right support.
+        </h3>
+
+        <p>
+          That might be one-off help, ongoing membership
+          or something more tailored around your household.
+        </p>
+
+      </article>
+
+
+      <article class="start-step">
+
+        <span class="start-number">
+          03
+        </span>
+
+        <h3>
+          We get on with it.
+        </h3>
+
+        <p>
+          Once everything is agreed, your support begins
+          and we take care of the practical details we've
+          agreed to handle.
+        </p>
+
+      </article>
+
+
+    </div>
+
+
+    <div class="start-action">
+
+      <a
+        href="https://calendly.com/d/dzzd-qmh-mcm/one-off-meeting"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-link"
+      >
+        Talk to Sorted.
+      </a>
+
+    </div>
+
 
   </div>
 
@@ -4828,59 +5388,144 @@ select:focus-visible{
 
 <section class="trust-section fade">
 
-  <div class="container">
+  <div class="container trust-layout">
 
 
-    <div class="trust-heading">
+    <div class="trust-copy">
+
 
       <p class="eyebrow">
-        WHY SORTED?
+        PEACE OF MIND, BUILT IN
       </p>
+
 
       <h2>
-        Trusted in your home. Dependable in your life.
+        The kind of support you can feel comfortable welcoming into your home.
       </h2>
 
+
       <p>
-        Professional, personal and discreet support,
-        shaped around your preferences and the way
-        you like things done.
+        Letting someone into your home, routine and
+        personal life requires more than convenience.
+        It requires trust.
       </p>
 
+
+      <p>
+        Sorted. is built around reliability, discretion
+        and respect — from the way we handle your home
+        to the way we handle your information.
+      </p>
+
+
     </div>
 
 
-    <div class="trust-grid">
+    <div class="assurance-panel">
 
-      <div class="trust-item">
-        <div class="trust-icon">
+
+      <article class="assurance-item">
+
+
+        <div class="assurance-icon">
           <i data-lucide="badge-check"></i>
         </div>
-        <strong>Enhanced DBS Checked</strong>
-      </div>
 
-      <div class="trust-item">
-        <div class="trust-icon">
+
+        <div>
+
+          <h3>
+            Enhanced DBS Checked
+          </h3>
+
+          <p>
+            Additional reassurance when welcoming us
+            into your home.
+          </p>
+
+        </div>
+
+
+      </article>
+
+
+      <article class="assurance-item">
+
+
+        <div class="assurance-icon">
           <i data-lucide="shield-check"></i>
         </div>
-        <strong>Fully Insured</strong>
-      </div>
 
-      <div class="trust-item">
-        <div class="trust-icon">
+
+        <div>
+
+          <h3>
+            Fully Insured
+          </h3>
+
+          <p>
+            Professional cover for the work
+            we undertake.
+          </p>
+
+        </div>
+
+
+      </article>
+
+
+      <article class="assurance-item">
+
+
+        <div class="assurance-icon">
           <i data-lucide="lock-keyhole"></i>
         </div>
-        <strong>Confidential &amp; Discreet</strong>
-      </div>
 
-      <div class="trust-item">
-        <div class="trust-icon">
+
+        <div>
+
+          <h3>
+            Confidential &amp; Discreet
+          </h3>
+
+          <p>
+            Your home, circumstances and personal
+            information are treated with care.
+          </p>
+
+        </div>
+
+
+      </article>
+
+
+      <article class="assurance-item">
+
+
+        <div class="assurance-icon">
           <i data-lucide="map-pin"></i>
         </div>
-        <strong>Local &amp; Independent</strong>
-      </div>
+
+
+        <div>
+
+          <h3>
+            Local &amp; Independent
+          </h3>
+
+          <p>
+            Personal household support from a business
+            based here in East Sussex.
+          </p>
+
+        </div>
+
+
+      </article>
+
 
     </div>
+
 
   </div>
 
@@ -4895,39 +5540,46 @@ select:focus-visible{
 
   <div class="container brand-film-grid">
 
+
     <div class="brand-film-copy">
+
 
       <p class="eyebrow">
         MEET SORTED.
       </p>
 
+
       <h2>
-        See how Sorted. fits around real life.
+        See how Sorted. fits into real life.
       </h2>
 
+
       <p>
-        A quick introduction to the idea behind Sorted.
-        and the kind of practical support we can provide
-        around your home, routine and priorities.
+        A quick introduction to what Sorted. is,
+        how we work and the kind of practical support
+        we can take off your plate.
       </p>
+
 
       <a
         href="about.html"
         class="text-link"
       >
-        Learn more about Sorted.
+        Learn More About Sorted.
       </a>
+
 
     </div>
 
 
     <div class="brand-film-frame">
 
+
       <video
+        class="brand-video"
         controls
         playsinline
-        preload="metadata"
-        poster="welcome-thumbnail1.jpg"
+        preload="auto"
       >
 
         <source
@@ -4939,7 +5591,9 @@ select:focus-visible{
 
       </video>
 
+
     </div>
+
 
   </div>
 
@@ -4954,20 +5608,24 @@ select:focus-visible{
 
   <div class="container narrow">
 
+
     <p class="eyebrow">
-      LOCAL TO EASTBOURNE
+      BASED IN EASTBOURNE
     </p>
+
 
     <h2>
-      Here when you need us.
+      Support that stays close to home.
     </h2>
 
+
     <p>
-      Supporting clients across Eastbourne, Meads,
-      Old Town, Upperton, Sovereign Harbour,
+      Based in Eastbourne and supporting households
+      across Meads, Old Town, Upperton, Sovereign Harbour,
       Hampden Park, Willingdon, Langney, Polegate,
-      Pevensey, Seaford and nearby villages.
+      Pevensey, Seaford and surrounding areas.
     </p>
+
 
   </div>
 
@@ -4975,49 +5633,58 @@ select:focus-visible{
 
 
 <!-- ==================================================
-     FINAL CTA — REDESIGNED
+     FINAL CTA
 ================================================== -->
 
-<section class="final-cta-section fade">
+<section class="final-section fade">
 
   <div class="container">
 
 
-    <div class="final-cta">
+    <div class="final-card">
 
 
-      <div class="final-cta-image">
+      <div>
 
         <img
           src="welcome-thumbnail1.jpg"
-          alt="A warm welcoming entrance into a beautifully cared-for home"
+          alt="A warm welcoming home"
+          class="final-image"
           loading="lazy"
+          decoding="async"
         >
 
       </div>
 
 
-      <div class="final-cta-copy">
+      <div class="final-copy">
+
 
         <p class="eyebrow">
-          READY WHEN YOU ARE
+          YOUR HOME. HANDLED.
         </p>
 
 
         <h2>
-          Life. Beautifully Sorted.
+          What could we take off your plate?
         </h2>
 
 
         <p>
-          You don't need to know exactly what support you
-          need before getting in touch. Tell us what's
-          taking up your time, and we'll work out how
-          Sorted. can make things easier.
+          Tell us what's taking up your time,
+          what keeps getting pushed back or what
+          you simply don't want to manage yourself.
+        </p>
+
+
+        <p>
+          You don't need to work out the right
+          service first. We'll help with that.
         </p>
 
 
         <div class="buttons">
+
 
           <a
             href="https://calendly.com/d/dzzd-qmh-mcm/one-off-meeting"
@@ -5025,40 +5692,37 @@ select:focus-visible{
             rel="noopener noreferrer"
             class="btn btn-primary"
           >
-            Book Your Complimentary Consultation
+            Talk to Sorted.
           </a>
+
 
           <a
             href="contact.html"
             class="text-link"
           >
-            Contact Sorted.
+            Send an Enquiry
           </a>
+
 
         </div>
 
 
-        <p class="final-cta-call">
+        <p class="final-phone">
+
           Prefer to talk first?
+
           <a href="tel:+441323396610">
             01323 396610
           </a>
+
         </p>
 
 
-        <div class="final-reassurance">
+        <div class="final-assurance">
 
-          <span>
-            No obligation
-          </span>
-
-          <span>
-            Confidential
-          </span>
-
-          <span>
-            Friendly local service
-          </span>
+          <span>No obligation</span>
+          <span>Confidential</span>
+          <span>Friendly conversation</span>
 
         </div>
 
@@ -5084,38 +5748,26 @@ select:focus-visible{
 <div class="floating-contact">
 
   <a
-    href="tel:+441323396610"
-    class="floating-btn"
-    aria-label="Call Sorted"
-  >
-    <i data-lucide="phone"></i>
-  </a>
-
-
-  <a
     href="https://wa.me/447460934371"
     target="_blank"
     rel="noopener noreferrer"
-    class="floating-btn"
+    class="floating-message"
     aria-label="Message Sorted on WhatsApp"
   >
+
     <i data-lucide="message-circle"></i>
-  </a>
 
+    <span>
+      Message Sorted.
+    </span>
 
-  <a
-    href="mailto:contact@sortedlife.org.uk"
-    class="floating-btn"
-    aria-label="Email Sorted"
-  >
-    <i data-lucide="mail"></i>
   </a>
 
 </div>
 
 
 <!-- ==================================================
-     FOOTER — REDESIGNED
+     FOOTER
 ================================================== -->
 
 <footer>
@@ -5123,12 +5775,11 @@ select:focus-visible{
   <div class="container">
 
 
-    <!-- BRAND -->
-
     <div class="footer-top">
 
 
       <div class="footer-brand">
+
 
         <a
           href="index.html"
@@ -5144,26 +5795,31 @@ select:focus-visible{
 
 
         <p class="footer-description">
-          Trusted home and lifestyle support across
+          Household and lifestyle management across
           Eastbourne and surrounding areas.
         </p>
+
 
       </div>
 
 
-      <div class="footer-contact-feature">
+      <div class="footer-contact">
 
-        <p>
+
+        <p class="footer-contact-label">
           Get in touch
         </p>
+
 
         <a href="tel:+441323396610">
           01323 396610
         </a>
 
+
         <a href="mailto:contact@sortedlife.org.uk">
           contact@sortedlife.org.uk
         </a>
+
 
       </div>
 
@@ -5171,16 +5827,16 @@ select:focus-visible{
     </div>
 
 
-    <!-- NAVIGATION -->
-
     <div class="footer-grid">
 
 
       <div>
 
+
         <h3>
           Explore
         </h3>
+
 
         <div class="footer-links">
 
@@ -5202,14 +5858,17 @@ select:focus-visible{
 
         </div>
 
+
       </div>
 
 
       <div>
 
+
         <h3>
           Sorted.
         </h3>
+
 
         <div class="footer-links">
 
@@ -5235,16 +5894,19 @@ select:focus-visible{
 
         </div>
 
+
       </div>
 
 
       <div>
 
+
         <h3>
           Hours
         </h3>
 
-        <div class="footer-hours">
+
+        <div class="footer-links">
 
           <p>
             Monday–Friday: 8am–6pm
@@ -5260,13 +5922,12 @@ select:focus-visible{
 
         </div>
 
+
       </div>
 
 
     </div>
 
-
-    <!-- BOTTOM -->
 
     <div class="footer-bottom">
 
@@ -5341,15 +6002,31 @@ select:focus-visible{
 
 
 /* ==================================================
-   MOBILE MENU
+   ELEMENTS
 ================================================== */
 
 const menuToggle =
   document.querySelector(".menu-toggle");
 
 const navigation =
-  document.querySelector("nav");
+  document.querySelector("#site-navigation");
 
+const header =
+  document.querySelector(".site-header");
+
+const floatingContact =
+  document.querySelector(".floating-contact");
+
+const siteFooter =
+  document.querySelector("footer");
+
+const brandVideo =
+  document.querySelector(".brand-video");
+
+
+/* ==================================================
+   MOBILE MENU
+================================================== */
 
 function closeMenu(){
 
@@ -5374,6 +6051,7 @@ function closeMenu(){
 
 if(menuToggle && navigation){
 
+
   menuToggle.addEventListener(
     "click",
     function(){
@@ -5381,10 +6059,12 @@ if(menuToggle && navigation){
       const open =
         navigation.classList.toggle("active");
 
+
       menuToggle.setAttribute(
         "aria-expanded",
         open ? "true" : "false"
       );
+
 
       menuToggle.setAttribute(
         "aria-label",
@@ -5438,57 +6118,87 @@ if(menuToggle && navigation){
     }
   );
 
+
 }
 
 
 /* ==================================================
-   SMOOTH INTERNAL LINKS
+   SCROLL EFFECTS
 ================================================== */
 
-document
-  .querySelectorAll("a[href^='#']")
-  .forEach(function(link){
+let scrollTicking = false;
 
-    link.addEventListener(
-      "click",
-      function(event){
 
-        const href =
-          link.getAttribute("href");
+function updateScrollEffects(){
 
-        if(!href || href === "#"){
-          return;
-        }
+  const scrollY =
+    window.scrollY;
 
-        const target =
-          document.querySelector(href);
 
-        if(target){
+  if(header){
 
-          event.preventDefault();
-
-          target.scrollIntoView({
-            behavior:"smooth",
-            block:"start"
-          });
-
-        }
-
-      }
+    header.classList.toggle(
+      "scrolled",
+      scrollY > 40
     );
 
-  });
+  }
+
+
+  if(floatingContact){
+
+    floatingContact.classList.toggle(
+      "visible",
+      scrollY > 450
+    );
+
+  }
+
+
+  scrollTicking = false;
+
+}
+
+
+function requestScrollUpdate(){
+
+  if(scrollTicking){
+    return;
+  }
+
+
+  scrollTicking = true;
+
+
+  window.requestAnimationFrame(
+    updateScrollEffects
+  );
+
+}
+
+
+window.addEventListener(
+  "scroll",
+  requestScrollUpdate,
+  { passive:true }
+);
+
+
+updateScrollEffects();
 
 
 /* ==================================================
-   FADE
+   FADE-IN
 ================================================== */
 
 const fadeElements =
   document.querySelectorAll(".fade");
 
 
-if("IntersectionObserver" in window){
+if(
+  "IntersectionObserver" in window
+){
+
 
   const fadeObserver =
     new IntersectionObserver(
@@ -5498,15 +6208,17 @@ if("IntersectionObserver" in window){
         entries.forEach(
           function(entry){
 
-            if(entry.isIntersecting){
-
-              entry.target
-                .classList.add("show");
-
-              observer
-                .unobserve(entry.target);
-
+            if(!entry.isIntersecting){
+              return;
             }
+
+
+            entry.target
+              .classList.add("show");
+
+
+            observer
+              .unobserve(entry.target);
 
           }
         );
@@ -5514,9 +6226,10 @@ if("IntersectionObserver" in window){
       },
 
       {
-        threshold:.08,
+        threshold:.07,
+
         rootMargin:
-          "0px 0px -30px 0px"
+          "0px 0px -25px 0px"
       }
 
     );
@@ -5530,7 +6243,9 @@ if("IntersectionObserver" in window){
     }
   );
 
+
 }else{
+
 
   fadeElements.forEach(
     function(element){
@@ -5540,98 +6255,20 @@ if("IntersectionObserver" in window){
     }
   );
 
+
 }
 
 
 /* ==================================================
-   HEADER EFFECT
+   FLOATING CONTACT / FOOTER
 ================================================== */
-
-const header =
-  document.querySelector(".site-header");
-
-
-function updateHeader(){
-
-  if(!header){
-    return;
-  }
-
-  if(window.scrollY > 40){
-
-    header.style.background =
-      "rgba(255,255,255,.96)";
-
-    header.style.boxShadow =
-      "0 13px 35px rgba(23,38,27,.11)";
-
-  }else{
-
-    header.style.background =
-      "rgba(255,255,255,.80)";
-
-    header.style.boxShadow =
-      "0 9px 35px rgba(23,38,27,.07)";
-
-  }
-
-}
-
-
-window.addEventListener(
-  "scroll",
-  updateHeader,
-  {
-    passive:true
-  }
-);
-
-updateHeader();
-
-
-/* ==================================================
-   FLOATING CONTACT
-================================================== */
-
-const floatingContact =
-  document.querySelector(".floating-contact");
-
-const siteFooter =
-  document.querySelector("footer");
-
-
-function updateFloatingContact(){
-
-  if(!floatingContact){
-    return;
-  }
-
-  floatingContact.classList.toggle(
-    "visible",
-    window.scrollY > 350
-  );
-
-}
-
-
-window.addEventListener(
-  "scroll",
-  updateFloatingContact,
-  {
-    passive:true
-  }
-);
-
-updateFloatingContact();
-
-
-/* HIDE FLOATING BUTTONS WHEN FOOTER IS VISIBLE */
 
 if(
   floatingContact &&
   siteFooter &&
   "IntersectionObserver" in window
 ){
+
 
   const footerObserver =
     new IntersectionObserver(
@@ -5657,7 +6294,62 @@ if(
 
     );
 
+
   footerObserver.observe(siteFooter);
+
+
+}
+
+
+/* ==================================================
+   VIDEO FIRST FRAME
+================================================== */
+
+if(brandVideo){
+
+
+  function revealVideoFrame(){
+
+    if(
+      Number.isFinite(brandVideo.duration) &&
+      brandVideo.duration > 0 &&
+      brandVideo.currentTime === 0
+    ){
+
+      try{
+
+        brandVideo.currentTime =
+          Math.min(
+            .05,
+            brandVideo.duration / 100
+          );
+
+      }catch(error){
+        /* Browser can simply use its default video preview */
+      }
+
+    }
+
+  }
+
+
+  brandVideo.addEventListener(
+    "loadedmetadata",
+    revealVideoFrame,
+    { once:true }
+  );
+
+
+  brandVideo.addEventListener(
+    "seeked",
+    function(){
+
+      brandVideo.pause();
+
+    },
+    { once:true }
+  );
+
 
 }
 
@@ -5673,10 +6365,12 @@ function acceptCookies(){
     "yes"
   );
 
+
   const banner =
     document.getElementById(
       "cookie-banner"
     );
+
 
   if(banner){
 
@@ -5688,14 +6382,20 @@ function acceptCookies(){
 }
 
 
+/* ==================================================
+   INITIALISE
+================================================== */
+
 document.addEventListener(
   "DOMContentLoaded",
   function(){
+
 
     const banner =
       document.getElementById(
         "cookie-banner"
       );
+
 
     if(
       banner &&
@@ -5709,43 +6409,13 @@ document.addEventListener(
 
     }
 
-  }
-);
-
-
-/* ==================================================
-   LOAD
-================================================== */
-
-window.addEventListener(
-  "load",
-  function(){
-
-    const loader =
-      document.querySelector(".loader");
-
-    if(loader){
-
-      loader.style.pointerEvents =
-        "none";
-
-      setTimeout(
-        function(){
-
-          loader.remove();
-
-        },
-        1250
-      );
-
-    }
-
 
     if(window.lucide){
 
       lucide.createIcons();
 
     }
+
 
   }
 );

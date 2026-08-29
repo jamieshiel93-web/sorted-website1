@@ -4,36 +4,79 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Sorted. Memberships | Ongoing Home & Lifestyle Support</title>
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
+
+
+<!-- ==================================================
+     SEO
+================================================== -->
+
+<title>Sorted. Memberships | Household & Lifestyle Management</title>
 
 <meta
   name="description"
-  content="Explore Sorted. memberships for dependable ongoing household, home and lifestyle support across Eastbourne and surrounding areas."
+  content="Sorted. memberships provide ongoing household and lifestyle management across Eastbourne and surrounding areas, with reserved support, priority access, household continuity and increasingly proactive help."
 >
 
-<meta name="theme-color" content="#17261b">
+<meta
+  name="theme-color"
+  content="#17261b"
+>
 
-<link rel="icon" href="favicon.png" type="image/png">
-<link rel="apple-touch-icon" href="favicon.png">
+<meta
+  name="robots"
+  content="index,follow"
+>
 
 <link
   rel="canonical"
   href="https://sortedlife.org.uk/memberships.html"
 >
 
+
+<!-- ==================================================
+     ICONS
+================================================== -->
+
+<link
+  rel="icon"
+  href="favicon.png"
+  type="image/png"
+>
+
+<link
+  rel="apple-touch-icon"
+  href="favicon.png"
+>
+
+
+<!-- ==================================================
+     SOCIAL
+================================================== -->
+
+<meta
+  property="og:site_name"
+  content="Sorted."
+>
+
 <meta
   property="og:title"
-  content="Sorted. Memberships | Ongoing Home & Lifestyle Support"
+  content="Sorted. Memberships | Household & Lifestyle Management"
 >
 
 <meta
   property="og:description"
-  content="Tailored ongoing household and lifestyle support designed around your home, routine and priorities."
+  content="Less to organise. Less to remember. More handled."
 >
 
-<meta property="og:type" content="website">
+<meta
+  property="og:type"
+  content="website"
+>
 
 <meta
   property="og:url"
@@ -45,16 +88,25 @@
   content="https://sortedlife.org.uk/memberships-hero.jpg"
 >
 
-<meta name="twitter:card" content="summary_large_image">
+<meta
+  property="og:image:alt"
+  content="Sorted. household and lifestyle memberships"
+>
+
+
+<meta
+  name="twitter:card"
+  content="summary_large_image"
+>
 
 <meta
   name="twitter:title"
-  content="Sorted. Memberships | Ongoing Home & Lifestyle Support"
+  content="Sorted. Memberships | Household & Lifestyle Management"
 >
 
 <meta
   name="twitter:description"
-  content="Tailored ongoing household and lifestyle support designed around your home, routine and priorities."
+  content="Less to organise. Less to remember. More handled."
 >
 
 <meta
@@ -62,10 +114,32 @@
   content="https://sortedlife.org.uk/memberships-hero.jpg"
 >
 
-<script src="https://unpkg.com/lucide@0.542.0/dist/umd/lucide.js"></script>
+
+<!-- ==================================================
+     PERFORMANCE
+================================================== -->
+
+<link
+  rel="preload"
+  href="memberships-hero.jpg"
+  as="image"
+  fetchpriority="high"
+>
+
+
+<script>
+  document.documentElement.classList.add("js");
+</script>
+
+
+<script
+  defer
+  src="https://unpkg.com/lucide@0.542.0/dist/umd/lucide.js"
+></script>
 
 
 <style>
+
 
 /* ==================================================
    ROOT
@@ -79,6 +153,7 @@
 
   --forest:#17261b;
   --forest-soft:#223228;
+  --forest-deep:#101a13;
 
   --sage:#314632;
   --sage-mid:#718c67;
@@ -93,15 +168,17 @@
   --muted:#6f746e;
 
   --line:rgba(23,38,27,.10);
+  --line-strong:rgba(23,38,27,.16);
+  --gold-line:rgba(202,167,106,.42);
 
   --shadow:
     0 24px 65px rgba(23,38,27,.13);
 
-  --soft-shadow:
-    0 14px 36px rgba(23,38,27,.09);
+  --shadow-deep:
+    0 34px 85px rgba(23,38,27,.17);
 
-  --radius:28px;
-  --radius-lg:40px;
+  --soft-shadow:
+    0 14px 36px rgba(23,38,27,.08);
 
 }
 
@@ -122,7 +199,11 @@ html{
 
 body{
 
-  margin:0;
+  overflow-x:hidden;
+
+  background:var(--cream);
+
+  color:var(--ink);
 
   font-family:
     -apple-system,
@@ -133,13 +214,10 @@ body{
     Arial,
     sans-serif;
 
-  background:var(--cream);
-
-  color:var(--ink);
-
   line-height:1.65;
 
-  overflow-x:hidden;
+  text-rendering:optimizeLegibility;
+  -webkit-font-smoothing:antialiased;
 
 }
 
@@ -157,25 +235,20 @@ body::before{
   background:
 
     radial-gradient(
-      circle at 10% 5%,
-      rgba(202,167,106,.10),
+      circle at 7% 2%,
+      rgba(202,167,106,.09),
       transparent 31%
     ),
 
     radial-gradient(
-      circle at 92% 24%,
-      rgba(113,140,103,.09),
+      circle at 94% 18%,
+      rgba(113,140,103,.07),
       transparent 30%
     );
 
 }
 
 ::selection{
-  background:var(--gold);
-  color:white;
-}
-
-::-moz-selection{
   background:var(--gold);
   color:white;
 }
@@ -188,11 +261,13 @@ a{
 img{
   display:block;
   width:100%;
+  height:auto;
 }
 
 button,
 input,
-textarea{
+textarea,
+select{
   font:inherit;
 }
 
@@ -201,7 +276,7 @@ button{
 }
 
 section[id]{
-  scroll-margin-top:92px;
+  scroll-margin-top:90px;
 }
 
 
@@ -223,6 +298,7 @@ section[id]{
   border-radius:12px;
 
   background:var(--forest);
+
   color:white;
 
   font-weight:800;
@@ -238,9 +314,11 @@ section[id]{
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
-textarea:focus-visible{
+textarea:focus-visible,
+select:focus-visible{
 
   outline:3px solid var(--gold);
+
   outline-offset:4px;
 
 }
@@ -253,33 +331,40 @@ textarea:focus-visible{
 .container{
 
   width:min(1180px,92%);
+
   margin:0 auto;
 
 }
 
 .narrow{
 
-  width:min(820px,100%);
+  width:min(790px,100%);
+
   margin:0 auto;
 
 }
 
 section{
 
-  padding:88px 0;
+  position:relative;
+
+  padding:104px 0;
 
 }
 
 .eyebrow{
 
-  margin-bottom:13px;
+  margin-bottom:15px;
 
   color:var(--gold);
 
-  font-size:.74rem;
+  font-size:.72rem;
+
   font-weight:850;
 
-  letter-spacing:2.8px;
+  letter-spacing:3px;
+
+  line-height:1.4;
 
   text-transform:uppercase;
 
@@ -287,9 +372,9 @@ section{
 
 .section-heading{
 
-  width:min(800px,100%);
+  width:min(850px,100%);
 
-  margin:0 auto 46px;
+  margin:0 auto 54px;
 
   text-align:center;
 
@@ -297,37 +382,37 @@ section{
 
 .section-heading h2{
 
-  margin-bottom:18px;
+  margin-bottom:19px;
+
+  color:var(--forest);
 
   font-family:
     Georgia,
     "Times New Roman",
     serif;
 
-  color:var(--forest);
-
   font-size:
-    clamp(2.45rem,5vw,4.15rem);
+    clamp(2.75rem,5vw,4.65rem);
 
   font-weight:500;
 
-  line-height:1.02;
+  line-height:.99;
 
-  letter-spacing:-2px;
+  letter-spacing:-2.5px;
 
 }
 
-.section-heading p{
+.section-heading p:not(.eyebrow){
 
-  width:min(690px,100%);
+  width:min(700px,100%);
 
   margin:0 auto;
 
   color:var(--muted);
 
-  font-size:1.04rem;
+  font-size:1.02rem;
 
-  line-height:1.8;
+  line-height:1.82;
 
 }
 
@@ -339,36 +424,41 @@ section{
 .buttons{
 
   display:flex;
+
   flex-wrap:wrap;
 
-  gap:12px;
+  align-items:center;
+
+  gap:13px;
 
 }
 
 .btn{
-
-  min-height:53px;
 
   display:inline-flex;
 
   align-items:center;
   justify-content:center;
 
-  gap:8px;
+  min-height:53px;
 
   padding:13px 25px;
 
+  border:0;
+
   border-radius:999px;
+
+  cursor:pointer;
 
   font-weight:800;
 
   text-align:center;
 
   transition:
-    transform .3s ease,
-    box-shadow .3s ease,
-    background .3s ease,
-    color .3s ease;
+    transform .28s ease,
+    box-shadow .28s ease,
+    background .28s ease,
+    color .28s ease;
 
 }
 
@@ -377,14 +467,13 @@ section{
   transform:translateY(-2px);
 
   box-shadow:
-    0 17px 36px rgba(23,38,27,.15);
+    0 16px 34px rgba(23,38,27,.15);
 
 }
 
 .btn-primary{
 
   background:
-
     linear-gradient(
       135deg,
       var(--forest),
@@ -395,23 +484,50 @@ section{
 
 }
 
-.btn-light{
-
-  background:
-    rgba(255,255,255,.93);
-
-  color:var(--forest);
-
-  border:
-    1px solid rgba(23,38,27,.15);
-
-}
-
 .btn-gold{
 
   background:var(--gold);
+
   color:var(--forest);
 
+}
+
+.btn-light{
+
+  border:1px solid var(--line);
+
+  background:white;
+
+  color:var(--forest);
+
+}
+
+.text-link{
+
+  display:inline-flex;
+
+  align-items:center;
+
+  gap:8px;
+
+  color:var(--forest);
+
+  font-weight:800;
+
+}
+
+.text-link::after{
+
+  content:"→";
+
+  color:var(--gold);
+
+  transition:transform .28s ease;
+
+}
+
+.text-link:hover::after{
+  transform:translateX(5px);
 }
 
 
@@ -422,21 +538,22 @@ section{
 .site-header{
 
   position:sticky;
+
   top:0;
 
   z-index:1000;
 
   background:
-    rgba(255,255,255,.78);
+    rgba(255,255,255,.82);
 
   backdrop-filter:blur(18px);
   -webkit-backdrop-filter:blur(18px);
 
   border-bottom:
-    1px solid rgba(255,255,255,.45);
+    1px solid rgba(255,255,255,.46);
 
   box-shadow:
-    0 8px 30px rgba(23,38,27,.06);
+    0 8px 28px rgba(23,38,27,.06);
 
   transition:
     background .3s ease,
@@ -447,14 +564,16 @@ section{
 .site-header.scrolled{
 
   background:
-    rgba(255,255,255,.96);
+    rgba(255,255,255,.97);
 
   box-shadow:
-    0 12px 35px rgba(23,38,27,.11);
+    0 12px 34px rgba(23,38,27,.10);
 
 }
 
 .nav-wrap{
+
+  position:relative;
 
   min-height:74px;
 
@@ -463,9 +582,7 @@ section{
   align-items:center;
   justify-content:space-between;
 
-  gap:22px;
-
-  position:relative;
+  gap:24px;
 
 }
 
@@ -475,11 +592,16 @@ section{
 
   color:var(--forest);
 
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
   font-size:2rem;
 
-  font-weight:850;
+  font-weight:500;
 
-  letter-spacing:-1px;
+  letter-spacing:-1.2px;
 
 }
 
@@ -490,9 +612,10 @@ section{
 nav{
 
   display:flex;
+
   align-items:center;
 
-  gap:20px;
+  gap:22px;
 
 }
 
@@ -500,7 +623,7 @@ nav a{
 
   color:var(--sage);
 
-  font-size:.91rem;
+  font-size:.9rem;
 
   font-weight:720;
 
@@ -508,7 +631,6 @@ nav a{
 
   transition:
     color .25s ease,
-    transform .25s ease,
     background .25s ease;
 
 }
@@ -521,15 +643,26 @@ nav a.active-page{
 
   padding:8px 14px;
 
+  border:
+    1px solid rgba(202,167,106,.24);
+
   border-radius:999px;
+
+  background:
+    rgba(202,167,106,.14);
 
   color:var(--forest);
 
-  background:
-    rgba(202,167,106,.15);
+}
 
-  border:
-    1px solid rgba(202,167,106,.29);
+.client-login{
+
+  margin-left:1px;
+
+  padding-left:20px;
+
+  border-left:
+    1px solid var(--line);
 
 }
 
@@ -537,17 +670,18 @@ nav a.active-page{
 
   display:none;
 
+  width:43px;
+  height:43px;
+
   align-items:center;
   justify-content:center;
 
-  width:42px;
-  height:42px;
-
   border:0;
+
   border-radius:50%;
 
   background:
-    rgba(202,167,106,.12);
+    rgba(202,167,106,.10);
 
   color:var(--forest);
 
@@ -569,11 +703,12 @@ nav a.active-page{
 
 .membership-hero{
 
-  min-height:82vh;
-
   position:relative;
 
+  min-height:84vh;
+
   display:flex;
+
   align-items:center;
 
   overflow:hidden;
@@ -582,10 +717,10 @@ nav a.active-page{
 
     linear-gradient(
       90deg,
-      rgba(248,241,231,.98) 0%,
-      rgba(248,241,231,.92) 31%,
-      rgba(248,241,231,.67) 51%,
-      rgba(248,241,231,.17) 77%,
+      rgba(248,241,231,.99) 0%,
+      rgba(248,241,231,.96) 30%,
+      rgba(248,241,231,.77) 51%,
+      rgba(248,241,231,.22) 77%,
       rgba(248,241,231,.05) 100%
     ),
 
@@ -601,15 +736,15 @@ nav a.active-page{
   content:"";
 
   position:absolute;
+
   inset:0;
 
   pointer-events:none;
 
   background:
-
     linear-gradient(
       180deg,
-      rgba(255,255,255,.04),
+      rgba(255,255,255,.02),
       rgba(23,38,27,.04)
     );
 
@@ -629,52 +764,40 @@ nav a.active-page{
 
 .hero-copy{
 
-  width:min(660px,100%);
+  width:min(680px,100%);
 
 }
 
-.membership-page-label{
+.hero-label{
 
-  display:inline-flex;
+  display:flex;
 
   align-items:center;
 
-  gap:9px;
+  gap:12px;
 
-  margin-bottom:19px;
+  margin-bottom:22px;
 
-  padding:9px 15px;
+  color:var(--sage);
 
-  border-radius:999px;
-
-  background:var(--forest);
-
-  color:white;
-
-  border:
-    1px solid rgba(202,167,106,.45);
-
-  box-shadow:
-    0 10px 25px rgba(23,38,27,.10);
-
-  font-size:.72rem;
+  font-size:.7rem;
 
   font-weight:850;
 
-  letter-spacing:1.8px;
+  letter-spacing:2.35px;
 
   text-transform:uppercase;
 
 }
 
-.membership-page-label-dot{
+.hero-label::before{
 
-  width:7px;
-  height:7px;
+  content:"";
 
-  flex:0 0 7px;
+  width:34px;
+  height:1px;
 
-  border-radius:50%;
+  flex-shrink:0;
 
   background:var(--gold);
 
@@ -682,99 +805,106 @@ nav a.active-page{
 
 .hero-copy h1{
 
-  margin-bottom:24px;
+  max-width:670px;
+
+  margin-bottom:25px;
+
+  color:var(--forest);
 
   font-family:
     Georgia,
     "Times New Roman",
     serif;
 
-  color:var(--forest);
-
   font-size:
-    clamp(3.5rem,6.6vw,6.25rem);
+    clamp(3.8rem,6.5vw,6.25rem);
 
   font-weight:500;
 
-  line-height:.92;
+  line-height:.91;
 
   letter-spacing:-4px;
 
 }
 
+.hero-copy h1 em{
+
+  color:var(--gold);
+
+  font-style:italic;
+
+  font-weight:500;
+
+}
+
 .hero-lead{
 
-  max-width:625px;
+  max-width:610px;
 
-  margin-bottom:13px;
+  margin-bottom:15px;
 
   color:var(--forest);
 
-  font-size:1.15rem;
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
 
-  font-weight:650;
+  font-size:
+    clamp(1.3rem,2vw,1.7rem);
 
-  line-height:1.72;
+  line-height:1.42;
 
 }
 
 .hero-description{
 
-  max-width:625px;
-
-  margin-bottom:27px;
+  max-width:615px;
 
   color:var(--muted);
 
-  font-size:1.01rem;
+  font-size:1rem;
 
-  line-height:1.8;
+  line-height:1.82;
 
+}
+
+.hero-buttons{
+  margin-top:29px;
 }
 
 .hero-trust{
 
   display:flex;
+
   flex-wrap:wrap;
 
-  gap:9px;
+  gap:9px 20px;
 
   margin-top:27px;
+
+  padding-top:20px;
+
+  border-top:
+    1px solid var(--line);
 
 }
 
 .hero-trust span{
 
-  display:inline-flex;
-
-  align-items:center;
-
-  gap:7px;
-
-  padding:8px 12px;
-
-  border-radius:999px;
-
-  background:
-    rgba(255,250,244,.91);
-
-  border:
-    1px solid rgba(202,167,106,.30);
-
   color:var(--sage);
 
-  font-size:.77rem;
+  font-size:.75rem;
 
-  font-weight:760;
-
-  box-shadow:
-    0 7px 18px rgba(23,38,27,.04);
+  font-weight:740;
 
 }
 
 .hero-trust span::before{
 
   content:"✓";
+
+  margin-right:7px;
 
   color:var(--gold);
 
@@ -784,59 +914,86 @@ nav a.active-page{
 
 
 /* ==================================================
-   WHAT MEMBERSHIP MEANS
+   WHY MEMBERSHIP
 ================================================== */
 
-.membership-meaning{
+.membership-difference{
 
-  background:var(--cream-soft);
+  overflow:hidden;
+
+  background:white;
 
 }
 
-.meaning-grid{
+.difference-layout{
 
   display:grid;
 
   grid-template-columns:
-    .9fr 1.1fr;
+    .88fr 1.12fr;
 
-  gap:64px;
+  gap:70px;
 
   align-items:center;
 
 }
 
-.meaning-title{
+.difference-copy h2{
 
-  padding-right:15px;
+  margin-bottom:21px;
 
-}
-
-.meaning-title h2{
+  color:var(--forest);
 
   font-family:
     Georgia,
     "Times New Roman",
     serif;
 
-  color:var(--forest);
-
   font-size:
-    clamp(2.65rem,5vw,4.55rem);
+    clamp(2.85rem,5vw,4.6rem);
 
   font-weight:500;
 
   line-height:1;
 
-  letter-spacing:-2.5px;
+  letter-spacing:-2.4px;
 
 }
 
-.meaning-title h2 span{
+.difference-copy > p:not(.eyebrow){
 
-  display:block;
+  margin-bottom:16px;
 
-  margin-top:10px;
+  color:var(--muted);
+
+  line-height:1.84;
+
+}
+
+.difference-statement{
+
+  margin-top:29px;
+
+  padding-left:24px;
+
+  border-left:
+    1px solid var(--gold);
+
+  color:var(--forest);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(1.4rem,2.5vw,1.95rem);
+
+  line-height:1.42;
+
+}
+
+.difference-statement em{
 
   color:var(--gold);
 
@@ -844,252 +1001,35 @@ nav a.active-page{
 
 }
 
-.meaning-copy{
-
-  padding-left:42px;
-
-  border-left:
-    1px solid rgba(202,167,106,.44);
-
-}
-
-.meaning-copy > p{
-
-  margin-bottom:26px;
-
-  color:var(--muted);
-
-  font-size:1.03rem;
-
-  line-height:1.84;
-
-}
-
-.meaning-items{
+.difference-list{
 
   display:grid;
-
-  grid-template-columns:
-    repeat(2,1fr);
-
-  gap:0 20px;
-
-}
-
-.meaning-item{
-
-  padding:20px 4px;
 
   border-top:
-    1px solid rgba(23,38,27,.11);
+    1px solid var(--line);
 
 }
 
-.meaning-item strong{
-
-  display:block;
-
-  margin-bottom:5px;
-
-  color:var(--forest);
-
-  font-size:1rem;
-
-}
-
-.meaning-item span{
-
-  color:var(--muted);
-
-  font-size:.92rem;
-
-  line-height:1.6;
-
-}
-
-
-/* ==================================================
-   HOW MEMBERSHIPS WORK
-================================================== */
-
-.how-section{
-
-  background:white;
-
-}
-
-.how-grid{
+.difference-row{
 
   display:grid;
 
   grid-template-columns:
-    1fr 1fr;
+    46px 1fr;
 
-  gap:58px;
+  gap:17px;
 
-  align-items:center;
+  padding:22px 0;
 
-}
-
-.how-image-wrap{
-
-  position:relative;
+  border-bottom:
+    1px solid var(--line);
 
 }
 
-.how-image{
+.difference-icon{
 
-  height:560px;
-
-  object-fit:cover;
-
-  border-radius:32px;
-
-  background:var(--cream-deep);
-
-  box-shadow:var(--shadow);
-
-}
-
-.how-image-caption{
-
-  position:absolute;
-
-  left:22px;
-  bottom:22px;
-
-  width:min(290px,calc(100% - 44px));
-
-  padding:17px 19px;
-
-  border-radius:18px;
-
-  background:
-    rgba(255,250,244,.95);
-
-  border:
-    1px solid rgba(202,167,106,.28);
-
-  box-shadow:
-    0 14px 35px rgba(23,38,27,.12);
-
-  backdrop-filter:blur(8px);
-
-}
-
-.how-image-caption strong{
-
-  display:block;
-
-  margin-bottom:4px;
-
-  color:var(--forest);
-
-  font-size:.94rem;
-
-}
-
-.how-image-caption span{
-
-  display:block;
-
-  color:var(--muted);
-
-  font-size:.86rem;
-
-  line-height:1.55;
-
-}
-
-.how-copy h2{
-
-  margin-bottom:18px;
-
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  color:var(--forest);
-
-  font-size:
-    clamp(2.55rem,5vw,4rem);
-
-  font-weight:500;
-
-  line-height:1;
-
-  letter-spacing:-2px;
-
-}
-
-.how-copy > p{
-
-  margin-bottom:31px;
-
-  color:var(--muted);
-
-  line-height:1.8;
-
-}
-
-.steps{
-
-  position:relative;
-
-  display:grid;
-
-}
-
-.steps::before{
-
-  content:"";
-
-  position:absolute;
-
-  left:23px;
-
-  top:25px;
-  bottom:25px;
-
-  width:1px;
-
-  background:
-
-    linear-gradient(
-      var(--gold),
-      rgba(202,167,106,.11)
-    );
-
-}
-
-.step{
-
-  position:relative;
-
-  display:grid;
-
-  grid-template-columns:
-    48px 1fr;
-
-  gap:19px;
-
-  padding-bottom:29px;
-
-}
-
-.step:last-child{
-  padding-bottom:0;
-}
-
-.step-number{
-
-  position:relative;
-
-  z-index:2;
-
-  width:48px;
-  height:48px;
+  width:42px;
+  height:42px;
 
   display:flex;
 
@@ -1098,21 +1038,23 @@ nav a.active-page{
 
   border-radius:50%;
 
-  background:var(--forest);
+  background:
+    rgba(202,167,106,.11);
 
-  color:white;
-
-  font-size:.78rem;
-
-  font-weight:850;
-
-  letter-spacing:1px;
+  color:var(--sage);
 
 }
 
-.step h3{
+.difference-icon svg{
 
-  margin-bottom:6px;
+  width:19px;
+  height:19px;
+
+}
+
+.difference-row h3{
+
+  margin-bottom:4px;
 
   color:var(--forest);
 
@@ -1121,19 +1063,19 @@ nav a.active-page{
     "Times New Roman",
     serif;
 
-  font-size:1.42rem;
+  font-size:1.25rem;
 
   font-weight:500;
 
 }
 
-.step p{
+.difference-row p{
 
   color:var(--muted);
 
-  font-size:.95rem;
+  font-size:.9rem;
 
-  line-height:1.67;
+  line-height:1.62;
 
 }
 
@@ -1144,8 +1086,9 @@ nav a.active-page{
 
 .memberships-section{
 
-  background:
+  overflow:hidden;
 
+  background:
     linear-gradient(
       180deg,
       var(--cream),
@@ -1154,12 +1097,12 @@ nav a.active-page{
 
 }
 
-.membership-intro-note{
+.membership-note{
 
-  width:min(680px,100%);
+  width:min(720px,100%);
 
   margin:
-    -25px auto 44px;
+    -25px auto 47px;
 
   color:var(--muted);
 
@@ -1167,7 +1110,7 @@ nav a.active-page{
 
   font-size:.87rem;
 
-  line-height:1.65;
+  line-height:1.7;
 
 }
 
@@ -1189,16 +1132,17 @@ nav a.active-page{
   overflow:hidden;
 
   display:flex;
+
   flex-direction:column;
 
   min-width:0;
 
+  border:
+    1px solid rgba(202,167,106,.23);
+
   border-radius:31px;
 
   background:white;
-
-  border:
-    1px solid rgba(202,167,106,.23);
 
   box-shadow:var(--soft-shadow);
 
@@ -1218,34 +1162,33 @@ nav a.active-page{
 
 .membership-card.complete{
 
-  background:
+  border-color:
+    rgba(202,167,106,.70);
 
+  background:
     linear-gradient(
       150deg,
-      #17261b,
-      #223228
+      var(--forest),
+      var(--forest-soft)
     );
 
   color:white;
 
-  border-color:
-    rgba(202,167,106,.60);
+  box-shadow:
+    0 28px 70px rgba(23,38,27,.20);
 
 }
 
 .membership-card.signature{
-
   background:#eee5d9;
-
 }
 
 .membership-card.private{
 
   background:
-
     linear-gradient(
       145deg,
-      #152218,
+      #121e15,
       #26372b
     );
 
@@ -1255,31 +1198,30 @@ nav a.active-page{
 
 .membership-image-wrap{
 
-  height:280px;
-
   position:relative;
+
+  height:275px;
 
   overflow:hidden;
 
-  background:#ddd3c5;
+  background:#ded4c7;
 
 }
 
 .membership-image{
 
+  width:100%;
   height:100%;
 
   object-fit:cover;
 
   transition:
-    transform .75s ease;
+    transform .7s ease;
 
 }
 
 .membership-card:hover .membership-image{
-
   transform:scale(1.035);
-
 }
 
 .membership-image-wrap::after{
@@ -1287,16 +1229,14 @@ nav a.active-page{
   content:"";
 
   position:absolute;
+
   inset:0;
 
-  pointer-events:none;
-
   background:
-
     linear-gradient(
       180deg,
-      transparent 45%,
-      rgba(23,38,27,.28)
+      transparent 40%,
+      rgba(23,38,27,.35)
     );
 
 }
@@ -1305,10 +1245,10 @@ nav a.active-page{
 
   position:absolute;
 
+  z-index:2;
+
   left:18px;
   bottom:17px;
-
-  z-index:2;
 
   padding:7px 12px;
 
@@ -1319,7 +1259,7 @@ nav a.active-page{
 
   color:var(--forest);
 
-  font-size:.67rem;
+  font-size:.65rem;
 
   font-weight:850;
 
@@ -1333,10 +1273,10 @@ nav a.active-page{
 
   position:absolute;
 
-  top:17px;
-  right:17px;
-
   z-index:3;
+
+  right:17px;
+  top:17px;
 
   padding:8px 13px;
 
@@ -1346,76 +1286,107 @@ nav a.active-page{
 
   color:var(--forest);
 
-  font-size:.67rem;
+  box-shadow:
+    0 8px 20px rgba(23,38,27,.14);
+
+  font-size:.65rem;
 
   font-weight:900;
 
-  letter-spacing:.8px;
+  letter-spacing:.9px;
+
+  text-transform:uppercase;
 
 }
 
 .membership-body{
 
   display:flex;
+
   flex-direction:column;
 
   flex:1;
 
-  padding:31px;
+  padding:32px;
 
 }
 
-.membership-body .eyebrow{
+.membership-label{
 
   margin-bottom:8px;
 
+  color:var(--gold);
+
+  font-size:.69rem;
+
+  font-weight:850;
+
+  letter-spacing:2px;
+
+  text-transform:uppercase;
+
 }
 
-.complete .eyebrow,
-.private .eyebrow{
-
+.complete .membership-label,
+.private .membership-label{
   color:var(--gold-soft);
-
 }
 
 .membership-body h3{
 
-  margin-bottom:14px;
+  margin-bottom:7px;
+
+  color:var(--forest);
 
   font-family:
     Georgia,
     "Times New Roman",
     serif;
 
-  color:var(--forest);
-
   font-size:
-    clamp(1.95rem,3.2vw,2.65rem);
+    clamp(2.1rem,3vw,2.75rem);
 
   font-weight:500;
 
-  line-height:1.02;
+  line-height:1.03;
 
-  letter-spacing:-1.4px;
+  letter-spacing:-1.3px;
 
 }
 
 .complete .membership-body h3,
 .private .membership-body h3{
-
   color:white;
+}
 
+.membership-tagline{
+
+  margin-bottom:18px;
+
+  color:var(--gold);
+
+  font-size:.86rem;
+
+  font-weight:800;
+
+  line-height:1.5;
+
+}
+
+.complete .membership-tagline,
+.private .membership-tagline{
+  color:var(--gold-soft);
 }
 
 .membership-description{
 
-  margin-bottom:21px;
+  margin-bottom:22px;
 
   color:var(--muted);
 
-  font-size:.97rem;
+  font-size:.96rem;
 
-  line-height:1.72;
+  line-height:1.75;
 
 }
 
@@ -1423,13 +1394,13 @@ nav a.active-page{
 .private .membership-description{
 
   color:
-    rgba(255,255,255,.74);
+    rgba(255,255,255,.73);
 
 }
 
 .membership-price{
 
-  margin-bottom:3px;
+  margin-bottom:22px;
 
   color:var(--forest);
 
@@ -1443,16 +1414,14 @@ nav a.active-page{
 
 .complete .membership-price,
 .private .membership-price{
-
   color:white;
-
 }
 
 .membership-price span{
 
   color:var(--muted);
 
-  font-size:.83rem;
+  font-size:.82rem;
 
   font-weight:650;
 
@@ -1464,35 +1433,36 @@ nav a.active-page{
 .private .membership-price span{
 
   color:
-    rgba(255,255,255,.61);
+    rgba(255,255,255,.58);
 
 }
 
-.membership-hours{
+.membership-feature-title{
 
-  margin-bottom:20px;
+  margin-bottom:11px;
 
-  color:var(--muted);
+  color:var(--forest);
 
-  font-size:.87rem;
+  font-size:.7rem;
+
+  font-weight:850;
+
+  letter-spacing:1.6px;
+
+  text-transform:uppercase;
 
 }
 
-.complete .membership-hours,
-.private .membership-hours{
-
-  color:
-    rgba(255,255,255,.60);
-
+.complete .membership-feature-title,
+.private .membership-feature-title{
+  color:var(--gold-soft);
 }
 
 .visible-benefits{
 
   display:grid;
 
-  gap:9px;
-
-  margin-bottom:22px;
+  gap:10px;
 
 }
 
@@ -1504,9 +1474,9 @@ nav a.active-page{
 
   color:#596059;
 
-  font-size:.92rem;
+  font-size:.91rem;
 
-  line-height:1.52;
+  line-height:1.55;
 
 }
 
@@ -1528,7 +1498,87 @@ nav a.active-page{
 .private .visible-benefits div{
 
   color:
-    rgba(255,255,255,.84);
+    rgba(255,255,255,.83);
+
+}
+
+.capacity-box{
+
+  margin-top:23px;
+
+  padding:17px 18px;
+
+  border:
+    1px solid rgba(23,38,27,.08);
+
+  border-radius:17px;
+
+  background:
+    rgba(23,38,27,.04);
+
+}
+
+.complete .capacity-box,
+.private .capacity-box{
+
+  border-color:
+    rgba(255,255,255,.10);
+
+  background:
+    rgba(255,255,255,.06);
+
+}
+
+.capacity-label{
+
+  display:block;
+
+  margin-bottom:5px;
+
+  color:var(--gold);
+
+  font-size:.64rem;
+
+  font-weight:850;
+
+  letter-spacing:1.3px;
+
+  text-transform:uppercase;
+
+}
+
+.capacity-box strong{
+
+  display:block;
+
+  color:var(--forest);
+
+  font-size:.94rem;
+
+}
+
+.complete .capacity-box strong,
+.private .capacity-box strong{
+  color:white;
+}
+
+.capacity-box p{
+
+  margin-top:5px;
+
+  color:var(--muted);
+
+  font-size:.81rem;
+
+  line-height:1.55;
+
+}
+
+.complete .capacity-box p,
+.private .capacity-box p{
+
+  color:
+    rgba(255,255,255,.57);
 
 }
 
@@ -1536,12 +1586,12 @@ nav a.active-page{
 
   display:none;
 
-  margin-top:4px;
+  margin-top:22px;
 
-  padding-top:18px;
+  padding-top:20px;
 
   border-top:
-    1px solid rgba(23,38,27,.10);
+    1px solid var(--line);
 
 }
 
@@ -1549,14 +1599,12 @@ nav a.active-page{
 .private .membership-details{
 
   border-color:
-    rgba(255,255,255,.13);
+    rgba(255,255,255,.12);
 
 }
 
 .membership-card.expanded .membership-details{
-
   display:block;
-
 }
 
 .membership-details h4{
@@ -1565,21 +1613,17 @@ nav a.active-page{
 
   color:var(--forest);
 
-  font-size:.97rem;
+  font-size:.94rem;
 
 }
 
 .complete .membership-details h4,
 .private .membership-details h4{
-
   color:white;
-
 }
 
 .membership-details ul{
-
   list-style:none;
-
 }
 
 .membership-details li{
@@ -1587,35 +1631,21 @@ nav a.active-page{
   position:relative;
 
   padding:
-    8px 0
-    8px 24px;
+    8px 0 8px 23px;
 
   border-bottom:
     1px solid rgba(23,38,27,.07);
 
   color:var(--muted);
 
-  font-size:.91rem;
+  font-size:.88rem;
 
   line-height:1.5;
 
 }
 
 .membership-details li:last-child{
-
   border-bottom:0;
-
-}
-
-.complete .membership-details li,
-.private .membership-details li{
-
-  color:
-    rgba(255,255,255,.72);
-
-  border-color:
-    rgba(255,255,255,.08);
-
 }
 
 .membership-details li::before{
@@ -1632,6 +1662,17 @@ nav a.active-page{
 
 }
 
+.complete .membership-details li,
+.private .membership-details li{
+
+  border-color:
+    rgba(255,255,255,.08);
+
+  color:
+    rgba(255,255,255,.70);
+
+}
+
 .membership-actions{
 
   display:grid;
@@ -1640,7 +1681,7 @@ nav a.active-page{
 
   margin-top:auto;
 
-  padding-top:24px;
+  padding-top:25px;
 
 }
 
@@ -1652,18 +1693,18 @@ nav a.active-page{
 
   padding:11px 18px;
 
-  border-radius:999px;
-
   border:
-    1px solid rgba(202,167,106,.50);
+    1px solid rgba(202,167,106,.48);
+
+  border-radius:999px;
 
   background:transparent;
 
   color:var(--forest);
 
-  font-weight:800;
-
   cursor:pointer;
+
+  font-weight:800;
 
   transition:
     background .25s ease,
@@ -1674,16 +1715,17 @@ nav a.active-page{
 .complete .membership-toggle,
 .private .membership-toggle{
 
-  color:white;
-
   border-color:
     rgba(202,167,106,.68);
+
+  color:white;
 
 }
 
 .membership-toggle:hover{
 
   background:var(--gold);
+
   color:var(--forest);
 
 }
@@ -1697,7 +1739,7 @@ nav a.active-page{
   margin-left:8px;
 
   transition:
-    transform .3s ease;
+    transform .25s ease;
 
 }
 
@@ -1747,6 +1789,7 @@ nav a.active-page{
 .complete .membership-cta{
 
   background:var(--gold);
+
   color:var(--forest);
 
 }
@@ -1754,6 +1797,7 @@ nav a.active-page{
 .private .membership-cta{
 
   background:white;
+
   color:var(--forest);
 
 }
@@ -1767,24 +1811,24 @@ nav a.active-page{
 
   margin-top:52px;
 
-  padding:36px 39px;
+  padding:36px 40px;
 
   display:grid;
 
   grid-template-columns:
     1fr auto;
 
-  gap:32px;
+  gap:30px;
 
   align-items:center;
 
-  border-radius:27px;
-
   border:
-    1px solid rgba(202,167,106,.39);
+    1px solid rgba(202,167,106,.38);
+
+  border-radius:28px;
 
   background:
-    rgba(255,250,244,.85);
+    rgba(255,250,244,.89);
 
   box-shadow:var(--soft-shadow);
 
@@ -1792,14 +1836,14 @@ nav a.active-page{
 
 .choice-banner h3{
 
-  margin-bottom:7px;
+  margin-bottom:8px;
+
+  color:var(--forest);
 
   font-family:
     Georgia,
     "Times New Roman",
     serif;
-
-  color:var(--forest);
 
   font-size:
     clamp(1.85rem,4vw,2.55rem);
@@ -1816,82 +1860,41 @@ nav a.active-page{
 
   color:var(--muted);
 
-  line-height:1.67;
+  line-height:1.68;
 
 }
 
 
 /* ==================================================
-   WHAT MEMBERSHIP CAN COVER
+   WHY MEMBERSHIP COSTS MORE
 ================================================== */
 
-.support-section{
+.value-section{
+
+  overflow:hidden;
 
   background:white;
 
 }
 
-.support-feature{
+.value-layout{
 
   display:grid;
 
   grid-template-columns:
-    1.05fr .95fr;
+    .9fr 1.1fr;
 
-  gap:28px;
+  gap:70px;
 
-  align-items:stretch;
-
-  margin-bottom:26px;
+  align-items:center;
 
 }
 
-.support-feature-image{
+.value-copy h2{
 
-  min-height:445px;
+  margin-bottom:21px;
 
-  height:100%;
-
-  object-fit:cover;
-
-  border-radius:29px;
-
-  box-shadow:var(--shadow);
-
-}
-
-.support-feature-copy{
-
-  padding:39px;
-
-  display:flex;
-
-  flex-direction:column;
-  justify-content:center;
-
-  border-radius:29px;
-
-  background:
-
-    linear-gradient(
-      145deg,
-      var(--forest),
-      var(--forest-soft)
-    );
-
-  color:white;
-
-}
-
-.support-feature-copy .eyebrow{
-
-  color:var(--gold-soft);
-
-}
-
-.support-feature-copy h3{
-
-  margin-bottom:16px;
+  color:var(--forest);
 
   font-family:
     Georgia,
@@ -1899,115 +1902,360 @@ nav a.active-page{
     serif;
 
   font-size:
-    clamp(2rem,4vw,3.15rem);
+    clamp(2.8rem,4.9vw,4.5rem);
 
   font-weight:500;
 
-  line-height:1.04;
+  line-height:1;
 
-  letter-spacing:-1.4px;
-
-}
-
-.support-feature-copy p{
-
-  margin-bottom:19px;
-
-  color:
-    rgba(255,255,255,.74);
-
-  line-height:1.76;
+  letter-spacing:-2.4px;
 
 }
 
-.support-feature-copy p:last-child{
+.value-copy > p:not(.eyebrow){
 
-  margin-bottom:0;
+  margin-bottom:17px;
 
-}
+  color:var(--muted);
 
-.support-feature-copy strong{
-
-  color:var(--gold-soft);
+  line-height:1.82;
 
 }
 
-.support-grid{
+.value-highlight{
 
-  display:grid;
+  margin-top:28px;
 
-  grid-template-columns:
-    repeat(3,1fr);
+  padding-left:23px;
 
-  gap:16px;
+  border-left:
+    1px solid var(--gold);
+
+  color:var(--forest);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(1.35rem,2.4vw,1.85rem);
+
+  line-height:1.42;
 
 }
 
-.support-tile{
+.value-panel{
 
-  min-height:220px;
-
-  padding:25px;
-
-  display:flex;
-
-  flex-direction:column;
-  justify-content:space-between;
-
-  border-radius:22px;
+  overflow:hidden;
 
   border:
-    1px solid rgba(23,38,27,.08);
+    1px solid rgba(202,167,106,.25);
+
+  border-radius:30px;
 
   background:var(--cream-soft);
-
-  transition:
-    transform .3s ease,
-    box-shadow .3s ease;
-
-}
-
-.support-tile:nth-child(2){
-  background:var(--sage-pale);
-}
-
-.support-tile:nth-child(3){
-  background:#ede3d5;
-}
-
-.support-tile:nth-child(4){
-
-  background:white;
-
-  border:
-    1px solid rgba(202,167,106,.42);
-
-}
-
-.support-tile:nth-child(5){
-  background:#e9ded1;
-}
-
-.support-tile:nth-child(6){
-
-  background:var(--sage);
-
-  color:white;
-
-}
-
-.support-tile:hover{
-
-  transform:translateY(-4px);
 
   box-shadow:var(--soft-shadow);
 
 }
 
-.support-icon{
+.value-row{
 
-  width:45px;
-  height:45px;
+  display:grid;
+
+  grid-template-columns:
+    46px 1fr;
+
+  gap:17px;
+
+  padding:22px 28px;
+
+  border-bottom:
+    1px solid var(--line);
+
+}
+
+.value-row:last-child{
+  border-bottom:0;
+}
+
+.value-icon{
+
+  width:42px;
+  height:42px;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  border-radius:50%;
+
+  background:
+    rgba(202,167,106,.12);
+
+  color:var(--sage);
+
+}
+
+.value-icon svg{
+
+  width:19px;
+  height:19px;
+
+}
+
+.value-row h3{
+
+  margin-bottom:4px;
+
+  color:var(--forest);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:1.2rem;
+
+  font-weight:500;
+
+}
+
+.value-row p{
+
+  color:var(--muted);
+
+  font-size:.86rem;
+
+  line-height:1.6;
+
+}
+
+
+/* ==================================================
+   LEVEL PROGRESSION
+================================================== */
+
+.progression-section{
+
+  overflow:hidden;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--cream-soft),
+      var(--cream)
+    );
+
+}
+
+.progression-grid{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(220px,1fr)
+    );
+
+  gap:30px;
+
+}
+
+.progression-item{
+
+  padding-top:23px;
+
+  border-top:
+    1px solid var(--gold-line);
+
+}
+
+.progression-level{
+
+  display:block;
+
+  margin-bottom:18px;
+
+  color:var(--gold);
+
+  font-size:.66rem;
+
+  font-weight:850;
+
+  letter-spacing:1.7px;
+
+  text-transform:uppercase;
+
+}
+
+.progression-item h3{
+
+  margin-bottom:10px;
+
+  color:var(--forest);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:1.55rem;
+
+  font-weight:500;
+
+  line-height:1.15;
+
+}
+
+.progression-item p{
+
+  color:var(--muted);
+
+  font-size:.9rem;
+
+  line-height:1.7;
+
+}
+
+.progression-question{
+
+  margin-top:22px;
+
+  color:var(--sage) !important;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:1.08rem !important;
+
+  line-height:1.4 !important;
+
+}
+
+
+/* ==================================================
+   MEMBER SYSTEM
+================================================== */
+
+.member-system{
+
+  position:relative;
+
+  overflow:hidden;
+
+  background:
+    linear-gradient(
+      145deg,
+      var(--forest),
+      #1c2e20
+    );
+
+  color:white;
+
+}
+
+.member-system::before{
+
+  content:"";
+
+  position:absolute;
+
+  width:500px;
+  height:500px;
+
+  right:-230px;
+  top:-230px;
+
+  border:
+    1px solid rgba(202,167,106,.12);
+
+  border-radius:50%;
+
+}
+
+.member-system .section-heading h2{
+  color:white;
+}
+
+.member-system .section-heading p:not(.eyebrow){
+
+  color:
+    rgba(255,255,255,.70);
+
+}
+
+.member-system .eyebrow{
+  color:var(--gold-soft);
+}
+
+.system-layout{
+
+  position:relative;
+
+  z-index:2;
+
+  display:grid;
+
+  grid-template-columns:
+    .9fr 1.1fr;
+
+  gap:60px;
+
+  align-items:center;
+
+}
+
+.system-image{
+
+  width:100%;
+  height:590px;
+
+  object-fit:cover;
+
+  border:
+    1px solid rgba(202,167,106,.24);
+
+  border-radius:36px;
+
+  box-shadow:
+    0 30px 75px rgba(0,0,0,.24);
+
+}
+
+.system-list{
+  display:grid;
+}
+
+.system-item{
+
+  display:grid;
+
+  grid-template-columns:
+    45px 1fr;
+
+  gap:16px;
+
+  padding:21px 0;
+
+  border-bottom:
+    1px solid rgba(255,255,255,.12);
+
+}
+
+.system-item:first-child{
+  padding-top:0;
+}
+
+.system-icon{
+
+  width:42px;
+  height:42px;
 
   display:flex;
 
@@ -2019,67 +2267,265 @@ nav a.active-page{
   background:
     rgba(202,167,106,.14);
 
-  color:var(--forest);
-
-}
-
-.support-tile:nth-child(6)
-.support-icon{
-
-  background:
-    rgba(255,255,255,.12);
-
   color:var(--gold-soft);
 
 }
 
-.support-icon svg{
+.system-icon svg{
 
-  width:21px;
-  height:21px;
+  width:19px;
+  height:19px;
 
 }
 
-.support-tile h3{
+.system-item h3{
 
-  margin:
-    18px 0 8px;
+  margin-bottom:5px;
+
+  color:white;
 
   font-family:
     Georgia,
     "Times New Roman",
     serif;
 
-  color:var(--forest);
-
-  font-size:1.4rem;
+  font-size:1.27rem;
 
   font-weight:500;
 
-  line-height:1.15;
+}
+
+.system-item p{
+
+  color:
+    rgba(255,255,255,.67);
+
+  font-size:.88rem;
+
+  line-height:1.62;
 
 }
 
-.support-tile:nth-child(6) h3{
+.system-tag{
+
+  display:inline-block;
+
+  margin-top:7px;
+
+  color:var(--gold-soft);
+
+  font-size:.63rem;
+
+  font-weight:850;
+
+  letter-spacing:1.2px;
+
+  text-transform:uppercase;
+
+}
+
+
+/* ==================================================
+   WHAT MEMBERSHIP CAN COVER
+================================================== */
+
+.cover-section{
+
+  overflow:hidden;
+
+  background:white;
+
+}
+
+.cover-feature{
+
+  display:grid;
+
+  grid-template-columns:
+    1.05fr .95fr;
+
+  gap:28px;
+
+  margin-bottom:34px;
+
+}
+
+.cover-image{
+
+  width:100%;
+  height:500px;
+
+  object-fit:cover;
+
+  border-radius:31px;
+
+  box-shadow:var(--shadow);
+
+}
+
+.cover-copy{
+
+  display:flex;
+
+  flex-direction:column;
+  justify-content:center;
+
+  padding:43px;
+
+  border-radius:31px;
+
+  background:
+    linear-gradient(
+      145deg,
+      var(--forest),
+      var(--forest-soft)
+    );
 
   color:white;
 
 }
 
-.support-tile p{
+.cover-copy .eyebrow{
+  color:var(--gold-soft);
+}
 
-  color:var(--muted);
+.cover-copy h3{
 
-  font-size:.91rem;
+  margin-bottom:18px;
 
-  line-height:1.66;
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(2.2rem,4vw,3.4rem);
+
+  font-weight:500;
+
+  line-height:1.03;
+
+  letter-spacing:-1.5px;
 
 }
 
-.support-tile:nth-child(6) p{
+.cover-copy p{
+
+  margin-bottom:18px;
 
   color:
-    rgba(255,255,255,.74);
+    rgba(255,255,255,.73);
+
+  line-height:1.78;
+
+}
+
+.cover-copy p:last-child{
+  margin-bottom:0;
+}
+
+.cover-copy strong{
+  color:var(--gold-soft);
+}
+
+.cover-grid{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(240px,1fr)
+    );
+
+  gap:16px;
+
+}
+
+.cover-item{
+
+  min-height:210px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  padding:25px;
+
+  border:
+    1px solid var(--line);
+
+  border-radius:22px;
+
+  background:var(--cream-soft);
+
+}
+
+.cover-item:nth-child(2),
+.cover-item:nth-child(5){
+
+  background:var(--sage-pale);
+
+}
+
+.cover-item:nth-child(3){
+
+  background:#eee4d8;
+
+}
+
+.cover-icon{
+
+  width:43px;
+  height:43px;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  margin-bottom:22px;
+
+  border-radius:50%;
+
+  background:
+    rgba(202,167,106,.12);
+
+  color:var(--sage);
+
+}
+
+.cover-icon svg{
+
+  width:20px;
+  height:20px;
+
+}
+
+.cover-item h3{
+
+  margin-bottom:8px;
+
+  color:var(--forest);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:1.35rem;
+
+  font-weight:500;
+
+}
+
+.cover-item p{
+
+  color:var(--muted);
+
+  font-size:.88rem;
+
+  line-height:1.65;
 
 }
 
@@ -2095,7 +2541,6 @@ nav a.active-page{
   overflow:hidden;
 
   background:
-
     linear-gradient(
       145deg,
       #17261b,
@@ -2115,42 +2560,23 @@ nav a.active-page{
   width:480px;
   height:480px;
 
-  top:-180px;
-  right:-150px;
-
-  border-radius:50%;
+  top:-200px;
+  right:-170px;
 
   border:
     1px solid rgba(202,167,106,.12);
 
-}
-
-.mental-load::after{
-
-  content:"";
-
-  position:absolute;
-
-  width:300px;
-  height:300px;
-
-  left:-170px;
-  bottom:-180px;
-
   border-radius:50%;
 
-  border:
-    1px solid rgba(202,167,106,.08);
-
 }
 
-.mental-load-inner{
+.mental-inner{
 
   position:relative;
 
   z-index:2;
 
-  max-width:1040px;
+  width:min(1000px,100%);
 
   margin:0 auto;
 
@@ -2158,9 +2584,13 @@ nav a.active-page{
 
 }
 
-.mental-load h2{
+.mental-inner .eyebrow{
+  color:var(--gold-soft);
+}
 
-  margin-bottom:39px;
+.mental-inner h2{
+
+  margin-bottom:22px;
 
   font-family:
     Georgia,
@@ -2168,19 +2598,17 @@ nav a.active-page{
     serif;
 
   font-size:
-    clamp(2.65rem,6vw,5.25rem);
+    clamp(2.8rem,5.8vw,5rem);
 
   font-weight:500;
 
-  line-height:.99;
+  line-height:1;
 
-  letter-spacing:-2px;
+  letter-spacing:-2.3px;
 
 }
 
-.mental-load h2 span{
-
-  display:inline;
+.mental-inner h2 em{
 
   color:var(--gold-soft);
 
@@ -2188,43 +2616,54 @@ nav a.active-page{
 
 }
 
-.remember-list{
+.mental-intro{
 
-  width:min(900px,100%);
+  width:min(700px,100%);
+
+  margin:
+    0 auto 42px;
+
+  color:
+    rgba(255,255,255,.70);
+
+  line-height:1.82;
+
+}
+
+.mental-grid{
 
   display:grid;
 
   grid-template-columns:
     repeat(2,1fr);
 
-  gap:0 48px;
+  gap:0 45px;
 
-  margin:
-    0 auto 39px;
+  width:min(900px,100%);
+
+  margin:0 auto;
 
   text-align:left;
 
 }
 
-.remember-item{
+.mental-item{
 
   display:grid;
 
   grid-template-columns:
-    40px 1fr;
+    32px 1fr;
 
-  gap:14px;
-
-  align-items:center;
+  gap:13px;
 
   padding:16px 0;
 
   border-bottom:
-    1px solid rgba(255,255,255,.13);
+    1px solid rgba(255,255,255,.12);
 
 }
 
-.remember-number{
+.mental-number{
 
   color:var(--gold-soft);
 
@@ -2233,250 +2672,374 @@ nav a.active-page{
     "Times New Roman",
     serif;
 
-  font-size:.79rem;
-
-  letter-spacing:1px;
+  font-size:.78rem;
 
 }
 
-.remember-item p{
+.mental-item p{
 
   color:
-    rgba(255,255,255,.86);
+    rgba(255,255,255,.84);
 
-  font-size:.96rem;
-
-  line-height:1.5;
-
-}
-
-.mental-load-line{
-
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  color:white;
-
-  font-size:
-    clamp(1.4rem,3vw,2.15rem);
-
-  line-height:1.3;
+  font-size:.92rem;
 
 }
 
 
 /* ==================================================
-   PEACE OF MIND
+   GETTING STARTED
 ================================================== */
 
-.peace-section{
-
-  padding:0;
-
-  background:var(--forest);
-
-}
-
-.peace-image-wrap{
-
-  position:relative;
-
-  min-height:560px;
-
-  display:flex;
-  align-items:flex-end;
+.how-section{
 
   overflow:hidden;
 
   background:
-
     linear-gradient(
-      90deg,
-      rgba(23,38,27,.55),
-      rgba(23,38,27,.05) 72%
-    ),
-
-    url("membership-peace-of-mind.jpg");
-
-  background-size:cover;
-  background-position:center;
+      180deg,
+      var(--cream-soft),
+      var(--cream)
+    );
 
 }
 
-.peace-copy{
-
-  width:min(520px,90%);
-
-  margin:
-    0 0 43px
-    max(4%,calc((100vw - 1180px) / 2));
-
-  padding:28px 29px;
-
-  border-radius:24px;
-
-  background:
-    rgba(23,38,27,.85);
-
-  border:
-    1px solid rgba(255,255,255,.07);
-
-  backdrop-filter:blur(10px);
-
-  color:white;
-
-  box-shadow:
-    0 20px 55px rgba(23,38,27,.18);
-
-}
-
-.peace-copy .eyebrow{
-
-  color:var(--gold-soft);
-
-}
-
-.peace-copy h2{
-
-  margin-bottom:11px;
-
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  font-size:
-    clamp(2.2rem,5vw,3.55rem);
-
-  font-weight:500;
-
-  line-height:1.05;
-
-}
-
-.peace-copy p{
-
-  color:
-    rgba(255,255,255,.76);
-
-  line-height:1.7;
-
-}
-
-
-/* ==================================================
-   EVERY MEMBERSHIP INCLUDES
-================================================== */
-
-.includes-section{
-
-  background:var(--cream-soft);
-
-}
-
-.includes-heading{
-
-  max-width:740px;
-
-  margin-bottom:42px;
-
-}
-
-.includes-heading h2{
-
-  margin-bottom:14px;
-
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  color:var(--forest);
-
-  font-size:
-    clamp(2.35rem,5vw,3.8rem);
-
-  font-weight:500;
-
-  line-height:1.03;
-
-  letter-spacing:-2px;
-
-}
-
-.includes-heading p{
-
-  color:var(--muted);
-
-  line-height:1.78;
-
-}
-
-.includes-layout{
+.how-layout{
 
   display:grid;
 
   grid-template-columns:
-    .92fr 1.08fr;
+    1fr 1fr;
 
-  gap:50px;
+  gap:65px;
 
   align-items:center;
 
 }
 
-.includes-image{
+.how-image-wrap{
+  position:relative;
+}
 
+.how-image{
+
+  width:100%;
   height:570px;
 
   object-fit:cover;
 
-  border-radius:29px;
+  border-radius:34px;
 
   box-shadow:var(--shadow);
 
 }
 
-.includes-list{
+.how-caption{
+
+  position:absolute;
+
+  left:22px;
+  bottom:22px;
+
+  width:min(310px,calc(100% - 44px));
+
+  padding:18px 19px;
+
+  border:
+    1px solid rgba(202,167,106,.28);
+
+  border-radius:18px;
+
+  background:
+    rgba(255,250,244,.95);
+
+  box-shadow:
+    0 14px 35px rgba(23,38,27,.12);
+
+  backdrop-filter:blur(8px);
+
+}
+
+.how-caption strong{
+
+  display:block;
+
+  margin-bottom:4px;
+
+  color:var(--forest);
+
+  font-size:.92rem;
+
+}
+
+.how-caption span{
+
+  color:var(--muted);
+
+  font-size:.84rem;
+
+  line-height:1.55;
+
+}
+
+.how-copy h2{
+
+  margin-bottom:20px;
+
+  color:var(--forest);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(2.7rem,4.8vw,4.2rem);
+
+  font-weight:500;
+
+  line-height:1;
+
+  letter-spacing:-2.3px;
+
+}
+
+.how-copy > p:not(.eyebrow){
+
+  margin-bottom:30px;
+
+  color:var(--muted);
+
+  line-height:1.82;
+
+}
+
+.steps{
+
+  position:relative;
 
   display:grid;
 
 }
 
-.include-item{
+.steps::before{
+
+  content:"";
+
+  position:absolute;
+
+  left:22px;
+
+  top:24px;
+  bottom:24px;
+
+  width:1px;
+
+  background:
+    linear-gradient(
+      var(--gold),
+      rgba(202,167,106,.10)
+    );
+
+}
+
+.step{
+
+  position:relative;
 
   display:grid;
 
   grid-template-columns:
-    40px 1fr;
+    46px 1fr;
 
-  gap:15px;
+  gap:18px;
 
-  padding:19px 0;
+  padding-bottom:28px;
+
+}
+
+.step:last-child{
+  padding-bottom:0;
+}
+
+.step-number{
+
+  position:relative;
+
+  z-index:2;
+
+  width:46px;
+  height:46px;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  border-radius:50%;
+
+  background:var(--forest);
+
+  color:white;
+
+  font-size:.72rem;
+
+  font-weight:850;
+
+  letter-spacing:.8px;
+
+}
+
+.step h3{
+
+  margin-bottom:5px;
+
+  color:var(--forest);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:1.35rem;
+
+  font-weight:500;
+
+}
+
+.step p{
+
+  color:var(--muted);
+
+  font-size:.9rem;
+
+  line-height:1.65;
+
+}
+
+
+/* ==================================================
+   TRUST
+================================================== */
+
+.trust-section{
+
+  overflow:hidden;
+
+  background:white;
+
+}
+
+.trust-layout{
+
+  display:grid;
+
+  grid-template-columns:
+    .9fr 1.1fr;
+
+  gap:70px;
+
+  align-items:center;
+
+}
+
+.trust-copy h2{
+
+  margin-bottom:22px;
+
+  color:var(--forest);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(2.8rem,4.8vw,4.4rem);
+
+  font-weight:500;
+
+  line-height:1;
+
+  letter-spacing:-2.4px;
+
+}
+
+.trust-copy > p:not(.eyebrow){
+
+  margin-bottom:16px;
+
+  color:var(--muted);
+
+  line-height:1.82;
+
+}
+
+.assurance-panel{
+
+  position:relative;
+
+  overflow:hidden;
+
+  padding:15px 38px;
+
+  border:
+    1px solid rgba(202,167,106,.25);
+
+  border-radius:30px;
+
+  background:var(--cream-soft);
+
+  box-shadow:var(--soft-shadow);
+
+}
+
+.assurance-panel::before{
+
+  content:"";
+
+  position:absolute;
+
+  width:210px;
+  height:210px;
+
+  right:-100px;
+  top:-110px;
+
+  border:
+    1px solid rgba(202,167,106,.14);
+
+  border-radius:50%;
+
+}
+
+.assurance-item{
+
+  position:relative;
+
+  z-index:2;
+
+  display:grid;
+
+  grid-template-columns:
+    45px 1fr;
+
+  gap:17px;
+
+  padding:24px 0;
 
   border-bottom:
-    1px solid rgba(23,38,27,.10);
+    1px solid var(--line);
 
 }
 
-.include-item:first-child{
-
-  padding-top:0;
-
-}
-
-.include-item:last-child{
-
+.assurance-item:last-child{
   border-bottom:0;
-
 }
 
-.include-mark{
+.assurance-icon{
 
-  width:36px;
-  height:36px;
+  width:42px;
+  height:42px;
 
   display:flex;
 
@@ -2486,180 +3049,56 @@ nav a.active-page{
   border-radius:50%;
 
   background:
-    rgba(202,167,106,.13);
+    rgba(202,167,106,.12);
 
-  color:var(--gold);
-
-  font-size:.95rem;
-
-  font-weight:900;
+  color:var(--sage);
 
 }
 
-.include-item h3{
+.assurance-icon svg{
 
-  margin-bottom:4px;
+  width:19px;
+  height:19px;
 
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
+}
+
+.assurance-item h3{
+
+  margin-bottom:5px;
 
   color:var(--forest);
 
-  font-size:1.27rem;
-
-  font-weight:500;
-
-}
-
-.include-item p{
-
-  color:var(--muted);
-
-  font-size:.91rem;
-
-  line-height:1.62;
-
-}
-
-
-/* ==================================================
-   WHY SORTED
-================================================== */
-
-.why-section{
-
-  background:
-
-    linear-gradient(
-      145deg,
-      var(--forest),
-      #1e3022
-    );
-
-  color:white;
-
-}
-
-.why-layout{
-
-  display:grid;
-
-  grid-template-columns:
-    .95fr 1.05fr;
-
-  gap:52px;
-
-  align-items:center;
-
-}
-
-.why-image{
-
-  height:520px;
-
-  object-fit:cover;
-
-  border-radius:29px;
-
-  box-shadow:
-    0 28px 70px rgba(0,0,0,.20);
-
-}
-
-.why-content h2{
-
-  margin-bottom:18px;
-
   font-family:
     Georgia,
     "Times New Roman",
     serif;
 
-  font-size:
-    clamp(2.5rem,5vw,4.1rem);
+  font-size:1.2rem;
 
   font-weight:500;
 
-  line-height:1;
-
-  letter-spacing:-2px;
-
 }
 
-.why-content > p{
+.assurance-item p{
 
-  margin-bottom:27px;
+  color:var(--muted);
 
-  color:
-    rgba(255,255,255,.73);
+  font-size:.85rem;
 
-  line-height:1.78;
-
-}
-
-.why-details{
-
-  display:grid;
-
-  grid-template-columns:
-    repeat(2,1fr);
-
-  gap:12px;
-
-}
-
-.why-item{
-
-  padding:20px;
-
-  border-radius:18px;
-
-  border:
-    1px solid rgba(255,255,255,.10);
-
-  background:
-    rgba(255,255,255,.04);
-
-}
-
-.why-item strong{
-
-  display:block;
-
-  margin-bottom:6px;
-
-  color:var(--gold-soft);
-
-}
-
-.why-item span{
-
-  color:
-    rgba(255,255,255,.72);
-
-  font-size:.89rem;
-
-  line-height:1.55;
+  line-height:1.6;
 
 }
 
 
 /* ==================================================
-   FINAL CTA
+   CONTACT
 ================================================== */
 
-.final-cta-section{
-
-  position:relative;
+.contact-section{
 
   overflow:hidden;
 
-  padding:100px 0;
-
   background:
-
     linear-gradient(
       180deg,
       var(--cream),
@@ -2668,119 +3107,30 @@ nav a.active-page{
 
 }
 
-.final-cta{
-
-  position:relative;
+.contact-grid{
 
   display:grid;
 
   grid-template-columns:
-    1.05fr .95fr;
+    .9fr 1.1fr;
 
-  min-height:560px;
+  gap:65px;
 
-  overflow:hidden;
-
-  border-radius:38px;
-
-  border:
-    1px solid rgba(202,167,106,.26);
-
-  background:white;
-
-  box-shadow:var(--shadow);
+  align-items:start;
 
 }
 
-.final-cta-image{
+.contact-copy{
 
-  position:relative;
+  position:sticky;
 
-  min-height:560px;
-
-  overflow:hidden;
+  top:115px;
 
 }
 
-.final-cta-image img{
+.contact-copy h2{
 
-  width:100%;
-  height:100%;
-
-  object-fit:cover;
-
-  object-position:center;
-
-}
-
-.final-cta-image::after{
-
-  content:"";
-
-  position:absolute;
-  inset:0;
-
-  background:
-
-    linear-gradient(
-      180deg,
-      rgba(23,38,27,.03),
-      rgba(23,38,27,.18)
-    );
-
-}
-
-.final-cta-copy{
-
-  position:relative;
-
-  display:flex;
-
-  flex-direction:column;
-  justify-content:center;
-
-  padding:58px;
-
-  background:
-
-    radial-gradient(
-      circle at 100% 0%,
-      rgba(202,167,106,.14),
-      transparent 28%
-    ),
-
-    var(--cream-soft);
-
-}
-
-.final-cta-copy::after{
-
-  content:"";
-
-  position:absolute;
-
-  right:-80px;
-  bottom:-100px;
-
-  width:220px;
-  height:220px;
-
-  border-radius:50%;
-
-  border:
-    1px solid rgba(202,167,106,.18);
-
-  pointer-events:none;
-
-}
-
-.final-cta-copy h2{
-
-  position:relative;
-
-  z-index:2;
-
-  margin-bottom:18px;
+  margin-bottom:20px;
 
   color:var(--forest);
 
@@ -2790,37 +3140,27 @@ nav a.active-page{
     serif;
 
   font-size:
-    clamp(2.75rem,5vw,4.45rem);
+    clamp(2.9rem,5vw,4.6rem);
 
   font-weight:500;
 
-  line-height:.98;
+  line-height:.99;
 
-  letter-spacing:-2px;
+  letter-spacing:-2.5px;
 
 }
 
-.final-cta-copy > p:not(.eyebrow){
-
-  position:relative;
-
-  z-index:2;
-
-  margin-bottom:25px;
+.contact-copy > p:not(.eyebrow){
 
   color:var(--muted);
 
-  line-height:1.78;
+  line-height:1.82;
 
 }
 
-.cta-phone{
+.contact-phone{
 
-  position:relative;
-
-  z-index:2;
-
-  margin-top:22px;
+  margin-top:25px;
 
   color:var(--muted);
 
@@ -2828,7 +3168,7 @@ nav a.active-page{
 
 }
 
-.cta-phone a{
+.contact-phone a{
 
   color:var(--forest);
 
@@ -2836,37 +3176,34 @@ nav a.active-page{
 
 }
 
-.cta-assurance{
-
-  position:relative;
-
-  z-index:2;
+.contact-assurance{
 
   display:flex;
+
   flex-wrap:wrap;
 
-  gap:8px 15px;
+  gap:8px 14px;
 
-  margin-top:23px;
+  margin-top:24px;
 
-  padding-top:18px;
+  padding-top:20px;
 
   border-top:
-    1px solid rgba(23,38,27,.09);
+    1px solid var(--line);
 
 }
 
-.cta-assurance span{
+.contact-assurance span{
 
   color:var(--sage);
 
-  font-size:.75rem;
+  font-size:.72rem;
 
   font-weight:720;
 
 }
 
-.cta-assurance span::before{
+.contact-assurance span::before{
 
   content:"✓";
 
@@ -2878,191 +3215,14 @@ nav a.active-page{
 
 }
 
-
-/* ==================================================
-   AREAS
-================================================== */
-
-.areas{
-
-  min-height:350px;
-
-  padding:70px 0;
-
-  position:relative;
-
-  display:flex;
-  align-items:center;
-
-  overflow:hidden;
-
-  color:white;
-
-  text-align:center;
-
-  background:
-
-    linear-gradient(
-      rgba(23,38,27,.48),
-      rgba(23,38,27,.60)
-    ),
-
-    url("eastbourne-areas.jpg");
-
-  background-size:cover;
-  background-position:center;
-  background-repeat:no-repeat;
-
-}
-
-.areas .container{
-
-  position:relative;
-
-  z-index:2;
-
-}
-
-.areas .eyebrow{
-
-  color:var(--gold-soft);
-
-}
-
-.areas h2{
-
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  color:white;
-
-  font-size:
-    clamp(2.15rem,4vw,3.15rem);
-
-  font-weight:500;
-
-  line-height:1.08;
-
-}
-
-.areas p{
-
-  margin-top:14px;
-
-  color:
-    rgba(255,255,255,.92);
-
-  line-height:1.72;
-
-}
-
-
-/* ==================================================
-   CONTACT
-================================================== */
-
-.contact-section{
-
-  background:
-
-    linear-gradient(
-      180deg,
-      #fffaf4,
-      #f8f1e7
-    );
-
-}
-
-.contact-grid{
-
-  display:grid;
-
-  grid-template-columns:
-    .85fr 1.15fr;
-
-  gap:58px;
-
-  align-items:start;
-
-}
-
-.contact-copy h2{
-
-  margin-bottom:16px;
-
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  color:var(--forest);
-
-  font-size:
-    clamp(2.5rem,5vw,3.8rem);
-
-  font-weight:500;
-
-  line-height:1;
-
-  letter-spacing:-2px;
-
-}
-
-.contact-copy > p{
-
-  color:var(--muted);
-
-  line-height:1.78;
-
-}
-
-.contact-details{
-
-  display:grid;
-
-  gap:18px;
-
-  margin-top:31px;
-
-}
-
-.contact-detail{
-
-  padding-top:14px;
-
-  border-top:
-    1px solid rgba(23,38,27,.10);
-
-}
-
-.contact-detail h3{
-
-  margin-bottom:3px;
-
-  color:var(--forest);
-
-  font-size:.93rem;
-
-}
-
-.contact-detail p{
-
-  color:var(--muted);
-
-  line-height:1.62;
-
-}
-
 .contact-form{
 
-  padding:38px;
-
-  border-radius:28px;
+  padding:40px;
 
   border:
-    1px solid rgba(202,167,106,.27);
+    1px solid rgba(202,167,106,.28);
+
+  border-radius:29px;
 
   background:white;
 
@@ -3070,13 +3230,20 @@ nav a.active-page{
 
 }
 
-.contact-form-intro{
+.form-intro{
 
-  margin-bottom:22px;
+  margin-bottom:25px;
 
   color:var(--sage);
 
-  font-weight:650;
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:1.25rem;
+
+  line-height:1.5;
 
 }
 
@@ -3084,18 +3251,19 @@ nav a.active-page{
 
   display:block;
 
-  margin-bottom:16px;
+  margin-bottom:17px;
 
   color:var(--sage);
 
-  font-size:.92rem;
+  font-size:.9rem;
 
   font-weight:650;
 
 }
 
 .contact-form input,
-.contact-form textarea{
+.contact-form textarea,
+.contact-form select{
 
   width:100%;
 
@@ -3103,12 +3271,12 @@ nav a.active-page{
 
   padding:15px 16px;
 
-  border-radius:13px;
-
   border:
     1px solid #e3d8c8;
 
-  background:#fcfaf7;
+  border-radius:13px;
+
+  background:#fffdf9;
 
   color:var(--ink);
 
@@ -3132,23 +3300,93 @@ nav a.active-page{
 
 .form-note{
 
-  margin-top:16px;
+  margin-top:15px;
 
   color:var(--muted);
 
-  font-size:.88rem;
+  font-size:.82rem;
 
 }
 
-.payment-note{
 
-  margin-top:22px;
+/* ==================================================
+   AREAS
+================================================== */
 
-  color:var(--muted);
+.areas-section{
 
-  font-size:.9rem;
+  position:relative;
 
-  line-height:1.65;
+  min-height:360px;
+
+  display:flex;
+
+  align-items:center;
+
+  overflow:hidden;
+
+  color:white;
+
+  text-align:center;
+
+  background:
+
+    linear-gradient(
+      rgba(23,38,27,.51),
+      rgba(23,38,27,.64)
+    ),
+
+    url("eastbourne-areas.jpg");
+
+  background-size:cover;
+  background-position:center;
+
+}
+
+.areas-section .container{
+
+  position:relative;
+
+  z-index:2;
+
+}
+
+.areas-section .eyebrow{
+  color:var(--gold-soft);
+}
+
+.areas-section h2{
+
+  margin-bottom:16px;
+
+  color:white;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(2.7rem,5vw,4.2rem);
+
+  font-weight:500;
+
+  line-height:1;
+
+  letter-spacing:-2px;
+
+}
+
+.areas-section p:not(.eyebrow){
+
+  width:min(780px,100%);
+
+  margin:0 auto;
+
+  color:
+    rgba(255,255,255,.89);
+
+  line-height:1.8;
 
 }
 
@@ -3164,17 +3402,32 @@ nav a.active-page{
   right:20px;
   bottom:24px;
 
-  z-index:9999;
+  z-index:9998;
 
-  display:flex;
-  flex-direction:column;
+  opacity:0;
 
-  gap:9px;
+  visibility:hidden;
+
+  pointer-events:none;
+
+  transform:translateY(15px);
 
   transition:
     opacity .3s ease,
     visibility .3s ease,
     transform .3s ease;
+
+}
+
+.floating-contact.visible{
+
+  opacity:1;
+
+  visibility:visible;
+
+  pointer-events:auto;
+
+  transform:none;
 
 }
 
@@ -3186,32 +3439,61 @@ nav a.active-page{
 
   pointer-events:none;
 
-  transform:translateY(15px);
-
 }
 
-.floating-btn{
+.floating-message{
 
-  width:54px;
-  height:54px;
+  min-height:49px;
 
   display:flex;
 
   align-items:center;
   justify-content:center;
 
-  border-radius:50%;
+  gap:9px;
+
+  padding:11px 17px;
+
+  border:
+    1px solid rgba(202,167,106,.38);
+
+  border-radius:999px;
 
   background:
     rgba(255,250,244,.97);
 
   color:var(--forest);
 
-  border:
-    1px solid rgba(202,167,106,.42);
-
   box-shadow:
     0 13px 30px rgba(23,38,27,.14);
+
+  font-size:.82rem;
+
+  font-weight:800;
+
+  backdrop-filter:blur(9px);
+
+  transition:
+    transform .25s ease,
+    background .25s ease,
+    color .25s ease;
+
+}
+
+.floating-message:hover{
+
+  transform:translateY(-2px);
+
+  background:var(--forest);
+
+  color:white;
+
+}
+
+.floating-message svg{
+
+  width:18px;
+  height:18px;
 
 }
 
@@ -3226,15 +3508,13 @@ footer{
 
   overflow:hidden;
 
-  padding:
-    72px 0 28px;
+  padding:74px 0 28px;
 
   background:
-
     linear-gradient(
       145deg,
       var(--forest),
-      #101a13
+      var(--forest-deep)
     );
 
   color:white;
@@ -3247,8 +3527,8 @@ footer::before{
 
   position:absolute;
 
-  right:-40px;
-  bottom:90px;
+  right:-35px;
+  bottom:80px;
 
   color:
     rgba(255,255,255,.025);
@@ -3271,6 +3551,28 @@ footer::before{
 
 }
 
+footer::after{
+
+  content:"";
+
+  position:absolute;
+
+  left:0;
+  top:0;
+
+  width:100%;
+  height:1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(202,167,106,.65),
+      transparent
+    );
+
+}
+
 .footer-top{
 
   position:relative;
@@ -3286,7 +3588,7 @@ footer::before{
 
   align-items:end;
 
-  padding-bottom:38px;
+  padding-bottom:40px;
 
   border-bottom:
     1px solid rgba(255,255,255,.10);
@@ -3301,13 +3603,13 @@ footer::before{
 
   color:white;
 
+  font-size:2.25rem;
+
 }
 
 .footer-tagline{
 
-  margin-bottom:8px;
-
-  color:white;
+  margin-bottom:9px;
 
   font-family:
     Georgia,
@@ -3315,18 +3617,18 @@ footer::before{
     serif;
 
   font-size:
-    clamp(1.6rem,3vw,2.2rem);
+    clamp(1.6rem,3vw,2.25rem);
 
   line-height:1.1;
 
 }
 
-.footer-brand-copy{
+.footer-description{
 
-  max-width:430px;
+  max-width:470px;
 
   color:
-    rgba(255,255,255,.66);
+    rgba(255,255,255,.65);
 
   line-height:1.72;
 
@@ -3346,7 +3648,7 @@ footer::before{
 
   color:var(--gold-soft);
 
-  font-size:.7rem;
+  font-size:.68rem;
 
   font-weight:850;
 
@@ -3362,9 +3664,14 @@ footer::before{
 
   color:white;
 
-  font-size:1rem;
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
 
-  line-height:1.7;
+  font-size:1.15rem;
+
+  line-height:1.65;
 
 }
 
@@ -3379,10 +3686,9 @@ footer::before{
   grid-template-columns:
     repeat(3,1fr);
 
-  gap:50px;
+  gap:52px;
 
-  padding:
-    38px 0;
+  padding:39px 0;
 
 }
 
@@ -3392,7 +3698,7 @@ footer h3{
 
   color:var(--gold-soft);
 
-  font-size:.72rem;
+  font-size:.7rem;
 
   font-weight:850;
 
@@ -3402,7 +3708,7 @@ footer h3{
 
 }
 
-.footer-nav{
+.footer-links{
 
   display:grid;
 
@@ -3410,14 +3716,20 @@ footer h3{
 
 }
 
-.footer-nav a,
-.footer-nav p{
+.footer-links a,
+.footer-links p{
 
   color:
-    rgba(255,255,255,.67);
+    rgba(255,255,255,.68);
 
-  font-size:.91rem;
+  font-size:.9rem;
 
+  line-height:1.55;
+
+}
+
+.footer-links a:hover{
+  color:white;
 }
 
 .footer-bottom{
@@ -3428,8 +3740,8 @@ footer h3{
 
   display:flex;
 
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
 
   gap:20px;
 
@@ -3450,12 +3762,12 @@ footer h3{
 
 .copyright,
 .footer-location,
-.footer-legal{
+.legal-links{
 
   color:
-    rgba(255,255,255,.48);
+    rgba(255,255,255,.46);
 
-  font-size:.8rem;
+  font-size:.79rem;
 
 }
 
@@ -3463,8 +3775,7 @@ footer h3{
 
   content:"•";
 
-  margin:
-    0 13px;
+  margin:0 13px;
 
   color:var(--gold);
 
@@ -3484,13 +3795,13 @@ footer h3{
   left:50%;
   bottom:16px;
 
-  transform:translateX(-50%);
-
   z-index:100000;
 
-  width:min(90%,480px);
+  width:min(90%,470px);
 
-  padding:14px 16px;
+  padding:14px 17px;
+
+  transform:translateX(-50%);
 
   border-radius:17px;
 
@@ -3501,7 +3812,18 @@ footer h3{
 
   text-align:center;
 
+  box-shadow:
+    0 16px 40px rgba(23,38,27,.22);
+
   font-size:.86rem;
+
+}
+
+.cookie-banner a{
+
+  color:var(--gold-soft);
+
+  text-decoration:underline;
 
 }
 
@@ -3527,10 +3849,43 @@ footer h3{
 
 
 /* ==================================================
+   FADE
+================================================== */
+
+.fade{
+
+  opacity:1;
+
+  transform:none;
+
+}
+
+.js .fade{
+
+  opacity:0;
+
+  transform:translateY(30px);
+
+  transition:
+    opacity .75s cubic-bezier(.22,.61,.36,1),
+    transform .75s cubic-bezier(.22,.61,.36,1);
+
+}
+
+.js .fade.show{
+
+  opacity:1;
+
+  transform:none;
+
+}
+
+
+/* ==================================================
    TABLET
 ================================================== */
 
-@media(max-width:1030px){
+@media(max-width:1050px){
 
   .menu-toggle{
     display:flex;
@@ -3542,8 +3897,8 @@ footer h3{
 
     position:absolute;
 
-    top:calc(100% + 8px);
     right:0;
+    top:calc(100% + 8px);
 
     width:min(300px,92vw);
 
@@ -3558,14 +3913,14 @@ footer h3{
 
     gap:2px;
 
-    padding:11px;
+    padding:12px;
+
+    border:
+      1px solid rgba(202,167,106,.30);
 
     border-radius:18px;
 
     background:#fffdf9;
-
-    border:
-      1px solid rgba(202,167,106,.30);
 
     box-shadow:
       0 20px 50px rgba(23,38,27,.20);
@@ -3586,39 +3941,56 @@ footer h3{
 
   }
 
-  .meaning-grid,
-  .how-grid,
-  .support-feature,
-  .includes-layout,
-  .why-layout,
+  .client-login{
+
+    margin-top:5px;
+
+    padding-left:13px;
+
+    border-top:
+      1px solid var(--line);
+
+    border-left:0;
+
+  }
+
+  .difference-layout,
+  .value-layout,
+  .system-layout,
+  .cover-feature,
+  .how-layout,
+  .trust-layout,
   .contact-grid{
 
     grid-template-columns:1fr;
 
   }
 
-  .meaning-copy{
+  .difference-layout,
+  .value-layout,
+  .system-layout,
+  .how-layout,
+  .trust-layout{
 
-    padding:
-      31px 0 0;
+    max-width:850px;
 
-    border-left:0;
-
-    border-top:
-      1px solid rgba(202,167,106,.40);
+    margin:0 auto;
 
   }
 
-  .final-cta{
+  .system-image,
+  .how-image{
 
-    grid-template-columns:1fr;
+    height:500px;
 
+  }
+
+  .contact-copy{
+    position:static;
   }
 
   .footer-top{
-
     grid-template-columns:1fr;
-
   }
 
   .footer-contact{
@@ -3631,25 +4003,19 @@ footer h3{
 
 }
 
+
+/* ==================================================
+   SMALL TABLET
+================================================== */
+
 @media(max-width:860px){
 
   .membership-grid{
-
     grid-template-columns:1fr;
-
-  }
-
-  .support-grid{
-
-    grid-template-columns:
-      repeat(2,1fr);
-
   }
 
   .choice-banner{
-
     grid-template-columns:1fr;
-
   }
 
 }
@@ -3662,11 +4028,11 @@ footer h3{
 @media(max-width:720px){
 
   section{
-    padding:60px 0;
+    padding:70px 0;
   }
 
   .container{
-    width:92%;
+    width:90%;
   }
 
   .nav-wrap{
@@ -3677,9 +4043,12 @@ footer h3{
     font-size:1.8rem;
   }
 
+
+  /* HERO */
+
   .membership-hero{
 
-    min-height:690px;
+    min-height:720px;
 
     align-items:flex-end;
 
@@ -3687,10 +4056,10 @@ footer h3{
 
       linear-gradient(
         180deg,
-        rgba(248,241,231,.08) 0%,
-        rgba(248,241,231,.17) 28%,
-        rgba(248,241,231,.88) 65%,
-        rgba(248,241,231,.98) 100%
+        rgba(248,241,231,.05) 0%,
+        rgba(248,241,231,.16) 27%,
+        rgba(248,241,231,.90) 64%,
+        rgba(248,241,231,.99) 100%
       ),
 
       url("memberships-hero.jpg");
@@ -3715,181 +4084,511 @@ footer h3{
     border-radius:24px;
 
     background:
-      rgba(255,250,244,.93);
+      rgba(255,250,244,.94);
+
+  }
+
+  .hero-label{
+
+    align-items:flex-start;
+
+    margin-bottom:16px;
+
+    font-size:.61rem;
+
+    letter-spacing:1.7px;
+
+  }
+
+  .hero-label::before{
+
+    width:27px;
+
+    margin-top:7px;
 
   }
 
   .hero-copy h1{
 
-    font-size:2.68rem;
+    margin-bottom:20px;
 
-    line-height:.99;
+    font-size:
+      clamp(3.1rem,14.5vw,4.3rem);
 
-    letter-spacing:-2px;
+    line-height:.92;
+
+    letter-spacing:-2.8px;
 
   }
 
-  .buttons{
+  .hero-lead{
+    font-size:1.16rem;
+  }
+
+  .hero-description{
+
+    font-size:.93rem;
+
+    line-height:1.74;
+
+  }
+
+  .hero-buttons{
 
     flex-direction:column;
 
+    align-items:stretch;
+
   }
 
-  .buttons .btn{
-
+  .hero-buttons .btn{
     width:100%;
+  }
+
+  .hero-buttons .text-link{
+
+    align-self:flex-start;
+
+    padding:8px 0;
 
   }
 
-  .meaning-items{
+  .hero-trust{
 
-    grid-template-columns:1fr;
+    gap:7px 12px;
+
+    margin-top:21px;
+
+    padding-top:17px;
+
+  }
+
+  .hero-trust span{
+    font-size:.67rem;
+  }
+
+
+  /* GLOBAL */
+
+  .section-heading{
+    margin-bottom:38px;
+  }
+
+  .section-heading h2{
+
+    font-size:2.5rem;
+
+    line-height:1.03;
+
+    letter-spacing:-1.5px;
 
   }
 
-  .how-image{
+  .section-heading p:not(.eyebrow){
 
-    height:380px;
+    font-size:.93rem;
 
-    border-radius:23px;
+    line-height:1.74;
 
   }
+
+  .eyebrow{
+
+    font-size:.65rem;
+
+    letter-spacing:2.2px;
+
+  }
+
+
+  /* DIFFERENCE */
+
+  .difference-layout{
+    gap:35px;
+  }
+
+  .difference-copy h2{
+
+    font-size:2.55rem;
+
+    line-height:1.02;
+
+    letter-spacing:-1.6px;
+
+  }
+
+  .difference-copy > p:not(.eyebrow){
+
+    font-size:.93rem;
+
+    line-height:1.74;
+
+  }
+
+  .difference-statement{
+
+    padding-left:18px;
+
+    font-size:1.35rem;
+
+  }
+
+  .difference-row{
+
+    grid-template-columns:
+      40px 1fr;
+
+    gap:13px;
+
+    padding:18px 0;
+
+  }
+
+  .difference-icon{
+
+    width:38px;
+    height:38px;
+
+  }
+
+
+  /* MEMBERSHIPS */
 
   .membership-card{
-
-    border-radius:24px;
-
+    border-radius:25px;
   }
 
   .membership-image-wrap{
-
-    height:225px;
-
+    height:220px;
   }
 
   .membership-body{
-
-    padding:25px 20px;
-
+    padding:26px 21px;
   }
 
   .membership-price{
+    font-size:1.95rem;
+  }
 
-    font-size:1.9rem;
+  .choice-banner{
+    padding:29px 23px;
+  }
+
+
+  /* VALUE */
+
+  .value-layout{
+    gap:34px;
+  }
+
+  .value-copy h2{
+
+    font-size:2.5rem;
+
+    line-height:1.02;
 
   }
 
-  .support-grid{
+  .value-panel{
+    border-radius:25px;
+  }
+
+  .value-row{
+
+    grid-template-columns:
+      40px 1fr;
+
+    gap:13px;
+
+    padding:19px 21px;
+
+  }
+
+  .value-icon{
+
+    width:38px;
+    height:38px;
+
+  }
+
+
+  /* PROGRESSION */
+
+  .progression-grid{
 
     grid-template-columns:1fr;
 
-  }
-
-  .remember-list{
-
-    grid-template-columns:1fr;
+    gap:27px;
 
   }
 
-  .peace-image-wrap{
 
-    min-height:460px;
+  /* SYSTEM */
+
+  .system-layout{
+    gap:32px;
+  }
+
+  .system-image{
+
+    height:auto;
+
+    aspect-ratio:4 / 3;
+
+    border-radius:27px;
 
   }
 
-  .peace-copy{
+  .system-item{
 
-    width:calc(100% - 26px);
+    grid-template-columns:
+      40px 1fr;
 
-    margin:
-      0 13px 14px;
+    gap:13px;
 
-  }
-
-  .includes-image,
-  .why-image{
-
-    height:330px;
+    padding:18px 0;
 
   }
 
-  .why-details{
+  .system-icon{
 
-    grid-template-columns:1fr;
-
-  }
-
-  .final-cta-section{
-
-    padding:
-      65px 0;
+    width:38px;
+    height:38px;
 
   }
 
-  .final-cta{
 
-    display:flex;
+  /* COVER */
 
-    flex-direction:column;
+  .cover-feature{
+    gap:18px;
+  }
 
-    min-height:0;
+  .cover-image{
+
+    height:auto;
+
+    aspect-ratio:4 / 3;
 
     border-radius:26px;
 
   }
 
-  .final-cta-image{
+  .cover-copy{
 
+    padding:31px 23px;
+
+    border-radius:26px;
+
+  }
+
+  .cover-copy h3{
+    font-size:2.3rem;
+  }
+
+  .cover-grid{
+    grid-template-columns:1fr;
+  }
+
+  .cover-item{
     min-height:0;
+  }
+
+
+  /* MENTAL */
+
+  .mental-inner h2{
+
+    font-size:2.65rem;
+
+    line-height:1.02;
+
+  }
+
+  .mental-intro{
+    font-size:.93rem;
+  }
+
+  .mental-grid{
+    grid-template-columns:1fr;
+  }
+
+
+  /* HOW */
+
+  .how-layout{
+    gap:31px;
+  }
+
+  .how-image{
+
+    height:auto;
 
     aspect-ratio:4 / 3;
 
-  }
-
-  .final-cta-copy{
-
-    padding:
-      34px 22px;
+    border-radius:26px;
 
   }
 
-  .final-cta-copy h2{
+  .how-copy h2{
 
-    font-size:2.45rem;
+    font-size:2.5rem;
+
+    line-height:1.02;
+
+  }
+
+
+  /* TRUST */
+
+  .trust-layout{
+    gap:34px;
+  }
+
+  .trust-copy h2{
+
+    font-size:2.5rem;
+
+    line-height:1.02;
+
+    letter-spacing:-1.5px;
+
+  }
+
+  .assurance-panel{
+
+    padding:8px 21px;
+
+    border-radius:25px;
+
+  }
+
+  .assurance-item{
+
+    grid-template-columns:
+      40px 1fr;
+
+    gap:13px;
+
+    padding:20px 0;
+
+  }
+
+  .assurance-icon{
+
+    width:38px;
+    height:38px;
+
+  }
+
+
+  /* CONTACT */
+
+  .contact-grid{
+    gap:35px;
+  }
+
+  .contact-copy h2{
+
+    font-size:2.65rem;
+
+    line-height:1;
 
   }
 
   .contact-form{
 
-    padding:
-      25px 20px;
+    padding:27px 21px;
+
+    border-radius:25px;
 
   }
+
+
+  /* AREAS */
+
+  .areas-section{
+
+    min-height:340px;
+
+    padding:60px 0;
+
+    background:
+
+      linear-gradient(
+        rgba(23,38,27,.50),
+        rgba(23,38,27,.66)
+      ),
+
+      url("eastbourne-areas.jpg");
+
+    background-size:cover;
+
+    background-position:62% center;
+
+  }
+
+  .areas-section h2{
+
+    font-size:2.45rem;
+
+    line-height:1.03;
+
+  }
+
+  .areas-section p:not(.eyebrow){
+    font-size:.91rem;
+  }
+
+
+  /* FLOATING */
 
   .floating-contact{
 
-    right:9px;
-    bottom:9px;
+    right:10px;
+    bottom:10px;
 
   }
 
-  .floating-btn{
+  .floating-message{
 
-    width:40px;
-    height:40px;
+    min-height:42px;
+
+    padding:9px 13px;
+
+    font-size:.72rem;
 
   }
+
+  .floating-message svg{
+
+    width:16px;
+    height:16px;
+
+  }
+
+
+  /* FOOTER */
 
   footer{
 
-    padding:
-      56px 0 24px;
+    padding:56px 0 24px;
+
+  }
+
+  footer::before{
+
+    right:-70px;
+
+    font-size:9rem;
 
   }
 
   .footer-top{
 
-    gap:25px;
+    gap:26px;
+
+    padding-bottom:30px;
 
   }
 
@@ -3907,8 +4606,9 @@ footer h3{
     grid-template-columns:
       repeat(2,1fr);
 
-    gap:
-      30px 20px;
+    gap:28px 20px;
+
+    padding:33px 0;
 
   }
 
@@ -3924,6 +4624,8 @@ footer h3{
     flex-direction:column;
 
     align-items:flex-start;
+
+    gap:11px;
 
   }
 
@@ -3957,31 +4659,77 @@ footer h3{
 </style>
 
 
+<!-- ==================================================
+     STRUCTURED DATA
+================================================== -->
+
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
   "@type":"LocalBusiness",
+  "@id":"https://sortedlife.org.uk/#business",
   "name":"Sorted.",
-  "description":"Premium household and lifestyle support in Eastbourne and surrounding areas.",
   "url":"https://sortedlife.org.uk/",
+  "image":"https://sortedlife.org.uk/memberships-hero.jpg",
+  "description":"Household and lifestyle management across Eastbourne and surrounding areas, including ongoing household memberships, errands, home organisation, administration, pet support and property services.",
   "email":"contact@sortedlife.org.uk",
-  "telephone":"01323 396610",
+  "telephone":"+441323396610",
   "priceRange":"££",
   "address":{
     "@type":"PostalAddress",
     "addressLocality":"Eastbourne",
     "addressRegion":"East Sussex",
     "addressCountry":"GB"
-  }
+  },
+  "contactPoint":{
+    "@type":"ContactPoint",
+    "telephone":"+441323396610",
+    "email":"contact@sortedlife.org.uk",
+    "contactType":"customer service",
+    "availableLanguage":"English"
+  },
+  "openingHoursSpecification":[
+    {
+      "@type":"OpeningHoursSpecification",
+      "dayOfWeek":[
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens":"08:00",
+      "closes":"18:00"
+    }
+  ],
+  "areaServed":[
+    "Eastbourne",
+    "Meads",
+    "Old Town",
+    "Upperton",
+    "Sovereign Harbour",
+    "Hampden Park",
+    "Willingdon",
+    "Langney",
+    "Polegate",
+    "Pevensey",
+    "Seaford",
+    "East Sussex"
+  ]
 }
 </script>
 
-<link rel="stylesheet" href="brand.css">
+
+<link
+  rel="stylesheet"
+  href="brand.css"
+>
 
 </head>
 
 
 <body>
+
 
 <a
   href="#main-content"
@@ -3991,16 +4739,23 @@ footer h3{
 </a>
 
 
+<!-- ==================================================
+     HEADER
+================================================== -->
+
 <header class="site-header">
 
   <div class="container nav-wrap">
 
+
     <a
       href="index.html"
       class="logo"
+      aria-label="Sorted homepage"
     >
       Sorted<span>.</span>
     </a>
+
 
     <button
       type="button"
@@ -4012,7 +4767,11 @@ footer h3{
       <i data-lucide="menu"></i>
     </button>
 
-    <nav id="site-navigation">
+
+    <nav
+      id="site-navigation"
+      aria-label="Main navigation"
+    >
 
       <a href="index.html">
         Home
@@ -4046,11 +4805,15 @@ footer h3{
         Contact
       </a>
 
-      <a href="portal/index.html">
+      <a
+        href="portal/index.html"
+        class="client-login"
+      >
         Client Login
       </a>
 
     </nav>
+
 
   </div>
 
@@ -4060,7 +4823,9 @@ footer h3{
 <main id="main-content">
 
 
-<!-- HERO -->
+<!-- ==================================================
+     HERO
+================================================== -->
 
 <section class="membership-hero">
 
@@ -4070,35 +4835,33 @@ footer h3{
 
       <div class="hero-copy">
 
-        <div class="membership-page-label">
 
-          <span class="membership-page-label-dot"></span>
-
-          Memberships
-
+        <div class="hero-label">
+          Sorted. Memberships
         </div>
 
+
         <h1>
-          Ongoing Support.<br>
-          Beautifully Handled.
+          Less to manage.<br>
+          <em>More already handled.</em>
         </h1>
 
+
         <p class="hero-lead">
-          Regular, dependable household and lifestyle
-          support designed around your home, your
-          routine and the way you live.
+          Ongoing household and lifestyle management
+          that becomes more useful the longer we know you.
         </p>
+
 
         <p class="hero-description">
-          From everyday errands and home organisation
-          to household administration, property
-          support and the practical details that keep
-          life moving, a Sorted. membership gives you
-          one trusted point of contact and far less
-          to think about.
+          A Sorted. membership gives you regular support,
+          household continuity and somewhere for the
+          practical details of everyday life to go —
+          instead of all of them staying with you.
         </p>
 
-        <div class="buttons">
+
+        <div class="buttons hero-buttons">
 
           <a
             href="https://calendly.com/d/dzzd-qmh-mcm/one-off-meeting"
@@ -4106,26 +4869,35 @@ footer h3{
             rel="noopener noreferrer"
             class="btn btn-primary"
           >
-            Book Your Complimentary Consultation
+            Talk to Sorted.
           </a>
 
           <a
             href="#memberships"
-            class="btn btn-light"
+            class="text-link"
           >
             Explore Memberships
           </a>
 
         </div>
 
+
         <div class="hero-trust">
 
-          <span>Enhanced DBS Checked</span>
-          <span>Fully Insured</span>
-          <span>Tailored Support</span>
-          <span>Regular Scheduled Visits</span>
+          <span>
+            Enhanced DBS Checked
+          </span>
+
+          <span>
+            Fully Insured
+          </span>
+
+          <span>
+            Personalised Around Your Household
+          </span>
 
         </div>
+
 
       </div>
 
@@ -4136,203 +4908,172 @@ footer h3{
 </section>
 
 
-<!-- WHAT MEMBERSHIP MEANS -->
+<!-- ==================================================
+     WHY MEMBERSHIP IS DIFFERENT
+================================================== -->
 
-<section class="membership-meaning">
+<section class="membership-difference fade">
 
-  <div class="container meaning-grid">
+  <div class="container difference-layout">
 
-    <div class="meaning-title">
+
+    <div class="difference-copy">
+
 
       <p class="eyebrow">
-        MORE THAN HOURS IN A DIARY
+        THE DIFFERENCE IS CONTINUITY
       </p>
+
 
       <h2>
-        Someone who already knows.
-
-        <span>
-          That’s the difference.
-        </span>
+        You shouldn't have to start from scratch every time.
       </h2>
 
-    </div>
-
-
-    <div class="meaning-copy">
 
       <p>
-        Membership means you don't need to begin
-        from scratch every time you need help.
-        Over time, we become familiar with your
-        home, your preferences, your routine and
-        the things that are easiest to forget when
-        life gets busy.
+        Flexible Support is ideal when you need
+        particular things handled. Membership is for
+        when you'd like Sorted. to become part of
+        keeping home and everyday life under control.
       </p>
 
 
-      <div class="meaning-items">
+      <p>
+        As we get to know your household, we learn
+        the useful practical details — your routines,
+        preferences, recurring jobs and priorities.
+      </p>
 
-        <div class="meaning-item">
-          <strong>Your home &amp; routine</strong>
-          <span>
-            We learn how your household works and
-            how you prefer things done.
-          </span>
-        </div>
 
-        <div class="meaning-item">
-          <strong>The jobs that build up</strong>
-          <span>
-            The practical things that take more
-            time and headspace than they should.
-          </span>
-        </div>
+      <p>
+        That means less explaining, less organising
+        and fewer things for you to keep track of.
+      </p>
 
-        <div class="meaning-item">
-          <strong>Your priorities</strong>
-          <span>
-            Support can shift naturally depending
-            on what matters most that week.
-          </span>
-        </div>
 
-        <div class="meaning-item">
-          <strong>What needs doing next</strong>
-          <span>
-            Less remembering, organising, chasing
-            and coordinating for you.
-          </span>
-        </div>
-
+      <div class="difference-statement">
+        The longer you're with Sorted.,
+        <em>the more useful Sorted. becomes.</em>
       </div>
 
+
     </div>
+
+
+    <div class="difference-list">
+
+
+      <article class="difference-row">
+
+        <div class="difference-icon">
+          <i data-lucide="house"></i>
+        </div>
+
+        <div>
+
+          <h3>
+            We learn your household.
+          </h3>
+
+          <p>
+            Useful preferences, routines and household
+            information don't need explaining again
+            every time we help.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <article class="difference-row">
+
+        <div class="difference-icon">
+          <i data-lucide="list-checks"></i>
+        </div>
+
+        <div>
+
+          <h3>
+            We help keep track.
+          </h3>
+
+          <p>
+            Regular jobs and practical things that need
+            doing can sit on your Sorted. List rather
+            than living entirely in your head.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <article class="difference-row">
+
+        <div class="difference-icon">
+          <i data-lucide="calendar-check"></i>
+        </div>
+
+        <div>
+
+          <h3>
+            We create continuity.
+          </h3>
+
+          <p>
+            Support becomes part of your routine rather
+            than another service you have to organise
+            from the beginning.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <article class="difference-row">
+
+        <div class="difference-icon">
+          <i data-lucide="sparkles"></i>
+        </div>
+
+        <div>
+
+          <h3>
+            We can become more proactive.
+          </h3>
+
+          <p>
+            Higher memberships allow Sorted. to take a
+            more active role in helping you stay ahead
+            of practical household needs.
+          </p>
+
+        </div>
+
+      </article>
+
+
+    </div>
+
 
   </div>
 
 </section>
 
 
-<!-- HOW MEMBERSHIPS WORK -->
-
-<section class="how-section">
-
-  <div class="container how-grid">
-
-    <div class="how-image-wrap">
-
-      <img
-        src="membership-how-it-works.jpg"
-        alt="Sorted. membership planning and consultation"
-        class="how-image"
-        loading="lazy"
-      >
-
-      <div class="how-image-caption">
-
-        <strong>
-          No pressure. No rigid packages.
-        </strong>
-
-        <span>
-          Just a conversation about what would
-          genuinely make life easier.
-        </span>
-
-      </div>
-
-    </div>
-
-
-    <div class="how-copy">
-
-      <p class="eyebrow">
-        HOW MEMBERSHIPS WORK
-      </p>
-
-      <h2>
-        Simple from the very beginning.
-      </h2>
-
-      <p>
-        You tell us where life feels unnecessarily
-        busy, we recommend the right level of
-        support, and then we quietly get on with
-        handling it.
-      </p>
-
-      <div class="steps">
-
-        <div class="step">
-
-          <div class="step-number">
-            01
-          </div>
-
-          <div>
-            <h3>We get to know you</h3>
-            <p>
-              Your membership begins with a
-              complimentary consultation so we can
-              understand your home, routine and
-              priorities.
-            </p>
-          </div>
-
-        </div>
-
-        <div class="step">
-
-          <div class="step-number">
-            02
-          </div>
-
-          <div>
-            <h3>We shape your support</h3>
-            <p>
-              Together we choose the most suitable
-              membership and agree the areas you'd
-              like us to look after.
-            </p>
-          </div>
-
-        </div>
-
-        <div class="step">
-
-          <div class="step-number">
-            03
-          </div>
-
-          <div>
-            <h3>We quietly handle it</h3>
-            <p>
-              Regular support begins and, as we become
-              familiar with your home, it becomes
-              increasingly seamless and personalised.
-            </p>
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- MEMBERSHIP LEVELS -->
+<!-- ==================================================
+     MEMBERSHIP LEVELS
+================================================== -->
 
 <section
-  class="memberships-section"
+  class="memberships-section fade"
   id="memberships"
 >
 
   <div class="container">
+
 
     <div class="section-heading">
 
@@ -4341,45 +5082,49 @@ footer h3{
       </p>
 
       <h2>
-        Choose the level that fits your life.
+        How much would you like us to take care of?
       </h2>
 
       <p>
-        From a dependable helping hand each month
-        to a much more involved level of household
-        support, your membership gives you dedicated
-        time that can flex around your home and routine.
+        Each level gives you reserved support every
+        month. What really changes is how involved
+        Sorted. becomes in helping your household run.
       </p>
 
     </div>
 
 
-    <p class="membership-intro-note">
-      Every membership includes dedicated monthly
-      support that can be used flexibly across your
-      agreed services. Need more help? Additional
-      support can be arranged subject to availability.
+    <p class="membership-note">
+      Membership is not sold as an hourly package.
+      Reserved monthly capacity is one part of the
+      service, alongside priority, continuity,
+      household knowledge, coordination and increasingly
+      proactive support.
     </p>
 
 
     <div class="membership-grid">
 
 
-      <!-- ESSENTIAL -->
+      <!-- ==================================================
+           ESSENTIAL
+      ================================================== -->
 
       <article class="membership-card">
+
 
         <div class="membership-image-wrap">
 
           <img
             src="membership-essential.jpg"
-            alt="Essential Support membership"
+            alt="Sorted. Essential membership"
             class="membership-image"
             loading="lazy"
+            decoding="async"
           >
 
           <span class="membership-chip">
-            Regular Helping Hand
+            Regular Household Support
           </span>
 
         </div>
@@ -4387,44 +5132,80 @@ footer h3{
 
         <div class="membership-body">
 
-          <p class="eyebrow">
-            ESSENTIAL SUPPORT
+
+          <p class="membership-label">
+            ESSENTIAL
           </p>
 
+
           <h3>
-            Essential Support
+            Essential
           </h3>
 
+
+          <p class="membership-tagline">
+            A dependable extra pair of hands each month.
+          </p>
+
+
           <p class="membership-description">
-            For clients who want a dependable helping
-            hand with the everyday practical jobs that
+            For households that manage most things
+            themselves but want familiar, dependable
+            support for the practical jobs that would
             otherwise keep getting pushed back.
           </p>
 
 
           <div class="membership-price">
-            £160
+            £180
             <span>/ month</span>
           </div>
 
-          <p class="membership-hours">
-            4 hours of dedicated support per month
+
+          <p class="membership-feature-title">
+            Your membership includes
           </p>
 
 
           <div class="visible-benefits">
 
             <div>
-              Flexible practical help each month
+              Familiar ongoing support
             </div>
 
             <div>
-              Shopping, errands, organisation or admin
+              My Household profile
             </div>
 
             <div>
-              Familiar, dependable ongoing support
+              Your Sorted. List
             </div>
+
+            <div>
+              Flexible practical help
+            </div>
+
+            <div>
+              Member priority for additional support
+            </div>
+
+          </div>
+
+
+          <div class="capacity-box">
+
+            <span class="capacity-label">
+              Reserved monthly capacity
+            </span>
+
+            <strong>
+              4 hours reserved each month
+            </strong>
+
+            <p>
+              Used flexibly across agreed household
+              and lifestyle support.
+            </p>
 
           </div>
 
@@ -4435,21 +5216,47 @@ footer h3{
           >
 
             <h4>
-              Your membership can include:
+              Examples of what we can handle:
             </h4>
 
             <ul>
-              <li>4 dedicated support hours each month</li>
-              <li>Regular scheduled support</li>
-              <li>Food and household shopping</li>
-              <li>Prescription collections</li>
-              <li>Returns and parcel collections</li>
-              <li>Dry-cleaning collection and drop-off</li>
-              <li>Light household administration</li>
-              <li>Appointment reminders and bookings</li>
-              <li>Light home organisation</li>
-              <li>Dog walking and practical pet support</li>
-              <li>Priority access to additional support</li>
+
+              <li>
+                Shopping and household errands
+              </li>
+
+              <li>
+                Prescription collections
+              </li>
+
+              <li>
+                Parcels and returns
+              </li>
+
+              <li>
+                Household collections and drop-offs
+              </li>
+
+              <li>
+                Light household administration
+              </li>
+
+              <li>
+                Appointment bookings
+              </li>
+
+              <li>
+                Light home organisation
+              </li>
+
+              <li>
+                Dog walking and practical pet support
+              </li>
+
+              <li>
+                Waiting in for deliveries or appointments
+              </li>
+
             </ul>
 
           </div>
@@ -4472,35 +5279,40 @@ footer h3{
               rel="noopener noreferrer"
               class="membership-cta"
             >
-              Arrange Your Consultation
+              Talk to Sorted.
             </a>
 
           </div>
+
 
         </div>
 
       </article>
 
 
-      <!-- COMPLETE -->
+      <!-- ==================================================
+           COMPLETE
+      ================================================== -->
 
       <article class="membership-card complete">
+
 
         <div class="membership-image-wrap">
 
           <img
             src="membership-complete.jpg"
-            alt="Complete Support membership"
+            alt="Sorted. Complete membership"
             class="membership-image"
             loading="lazy"
+            decoding="async"
           >
 
           <span class="popular-chip">
-            MOST POPULAR
+            Most Popular
           </span>
 
           <span class="membership-chip">
-            Regular Monthly Support
+            Ongoing Household Management
           </span>
 
         </div>
@@ -4508,45 +5320,85 @@ footer h3{
 
         <div class="membership-body">
 
-          <p class="eyebrow">
-            COMPLETE SUPPORT
+
+          <p class="membership-label">
+            COMPLETE
           </p>
 
+
           <h3>
-            Complete Support
+            Complete
           </h3>
 
+
+          <p class="membership-tagline">
+            Your household, easier to keep on top of.
+          </p>
+
+
           <p class="membership-description">
-            For clients who want regular support
-            throughout the month, with more time for
-            household tasks, errands, organisation
-            and everyday coordination.
+            For households that want Sorted. to become
+            a regular part of how everyday life runs,
+            with more continuity, recurring support
+            and practical coordination throughout
+            the month.
           </p>
 
 
           <div class="membership-price">
-            £300
+            £330
             <span>/ month</span>
           </div>
 
-          <p class="membership-hours">
-            8 hours of dedicated support per month
+
+          <p class="membership-feature-title">
+            Your membership includes
           </p>
 
 
           <div class="visible-benefits">
 
             <div>
-              More regular household and lifestyle support
+              Everything within Essential
             </div>
 
             <div>
-              Flexible help across several areas
+              Regular household planning
             </div>
 
             <div>
-              Familiar support that becomes part of your routine
+              Recurring task tracking
             </div>
+
+            <div>
+              Monthly household review
+            </div>
+
+            <div>
+              Greater household coordination
+            </div>
+
+            <div>
+              Enhanced booking priority
+            </div>
+
+          </div>
+
+
+          <div class="capacity-box">
+
+            <span class="capacity-label">
+              Reserved monthly capacity
+            </span>
+
+            <strong>
+              8 hours reserved each month
+            </strong>
+
+            <p>
+              Designed for regular practical support
+              with room for the things that crop up.
+            </p>
 
           </div>
 
@@ -4557,24 +5409,59 @@ footer h3{
           >
 
             <h4>
-              Your membership can include:
+              Examples of what we can handle:
             </h4>
 
             <ul>
-              <li>8 dedicated support hours each month</li>
-              <li>Everything available within Essential</li>
-              <li>More regular scheduled support</li>
-              <li>Shopping and errands</li>
-              <li>Home organisation and resets</li>
-              <li>Kitchen, pantry and wardrobe organisation</li>
-              <li>Household paperwork and administration</li>
-              <li>Appointment scheduling</li>
-              <li>Household bookings</li>
-              <li>Waiting in for deliveries</li>
-              <li>Contractor access</li>
-              <li>Dog walking and pet support</li>
-              <li>Seasonal household jobs</li>
-              <li>Priority booking for additional support</li>
+
+              <li>
+                Everything available within Essential
+              </li>
+
+              <li>
+                Regular household planning
+              </li>
+
+              <li>
+                Shopping, errands and collections
+              </li>
+
+              <li>
+                Home organisation and resets
+              </li>
+
+              <li>
+                Kitchen, pantry and wardrobe organisation
+              </li>
+
+              <li>
+                Household paperwork and administration
+              </li>
+
+              <li>
+                Appointments and household bookings
+              </li>
+
+              <li>
+                Contractor access
+              </li>
+
+              <li>
+                Waiting in for deliveries
+              </li>
+
+              <li>
+                Dog walking and practical pet support
+              </li>
+
+              <li>
+                Seasonal household jobs
+              </li>
+
+              <li>
+                Holiday and away-from-home preparation
+              </li>
+
             </ul>
 
           </div>
@@ -4597,31 +5484,36 @@ footer h3{
               rel="noopener noreferrer"
               class="membership-cta"
             >
-              Arrange Your Consultation
+              Talk to Sorted.
             </a>
 
           </div>
+
 
         </div>
 
       </article>
 
 
-      <!-- SIGNATURE -->
+      <!-- ==================================================
+           SIGNATURE
+      ================================================== -->
 
       <article class="membership-card signature">
+
 
         <div class="membership-image-wrap">
 
           <img
             src="membership-signature.jpg"
-            alt="Signature Household Support membership"
+            alt="Sorted. Signature membership"
             class="membership-image"
             loading="lazy"
+            decoding="async"
           >
 
           <span class="membership-chip">
-            Proactive Household Support
+            Proactive Household Management
           </span>
 
         </div>
@@ -4629,45 +5521,86 @@ footer h3{
 
         <div class="membership-body">
 
-          <p class="eyebrow">
-            SIGNATURE HOUSEHOLD SUPPORT
+
+          <p class="membership-label">
+            SIGNATURE
           </p>
 
+
           <h3>
-            Signature Household Support
+            Signature
           </h3>
 
+
+          <p class="membership-tagline">
+            Less reacting. More staying ahead.
+          </p>
+
+
           <p class="membership-description">
-            For clients who want more frequent,
-            proactive support and a familiar person
-            helping to keep home and everyday life
-            running smoothly.
+            For households that want a more proactive
+            relationship, with Sorted. helping to
+            anticipate practical needs, coordinate
+            upcoming jobs and reduce how much you
+            personally need to remember.
           </p>
 
 
           <div class="membership-price">
-            £420
+            £480
             <span>/ month</span>
           </div>
 
-          <p class="membership-hours">
-            12 hours of dedicated support per month
+
+          <p class="membership-feature-title">
+            Your membership includes
           </p>
 
 
           <div class="visible-benefits">
 
             <div>
-              More frequent dedicated support
+              Everything within Complete
             </div>
 
             <div>
-              Greater involvement in running the home
+              Sorted. Ahead
             </div>
 
             <div>
-              Flexible practical help throughout the month
+              Proactive household reminders
             </div>
+
+            <div>
+              Maintenance and seasonal planning
+            </div>
+
+            <div>
+              More involved coordination
+            </div>
+
+            <div>
+              High booking priority
+            </div>
+
+          </div>
+
+
+          <div class="capacity-box">
+
+            <span class="capacity-label">
+              Reserved monthly capacity
+            </span>
+
+            <strong>
+              12 hours reserved each month
+            </strong>
+
+            <p>
+              Designed for households that want
+              more frequent involvement and fewer
+              practical details falling back on them.
+            </p>
 
           </div>
 
@@ -4678,24 +5611,59 @@ footer h3{
           >
 
             <h4>
-              Your membership can include:
+              Examples of what we can handle:
             </h4>
 
             <ul>
-              <li>12 dedicated support hours each month</li>
-              <li>Everything available within Complete Support</li>
-              <li>More frequent scheduled visits</li>
-              <li>Comprehensive home organisation</li>
-              <li>Household administration</li>
-              <li>Contractor coordination</li>
-              <li>Property checks</li>
-              <li>Travel preparation</li>
-              <li>Return-home preparation</li>
-              <li>Shopping and household restocking</li>
-              <li>Seasonal household preparation</li>
-              <li>Support preparing for guests</li>
-              <li>Flexible use of support hours</li>
-              <li>Higher priority for additional visits</li>
+
+              <li>
+                Everything available within Complete
+              </li>
+
+              <li>
+                Sorted. Ahead proactive reminders
+              </li>
+
+              <li>
+                More frequent scheduled support
+              </li>
+
+              <li>
+                Household maintenance reminders
+              </li>
+
+              <li>
+                Contractor coordination
+              </li>
+
+              <li>
+                Property checks
+              </li>
+
+              <li>
+                Seasonal household planning
+              </li>
+
+              <li>
+                Travel preparation
+              </li>
+
+              <li>
+                Return-home preparation
+              </li>
+
+              <li>
+                Household shopping and restocking
+              </li>
+
+              <li>
+                Guest preparation
+              </li>
+
+              <li>
+                Household project coordination
+              </li>
+
             </ul>
 
           </div>
@@ -4718,31 +5686,36 @@ footer h3{
               rel="noopener noreferrer"
               class="membership-cta"
             >
-              Arrange Your Consultation
+              Talk to Sorted.
             </a>
 
           </div>
+
 
         </div>
 
       </article>
 
 
-      <!-- PRIVATE -->
+      <!-- ==================================================
+           PRIVATE CLIENT
+      ================================================== -->
 
       <article class="membership-card private">
+
 
         <div class="membership-image-wrap">
 
           <img
             src="membership-private.jpg"
-            alt="Private Client Support membership"
+            alt="Sorted. Private Client membership"
             class="membership-image"
             loading="lazy"
+            decoding="async"
           >
 
           <span class="membership-chip">
-            Bespoke Household &amp; Lifestyle Support
+            Private Household Management
           </span>
 
         </div>
@@ -4750,45 +5723,86 @@ footer h3{
 
         <div class="membership-body">
 
-          <p class="eyebrow">
-            PRIVATE CLIENT SUPPORT
+
+          <p class="membership-label">
+            PRIVATE CLIENT
           </p>
 
+
           <h3>
-            Private Client Support
+            Private Client
           </h3>
 
+
+          <p class="membership-tagline">
+            Your household manager, without employing one.
+          </p>
+
+
           <p class="membership-description">
-            A highly personalised household and
-            lifestyle service for clients who want
-            greater continuity, flexibility and
-            proactive practical support.
+            Our highest level of ongoing household
+            management for clients who want significant
+            practical responsibility taken off their
+            plate and a highly personalised service
+            built around the way they live.
           </p>
 
 
           <div class="membership-price">
-            From £700
+            From £800
             <span>/ month</span>
           </div>
 
-          <p class="membership-hours">
-            From 20 hours of dedicated support per month
+
+          <p class="membership-feature-title">
+            Your membership includes
           </p>
 
 
           <div class="visible-benefits">
 
             <div>
-              More comprehensive household support
+              Everything within Signature
             </div>
 
             <div>
-              Maximum flexibility and continuity
+              Bespoke household management
             </div>
 
             <div>
-              A service shaped around your household
+              Reserved household capacity
             </div>
+
+            <div>
+              Maximum continuity and flexibility
+            </div>
+
+            <div>
+              More comprehensive coordination
+            </div>
+
+            <div>
+              Highest booking priority
+            </div>
+
+          </div>
+
+
+          <div class="capacity-box">
+
+            <span class="capacity-label">
+              Reserved monthly capacity
+            </span>
+
+            <strong>
+              From 20 hours reserved each month
+            </strong>
+
+            <p>
+              Private Client arrangements can increase
+              substantially according to the household
+              and level of involvement required.
+            </p>
 
           </div>
 
@@ -4799,24 +5813,63 @@ footer h3{
           >
 
             <h4>
-              Your support may include:
+              Your service may include:
             </h4>
 
             <ul>
-              <li>From 20 dedicated support hours each month</li>
-              <li>Everything available within Signature Support</li>
-              <li>Bespoke monthly support schedule</li>
-              <li>Comprehensive household management</li>
-              <li>Lifestyle assistance</li>
-              <li>Second-home and holiday-home support</li>
-              <li>Regular property checks</li>
-              <li>Key holding</li>
-              <li>Contractor coordination and supervision</li>
-              <li>Travel and holiday preparation</li>
-              <li>Household administration</li>
-              <li>Shopping, errands and collections</li>
-              <li>Maximum flexibility across support hours</li>
-              <li>Highest priority for additional support</li>
+
+              <li>
+                Everything available within Signature
+              </li>
+
+              <li>
+                Bespoke household management schedule
+              </li>
+
+              <li>
+                Comprehensive household coordination
+              </li>
+
+              <li>
+                Lifestyle assistance
+              </li>
+
+              <li>
+                Ongoing household administration
+              </li>
+
+              <li>
+                Shopping and errands
+              </li>
+
+              <li>
+                Contractor coordination and supervision
+              </li>
+
+              <li>
+                Second-home support
+              </li>
+
+              <li>
+                Property checks and key holding
+              </li>
+
+              <li>
+                Travel preparation
+              </li>
+
+              <li>
+                Guest and event preparation
+              </li>
+
+              <li>
+                Household organisation projects
+              </li>
+
+              <li>
+                Pet and household logistics
+              </li>
+
             </ul>
 
           </div>
@@ -4839,10 +5892,11 @@ footer h3{
               rel="noopener noreferrer"
               class="membership-cta"
             >
-              Discuss Private Client Support
+              Discuss Private Client
             </a>
 
           </div>
+
 
         </div>
 
@@ -4854,10 +5908,11 @@ footer h3{
 
     <div class="choice-banner">
 
+
       <div>
 
         <p class="eyebrow">
-          NOT SURE WHICH ONE?
+          NOT SURE WHICH FITS?
         </p>
 
         <h3>
@@ -4865,10 +5920,10 @@ footer h3{
         </h3>
 
         <p>
-          Tell us what you'd like help with and
-          we'll recommend the membership level
-          that makes the most sense for your home,
-          routine and the amount of support you need.
+          Tell us what's taking up your time and what
+          you would most like taken off your plate.
+          We'll recommend the level that genuinely
+          makes sense for your household.
         </p>
 
       </div>
@@ -4880,8 +5935,9 @@ footer h3{
         rel="noopener noreferrer"
         class="btn btn-primary"
       >
-        Book a Complimentary Consultation
+        Talk to Sorted.
       </a>
+
 
     </div>
 
@@ -4891,11 +5947,473 @@ footer h3{
 </section>
 
 
-<!-- WHAT MEMBERSHIP CAN COVER -->
+<!-- ==================================================
+     WHY MEMBERSHIP COSTS MORE
+================================================== -->
 
-<section class="support-section">
+<section class="value-section fade">
+
+  <div class="container value-layout">
+
+
+    <div class="value-copy">
+
+
+      <p class="eyebrow">
+        MORE THAN THE TIME WE SPEND WITH YOU
+      </p>
+
+
+      <h2>
+        Membership buys continuity, not just hours.
+      </h2>
+
+
+      <p>
+        Flexible Support is priced for individual
+        jobs and visits. Membership is a different
+        kind of relationship.
+      </p>
+
+
+      <p>
+        Your monthly price also supports reserved
+        capacity, priority access, household knowledge,
+        planning, follow-ups, coordination and the
+        continuity that comes from not having to
+        start again every time you need something.
+      </p>
+
+
+      <div class="value-highlight">
+        The hours matter.
+        <br>
+        <strong>
+          What happens around those hours matters too.
+        </strong>
+      </div>
+
+
+    </div>
+
+
+    <div class="value-panel">
+
+
+      <article class="value-row">
+
+        <div class="value-icon">
+          <i data-lucide="calendar-clock"></i>
+        </div>
+
+        <div>
+
+          <h3>
+            Reserved Capacity
+          </h3>
+
+          <p>
+            Time is held within your monthly membership
+            rather than relying solely on ad-hoc availability.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <article class="value-row">
+
+        <div class="value-icon">
+          <i data-lucide="star"></i>
+        </div>
+
+        <div>
+
+          <h3>
+            Member Priority
+          </h3>
+
+          <p>
+            Members receive priority when additional
+            visits or support are requested, subject
+            to availability.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <article class="value-row">
+
+        <div class="value-icon">
+          <i data-lucide="brain"></i>
+        </div>
+
+        <div>
+
+          <h3>
+            Household Knowledge
+          </h3>
+
+          <p>
+            We build familiarity with your household,
+            preferences and recurring practical needs.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <article class="value-row">
+
+        <div class="value-icon">
+          <i data-lucide="messages-square"></i>
+        </div>
+
+        <div>
+
+          <h3>
+            Coordination &amp; Follow-Through
+          </h3>
+
+          <p>
+            Membership allows more continuity around
+            tasks, arrangements and agreed follow-ups.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <article class="value-row">
+
+        <div class="value-icon">
+          <i data-lucide="sparkles"></i>
+        </div>
+
+        <div>
+
+          <h3>
+            Increasingly Proactive Support
+          </h3>
+
+          <p>
+            Higher memberships allow us to move beyond
+            responding and help you stay ahead.
+          </p>
+
+        </div>
+
+      </article>
+
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- ==================================================
+     LEVEL PROGRESSION
+================================================== -->
+
+<section class="progression-section fade">
 
   <div class="container">
+
+
+    <div class="section-heading">
+
+      <p class="eyebrow">
+        WHAT CHANGES AS YOU MOVE UP?
+      </p>
+
+      <h2>
+        More responsibility moves from you to us.
+      </h2>
+
+      <p>
+        Higher memberships don't simply increase
+        reserved capacity. They allow Sorted. to
+        become more involved in organising,
+        coordinating and anticipating what your
+        household needs.
+      </p>
+
+    </div>
+
+
+    <div class="progression-grid">
+
+
+      <article class="progression-item">
+
+        <span class="progression-level">
+          Essential
+        </span>
+
+        <h3>
+          We help.
+        </h3>
+
+        <p>
+          You manage your household and ask Sorted.
+          to regularly take particular practical jobs
+          off your list.
+        </p>
+
+        <p class="progression-question">
+          “Can you do this for me?”
+        </p>
+
+      </article>
+
+
+      <article class="progression-item">
+
+        <span class="progression-level">
+          Complete
+        </span>
+
+        <h3>
+          We help keep things organised.
+        </h3>
+
+        <p>
+          Sorted. becomes a regular part of your
+          routine and helps keep recurring tasks
+          and practical details under control.
+        </p>
+
+        <p class="progression-question">
+          “Can you help me stay on top of this?”
+        </p>
+
+      </article>
+
+
+      <article class="progression-item">
+
+        <span class="progression-level">
+          Signature
+        </span>
+
+        <h3>
+          We help you stay ahead.
+        </h3>
+
+        <p>
+          Sorted. becomes more proactive and helps
+          anticipate practical jobs before they
+          become another urgent task.
+        </p>
+
+        <p class="progression-question">
+          “Can you help me think ahead?”
+        </p>
+
+      </article>
+
+
+      <article class="progression-item">
+
+        <span class="progression-level">
+          Private Client
+        </span>
+
+        <h3>
+          We help manage it.
+        </h3>
+
+        <p>
+          A much more involved relationship where
+          Sorted. can take significant practical
+          household responsibility off your plate.
+        </p>
+
+        <p class="progression-question">
+          “I don't want to manage all of this myself.”
+        </p>
+
+      </article>
+
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- ==================================================
+     MEMBER EXPERIENCE
+================================================== -->
+
+<section class="member-system fade">
+
+  <div class="container">
+
+
+    <div class="section-heading">
+
+      <p class="eyebrow">
+        THE SORTED. MEMBER EXPERIENCE
+      </p>
+
+      <h2>
+        Your household becomes easier to manage over time.
+      </h2>
+
+      <p>
+        Membership creates continuity around the
+        practical side of your home instead of
+        simply giving you a collection of isolated visits.
+      </p>
+
+    </div>
+
+
+    <div class="system-layout">
+
+
+      <div>
+
+        <img
+          src="membership-includes.jpg"
+          alt="An organised household representing ongoing Sorted. membership"
+          class="system-image"
+          loading="lazy"
+          decoding="async"
+        >
+
+      </div>
+
+
+      <div class="system-list">
+
+
+        <article class="system-item">
+
+          <div class="system-icon">
+            <i data-lucide="house"></i>
+          </div>
+
+          <div>
+
+            <h3>
+              My Household
+            </h3>
+
+            <p>
+              Useful preferences, routines and practical
+              household information can build over time,
+              helping us support you more naturally.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <article class="system-item">
+
+          <div class="system-icon">
+            <i data-lucide="list-checks"></i>
+          </div>
+
+          <div>
+
+            <h3>
+              Your Sorted. List
+            </h3>
+
+            <p>
+              Jobs that need handling and things that
+              are coming up can stay together instead
+              of becoming another mental list for you.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <article class="system-item">
+
+          <div class="system-icon">
+            <i data-lucide="calendar-days"></i>
+          </div>
+
+          <div>
+
+            <h3>
+              Household Reviews
+            </h3>
+
+            <p>
+              We can look at what has been handled,
+              what's coming next and whether anything
+              needs changing as your household evolves.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <article class="system-item">
+
+          <div class="system-icon">
+            <i data-lucide="sparkles"></i>
+          </div>
+
+          <div>
+
+            <h3>
+              Sorted. Ahead
+            </h3>
+
+            <p>
+              A more proactive layer of support designed
+              to help Signature and Private Clients stay
+              ahead of recurring and upcoming household needs.
+            </p>
+
+            <span class="system-tag">
+              Signature &amp; Private Client
+            </span>
+
+          </div>
+
+        </article>
+
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- ==================================================
+     WHAT MEMBERSHIP CAN COVER
+================================================== -->
+
+<section class="cover-section fade">
+
+  <div class="container">
+
 
     <div class="section-heading">
 
@@ -4904,648 +6422,640 @@ footer h3{
       </p>
 
       <h2>
-        Your home. Your routine. Your priorities.
+        Because real life doesn't fit into one service.
       </h2>
 
       <p>
-        Support doesn't need to stay inside one
-        category. Your membership can move naturally
-        between different parts of home and everyday
-        life depending on what you need.
+        Your membership can move between different
+        parts of household and everyday life according
+        to what would make the biggest difference.
       </p>
 
     </div>
 
 
-    <div class="support-feature">
+    <div class="cover-feature">
+
 
       <img
         src="membership-support.jpg"
-        alt="An organised entrance hall leading to a kitchen with everyday household tasks prepared and handled"
-        class="support-feature-image"
+        alt="Everyday household and lifestyle support"
+        class="cover-image"
         loading="lazy"
+        decoding="async"
       >
 
-      <div class="support-feature-copy">
+
+      <div class="cover-copy">
 
         <p class="eyebrow">
           ONE MEMBERSHIP. MANY WAYS TO HELP.
         </p>
 
         <h3>
-          The support changes with your week.
+          The support changes with your life.
         </h3>
 
         <p>
-          One week you might need shopping,
-          paperwork and a parcel returned.
-          Another might be about organising a room,
-          meeting a contractor or preparing your home
-          before you travel.
+          One week might mean shopping, paperwork and
+          returning a parcel. Another might mean
+          organising a room, walking the dog, meeting
+          a contractor and preparing the house before
+          you travel.
         </p>
 
         <p>
           <strong>
-            You don't need a different service
-            for every task.
+            Your membership is designed around what
+            actually needs handling.
           </strong>
         </p>
 
       </div>
 
+
     </div>
 
 
-    <div class="support-grid">
+    <div class="cover-grid">
 
-      <article class="support-tile">
 
-        <div class="support-icon">
+      <article class="cover-item">
+
+        <div class="cover-icon">
           <i data-lucide="shopping-bag"></i>
         </div>
 
-        <div>
-          <h3>Shopping &amp; Errands</h3>
-          <p>
-            Food shopping, prescriptions, parcels,
-            returns, dry cleaning, household
-            essentials and everyday collections.
-          </p>
-        </div>
+        <h3>
+          Shopping &amp; Errands
+        </h3>
+
+        <p>
+          Groceries, prescriptions, parcels, returns,
+          collections and everyday household essentials.
+        </p>
 
       </article>
 
 
-      <article class="support-tile">
+      <article class="cover-item">
 
-        <div class="support-icon">
+        <div class="cover-icon">
           <i data-lucide="boxes"></i>
         </div>
 
-        <div>
-          <h3>Home Organisation</h3>
-          <p>
-            Wardrobes, cupboards, kitchens,
-            pantries, paperwork, decluttering
-            and practical home resets.
-          </p>
-        </div>
+        <h3>
+          Home Organisation
+        </h3>
+
+        <p>
+          Wardrobes, cupboards, kitchens, pantries,
+          paperwork, packing and practical home resets.
+        </p>
 
       </article>
 
 
-      <article class="support-tile">
+      <article class="cover-item">
 
-        <div class="support-icon">
+        <div class="cover-icon">
           <i data-lucide="house"></i>
         </div>
 
-        <div>
-          <h3>Household Support</h3>
-          <p>
-            Deliveries, contractors, home checks,
-            practical household jobs and general
-            coordination.
-          </p>
-        </div>
+        <h3>
+          Household Management
+        </h3>
+
+        <p>
+          Deliveries, contractor access, appointments,
+          practical jobs and everyday household coordination.
+        </p>
 
       </article>
 
 
-      <article class="support-tile">
+      <article class="cover-item">
 
-        <div class="support-icon">
+        <div class="cover-icon">
           <i data-lucide="file-text"></i>
         </div>
 
-        <div>
-          <h3>Home Administration</h3>
-          <p>
-            Appointments, forms, paperwork,
-            reminders, household bookings and
-            practical online tasks.
-          </p>
-        </div>
+        <h3>
+          Household Admin
+        </h3>
+
+        <p>
+          Paperwork, forms, reminders, bookings,
+          appointments and practical online tasks.
+        </p>
 
       </article>
 
 
-      <article class="support-tile">
+      <article class="cover-item">
 
-        <div class="support-icon">
+        <div class="cover-icon">
           <i data-lucide="paw-print"></i>
         </div>
 
-        <div>
-          <h3>Pets &amp; Everyday Life</h3>
-          <p>
-            Dog walking, pet visits, local
-            appointments, seasonal jobs and
-            everyday practical support.
-          </p>
-        </div>
+        <h3>
+          Pets &amp; Everyday Life
+        </h3>
+
+        <p>
+          Dog walking, practical pet support,
+          local appointments and everyday logistics.
+        </p>
 
       </article>
 
 
-      <article class="support-tile">
+      <article class="cover-item">
 
-        <div class="support-icon">
+        <div class="cover-icon">
           <i data-lucide="luggage"></i>
         </div>
 
+        <h3>
+          Travel &amp; Property
+        </h3>
+
+        <p>
+          Property checks, home preparation, key holding,
+          contractor access and support before or after travel.
+        </p>
+
+      </article>
+
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- ==================================================
+     MENTAL LOAD
+================================================== -->
+
+<section class="mental-load fade">
+
+  <div class="container mental-inner">
+
+
+    <p class="eyebrow">
+      WHAT YOU'RE REALLY BUYING BACK
+    </p>
+
+
+    <h2>
+      Less living in your <em>head.</em>
+    </h2>
+
+
+    <p class="mental-intro">
+      The value of membership isn't only the jobs
+      themselves. It's having fewer practical details
+      competing for your attention.
+    </p>
+
+
+    <div class="mental-grid">
+
+
+      <div class="mental-item">
+
+        <span class="mental-number">
+          01
+        </span>
+
+        <p>
+          The parcel that still needs returning
+        </p>
+
+      </div>
+
+
+      <div class="mental-item">
+
+        <span class="mental-number">
+          02
+        </span>
+
+        <p>
+          The prescription due this week
+        </p>
+
+      </div>
+
+
+      <div class="mental-item">
+
+        <span class="mental-number">
+          03
+        </span>
+
+        <p>
+          The contractor somebody needs to meet
+        </p>
+
+      </div>
+
+
+      <div class="mental-item">
+
+        <span class="mental-number">
+          04
+        </span>
+
+        <p>
+          The cupboard you've been meaning to sort
+        </p>
+
+      </div>
+
+
+      <div class="mental-item">
+
+        <span class="mental-number">
+          05
+        </span>
+
+        <p>
+          The appointment you still haven't booked
+        </p>
+
+      </div>
+
+
+      <div class="mental-item">
+
+        <span class="mental-number">
+          06
+        </span>
+
+        <p>
+          The house that needs checking while you're away
+        </p>
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- ==================================================
+     GETTING STARTED
+================================================== -->
+
+<section class="how-section fade">
+
+  <div class="container how-layout">
+
+
+    <div class="how-image-wrap">
+
+
+      <img
+        src="membership-how-it-works.jpg"
+        alt="Sorted. household membership consultation"
+        class="how-image"
+        loading="lazy"
+        decoding="async"
+      >
+
+
+      <div class="how-caption">
+
+        <strong>
+          You don't need to choose the plan alone.
+        </strong>
+
+        <span>
+          Tell us what would make life easier and
+          we'll recommend where we think you should start.
+        </span>
+
+      </div>
+
+
+    </div>
+
+
+    <div class="how-copy">
+
+
+      <p class="eyebrow">
+        GETTING STARTED
+      </p>
+
+
+      <h2>
+        Simple from the beginning.
+      </h2>
+
+
+      <p>
+        Membership starts with a conversation,
+        not a complicated application or a long
+        list of decisions for you to make.
+      </p>
+
+
+      <div class="steps">
+
+
+        <article class="step">
+
+          <div class="step-number">
+            01
+          </div>
+
+          <div>
+
+            <h3>
+              Tell us what would help.
+            </h3>
+
+            <p>
+              We talk about what's taking up your time,
+              what keeps getting pushed back and what
+              you'd most like somebody else to handle.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <article class="step">
+
+          <div class="step-number">
+            02
+          </div>
+
+          <div>
+
+            <h3>
+              We'll recommend where to start.
+            </h3>
+
+            <p>
+              We'll suggest the membership that best
+              matches how much support and household
+              involvement you actually need.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <article class="step">
+
+          <div class="step-number">
+            03
+          </div>
+
+          <div>
+
+            <h3>
+              We become part of your routine.
+            </h3>
+
+            <p>
+              As we get to know your household,
+              support becomes easier, more personal
+              and increasingly seamless.
+            </p>
+
+          </div>
+
+        </article>
+
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- ==================================================
+     TRUST
+================================================== -->
+
+<section class="trust-section fade">
+
+  <div class="container trust-layout">
+
+
+    <div class="trust-copy">
+
+
+      <p class="eyebrow">
+        PEACE OF MIND, BUILT IN
+      </p>
+
+
+      <h2>
+        Support you can feel comfortable welcoming into your home.
+      </h2>
+
+
+      <p>
+        Household management requires trust
+        as well as capability.
+      </p>
+
+
+      <p>
+        Sorted. is built around reliability,
+        discretion and respect — from the way
+        we handle your home to the information
+        you choose to share with us.
+      </p>
+
+
+    </div>
+
+
+    <div class="assurance-panel">
+
+
+      <article class="assurance-item">
+
+        <div class="assurance-icon">
+          <i data-lucide="badge-check"></i>
+        </div>
+
         <div>
-          <h3>Travel &amp; Time Away</h3>
+
+          <h3>
+            Enhanced DBS Checked
+          </h3>
+
           <p>
-            Home preparation, property checks,
-            post collection, contractor access
-            and preparing everything for your return.
+            Additional reassurance when welcoming
+            us into your home.
           </p>
+
         </div>
 
       </article>
 
-    </div>
 
-  </div>
+      <article class="assurance-item">
 
-</section>
-
-
-<!-- MENTAL LOAD -->
-
-<section class="mental-load">
-
-  <div class="container mental-load-inner">
-
-    <p class="eyebrow">
-      THE REAL VALUE OF MEMBERSHIP
-    </p>
-
-    <h2>
-      Imagine not having to
-      <span>remember everything.</span>
-    </h2>
-
-
-    <div class="remember-list">
-
-      <div class="remember-item">
-        <span class="remember-number">01</span>
-        <p>The parcel that needs returning</p>
-      </div>
-
-      <div class="remember-item">
-        <span class="remember-number">02</span>
-        <p>The prescription due Thursday</p>
-      </div>
-
-      <div class="remember-item">
-        <span class="remember-number">03</span>
-        <p>The dog walk</p>
-      </div>
-
-      <div class="remember-item">
-        <span class="remember-number">04</span>
-        <p>The contractor arriving at 10</p>
-      </div>
-
-      <div class="remember-item">
-        <span class="remember-number">05</span>
-        <p>The groceries before you get home</p>
-      </div>
-
-      <div class="remember-item">
-        <span class="remember-number">06</span>
-        <p>The cupboard you've been meaning to sort</p>
-      </div>
-
-      <div class="remember-item">
-        <span class="remember-number">07</span>
-        <p>The key that needs collecting</p>
-      </div>
-
-      <div class="remember-item">
-        <span class="remember-number">08</span>
-        <p>The appointment you need to book</p>
-      </div>
-
-      <div class="remember-item">
-        <span class="remember-number">09</span>
-        <p>The post while you're away</p>
-      </div>
-
-      <div class="remember-item">
-        <span class="remember-number">10</span>
-        <p>The room that needs preparing for guests</p>
-      </div>
-
-    </div>
-
-
-    <p class="mental-load-line">
-      That's what a Sorted. membership is really for.
-    </p>
-
-  </div>
-
-</section>
-
-
-<!-- PEACE -->
-
-<section class="peace-section">
-
-  <div class="peace-image-wrap">
-
-    <div class="peace-copy">
-
-      <p class="eyebrow">
-        THE RESULT
-      </p>
-
-      <h2>
-        A home that feels lighter.
-      </h2>
-
-      <p>
-        Not because life suddenly has fewer things
-        to manage — but because you no longer have
-        to manage every one of them yourself.
-      </p>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- EVERY MEMBERSHIP INCLUDES -->
-
-<section class="includes-section">
-
-  <div class="container">
-
-    <div class="includes-heading">
-
-      <p class="eyebrow">
-        EVERY MEMBERSHIP INCLUDES
-      </p>
-
-      <h2>
-        Dependable support, built around you.
-      </h2>
-
-      <p>
-        Whichever level of membership suits you,
-        the foundation stays the same: consistent,
-        personal and flexible support from someone
-        who becomes familiar with your home and the
-        way you like things done.
-      </p>
-
-    </div>
-
-
-    <div class="includes-layout">
-
-      <img
-        src="membership-includes.jpg"
-        alt="An organised home office representing consistent household support"
-        class="includes-image"
-        loading="lazy"
-      >
-
-
-      <div class="includes-list">
-
-        <article class="include-item">
-          <div class="include-mark">✓</div>
-          <div>
-            <h3>Dedicated Monthly Support</h3>
-            <p>
-              A set amount of support time reserved
-              for you each month.
-            </p>
-          </div>
-        </article>
-
-        <article class="include-item">
-          <div class="include-mark">✓</div>
-          <div>
-            <h3>A Familiar Point of Contact</h3>
-            <p>
-              Someone who becomes familiar with your
-              home, preferences and priorities.
-            </p>
-          </div>
-        </article>
-
-        <article class="include-item">
-          <div class="include-mark">✓</div>
-          <div>
-            <h3>Priority Booking</h3>
-            <p>
-              Members receive priority when
-              additional visits or extra support
-              are required.
-            </p>
-          </div>
-        </article>
-
-        <article class="include-item">
-          <div class="include-mark">✓</div>
-          <div>
-            <h3>Flexible Use of Your Time</h3>
-            <p>
-              Your support can move between different
-              tasks rather than being restricted
-              to one type of service.
-            </p>
-          </div>
-        </article>
-
-        <article class="include-item">
-          <div class="include-mark">✓</div>
-          <div>
-            <h3>Ongoing Reviews</h3>
-            <p>
-              As life changes, your membership can
-              be adjusted to suit your circumstances.
-            </p>
-          </div>
-        </article>
-
-        <article class="include-item">
-          <div class="include-mark">✓</div>
-          <div>
-            <h3>Professional Peace of Mind</h3>
-            <p>
-              Enhanced DBS checked, fully insured,
-              discreet and professional support.
-            </p>
-          </div>
-        </article>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- WHY SORTED -->
-
-<section class="why-section">
-
-  <div class="container why-layout">
-
-    <img
-      src="membership-trust.jpg"
-      alt="An elegant secure home entrance representing trusted household support"
-      class="why-image"
-      loading="lazy"
-    >
-
-
-    <div class="why-content">
-
-      <p class="eyebrow">
-        WHY SORTED.
-      </p>
-
-      <h2>
-        Trusted support should feel effortless.
-      </h2>
-
-      <p>
-        Inviting someone into your home requires
-        trust. Sorted. is built around professionalism,
-        discretion, reliability and the value of
-        having a familiar local point of contact
-        you can depend on.
-      </p>
-
-
-      <div class="why-details">
-
-        <div class="why-item">
-          <strong>Enhanced DBS Checked</strong>
-          <span>
-            Additional reassurance and peace of mind.
-          </span>
+        <div class="assurance-icon">
+          <i data-lucide="shield-check"></i>
         </div>
 
-        <div class="why-item">
-          <strong>Fully Insured</strong>
-          <span>
-            Professional cover for the work we carry out.
-          </span>
-        </div>
+        <div>
 
-        <div class="why-item">
-          <strong>Confidential &amp; Discreet</strong>
-          <span>
-            Your home, information and privacy
-            are always treated respectfully.
-          </span>
-        </div>
+          <h3>
+            Fully Insured
+          </h3>
 
-        <div class="why-item">
-          <strong>Local Independent Business</strong>
-          <span>
-            Personal support rather than a
-            faceless national service.
-          </span>
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- CTA -->
-
-<section class="final-cta-section">
-
-  <div class="container">
-
-    <div class="final-cta">
-
-      <div class="final-cta-image">
-
-        <img
-          src="membership-final-cta.jpg"
-          alt="A calm beautifully cared-for home representing ongoing Sorted. support"
-          loading="lazy"
-        >
-
-      </div>
-
-
-      <div class="final-cta-copy">
-
-        <p class="eyebrow">
-          ONE LESS THING TO THINK ABOUT
-        </p>
-
-        <h2>
-          Tell us what would make life easier.
-        </h2>
-
-        <p>
-          You don't need to know which membership
-          you need before getting in touch. Tell us
-          what's taking up your time or headspace
-          and we'll recommend the right level of
-          support.
-        </p>
-
-
-        <div class="buttons">
-
-          <a
-            href="https://calendly.com/d/dzzd-qmh-mcm/one-off-meeting"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn-primary"
-          >
-            Book Your Complimentary Consultation
-          </a>
-
-          <a
-            href="#contact"
-            class="btn btn-light"
-          >
-            Send an Enquiry
-          </a>
+          <p>
+            Professional cover for the work
+            we undertake.
+          </p>
 
         </div>
 
-
-        <p class="cta-phone">
-          Prefer to talk first?
-          <a href="tel:+441323396610">
-            01323 396610
-          </a>
-        </p>
+      </article>
 
 
-        <div class="cta-assurance">
+      <article class="assurance-item">
 
-          <span>No obligation</span>
-          <span>Confidential</span>
-          <span>Friendly local service</span>
+        <div class="assurance-icon">
+          <i data-lucide="lock-keyhole"></i>
+        </div>
+
+        <div>
+
+          <h3>
+            Confidential &amp; Discreet
+          </h3>
+
+          <p>
+            Your household and personal information
+            are treated carefully and respectfully.
+          </p>
 
         </div>
 
-      </div>
+      </article>
+
+
+      <article class="assurance-item">
+
+        <div class="assurance-icon">
+          <i data-lucide="map-pin"></i>
+        </div>
+
+        <div>
+
+          <h3>
+            Local &amp; Independent
+          </h3>
+
+          <p>
+            Personal household support from a
+            business based here in East Sussex.
+          </p>
+
+        </div>
+
+      </article>
+
 
     </div>
 
-  </div>
-
-</section>
-
-
-<!-- AREAS -->
-
-<section class="areas">
-
-  <div class="container narrow">
-
-    <p class="eyebrow">
-      AREAS COVERED
-    </p>
-
-    <h2>
-      Eastbourne &amp; surrounding areas
-    </h2>
-
-    <p>
-      Eastbourne • Meads • Old Town • Upperton •
-      Sovereign Harbour • Hampden Park • Willingdon •
-      Langney • Polegate • Pevensey • Seaford and
-      nearby villages.
-    </p>
 
   </div>
 
 </section>
 
 
-<!-- CONTACT -->
+<!-- ==================================================
+     CONTACT
+================================================== -->
 
 <section
-  class="contact-section"
+  class="contact-section fade"
   id="contact"
 >
 
   <div class="container contact-grid">
 
+
     <div class="contact-copy">
 
+
       <p class="eyebrow">
-        LET'S START WITH A CONVERSATION
+        YOUR HOME. HANDLED.
       </p>
+
 
       <h2>
-        Life. Beautifully Sorted.
+        What would you like to stop managing yourself?
       </h2>
 
+
       <p>
-        Whether you're looking for light regular
-        support or something more comprehensive,
-        we'll begin with a friendly conversation
-        about what would genuinely make life easier.
+        Tell us what's taking up your time, what keeps
+        getting pushed back or what you'd simply prefer
+        somebody else to look after.
       </p>
 
 
-      <div class="contact-details">
+      <p style="margin-top:16px;">
+        You don't need to know which membership you
+        need before getting in touch. We'll help you
+        work that out.
+      </p>
 
-        <div class="contact-detail">
-          <h3>Email</h3>
-          <p>
-            <a href="mailto:contact@sortedlife.org.uk">
-              contact@sortedlife.org.uk
-            </a>
-          </p>
-        </div>
 
-        <div class="contact-detail">
-          <h3>Phone</h3>
-          <p>
-            <a href="tel:+441323396610">
-              01323 396610
-            </a>
-          </p>
-        </div>
+      <p class="contact-phone">
 
-        <div class="contact-detail">
-          <h3>Opening Hours</h3>
-          <p>
-            Monday – Friday: 8:00am – 6:00pm<br>
-            Saturday: By appointment<br>
-            Sunday: By arrangement
-          </p>
-        </div>
+        Prefer to talk?
 
-        <div class="contact-detail">
-          <h3>Response Time</h3>
-          <p>
-            We aim to respond to all enquiries
-            within 24 hours, often much sooner.
-          </p>
-        </div>
+        <a href="tel:+441323396610">
+          01323 396610
+        </a>
+
+      </p>
+
+
+      <div class="contact-assurance">
+
+        <span>
+          No obligation
+        </span>
+
+        <span>
+          Confidential
+        </span>
+
+        <span>
+          Friendly conversation
+        </span>
 
       </div>
+
 
     </div>
 
@@ -5556,10 +7066,12 @@ footer h3{
       method="POST"
     >
 
-      <p class="contact-form-intro">
-        No obligation. No pressure. Just a friendly
-        conversation about how we can help.
+
+      <p class="form-intro">
+        Tell us a little about what would make
+        everyday life easier.
       </p>
+
 
       <input
         type="hidden"
@@ -5567,17 +7079,20 @@ footer h3{
         value="New Sorted. Membership Enquiry"
       >
 
+
       <input
         type="hidden"
         name="_captcha"
         value="false"
       >
 
+
       <input
         type="hidden"
         name="_template"
         value="table"
       >
+
 
       <input
         type="hidden"
@@ -5587,6 +7102,7 @@ footer h3{
 
 
       <label>
+
         Your Name
 
         <input
@@ -5596,10 +7112,12 @@ footer h3{
           placeholder="John Smith"
           required
         >
+
       </label>
 
 
       <label>
+
         Email Address
 
         <input
@@ -5609,10 +7127,12 @@ footer h3{
           placeholder="john@email.com"
           required
         >
+
       </label>
 
 
       <label>
+
         Telephone
 
         <input
@@ -5621,17 +7141,51 @@ footer h3{
           autocomplete="tel"
           placeholder="Optional"
         >
+
       </label>
 
 
       <label>
-        How can we help?
+
+        Is there a membership you're interested in?
+
+        <select name="membership_interest">
+
+          <option value="">
+            I'm not sure yet
+          </option>
+
+          <option value="Essential">
+            Essential — £180/month
+          </option>
+
+          <option value="Complete">
+            Complete — £330/month
+          </option>
+
+          <option value="Signature">
+            Signature — £480/month
+          </option>
+
+          <option value="Private Client">
+            Private Client — from £800/month
+          </option>
+
+        </select>
+
+      </label>
+
+
+      <label>
+
+        What would you like taken off your plate?
 
         <textarea
           name="message"
-          placeholder="Tell us a little about the support you're looking for..."
+          placeholder="Tell us about the household jobs, practical tasks or everyday details you'd like help with..."
           required
         ></textarea>
+
       </label>
 
 
@@ -5658,15 +7212,44 @@ footer h3{
 
 
       <p class="form-note">
-        We'll aim to reply as soon as possible.
+        We aim to respond within 24 hours, often much sooner.
       </p>
 
-      <p class="payment-note">
-        <strong>Payment Options</strong><br>
-        Bank Transfer • Debit &amp; Credit Card • Standing Order
-      </p>
 
     </form>
+
+
+  </div>
+
+</section>
+
+
+<!-- ==================================================
+     AREAS
+================================================== -->
+
+<section class="areas-section fade">
+
+  <div class="container narrow">
+
+
+    <p class="eyebrow">
+      BASED IN EASTBOURNE
+    </p>
+
+
+    <h2>
+      Ongoing support, close to home.
+    </h2>
+
+
+    <p>
+      Supporting households across Eastbourne,
+      Meads, Old Town, Upperton, Sovereign Harbour,
+      Hampden Park, Willingdon, Langney, Polegate,
+      Pevensey, Seaford and surrounding areas.
+    </p>
+
 
   </div>
 
@@ -5676,48 +7259,45 @@ footer h3{
 </main>
 
 
-<!-- FLOATING CONTACT -->
+<!-- ==================================================
+     FLOATING CONTACT
+================================================== -->
 
 <div class="floating-contact">
-
-  <a
-    href="tel:+441323396610"
-    class="floating-btn"
-    aria-label="Call Sorted"
-  >
-    <i data-lucide="phone"></i>
-  </a>
 
   <a
     href="https://wa.me/447460934371"
     target="_blank"
     rel="noopener noreferrer"
-    class="floating-btn"
-    aria-label="WhatsApp Sorted"
+    class="floating-message"
+    aria-label="Message Sorted on WhatsApp"
   >
-    <i data-lucide="message-circle"></i>
-  </a>
 
-  <a
-    href="mailto:contact@sortedlife.org.uk"
-    class="floating-btn"
-    aria-label="Email Sorted"
-  >
-    <i data-lucide="mail"></i>
+    <i data-lucide="message-circle"></i>
+
+    <span>
+      Message Sorted.
+    </span>
+
   </a>
 
 </div>
 
 
-<!-- FOOTER -->
+<!-- ==================================================
+     FOOTER
+================================================== -->
 
 <footer>
 
   <div class="container">
 
+
     <div class="footer-top">
 
+
       <div class="footer-brand">
+
 
         <a
           href="index.html"
@@ -5726,44 +7306,55 @@ footer h3{
           Sorted<span>.</span>
         </a>
 
+
         <p class="footer-tagline">
           Your Home. Handled.
         </p>
 
-        <p class="footer-brand-copy">
-          Premium household and lifestyle support
-          across Eastbourne and surrounding areas.
+
+        <p class="footer-description">
+          Household and lifestyle management across
+          Eastbourne and surrounding areas.
         </p>
+
 
       </div>
 
 
       <div class="footer-contact">
 
+
         <p class="footer-contact-label">
           Get in touch
         </p>
+
 
         <a href="tel:+441323396610">
           01323 396610
         </a>
 
+
         <a href="mailto:contact@sortedlife.org.uk">
           contact@sortedlife.org.uk
         </a>
 
+
       </div>
+
 
     </div>
 
 
     <div class="footer-grid">
 
+
       <div>
 
-        <h3>Explore</h3>
+        <h3>
+          Explore
+        </h3>
 
-        <div class="footer-nav">
+        <div class="footer-links">
 
           <a href="services.html">
             Services
@@ -5788,9 +7379,11 @@ footer h3{
 
       <div>
 
-        <h3>Sorted.</h3>
+        <h3>
+          Sorted.
+        </h3>
 
-        <div class="footer-nav">
+        <div class="footer-links">
 
           <a href="about.html">
             About
@@ -5819,22 +7412,34 @@ footer h3{
 
       <div>
 
-        <h3>Opening Hours</h3>
+        <h3>
+          Hours
+        </h3>
 
-        <div class="footer-nav">
+        <div class="footer-links">
 
-          <p>Monday–Friday: 8am–6pm</p>
-          <p>Saturday: By appointment</p>
-          <p>Sunday: By arrangement</p>
+          <p>
+            Monday–Friday: 8am–6pm
+          </p>
+
+          <p>
+            Saturday: By appointment
+          </p>
+
+          <p>
+            Sunday: By arrangement
+          </p>
 
         </div>
 
       </div>
 
+
     </div>
 
 
     <div class="footer-bottom">
+
 
       <div class="footer-bottom-left">
 
@@ -5849,7 +7454,7 @@ footer h3{
       </div>
 
 
-      <p class="footer-legal">
+      <p class="legal-links">
 
         <a href="privacy.html">
           Privacy
@@ -5863,21 +7468,30 @@ footer h3{
 
       </p>
 
+
     </div>
+
 
   </div>
 
 </footer>
 
 
-<!-- COOKIE -->
+<!-- ==================================================
+     COOKIE
+================================================== -->
 
 <div
   id="cookie-banner"
   class="cookie-banner"
 >
 
-  This website uses essential cookies to improve your experience.
+  This website uses essential browser storage for basic preferences.
+  See our
+
+  <a href="privacy.html">
+    Privacy Policy
+  </a>.
 
   <button
     type="button"
@@ -5889,131 +7503,25 @@ footer h3{
 </div>
 
 
+<!-- ==================================================
+     JAVASCRIPT
+================================================== -->
+
 <script>
 
+
 /* ==================================================
-   MOBILE MENU
+   ELEMENTS
 ================================================== */
 
 const menuToggle =
   document.querySelector(".menu-toggle");
 
-const nav =
+const navigation =
   document.querySelector("#site-navigation");
-
-
-if(menuToggle && nav){
-
-  menuToggle.addEventListener(
-    "click",
-    function(){
-
-      const open =
-        nav.classList.toggle("active");
-
-      menuToggle.setAttribute(
-        "aria-expanded",
-        open ? "true" : "false"
-      );
-
-    }
-  );
-
-
-  nav.querySelectorAll("a")
-    .forEach(function(link){
-
-      link.addEventListener(
-        "click",
-        function(){
-
-          nav.classList.remove("active");
-
-          menuToggle.setAttribute(
-            "aria-expanded",
-            "false"
-          );
-
-        }
-      );
-
-    });
-
-}
-
-
-/* ==================================================
-   MEMBERSHIP EXPANSION
-================================================== */
-
-document.querySelectorAll(
-  ".membership-toggle"
-).forEach(function(button){
-
-  button.addEventListener(
-    "click",
-    function(){
-
-      const card =
-        button.closest(".membership-card");
-
-      if(!card){
-        return;
-      }
-
-      const expanded =
-        card.classList.toggle("expanded");
-
-      button.setAttribute(
-        "aria-expanded",
-        expanded ? "true" : "false"
-      );
-
-      button.textContent =
-        expanded
-          ? "Show Less"
-          : "View Full Membership";
-
-    }
-  );
-
-});
-
-
-/* ==================================================
-   HEADER
-================================================== */
 
 const header =
   document.querySelector(".site-header");
-
-
-function updateHeader(){
-
-  if(!header){
-    return;
-  }
-
-  header.classList.toggle(
-    "scrolled",
-    window.scrollY > 35
-  );
-
-}
-
-
-window.addEventListener(
-  "scroll",
-  updateHeader,
-  { passive:true }
-);
-
-updateHeader();
-
-
-/* ==================================================
-   FLOATING CONTACT
-================================================== */
 
 const floatingContact =
   document.querySelector(".floating-contact");
@@ -6022,14 +7530,303 @@ const siteFooter =
   document.querySelector("footer");
 
 
+/* ==================================================
+   MOBILE MENU
+================================================== */
+
+function closeMenu(){
+
+  if(!menuToggle || !navigation){
+    return;
+  }
+
+  navigation.classList.remove("active");
+
+  menuToggle.setAttribute(
+    "aria-expanded",
+    "false"
+  );
+
+  menuToggle.setAttribute(
+    "aria-label",
+    "Open navigation menu"
+  );
+
+}
+
+
+if(menuToggle && navigation){
+
+
+  menuToggle.addEventListener(
+    "click",
+    function(){
+
+      const open =
+        navigation.classList.toggle("active");
+
+
+      menuToggle.setAttribute(
+        "aria-expanded",
+        open ? "true" : "false"
+      );
+
+
+      menuToggle.setAttribute(
+        "aria-label",
+        open
+          ? "Close navigation menu"
+          : "Open navigation menu"
+      );
+
+    }
+  );
+
+
+  navigation
+    .querySelectorAll("a")
+    .forEach(function(link){
+
+      link.addEventListener(
+        "click",
+        closeMenu
+      );
+
+    });
+
+
+  document.addEventListener(
+    "click",
+    function(event){
+
+      if(
+        navigation.classList.contains("active") &&
+        !navigation.contains(event.target) &&
+        !menuToggle.contains(event.target)
+      ){
+
+        closeMenu();
+
+      }
+
+    }
+  );
+
+
+  document.addEventListener(
+    "keydown",
+    function(event){
+
+      if(event.key === "Escape"){
+        closeMenu();
+      }
+
+    }
+  );
+
+
+}
+
+
+/* ==================================================
+   MEMBERSHIP EXPANSION
+================================================== */
+
+document
+  .querySelectorAll(".membership-toggle")
+  .forEach(function(button){
+
+
+    button.addEventListener(
+      "click",
+      function(){
+
+
+        const card =
+          button.closest(".membership-card");
+
+
+        if(!card){
+          return;
+        }
+
+
+        const expanded =
+          card.classList.toggle("expanded");
+
+
+        button.setAttribute(
+          "aria-expanded",
+          expanded ? "true" : "false"
+        );
+
+
+        button.textContent =
+          expanded
+            ? "Show Less"
+            : "View Full Membership";
+
+
+      }
+    );
+
+
+  });
+
+
+/* ==================================================
+   SCROLL EFFECTS
+================================================== */
+
+let scrollTicking = false;
+
+
+function updateScrollEffects(){
+
+
+  const scrollY =
+    window.scrollY;
+
+
+  if(header){
+
+    header.classList.toggle(
+      "scrolled",
+      scrollY > 40
+    );
+
+  }
+
+
+  if(floatingContact){
+
+    floatingContact.classList.toggle(
+      "visible",
+      scrollY > 450
+    );
+
+  }
+
+
+  scrollTicking = false;
+
+
+}
+
+
+function requestScrollUpdate(){
+
+
+  if(scrollTicking){
+    return;
+  }
+
+
+  scrollTicking = true;
+
+
+  window.requestAnimationFrame(
+    updateScrollEffects
+  );
+
+
+}
+
+
+window.addEventListener(
+  "scroll",
+  requestScrollUpdate,
+  { passive:true }
+);
+
+
+updateScrollEffects();
+
+
+/* ==================================================
+   FADE IN
+================================================== */
+
+const fadeElements =
+  document.querySelectorAll(".fade");
+
+
+if("IntersectionObserver" in window){
+
+
+  const fadeObserver =
+    new IntersectionObserver(
+
+      function(entries,observer){
+
+        entries.forEach(
+          function(entry){
+
+            if(!entry.isIntersecting){
+              return;
+            }
+
+
+            entry.target
+              .classList.add("show");
+
+
+            observer
+              .unobserve(entry.target);
+
+          }
+        );
+
+      },
+
+      {
+        threshold:.07,
+
+        rootMargin:
+          "0px 0px -25px 0px"
+      }
+
+    );
+
+
+  fadeElements.forEach(
+    function(element){
+
+      fadeObserver.observe(element);
+
+    }
+  );
+
+
+}else{
+
+
+  fadeElements.forEach(
+    function(element){
+
+      element.classList.add("show");
+
+    }
+  );
+
+
+}
+
+
+/* ==================================================
+   FLOATING CONTACT / FOOTER
+================================================== */
+
 if(
   floatingContact &&
   siteFooter &&
   "IntersectionObserver" in window
 ){
 
+
   const footerObserver =
     new IntersectionObserver(
+
       function(entries){
 
         entries.forEach(
@@ -6043,28 +7840,19 @@ if(
           }
         );
 
+      },
+
+      {
+        threshold:.03
       }
+
     );
+
 
   footerObserver.observe(siteFooter);
 
+
 }
-
-
-/* ==================================================
-   ICONS
-================================================== */
-
-document.addEventListener(
-  "DOMContentLoaded",
-  function(){
-
-    if(window.lucide){
-      lucide.createIcons();
-    }
-
-  }
-);
 
 
 /* ==================================================
@@ -6073,31 +7861,44 @@ document.addEventListener(
 
 function acceptCookies(){
 
+
   localStorage.setItem(
     "cookiesAccepted",
     "yes"
   );
+
 
   const banner =
     document.getElementById(
       "cookie-banner"
     );
 
+
   if(banner){
-    banner.style.display = "none";
+
+    banner.style.display =
+      "none";
+
   }
+
 
 }
 
+
+/* ==================================================
+   INITIALISE
+================================================== */
 
 document.addEventListener(
   "DOMContentLoaded",
   function(){
 
+
     const banner =
       document.getElementById(
         "cookie-banner"
       );
+
 
     if(
       banner &&
@@ -6106,15 +7907,26 @@ document.addEventListener(
       ) !== "yes"
     ){
 
-      banner.style.display = "block";
+      banner.style.display =
+        "block";
 
     }
 
+
+    if(window.lucide){
+
+      lucide.createIcons();
+
+    }
+
+
   }
 );
+
 
 </script>
 
 
 </body>
+
 </html>
