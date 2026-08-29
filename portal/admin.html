@@ -13123,6 +13123,10 @@ async function deductVisitCapacity(
     async function(transaction){
 
 
+      /*
+        READ VISIT
+      */
+
       const visitSnapshot =
         await transaction.get(
           visitReference
@@ -13143,37 +13147,8 @@ async function deductVisitCapacity(
 
 
       /*
-        Do nothing unless the visit is completed.
+        READ CLIENT
       */
-      if(
-        !isCompleted(
-          visitData.status
-        )
-      ){
-
-        return {
-          deducted:false,
-          reason:"not-completed"
-        };
-
-      }
-
-
-      /*
-        Never deduct the same visit twice.
-      */
-      if(
-        visitData.capacityDeducted ===
-        true
-      ){
-
-        return {
-          deducted:false,
-          reason:"already-deducted"
-        };
-
-      }
-
 
       const clientSnapshot =
         await transaction.get(
@@ -13194,6 +13169,10 @@ async function deductVisitCapacity(
         clientSnapshot.data();
 
 
+      /*
+        MEMBERSHIP
+      */
+
       const membership =
         normalise(
           clientData.membership ||
@@ -13201,43 +13180,14 @@ async function deductVisitCapacity(
         );
 
 
+      const usesReservedCapacity =
+        membership !==
+        "flexible support";
+
+
       /*
-        Flexible Support does not use membership
-        reserved-hour capacity.
+        RESERVED HOURS FOR THIS PERIOD
       */
-      if(
-        membership ===
-        "flexible support"
-      ){
-
-        return {
-          deducted:false,
-          reason:"flexible-support"
-        };
-
-      }
-
-
-      const hours =
-        Number(
-          visitData.hoursUsed ??
-          visitData.durationHours ??
-          0
-        );
-
-
-      if(
-        !Number.isFinite(hours) ||
-        hours <= 0
-      ){
-
-        return {
-          deducted:false,
-          reason:"no-hours"
-        };
-
-      }
-
 
       const total =
         Number(
@@ -13255,11 +13205,16 @@ async function deductVisitCapacity(
 
         return {
           deducted:false,
+          refunded:false,
           reason:"no-reserved-capacity"
         };
 
       }
 
+
+      /*
+        CURRENT REMAINING BALANCE
+      */
 
       const storedRemaining =
         clientData.currentPeriodRemainingHours ??
@@ -13286,56 +13241,306 @@ async function deductVisitCapacity(
       }
 
 
-      const newRemaining =
+      remaining =
         Math.max(
           0,
-          remaining - hours
+          Math.min(
+            total,
+            remaining
+          )
         );
 
 
-      transaction.update(
-        clientReference,
-        {
+      /*
+        HOW MANY HOURS THIS VISIT HAS ALREADY
+        ACTUALLY TAKEN FROM RESERVED SUPPORT
+      */
 
-          currentPeriodRemainingHours:
-            newRemaining,
+      let previousAppliedHours =
+        visitData.capacityDeducted ===
+        true
+          ? Number(
+              visitData.capacityDeductedHours ||
+              0
+            )
+          : 0;
 
-          hoursRemaining:
-            newRemaining,
 
-          updatedAt:
-            serverTimestamp()
+      if(
+        !Number.isFinite(
+          previousAppliedHours
+        )
+        ||
+        previousAppliedHours <
+        0
+      ){
+
+        previousAppliedHours =
+          0;
+
+      }
+
+
+      /*
+        HOW MANY HOURS THE VISIT SHOULD NOW USE
+
+        Completed membership visit:
+        use its duration.
+
+        Scheduled / cancelled / Flexible Support:
+        use zero reserved hours.
+      */
+
+      let targetVisitHours =
+        0;
+
+
+      if(
+        isCompleted(
+          visitData.status
+        )
+        &&
+        usesReservedCapacity
+      ){
+
+        targetVisitHours =
+          Number(
+            visitData.hoursUsed ??
+            visitData.durationHours ??
+            0
+          );
+
+
+        if(
+          !Number.isFinite(
+            targetVisitHours
+          )
+          ||
+          targetVisitHours <
+          0
+        ){
+
+          targetVisitHours =
+            0;
 
         }
-      );
+
+      }
+
+
+      let newRemaining =
+        remaining;
+
+
+      let newAppliedHours =
+        previousAppliedHours;
+
+
+      let actualDeduction =
+        0;
+
+
+      let actualRefund =
+        0;
+
+
+      /*
+        VISIT NOW NEEDS MORE HOURS THAN IT
+        PREVIOUSLY USED
+      */
+
+      if(
+        targetVisitHours >
+        previousAppliedHours
+      ){
+
+        const additionalNeeded =
+          targetVisitHours -
+          previousAppliedHours;
+
+
+        actualDeduction =
+          Math.min(
+            additionalNeeded,
+            remaining
+          );
+
+
+        newRemaining =
+          remaining -
+          actualDeduction;
+
+
+        newAppliedHours =
+          previousAppliedHours +
+          actualDeduction;
+
+      }
+
+
+      /*
+        VISIT NOW NEEDS FEWER HOURS THAN IT
+        PREVIOUSLY USED
+
+        Example:
+        2 hour completed visit changed to 1 hour.
+        One hour is returned to the client.
+      */
+
+      if(
+        targetVisitHours <
+        previousAppliedHours
+      ){
+
+        const refundNeeded =
+          previousAppliedHours -
+          targetVisitHours;
+
+
+        const roomToRefund =
+          Math.max(
+            0,
+            total -
+            remaining
+          );
+
+
+        actualRefund =
+          Math.min(
+            refundNeeded,
+            roomToRefund
+          );
+
+
+        newRemaining =
+          remaining +
+          actualRefund;
+
+
+        newAppliedHours =
+          previousAppliedHours -
+          actualRefund;
+
+      }
+
+
+      /*
+        IF THE VISIT IS LONGER THAN THE CLIENT'S
+        AVAILABLE RESERVED SUPPORT, RECORD THE
+        DIFFERENCE AS OVERAGE RATHER THAN MAKING
+        THE BALANCE NEGATIVE.
+      */
+
+      const overageHours =
+        Math.max(
+          0,
+          targetVisitHours -
+          newAppliedHours
+        );
+
+
+      /*
+        CLIENT BALANCE
+      */
+
+      if(
+        newRemaining !==
+        remaining
+      ){
+
+        transaction.update(
+          clientReference,
+          {
+
+            currentPeriodRemainingHours:
+              newRemaining,
+
+            hoursRemaining:
+              newRemaining,
+
+            updatedAt:
+              serverTimestamp()
+
+          }
+        );
+
+      }
+
+
+      /*
+        VISIT ACCOUNTING RECORD
+      */
+
+      const visitUpdate = {
+
+        capacityDeducted:
+          newAppliedHours >
+          0,
+
+        capacityDeductedHours:
+          newAppliedHours,
+
+        capacityOverageHours:
+          overageHours,
+
+        capacityReconciledAt:
+          serverTimestamp(),
+
+        updatedAt:
+          serverTimestamp()
+
+      };
+
+
+      /*
+        Keep a record of when this visit first
+        began using reserved support.
+      */
+
+      if(
+        previousAppliedHours ===
+        0
+        &&
+        newAppliedHours >
+        0
+      ){
+
+        visitUpdate.capacityDeductedAt =
+          serverTimestamp();
+
+      }
 
 
       transaction.update(
         visitReference,
-        {
-
-          capacityDeducted:
-            true,
-
-          capacityDeductedHours:
-            hours,
-
-          capacityDeductedAt:
-            serverTimestamp(),
-
-          updatedAt:
-            serverTimestamp()
-
-        }
+        visitUpdate
       );
 
 
       return {
 
-        deducted:true,
+        deducted:
+          actualDeduction >
+          0,
+
+        refunded:
+          actualRefund >
+          0,
 
         hours:
-          hours,
+          actualDeduction,
+
+        refundedHours:
+          actualRefund,
+
+        previousAppliedHours:
+          previousAppliedHours,
+
+        appliedHours:
+          newAppliedHours,
+
+        overageHours:
+          overageHours,
 
         previousRemaining:
           remaining,
@@ -13705,57 +13910,98 @@ saveVisitButton.addEventListener(
     false;
 
 
+  /*
+    Reconcile reserved support on EVERY visit save.
+
+    This means Studio can:
+    - deduct a newly completed visit
+    - avoid deducting it twice
+    - adjust the balance if the duration changes
+    - refund hours if a completed visit becomes
+      Scheduled or Cancelled
+  */
+  try{
+
+    const capacityResult =
+      await deductVisitCapacity(
+        savedClientId,
+        savedVisitId
+      );
+
+
+    if(
+      capacityResult &&
+      capacityResult.deducted ===
+      true
+    ){
+
+      successMessage +=
+        " "
+        +
+        capacityResult.hours
+        +
+        "h deducted from reserved support.";
+
+    }
+
+
+    if(
+      capacityResult &&
+      capacityResult.refunded ===
+      true
+    ){
+
+      successMessage +=
+        " "
+        +
+        capacityResult.refundedHours
+        +
+        "h returned to reserved support.";
+
+    }
+
+
+    if(
+      capacityResult &&
+      Number(
+        capacityResult.overageHours
+      ) >
+      0
+    ){
+
+      successMessage +=
+        " "
+        +
+        capacityResult.overageHours
+        +
+        "h recorded above remaining reserved support.";
+
+    }
+
+
+  }catch(capacityError){
+
+    console.error(
+      "Visit capacity reconciliation error:",
+      capacityError
+    );
+
+    capacityUpdateFailed =
+      true;
+
+  }
+
+
+  /*
+    Sorted. List items should ONLY be automatically
+    completed when the visit itself is completed.
+  */
   if(
     isCompleted(
       status
     )
   ){
 
-    /*
-      Deduct reserved membership capacity.
-    */
-    try{
-
-      const deduction =
-        await deductVisitCapacity(
-          savedClientId,
-          savedVisitId
-        );
-
-
-      if(
-        deduction &&
-        deduction.deducted ===
-        true
-      ){
-
-        successMessage +=
-          " "
-          +
-          deduction.hours
-          +
-          "h deducted from reserved support.";
-
-      }
-
-
-    }catch(capacityError){
-
-      console.error(
-        "Visit capacity deduction error:",
-        capacityError
-      );
-
-      capacityUpdateFailed =
-        true;
-
-    }
-
-
-    /*
-      Complete any Sorted. List items
-      attached to this exact visit.
-    */
     try{
 
       const completedTasks =
