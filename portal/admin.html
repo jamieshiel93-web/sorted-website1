@@ -8147,6 +8147,7 @@ import {
   addDoc,
   updateDoc,
   deleteDoc,
+  runTransaction,
   serverTimestamp,
   Timestamp
 
@@ -12286,6 +12287,8 @@ saveTaskButton.addEventListener(
 
     };
 
+
+
     if(isCompleted(status)){
 
       data.completedAt =
@@ -13073,11 +13076,278 @@ function closeVisitEditor(){
 }
 
 
+
 visitModalClose.addEventListener(
   "click",
   closeVisitEditor
 );
 
+/* ==================================================
+   VISIT CAPACITY DEDUCTION
+================================================== */
+
+async function deductVisitCapacity(
+  clientId,
+  visitId
+){
+
+  if(
+    !clientId ||
+    !visitId
+  ){
+    return;
+  }
+
+
+  const clientReference =
+    doc(
+      db,
+      "clients",
+      clientId
+    );
+
+
+  const visitReference =
+    doc(
+      db,
+      "clients",
+      clientId,
+      "visits",
+      visitId
+    );
+
+
+  return runTransaction(
+    db,
+    async function(transaction){
+
+
+      const visitSnapshot =
+        await transaction.get(
+          visitReference
+        );
+
+
+      if(!visitSnapshot.exists()){
+
+        throw new Error(
+          "Visit record could not be found."
+        );
+
+      }
+
+
+      const visitData =
+        visitSnapshot.data();
+
+
+      /*
+        Do nothing unless the visit is completed.
+      */
+      if(
+        !isCompleted(
+          visitData.status
+        )
+      ){
+
+        return {
+          deducted:false,
+          reason:"not-completed"
+        };
+
+      }
+
+
+      /*
+        Never deduct the same visit twice.
+      */
+      if(
+        visitData.capacityDeducted ===
+        true
+      ){
+
+        return {
+          deducted:false,
+          reason:"already-deducted"
+        };
+
+      }
+
+
+      const clientSnapshot =
+        await transaction.get(
+          clientReference
+        );
+
+
+      if(!clientSnapshot.exists()){
+
+        throw new Error(
+          "Client record could not be found."
+        );
+
+      }
+
+
+      const clientData =
+        clientSnapshot.data();
+
+
+      const membership =
+        normalise(
+          clientData.membership ||
+          clientData.package
+        );
+
+
+      /*
+        Flexible Support does not use membership
+        reserved-hour capacity.
+      */
+      if(
+        membership ===
+        "flexible support"
+      ){
+
+        return {
+          deducted:false,
+          reason:"flexible-support"
+        };
+
+      }
+
+
+      const hours =
+        Number(
+          visitData.hoursUsed ??
+          visitData.durationHours ??
+          0
+        );
+
+
+      if(
+        !Number.isFinite(hours) ||
+        hours <= 0
+      ){
+
+        return {
+          deducted:false,
+          reason:"no-hours"
+        };
+
+      }
+
+
+      const total =
+        Number(
+          clientData.currentPeriodHours ??
+          clientData.hoursTotal ??
+          clientData.monthlyHours ??
+          0
+        );
+
+
+      if(
+        !Number.isFinite(total) ||
+        total <= 0
+      ){
+
+        return {
+          deducted:false,
+          reason:"no-reserved-capacity"
+        };
+
+      }
+
+
+      const storedRemaining =
+        clientData.currentPeriodRemainingHours ??
+        clientData.hoursRemaining;
+
+
+      let remaining =
+        storedRemaining === undefined
+          ? total
+          : Number(
+              storedRemaining
+            );
+
+
+      if(
+        !Number.isFinite(
+          remaining
+        )
+      ){
+
+        remaining =
+          total;
+
+      }
+
+
+      const newRemaining =
+        Math.max(
+          0,
+          remaining - hours
+        );
+
+
+      transaction.update(
+        clientReference,
+        {
+
+          currentPeriodRemainingHours:
+            newRemaining,
+
+          hoursRemaining:
+            newRemaining,
+
+          updatedAt:
+            serverTimestamp()
+
+        }
+      );
+
+
+      transaction.update(
+        visitReference,
+        {
+
+          capacityDeducted:
+            true,
+
+          capacityDeductedHours:
+            hours,
+
+          capacityDeductedAt:
+            serverTimestamp(),
+
+          updatedAt:
+            serverTimestamp()
+
+        }
+      );
+
+
+      return {
+
+        deducted:true,
+
+        hours:
+          hours,
+
+        previousRemaining:
+          remaining,
+
+        newRemaining:
+          newRemaining
+
+      };
+
+    }
+  );
+
+}
 
 visitModal.addEventListener(
   "click",
@@ -13201,60 +13471,166 @@ saveVisitButton.addEventListener(
     saveVisitButton.disabled =
       true;
 
+
+
+      try{
+
+  let savedVisitId =
+    "";
+
+  let savedClientId =
+    clientId;
+
+  let successMessage =
+    "Visit added.";
+
+
+  if(editingVisitKey){
+
+    const existing =
+      loadedVisits.get(
+        editingVisitKey
+      );
+
+
+    if(!existing){
+
+      throw new Error(
+        "The visit could not be found."
+      );
+
+    }
+
+
+    savedVisitId =
+      existing.visitId;
+
+    savedClientId =
+      existing.clientId;
+
+
+    await updateDoc(
+      doc(
+        db,
+        "clients",
+        existing.clientId,
+        "visits",
+        existing.visitId
+      ),
+      data
+    );
+
+
+    successMessage =
+      "Visit updated.";
+
+  }else{
+
+    const createdVisit =
+      await addDoc(
+        collection(
+          db,
+          "clients",
+          clientId,
+          "visits"
+        ),
+        {
+
+          ...data,
+
+          createdAt:
+            serverTimestamp()
+
+        }
+      );
+
+
+    savedVisitId =
+      createdVisit.id;
+
+  }
+
+
+  /*
+    If this visit has just been completed,
+    safely deduct its time from the client's
+    reserved support.
+
+    The transaction itself prevents the same
+    visit being deducted twice.
+  */
+  let capacityUpdateFailed =
+    false;
+
+
+  if(
+    isCompleted(
+      status
+    )
+  ){
+
     try{
 
-      if(editingVisitKey){
-
-        const existing =
-          loadedVisits.get(
-            editingVisitKey
-          );
-
-        await updateDoc(
-          doc(
-            db,
-            "clients",
-            existing.clientId,
-            "visits",
-            existing.visitId
-          ),
-          data
+      const deduction =
+        await deductVisitCapacity(
+          savedClientId,
+          savedVisitId
         );
 
-        showStudioMessage(
-          "success",
-          "Visit updated."
-        );
 
-      }else{
+      if(
+        deduction &&
+        deduction.deducted ===
+        true
+      ){
 
-        await addDoc(
-          collection(
-            db,
-            "clients",
-            clientId,
-            "visits"
-          ),
-          {
-
-            ...data,
-
-            createdAt:
-              serverTimestamp()
-
-          }
-        );
-
-        showStudioMessage(
-          "success",
-          "Visit added."
-        );
+        successMessage +=
+          " "
+          +
+          deduction.hours
+          +
+          "h deducted from reserved support.";
 
       }
 
-      closeVisitEditor();
 
-      await loadStudioData();
+    }catch(capacityError){
+
+      console.error(
+        "Visit capacity deduction error:",
+        capacityError
+      );
+
+
+      capacityUpdateFailed =
+        true;
+
+    }
+
+  }
+
+
+  closeVisitEditor();
+
+
+  if(capacityUpdateFailed){
+
+    showStudioMessage(
+      "error",
+      "The visit was saved, but reserved support could not be updated. Saving the completed visit again will retry the deduction."
+    );
+
+  }else{
+
+    showStudioMessage(
+      "success",
+      successMessage
+    );
+
+  }
+
+
+  await loadStudioData();
 
     }catch(error){
 
