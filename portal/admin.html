@@ -10542,17 +10542,14 @@ async function approveRegistration(
     );
 
     await updateDoc(
-      userReference,
-      {
-
-        status:
-          "approved",
-
-        approvedAt:
-          serverTimestamp()
-
-      }
-    );
+  userReference,
+  {
+    status:"approved",
+    role:"client",
+    approvedAt:
+      serverTimestamp()
+  }
+);
 
     showStudioMessage(
       "success",
