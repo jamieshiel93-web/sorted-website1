@@ -8148,6 +8148,7 @@ import {
   updateDoc,
   deleteDoc,
   runTransaction,
+  writeBatch,
   serverTimestamp,
   Timestamp
 
@@ -13349,6 +13350,138 @@ async function deductVisitCapacity(
 
 }
 
+/* ==================================================
+   COMPLETE TASKS ATTACHED TO VISIT
+================================================== */
+
+async function completeTasksForVisit(
+  clientId,
+  visitId
+){
+
+  if(
+    !clientId ||
+    !visitId
+  ){
+    return 0;
+  }
+
+
+  /*
+    Find every Sorted. List item attached
+    specifically to this visit.
+  */
+
+  const taskQuery =
+    query(
+      collection(
+        db,
+        "clients",
+        clientId,
+        "tasks"
+      ),
+      where(
+        "visitId",
+        "==",
+        visitId
+      )
+    );
+
+
+  const snapshot =
+    await getDocs(
+      taskQuery
+    );
+
+
+  if(snapshot.empty){
+
+    return 0;
+
+  }
+
+
+  const batch =
+    writeBatch(
+      db
+    );
+
+
+  let completedCount =
+    0;
+
+
+  snapshot.forEach(
+    function(taskDocument){
+
+      const taskData =
+        taskDocument.data();
+
+
+      /*
+        Do not touch tasks which have already
+        been completed or deliberately cancelled.
+      */
+
+      if(
+        isCompleted(
+          taskData.status
+        )
+        ||
+        isCancelled(
+          taskData.status
+        )
+      ){
+        return;
+      }
+
+
+      batch.update(
+        taskDocument.ref,
+        {
+
+          status:
+            "Completed",
+
+          needsClient:
+            false,
+
+          clientActionRequired:
+            false,
+
+          completedAt:
+            serverTimestamp(),
+
+          updatedAt:
+            serverTimestamp()
+
+        }
+      );
+
+
+      completedCount++;
+
+    }
+  );
+
+
+  if(
+    completedCount ===
+    0
+  ){
+
+    return 0;
+
+  }
+
+
+  await batch.commit();
+
+
+  return completedCount;
+
+}
+
 visitModal.addEventListener(
   "click",
   function(event){
@@ -13559,7 +13692,10 @@ saveVisitButton.addEventListener(
     The transaction itself prevents the same
     visit being deducted twice.
   */
-  let capacityUpdateFailed =
+    let capacityUpdateFailed =
+    false;
+
+  let taskCompletionFailed =
     false;
 
 
@@ -13569,6 +13705,9 @@ saveVisitButton.addEventListener(
     )
   ){
 
+    /*
+      Deduct reserved membership capacity.
+    */
     try{
 
       const deduction =
@@ -13601,8 +13740,52 @@ saveVisitButton.addEventListener(
         capacityError
       );
 
-
       capacityUpdateFailed =
+        true;
+
+    }
+
+
+    /*
+      Complete any Sorted. List items
+      attached to this exact visit.
+    */
+    try{
+
+      const completedTasks =
+        await completeTasksForVisit(
+          savedClientId,
+          savedVisitId
+        );
+
+
+      if(
+        completedTasks >
+        0
+      ){
+
+        successMessage +=
+          " "
+          +
+          completedTasks
+          +
+          (
+            completedTasks === 1
+              ? " Sorted. List item completed."
+              : " Sorted. List items completed."
+          );
+
+      }
+
+
+    }catch(taskError){
+
+      console.error(
+        "Attached task completion error:",
+        taskError
+      );
+
+      taskCompletionFailed =
         true;
 
     }
@@ -13613,12 +13796,47 @@ saveVisitButton.addEventListener(
   closeVisitEditor();
 
 
-  if(capacityUpdateFailed){
+  if(
+    capacityUpdateFailed ||
+    taskCompletionFailed
+  ){
+
+    let warningMessage =
+      "The visit was saved, but ";
+
+
+    if(
+      capacityUpdateFailed &&
+      taskCompletionFailed
+    ){
+
+      warningMessage +=
+        "reserved support and attached Sorted. List items could not be fully updated.";
+
+    }else if(
+      capacityUpdateFailed
+    ){
+
+      warningMessage +=
+        "reserved support could not be updated.";
+
+    }else{
+
+      warningMessage +=
+        "attached Sorted. List items could not be completed.";
+
+    }
+
+
+    warningMessage +=
+      " Saving the completed visit again will safely retry the update.";
+
 
     showStudioMessage(
       "error",
-      "The visit was saved, but reserved support could not be updated. Saving the completed visit again will retry the deduction."
+      warningMessage
     );
+
 
   }else{
 
