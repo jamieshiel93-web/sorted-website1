@@ -1529,6 +1529,187 @@ select:focus-visible{
 
 }
 
+/* ==================================================
+   PORTAL NOTICES
+================================================== */
+
+.portal-notices-section{
+
+  display:none;
+
+  margin-top:24px;
+
+}
+
+.portal-notices-section.has-notices{
+  display:block;
+}
+
+.portal-notices-list{
+
+  display:grid;
+
+  gap:12px;
+
+}
+
+.portal-notice{
+
+  display:grid;
+
+  grid-template-columns:
+    46px
+    minmax(0,1fr)
+    auto;
+
+  gap:15px;
+
+  align-items:start;
+
+  padding:18px 20px;
+
+  border-radius:21px;
+
+  border:
+    1px solid rgba(202,167,106,.28);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,250,244,.98),
+      rgba(248,241,231,.88)
+    );
+
+  box-shadow:
+    0 10px 28px rgba(23,38,27,.065);
+
+}
+
+.portal-notice.is-important{
+
+  border-color:
+    rgba(138,104,40,.34);
+
+  background:
+    linear-gradient(
+      145deg,
+      #fff8e9,
+      var(--cream-soft)
+    );
+
+}
+
+.portal-notice-icon{
+
+  width:46px;
+  height:46px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:50%;
+
+  background:
+    rgba(202,167,106,.14);
+
+  color:var(--forest);
+
+}
+
+.portal-notice.is-important
+.portal-notice-icon{
+
+  background:var(--warning-bg);
+
+  color:var(--warning);
+
+}
+
+.portal-notice-icon svg{
+
+  width:19px;
+  height:19px;
+
+}
+
+.portal-notice-copy{
+
+  min-width:0;
+
+}
+
+.portal-notice-label{
+
+  margin-bottom:3px !important;
+
+  color:var(--gold) !important;
+
+  font-size:.61rem !important;
+  font-weight:900;
+
+  letter-spacing:1.5px;
+
+  text-transform:uppercase;
+
+}
+
+.portal-notice.is-important
+.portal-notice-label{
+
+  color:var(--warning) !important;
+
+}
+
+.portal-notice-copy h3{
+
+  margin-bottom:4px;
+
+  color:var(--forest);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:1.08rem;
+  font-weight:500;
+
+  line-height:1.25;
+
+}
+
+.portal-notice-copy > p:last-child{
+
+  color:var(--muted);
+
+  font-size:.76rem;
+
+  line-height:1.55;
+
+  white-space:pre-line;
+
+}
+
+.portal-notice-date{
+
+  align-self:center;
+
+  padding:7px 10px;
+
+  border-radius:999px;
+
+  background:
+    rgba(113,140,103,.10);
+
+  color:var(--sage);
+
+  font-size:.62rem;
+  font-weight:850;
+
+  white-space:nowrap;
+
+}
 
 /* ==================================================
    NEEDS YOU
@@ -3913,6 +4094,66 @@ select:focus-visible{
     font-size:1.45rem;
   }
 
+  .portal-notices-section{
+    margin-top:16px;
+  }
+
+  .portal-notices-list{
+    gap:9px;
+  }
+
+  .portal-notice{
+
+    grid-template-columns:
+      40px
+      minmax(0,1fr);
+
+    gap:12px;
+
+    padding:15px;
+
+    border-radius:18px;
+
+  }
+
+  .portal-notice-icon{
+
+    width:40px;
+    height:40px;
+
+  }
+
+  .portal-notice-icon svg{
+
+    width:17px;
+    height:17px;
+
+  }
+
+  .portal-notice-copy h3{
+
+    font-size:1rem;
+
+  }
+
+  .portal-notice-copy > p:last-child{
+
+    font-size:.72rem;
+
+  }
+
+  .portal-notice-date{
+
+    grid-column:2;
+
+    justify-self:start;
+
+    margin-top:-3px;
+
+    font-size:.59rem;
+
+  }
+
   .needs-you-section{
     margin-top:16px;
   }
@@ -4763,6 +5004,22 @@ select:focus-visible{
 
       </section>
 
+      <!-- ==================================================
+           PORTAL NOTICES
+      ================================================== -->
+
+      <section
+        class="portal-notices-section"
+        id="portalNoticesSection"
+        aria-live="polite"
+      >
+
+        <div
+          class="portal-notices-list"
+          id="portalNoticesList"
+        ></div>
+
+      </section>
 
       <!-- ==================================================
            NEEDS YOU
@@ -6100,6 +6357,13 @@ let liveClientResources = [];
 let liveResources = [];
 
 
+let liveGlobalNotices = [];
+
+let liveClientNotices = [];
+
+let liveNotices = [];
+
+
 let unsubscribeClient = null;
 
 let unsubscribeVisits = null;
@@ -6111,6 +6375,10 @@ let unsubscribeTasks = null;
 let unsubscribeGlobalResources = null;
 
 let unsubscribeClientResources = null;
+
+let unsubscribeGlobalNotices = null;
+
+let unsubscribeClientNotices = null;
 
 /* ==================================================
    ELEMENTS
@@ -8616,6 +8884,7 @@ function displayTasks(){
 }
 
 
+
 /* ==================================================
    NEEDS YOU
 ================================================== */
@@ -10384,6 +10653,340 @@ function displayPortalResources(){
 
 
 
+  
+
+/* ==================================================
+   DISPLAY PORTAL NOTICES
+================================================== */
+
+function portalNoticeDate(
+  value,
+  endOfDay = false
+){
+
+  if(!value){
+    return null;
+  }
+
+
+  if(
+    typeof value === "string" &&
+    /^\d{4}-\d{2}-\d{2}$/.test(value)
+  ){
+
+    const [
+      year,
+      month,
+      day
+    ] =
+      value
+        .split("-")
+        .map(Number);
+
+
+    const date =
+      new Date(
+        year,
+        month - 1,
+        day
+      );
+
+
+    if(endOfDay){
+
+      date.setHours(
+        23,
+        59,
+        59,
+        999
+      );
+
+    }else{
+
+      date.setHours(
+        0,
+        0,
+        0,
+        0
+      );
+
+    }
+
+
+    return date;
+
+  }
+
+
+  return convertToDate(
+    value
+  );
+
+}
+
+
+function isPortalNoticeCurrent(
+  notice
+){
+
+  const now =
+    new Date();
+
+
+  const start =
+    portalNoticeDate(
+      notice.startDate
+    );
+
+
+  const end =
+    portalNoticeDate(
+      notice.endDate,
+      true
+    );
+
+
+  if(
+    start &&
+    now < start
+  ){
+    return false;
+  }
+
+
+  if(
+    end &&
+    now > end
+  ){
+    return false;
+  }
+
+
+  return true;
+
+}
+
+
+function displayPortalNotices(){
+
+  const section =
+    document.getElementById(
+      "portalNoticesSection"
+    );
+
+
+  const list =
+    document.getElementById(
+      "portalNoticesList"
+    );
+
+
+  if(
+    !section ||
+    !list
+  ){
+    return;
+  }
+
+
+  const notices =
+    liveNotices
+      .filter(
+        isPortalNoticeCurrent
+      )
+      .sort(
+        function(a,b){
+
+          const aImportant =
+            normalise(
+              a.priority
+            ) ===
+            "important";
+
+
+          const bImportant =
+            normalise(
+              b.priority
+            ) ===
+            "important";
+
+
+          if(
+            aImportant !==
+            bImportant
+          ){
+
+            return aImportant
+              ? -1
+              : 1;
+
+          }
+
+
+          const first =
+            convertToDate(
+              a.updatedAt ||
+              a.createdAt
+            );
+
+
+          const second =
+            convertToDate(
+              b.updatedAt ||
+              b.createdAt
+            );
+
+
+          return (
+            (
+              second
+                ? second.getTime()
+                : 0
+            )
+            -
+            (
+              first
+                ? first.getTime()
+                : 0
+            )
+          );
+
+        }
+      );
+
+
+  section.classList.toggle(
+    "has-notices",
+    notices.length > 0
+  );
+
+
+  if(!notices.length){
+
+    list.innerHTML =
+      "";
+
+    return;
+
+  }
+
+
+  list.innerHTML =
+    notices
+      .slice(
+        0,
+        5
+      )
+      .map(
+        function(notice){
+
+          const important =
+            normalise(
+              notice.priority
+            ) ===
+            "important";
+
+
+          const dateText =
+            notice.endDate
+              ?
+              "Until " +
+              formatShortDate(
+                portalNoticeDate(
+                  notice.endDate
+                )
+              )
+              :
+              "";
+
+
+          return `
+
+            <article
+              class="portal-notice ${
+                important
+                  ? "is-important"
+                  : ""
+              }"
+            >
+
+
+              <div class="portal-notice-icon">
+
+                <i
+                  data-lucide="${
+                    important
+                      ? "bell-ring"
+                      : "megaphone"
+                  }"
+                ></i>
+
+              </div>
+
+
+              <div class="portal-notice-copy">
+
+                <p class="portal-notice-label">
+
+                  ${
+                    important
+                      ? "Important update"
+                      : "From Sorted."
+                  }
+
+                </p>
+
+
+                <h3>
+                  ${
+                    escapeHTML(
+                      notice.title ||
+                      "A quick update"
+                    )
+                  }
+                </h3>
+
+
+                <p>
+                  ${
+                    escapeHTML(
+                      notice.message ||
+                      ""
+                    )
+                  }
+                </p>
+
+              </div>
+
+
+              ${
+                dateText
+                  ?
+                  `
+
+                    <span class="portal-notice-date">
+                      ${escapeHTML(dateText)}
+                    </span>
+
+                  `
+                  :
+                  ""
+              }
+
+
+            </article>
+
+          `;
+
+        }
+      )
+      .join("");
+
+
+  refreshIcons();
+
+}
+
 /* ==================================================
    RENDER
 ================================================== */
@@ -10647,6 +11250,241 @@ function attachPortalResourceListeners(
 
 }
 
+/* ==================================================
+   PORTAL NOTICE LISTENERS
+================================================== */
+
+function mergePortalNotices(){
+
+  const combined =
+    [
+      ...liveGlobalNotices,
+      ...liveClientNotices
+    ];
+
+
+  const unique =
+    new Map();
+
+
+  combined.forEach(
+    function(notice){
+
+      unique.set(
+        notice.id,
+        notice
+      );
+
+    }
+  );
+
+
+  liveNotices =
+    Array.from(
+      unique.values()
+    )
+      .sort(
+        function(a,b){
+
+          const first =
+            convertToDate(
+              a.updatedAt ||
+              a.createdAt
+            );
+
+
+          const second =
+            convertToDate(
+              b.updatedAt ||
+              b.createdAt
+            );
+
+
+          return (
+            (
+              second
+                ?
+                second.getTime()
+                :
+                0
+            )
+            -
+            (
+              first
+                ?
+                first.getTime()
+                :
+                0
+            )
+          );
+
+        }
+      );
+
+
+  displayPortalNotices();
+
+}
+
+
+function detachPortalNoticeListeners(){
+
+  if(unsubscribeGlobalNotices){
+
+    unsubscribeGlobalNotices();
+
+    unsubscribeGlobalNotices =
+      null;
+
+  }
+
+
+  if(unsubscribeClientNotices){
+
+    unsubscribeClientNotices();
+
+    unsubscribeClientNotices =
+      null;
+
+  }
+
+
+  liveGlobalNotices = [];
+
+  liveClientNotices = [];
+
+  liveNotices = [];
+
+
+  displayPortalNotices();
+
+}
+
+
+function attachPortalNoticeListeners(
+  clientId
+){
+
+  detachPortalNoticeListeners();
+
+
+  if(!clientId){
+    return;
+  }
+
+
+  const globalNoticesQuery =
+    query(
+      collection(
+        db,
+        "portalNotices"
+      ),
+      where(
+        "status",
+        "==",
+        "Published"
+      ),
+      where(
+        "audience",
+        "==",
+        "all"
+      )
+    );
+
+
+  const clientNoticesQuery =
+    query(
+      collection(
+        db,
+        "portalNotices"
+      ),
+      where(
+        "status",
+        "==",
+        "Published"
+      ),
+      where(
+        "audience",
+        "==",
+        "client"
+      ),
+      where(
+        "clientId",
+        "==",
+        clientId
+      )
+    );
+
+
+  unsubscribeGlobalNotices =
+    onSnapshot(
+      globalNoticesQuery,
+
+      function(snapshot){
+
+        liveGlobalNotices =
+          snapshot.docs.map(
+            document => (
+              {
+                id:
+                  document.id,
+
+                ...document.data()
+              }
+            )
+          );
+
+
+        mergePortalNotices();
+
+      },
+
+      function(error){
+
+        console.error(
+          "Global notices listener error:",
+          error
+        );
+
+      }
+    );
+
+
+  unsubscribeClientNotices =
+    onSnapshot(
+      clientNoticesQuery,
+
+      function(snapshot){
+
+        liveClientNotices =
+          snapshot.docs.map(
+            document => (
+              {
+                id:
+                  document.id,
+
+                ...document.data()
+              }
+            )
+          );
+
+
+        mergePortalNotices();
+
+      },
+
+      function(error){
+
+        console.error(
+          "Client notices listener error:",
+          error
+        );
+
+      }
+    );
+
+}
+
 function detachSubcollectionListeners(){
 
   if(unsubscribeVisits){
@@ -10692,6 +11530,8 @@ function detachListeners(){
   detachSubcollectionListeners();
 
   detachPortalResourceListeners();
+
+  detachPortalNoticeListeners();
 
 }
 
@@ -10907,6 +11747,7 @@ detachSubcollectionListeners();
 
 detachPortalResourceListeners();
 
+detachPortalNoticeListeners();
 
 setClientDetails(
               currentClientData,
@@ -10958,6 +11799,10 @@ setClientDetails(
   attachPortalResourceListeners(
     currentClientId
   );
+
+attachPortalNoticeListeners(
+  currentClientId
+);
 
 }
 
