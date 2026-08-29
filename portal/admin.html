@@ -13367,30 +13367,14 @@ async function completeTasksForVisit(
   }
 
 
-  /*
-    Find every Sorted. List item attached
-    specifically to this visit.
-  */
-
-  const taskQuery =
-    query(
+  const snapshot =
+    await getDocs(
       collection(
         db,
         "clients",
         clientId,
         "tasks"
-      ),
-      where(
-        "visitId",
-        "==",
-        visitId
       )
-    );
-
-
-  const snapshot =
-    await getDocs(
-      taskQuery
     );
 
 
@@ -13419,10 +13403,30 @@ async function completeTasksForVisit(
 
 
       /*
-        Do not touch tasks which have already
-        been completed or deliberately cancelled.
+        Only complete Sorted. List items
+        attached to this exact visit.
       */
+      if(
+        String(
+          taskData.visitId ||
+          ""
+        ).trim()
+        !==
+        String(
+          visitId ||
+          ""
+        ).trim()
+      ){
 
+        return;
+
+      }
+
+
+      /*
+        Do not change tasks which are already
+        completed or deliberately cancelled.
+      */
       if(
         isCompleted(
           taskData.status
@@ -13432,7 +13436,9 @@ async function completeTasksForVisit(
           taskData.status
         )
       ){
+
         return;
+
       }
 
 
