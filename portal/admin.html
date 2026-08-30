@@ -8145,8 +8145,9 @@ import {
   doc,
   setDoc,
   addDoc,
-  updateDoc,
+    updateDoc,
   deleteDoc,
+  deleteField,
   runTransaction,
   writeBatch,
   serverTimestamp,
@@ -13847,13 +13848,13 @@ if(
 
 
 if(
-  !isCompleted(status)
+  editingVisitKey
   &&
-  wasPreviouslyCompleted
+  !isCompleted(status)
 ){
 
   data.completedAt =
-    null;
+    deleteField();
 
 }
 
