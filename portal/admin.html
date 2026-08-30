@@ -13805,12 +13805,57 @@ saveVisitButton.addEventListener(
 
     };
 
-    if(isCompleted(status)){
+    /*
+  Preserve the original completion time.
 
-      data.completedAt =
-        serverTimestamp();
+  - Scheduled -> Completed:
+    record when it was completed.
 
-    }
+  - Completed -> Completed:
+    keep the original completion timestamp.
+
+  - Completed -> Scheduled / Cancelled:
+    clear the completion timestamp.
+*/
+
+const previousVisit =
+  editingVisitKey
+    ? loadedVisits.get(
+        editingVisitKey
+      )
+    : null;
+
+
+const wasPreviouslyCompleted =
+  previousVisit
+    ? isCompleted(
+        previousVisit.data.status
+      )
+    : false;
+
+
+if(
+  isCompleted(status)
+  &&
+  !wasPreviouslyCompleted
+){
+
+  data.completedAt =
+    serverTimestamp();
+
+}
+
+
+if(
+  !isCompleted(status)
+  &&
+  wasPreviouslyCompleted
+){
+
+  data.completedAt =
+    null;
+
+}
 
     saveVisitButton.disabled =
       true;
