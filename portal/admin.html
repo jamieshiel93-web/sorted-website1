@@ -13895,15 +13895,19 @@ saveVisitButton.addEventListener(
   }
 
 
-  /*
-    If this visit has just been completed,
-    safely deduct its time from the client's
-    reserved support.
+    /*
+    Reconcile reserved membership capacity
+    every time a visit is saved.
 
-    The transaction itself prevents the same
-    visit being deducted twice.
+    This means:
+    - Completed visit = deduct the correct hours
+    - Completed visit duration changed = deduct/refund difference
+    - Completed -> Scheduled = return previously used hours
+    - Completed -> Cancelled = return previously used hours
+    - Re-saving unchanged visit = no duplicate deduction
   */
-    let capacityUpdateFailed =
+
+  let capacityUpdateFailed =
     false;
 
   let taskCompletionFailed =
@@ -13911,18 +13915,12 @@ saveVisitButton.addEventListener(
 
 
   /*
-    Reconcile reserved support on EVERY visit save.
-
-    This means Studio can:
-    - deduct a newly completed visit
-    - avoid deducting it twice
-    - adjust the balance if the duration changes
-    - refund hours if a completed visit becomes
-      Scheduled or Cancelled
+    ALWAYS reconcile capacity, regardless
+    of the visit's current status.
   */
   try{
 
-    const capacityResult =
+    const deduction =
       await deductVisitCapacity(
         savedClientId,
         savedVisitId
@@ -13930,15 +13928,15 @@ saveVisitButton.addEventListener(
 
 
     if(
-      capacityResult &&
-      capacityResult.deducted ===
+      deduction &&
+      deduction.deducted ===
       true
     ){
 
       successMessage +=
         " "
         +
-        capacityResult.hours
+        deduction.hours
         +
         "h deducted from reserved support.";
 
@@ -13946,15 +13944,15 @@ saveVisitButton.addEventListener(
 
 
     if(
-      capacityResult &&
-      capacityResult.refunded ===
+      deduction &&
+      deduction.refunded ===
       true
     ){
 
       successMessage +=
         " "
         +
-        capacityResult.refundedHours
+        deduction.refundedHours
         +
         "h returned to reserved support.";
 
@@ -13962,19 +13960,17 @@ saveVisitButton.addEventListener(
 
 
     if(
-      capacityResult &&
-      Number(
-        capacityResult.overageHours
-      ) >
+      deduction &&
+      deduction.overageHours >
       0
     ){
 
       successMessage +=
         " "
         +
-        capacityResult.overageHours
+        deduction.overageHours
         +
-        "h recorded above remaining reserved support.";
+        "h recorded as overage.";
 
     }
 
@@ -13993,8 +13989,8 @@ saveVisitButton.addEventListener(
 
 
   /*
-    Sorted. List items should ONLY be automatically
-    completed when the visit itself is completed.
+    Attached Sorted. List items should only
+    be completed when the visit itself is completed.
   */
   if(
     isCompleted(
@@ -14044,9 +14040,7 @@ saveVisitButton.addEventListener(
 
   }
 
-
   closeVisitEditor();
-
 
   if(
     capacityUpdateFailed ||
